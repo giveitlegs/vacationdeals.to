@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "**" },
     ],
   },
+  serverExternalPackages: ["postgres", "drizzle-orm"],
 };
 
 export default withPayload(nextConfig);

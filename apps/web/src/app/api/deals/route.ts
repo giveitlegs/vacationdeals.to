@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@vacationdeals/db";
-import { deals, brands, destinations } from "@vacationdeals/db";
-import { eq, and, gte, lte, desc, asc, sql } from "drizzle-orm";
 import { DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE } from "@vacationdeals/shared";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
+  const { db } = await import("@vacationdeals/db");
+  const { deals, brands, destinations } = await import("@vacationdeals/db");
+  const { eq, and, gte, lte, desc, asc, sql } = await import("drizzle-orm");
+
   const searchParams = request.nextUrl.searchParams;
 
   const city = searchParams.get("city");

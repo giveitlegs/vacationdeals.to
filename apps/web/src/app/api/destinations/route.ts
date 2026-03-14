@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
-import { db } from "@vacationdeals/db";
-import { destinations } from "@vacationdeals/db";
-import { asc } from "drizzle-orm";
+
+export const dynamic = "force-dynamic";
 
 export async function GET() {
+  const { db } = await import("@vacationdeals/db");
+  const { destinations } = await import("@vacationdeals/db");
+  const { asc } = await import("drizzle-orm");
+
   const results = await db
     .select()
     .from(destinations)
