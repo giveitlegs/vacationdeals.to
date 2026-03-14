@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { SearchBar } from "@/components/SearchBar";
+import { DealGrid } from "@/components/DealGrid";
+import type { Deal } from "@/components/DealCard";
 
 export const metadata: Metadata = {
   title: "VacationDeals.to — Best Vacation Package Deals from Top Resorts",
@@ -6,84 +10,232 @@ export const metadata: Metadata = {
     "Compare vacation packages from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more. Deals starting at $59. 3-night and 4-night packages to Orlando, Las Vegas, Cancun, and 50+ destinations.",
 };
 
+const mockDeals: Deal[] = [
+  { id: 1, title: "Westgate Lakes Resort & Spa", resortName: "Westgate Lakes", price: 99, originalPrice: 449, durationNights: 3, durationDays: 4, city: "Orlando", state: "FL", brandName: "Westgate Resorts", brandSlug: "westgate", savingsPercent: 78, inclusions: ["Free Parking", "Waterpark Access", "2 Adults + 2 Kids"], slug: "westgate-orlando-3-night-99" },
+  { id: 2, title: "Hilton Grand Vacations Orlando", resortName: "Hilton Grand Vacations", price: 149, originalPrice: 599, durationNights: 3, durationDays: 4, city: "Orlando", state: "FL", brandName: "Hilton Grand Vacations", brandSlug: "hgv", savingsPercent: 75, inclusions: ["50,000 Hilton Honors Points", "Resort Fee Included"], slug: "hgv-orlando-3-night-149" },
+  { id: 3, title: "Cancun All-Inclusive 5-Night Getaway", resortName: "Grand Oasis Cancun", price: 399, originalPrice: 1499, durationNights: 5, durationDays: 6, city: "Cancun", state: "QR", brandName: "BookVIP", brandSlug: "bookvip", savingsPercent: 73, inclusions: ["All Meals & Drinks", "Airport Transfers", "Resort Credits"], slug: "bookvip-cancun-5-night-399" },
+  { id: 4, title: "Westgate Smoky Mountain Resort", resortName: "Westgate Smoky Mountains", price: 99, originalPrice: 399, durationNights: 3, durationDays: 4, city: "Gatlinburg", state: "TN", brandName: "Westgate Resorts", brandSlug: "westgate", savingsPercent: 75, inclusions: ["Free Parking", "Wild Bear Falls Waterpark", "Fireplace Suite"], slug: "westgate-gatlinburg-3-night-99" },
+  { id: 5, title: "Club Wyndham Las Vegas", resortName: "Club Wyndham Grand Desert", price: 99, originalPrice: 449, durationNights: 2, durationDays: 3, city: "Las Vegas", state: "NV", brandName: "Club Wyndham", brandSlug: "wyndham", savingsPercent: 78, inclusions: ["$200 Virtual Mastercard", "60,000 Wyndham Points"], slug: "wyndham-vegas-2-night-99" },
+  { id: 6, title: "Marriott Vacation Club Myrtle Beach", resortName: "Marriott OceanWatch", price: 299, originalPrice: 899, durationNights: 3, durationDays: 4, city: "Myrtle Beach", state: "SC", brandName: "Marriott Vacation Club", brandSlug: "marriott", savingsPercent: 67, inclusions: ["20,000 Bonvoy Points", "Ocean View Room", "Daily Breakfast"], slug: "marriott-myrtle-beach-3-night-299" },
+];
+
+const popularDestinations = [
+  { name: "Orlando", state: "FL", deals: 47, gradient: "from-blue-400 to-cyan-300" },
+  { name: "Las Vegas", state: "NV", deals: 32, gradient: "from-amber-400 to-orange-500" },
+  { name: "Cancun", state: "MX", deals: 28, gradient: "from-teal-400 to-emerald-300" },
+  { name: "Gatlinburg", state: "TN", deals: 19, gradient: "from-green-500 to-emerald-600" },
+  { name: "Myrtle Beach", state: "SC", deals: 24, gradient: "from-sky-400 to-blue-500" },
+];
+
+const popularBrands = [
+  { name: "Westgate Resorts", slug: "westgate", type: "direct", deals: 52 },
+  { name: "Hilton Grand Vacations", slug: "hgv", type: "direct", deals: 38 },
+  { name: "Marriott Vacation Club", slug: "marriott", type: "direct", deals: 41 },
+  { name: "Club Wyndham", slug: "wyndham", type: "direct", deals: 35 },
+  { name: "BookVIP", slug: "bookvip", type: "broker", deals: 67 },
+  { name: "Holiday Inn Club", slug: "holiday-inn", type: "direct", deals: 22 },
+  { name: "Bluegreen Vacations", slug: "bluegreen", type: "direct", deals: 18 },
+  { name: "Hyatt Vacation Club", slug: "hyatt", type: "direct", deals: 15 },
+];
+
 export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="mb-12 text-center">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
+      <section className="mb-16 pt-8 text-center">
+        <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
           The Best Vacation Package Deals
         </h1>
-        <p className="mx-auto max-w-2xl text-lg text-gray-600">
+        <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
           Compare deals from top timeshare resorts — all in one place. Packages
           starting at $59 for 3-night stays at premium resorts.
         </p>
-      </section>
 
-      {/* Search/Filter Bar Placeholder */}
-      <section className="mb-8">
-        <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center text-gray-500">
-          Filter bar: City / Brand / Price / Duration (coming soon)
+        <SearchBar />
+
+        {/* Stats */}
+        <div className="mt-10 flex items-center justify-center gap-8 sm:gap-12">
+          <div>
+            <p className="text-2xl font-bold text-gray-900">500+</p>
+            <p className="text-sm text-gray-500">Active Deals</p>
+          </div>
+          <div className="h-8 w-px bg-gray-200" />
+          <div>
+            <p className="text-2xl font-bold text-gray-900">20+</p>
+            <p className="text-sm text-gray-500">Destinations</p>
+          </div>
+          <div className="h-8 w-px bg-gray-200" />
+          <div>
+            <p className="text-2xl font-bold text-gray-900">13</p>
+            <p className="text-sm text-gray-500">Brands</p>
+          </div>
         </div>
       </section>
 
-      {/* Featured Deals Grid Placeholder */}
-      <section>
-        <h2 className="mb-6 text-2xl font-semibold">Featured Deals</h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div
-              key={i}
-              className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
-            >
-              <div className="mb-4 h-40 rounded-lg bg-gray-100" />
-              <div className="mb-2 h-4 w-3/4 rounded bg-gray-100" />
-              <div className="mb-4 h-4 w-1/2 rounded bg-gray-100" />
-              <div className="h-8 w-24 rounded bg-gray-100" />
-            </div>
-          ))}
+      {/* Featured Deals */}
+      <section className="mb-16">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-gray-900">Featured Deals</h2>
+          <Link
+            href="/deals"
+            className="text-sm font-medium text-blue-600 hover:text-blue-700"
+          >
+            View all deals &rarr;
+          </Link>
         </div>
+        <DealGrid deals={mockDeals} />
       </section>
 
-      {/* Popular Destinations Placeholder */}
-      <section className="mt-16">
-        <h2 className="mb-6 text-2xl font-semibold">Popular Destinations</h2>
+      {/* Popular Destinations */}
+      <section className="mb-16">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-gray-900">
+            Popular Destinations
+          </h2>
+          <Link
+            href="/destinations"
+            className="text-sm font-medium text-blue-600 hover:text-blue-700"
+          >
+            All destinations &rarr;
+          </Link>
+        </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {["Orlando", "Las Vegas", "Cancun", "Gatlinburg", "Myrtle Beach"].map(
-            (city) => (
+          {popularDestinations.map((dest) => (
+            <Link
+              key={dest.name}
+              href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
+              className="group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+            >
               <div
-                key={city}
-                className="rounded-xl border border-gray-200 bg-white p-4 text-center shadow-sm"
+                className={`flex h-32 flex-col items-center justify-center bg-gradient-to-br ${dest.gradient} p-4 text-center`}
               >
-                <div className="mb-2 h-20 rounded-lg bg-gray-100" />
-                <span className="font-medium">{city}</span>
+                <span className="text-lg font-bold text-white drop-shadow-sm">
+                  {dest.name}
+                </span>
+                <span className="text-sm font-medium text-white/80">
+                  {dest.state}
+                </span>
+                <span className="mt-1 rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm">
+                  {dest.deals} deals
+                </span>
               </div>
-            ),
-          )}
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* Popular Brands Placeholder */}
-      <section className="mt-16">
-        <h2 className="mb-6 text-2xl font-semibold">Browse by Brand</h2>
+      {/* Browse by Brand */}
+      <section className="mb-16">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-gray-900">Browse by Brand</h2>
+          <Link
+            href="/brands"
+            className="text-sm font-medium text-blue-600 hover:text-blue-700"
+          >
+            All brands &rarr;
+          </Link>
+        </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {[
-            "Westgate Resorts",
-            "Hilton Grand Vacations",
-            "Marriott Vacation Club",
-            "Club Wyndham",
-            "Holiday Inn Club",
-            "Bluegreen Vacations",
-            "BookVIP",
-            "Hyatt Vacation Club",
-          ].map((brand) => (
-            <div
-              key={brand}
-              className="rounded-xl border border-gray-200 bg-white p-4 text-center shadow-sm transition-colors hover:border-blue-300"
+          {popularBrands.map((brand) => (
+            <Link
+              key={brand.slug}
+              href={`/brands/${brand.slug}`}
+              className="flex flex-col items-center gap-2 rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md"
             >
-              <span className="text-sm font-medium">{brand}</span>
-            </div>
+              <span className="text-sm font-semibold text-gray-900">
+                {brand.name}
+              </span>
+              <div className="flex items-center gap-2">
+                <span
+                  className={`rounded-full px-2 py-0.5 text-xs font-medium ${
+                    brand.type === "direct"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-purple-100 text-purple-700"
+                  }`}
+                >
+                  {brand.type === "direct" ? "Direct" : "Broker"}
+                </span>
+                <span className="text-xs text-gray-400">
+                  {brand.deals} deals
+                </span>
+              </div>
+            </Link>
           ))}
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="mb-16 rounded-2xl bg-gray-50 px-6 py-12 sm:px-12">
+        <h2 className="mb-8 text-center text-2xl font-bold text-gray-900">
+          How Vacation Packages Work
+        </h2>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <div className="text-center">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-xl font-bold text-blue-600">
+              1
+            </div>
+            <h3 className="mb-2 text-base font-semibold text-gray-900">
+              Browse Deals
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-600">
+              Compare vacation packages from top timeshare brands. Filter by
+              destination, price, and duration to find your perfect getaway.
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-xl font-bold text-blue-600">
+              2
+            </div>
+            <h3 className="mb-2 text-base font-semibold text-gray-900">
+              Book Your Package
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-600">
+              Book directly through the resort or broker. Packages include
+              resort stays at deeply discounted rates — often 70-80% off retail.
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-xl font-bold text-blue-600">
+              3
+            </div>
+            <h3 className="mb-2 text-base font-semibold text-gray-900">
+              Attend a Presentation
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-600">
+              In exchange for the discounted rate, you attend a 90-120 minute
+              timeshare presentation during your stay. No purchase required.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content */}
+      <section className="mb-8">
+        <h2 className="mb-4 text-xl font-bold text-gray-900">
+          Find the Best Vacation Package Deals
+        </h2>
+        <div className="space-y-3 text-sm leading-relaxed text-gray-600">
+          <p>
+            VacationDeals.to is the most comprehensive comparison site for
+            timeshare vacation packages. We aggregate deals from over 13 major
+            brands including Westgate Resorts, Hilton Grand Vacations, Marriott
+            Vacation Club, Club Wyndham, and more.
+          </p>
+          <p>
+            These vacation packages — sometimes called &quot;vacpacks&quot; or
+            &quot;preview packages&quot; — offer incredible value. Stay at
+            premium resorts in destinations like Orlando, Las Vegas, Cancun,
+            Gatlinburg, and Myrtle Beach for a fraction of the retail price. In
+            exchange, you simply attend a timeshare sales presentation during
+            your stay.
+          </p>
+          <p>
+            Our team tracks and updates deals daily so you always see the latest
+            prices and availability. Use our filters to find packages by
+            destination, brand, price range, or trip duration. Whether you are
+            looking for a budget-friendly weekend getaway or an all-inclusive
+            resort experience, we have deals starting from just $59.
+          </p>
         </div>
       </section>
     </div>

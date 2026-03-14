@@ -17,6 +17,9 @@ build/
 # env files
 .env
 .env*.local
+vpsssl.txt
+*.credentials
+*.secret
 
 # debug
 npm-debug.log*
