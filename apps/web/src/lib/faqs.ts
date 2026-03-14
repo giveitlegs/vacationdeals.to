@@ -556,14 +556,14 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "Westgate vacation packages typically range from $79 to $299 for 3-4 night stays. Their most popular packages — Orlando and Gatlinburg — start at $99 for 3 nights. Westgate Las Vegas packages start at $79 for 2 nights. Prices include resort accommodations, waterpark access (where available), and free parking.",
     },
     {
-      question: "What's included in a Westgate vacation package?",
+      question: "What's included in a Westgate vacation deal?",
       answer:
         "Westgate packages include suite-style accommodations with full kitchens, free parking, Wi-Fi, pool and waterpark access, and resort amenities like fitness centers and game rooms. Properties like Westgate Lakes Orlando and Westgate Smoky Mountain include access to on-site waterparks at no extra charge.",
     },
     {
-      question: "Are Westgate vacation packages legitimate?",
+      question: "Are Westgate vacation deals legitimate?",
       answer:
-        "Yes, Westgate Resorts is a well-established company with over 50 years in the hospitality industry. They operate real resorts at real addresses, and vacation packages are a legitimate marketing tool used by the timeshare industry. You do need to attend a sales presentation, but there is no obligation to purchase anything.",
+        "Yes, Westgate Resorts is a well-established company with over 50 years in the hospitality industry. They operate real resorts at real addresses, and vacation deals are a legitimate marketing tool used by the timeshare industry. You do need to attend a sales presentation, but there is no obligation to purchase anything.",
     },
     {
       question: "What happens at a Westgate timeshare presentation?",
@@ -576,22 +576,22 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "Westgate Lakes Resort & Spa in Orlando is their flagship property with a massive waterpark, 7 pools, boat rentals, and full-service spa. Westgate Smoky Mountain Resort in Gatlinburg is beloved for its Wild Bear Falls Waterpark and mountain setting. Westgate Park City in Utah offers ski-in/ski-out access to Canyons Village.",
     },
     {
-      question: "Can I bring my family to a Westgate vacation package?",
+      question: "Can I bring my family to a Westgate vacation deal?",
       answer:
         "Absolutely. Westgate resorts are designed for families with spacious suites sleeping 4-8, on-site waterparks, game rooms, and kids' activities. Most packages accommodate 2 adults and 2 children at no extra charge. Westgate Orlando is minutes from Disney World and Universal Studios, making it ideal for family vacations.",
     },
     {
-      question: "What are the requirements to book a Westgate package?",
+      question: "What are the requirements to book a Westgate deal?",
       answer:
         "To qualify, at least one guest must be 25-70 years old with a household income of $50,000+ per year. Married or cohabiting couples must attend the presentation together. You'll need a valid ID and credit card at check-in. Some locations accept guests as young as 21 with higher income requirements.",
     },
     {
-      question: "Can I cancel or reschedule a Westgate vacation package?",
+      question: "Can I cancel or reschedule a Westgate vacation deal?",
       answer:
         "Westgate offers flexible booking with cancellation up to 72 hours before check-in for a full refund. Date changes are usually allowed up to 12 months from the original booking date. Westgate also offers a satisfaction guarantee — if you're unhappy during your stay, speak with the resort manager for potential remedies.",
     },
     {
-      question: "How does Westgate compare to other timeshare vacation packages?",
+      question: "How does Westgate compare to other timeshare vacation deals?",
       answer:
         "Westgate is known for having some of the lowest entry-level package prices ($79-$99) and the most family-friendly amenities including waterparks. Compared to Marriott or Hilton packages, Westgate is more affordable but targets drive-to destinations rather than luxury international resorts. Their properties are consistently rated 3.5-4 stars.",
     },
@@ -604,17 +604,17 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "Hilton Grand Vacations (HGV) is Hilton's vacation ownership brand, offering timeshare resorts in destinations like Orlando, Las Vegas, New York City, Hawaii, and international locations. HGV properties feature Hilton-quality accommodations and integrate with the Hilton Honors loyalty program for points earning and redemption.",
     },
     {
-      question: "How much do HGV vacation packages cost?",
+      question: "How much do HGV vacation deals cost?",
       answer:
         "Hilton Grand Vacations packages range from $149 to $399 for 3-4 night stays. Orlando packages at SeaWorld-area properties start at $149, while Las Vegas packages at Elara (attached to Planet Hollywood) start at $199. Most packages include bonus Hilton Honors points worth $50-$150 in hotel stays.",
     },
     {
-      question: "What's included in an HGV vacation package?",
+      question: "What's included in an HGV vacation deal?",
       answer:
         "HGV packages include suite-style accommodations with kitchenettes or full kitchens, resort pool access, fitness center, Wi-Fi, and typically 40,000-50,000 bonus Hilton Honors points. Rooms feature Hilton-quality bedding, bathroom amenities, and daily housekeeping. Some packages add dining credits or attraction tickets.",
     },
     {
-      question: "Are Hilton Grand Vacations packages legitimate?",
+      question: "Are Hilton Grand Vacations deals legitimate?",
       answer:
         "Yes, HGV is a publicly traded company (NYSE: HGV) and part of the Hilton family of brands. Their vacation packages are a well-established marketing channel. You attend a presentation about Hilton vacation ownership but are under no obligation to purchase. Your Hilton Honors points and all perks are honored regardless.",
     },
@@ -634,17 +634,17 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "HGV's Las Vegas Elara property (attached to Planet Hollywood on the Strip) is a standout for its location and city views. In Orlando, HGV at SeaWorld offers a beautiful lakefront setting. In Hawaii, HGV's Grand Waikikian and Kings' Land on the Big Island are consistently rated among the best timeshare resorts anywhere.",
     },
     {
-      question: "What are the requirements for an HGV vacation package?",
+      question: "What are the requirements for an HGV vacation deal?",
       answer:
         "HGV packages require at least one guest aged 25-70 with a household income of $50,000+ per year. Couples must attend together. A valid government ID and major credit card are required. HGV typically has a more thorough qualification process than discount brokers, reflecting the premium Hilton brand positioning.",
     },
     {
-      question: "Can I cancel or reschedule an HGV package?",
+      question: "Can I cancel or reschedule an HGV deal?",
       answer:
         "HGV offers cancellation with full refund typically up to 72 hours before check-in. Date changes are usually accommodated within 12-18 months of the original booking. HGV's customer service is highly rated, and their policies tend to be more flexible than smaller operators.",
     },
     {
-      question: "How does HGV compare to other vacation package brands?",
+      question: "How does HGV compare to other vacation deal brands?",
       answer:
         "HGV packages are mid-priced ($149-$399) compared to budget options like Westgate ($79-$99) or premium options like Marriott ($299-$499). The key differentiator is Hilton Honors integration — the bonus points alone can be worth $100-$200 in future hotel stays. HGV resorts consistently rank among the highest-rated in the timeshare industry.",
     },
@@ -657,17 +657,17 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "Marriott Vacation Club (MVC) is the vacation ownership division of Marriott International, offering premium timeshare resorts in over 90 locations worldwide. MVC is known for high-quality accommodations, integration with the Marriott Bonvoy loyalty program, and resorts in prime locations from Maui to Marco Island.",
     },
     {
-      question: "How much do Marriott Vacation Club packages cost?",
+      question: "How much do Marriott Vacation Club deals cost?",
       answer:
         "Marriott Vacation Club packages range from $199 to $499 for 3-5 night stays, making them among the pricier vacation package options. However, you get premium resort quality and typically 20,000-50,000 bonus Bonvoy points. Popular packages include Myrtle Beach OceanWatch at $299 and Marco Island at $449 for 3 nights.",
     },
     {
-      question: "What's included in a Marriott Vacation Club package?",
+      question: "What's included in a Marriott Vacation Club deal?",
       answer:
         "MVC packages include luxury suite accommodations (1-2 bedrooms with full kitchens), resort pool and beach access, Bonvoy points, daily housekeeping, concierge services, fitness center, and Marriott-grade amenities. Premium packages add golf rounds, spa credits, wine tastings, or excursion discounts depending on location.",
     },
     {
-      question: "Are Marriott Vacation Club packages legitimate?",
+      question: "Are Marriott Vacation Club deals legitimate?",
       answer:
         "Yes, Marriott Vacation Club is owned by Marriott Vacations Worldwide (NYSE: VAC), a publicly traded company affiliated with the world's largest hotel company. Their packages are a legitimate marketing tool backed by the Marriott brand's reputation. Presentations are professional and you're never required to purchase anything.",
     },
@@ -687,17 +687,17 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "Marriott's Ko Olina Beach Club in Hawaii and Aruba Surf Club are perennial favorites. In the continental US, OceanWatch in Myrtle Beach offers stunning oceanfront villas, Grande Vista in Orlando provides family-friendly luxury, and Crystal Shores in Marco Island delivers Gulf Coast elegance. All MVC resorts maintain Marriott's premium quality standards.",
     },
     {
-      question: "What are the requirements for a Marriott Vacation Club package?",
+      question: "What are the requirements for a Marriott Vacation Club deal?",
       answer:
         "MVC packages generally require at least one guest aged 25-70 with a minimum household income of $75,000-$100,000 per year. Couples must attend together. A valid ID and credit card are required. Marriott's qualification requirements are higher than most competitors, reflecting their premium market positioning.",
     },
     {
-      question: "Can I cancel or reschedule a Marriott package?",
+      question: "Can I cancel or reschedule a Marriott deal?",
       answer:
         "Marriott Vacation Club typically offers cancellation with full refund up to 72 hours before arrival. Date changes are accommodated within 12 months. MVC's customer service is consistently rated among the best in the industry, and they're generally accommodating with schedule changes.",
     },
     {
-      question: "How does Marriott compare to other vacation package brands?",
+      question: "How does Marriott compare to other vacation deal brands?",
       answer:
         "Marriott Vacation Club packages are premium-priced but deliver top-tier resort quality. Compared to Westgate ($79-$99) or HGV ($149-$399), MVC packages ($199-$499) cost more but feature higher-end properties and stronger Bonvoy integration. If you're already in the Marriott ecosystem, the bonus points alone justify the higher package price.",
     },
@@ -710,17 +710,17 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "Club Wyndham is the vacation ownership brand of Travel + Leisure Co. (formerly Wyndham Destinations), offering access to 230+ resorts worldwide. It's one of the largest timeshare networks in the world with properties across the US, Caribbean, and international destinations, plus exchange access through RCI.",
     },
     {
-      question: "How much do Club Wyndham vacation packages cost?",
+      question: "How much do Club Wyndham vacation deals cost?",
       answer:
         "Club Wyndham vacation packages are competitively priced at $79-$249 for 2-4 night stays. Their popular Las Vegas package at Grand Desert starts at $99 for 2 nights. Orlando packages at Wyndham Bonnet Creek start at $129. Many packages include virtual Mastercard gift cards worth $100-$200 as a bonus incentive.",
     },
     {
-      question: "What's included in a Club Wyndham vacation package?",
+      question: "What's included in a Club Wyndham vacation deal?",
       answer:
         "Wyndham packages include suite-style accommodations with kitchenettes, resort pool access, fitness center, free Wi-Fi, and parking. Many packages bundle $100-$200 virtual Mastercard gift cards and 30,000-60,000 Wyndham Rewards points. Properties at Bonnet Creek Orlando include access to the resort's lazy river and multiple pool areas.",
     },
     {
-      question: "Are Club Wyndham vacation packages legitimate?",
+      question: "Are Club Wyndham vacation deals legitimate?",
       answer:
         "Yes, Club Wyndham is owned by Travel + Leisure Co. (NYSE: TNL), a major publicly traded travel company. Their vacation packages are a standard marketing tool for the timeshare industry. You attend a presentation about vacation ownership with no obligation to buy. The virtual Mastercard and Wyndham Rewards points are real and usable.",
     },
@@ -740,17 +740,17 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "Wyndham Bonnet Creek in Orlando is consistently rated a top Club Wyndham property, situated on Disney property with a lazy river and multiple pools. Grand Desert in Las Vegas offers spacious suites a mile from the Strip. Wyndham Smoky Mountains in Tennessee features mountain-view suites with fireplaces near Dollywood.",
     },
     {
-      question: "What are the requirements for a Wyndham vacation package?",
+      question: "What are the requirements for a Wyndham vacation deal?",
       answer:
         "Club Wyndham packages require at least one guest aged 25-65 with a household income of $50,000+ annually. Married or cohabiting couples must attend the presentation together. A valid ID and major credit card are required at check-in. Some locations accept single travelers who meet the age and income requirements.",
     },
     {
-      question: "Can I cancel or reschedule a Wyndham package?",
+      question: "Can I cancel or reschedule a Wyndham deal?",
       answer:
         "Wyndham offers cancellation with full refund up to 48-72 hours before check-in for most packages. Date changes are typically available within 12 months of the original booking. Wyndham's customer service team can be reached by phone and is generally responsive to rebooking and cancellation requests.",
     },
     {
-      question: "How does Wyndham compare to other vacation package brands?",
+      question: "How does Wyndham compare to other vacation deal brands?",
       answer:
         "Club Wyndham offers excellent value in the mid-range ($79-$249) with the bonus of virtual Mastercard gift cards that other brands don't provide. Their resort network is the largest in the industry at 230+ locations. Compared to Marriott, Wyndham is more affordable; compared to Westgate, Wyndham offers more destination variety.",
     },
@@ -763,12 +763,12 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "BookVIP is a leading vacation package broker that partners with major timeshare resorts to offer deeply discounted resort stays. Unlike direct resort brands, BookVIP aggregates deals from multiple resorts and brands, specializing in all-inclusive packages in Mexico and the Caribbean as well as domestic US resort destinations.",
     },
     {
-      question: "How much do BookVIP vacation packages cost?",
+      question: "How much do BookVIP vacation deals cost?",
       answer:
         "BookVIP packages range from $99 to $699 depending on the destination and inclusions. Domestic US packages start around $99-$199 for 3-4 nights. Their best-selling all-inclusive Cancun packages run $349-$599 for 5-6 nights including meals, drinks, and airport transfers — a fraction of the $2,000+ you'd pay booking direct.",
     },
     {
-      question: "What's included in a BookVIP vacation package?",
+      question: "What's included in a BookVIP vacation deal?",
       answer:
         "BookVIP packages vary by destination. Domestic packages include resort accommodations, parking, and Wi-Fi. International all-inclusive packages add unlimited meals and drinks, airport round-trip transportation, resort entertainment, and sometimes excursion credits. BookVIP's all-inclusive Cancun and Cabo deals are their most popular offerings.",
     },
@@ -793,12 +793,12 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "BookVIP partners with major resort brands including Grand Oasis (Cancun), Royalton Resorts, Palace Resorts, Vidanta (Mexico), Hilton Grand Vacations, Westgate Resorts, and Wyndham. The specific resort varies by destination and deal. Each listing on BookVIP shows the exact resort name and property details.",
     },
     {
-      question: "What are the requirements to book through BookVIP?",
+      question: "What are the requirements to book a BookVIP deal?",
       answer:
         "BookVIP package requirements are set by the partner resort and typically require at least one guest aged 25-65 with a household income of $50,000+ (some international packages require $75,000+). Couples must attend together. A valid passport is required for international destinations. Credit card and ID are needed at check-in.",
     },
     {
-      question: "Can I cancel or reschedule a BookVIP package?",
+      question: "Can I cancel or reschedule a BookVIP deal?",
       answer:
         "BookVIP offers a money-back guarantee on most packages if cancelled within their stated window. Date changes are usually allowed up to 12-18 months from booking. For international packages, they recommend trip insurance through a third party. Contact BookVIP's customer service team directly for specific cancellation policies on your booking.",
     },
@@ -817,52 +817,52 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
 export const PRICE_FAQS: Record<string, FAQ[]> = {
   "deals-under-100": [
     {
-      question: "Are vacation packages under $100 real?",
+      question: "Are vacation deals under $100 real?",
       answer:
-        "Yes, vacation packages under $100 are legitimate offers from timeshare resorts. The low price covers your entire stay (not per night), and the resort subsidizes the cost because you attend a 90-minute vacation ownership presentation. Brands like Westgate and Wyndham regularly offer 2-3 night packages for $59-$99.",
+        "Yes, vacation deals under $100 are legitimate offers from timeshare resorts. The low price covers your entire stay (not per night), and the resort subsidizes the cost because you attend a 90-minute vacation ownership presentation. Brands like Westgate and Wyndham regularly offer 2-3 night packages for $59-$99.",
     },
     {
-      question: "What do you get for under $100 on a vacation package?",
+      question: "What do you get for under $100 on a vacation deal?",
       answer:
         "For under $100, you typically get a 2-3 night stay at a full-service resort with pool access, free parking, Wi-Fi, and a suite-style room. Popular options include Westgate Orlando and Gatlinburg at $99, Wyndham Las Vegas at $99 for 2 nights, and Branson packages starting at $79. Some packages also include waterpark access or show tickets.",
     },
     {
-      question: "What destinations offer packages under $100?",
+      question: "What destinations offer deals under $100?",
       answer:
         "The most common sub-$100 destinations are Orlando, Las Vegas, Gatlinburg, Branson, Williamsburg, and Myrtle Beach (off-season). These are drive-to destinations where resort operational costs are lower. International destinations like Cancun and Cabo are rarely available under $100 due to the higher cost of all-inclusive offerings.",
     },
     {
-      question: "What's the catch with cheap vacation packages?",
+      question: "What's the catch with cheap vacation deals?",
       answer:
         "The main requirement is attending a 90-120 minute timeshare presentation at the resort. You must meet age (usually 25-70) and income ($40,000-$50,000+) qualifications. The presentation is the only 'catch' — you're never required to buy anything. All package perks remain yours regardless of your decision at the presentation.",
     },
     {
-      question: "How long are the stays for packages under $100?",
+      question: "How long are the stays for deals under $100?",
       answer:
         "Sub-$100 packages typically offer 2-3 night stays. At $99, you can find 3-night packages in Orlando, Gatlinburg, and Branson. At $79-$89, expect 2-night stays in destinations like Las Vegas and Branson. A few promotional deals offer 4 nights for $99 during off-peak seasons at select properties.",
     },
     {
-      question: "Can I bring my family on a package under $100?",
+      question: "Can I bring my family on a deal under $100?",
       answer:
         "Yes, most sub-$100 packages accommodate 2 adults and 2 children in a single suite at no extra charge. Family-friendly options include Westgate Orlando (near Disney), Westgate Gatlinburg (with waterpark), and Branson resorts (near Silver Dollar City). These are some of the best-value family vacation options available anywhere.",
     },
     {
-      question: "Do cheap packages mean low-quality resorts?",
+      question: "Do cheap deals mean low-quality resorts?",
       answer:
         "Not at all. The low price reflects the resort's marketing investment, not the quality of the property. Westgate Lakes Orlando ($99) has a full waterpark and 7 pools. Wyndham Grand Desert Las Vegas ($99) features spacious suites with Strip views. These are 3.5-4 star resorts with the same amenities as full-price guests.",
     },
     {
-      question: "Are packages under $100 available year-round?",
+      question: "Are deals under $100 available year-round?",
       answer:
-        "Sub-$100 packages are available most of the year but are subject to blackout dates during peak holiday periods. Availability is best midweek and during shoulder seasons. Summer and holiday weeks may see prices bump up $20-$50. Booking 2-4 weeks in advance typically yields the best selection at the lowest prices.",
+        "Sub-$100 deals are available most of the year but are subject to blackout dates during peak holiday periods. Availability is best midweek and during shoulder seasons. Summer and holiday weeks may see prices bump up $20-$50. Booking 2-4 weeks in advance typically yields the best selection at the lowest prices.",
     },
     {
-      question: "How do I book a vacation package under $100?",
+      question: "How do I book a vacation deal under $100?",
       answer:
-        "Compare sub-$100 packages on VacationDeals.to, where we aggregate deals from top resort brands and brokers. You can also book directly through Westgate, Wyndham, or broker sites like BookVIP and GetawayDealz. Read the qualification requirements carefully before booking to ensure you're eligible for the promotional rate.",
+        "Compare sub-$100 deals on VacationDeals.to, where we aggregate deals from top resort brands and brokers. You can also book directly through Westgate, Wyndham, or broker sites like BookVIP and GetawayDealz. Read the qualification requirements carefully before booking to ensure you're eligible for the promotional rate.",
     },
     {
-      question: "Can I extend my stay if I book a package under $100?",
+      question: "Can I extend my stay if I book a deal under $100?",
       answer:
         "Some resorts allow you to add extra nights at a discounted (but not promotional) rate, typically $50-$100/night. This must be arranged before or during check-in. Extending your stay doesn't require a second presentation. Alternatively, you can book back-to-back packages at different resorts in the same destination.",
     },
@@ -876,22 +876,22 @@ export const PRICE_FAQS: Record<string, FAQ[]> = {
 export const DURATION_FAQS: Record<string, FAQ[]> = {
   "3-night-packages": [
     {
-      question: "Why are 3-night packages the most popular?",
+      question: "Why are 3-night deals the most popular?",
       answer:
-        "Three nights is the sweet spot for vacation packages — long enough to enjoy the resort and local attractions, short enough for a long weekend getaway. Most resorts price 3-night packages as their best value option, and the presentation is typically on day 2, leaving day 1 for arrival and day 3 for exploration.",
+        "Three nights is the sweet spot for vacation deals — long enough to enjoy the resort and local attractions, short enough for a long weekend getaway. Most resorts price 3-night packages as their best value option, and the presentation is typically on day 2, leaving day 1 for arrival and day 3 for exploration.",
     },
     {
-      question: "How much do 3-night vacation packages cost?",
+      question: "How much do 3-night vacation deals cost?",
       answer:
         "Three-night packages range from $79 to $399 depending on the destination. Domestic packages in Gatlinburg, Branson, and Orlando start at $79-$99. Las Vegas and Myrtle Beach 3-night packages run $99-$299. International destinations like Cancun start at $199-$399 for 3 nights. All prices are for the full stay, not per night.",
     },
     {
-      question: "What destinations offer 3-night vacation packages?",
+      question: "What destinations offer 3-night vacation deals?",
       answer:
         "Nearly every vacation package destination offers a 3-night option. The most popular include Orlando (near Disney), Las Vegas (near the Strip), Gatlinburg (Great Smoky Mountains), Myrtle Beach (oceanfront), Branson (live entertainment), Hilton Head (beach and golf), Sedona (red rocks), and Williamsburg (historic attractions).",
     },
     {
-      question: "Can I upgrade a 3-night package to more nights?",
+      question: "Can I upgrade a 3-night deal to more nights?",
       answer:
         "Some resorts allow adding nights at a discounted rate when booking or at check-in. Extra nights typically cost $50-$125/night depending on the property and season. Not all packages allow extensions, so check with the provider before booking if you'd like more time. Alternatively, consider booking a 4 or 5-night package from the start.",
     },
@@ -901,19 +901,19 @@ export const DURATION_FAQS: Record<string, FAQ[]> = {
         "For most drive-to destinations like Orlando, Las Vegas, Gatlinburg, and Branson, 3 nights is perfect for a long weekend trip. You'll have time for the resort, major attractions, and dining. For international destinations like Cancun or Cabo, consider 4-5 nights to justify the travel time and maximize beach and excursion time.",
     },
     {
-      question: "What day should I arrive for a 3-night package?",
+      question: "What day should I arrive for a 3-night deal?",
       answer:
-        "Thursday arrival is ideal for a 3-night package — you arrive Thursday evening, attend the presentation Friday morning, enjoy Friday afternoon through Saturday, and check out Sunday. Wednesday arrivals work well for midweek pricing. Check-in is usually 4 PM and check-out at 10-11 AM on your departure day.",
+        "Thursday arrival is ideal for a 3-night deal — you arrive Thursday evening, attend the presentation Friday morning, enjoy Friday afternoon through Saturday, and check out Sunday. Wednesday arrivals work well for midweek pricing. Check-in is usually 4 PM and check-out at 10-11 AM on your departure day.",
     },
     {
-      question: "Do 3-night packages include a timeshare presentation?",
+      question: "Do 3-night deals include a timeshare presentation?",
       answer:
         "Yes, all vacation packages regardless of duration require attending one timeshare presentation, typically 90-120 minutes. For 3-night stays, the presentation is usually the morning after your first night. Only one presentation is required per stay — you won't be asked to attend again during your remaining nights.",
     },
     {
-      question: "Are 3-night packages available on weekends?",
+      question: "Are 3-night deals available on weekends?",
       answer:
-        "Yes, 3-night packages are available with Friday, Saturday, or any day check-in. Weekend arrivals may cost $10-$30 more at some properties but are widely available. Holiday weekends like Memorial Day, 4th of July, and Labor Day have limited availability and should be booked 3-4 weeks in advance.",
+        "Yes, 3-night deals are available with Friday, Saturday, or any day check-in. Weekend arrivals may cost $10-$30 more at some properties but are widely available. Holiday weekends like Memorial Day, 4th of July, and Labor Day have limited availability and should be booked 3-4 weeks in advance.",
     },
     {
       question: "What's the best 3-night vacation package available?",
