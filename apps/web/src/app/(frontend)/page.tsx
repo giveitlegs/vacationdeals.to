@@ -75,11 +75,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const destinationCount = stats?.destinationCount || 20;
 
   return {
-    title: `VacationDeals.to — ${totalDeals}+ Vacation Packages from $${cheapest}`,
-    description: `Compare ${totalDeals}+ vacation package deals from ${brandCount} brands. Packages starting at $${cheapest} for top resorts in ${destinationCount}+ destinations.`,
+    title: `VacationDeals.to — ${totalDeals}+ Vacation Deals from $${cheapest}`,
+    description: `Vacation deals from ${brandCount} resort brands starting at $${cheapest}. Compare ${totalDeals}+ resort deals and travel deals across ${destinationCount}+ destinations.`,
     openGraph: {
-      title: `VacationDeals.to — ${totalDeals}+ Vacation Packages from $${cheapest}`,
-      description: `Compare ${totalDeals}+ vacation package deals from ${brandCount} brands. Packages starting at $${cheapest}.`,
+      title: `VacationDeals.to — ${totalDeals}+ Vacation Deals from $${cheapest}`,
+      description: `Vacation deals from ${brandCount} resort brands starting at $${cheapest}. Compare ${totalDeals}+ resort deals and getaway packages.`,
       type: "website",
       url: "https://vacationdeals.to",
     },
@@ -129,7 +129,7 @@ export default async function HomePage() {
     "@type": "WebSite",
     name: "VacationDeals.to",
     url: "https://vacationdeals.to",
-    description: `Compare ${totalDeals}+ vacation package deals from ${brandCount} brands starting at $${cheapest}.`,
+    description: `Compare ${totalDeals}+ vacation deals from ${brandCount} resort brands starting at $${cheapest}.`,
     potentialAction: {
       "@type": "SearchAction",
       target: "https://vacationdeals.to/deals?q={search_term_string}",
@@ -147,11 +147,11 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="mb-16 pt-8 text-center">
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-          The Best Vacation Package Deals
+          The Best Vacation Deals from Top Resorts
         </h1>
         <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
-          Compare deals from top timeshare resorts — all in one place. Packages
-          starting at ${cheapest} for 3-night stays at premium resorts.
+          Vacation deals from top timeshare resorts — all in one place. Resort
+          deals starting at ${cheapest} for 3-night stays at premium properties.
         </p>
 
         <SearchBar />
@@ -270,7 +270,7 @@ export default async function HomePage() {
       {/* How It Works */}
       <section className="mb-16 rounded-2xl bg-gray-50 px-6 py-12 sm:px-12">
         <h2 className="mb-8 text-center text-2xl font-bold text-gray-900">
-          How Vacation Packages Work
+          How Vacation Deals Work
         </h2>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div className="text-center">
@@ -281,7 +281,7 @@ export default async function HomePage() {
               Browse Deals
             </h3>
             <p className="text-sm leading-relaxed text-gray-600">
-              Compare vacation packages from top timeshare brands. Filter by
+              Compare vacation deals from top timeshare brands. Filter by
               destination, price, and duration to find your perfect getaway.
             </p>
           </div>
@@ -290,10 +290,10 @@ export default async function HomePage() {
               2
             </div>
             <h3 className="mb-2 text-base font-semibold text-gray-900">
-              Book Your Package
+              Book Your Deal
             </h3>
             <p className="text-sm leading-relaxed text-gray-600">
-              Book directly through the resort or broker. Packages include
+              Book directly through the resort or broker. Deals include
               resort stays at deeply discounted rates — often 70-80% off retail.
             </p>
           </div>
@@ -315,29 +315,29 @@ export default async function HomePage() {
       {/* SEO Content */}
       <section className="mb-8">
         <h2 className="mb-4 text-xl font-bold text-gray-900">
-          Find the Best Vacation Package Deals
+          Find the Best Vacation Deals
         </h2>
         <div className="space-y-3 text-sm leading-relaxed text-gray-600">
           <p>
             VacationDeals.to is the most comprehensive comparison site for
-            timeshare vacation packages. We aggregate deals from over {brandCount} major
+            vacation deals from timeshare resorts. We aggregate resort deals from over {brandCount} major
             brands including Westgate Resorts, Hilton Grand Vacations, Marriott
             Vacation Club, Club Wyndham, and more.
           </p>
           <p>
-            These vacation packages — sometimes called &quot;vacpacks&quot; or
-            &quot;preview packages&quot; — offer incredible value. Stay at
-            premium resorts in destinations like Orlando, Las Vegas, Cancun,
-            Gatlinburg, and Myrtle Beach for a fraction of the retail price. In
-            exchange, you simply attend a timeshare sales presentation during
-            your stay.
+            These vacation deals — sometimes called vacation packages,
+            &quot;vacpacks,&quot; or &quot;preview stays&quot; — offer
+            incredible value. Stay at premium resorts in destinations like
+            Orlando, Las Vegas, Cancun, Gatlinburg, and Myrtle Beach for a
+            fraction of the retail price. In exchange, you simply attend a
+            timeshare sales presentation during your stay.
           </p>
           <p>
             Our team tracks and updates deals daily so you always see the latest
-            prices and availability. Use our filters to find packages by
+            prices and availability. Use our filters to find travel deals by
             destination, brand, price range, or trip duration. Whether you are
-            looking for a budget-friendly weekend getaway or an all-inclusive
-            resort experience, we have deals starting from just ${cheapest}.
+            looking for a budget-friendly getaway deal or an all-inclusive
+            resort experience, we have vacation deals starting from just ${cheapest}.
           </p>
         </div>
       </section>

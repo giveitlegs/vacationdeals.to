@@ -27,11 +27,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: totalDeals > 0
-      ? `All Vacation Package Deals — ${totalDeals} Deals from $${cheapest}`
-      : "All Vacation Package Deals",
+      ? `All Vacation Deals — ${totalDeals} Resort Deals from $${cheapest}`
+      : "All Vacation Deals",
     description: totalDeals > 0
-      ? `Browse ${totalDeals} vacation package deals from top timeshare resorts starting at $${cheapest}. Filter by destination, brand, price, and duration.`
-      : "Browse all vacation package deals from top timeshare resorts. Filter by destination, brand, price, and duration.",
+      ? `Vacation deals from top resorts starting at $${cheapest}. Browse ${totalDeals} resort deals and hotel deals. Filter by destination, brand, price, and duration.`
+      : "Vacation deals from top timeshare resorts. Browse resort deals, hotel deals, and getaway packages. Filter by destination, brand, price, and duration.",
   };
 }
 
@@ -49,7 +49,7 @@ export default async function DealsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "All Vacation Package Deals",
+    name: "All Vacation Deals",
     url: "https://vacationdeals.to/deals",
     mainEntity: {
       "@type": "ItemList",
@@ -80,7 +80,7 @@ export default async function DealsPage() {
           All Vacation Deals
         </h1>
         <p className="text-gray-600">
-          Browse and compare vacation packages from top timeshare resorts.
+          Browse and compare vacation deals from top timeshare resorts.
         </p>
       </div>
 

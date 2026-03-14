@@ -461,6 +461,108 @@ export async function getDestinationBySlug(
 }
 
 // ---------------------------------------------------------------------------
+// Get a single deal by slug (with brand + destination)
+// ---------------------------------------------------------------------------
+
+export interface DealDetail {
+  id: number;
+  title: string;
+  slug: string;
+  price: number;
+  originalPrice: number | null;
+  durationNights: number;
+  durationDays: number;
+  resortName: string | null;
+  description: string | null;
+  url: string;
+  imageUrl: string | null;
+  inclusions: string[];
+  requirements: string[];
+  presentationMinutes: number | null;
+  travelWindow: string | null;
+  savingsPercent: number | null;
+  brandName: string | null;
+  brandSlug: string | null;
+  city: string | null;
+  state: string | null;
+  destinationSlug: string | null;
+}
+
+export async function getDealBySlug(
+  slug: string,
+): Promise<DealDetail | null> {
+  try {
+    const conn = await getDB();
+    if (!conn) return null;
+    const { db, schema } = conn;
+    const { eq, sql } = await import("drizzle-orm");
+
+    const rows = await db
+      .select({
+        id: schema.deals.id,
+        title: schema.deals.title,
+        slug: schema.deals.slug,
+        price: schema.deals.price,
+        originalPrice: schema.deals.originalPrice,
+        durationNights: schema.deals.durationNights,
+        durationDays: schema.deals.durationDays,
+        resortName: schema.deals.resortName,
+        description: schema.deals.description,
+        url: schema.deals.url,
+        imageUrl: schema.deals.imageUrl,
+        inclusions: schema.deals.inclusions,
+        requirements: schema.deals.requirements,
+        presentationMinutes: schema.deals.presentationMinutes,
+        travelWindow: schema.deals.travelWindow,
+        savingsPercent: schema.deals.savingsPercent,
+        brandName: schema.brands.name,
+        brandSlug: schema.brands.slug,
+        city: schema.destinations.city,
+        state: schema.destinations.state,
+        destinationSlug: schema.destinations.slug,
+      })
+      .from(schema.deals)
+      .leftJoin(schema.brands, sql`${schema.deals.brandId} = ${schema.brands.id}`)
+      .leftJoin(
+        schema.destinations,
+        sql`${schema.deals.destinationId} = ${schema.destinations.id}`,
+      )
+      .where(eq(schema.deals.slug, slug))
+      .limit(1);
+
+    if (rows.length === 0) return null;
+    const r = rows[0];
+
+    return {
+      id: r.id,
+      title: r.title,
+      slug: r.slug,
+      price: Number(r.price),
+      originalPrice: r.originalPrice ? Number(r.originalPrice) : null,
+      durationNights: r.durationNights,
+      durationDays: r.durationDays,
+      resortName: r.resortName,
+      description: r.description,
+      url: r.url,
+      imageUrl: r.imageUrl,
+      inclusions: parseInclusions(r.inclusions),
+      requirements: parseInclusions(r.requirements),
+      presentationMinutes: r.presentationMinutes,
+      travelWindow: r.travelWindow,
+      savingsPercent: r.savingsPercent,
+      brandName: r.brandName,
+      brandSlug: r.brandSlug,
+      city: r.city,
+      state: r.state,
+      destinationSlug: r.destinationSlug,
+    };
+  } catch (e) {
+    console.error("[queries] getDealBySlug failed:", e);
+    return null;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Get featured deals (cheapest active deals)
 // ---------------------------------------------------------------------------
 

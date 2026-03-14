@@ -11,9 +11,9 @@ export function Footer() {
               VacationDeals.to
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-gray-500">
-              The best vacation package deals from top timeshare resorts, all in
-              one place. Compare prices, read reviews, and book your next
-              getaway.
+              The best vacation deals from top timeshare resorts, all in
+              one place. Compare resort deals, travel deals, and getaway
+              packages. Book your next vacation for less.
             </p>
           </div>
 

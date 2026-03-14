@@ -60,18 +60,18 @@ const brands = [
 ];
 
 const priceRanges = [
-  { slug: "deals-under-100", label: "Deals Under $100", maxPrice: 100, description: "Incredible vacation packages for under $100. Stay at premium resorts for a fraction of the retail price." },
-  { slug: "deals-under-200", label: "Deals Under $200", maxPrice: 200, description: "Affordable vacation packages under $200 with resort stays, perks, and extras included." },
-  { slug: "deals-under-300", label: "Deals Under $300", maxPrice: 300, description: "Great value vacation packages under $300 at top-rated resorts nationwide." },
-  { slug: "deals-under-500", label: "Deals Under $500", maxPrice: 500, description: "Premium resort packages under $500 including all-inclusive options and luxury stays." },
-  { slug: "deals-100-to-200", label: "Deals $100\u2013$200", minPrice: 100, maxPrice: 200, description: "Mid-range vacation packages between $100 and $200 at popular resort destinations." },
+  { slug: "deals-under-100", label: "Deals Under $100", maxPrice: 100, description: "Incredible vacation deals for under $100. Stay at premium resorts for a fraction of the retail price." },
+  { slug: "deals-under-200", label: "Deals Under $200", maxPrice: 200, description: "Affordable vacation deals under $200 with resort stays, perks, and extras included." },
+  { slug: "deals-under-300", label: "Deals Under $300", maxPrice: 300, description: "Great value vacation deals under $300 at top-rated resorts nationwide." },
+  { slug: "deals-under-500", label: "Deals Under $500", maxPrice: 500, description: "Premium resort deals under $500 including all-inclusive options and luxury stays." },
+  { slug: "deals-100-to-200", label: "Deals $100\u2013$200", minPrice: 100, maxPrice: 200, description: "Mid-range vacation deals between $100 and $200 at popular resort destinations." },
 ];
 
 const durations = [
-  { slug: "2-night-packages", label: "2-Night Packages", nights: 2, description: "Quick weekend getaway packages with 2-night stays at top resorts. Perfect for a short escape." },
-  { slug: "3-night-packages", label: "3-Night Packages", nights: 3, description: "Our most popular package length — 3-night resort stays with amazing inclusions and perks." },
-  { slug: "4-night-packages", label: "4-Night Packages", nights: 4, description: "Extended 4-night vacation packages for a more relaxed resort experience with extra time to explore." },
-  { slug: "5-night-packages", label: "5-Night Packages", nights: 5, description: "5-night vacation packages for the ultimate getaway. More time to enjoy the resort and local attractions." },
+  { slug: "2-night-packages", label: "2-Night Packages", nights: 2, description: "Quick weekend getaway deals with 2-night stays at top resorts. Perfect for a short escape." },
+  { slug: "3-night-packages", label: "3-Night Packages", nights: 3, description: "Our most popular deal length — 3-night resort stays with amazing inclusions and perks." },
+  { slug: "4-night-packages", label: "4-Night Packages", nights: 4, description: "Extended 4-night vacation deals for a more relaxed resort experience with extra time to explore." },
+  { slug: "5-night-packages", label: "5-Night Packages", nights: 5, description: "5-night vacation deals for the ultimate getaway. More time to enjoy the resort and local attractions." },
 ];
 
 // ---------------------------------------------------------------------------
@@ -206,19 +206,19 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
       return {
         title: dealCount > 0
-          ? `${name} Vacation Packages from $${cheapest} — ${dealCount} Deals | VacationDeals.to`
-          : `${name}, ${state} Vacation Packages — Deals from $59 | VacationDeals.to`,
+          ? `${name} Vacation Deals from $${cheapest} — ${dealCount} Deals | VacationDeals.to`
+          : `${name}, ${state} Vacation Deals — Resort Deals from $59 | VacationDeals.to`,
         description: dealCount > 0
-          ? `Compare ${dealCount} vacation packages in ${name}, ${state}. Deals from $${cheapest} at ${brandNames}, and more. ${durationsText} packages available.`
-          : `Find the best vacation package deals in ${name}, ${state}. Compare prices from top timeshare resorts. ${resolved.data.description}`,
+          ? `${name} vacation deals starting at $${cheapest}. Compare ${dealCount} resort deals at ${brandNames}, and more. ${durationsText} getaway packages available.`
+          : `Vacation deals in ${name}, ${state}. Compare resort deals and hotel deals from top timeshare resorts. ${resolved.data.description}`,
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
           title: dealCount > 0
-            ? `${name} Vacation Packages from $${cheapest} — ${dealCount} Deals`
-            : `${name} Vacation Package Deals`,
+            ? `${name} Vacation Deals from $${cheapest} — ${dealCount} Deals`
+            : `${name} Vacation Deals`,
           description: dealCount > 0
-            ? `Compare ${dealCount} vacation packages in ${name}, ${state}. Deals starting at $${cheapest}.`
-            : `Compare vacation packages in ${name}, ${state}. Deals starting at $59 from top resorts.`,
+            ? `${name} vacation deals starting at $${cheapest}. Compare ${dealCount} resort deals and getaway packages.`
+            : `Vacation deals in ${name}, ${state}. Resort deals starting at $59 from top brands.`,
           url: `${baseUrl}/${slug}`,
           type: "website",
         },
@@ -233,19 +233,19 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
       return {
         title: dealCount > 0
-          ? `${name} Vacation Packages from $${cheapest} — ${dealCount} Deals`
-          : `${name} Vacation Packages — Compare Deals | VacationDeals.to`,
+          ? `${name} Vacation Deals from $${cheapest} — ${dealCount} Deals`
+          : `${name} Vacation Deals — Compare Resort Deals | VacationDeals.to`,
         description: dealCount > 0
-          ? `Browse ${dealCount} ${name} vacation packages starting at $${cheapest}. Properties in ${destNames}, and more.`
-          : `Browse all vacation package deals from ${name}. Compare prices, durations, and destinations. ${resolved.data.description}`,
+          ? `${name} vacation deals starting at $${cheapest}. Browse ${dealCount} resort deals in ${destNames}, and more.`
+          : `Vacation deals from ${name}. Compare resort deals, prices, durations, and destinations. ${resolved.data.description}`,
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
           title: dealCount > 0
-            ? `${name} Vacation Packages from $${cheapest}`
-            : `${name} Vacation Packages`,
+            ? `${name} Vacation Deals from $${cheapest}`
+            : `${name} Vacation Deals`,
           description: dealCount > 0
-            ? `Browse ${dealCount} packages starting at $${cheapest}.`
-            : `Compare all ${name} vacation packages. Find the best deals and save up to 80%.`,
+            ? `Browse ${dealCount} resort deals starting at $${cheapest}.`
+            : `Compare all ${name} vacation deals. Find the best resort deals and save up to 80%.`,
           url: `${baseUrl}/${slug}`,
           type: "website",
         },
@@ -258,11 +258,11 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
       return {
         title: dealCount > 0
-          ? `${label} — ${dealCount} Cheap Vacation Packages | VacationDeals.to`
-          : `${label} — Cheap Vacation Packages | VacationDeals.to`,
+          ? `${label} — ${dealCount} Cheap Vacation Deals | VacationDeals.to`
+          : `${label} — Cheap Vacation Deals | VacationDeals.to`,
         description: dealCount > 0
           ? `${dealCount} ${label.toLowerCase()} from top timeshare resorts. ${resolved.data.description}`
-          : `${resolved.data.description} Compare packages from top timeshare resorts.`,
+          : `${resolved.data.description} Compare vacation deals from top timeshare resorts.`,
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
           title: label,
@@ -398,7 +398,7 @@ async function DestinationPage({
       {/* Hero */}
       <div className="mb-8 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 px-8 py-12 text-white">
         <h1 className="mb-2 text-3xl font-bold sm:text-4xl">
-          Vacation Packages in {data.name}, {data.state}
+          Vacation Deals in {data.name}, {data.state}
         </h1>
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
         {cheapest != null && (
@@ -432,12 +432,12 @@ async function DestinationPage({
       {/* SEO content block */}
       <section className="mt-12 rounded-xl bg-gray-50 p-8">
         <h2 className="mb-3 text-xl font-bold text-gray-900">
-          About {data.name} Vacation Packages
+          About {data.name} Vacation Deals
         </h2>
         <p className="text-sm leading-relaxed text-gray-600">
-          {data.description} Browse and compare the best timeshare vacation
-          packages available in {data.name}. These deals include resort stays at
-          deeply discounted rates — often 70-80% off retail. Packages typically
+          {data.description} Browse and compare the best vacation deals
+          available in {data.name}. These resort deals include stays at
+          deeply discounted rates — often 70-80% off retail. Deals typically
           include a {data.name} resort stay with perks like free parking, resort
           credits, and loyalty points from top brands.
         </p>
@@ -551,9 +551,9 @@ async function BrandPage({
           About {data.name}
         </h2>
         <p className="text-sm leading-relaxed text-gray-600">
-          {data.description} Compare all available {data.name} vacation packages
+          {data.description} Compare all available {data.name} vacation deals
           on VacationDeals.to. We track pricing and availability daily so you
-          always see the latest deals. {data.name} packages include resort stays
+          always see the latest resort deals. {data.name} deals include resort stays
           at deeply discounted rates with perks and bonuses included.
         </p>
       </section>
@@ -652,7 +652,7 @@ function PricePage({
       <section className="mt-12 rounded-xl bg-gray-50 p-8">
         <h2 className="mb-3 text-xl font-bold text-gray-900">{data.label}</h2>
         <p className="text-sm leading-relaxed text-gray-600">
-          {data.description} These vacation packages offer incredible value —
+          {data.description} These vacation deals offer incredible value —
           stay at premium resorts for a fraction of the retail price. In exchange
           for the discounted rate, you attend a brief timeshare presentation
           during your stay. No purchase required.
@@ -723,7 +723,7 @@ function DurationPage({
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
         {totalDeals > 0 && (
           <p className="mt-2 text-sm font-medium text-white/80">
-            {totalDeals} packages available
+            {totalDeals} deals available
           </p>
         )}
       </div>
@@ -753,9 +753,9 @@ function DurationPage({
       <section className="mt-12 rounded-xl bg-gray-50 p-8">
         <h2 className="mb-3 text-xl font-bold text-gray-900">{data.label}</h2>
         <p className="text-sm leading-relaxed text-gray-600">
-          {data.description} Browse {data.nights}-night resort packages from top
+          {data.description} Browse {data.nights}-night resort deals from top
           timeshare brands including Westgate, Hilton Grand Vacations, Marriott,
-          and more. Each package includes a {data.nights}-night stay at a premium
+          and more. Each deal includes a {data.nights}-night stay at a premium
           resort with perks and bonuses.
         </p>
       </section>

@@ -10,17 +10,17 @@ export interface FAQ {
 export const DESTINATION_FAQS: Record<string, FAQ[]> = {
   orlando: [
     {
-      question: "What is a vacation package to Orlando?",
+      question: "What is a vacation deal to Orlando?",
       answer:
-        "An Orlando vacation package is a deeply discounted resort stay bundled with perks like theme park tickets, dining credits, or loyalty points. These packages are offered by timeshare resorts such as Westgate Lakes, Hilton Grand Vacations, and Marriott Vacation Club at rates 60-80% below what you'd pay on Expedia or Hotels.com.",
+        "An Orlando vacation deal is a deeply discounted resort stay bundled with perks like theme park tickets, dining credits, or loyalty points. These deals are offered by timeshare resorts such as Westgate Lakes, Hilton Grand Vacations, and Marriott Vacation Club at rates 60-80% below what you'd pay on Expedia or Hotels.com.",
     },
     {
-      question: "How much do Orlando vacation packages cost?",
+      question: "How much do Orlando vacation deals cost?",
       answer:
         "Orlando packages typically range from $59 to $299 for a 3- to 5-night stay. A 3-night stay at Westgate Lakes starts at $99, while Hilton Grand Vacations packages in the International Drive area start around $149. These prices are for the entire stay, not per night.",
     },
     {
-      question: "What's included in an Orlando vacation package?",
+      question: "What's included in an Orlando vacation deal?",
       answer:
         "Most Orlando packages include 3 to 5 nights at a full-service resort, free parking, pool and waterpark access, and Wi-Fi. Many also bundle extras like Walt Disney World or Universal Studios tickets, breakfast vouchers, or Hilton Honors / Bonvoy points worth $50-$200.",
     },
@@ -30,14 +30,14 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, the discounted rate is available in exchange for attending a 90- to 120-minute vacation ownership presentation at the resort. There is no obligation to purchase anything. You keep all package perks regardless of your decision at the presentation.",
     },
     {
-      question: "What resorts offer vacation packages in Orlando?",
+      question: "What resorts offer vacation deals in Orlando?",
       answer:
         "Top Orlando resorts offering packages include Westgate Lakes Resort & Spa on International Drive, Westgate Vacation Villas near Disney, Hilton Grand Vacations at SeaWorld, Marriott's Grande Vista, and Holiday Inn Club Vacations at Orange Lake Resort. Each property offers unique amenities like waterparks, lazy rivers, and golf courses.",
     },
     {
       question: "How is this different from booking Orlando hotels on Expedia?",
       answer:
-        "Vacation packages offer resort-quality stays at 60-80% less than OTA prices because the resort subsidizes your stay in exchange for a sales presentation. A room that costs $200/night on Expedia might be $33/night through a vacation package. You also get extras like theme park tickets and resort credits that standard hotel bookings don't include.",
+        "Vacation deals offer resort-quality stays at 60-80% less than OTA prices because the resort subsidizes your stay in exchange for a sales presentation. A room that costs $200/night on Expedia might be $33/night through a vacation package. You also get extras like theme park tickets and resort credits that standard hotel bookings don't include.",
     },
     {
       question: "What's the best time to visit Orlando?",
@@ -45,17 +45,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "The best value for Orlando vacation packages is during shoulder seasons: mid-January through mid-March and September through mid-November. You'll avoid peak crowds at Disney and Universal while enjoying pleasant 70-85°F weather. Holiday weeks and summer are the most expensive times to book.",
     },
     {
-      question: "Are Orlando vacation packages refundable?",
+      question: "Are Orlando vacation deals refundable?",
       answer:
         "Refund policies vary by resort and booking company. Most packages allow cancellation with full refund up to 72 hours before check-in. Some brands like Westgate offer a 30-day money-back guarantee. Always check the specific cancellation policy before booking and keep your confirmation email.",
     },
     {
-      question: "What are the age and income requirements for Orlando packages?",
+      question: "What are the age and income requirements for Orlando deals?",
       answer:
         "To qualify for the discounted rate, at least one guest must be 25-70 years old (some resorts allow 21+) with a household income of $50,000+ per year. Married or cohabiting couples must attend the presentation together. A valid ID and credit card are required at check-in.",
     },
     {
-      question: "Can I bring kids to Orlando resort vacation packages?",
+      question: "Can I bring kids to Orlando resort vacation deals?",
       answer:
         "Absolutely — Orlando vacation packages are very family-friendly. Most resorts welcome up to 2 adults and 2 children at no extra charge. Resorts like Westgate Lakes and Orange Lake have waterparks, game rooms, and kids' clubs. Many packages include family perks like Disney tickets or character dining experiences.",
     },
@@ -63,17 +63,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 
   "las-vegas": [
     {
-      question: "What is a vacation package to Las Vegas?",
+      question: "What is a vacation deal to Las Vegas?",
       answer:
-        "A Las Vegas vacation package is a discounted resort stay on or near the Strip, offered by timeshare brands like Club Wyndham, Hilton Grand Vacations, and Marriott Vacation Club. Packages include 2 to 4 nights plus perks such as show tickets, dining credits, or virtual Mastercard gift cards worth $100-$200.",
+        "A Las Vegas vacation deal is a discounted resort stay on or near the Strip, offered by timeshare brands like Club Wyndham, Hilton Grand Vacations, and Marriott Vacation Club. Packages include 2 to 4 nights plus perks such as show tickets, dining credits, or virtual Mastercard gift cards worth $100-$200.",
     },
     {
-      question: "How much do Las Vegas vacation packages cost?",
+      question: "How much do Las Vegas vacation deals cost?",
       answer:
         "Las Vegas packages start as low as $79 for a 2-night midweek stay. Popular options include Club Wyndham Grand Desert at $99 for 2 nights and Hilton Grand Vacations on the Boulevard at $149 for 3 nights. Weekend packages cost $20-$50 more. All prices are for the total stay, not per night.",
     },
     {
-      question: "What's included in a Las Vegas vacation package?",
+      question: "What's included in a Las Vegas vacation deal?",
       answer:
         "Vegas packages typically include 2-4 nights in a suite-style room with kitchenette, resort pool access, and free Wi-Fi. Many add a $200 virtual Mastercard, Wyndham Rewards or Hilton Honors points, Cirque du Soleil or comedy show tickets, and buffet dining credits at popular Strip restaurants.",
     },
@@ -83,7 +83,7 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, the discounted pricing requires attending a 90- to 120-minute vacation ownership presentation, usually the morning after check-in. The presentation takes place at the resort. You are under no obligation to buy, and all package benefits remain yours regardless of your decision.",
     },
     {
-      question: "What resorts offer vacation packages in Las Vegas?",
+      question: "What resorts offer vacation deals in Las Vegas?",
       answer:
         "Major Las Vegas resorts with packages include Club Wyndham Grand Desert (1 mile from the Strip), Hilton Grand Vacations on the Las Vegas Boulevard, Hilton Grand Vacations Elara (attached to Planet Hollywood), and Marriott's Grand Chateau on the Strip. All feature pools, fitness centers, and concierge services.",
     },
@@ -98,17 +98,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "For the best deals, visit Las Vegas in January, February, or November when hotel demand is lowest and vacation package availability is highest. Spring and fall offer the most comfortable weather at 65-85°F. Avoid CES week in January, March Madness, and major holiday weekends when Strip prices spike.",
     },
     {
-      question: "Are Las Vegas vacation packages refundable?",
+      question: "Are Las Vegas vacation deals refundable?",
       answer:
         "Most Las Vegas vacation packages offer free cancellation up to 48-72 hours before check-in. Some brokers provide a 7-day right of rescission period after booking. Wyndham and Hilton packages typically allow date changes up to 12 months from the original booking date. Always review the terms before purchasing.",
     },
     {
-      question: "What are the age and income requirements for Las Vegas packages?",
+      question: "What are the age and income requirements for Las Vegas deals?",
       answer:
         "Las Vegas vacation package qualifications typically require at least one guest aged 25-65 (some resorts accept 21+) with a minimum household income of $50,000. Couples must attend the presentation together. You'll need a valid government-issued ID and a major credit card at check-in.",
     },
     {
-      question: "Can I bring kids to Las Vegas resort vacation packages?",
+      question: "Can I bring kids to Las Vegas resort vacation deals?",
       answer:
         "Yes, most Las Vegas vacation package resorts are family-friendly with pools, lazy rivers, and game rooms. Club Wyndham Grand Desert and Hilton Elara both welcome families with children. However, Las Vegas is generally better suited for adults-only trips since many attractions are 21+. Kid-friendly options include the High Roller, Adventuredome, and Shark Reef.",
     },
@@ -116,17 +116,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 
   cancun: [
     {
-      question: "What is a vacation package to Cancun?",
+      question: "What is a vacation deal to Cancun?",
       answer:
-        "A Cancun vacation package is an all-inclusive or partial-inclusive resort stay along the Caribbean coast of Mexico's Riviera Maya. Packages are offered through companies like BookVIP and timeshare brands at rates 50-75% below booking directly. Most include airport transfers, meals, drinks, and resort activities.",
+        "A Cancun vacation deal is an all-inclusive or partial-inclusive resort stay along the Caribbean coast of Mexico's Riviera Maya. Packages are offered through companies like BookVIP and timeshare brands at rates 50-75% below booking directly. Most include airport transfers, meals, drinks, and resort activities.",
     },
     {
-      question: "How much do Cancun vacation packages cost?",
+      question: "How much do Cancun vacation deals cost?",
       answer:
         "Cancun all-inclusive packages range from $199 to $599 per couple for 4 to 6 nights. BookVIP offers 5-night stays at Grand Oasis Cancun starting at $399 including all meals, drinks, and airport transfers. Non-all-inclusive resort packages start even lower at $149 for 3 nights.",
     },
     {
-      question: "What's included in a Cancun vacation package?",
+      question: "What's included in a Cancun vacation deal?",
       answer:
         "All-inclusive Cancun packages cover accommodations, all meals and beverages (including alcohol), airport round-trip transportation, resort entertainment, non-motorized water sports, pool and beach access, and resort credits. Some packages add excursions to Chichen Itza, snorkeling at Isla Mujeres, or spa credits.",
     },
@@ -136,7 +136,7 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, most Cancun vacation packages require attendance at a 90- to 120-minute resort presentation, typically on the morning after arrival. The presentation covers the resort's vacation club membership options. You are not obligated to purchase anything, and all your package benefits remain valid either way.",
     },
     {
-      question: "What resorts offer vacation packages in Cancun?",
+      question: "What resorts offer vacation deals in Cancun?",
       answer:
         "Popular Cancun resorts with vacation packages include Grand Oasis Cancun in the Hotel Zone, Hyatt Ziva Cancun, Royalton CHIC Cancun, Palace Resorts Moon Palace, and Vidanta Riviera Maya. These are beachfront properties with multiple pools, restaurants, spas, and entertainment venues.",
     },
@@ -151,17 +151,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Cancun has warm weather year-round, but the driest and most comfortable months are December through April. For the best vacation package deals, book during May through November (excluding spring break). Water temperature stays above 78°F year-round, and even the rainy season brings only brief afternoon showers.",
     },
     {
-      question: "Are Cancun vacation packages refundable?",
+      question: "Are Cancun vacation deals refundable?",
       answer:
         "Cancun package refund policies vary by provider. BookVIP typically allows cancellation with full refund up to 30 days before travel. Most resort-direct packages offer date changes up to 12-18 months from booking. Travel insurance is recommended for international packages to cover flight disruptions or health emergencies.",
     },
     {
-      question: "What are the age and income requirements for Cancun packages?",
+      question: "What are the age and income requirements for Cancun deals?",
       answer:
         "Cancun vacation packages generally require at least one guest to be 28-65 years old with a household income above $50,000-$75,000 USD annually. Married couples must both attend the presentation. You need a valid passport (not expiring within 6 months) and a major credit card. Some resorts require guests to be fluent in English or Spanish.",
     },
     {
-      question: "Can I bring kids to Cancun resort vacation packages?",
+      question: "Can I bring kids to Cancun resort vacation deals?",
       answer:
         "Many Cancun resorts welcome families with children, including Grand Oasis and Moon Palace which feature kids' clubs, waterparks, and family pools. However, some adults-only resorts like Royalton CHIC do not allow children. Check the specific resort's policy before booking. Most packages allow 2 children free when sharing a room with 2 adults.",
     },
@@ -169,17 +169,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 
   gatlinburg: [
     {
-      question: "What is a vacation package to Gatlinburg?",
+      question: "What is a vacation deal to Gatlinburg?",
       answer:
-        "A Gatlinburg vacation package is a discounted mountain resort stay in the Great Smoky Mountains of Tennessee. Top providers include Westgate Smoky Mountain Resort and Bluegreen's MountainLoft Resort. Packages include cozy cabin-style suites, waterpark access, and proximity to Great Smoky Mountains National Park — America's most visited national park.",
+        "A Gatlinburg vacation deal is a discounted mountain resort stay in the Great Smoky Mountains of Tennessee. Top providers include Westgate Smoky Mountain Resort and Bluegreen's MountainLoft Resort. Packages include cozy cabin-style suites, waterpark access, and proximity to Great Smoky Mountains National Park — America's most visited national park.",
     },
     {
-      question: "How much do Gatlinburg vacation packages cost?",
+      question: "How much do Gatlinburg vacation deals cost?",
       answer:
         "Gatlinburg packages are some of the most affordable, starting at $79 for a 3-night stay. Westgate Smoky Mountain Resort offers 3-night packages starting at $99 including Wild Bear Falls Waterpark access and fireplace suites. Premium cabin-style packages with mountain views run $149-$249 for 3-4 nights.",
     },
     {
-      question: "What's included in a Gatlinburg vacation package?",
+      question: "What's included in a Gatlinburg vacation deal?",
       answer:
         "Gatlinburg packages typically include 3-4 nights in a spacious suite with full kitchen and fireplace, indoor waterpark access at Wild Bear Falls, free parking, Wi-Fi, and resort amenities like fitness centers and game rooms. Some packages add Dollywood tickets, Ripley's Aquarium passes, or Old Smoky Moonshine tastings.",
     },
@@ -189,14 +189,14 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, the discounted rate requires attending a 90-minute vacation ownership presentation at the resort, usually scheduled the morning after your first night. The presentation covers the resort's timeshare program. No purchase is required, and you keep all benefits including waterpark passes and any bonus perks.",
     },
     {
-      question: "What resorts offer vacation packages in Gatlinburg?",
+      question: "What resorts offer vacation deals in Gatlinburg?",
       answer:
         "Key Gatlinburg-area resorts with packages include Westgate Smoky Mountain Resort (with Wild Bear Falls Waterpark), Westgate Smoky Mountain Resort & Water Park at Gatlinburg, Bluegreen's MountainLoft Resort, and Capital Vacations properties in Pigeon Forge. All are within minutes of downtown Gatlinburg and GSMNP entrances.",
     },
     {
       question: "How is this different from booking a Gatlinburg cabin on VRBO?",
       answer:
-        "A comparable 3-night cabin or resort stay in Gatlinburg costs $150-$300/night on VRBO or Airbnb. Vacation packages offer resort-quality stays for $33/night or less, plus extras like waterpark access. You also get on-site dining, housekeeping, and resort amenities that private cabin rentals lack.",
+        "A comparable 3-night cabin or resort stay in Gatlinburg costs $150-$300/night on VRBO or Airbnb. Vacation deals offer resort-quality stays for $33/night or less, plus extras like waterpark access. You also get on-site dining, housekeeping, and resort amenities that private cabin rentals lack.",
     },
     {
       question: "What's the best time to visit Gatlinburg?",
@@ -204,17 +204,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Fall foliage season (mid-October to early November) is Gatlinburg's most popular time, with the Smokies draped in reds, oranges, and golds. For the best package deals, visit in January through March or mid-April through May when crowds thin and resort availability increases. Summer is busy but great for hiking and waterpark fun.",
     },
     {
-      question: "Are Gatlinburg vacation packages refundable?",
+      question: "Are Gatlinburg vacation deals refundable?",
       answer:
         "Most Gatlinburg packages allow cancellation with full refund 72 hours or more before check-in. Westgate offers a satisfaction guarantee and flexible rebooking up to 12 months. If severe weather or GSMNP closures affect your trip, resorts typically offer date changes at no extra cost.",
     },
     {
-      question: "What are the age and income requirements for Gatlinburg packages?",
+      question: "What are the age and income requirements for Gatlinburg deals?",
       answer:
         "Gatlinburg vacation packages require at least one guest aged 25-70 with a combined household income of $40,000-$50,000 or more. Couples must attend the presentation together. A valid driver's license and credit card are required at check-in. Income requirements tend to be slightly lower than beach or international destinations.",
     },
     {
-      question: "Can I bring kids to Gatlinburg resort vacation packages?",
+      question: "Can I bring kids to Gatlinburg resort vacation deals?",
       answer:
         "Gatlinburg is one of the most family-friendly vacation package destinations. Westgate Smoky Mountain Resort's Wild Bear Falls Waterpark is a huge hit with kids, and suites sleep up to 6 comfortably. Nearby attractions like Dollywood, Ripley's Aquarium, Ober Mountain Ski Area, and the Great Smoky Mountains offer endless family activities.",
     },
@@ -222,17 +222,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 
   "myrtle-beach": [
     {
-      question: "What is a vacation package to Myrtle Beach?",
+      question: "What is a vacation deal to Myrtle Beach?",
       answer:
-        "A Myrtle Beach vacation package is a discounted oceanfront or near-ocean resort stay along South Carolina's Grand Strand. Leading providers include Marriott Vacation Club OceanWatch, Westgate Myrtle Beach, and Wyndham Vacation Resorts. Packages include beach access, pool amenities, and resort perks at a fraction of retail rates.",
+        "A Myrtle Beach vacation deal is a discounted oceanfront or near-ocean resort stay along South Carolina's Grand Strand. Leading providers include Marriott Vacation Club OceanWatch, Westgate Myrtle Beach, and Wyndham Vacation Resorts. Packages include beach access, pool amenities, and resort perks at a fraction of retail rates.",
     },
     {
-      question: "How much do Myrtle Beach vacation packages cost?",
+      question: "How much do Myrtle Beach vacation deals cost?",
       answer:
         "Myrtle Beach packages range from $99 to $399 for a 3- to 5-night stay. Marriott's OceanWatch offers 3-night packages starting at $299 with ocean views and Bonvoy points. Westgate Myrtle Beach packages start at $99 for 3 nights. Summer packages run $50-$100 more than off-season rates.",
     },
     {
-      question: "What's included in a Myrtle Beach vacation package?",
+      question: "What's included in a Myrtle Beach vacation deal?",
       answer:
         "Myrtle Beach packages include 3-5 nights in a resort suite (many with ocean views and kitchenettes), beach access, multiple pools, free parking, and Wi-Fi. Premium packages add Bonvoy or Hilton Honors points, golf tee times at Grand Strand courses, Broadway at the Beach dining credits, or deep-sea fishing excursions.",
     },
@@ -242,14 +242,14 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, a 90-minute to 2-hour vacation ownership presentation is required, typically the morning after arrival. The presentation takes place at the resort and covers membership options. No purchase is necessary, and your package perks — including ocean-view room and bonus points — remain yours regardless of the outcome.",
     },
     {
-      question: "What resorts offer vacation packages in Myrtle Beach?",
+      question: "What resorts offer vacation deals in Myrtle Beach?",
       answer:
         "Top Myrtle Beach resorts with packages include Marriott OceanWatch Villas at Grande Dunes (oceanfront), Westgate Myrtle Beach Oceanfront Resort, Hilton Grand Vacations at Anderson Ocean Club, Bluegreen's Shore Crest Vacation Villas, and Wyndham Vacation Resorts at Bay Watch. All offer direct or nearby beach access.",
     },
     {
       question: "How is this different from booking Myrtle Beach on Hotels.com?",
       answer:
-        "Oceanfront resort rooms in Myrtle Beach run $200-$400/night on Hotels.com during summer. Vacation packages offer the same quality for $33-$80/night and include extras like loyalty points and golf credits. The savings are possible because resorts use these packages to introduce guests to vacation ownership programs.",
+        "Oceanfront resort rooms in Myrtle Beach run $200-$400/night on Hotels.com during summer. Vacation deals offer the same quality for $33-$80/night and include extras like loyalty points and golf credits. The savings are possible because resorts use these packages to introduce guests to vacation ownership programs.",
     },
     {
       question: "What's the best time to visit Myrtle Beach?",
@@ -257,17 +257,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Peak beach season runs June through August with water temperatures around 80°F. For the best package deals, visit in April-May or September-October when weather is still warm (70s-80s), beaches are less crowded, and package prices drop significantly. Spring also coincides with excellent golf conditions on the Grand Strand's 80+ courses.",
     },
     {
-      question: "Are Myrtle Beach vacation packages refundable?",
+      question: "Are Myrtle Beach vacation deals refundable?",
       answer:
         "Refund policies vary by provider but most Myrtle Beach packages allow cancellation with full refund up to 48-72 hours before check-in. Marriott and Hilton packages typically offer flexible date changes up to 12 months. Hurricane-related cancellations are usually handled with full refunds or complimentary rebooking.",
     },
     {
-      question: "What are the age and income requirements for Myrtle Beach packages?",
+      question: "What are the age and income requirements for Myrtle Beach deals?",
       answer:
         "Myrtle Beach vacation packages typically require at least one guest aged 25-70 with a minimum household income of $50,000 per year. Couples traveling together must both attend the presentation. A valid government-issued photo ID and a major credit card are required at check-in.",
     },
     {
-      question: "Can I bring kids to Myrtle Beach resort vacation packages?",
+      question: "Can I bring kids to Myrtle Beach resort vacation deals?",
       answer:
         "Myrtle Beach is excellent for families. Most resort packages accommodate 2 adults and 2 children at no extra cost. Kids love the waterparks, the SkyWheel, Ripley's attractions, and Brookgreen Gardens. Family-friendly resorts like Westgate and Holiday Inn Club Vacations offer kids' pools, game rooms, and organized activities.",
     },
@@ -275,17 +275,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 
   branson: [
     {
-      question: "What is a vacation package to Branson?",
+      question: "What is a vacation deal to Branson?",
       answer:
-        "A Branson vacation package is a discounted resort stay in the live entertainment capital of the Ozarks. Branson, Missouri offers over 100 live shows, Silver Dollar City theme park, and beautiful Table Rock Lake. Packages are offered by resorts like Westgate Branson Woods and Wyndham Branson at rates far below standard booking prices.",
+        "A Branson vacation deal is a discounted resort stay in the live entertainment capital of the Ozarks. Branson, Missouri offers over 100 live shows, Silver Dollar City theme park, and beautiful Table Rock Lake. Packages are offered by resorts like Westgate Branson Woods and Wyndham Branson at rates far below standard booking prices.",
     },
     {
-      question: "How much do Branson vacation packages cost?",
+      question: "How much do Branson vacation deals cost?",
       answer:
         "Branson is one of the most affordable vacation package destinations, with deals starting at $59 for a 3-night stay. Westgate Branson Woods offers 3-night packages from $79 with show tickets included. Premium lakefront packages with boat rentals and dinner shows run $149-$249 for 3-4 nights.",
     },
     {
-      question: "What's included in a Branson vacation package?",
+      question: "What's included in a Branson vacation deal?",
       answer:
         "Branson packages typically include 3-4 nights in a spacious condo-style suite, show tickets (often 2-4 shows), Silver Dollar City passes, free parking, and resort amenities. Some packages add Table Rock Lake activities like pontoon boat rentals, fishing guides, or dining credits at the resort's restaurants.",
     },
@@ -295,7 +295,7 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, you'll attend a 60- to 90-minute vacation ownership presentation at the resort, usually scheduled for the morning after check-in. Branson presentations tend to be on the shorter side. No purchase is required, and all your show tickets, theme park passes, and resort perks stay with you regardless.",
     },
     {
-      question: "What resorts offer vacation packages in Branson?",
+      question: "What resorts offer vacation deals in Branson?",
       answer:
         "Leading Branson resorts with packages include Westgate Branson Woods Resort & Cabins, Wyndham Branson at the Meadows, Capital Vacations' Palace View and Palace View Heights, Holiday Inn Club Vacations at Ozark Mountain Resort, and Bluegreen Wilderness Club at Big Cedar. Many are nestled in wooded Ozark Mountain settings.",
     },
@@ -310,17 +310,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Branson's peak season is March through December, with Silver Dollar City's festivals driving attendance. The best package deals are in January-February and September-October. November-December features Branson's legendary Christmas shows and Silver Dollar City's Old Time Christmas, but packages sell out quickly during the holiday season.",
     },
     {
-      question: "Are Branson vacation packages refundable?",
+      question: "Are Branson vacation deals refundable?",
       answer:
         "Most Branson packages allow free cancellation 48-72 hours before check-in. Westgate and Capital Vacations offer flexible rebooking up to 12 months from the original date. Show tickets included in the package are typically exchangeable for alternate dates or different shows if your plans change.",
     },
     {
-      question: "What are the age and income requirements for Branson packages?",
+      question: "What are the age and income requirements for Branson deals?",
       answer:
         "Branson vacation packages have some of the most accessible qualification requirements. Most require at least one guest aged 25-70 with a household income of $40,000+ per year. Couples must attend the presentation together. A valid ID and credit card are needed at check-in. Some Branson packages accept guests as young as 21.",
     },
     {
-      question: "Can I bring kids to Branson resort vacation packages?",
+      question: "Can I bring kids to Branson resort vacation deals?",
       answer:
         "Branson is an outstanding family destination. Silver Dollar City has rides for all ages, and shows like Dolly Parton's Stampede and the Acrobats of China thrill kids and adults alike. Resort packages accommodate families with suites sleeping 4-6. Table Rock Lake offers swimming, fishing, and boat rides perfect for family adventures.",
     },
@@ -328,17 +328,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 
   cabo: [
     {
-      question: "What is a vacation package to Cabo San Lucas?",
+      question: "What is a vacation deal to Cabo San Lucas?",
       answer:
-        "A Cabo San Lucas vacation package is a discounted luxury resort stay at the tip of Mexico's Baja California Peninsula. Packages are offered by timeshare resorts like Vidanta Los Cabos, Hilton Grand Vacations, and Marriott Vacation Club along with brokers like BookVIP. Stays include ocean-view rooms, resort amenities, and often airport transfers.",
+        "A Cabo San Lucas vacation deal is a discounted luxury resort stay at the tip of Mexico's Baja California Peninsula. Packages are offered by timeshare resorts like Vidanta Los Cabos, Hilton Grand Vacations, and Marriott Vacation Club along with brokers like BookVIP. Stays include ocean-view rooms, resort amenities, and often airport transfers.",
     },
     {
-      question: "How much do Cabo vacation packages cost?",
+      question: "How much do Cabo vacation deals cost?",
       answer:
         "Cabo packages range from $299 to $699 for a 4- to 6-night stay for two. BookVIP offers 5-night stays at beachfront resorts starting at $349. Marriott Vacation Club Cabo packages with Bonvoy points start at $499 for 4 nights. All-inclusive options at Vidanta Los Cabos start around $599 for 5 nights.",
     },
     {
-      question: "What's included in a Cabo vacation package?",
+      question: "What's included in a Cabo vacation deal?",
       answer:
         "Cabo packages include resort accommodations with ocean or marina views, pool and beach access, airport round-trip transportation, and resort credits. All-inclusive packages add unlimited meals, cocktails, and entertainment. Some packages bundle whale watching tours (December-March), sunset sailing on the Sea of Cortez, or spa treatments.",
     },
@@ -348,14 +348,14 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, Cabo vacation packages require attending a 90- to 120-minute vacation ownership presentation at the resort, typically scheduled for the morning after arrival. The presentation covers membership in the resort's vacation club. No purchase is required, and your package perks including airport transfers and resort credits remain intact.",
     },
     {
-      question: "What resorts offer vacation packages in Cabo?",
+      question: "What resorts offer vacation deals in Cabo?",
       answer:
         "Top Cabo resorts with vacation packages include Vidanta Los Cabos (luxury beachfront on the Pacific), Hilton Grand Vacations at The Grand Solmar, Marriott Vacation Club Pulse at The Grand Coral, Hyatt Ziva Los Cabos (all-inclusive), and Pueblo Bonito Sunset Beach. All feature stunning ocean scenery and world-class dining.",
     },
     {
       question: "How is this different from booking Cabo on Expedia?",
       answer:
-        "A comparable 5-night resort stay in Cabo costs $2,500-$5,000 on Expedia for two guests. Vacation packages offer the same caliber resort for $349-$699 including airport transfers. The dramatic savings are possible because resorts use these introductory packages as a marketing tool for their vacation ownership programs.",
+        "A comparable 5-night resort stay in Cabo costs $2,500-$5,000 on Expedia for two guests. Vacation deals offer the same caliber resort for $349-$699 including airport transfers. The dramatic savings are possible because resorts use these introductory packages as a marketing tool for their vacation ownership programs.",
     },
     {
       question: "What's the best time to visit Cabo San Lucas?",
@@ -363,17 +363,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Cabo enjoys 350+ days of sunshine annually. The best weather is October through May with temperatures of 75-90°F and minimal rain. Whale watching season runs December through March. Hurricane season (June-October) brings occasional storms but also the lowest package prices. Water temperature stays between 68-84°F year-round.",
     },
     {
-      question: "Are Cabo vacation packages refundable?",
+      question: "Are Cabo vacation deals refundable?",
       answer:
         "Most Cabo packages offer cancellation with full refund 30+ days before travel. BookVIP provides a money-back guarantee on most packages. Given the international travel involved, trip insurance is strongly recommended to cover flight disruptions, weather events, or health emergencies. Date changes are usually allowed up to 12-18 months out.",
     },
     {
-      question: "What are the age and income requirements for Cabo packages?",
+      question: "What are the age and income requirements for Cabo deals?",
       answer:
         "Cabo vacation packages typically require at least one guest aged 28-65 with a household income of $75,000+ USD. Married couples must both attend the presentation. You need a valid passport with at least 6 months validity and a major credit card. Some resorts also require proof of employment or homeownership.",
     },
     {
-      question: "Can I bring kids to Cabo resort vacation packages?",
+      question: "Can I bring kids to Cabo resort vacation deals?",
       answer:
         "Some Cabo resorts are family-friendly — Hyatt Ziva Los Cabos has a kids' club and family pool, and Vidanta offers family suites. However, many Cabo packages are geared toward couples and may be at adults-only properties like Grand Solmar. Check the specific resort's child policy before booking. Kid-friendly excursions include glass-bottom boat tours and snorkeling at Chileno Bay.",
     },
@@ -381,17 +381,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 
   "key-west": [
     {
-      question: "What is a vacation package to Key West?",
+      question: "What is a vacation deal to Key West?",
       answer:
-        "A Key West vacation package is a discounted resort stay in Florida's southernmost island city, known for its pastel-colored houses, Duval Street nightlife, and stunning sunsets at Mallory Square. Packages are offered by Hyatt Vacation Ownership, Marriott Vacation Club, and other timeshare brands with properties in the Florida Keys.",
+        "A Key West vacation deal is a discounted resort stay in Florida's southernmost island city, known for its pastel-colored houses, Duval Street nightlife, and stunning sunsets at Mallory Square. Packages are offered by Hyatt Vacation Ownership, Marriott Vacation Club, and other timeshare brands with properties in the Florida Keys.",
     },
     {
-      question: "How much do Key West vacation packages cost?",
+      question: "How much do Key West vacation deals cost?",
       answer:
         "Key West packages range from $199 to $499 for a 3- to 4-night stay. Hyatt Windward Pointe offers 3-night packages starting at $249. Marriott's Sunset Place packages start at $349 for 3 nights with Bonvoy points. Key West is pricier than mainland Florida destinations but packages still save 60-70% over rack rates.",
     },
     {
-      question: "What's included in a Key West vacation package?",
+      question: "What's included in a Key West vacation deal?",
       answer:
         "Key West packages include resort accommodations (often suite-style with kitchenettes), pool access, free Wi-Fi, and resort amenities. Premium packages add snorkeling trips to the reef, sunset sailing cruises, Duval Street dining credits, tickets to the Hemingway Home, or bike rentals for exploring Old Town's charming streets.",
     },
@@ -401,7 +401,7 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, Key West vacation packages require attending a 90-minute vacation ownership presentation at the resort. Given Key West's relaxed island atmosphere, presentations are typically scheduled early morning so you have the rest of the day free. No purchase obligation, and all your package perks remain regardless of your decision.",
     },
     {
-      question: "What resorts offer vacation packages in Key West?",
+      question: "What resorts offer vacation deals in Key West?",
       answer:
         "Resorts offering Key West vacation packages include Hyatt Windward Pointe, Hyatt Beach House, Marriott's Sunset Place, Galleon Resort and Marina, and Bluegreen's The Hammocks at Marathon (in the Middle Keys). Most are within walking distance or a short drive from Duval Street and the island's historic attractions.",
     },
@@ -416,17 +416,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Key West is a year-round destination with temperatures of 70-90°F. High season runs December through April with the driest weather and coolest ocean breezes. For the best package deals, visit in May-June or November when prices drop but weather remains excellent. October's Fantasy Fest is popular but books up early.",
     },
     {
-      question: "Are Key West vacation packages refundable?",
+      question: "Are Key West vacation deals refundable?",
       answer:
         "Most Key West packages allow cancellation with full refund 72+ hours before check-in. Hyatt and Marriott packages offer flexible date changes up to 12 months. Given Key West's vulnerability to tropical weather, travel insurance is recommended for visits during June through November. Hurricane-related cancellations are typically refunded in full.",
     },
     {
-      question: "What are the age and income requirements for Key West packages?",
+      question: "What are the age and income requirements for Key West deals?",
       answer:
         "Key West vacation packages require at least one guest aged 25-65 with a minimum household income of $50,000-$75,000 per year. Couples must attend the presentation together. A valid government ID and major credit card are required at check-in. Some Key West packages have slightly higher income requirements due to the premium destination.",
     },
     {
-      question: "Can I bring kids to Key West resort vacation packages?",
+      question: "Can I bring kids to Key West resort vacation deals?",
       answer:
         "Key West resort packages welcome families, though the island is more popular with couples. Resorts like Hyatt Windward Pointe have family-friendly pools and are near kid-friendly attractions like the Key West Aquarium, Key West Butterfly and Nature Conservatory, and Fort Zachary Taylor beach. Most packages accommodate 2 adults and up to 2 children.",
     },
@@ -434,17 +434,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 
   sedona: [
     {
-      question: "What is a vacation package to Sedona?",
+      question: "What is a vacation deal to Sedona?",
       answer:
-        "A Sedona vacation package is a discounted luxury resort stay surrounded by Arizona's iconic red rock formations. Packages are offered by timeshare resorts like Hyatt Residence Club Sedona, Diamond Resorts' Los Abrigados, and Wyndham Sedona. Stays include stunning canyon views, resort spas, and access to world-class hiking trails.",
+        "A Sedona vacation deal is a discounted luxury resort stay surrounded by Arizona's iconic red rock formations. Packages are offered by timeshare resorts like Hyatt Residence Club Sedona, Diamond Resorts' Los Abrigados, and Wyndham Sedona. Stays include stunning canyon views, resort spas, and access to world-class hiking trails.",
     },
     {
-      question: "How much do Sedona vacation packages cost?",
+      question: "How much do Sedona vacation deals cost?",
       answer:
         "Sedona packages range from $149 to $399 for a 3- to 4-night stay. Hyatt Residence Club offers 3-night packages starting at $199 with red rock views. Diamond Resorts Los Abrigados packages start at $149 for 3 nights on Oak Creek. Wyndham Sedona packages with spa credits run $249-$349 for 3 nights.",
     },
     {
-      question: "What's included in a Sedona vacation package?",
+      question: "What's included in a Sedona vacation deal?",
       answer:
         "Sedona packages include resort accommodations (many with balconies overlooking red rock formations), pool and hot tub access, fitness centers, and free parking. Premium packages add spa treatments at the resort, Pink Jeep Tours through red rock country, guided vortex hikes, wine tasting at Page Springs vineyards, or stargazing tours in Sedona's Dark Sky-certified skies.",
     },
@@ -454,14 +454,14 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, Sedona vacation packages require attending a 90-minute vacation ownership presentation at the resort. Presentations are scheduled in the morning so you can spend the rest of the day exploring Cathedral Rock, Devil's Bridge, or the charming Tlaquepaque Arts & Shopping Village. No purchase is required.",
     },
     {
-      question: "What resorts offer vacation packages in Sedona?",
+      question: "What resorts offer vacation deals in Sedona?",
       answer:
         "Top Sedona resorts with packages include Hyatt Residence Club Sedona Pinon Pointe (in Uptown Sedona), Diamond Resorts Los Abrigados Resort & Spa (on Oak Creek), Wyndham Sedona at Bell Rock, Ridge on Sedona Golf Resort, and Arroyo Roble Resort. All are surrounded by Sedona's spectacular red rock landscape.",
     },
     {
       question: "How is this different from booking a Sedona hotel on Booking.com?",
       answer:
-        "Sedona resort rooms cost $250-$500/night on Booking.com, especially during peak season. Vacation packages offer comparable accommodations for $50-$100/night with extras like spa credits and tour discounts. The savings make Sedona's luxury resort experience accessible without the luxury price tag.",
+        "Sedona resort rooms cost $250-$500/night on Booking.com, especially during peak season. Vacation deals offer comparable accommodations for $50-$100/night with extras like spa credits and tour discounts. The savings make Sedona's luxury resort experience accessible without the luxury price tag.",
     },
     {
       question: "What's the best time to visit Sedona?",
@@ -469,17 +469,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Sedona is beautiful year-round. Spring (March-May) and fall (September-November) offer ideal hiking temperatures of 65-85°F with clear skies. Summer is hot (95-105°F) but package prices drop significantly. Winter brings mild days (55-65°F), occasional dusting of snow on red rocks for stunning photos, and the lowest prices of the year.",
     },
     {
-      question: "Are Sedona vacation packages refundable?",
+      question: "Are Sedona vacation deals refundable?",
       answer:
         "Most Sedona packages offer free cancellation 48-72 hours before check-in. Hyatt and Wyndham packages allow date changes up to 12 months. Sedona rarely faces weather disruptions, but monsoon season (July-September) can bring afternoon thunderstorms. Resort pools and indoor spas remain available during inclement weather.",
     },
     {
-      question: "What are the age and income requirements for Sedona packages?",
+      question: "What are the age and income requirements for Sedona deals?",
       answer:
         "Sedona vacation packages typically require at least one guest aged 25-70 with a household income of $50,000+ per year. Couples must attend the presentation together. A valid government-issued ID and major credit card are needed at check-in. Sedona's appeal to retirees means many packages extend the upper age limit to 75.",
     },
     {
-      question: "Can I bring kids to Sedona resort vacation packages?",
+      question: "Can I bring kids to Sedona resort vacation deals?",
       answer:
         "While Sedona is popular with couples, families are welcome at most resort packages. Kids enjoy Pink Jeep Tours, Slide Rock State Park's natural water slide on Oak Creek, the Sedona Heritage Museum, and easy hikes like the Bell Rock Pathway. Resorts like Wyndham Sedona have pools and spacious suites that accommodate families of 4-6.",
     },
@@ -487,17 +487,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 
   "hilton-head": [
     {
-      question: "What is a vacation package to Hilton Head?",
+      question: "What is a vacation deal to Hilton Head?",
       answer:
-        "A Hilton Head vacation package is a discounted resort stay on South Carolina's premier barrier island, known for its pristine beaches, championship golf courses, and Lowcountry charm. Packages are offered by Marriott Vacation Club, Hilton Grand Vacations, and Bluegreen at island resorts with beach access, pools, and tennis courts.",
+        "A Hilton Head vacation deal is a discounted resort stay on South Carolina's premier barrier island, known for its pristine beaches, championship golf courses, and Lowcountry charm. Packages are offered by Marriott Vacation Club, Hilton Grand Vacations, and Bluegreen at island resorts with beach access, pools, and tennis courts.",
     },
     {
-      question: "How much do Hilton Head vacation packages cost?",
+      question: "How much do Hilton Head vacation deals cost?",
       answer:
         "Hilton Head packages range from $149 to $449 for a 3- to 5-night stay. Marriott's Barony Beach Club offers 3-night packages starting at $299 with Bonvoy points and beach access. Hilton Grand Vacations at RBC Heritage offers packages from $199 for 3 nights. Off-season packages start as low as $149.",
     },
     {
-      question: "What's included in a Hilton Head vacation package?",
+      question: "What's included in a Hilton Head vacation deal?",
       answer:
         "Hilton Head packages include resort accommodations (many with ocean views), beach access, pool and hot tub access, free Wi-Fi, and parking. Premium packages add rounds of golf at Harbour Town Golf Links, tennis lessons, bike rentals for exploring the island's 60+ miles of trails, dolphin-watching cruises, or dining credits at Lowcountry restaurants.",
     },
@@ -507,14 +507,14 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Yes, the discounted rate requires attending a 90-minute to 2-hour vacation ownership presentation at the resort. Presentations are held in the morning so you can enjoy Hilton Head's beaches and activities the rest of the day. No purchase is required, and all package benefits remain yours regardless.",
     },
     {
-      question: "What resorts offer vacation packages on Hilton Head?",
+      question: "What resorts offer vacation deals on Hilton Head?",
       answer:
         "Leading Hilton Head resorts with packages include Marriott's Barony Beach Club and SurfWatch, Hilton Grand Vacations at RBC Heritage, Bluegreen's Shore Crest Villas, and Club Wyndham Ocean Ridge. These are located within gated plantation communities like Palmetto Dunes, Shipyard, and Port Royal with private beach access.",
     },
     {
       question: "How is this different from booking Hilton Head on VRBO?",
       answer:
-        "Hilton Head villa rentals on VRBO cost $200-$500/night, especially in summer. Vacation packages offer resort-quality stays for $50-$90/night with amenities like beach service, daily housekeeping, concierge, and pool complexes that private villa rentals don't provide. The savings come from the resort's vacation ownership preview program.",
+        "Hilton Head villa rentals on VRBO cost $200-$500/night, especially in summer. Vacation deals offer resort-quality stays for $50-$90/night with amenities like beach service, daily housekeeping, concierge, and pool complexes that private villa rentals don't provide. The savings come from the resort's vacation ownership preview program.",
     },
     {
       question: "What's the best time to visit Hilton Head?",
@@ -522,17 +522,17 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
         "Beach season runs May through September with water temperatures of 75-85°F. The best package deals are in March-April (azaleas blooming, mild weather) and October-November (warm days, zero crowds). The RBC Heritage PGA tournament in April is iconic but makes that week harder to book. Winter is mild (50s-60s) and ideal for golf.",
     },
     {
-      question: "Are Hilton Head vacation packages refundable?",
+      question: "Are Hilton Head vacation deals refundable?",
       answer:
         "Most Hilton Head packages allow cancellation with full refund 48-72 hours before check-in. Marriott and Hilton packages typically offer flexible date changes up to 12 months from booking. Hurricane season (June-November) cancellations due to tropical weather are usually refunded fully or rebooked at no extra cost.",
     },
     {
-      question: "What are the age and income requirements for Hilton Head packages?",
+      question: "What are the age and income requirements for Hilton Head deals?",
       answer:
         "Hilton Head vacation packages require at least one guest aged 25-70 with a household income of $50,000-$75,000 per year. Couples must attend the presentation together. A valid photo ID and major credit card are needed at check-in. Hilton Head's upscale positioning means some resorts have slightly higher income requirements.",
     },
     {
-      question: "Can I bring kids to Hilton Head resort vacation packages?",
+      question: "Can I bring kids to Hilton Head resort vacation deals?",
       answer:
         "Hilton Head is very family-friendly. Kids love the island's beaches, the Coastal Discovery Museum, alligator spotting at Sea Pines Forest Preserve, and biking the flat island trails. Resort packages accommodate families in spacious villas, and properties like Marriott's SurfWatch have kids' pools and organized activities. Most packages include 2 adults and up to 2 children.",
     },
@@ -551,7 +551,7 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "Westgate Resorts is one of the largest privately held timeshare companies in the United States, founded by David Siegel. They own and operate over 28 resorts across popular vacation destinations including Orlando, Las Vegas, Gatlinburg, Myrtle Beach, Branson, Park City, and Cocoa Beach.",
     },
     {
-      question: "How much do Westgate vacation packages cost?",
+      question: "How much do Westgate vacation deals cost?",
       answer:
         "Westgate vacation packages typically range from $79 to $299 for 3-4 night stays. Their most popular packages — Orlando and Gatlinburg — start at $99 for 3 nights. Westgate Las Vegas packages start at $79 for 2 nights. Prices include resort accommodations, waterpark access (where available), and free parking.",
     },

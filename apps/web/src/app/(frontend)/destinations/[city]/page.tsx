@@ -1,29 +1,11 @@
-import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 interface CityPageProps {
   params: Promise<{ city: string }>;
 }
 
-export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
-  const { city } = await params;
-  const cityName = city.replace(/-/g, " ");
-  return {
-    title: `Vacation Packages in ${cityName}`,
-    description: `Find the best vacation package deals in ${cityName}. Compare prices from top timeshare resorts.`,
-  };
-}
-
+// Redirect old /destinations/[city] URLs to the SEO-friendly /[city] route
 export default async function CityPage({ params }: CityPageProps) {
   const { city } = await params;
-
-  return (
-    <div>
-      <h1 className="mb-6 text-3xl font-bold capitalize">
-        Vacation Packages in {city.replace(/-/g, " ")}
-      </h1>
-      <p className="text-gray-500">
-        Deals for this destination will be populated from the database.
-      </p>
-    </div>
-  );
+  redirect(`/${city}`);
 }

@@ -33,11 +33,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: totalDeals > 0
-      ? `Vacation Package Brands — ${brandCount} Brands, ${totalDeals} Deals`
-      : "Vacation Package Brands",
+      ? `Vacation Deal Brands — ${brandCount} Brands, ${totalDeals} Deals`
+      : "Vacation Deal Brands",
     description: totalDeals > 0
-      ? `Browse vacation packages from ${brandCount} brands with ${totalDeals} active deals. Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.`
-      : "Browse vacation packages by brand. Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.",
+      ? `Vacation deals from ${brandCount} brands with ${totalDeals} active resort deals. Browse deals from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.`
+      : "Vacation deals by brand. Browse resort deals from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.",
   };
 }
 
@@ -63,7 +63,7 @@ export default async function BrandsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Vacation Package Brands",
+    name: "Vacation Deal Brands",
     url: "https://vacationdeals.to/brands",
     mainEntity: {
       "@type": "ItemList",
@@ -89,11 +89,11 @@ export default async function BrandsPage() {
 
       <div className="mb-8">
         <h1 className="mb-2 text-3xl font-bold text-gray-900">
-          Vacation Package Brands
+          Vacation Deal Brands
         </h1>
         <p className="text-gray-600">
-          Browse deals by brand. Direct brands sell their own timeshare
-          packages, while brokers aggregate deals from multiple resorts.
+          Browse vacation deals by brand. Direct brands sell their own resort
+          deals, while brokers aggregate deals from multiple resorts.
         </p>
       </div>
 
@@ -103,7 +103,7 @@ export default async function BrandsPage() {
           <span className="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-700">
             Direct
           </span>
-          <span>Sells own packages</span>
+          <span>Sells own deals</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="rounded-full bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-700">

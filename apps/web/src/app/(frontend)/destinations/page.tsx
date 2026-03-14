@@ -55,11 +55,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: totalDeals > 0
-      ? `Vacation Destinations — ${destCount}+ Cities with Deals`
-      : "Vacation Destinations",
+      ? `Vacation Deals by Destination — ${destCount}+ Cities with Deals`
+      : "Vacation Deals by Destination",
     description: totalDeals > 0
-      ? `Browse vacation package deals in ${destCount}+ destinations. ${totalDeals} deals across Orlando, Las Vegas, Cancun, Gatlinburg, and more.`
-      : "Browse vacation package deals by destination. Orlando, Las Vegas, Cancun, Gatlinburg, and 50+ more cities.",
+      ? `Vacation deals in ${destCount}+ destinations. ${totalDeals} resort deals across Orlando, Las Vegas, Cancun, Gatlinburg, and more.`
+      : "Vacation deals by destination. Browse resort deals and getaway deals in Orlando, Las Vegas, Cancun, Gatlinburg, and 50+ more cities.",
   };
 }
 
@@ -112,8 +112,8 @@ export default async function DestinationsPage() {
           Vacation Destinations
         </h1>
         <p className="text-gray-600">
-          Browse vacation package deals by destination. Find the best prices for
-          your favorite getaway spots.
+          Browse vacation deals by destination. Find the best resort deals and
+          travel deals for your favorite getaway spots.
         </p>
       </div>
 

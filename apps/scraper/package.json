@@ -7,7 +7,13 @@
     "scrape:westgate": "tsx src/index.ts --source=westgate",
     "scrape:bookvip": "tsx src/index.ts --source=bookvip",
     "scrape:getawaydealz": "tsx src/index.ts --source=getawaydealz",
-    "scrape:mrg": "tsx src/index.ts --source=mrg"
+    "scrape:mrg": "tsx src/index.ts --source=mrg",
+    "scrape:hgv": "tsx src/index.ts --source=hgv",
+    "scrape:wyndham": "tsx src/index.ts --source=wyndham",
+    "scrape:holiday-inn": "tsx src/index.ts --source=holiday-inn",
+    "scrape:marriott": "tsx src/index.ts --source=marriott",
+    "scrape:govip": "tsx src/index.ts --source=govip",
+    "scrape:westgate-events": "tsx src/index.ts --source=westgate-events"
   },
   "dependencies": {
     "@vacationdeals/db": "workspace:*",

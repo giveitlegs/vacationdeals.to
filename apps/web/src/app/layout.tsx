@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "VacationDeals.to — Best Vacation Package Deals",
+    default: "VacationDeals.to — Best Vacation Deals from Top Resorts",
     template: "%s | VacationDeals.to",
   },
   description:
-    "Find the best vacation package deals from top timeshare resorts. Compare prices across Westgate, Hilton, Marriott, Wyndham, and more.",
+    "Vacation deals from top resorts starting at $59. Compare resort deals, hotel deals, and getaway packages from Westgate, Hilton, Marriott, Wyndham, and more.",
   metadataBase: new URL("https://vacationdeals.to"),
   openGraph: {
     siteName: "VacationDeals.to",
