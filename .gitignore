@@ -40,5 +40,6 @@ Thumbs.db
 *.tsbuildinfo
 next-env.d.ts
 
-# scraper
-storage/
+# scraper crawlee runtime storage (not src/storage/)
+**/crawlee_storage/
+**/apify_storage/
