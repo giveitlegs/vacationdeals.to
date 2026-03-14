@@ -1,8 +1,8 @@
-import { runWestgateCrawler } from "./crawlers/westgate.js";
-import { runBookvipCrawler } from "./crawlers/bookvip.js";
-import { runGetawaydealzCrawler } from "./crawlers/getawaydealz.js";
-import { runMrgCrawler } from "./crawlers/mrg.js";
-import { runWestgateEventsCrawler } from "./crawlers/westgate-events.js";
+import { runWestgateCrawler } from "./crawlers/westgate";
+import { runBookvipCrawler } from "./crawlers/bookvip";
+import { runGetawaydealzCrawler } from "./crawlers/getawaydealz";
+import { runMrgCrawler } from "./crawlers/mrg";
+import { runWestgateEventsCrawler } from "./crawlers/westgate-events";
 
 const crawlers: Record<string, () => Promise<void>> = {
   westgate: runWestgateCrawler,

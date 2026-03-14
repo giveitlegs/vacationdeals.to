@@ -1,5 +1,5 @@
 import { CheerioCrawler } from "crawlee";
-import { storeDeal } from "../storage/deal-store.js";
+import { storeDeal } from "../storage/deal-store";
 import type { ScrapedDeal } from "@vacationdeals/shared";
 
 /**
