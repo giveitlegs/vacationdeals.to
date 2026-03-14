@@ -1,4 +1,3 @@
-import { withPayload } from "@payloadcms/next/withPayload";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -8,7 +7,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "**" },
     ],
   },
-  serverExternalPackages: ["postgres", "drizzle-orm"],
+  serverExternalPackages: ["postgres", "drizzle-orm", "payload", "@payloadcms/next", "@payloadcms/db-postgres"],
 };
 
-export default withPayload(nextConfig);
+export default nextConfig;
