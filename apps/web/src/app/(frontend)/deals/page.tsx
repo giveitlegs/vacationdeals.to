@@ -3,12 +3,9 @@ import { Suspense } from "react";
 import { FilterBar } from "@/components/FilterBar";
 import { DealGrid } from "@/components/DealGrid";
 import type { Deal } from "@/components/DealCard";
+import { getDeals, getDealStats } from "@/lib/queries";
 
-export const metadata: Metadata = {
-  title: "All Vacation Package Deals",
-  description:
-    "Browse all vacation package deals from top timeshare resorts. Filter by destination, brand, price, and duration.",
-};
+export const revalidate = 3600; // Revalidate every hour
 
 const mockDeals: Deal[] = [
   { id: 1, title: "Westgate Lakes Resort & Spa", resortName: "Westgate Lakes", price: 99, originalPrice: 449, durationNights: 3, durationDays: 4, city: "Orlando", state: "FL", brandName: "Westgate Resorts", brandSlug: "westgate", savingsPercent: 78, inclusions: ["Free Parking", "Waterpark Access", "2 Adults + 2 Kids"], slug: "westgate-orlando-3-night-99" },
@@ -19,9 +16,65 @@ const mockDeals: Deal[] = [
   { id: 6, title: "Marriott Vacation Club Myrtle Beach", resortName: "Marriott OceanWatch", price: 299, originalPrice: 899, durationNights: 3, durationDays: 4, city: "Myrtle Beach", state: "SC", brandName: "Marriott Vacation Club", brandSlug: "marriott", savingsPercent: 67, inclusions: ["20,000 Bonvoy Points", "Ocean View Room", "Daily Breakfast"], slug: "marriott-myrtle-beach-3-night-299" },
 ];
 
-export default function DealsPage() {
+// ---------------------------------------------------------------------------
+// Dynamic metadata
+// ---------------------------------------------------------------------------
+
+export async function generateMetadata(): Promise<Metadata> {
+  const stats = await getDealStats();
+  const totalDeals = stats?.totalDeals || 0;
+  const cheapest = stats?.cheapestPrice || 59;
+
+  return {
+    title: totalDeals > 0
+      ? `All Vacation Package Deals — ${totalDeals} Deals from $${cheapest}`
+      : "All Vacation Package Deals",
+    description: totalDeals > 0
+      ? `Browse ${totalDeals} vacation package deals from top timeshare resorts starting at $${cheapest}. Filter by destination, brand, price, and duration.`
+      : "Browse all vacation package deals from top timeshare resorts. Filter by destination, brand, price, and duration.",
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Page component
+// ---------------------------------------------------------------------------
+
+export default async function DealsPage() {
+  const dbResult = await getDeals({ page: 1, limit: 24 });
+  const deals = dbResult && dbResult.deals.length > 0 ? dbResult.deals : mockDeals;
+  const totalDeals = dbResult?.total ?? deals.length;
+  const totalPages = Math.ceil(totalDeals / 24);
+
+  // Schema.org JSON-LD
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "All Vacation Package Deals",
+    url: "https://vacationdeals.to/deals",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: totalDeals,
+      itemListElement: deals.slice(0, 10).map((d, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Offer",
+          name: d.title,
+          price: d.price,
+          priceCurrency: "USD",
+          seller: { "@type": "Organization", name: d.brandName },
+        },
+      })),
+    },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="mb-8">
         <h1 className="mb-2 text-3xl font-bold text-gray-900">
           All Vacation Deals
@@ -44,28 +97,36 @@ export default function DealsPage() {
 
       {/* Results count */}
       <div className="mb-4 text-sm text-gray-500">
-        Showing {mockDeals.length} deals
+        Showing {deals.length} of {totalDeals} deals
       </div>
 
       {/* Deal Grid */}
-      <DealGrid deals={mockDeals} />
+      <DealGrid deals={deals} />
 
-      {/* Pagination Placeholder */}
-      <div className="mt-10 flex items-center justify-center gap-2">
-        <span className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white">
-          1
-        </span>
-        <button className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50">
-          2
-        </button>
-        <button className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50">
-          3
-        </button>
-        <span className="px-2 text-gray-400">...</span>
-        <button className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50">
-          12
-        </button>
-      </div>
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="mt-10 flex items-center justify-center gap-2">
+          <span className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white">
+            1
+          </span>
+          {Array.from({ length: Math.min(totalPages - 1, 4) }, (_, i) => (
+            <button
+              key={i + 2}
+              className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50"
+            >
+              {i + 2}
+            </button>
+          ))}
+          {totalPages > 5 && (
+            <>
+              <span className="px-2 text-gray-400">...</span>
+              <button className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50">
+                {totalPages}
+              </button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }

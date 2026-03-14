@@ -47,7 +47,7 @@ export function Footer() {
             <ul className="mt-3 space-y-2.5 text-sm text-gray-500">
               <li>
                 <Link
-                  href="/destinations/orlando"
+                  href="/orlando"
                   className="hover:text-gray-900"
                 >
                   Orlando, FL
@@ -55,7 +55,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/destinations/las-vegas"
+                  href="/las-vegas"
                   className="hover:text-gray-900"
                 >
                   Las Vegas, NV
@@ -63,7 +63,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/destinations/cancun"
+                  href="/cancun"
                   className="hover:text-gray-900"
                 >
                   Cancun, MX
@@ -71,7 +71,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/destinations/gatlinburg"
+                  href="/gatlinburg"
                   className="hover:text-gray-900"
                 >
                   Gatlinburg, TN
@@ -79,7 +79,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/destinations/myrtle-beach"
+                  href="/myrtle-beach"
                   className="hover:text-gray-900"
                 >
                   Myrtle Beach, SC
@@ -96,20 +96,20 @@ export function Footer() {
             <ul className="mt-3 space-y-2.5 text-sm text-gray-500">
               <li>
                 <Link
-                  href="/brands/westgate"
+                  href="/westgate"
                   className="hover:text-gray-900"
                 >
                   Westgate Resorts
                 </Link>
               </li>
               <li>
-                <Link href="/brands/hgv" className="hover:text-gray-900">
+                <Link href="/hgv" className="hover:text-gray-900">
                   Hilton Grand Vacations
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/brands/marriott"
+                  href="/marriott"
                   className="hover:text-gray-900"
                 >
                   Marriott Vacation Club
@@ -117,7 +117,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/brands/wyndham"
+                  href="/wyndham"
                   className="hover:text-gray-900"
                 >
                   Club Wyndham
@@ -125,7 +125,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/brands/bookvip"
+                  href="/bookvip"
                   className="hover:text-gray-900"
                 >
                   BookVIP

@@ -3,12 +3,18 @@ import Link from "next/link";
 import { SearchBar } from "@/components/SearchBar";
 import { DealGrid } from "@/components/DealGrid";
 import type { Deal } from "@/components/DealCard";
+import {
+  getFeaturedDeals,
+  getDealStats,
+  getDestinationsWithCounts,
+  getBrandsWithCounts,
+} from "@/lib/queries";
 
-export const metadata: Metadata = {
-  title: "VacationDeals.to — Best Vacation Package Deals from Top Resorts",
-  description:
-    "Compare vacation packages from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more. Deals starting at $59. 3-night and 4-night packages to Orlando, Las Vegas, Cancun, and 50+ destinations.",
-};
+export const revalidate = 3600; // Revalidate every hour
+
+// ---------------------------------------------------------------------------
+// Mock / fallback data
+// ---------------------------------------------------------------------------
 
 const mockDeals: Deal[] = [
   { id: 1, title: "Westgate Lakes Resort & Spa", resortName: "Westgate Lakes", price: 99, originalPrice: 449, durationNights: 3, durationDays: 4, city: "Orlando", state: "FL", brandName: "Westgate Resorts", brandSlug: "westgate", savingsPercent: 78, inclusions: ["Free Parking", "Waterpark Access", "2 Adults + 2 Kids"], slug: "westgate-orlando-3-night-99" },
@@ -19,7 +25,7 @@ const mockDeals: Deal[] = [
   { id: 6, title: "Marriott Vacation Club Myrtle Beach", resortName: "Marriott OceanWatch", price: 299, originalPrice: 899, durationNights: 3, durationDays: 4, city: "Myrtle Beach", state: "SC", brandName: "Marriott Vacation Club", brandSlug: "marriott", savingsPercent: 67, inclusions: ["20,000 Bonvoy Points", "Ocean View Room", "Daily Breakfast"], slug: "marriott-myrtle-beach-3-night-299" },
 ];
 
-const popularDestinations = [
+const fallbackDestinations = [
   { name: "Orlando", state: "FL", deals: 47, gradient: "from-blue-400 to-cyan-300" },
   { name: "Las Vegas", state: "NV", deals: 32, gradient: "from-amber-400 to-orange-500" },
   { name: "Cancun", state: "MX", deals: 28, gradient: "from-teal-400 to-emerald-300" },
@@ -27,7 +33,7 @@ const popularDestinations = [
   { name: "Myrtle Beach", state: "SC", deals: 24, gradient: "from-sky-400 to-blue-500" },
 ];
 
-const popularBrands = [
+const fallbackBrands = [
   { name: "Westgate Resorts", slug: "westgate", type: "direct", deals: 52 },
   { name: "Hilton Grand Vacations", slug: "hgv", type: "direct", deals: 38 },
   { name: "Marriott Vacation Club", slug: "marriott", type: "direct", deals: 41 },
@@ -40,9 +46,104 @@ const popularBrands = [
   { name: "Westgate Events", slug: "westgate-events", type: "direct", deals: 29 },
 ];
 
-export default function HomePage() {
+const destinationGradients: Record<string, string> = {
+  Orlando: "from-blue-400 to-cyan-300",
+  "Las Vegas": "from-amber-400 to-orange-500",
+  Cancun: "from-teal-400 to-emerald-300",
+  Gatlinburg: "from-green-500 to-emerald-600",
+  "Myrtle Beach": "from-sky-400 to-blue-500",
+  Branson: "from-rose-400 to-pink-500",
+  Williamsburg: "from-violet-400 to-purple-500",
+  "San Antonio": "from-orange-400 to-red-500",
+  Miami: "from-cyan-400 to-blue-500",
+  Nashville: "from-yellow-400 to-amber-500",
+};
+
+function getGradient(name: string): string {
+  return destinationGradients[name] ?? "from-indigo-400 to-purple-500";
+}
+
+// ---------------------------------------------------------------------------
+// Dynamic metadata
+// ---------------------------------------------------------------------------
+
+export async function generateMetadata(): Promise<Metadata> {
+  const stats = await getDealStats();
+  const cheapest = stats?.cheapestPrice || 59;
+  const totalDeals = stats?.totalDeals || 500;
+  const brandCount = stats?.brandCount || 13;
+  const destinationCount = stats?.destinationCount || 20;
+
+  return {
+    title: `VacationDeals.to — ${totalDeals}+ Vacation Packages from $${cheapest}`,
+    description: `Compare ${totalDeals}+ vacation package deals from ${brandCount} brands. Packages starting at $${cheapest} for top resorts in ${destinationCount}+ destinations.`,
+    openGraph: {
+      title: `VacationDeals.to — ${totalDeals}+ Vacation Packages from $${cheapest}`,
+      description: `Compare ${totalDeals}+ vacation package deals from ${brandCount} brands. Packages starting at $${cheapest}.`,
+      type: "website",
+      url: "https://vacationdeals.to",
+    },
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Page component
+// ---------------------------------------------------------------------------
+
+export default async function HomePage() {
+  const [featuredDeals, stats, destinationsData, brandsData] = await Promise.all(
+    [getFeaturedDeals(6), getDealStats(), getDestinationsWithCounts(), getBrandsWithCounts()],
+  );
+
+  // Use DB data if available, otherwise fall back to mock data
+  const dealsToShow = featuredDeals?.length ? featuredDeals : mockDeals;
+
+  const popularDestinations =
+    destinationsData && destinationsData.length > 0
+      ? destinationsData.slice(0, 5).map((d) => ({
+          name: d.name,
+          state: d.state ?? "",
+          deals: d.deals,
+          gradient: getGradient(d.name),
+        }))
+      : fallbackDestinations;
+
+  const popularBrands =
+    brandsData && brandsData.length > 0
+      ? brandsData.slice(0, 10).map((b) => ({
+          name: b.name,
+          slug: b.slug,
+          type: b.type,
+          deals: b.deals,
+        }))
+      : fallbackBrands;
+
+  const totalDeals = stats?.totalDeals || 500;
+  const destinationCount = stats?.destinationCount || 20;
+  const brandCount = stats?.brandCount || 13;
+  const cheapest = stats?.cheapestPrice || 59;
+
+  // Schema.org JSON-LD
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "VacationDeals.to",
+    url: "https://vacationdeals.to",
+    description: `Compare ${totalDeals}+ vacation package deals from ${brandCount} brands starting at $${cheapest}.`,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://vacationdeals.to/deals?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero Section */}
       <section className="mb-16 pt-8 text-center">
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
@@ -50,7 +151,7 @@ export default function HomePage() {
         </h1>
         <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
           Compare deals from top timeshare resorts — all in one place. Packages
-          starting at $59 for 3-night stays at premium resorts.
+          starting at ${cheapest} for 3-night stays at premium resorts.
         </p>
 
         <SearchBar />
@@ -58,17 +159,17 @@ export default function HomePage() {
         {/* Stats */}
         <div className="mt-10 flex items-center justify-center gap-8 sm:gap-12">
           <div>
-            <p className="text-2xl font-bold text-gray-900">500+</p>
+            <p className="text-2xl font-bold text-gray-900">{totalDeals}+</p>
             <p className="text-sm text-gray-500">Active Deals</p>
           </div>
           <div className="h-8 w-px bg-gray-200" />
           <div>
-            <p className="text-2xl font-bold text-gray-900">20+</p>
+            <p className="text-2xl font-bold text-gray-900">{destinationCount}+</p>
             <p className="text-sm text-gray-500">Destinations</p>
           </div>
           <div className="h-8 w-px bg-gray-200" />
           <div>
-            <p className="text-2xl font-bold text-gray-900">13</p>
+            <p className="text-2xl font-bold text-gray-900">{brandCount}</p>
             <p className="text-sm text-gray-500">Brands</p>
           </div>
         </div>
@@ -85,7 +186,7 @@ export default function HomePage() {
             View all deals &rarr;
           </Link>
         </div>
-        <DealGrid deals={mockDeals} />
+        <DealGrid deals={dealsToShow} />
       </section>
 
       {/* Popular Destinations */}
@@ -105,7 +206,7 @@ export default function HomePage() {
           {popularDestinations.map((dest) => (
             <Link
               key={dest.name}
-              href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
+              href={`/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
               className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               <div
@@ -141,7 +242,7 @@ export default function HomePage() {
           {popularBrands.map((brand) => (
             <Link
               key={brand.slug}
-              href={`/brands/${brand.slug}`}
+              href={`/${brand.slug}`}
               className="flex flex-col items-center gap-2 rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md"
             >
               <span className="text-sm font-semibold text-gray-900">
@@ -219,7 +320,7 @@ export default function HomePage() {
         <div className="space-y-3 text-sm leading-relaxed text-gray-600">
           <p>
             VacationDeals.to is the most comprehensive comparison site for
-            timeshare vacation packages. We aggregate deals from over 13 major
+            timeshare vacation packages. We aggregate deals from over {brandCount} major
             brands including Westgate Resorts, Hilton Grand Vacations, Marriott
             Vacation Club, Club Wyndham, and more.
           </p>
@@ -236,7 +337,7 @@ export default function HomePage() {
             prices and availability. Use our filters to find packages by
             destination, brand, price range, or trip duration. Whether you are
             looking for a budget-friendly weekend getaway or an all-inclusive
-            resort experience, we have deals starting from just $59.
+            resort experience, we have deals starting from just ${cheapest}.
           </p>
         </div>
       </section>

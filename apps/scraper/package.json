@@ -7,7 +7,8 @@
     "scrape": "tsx src/index.ts",
     "scrape:westgate": "tsx src/index.ts --source=westgate",
     "scrape:bookvip": "tsx src/index.ts --source=bookvip",
-    "scrape:getawaydealz": "tsx src/index.ts --source=getawaydealz"
+    "scrape:getawaydealz": "tsx src/index.ts --source=getawaydealz",
+    "scrape:mrg": "tsx src/index.ts --source=mrg"
   },
   "dependencies": {
     "@vacationdeals/db": "workspace:*",

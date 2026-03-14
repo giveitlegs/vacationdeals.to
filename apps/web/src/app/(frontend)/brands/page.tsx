@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getBrandsWithCounts, getDealStats } from "@/lib/queries";
 
-export const metadata: Metadata = {
-  title: "Vacation Package Brands",
-  description:
-    "Browse vacation packages by brand. Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.",
-};
+export const revalidate = 3600; // Revalidate every hour
 
-const brands = [
+const fallbackBrands = [
   { name: "Westgate Resorts", slug: "westgate", type: "direct" as const, deals: 52, description: "One of the largest timeshare companies in the US with resorts across Florida, Tennessee, and more." },
   { name: "Hilton Grand Vacations", slug: "hgv", type: "direct" as const, deals: 38, description: "Premium vacation ownership by Hilton with properties in Orlando, Las Vegas, Hawaii, and beyond." },
   { name: "Marriott Vacation Club", slug: "marriott", type: "direct" as const, deals: 41, description: "Luxury vacation ownership by Marriott International with world-class resorts." },
@@ -25,9 +22,71 @@ const brands = [
   { name: "Westgate Events", slug: "westgate-events", type: "direct" as const, deals: 29, description: "Part of Westgate Resorts ecosystem offering concert, sports, and entertainment vacation packages in Las Vegas, Orlando, and more." },
 ];
 
-export default function BrandsPage() {
+// ---------------------------------------------------------------------------
+// Dynamic metadata
+// ---------------------------------------------------------------------------
+
+export async function generateMetadata(): Promise<Metadata> {
+  const stats = await getDealStats();
+  const brandCount = stats?.brandCount || 13;
+  const totalDeals = stats?.totalDeals || 0;
+
+  return {
+    title: totalDeals > 0
+      ? `Vacation Package Brands — ${brandCount} Brands, ${totalDeals} Deals`
+      : "Vacation Package Brands",
+    description: totalDeals > 0
+      ? `Browse vacation packages from ${brandCount} brands with ${totalDeals} active deals. Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.`
+      : "Browse vacation packages by brand. Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.",
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Page component
+// ---------------------------------------------------------------------------
+
+export default async function BrandsPage() {
+  const dbBrands = await getBrandsWithCounts();
+
+  const brands =
+    dbBrands && dbBrands.length > 0
+      ? dbBrands.map((b) => ({
+          name: b.name,
+          slug: b.slug,
+          type: b.type as "direct" | "broker",
+          deals: b.deals,
+          description: b.description ?? "",
+        }))
+      : fallbackBrands;
+
+  // Schema.org JSON-LD
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Vacation Package Brands",
+    url: "https://vacationdeals.to/brands",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: brands.length,
+      itemListElement: brands.map((b, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Organization",
+          name: b.name,
+          description: b.description,
+        },
+      })),
+    },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="mb-8">
         <h1 className="mb-2 text-3xl font-bold text-gray-900">
           Vacation Package Brands
@@ -58,7 +117,7 @@ export default function BrandsPage() {
         {brands.map((brand) => (
           <Link
             key={brand.slug}
-            href={`/brands/${brand.slug}`}
+            href={`/${brand.slug}`}
             className="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md"
           >
             <div className="mb-3 flex items-start justify-between">

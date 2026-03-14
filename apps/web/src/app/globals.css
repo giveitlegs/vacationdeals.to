@@ -86,3 +86,38 @@
   width: 100%;
   height: 20px;
 }
+
+/* ── FAQ Accordion (pure CSS, zero JS) ── */
+
+/* Hide default marker/triangle */
+.faq-item summary {
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::marker {
+  display: none;
+  content: '';
+}
+
+/* Chevron rotation */
+.faq-chevron {
+  transition: transform 0.3s ease;
+}
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* Smooth expand/collapse via grid-template-rows */
+.faq-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+.faq-item[open] .faq-content {
+  grid-template-rows: 1fr;
+}
+.faq-content > div {
+  overflow: hidden;
+}

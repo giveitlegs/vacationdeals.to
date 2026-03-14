@@ -3,9 +3,20 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { DealGrid } from "@/components/DealGrid";
 import type { Deal } from "@/components/DealCard";
+import {
+  getDeals,
+  getBrandBySlug,
+  getDestinationBySlug,
+} from "@/lib/queries";
+import { SEOPreFooter } from "@/components/SEOPreFooter";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { FAQSchema } from "@/components/FAQSchema";
+import { getFAQsForSlug } from "@/lib/faqs";
+
+export const revalidate = 3600; // Revalidate every hour
 
 // ---------------------------------------------------------------------------
-// Static slug data — will eventually come from the database
+// Static slug data — used as fallback when DB is unavailable
 // ---------------------------------------------------------------------------
 
 const destinations = [
@@ -53,7 +64,7 @@ const priceRanges = [
   { slug: "deals-under-200", label: "Deals Under $200", maxPrice: 200, description: "Affordable vacation packages under $200 with resort stays, perks, and extras included." },
   { slug: "deals-under-300", label: "Deals Under $300", maxPrice: 300, description: "Great value vacation packages under $300 at top-rated resorts nationwide." },
   { slug: "deals-under-500", label: "Deals Under $500", maxPrice: 500, description: "Premium resort packages under $500 including all-inclusive options and luxury stays." },
-  { slug: "deals-100-to-200", label: "Deals $100–$200", minPrice: 100, maxPrice: 200, description: "Mid-range vacation packages between $100 and $200 at popular resort destinations." },
+  { slug: "deals-100-to-200", label: "Deals $100\u2013$200", minPrice: 100, maxPrice: 200, description: "Mid-range vacation packages between $100 and $200 at popular resort destinations." },
 ];
 
 const durations = [
@@ -64,7 +75,7 @@ const durations = [
 ];
 
 // ---------------------------------------------------------------------------
-// Mock deals — same data used across the site
+// Mock deals — fallback data
 // ---------------------------------------------------------------------------
 
 const mockDeals: Deal[] = [
@@ -102,7 +113,7 @@ function resolveSlug(slug: string): SlugType | null {
   return null;
 }
 
-function filterDeals(resolved: SlugType): Deal[] {
+function filterMockDeals(resolved: SlugType): Deal[] {
   switch (resolved.type) {
     case "destination": {
       const cityName = resolved.data.name;
@@ -124,11 +135,30 @@ function filterDeals(resolved: SlugType): Deal[] {
   }
 }
 
-function toTitleCase(str: string): string {
-  return str
-    .split(" ")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
+// ---------------------------------------------------------------------------
+// DB-powered deal fetching per slug type
+// ---------------------------------------------------------------------------
+
+async function getDealsForSlug(
+  resolved: SlugType,
+): Promise<{ deals: Deal[]; total: number } | null> {
+  switch (resolved.type) {
+    case "destination":
+      return getDeals({ destinationSlug: resolved.data.slug });
+    case "brand":
+      return getDeals({ brandSlug: resolved.data.slug });
+    case "price": {
+      const { maxPrice, minPrice } = resolved.data as {
+        maxPrice: number;
+        minPrice?: number;
+      };
+      return getDeals({ maxPrice, minPrice });
+    }
+    case "duration":
+      return getDeals({ durationNights: resolved.data.nights });
+    default:
+      return null;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -146,7 +176,7 @@ export function generateStaticParams() {
 }
 
 // ---------------------------------------------------------------------------
-// generateMetadata
+// generateMetadata — dynamic with live data
 // ---------------------------------------------------------------------------
 
 interface SlugPageProps {
@@ -166,13 +196,29 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
   switch (resolved.type) {
     case "destination": {
       const { name, state } = resolved.data;
+      const destDetail = await getDestinationBySlug(slug);
+      const dealCount = destDetail?.dealCount || 0;
+      const cheapest = destDetail?.cheapestPrice || 59;
+      const brandNames = destDetail?.brands?.slice(0, 3).join(", ") || "top resorts";
+      const durationsText =
+        destDetail?.durations?.map((n) => `${n}-night`).join(" and ") ||
+        "3-night and 4-night";
+
       return {
-        title: `${name}, ${state} Vacation Packages — Deals from $59 | VacationDeals.to`,
-        description: `Find the best vacation package deals in ${name}, ${state}. Compare prices from top timeshare resorts. ${resolved.data.description}`,
+        title: dealCount > 0
+          ? `${name} Vacation Packages from $${cheapest} — ${dealCount} Deals | VacationDeals.to`
+          : `${name}, ${state} Vacation Packages — Deals from $59 | VacationDeals.to`,
+        description: dealCount > 0
+          ? `Compare ${dealCount} vacation packages in ${name}, ${state}. Deals from $${cheapest} at ${brandNames}, and more. ${durationsText} packages available.`
+          : `Find the best vacation package deals in ${name}, ${state}. Compare prices from top timeshare resorts. ${resolved.data.description}`,
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
-          title: `${name} Vacation Package Deals`,
-          description: `Compare vacation packages in ${name}, ${state}. Deals starting at $59 from top resorts.`,
+          title: dealCount > 0
+            ? `${name} Vacation Packages from $${cheapest} — ${dealCount} Deals`
+            : `${name} Vacation Package Deals`,
+          description: dealCount > 0
+            ? `Compare ${dealCount} vacation packages in ${name}, ${state}. Deals starting at $${cheapest}.`
+            : `Compare vacation packages in ${name}, ${state}. Deals starting at $59 from top resorts.`,
           url: `${baseUrl}/${slug}`,
           type: "website",
         },
@@ -180,13 +226,26 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
     }
     case "brand": {
       const { name } = resolved.data;
+      const brandDetail = await getBrandBySlug(slug);
+      const dealCount = brandDetail?.dealCount || 0;
+      const cheapest = brandDetail?.cheapestPrice || 59;
+      const destNames = brandDetail?.destinations?.slice(0, 4).join(", ") || "top destinations";
+
       return {
-        title: `${name} Vacation Packages — Compare Deals | VacationDeals.to`,
-        description: `Browse all vacation package deals from ${name}. Compare prices, durations, and destinations. ${resolved.data.description}`,
+        title: dealCount > 0
+          ? `${name} Vacation Packages from $${cheapest} — ${dealCount} Deals`
+          : `${name} Vacation Packages — Compare Deals | VacationDeals.to`,
+        description: dealCount > 0
+          ? `Browse ${dealCount} ${name} vacation packages starting at $${cheapest}. Properties in ${destNames}, and more.`
+          : `Browse all vacation package deals from ${name}. Compare prices, durations, and destinations. ${resolved.data.description}`,
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
-          title: `${name} Vacation Packages`,
-          description: `Compare all ${name} vacation packages. Find the best deals and save up to 80%.`,
+          title: dealCount > 0
+            ? `${name} Vacation Packages from $${cheapest}`
+            : `${name} Vacation Packages`,
+          description: dealCount > 0
+            ? `Browse ${dealCount} packages starting at $${cheapest}.`
+            : `Compare all ${name} vacation packages. Find the best deals and save up to 80%.`,
           url: `${baseUrl}/${slug}`,
           type: "website",
         },
@@ -194,9 +253,16 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
     }
     case "price": {
       const { label } = resolved.data;
+      const result = await getDealsForSlug(resolved);
+      const dealCount = result?.total || 0;
+
       return {
-        title: `${label} — Cheap Vacation Packages | VacationDeals.to`,
-        description: `${resolved.data.description} Compare packages from top timeshare resorts.`,
+        title: dealCount > 0
+          ? `${label} — ${dealCount} Cheap Vacation Packages | VacationDeals.to`
+          : `${label} — Cheap Vacation Packages | VacationDeals.to`,
+        description: dealCount > 0
+          ? `${dealCount} ${label.toLowerCase()} from top timeshare resorts. ${resolved.data.description}`
+          : `${resolved.data.description} Compare packages from top timeshare resorts.`,
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
           title: label,
@@ -208,9 +274,16 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
     }
     case "duration": {
       const { label } = resolved.data;
+      const result = await getDealsForSlug(resolved);
+      const dealCount = result?.total || 0;
+
       return {
-        title: `${label} — Resort Vacation Deals | VacationDeals.to`,
-        description: `${resolved.data.description} Compare the best ${label.toLowerCase()} from top resort brands.`,
+        title: dealCount > 0
+          ? `${label} — ${dealCount} Resort Vacation Deals | VacationDeals.to`
+          : `${label} — Resort Vacation Deals | VacationDeals.to`,
+        description: dealCount > 0
+          ? `${dealCount} ${label.toLowerCase()} from top resort brands. ${resolved.data.description}`
+          : `${resolved.data.description} Compare the best ${label.toLowerCase()} from top resort brands.`,
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
           title: label,
@@ -235,17 +308,34 @@ export default async function SlugPage({ params }: SlugPageProps) {
     notFound();
   }
 
-  const deals = filterDeals(resolved);
+  // Try to fetch deals from DB, fall back to mock data
+  const dbResult = await getDealsForSlug(resolved);
+  const deals = dbResult && dbResult.deals.length > 0 ? dbResult.deals : filterMockDeals(resolved);
+  const totalDeals = dbResult?.total ?? deals.length;
 
   switch (resolved.type) {
     case "destination":
-      return <DestinationPage data={resolved.data} deals={deals} />;
+      return (
+        <DestinationPage
+          data={resolved.data}
+          deals={deals}
+          totalDeals={totalDeals}
+          slug={slug}
+        />
+      );
     case "brand":
-      return <BrandPage data={resolved.data} deals={deals} />;
+      return (
+        <BrandPage
+          data={resolved.data}
+          deals={deals}
+          totalDeals={totalDeals}
+          slug={slug}
+        />
+      );
     case "price":
-      return <PricePage data={resolved.data} deals={deals} />;
+      return <PricePage data={resolved.data} deals={deals} totalDeals={totalDeals} slug={slug} />;
     case "duration":
-      return <DurationPage data={resolved.data} deals={deals} />;
+      return <DurationPage data={resolved.data} deals={deals} totalDeals={totalDeals} slug={slug} />;
   }
 }
 
@@ -253,13 +343,22 @@ export default async function SlugPage({ params }: SlugPageProps) {
 // Sub-layouts for each slug type
 // ---------------------------------------------------------------------------
 
-function DestinationPage({
+async function DestinationPage({
   data,
   deals,
+  totalDeals,
+  slug,
 }: {
   data: (typeof destinations)[number];
   deals: Deal[];
+  totalDeals: number;
+  slug: string;
 }) {
+  // Fetch live stats for JSON-LD
+  const destDetail = await getDestinationBySlug(slug);
+  const cheapest = destDetail?.cheapestPrice ?? (deals.length > 0 ? Math.min(...deals.map((d) => d.price)) : null);
+  const brandNames = destDetail?.brands ?? [...new Set(deals.map((d) => d.brandName))];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristDestination",
@@ -270,6 +369,23 @@ function DestinationPage({
       "@type": "AdministrativeArea",
       name: data.state,
     },
+    ...(cheapest != null
+      ? {
+          makesOffer: {
+            "@type": "AggregateOffer",
+            lowPrice: cheapest,
+            priceCurrency: "USD",
+            offerCount: totalDeals,
+            offers: deals.slice(0, 5).map((d) => ({
+              "@type": "Offer",
+              name: d.title,
+              price: d.price,
+              priceCurrency: "USD",
+              seller: { "@type": "Organization", name: d.brandName },
+            })),
+          },
+        }
+      : {}),
   };
 
   return (
@@ -285,6 +401,11 @@ function DestinationPage({
           Vacation Packages in {data.name}, {data.state}
         </h1>
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
+        {cheapest != null && (
+          <p className="mt-2 text-sm font-medium text-white/80">
+            {totalDeals} deals from ${cheapest} &middot; {brandNames.length} brands
+          </p>
+        )}
       </div>
 
       {/* Breadcrumb */}
@@ -321,23 +442,57 @@ function DestinationPage({
           credits, and loyalty points from top brands.
         </p>
       </section>
+
+      {(() => {
+        const faqs = getFAQsForSlug(slug);
+        if (!faqs || faqs.length === 0) return null;
+        return (
+          <>
+            <FAQSchema faqs={faqs} />
+            <section className="mt-16">
+              <FAQAccordion faqs={faqs} />
+            </section>
+          </>
+        );
+      })()}
+
+      <SEOPreFooter type="destinations" currentSlug={slug} />
     </div>
   );
 }
 
-function BrandPage({
+async function BrandPage({
   data,
   deals,
+  totalDeals,
+  slug,
 }: {
   data: (typeof brands)[number];
   deals: Deal[];
+  totalDeals: number;
+  slug: string;
 }) {
+  // Fetch live stats for JSON-LD
+  const brandDetail = await getBrandBySlug(slug);
+  const cheapest = brandDetail?.cheapestPrice ?? (deals.length > 0 ? Math.min(...deals.map((d) => d.price)) : null);
+  const destNames = brandDetail?.destinations ?? [...new Set(deals.map((d) => d.city))];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: data.name,
     description: data.description,
     url: `https://vacationdeals.to/${data.slug}`,
+    ...(cheapest != null
+      ? {
+          makesOffer: {
+            "@type": "AggregateOffer",
+            lowPrice: cheapest,
+            priceCurrency: "USD",
+            offerCount: totalDeals,
+          },
+        }
+      : {}),
   };
 
   return (
@@ -362,6 +517,11 @@ function BrandPage({
           </span>
         </div>
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
+        {cheapest != null && (
+          <p className="mt-2 text-sm font-medium text-white/80">
+            {totalDeals} deals from ${cheapest} &middot; {destNames.length} destinations
+          </p>
+        )}
       </div>
 
       {/* Breadcrumb */}
@@ -397,6 +557,21 @@ function BrandPage({
           at deeply discounted rates with perks and bonuses included.
         </p>
       </section>
+
+      {(() => {
+        const faqs = getFAQsForSlug(slug);
+        if (!faqs || faqs.length === 0) return null;
+        return (
+          <>
+            <FAQSchema faqs={faqs} />
+            <section className="mt-16">
+              <FAQAccordion faqs={faqs} />
+            </section>
+          </>
+        );
+      })()}
+
+      <SEOPreFooter type="brands" currentSlug={slug} />
     </div>
   );
 }
@@ -404,16 +579,52 @@ function BrandPage({
 function PricePage({
   data,
   deals,
+  totalDeals,
+  slug,
 }: {
   data: (typeof priceRanges)[number];
   deals: Deal[];
+  totalDeals: number;
+  slug: string;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: data.label,
+    description: data.description,
+    url: `https://vacationdeals.to/${data.slug}`,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: totalDeals,
+      itemListElement: deals.slice(0, 5).map((d, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Offer",
+          name: d.title,
+          price: d.price,
+          priceCurrency: "USD",
+        },
+      })),
+    },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero */}
       <div className="mb-8 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-400 px-8 py-12 text-white">
         <h1 className="mb-2 text-3xl font-bold sm:text-4xl">{data.label}</h1>
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
+        {totalDeals > 0 && (
+          <p className="mt-2 text-sm font-medium text-white/80">
+            {totalDeals} deals available
+          </p>
+        )}
       </div>
 
       {/* Breadcrumb */}
@@ -447,6 +658,21 @@ function PricePage({
           during your stay. No purchase required.
         </p>
       </section>
+
+      {(() => {
+        const faqs = getFAQsForSlug(slug);
+        if (!faqs || faqs.length === 0) return null;
+        return (
+          <>
+            <FAQSchema faqs={faqs} />
+            <section className="mt-16">
+              <FAQAccordion faqs={faqs} />
+            </section>
+          </>
+        );
+      })()}
+
+      <SEOPreFooter type="prices" currentSlug={slug} />
     </div>
   );
 }
@@ -454,16 +680,52 @@ function PricePage({
 function DurationPage({
   data,
   deals,
+  totalDeals,
+  slug,
 }: {
   data: (typeof durations)[number];
   deals: Deal[];
+  totalDeals: number;
+  slug: string;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: data.label,
+    description: data.description,
+    url: `https://vacationdeals.to/${data.slug}`,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: totalDeals,
+      itemListElement: deals.slice(0, 5).map((d, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Offer",
+          name: d.title,
+          price: d.price,
+          priceCurrency: "USD",
+        },
+      })),
+    },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero */}
       <div className="mb-8 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-400 px-8 py-12 text-white">
         <h1 className="mb-2 text-3xl font-bold sm:text-4xl">{data.label}</h1>
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
+        {totalDeals > 0 && (
+          <p className="mt-2 text-sm font-medium text-white/80">
+            {totalDeals} packages available
+          </p>
+        )}
       </div>
 
       {/* Breadcrumb */}
@@ -497,6 +759,21 @@ function DurationPage({
           resort with perks and bonuses.
         </p>
       </section>
+
+      {(() => {
+        const faqs = getFAQsForSlug(slug);
+        if (!faqs || faqs.length === 0) return null;
+        return (
+          <>
+            <FAQSchema faqs={faqs} />
+            <section className="mt-16">
+              <FAQAccordion faqs={faqs} />
+            </section>
+          </>
+        );
+      })()}
+
+      <SEOPreFooter type="durations" currentSlug={slug} />
     </div>
   );
 }

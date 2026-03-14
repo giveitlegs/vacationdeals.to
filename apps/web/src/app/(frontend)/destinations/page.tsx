@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getDestinationsWithCounts, getDealStats } from "@/lib/queries";
 
-export const metadata: Metadata = {
-  title: "Vacation Destinations",
-  description:
-    "Browse vacation package deals by destination. Orlando, Las Vegas, Cancun, Gatlinburg, and 50+ more cities.",
-};
+export const revalidate = 3600; // Revalidate every hour
 
-const destinations = [
+const fallbackDestinations = [
   { name: "Orlando", state: "FL", deals: 47, gradient: "from-blue-400 to-cyan-300" },
   { name: "Las Vegas", state: "NV", deals: 32, gradient: "from-amber-400 to-orange-500" },
   { name: "Cancun", state: "MX", deals: 28, gradient: "from-teal-400 to-emerald-300" },
@@ -25,9 +22,91 @@ const destinations = [
   { name: "Daytona Beach", state: "FL", deals: 8, gradient: "from-indigo-400 to-blue-500" },
 ];
 
-export default function DestinationsPage() {
+const destinationGradients: Record<string, string> = {
+  Orlando: "from-blue-400 to-cyan-300",
+  "Las Vegas": "from-amber-400 to-orange-500",
+  Cancun: "from-teal-400 to-emerald-300",
+  Gatlinburg: "from-green-500 to-emerald-600",
+  "Myrtle Beach": "from-sky-400 to-blue-500",
+  Branson: "from-rose-400 to-pink-500",
+  Williamsburg: "from-violet-400 to-purple-500",
+  "San Antonio": "from-orange-400 to-red-500",
+  Miami: "from-cyan-400 to-blue-500",
+  Nashville: "from-yellow-400 to-amber-500",
+  Sedona: "from-red-400 to-orange-600",
+  "Cabo San Lucas": "from-emerald-400 to-teal-500",
+  "Park City": "from-slate-400 to-blue-600",
+  "Hilton Head": "from-lime-400 to-green-500",
+  "Daytona Beach": "from-indigo-400 to-blue-500",
+};
+
+function getGradient(name: string): string {
+  return destinationGradients[name] ?? "from-indigo-400 to-purple-500";
+}
+
+// ---------------------------------------------------------------------------
+// Dynamic metadata
+// ---------------------------------------------------------------------------
+
+export async function generateMetadata(): Promise<Metadata> {
+  const stats = await getDealStats();
+  const destCount = stats?.destinationCount || 50;
+  const totalDeals = stats?.totalDeals || 0;
+
+  return {
+    title: totalDeals > 0
+      ? `Vacation Destinations — ${destCount}+ Cities with Deals`
+      : "Vacation Destinations",
+    description: totalDeals > 0
+      ? `Browse vacation package deals in ${destCount}+ destinations. ${totalDeals} deals across Orlando, Las Vegas, Cancun, Gatlinburg, and more.`
+      : "Browse vacation package deals by destination. Orlando, Las Vegas, Cancun, Gatlinburg, and 50+ more cities.",
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Page component
+// ---------------------------------------------------------------------------
+
+export default async function DestinationsPage() {
+  const dbDestinations = await getDestinationsWithCounts();
+
+  const destinations =
+    dbDestinations && dbDestinations.length > 0
+      ? dbDestinations.map((d) => ({
+          name: d.name,
+          state: d.state ?? "",
+          deals: d.deals,
+          gradient: getGradient(d.name),
+        }))
+      : fallbackDestinations;
+
+  // Schema.org JSON-LD
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Vacation Destinations",
+    url: "https://vacationdeals.to/destinations",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: destinations.length,
+      itemListElement: destinations.map((d, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "TouristDestination",
+          name: `${d.name}, ${d.state}`,
+        },
+      })),
+    },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="mb-8">
         <h1 className="mb-2 text-3xl font-bold text-gray-900">
           Vacation Destinations
@@ -42,7 +121,7 @@ export default function DestinationsPage() {
         {destinations.map((dest) => (
           <Link
             key={dest.name}
-            href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
+            href={`/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
             className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             <div
