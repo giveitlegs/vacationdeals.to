@@ -1,0 +1,22 @@
+{
+  "name": "@vacationdeals/scraper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape": "tsx src/index.ts",
+    "scrape:westgate": "tsx src/index.ts --source=westgate",
+    "scrape:bookvip": "tsx src/index.ts --source=bookvip",
+    "scrape:getawaydealz": "tsx src/index.ts --source=getawaydealz"
+  },
+  "dependencies": {
+    "@vacationdeals/db": "workspace:*",
+    "@vacationdeals/shared": "workspace:*",
+    "crawlee": "^3",
+    "playwright": "^1"
+  },
+  "devDependencies": {
+    "tsx": "^4",
+    "typescript": "^5"
+  }
+}

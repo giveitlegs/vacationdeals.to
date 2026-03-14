@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vacationdeals.to/sitemap.xml
+
+# Block admin panel from search engines
+Disallow: /admin

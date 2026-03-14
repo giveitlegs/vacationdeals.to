@@ -1,0 +1,20 @@
+{
+  "name": "vacationdeals.to",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "db:generate": "turbo db:generate",
+    "db:migrate": "turbo db:migrate",
+    "db:seed": "turbo db:seed",
+    "scrape": "turbo scrape"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "devDependencies": {
+    "turbo": "^2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp"]
+  }
+}

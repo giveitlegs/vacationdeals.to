@@ -1,0 +1,35 @@
+{
+  "name": "@vacationdeals/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@vacationdeals/db": "workspace:*",
+    "@vacationdeals/shared": "workspace:*",
+    "next": "^15",
+    "payload": "^3",
+    "@payloadcms/next": "^3",
+    "@payloadcms/db-postgres": "^3",
+    "@payloadcms/richtext-lexical": "^3",
+    "react": "^19",
+    "react-dom": "^19",
+    "drizzle-orm": "^0.39",
+    "postgres": "^3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "tailwindcss": "^4",
+    "@tailwindcss/postcss": "^4",
+    "typescript": "^5"
+  }
+}
