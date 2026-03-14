@@ -1,1 +1,88 @@
 @import "tailwindcss";
+
+/* ── Vacation-themed hover effects ── */
+
+/* Nav link animated underline (grows from center) */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563EB, #10B981);
+  border-radius: 2px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Deal card hover glow */
+.deal-card {
+  transition: box-shadow 0.3s ease;
+}
+.deal-card:hover {
+  box-shadow: 0 8px 30px -8px rgba(37, 99, 235, 0.15), 0 4px 12px -4px rgba(16, 185, 129, 0.1);
+}
+
+/* Gentle price pulse on card hover */
+@keyframes gentle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+.deal-card:hover .deal-price {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+/* Destination card shimmer sweep */
+.destination-card {
+  position: relative;
+  overflow: hidden;
+}
+.destination-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+.destination-card:hover::before {
+  left: 100%;
+}
+
+/* Decorative sun accent (CSS radial gradient) */
+.deco-sun {
+  position: relative;
+}
+.deco-sun::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FBBF24 40%, rgba(251,191,36,0) 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.deco-sun:hover::after {
+  opacity: 1;
+}
+
+/* Wave separator line */
+.wave-separator {
+  display: block;
+  width: 100%;
+  height: 20px;
+}

@@ -21,6 +21,8 @@ const brands = [
   { name: "Vacation Vip Access", slug: "vip-access", type: "broker" as const, deals: 25, description: "Broker offering curated vacation packages from multiple resort brands." },
   { name: "Shell Vacations", slug: "shell", type: "direct" as const, deals: 10, description: "Boutique vacation ownership with intimate resort properties in scenic locations." },
   { name: "Capital Vacations", slug: "capital", type: "direct" as const, deals: 14, description: "Growing vacation ownership company with resorts across the Eastern US." },
+  { name: "Monster Reservations Group", slug: "mrg", type: "broker" as const, deals: 43, description: "Major vacation package broker with 50+ destinations across US, Caribbean, and Mexico. Known for deeply discounted hotel stays." },
+  { name: "Westgate Events", slug: "westgate-events", type: "direct" as const, deals: 29, description: "Part of Westgate Resorts ecosystem offering concert, sports, and entertainment vacation packages in Las Vegas, Orlando, and more." },
 ];
 
 export default function BrandsPage() {

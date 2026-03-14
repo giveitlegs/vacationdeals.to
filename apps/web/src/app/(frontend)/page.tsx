@@ -36,6 +36,8 @@ const popularBrands = [
   { name: "Holiday Inn Club", slug: "holiday-inn", type: "direct", deals: 22 },
   { name: "Bluegreen Vacations", slug: "bluegreen", type: "direct", deals: 18 },
   { name: "Hyatt Vacation Club", slug: "hyatt", type: "direct", deals: 15 },
+  { name: "Monster Reservations", slug: "mrg", type: "broker", deals: 43 },
+  { name: "Westgate Events", slug: "westgate-events", type: "direct", deals: 29 },
 ];
 
 export default function HomePage() {
@@ -104,7 +106,7 @@ export default function HomePage() {
             <Link
               key={dest.name}
               href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
-              className="group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+              className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               <div
                 className={`flex h-32 flex-col items-center justify-center bg-gradient-to-br ${dest.gradient} p-4 text-center`}

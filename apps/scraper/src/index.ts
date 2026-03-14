@@ -1,11 +1,15 @@
 import { runWestgateCrawler } from "./crawlers/westgate.js";
 import { runBookvipCrawler } from "./crawlers/bookvip.js";
 import { runGetawaydealzCrawler } from "./crawlers/getawaydealz.js";
+import { runMrgCrawler } from "./crawlers/mrg.js";
+import { runWestgateEventsCrawler } from "./crawlers/westgate-events.js";
 
 const crawlers: Record<string, () => Promise<void>> = {
   westgate: runWestgateCrawler,
   bookvip: runBookvipCrawler,
   getawaydealz: runGetawaydealzCrawler,
+  mrg: runMrgCrawler,
+  "westgate-events": runWestgateEventsCrawler,
 };
 
 async function main() {

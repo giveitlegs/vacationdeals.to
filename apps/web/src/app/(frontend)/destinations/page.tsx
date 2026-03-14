@@ -43,7 +43,7 @@ export default function DestinationsPage() {
           <Link
             key={dest.name}
             href={`/destinations/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
-            className="group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+            className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             <div
               className={`flex h-40 flex-col items-center justify-center bg-gradient-to-br ${dest.gradient} p-6`}

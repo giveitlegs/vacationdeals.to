@@ -19,6 +19,8 @@ async function seed() {
     { name: "VacationVIP", slug: "vacationvip", type: "broker", website: "https://vacationvip.com" },
     { name: "BestVacationDealz", slug: "bestvacationdealz", type: "broker", website: "https://bestvacationdealz.com" },
     { name: "Monster Vacations", slug: "monster-vacations", type: "broker", website: "https://monstervacations.com" },
+    { name: "Monster Reservations Group", slug: "mrg", type: "broker", website: "https://mrgvacationpackages.com" },
+    { name: "Westgate Events", slug: "westgate-events", type: "direct", website: "https://westgateevents.com" },
   ]).onConflictDoNothing();
 
   // ── Destinations ────────────────────────────────────
@@ -58,6 +60,8 @@ async function seed() {
     { name: "Holiday Inn Club Vacations", baseUrl: "https://holidayinnclub.com", scraperKey: "holiday-inn" },
     { name: "Marriott Vacation Club", baseUrl: "https://marriottvacationclubs.com", scraperKey: "marriott" },
     { name: "Monster Vacations", baseUrl: "https://monstervacations.com", scraperKey: "monster-vacations" },
+    { name: "Monster Reservations Group", baseUrl: "https://mrgvacationpackages.com", scraperKey: "mrg" },
+    { name: "Westgate Events", baseUrl: "https://westgateevents.com", scraperKey: "westgate-events" },
   ]).onConflictDoNothing();
 
   console.log("✅ Seed complete!");

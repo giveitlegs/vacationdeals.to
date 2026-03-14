@@ -35,7 +35,7 @@ export function DealCard({ deal }: { deal: Deal }) {
   return (
     <Link
       href={`/deals/${deal.slug}`}
-      className="group block rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+      className="deal-card group block rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
     >
       {/* Image / Gradient Placeholder */}
       <div
@@ -71,7 +71,7 @@ export function DealCard({ deal }: { deal: Deal }) {
 
         {/* Price Row */}
         <div className="mb-3 flex items-baseline gap-2">
-          <span className="text-2xl font-bold text-emerald-600">
+          <span className="deal-price text-2xl font-bold text-emerald-600">
             ${deal.price}
           </span>
           <span className="text-sm text-gray-400 line-through">
