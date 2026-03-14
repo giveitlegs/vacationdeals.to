@@ -2,8 +2,7 @@
   "name": "@vacationdeals/scraper",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
-  "scripts": {
+    "scripts": {
     "scrape": "tsx src/index.ts",
     "scrape:westgate": "tsx src/index.ts --source=westgate",
     "scrape:bookvip": "tsx src/index.ts --source=bookvip",
