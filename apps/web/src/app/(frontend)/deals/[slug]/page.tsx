@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: DealPageProps): Promise<Metad
 
   const location = [deal.city, deal.state].filter(Boolean).join(", ");
   const title = `${deal.resortName || deal.title} — ${deal.durationNights}-Night Stay from $${deal.price}`;
-  const description = `Book a ${deal.durationNights}-night vacation package at ${deal.resortName || deal.title} in ${location} for just $${deal.price}. ${deal.originalPrice ? `Save ${deal.savingsPercent}% off the $${deal.originalPrice} retail price.` : ""} Compare timeshare vacation deals at VacationDeals.to.`;
+  const description = `Book a ${deal.durationNights}-night vacation deal at ${deal.resortName || deal.title} in ${location} for just $${deal.price}. ${deal.originalPrice ? `Save ${deal.savingsPercent}% off the $${deal.originalPrice} retail price.` : ""} Compare resort deals at VacationDeals.to.`;
 
   return {
     title,
@@ -95,7 +95,7 @@ export default async function DealPage({ params }: DealPageProps) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: deal.title,
-    description: deal.description || `${deal.durationNights}-night vacation package at ${deal.resortName || deal.title} in ${location}.`,
+    description: deal.description || `${deal.durationNights}-night vacation deal at ${deal.resortName || deal.title} in ${location}.`,
     image: deal.imageUrl || undefined,
     brand: deal.brandName
       ? { "@type": "Brand", name: deal.brandName }
@@ -434,12 +434,12 @@ export default async function DealPage({ params }: DealPageProps) {
       {/* SEO content block */}
       <section className="mt-12 mb-8">
         <h2 className="mb-3 text-xl font-bold text-gray-900">
-          Vacation Packages {location ? `in ${location}` : ""}
+          Vacation Deals {location ? `in ${location}` : ""}
         </h2>
         <div className="space-y-2 text-sm leading-relaxed text-gray-600">
           <p>
             {deal.city ? `${deal.city} is one of the most popular vacation destinations in the country, attracting millions of visitors each year with its world-class resorts, dining, and entertainment.` : "This resort destination offers world-class accommodations and entertainment for the whole family."}{" "}
-            Timeshare vacation packages offer an affordable way to experience
+            Timeshare vacation deals offer an affordable way to experience
             premium resort stays — often at 60-80% below retail pricing.
           </p>
           <p>
@@ -456,14 +456,14 @@ export default async function DealPage({ params }: DealPageProps) {
                 href={`/${deal.destinationSlug}`}
                 className="text-blue-600 hover:text-blue-700"
               >
-                vacation packages {deal.city ? `in ${deal.city}` : ""}
+                vacation deals {deal.city ? `in ${deal.city}` : ""}
               </Link>
             ) : (
               <Link
                 href="/deals"
                 className="text-blue-600 hover:text-blue-700"
               >
-                vacation package deals
+                vacation deals
               </Link>
             )}{" "}
             or compare offers from{" "}

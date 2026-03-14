@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
-  description: "The page you are looking for does not exist. Browse vacation package deals from top resorts.",
+  description: "The page you are looking for does not exist. Browse vacation deals from top resorts.",
 };
 
 const popularDestinations = [

@@ -4,13 +4,13 @@ import Link from "next/link";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "About VacationDeals.to — Independent Vacation Package Comparison",
+  title: "About VacationDeals.to — Independent Vacation Deal Comparison",
   description:
-    "VacationDeals.to is an independent comparison site for timeshare vacation packages. Learn how we aggregate deals from top resort brands to help you find the best prices.",
+    "VacationDeals.to is an independent comparison site for vacation deals from timeshare resorts. Learn how we aggregate resort deals from top brands to help you find the best prices.",
   openGraph: {
     title: "About VacationDeals.to",
     description:
-      "Independent comparison site for timeshare vacation packages. We aggregate deals from top resort brands so you can compare and save.",
+      "Independent comparison site for vacation deals from timeshare resorts. We aggregate deals from top resort brands so you can compare and save.",
     type: "website",
     url: "https://vacationdeals.to/about",
   },
@@ -144,7 +144,7 @@ export default function AboutPage() {
         {/* What are vacation packages */}
         <section className="mb-10">
           <h2 className="mb-3 text-xl font-bold text-gray-900">
-            What Are Timeshare Vacation Packages?
+            What Are Timeshare Vacation Deals?
           </h2>
           <div className="space-y-3 text-gray-600 leading-relaxed">
             <p>

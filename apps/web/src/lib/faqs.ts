@@ -916,14 +916,14 @@ export const DURATION_FAQS: Record<string, FAQ[]> = {
         "Yes, 3-night deals are available with Friday, Saturday, or any day check-in. Weekend arrivals may cost $10-$30 more at some properties but are widely available. Holiday weekends like Memorial Day, 4th of July, and Labor Day have limited availability and should be booked 3-4 weeks in advance.",
     },
     {
-      question: "What's the best 3-night vacation package available?",
+      question: "What's the best 3-night vacation deal available?",
       answer:
-        "The best value 3-night packages are Westgate Orlando at $99 (includes waterpark), Wyndham Las Vegas at $99 (includes $200 virtual Mastercard), and Westgate Gatlinburg at $99 (includes Wild Bear Falls). For premium options, Marriott OceanWatch in Myrtle Beach at $299 with Bonvoy points offers exceptional oceanfront quality.",
+        "The best value 3-night deals are Westgate Orlando at $99 (includes waterpark), Wyndham Las Vegas at $99 (includes $200 virtual Mastercard), and Westgate Gatlinburg at $99 (includes Wild Bear Falls). For premium options, Marriott OceanWatch in Myrtle Beach at $299 with Bonvoy points offers exceptional oceanfront quality.",
     },
     {
-      question: "Can families enjoy a 3-night vacation package?",
+      question: "Can families enjoy a 3-night vacation deal?",
       answer:
-        "Absolutely. Three-night packages are the most popular option for family getaways. Most packages accommodate 2 adults and 2 children in suites with kitchenettes (saving on dining costs). Destinations like Orlando, Gatlinburg, and Branson are packed with family activities that fit perfectly into a 3-night itinerary.",
+        "Absolutely. Three-night deals are the most popular option for family getaways. Most packages accommodate 2 adults and 2 children in suites with kitchenettes (saving on dining costs). Destinations like Orlando, Gatlinburg, and Branson are packed with family activities that fit perfectly into a 3-night itinerary.",
     },
   ],
 };
