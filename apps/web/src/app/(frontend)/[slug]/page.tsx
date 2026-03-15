@@ -7,6 +7,8 @@ import {
   getDeals,
   getBrandBySlug,
   getDestinationBySlug,
+  getAllBrandSlugs,
+  getAllDestinationSlugs,
 } from "@/lib/queries";
 import { SEOPreFooter } from "@/components/SEOPreFooter";
 import { FAQAccordion } from "@/components/FAQAccordion";
@@ -108,29 +110,67 @@ const mockDeals: Deal[] = [
 // Slug resolution helpers
 // ---------------------------------------------------------------------------
 
+type DestinationData = { slug: string; name: string; state: string; region?: string; description: string };
+type BrandData = { slug: string; name: string; type: string; description: string; website?: string };
+
 type SlugType =
-  | { type: "destination"; data: (typeof destinations)[number] }
-  | { type: "brand"; data: (typeof brands)[number] }
+  | { type: "destination"; data: DestinationData }
+  | { type: "brand"; data: BrandData }
   | { type: "price"; data: (typeof priceRanges)[number] }
   | { type: "duration"; data: (typeof durations)[number] }
   | { type: "blog"; data: BlogPost };
 
-function resolveSlug(slug: string): SlugType | null {
-  const dest = destinations.find((d) => d.slug === slug);
-  if (dest) return { type: "destination", data: dest };
+async function resolveSlug(slug: string): Promise<SlugType | null> {
+  // 1. Check static price ranges (these never change)
+  const priceMatch = priceRanges.find((p) => p.slug === slug);
+  if (priceMatch) return { type: "price", data: priceMatch };
 
-  const brand = brands.find((b) => b.slug === slug);
-  if (brand) return { type: "brand", data: brand };
+  // 2. Check static durations (these never change)
+  const durationMatch = durations.find((d) => d.slug === slug);
+  if (durationMatch) return { type: "duration", data: durationMatch };
 
-  const price = priceRanges.find((p) => p.slug === slug);
-  if (price) return { type: "price", data: price };
-
-  const dur = durations.find((d) => d.slug === slug);
-  if (dur) return { type: "duration", data: dur };
-
-  // Check blog posts
+  // 3. Check blog posts (static for now)
   const blogPost = getBlogPostBySlug(slug);
   if (blogPost) return { type: "blog", data: blogPost };
+
+  // 4. Check DB for destination
+  const dbDestinations = await getAllDestinationSlugs();
+  const destMatch = dbDestinations.find((d) => d.slug === slug);
+  if (destMatch) {
+    return {
+      type: "destination",
+      data: {
+        slug: destMatch.slug,
+        name: destMatch.city,
+        state: destMatch.state || "",
+        region: destMatch.region || "",
+        description: `Vacation deals in ${destMatch.city}, ${destMatch.state || destMatch.country}.`,
+      },
+    };
+  }
+
+  // 5. Check DB for brand
+  const dbBrands = await getAllBrandSlugs();
+  const brandMatch = dbBrands.find((b) => b.slug === slug);
+  if (brandMatch) {
+    return {
+      type: "brand",
+      data: {
+        slug: brandMatch.slug,
+        name: brandMatch.name,
+        type: brandMatch.type,
+        description: brandMatch.description || `Vacation deals from ${brandMatch.name}.`,
+        website: brandMatch.website || undefined,
+      },
+    };
+  }
+
+  // 6. Fall back to hardcoded arrays (for when DB is unavailable)
+  const staticDest = destinations.find((d) => d.slug === slug);
+  if (staticDest) return { type: "destination", data: staticDest };
+
+  const staticBrand = brands.find((b) => b.slug === slug);
+  if (staticBrand) return { type: "brand", data: staticBrand };
 
   return null;
 }
@@ -187,16 +227,34 @@ async function getDealsForSlug(
 // generateStaticParams
 // ---------------------------------------------------------------------------
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const params: { slug: string }[] = [];
+
+  // Static slugs (always included)
+  for (const p of priceRanges) params.push({ slug: p.slug });
+  for (const d of durations) params.push({ slug: d.slug });
+
+  // DB destinations
+  const dbDests = await getAllDestinationSlugs();
+  for (const d of dbDests) params.push({ slug: d.slug });
+
+  // DB brands
+  const dbBrands = await getAllBrandSlugs();
+  for (const b of dbBrands) params.push({ slug: b.slug });
+
+  // Blog posts
   const blogPosts = getAllBlogPosts();
-  const allSlugs = [
-    ...destinations.map((d) => d.slug),
-    ...brands.map((b) => b.slug),
-    ...priceRanges.map((p) => p.slug),
-    ...durations.map((d) => d.slug),
-    ...blogPosts.map((p: BlogPost) => p.slug),
-  ];
-  return allSlugs.map((slug) => ({ slug }));
+  for (const p of blogPosts) params.push({ slug: p.slug });
+
+  // Fallback static arrays (in case DB wasn't available)
+  for (const d of destinations) {
+    if (!params.some((p) => p.slug === d.slug)) params.push({ slug: d.slug });
+  }
+  for (const b of brands) {
+    if (!params.some((p) => p.slug === b.slug)) params.push({ slug: b.slug });
+  }
+
+  return params;
 }
 
 // ---------------------------------------------------------------------------
@@ -209,7 +267,7 @@ interface SlugPageProps {
 
 export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const resolved = resolveSlug(slug);
+  const resolved = await resolveSlug(slug);
 
   if (!resolved) {
     return { title: "Page Not Found" };
@@ -341,7 +399,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
 export default async function SlugPage({ params }: SlugPageProps) {
   const { slug } = await params;
-  const resolved = resolveSlug(slug);
+  const resolved = await resolveSlug(slug);
 
   if (!resolved) {
     notFound();
@@ -394,7 +452,7 @@ async function DestinationPage({
   totalDeals,
   slug,
 }: {
-  data: (typeof destinations)[number];
+  data: DestinationData;
   deals: Deal[];
   totalDeals: number;
   slug: string;
@@ -524,7 +582,7 @@ async function BrandPage({
   totalDeals,
   slug,
 }: {
-  data: (typeof brands)[number];
+  data: BrandData;
   deals: Deal[];
   totalDeals: number;
   slug: string;

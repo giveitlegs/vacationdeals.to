@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllBlogPosts } from "@/lib/blog-types";
+import { getAllBrandSlugs, getAllDestinationSlugs } from "@/lib/queries";
 
 async function getDealSlugs(): Promise<string[]> {
   try {
@@ -13,25 +14,38 @@ async function getDealSlugs(): Promise<string[]> {
   }
 }
 
+// Static fallback arrays (used only if DB is unreachable)
+const fallbackDestinations = [
+  "orlando", "las-vegas", "cancun", "gatlinburg", "myrtle-beach",
+  "branson", "williamsburg", "cocoa-beach", "hilton-head", "park-city",
+  "daytona-beach", "cabo", "puerto-vallarta", "punta-cana", "key-west",
+  "sedona", "galveston", "lake-tahoe", "new-york-city", "san-diego",
+  "san-antonio", "miami", "nashville",
+];
+
+const fallbackBrands = [
+  "westgate", "hgv", "bluegreen", "wyndham", "holiday-inn",
+  "hyatt", "marriott", "capital-vacations", "bookvip", "getawaydealz",
+  "vacationvip", "bestvacationdealz", "mrg", "westgate-events",
+  "staypromo", "vacation-village", "spinnaker", "govip",
+  "departure-depot", "vegas-timeshare", "premier-travel",
+  "discount-vacation", "legendary", "festiva",
+];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://vacationdeals.to";
 
-  const destinations = [
-    "orlando", "las-vegas", "cancun", "gatlinburg", "myrtle-beach",
-    "branson", "williamsburg", "cocoa-beach", "hilton-head", "park-city",
-    "daytona-beach", "cabo", "puerto-vallarta", "punta-cana", "key-west",
-    "sedona", "galveston", "lake-tahoe", "new-york-city", "san-diego",
-    "san-antonio", "miami", "nashville",
-  ];
+  // Query DB for destinations and brands, fall back to static arrays
+  const dbDests = await getAllDestinationSlugs();
+  const dbBrands = await getAllBrandSlugs();
 
-  const brands = [
-    "westgate", "hgv", "bluegreen", "wyndham", "holiday-inn",
-    "hyatt", "marriott", "capital-vacations", "bookvip", "getawaydealz",
-    "vacationvip", "bestvacationdealz", "mrg", "westgate-events",
-    "staypromo", "vacation-village", "spinnaker", "govip",
-    "departure-depot", "vegas-timeshare", "premier-travel",
-    "discount-vacation", "legendary", "festiva",
-  ];
+  const destinations = dbDests.length > 0
+    ? [...new Set([...dbDests.map((d) => d.slug), ...fallbackDestinations])]
+    : fallbackDestinations;
+
+  const brands = dbBrands.length > 0
+    ? [...new Set([...dbBrands.map((b) => b.slug), ...fallbackBrands])]
+    : fallbackBrands;
 
   const priceRanges = ["deals-under-100", "deals-under-200", "deals-under-300", "deals-under-500"];
   const durations = ["2-night-packages", "3-night-packages", "4-night-packages", "5-night-packages"];

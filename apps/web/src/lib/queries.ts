@@ -628,6 +628,50 @@ export async function getDealStats(): Promise<DealStats | null> {
 }
 
 // ---------------------------------------------------------------------------
+// Get all brand slugs (for dynamic slug resolution)
+// ---------------------------------------------------------------------------
+
+export async function getAllBrandSlugs(): Promise<Array<{slug: string, name: string, type: string, description: string | null, website: string | null}>> {
+  try {
+    const conn = await getDB();
+    if (!conn) return [];
+    const { db, schema } = conn;
+    const rows = await db.select({
+      slug: schema.brands.slug,
+      name: schema.brands.name,
+      type: schema.brands.type,
+      description: schema.brands.description,
+      website: schema.brands.website,
+    }).from(schema.brands);
+    return rows;
+  } catch {
+    return [];
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Get all destination slugs (for dynamic slug resolution)
+// ---------------------------------------------------------------------------
+
+export async function getAllDestinationSlugs(): Promise<Array<{slug: string, city: string, state: string | null, region: string | null, country: string}>> {
+  try {
+    const conn = await getDB();
+    if (!conn) return [];
+    const { db, schema } = conn;
+    const rows = await db.select({
+      slug: schema.destinations.slug,
+      city: schema.destinations.city,
+      state: schema.destinations.state,
+      region: schema.destinations.region,
+      country: schema.destinations.country,
+    }).from(schema.destinations);
+    return rows;
+  } catch {
+    return [];
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Helper: parse inclusions JSON string to string array
 // ---------------------------------------------------------------------------
 
