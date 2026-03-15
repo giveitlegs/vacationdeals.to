@@ -103,7 +103,31 @@ function detectExpiration(
     }
   }
 
-  // 4. Explicit expiration dates in the page text
+  // 4. JSON/structured data expiration fields (e.g. Westgate's offer_ends)
+  const jsonDatePatterns = [
+    /["']offer_ends["']\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/i,
+    /["']end_date["']\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/i,
+    /["']expiration_date["']\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/i,
+    /["']expires["']\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/i,
+    /["']valid_until["']\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/i,
+    /["']sale_ends["']\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/i,
+  ];
+  for (const pattern of jsonDatePatterns) {
+    const match = fullText.match(pattern);
+    if (match) {
+      try {
+        const expDate = new Date(match[1] + "T23:59:59");
+        if (!isNaN(expDate.getTime())) {
+          if (expDate < now) {
+            return { expired: true, expiresAt: expDate };
+          }
+          return { expired: false, expiresAt: expDate };
+        }
+      } catch {}
+    }
+  }
+
+  // 5. Explicit expiration dates in the page text
   for (const pattern of EXPIRED_DATE_PATTERNS) {
     const match = fullText.match(pattern);
     if (match) {
@@ -129,6 +153,25 @@ function detectExpiration(
  * Mark all deals whose `expiresAt` timestamp has passed as inactive.
  * Intended to be called once per scraper run (or on a schedule).
  */
+/**
+ * Check if a deal's source URL is still reachable (200-299).
+ * Returns true if the URL responds OK, or if the request fails due to
+ * network issues (benefit of the doubt). Returns false for 404/410/5xx.
+ */
+export async function checkDealUrlHealth(dealUrl: string): Promise<boolean> {
+  try {
+    const response = await fetch(dealUrl, {
+      method: "HEAD",
+      redirect: "follow",
+      signal: AbortSignal.timeout(10000),
+    });
+    return response.ok; // true if 200-299
+  } catch {
+    // Network error, timeout, etc. — assume the deal is still alive
+    return true;
+  }
+}
+
 export async function deactivateExpiredDeals(): Promise<number> {
   const now = new Date();
   const result = await db

@@ -18,7 +18,8 @@
     "scrape:vacation-village": "tsx src/index.ts --source=vacation-village",
     "scrape:spinnaker": "tsx src/index.ts --source=spinnaker",
     "seo:audit": "tsx src/seo-audit.ts",
-    "rss:submit": "tsx src/rss-submit.ts"
+    "rss:submit": "tsx src/rss-submit.ts",
+    "health:deals": "tsx src/check-deal-health.ts"
   },
   "dependencies": {
     "@vacationdeals/db": "workspace:*",
