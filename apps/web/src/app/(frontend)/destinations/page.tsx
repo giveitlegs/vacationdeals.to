@@ -17,7 +17,7 @@ const fallbackDestinations = [
   { name: "Miami", state: "FL", deals: 18, gradient: "from-cyan-400 to-blue-500" },
   { name: "Nashville", state: "TN", deals: 9, gradient: "from-yellow-400 to-amber-500" },
   { name: "Sedona", state: "AZ", deals: 7, gradient: "from-red-400 to-orange-600" },
-  { name: "Cabo San Lucas", state: "MX", deals: 14, gradient: "from-emerald-400 to-teal-500" },
+  { name: "Cabo San Lucas", state: "MX", deals: 14, gradient: "from-emerald-400 to-teal-500", slug: "cabo" },
   { name: "Park City", state: "UT", deals: 6, gradient: "from-slate-400 to-blue-600" },
   { name: "Hilton Head", state: "SC", deals: 10, gradient: "from-lime-400 to-green-500" },
   { name: "Daytona Beach", state: "FL", deals: 8, gradient: "from-indigo-400 to-blue-500" },
@@ -76,6 +76,7 @@ export default async function DestinationsPage() {
     dbDestinations && dbDestinations.length > 0
       ? dbDestinations.map((d) => ({
           name: d.name,
+          slug: d.slug,
           state: d.state ?? "",
           deals: d.deals,
           gradient: getGradient(d.name),
@@ -147,7 +148,7 @@ export default async function DestinationsPage() {
           return (
             <Link
               key={dest.name}
-              href={`/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
+              href={`/${"slug" in dest && dest.slug ? dest.slug : dest.name.toLowerCase().replace(/\s+/g, "-")}`}
               className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
               aria-label={`Browse ${dest.deals} vacation deals in ${dest.name}, ${dest.state}`}
             >

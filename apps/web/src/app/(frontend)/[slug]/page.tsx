@@ -41,6 +41,9 @@ const destinations = [
   { slug: "lake-tahoe", name: "Lake Tahoe", state: "CA", description: "Crystal-clear alpine lake with world-class skiing, summer water sports, and breathtaking mountain scenery." },
   { slug: "new-york-city", name: "New York City", state: "NY", description: "The city that never sleeps — Broadway, Central Park, iconic landmarks, and endless dining and shopping." },
   { slug: "san-diego", name: "San Diego", state: "CA", description: "Perfect weather, beautiful beaches, the San Diego Zoo, and a vibrant craft beer and dining scene." },
+  { slug: "san-antonio", name: "San Antonio", state: "TX", description: "Historic Texas city with the Alamo, River Walk, world-class Tex-Mex cuisine, and family-friendly attractions." },
+  { slug: "miami", name: "Miami", state: "FL", description: "Vibrant South Florida city with Art Deco architecture, stunning beaches, nightlife, and diverse cultural experiences." },
+  { slug: "nashville", name: "Nashville", state: "TN", description: "Music City USA with honky-tonks, live music, the Grand Ole Opry, and a thriving food and entertainment scene." },
 ];
 
 const brands = [
@@ -58,6 +61,10 @@ const brands = [
   { slug: "bestvacationdealz", name: "BestVacationDealz", type: "broker", description: "Discount vacation package provider with deals from major timeshare brands." },
   { slug: "mrg", name: "Monster Reservations Group", type: "broker", description: "Large vacation package broker partnering with multiple timeshare brands for discounted getaways." },
   { slug: "westgate-events", name: "Westgate Events", type: "direct", description: "Westgate's event-based marketing division offering vacation packages at special events and venues." },
+  { slug: "staypromo", name: "StayPromo", type: "broker", description: "Florida-licensed vacation deal broker with resort deals across 10+ US and international destinations." },
+  { slug: "vacation-village", name: "Vacation Village Resorts", type: "direct", description: "Direct resort brand offering vacation deals from $49 in Orlando, Las Vegas, South Florida, and Williamsburg." },
+  { slug: "spinnaker", name: "Spinnaker Resorts", type: "direct", description: "Hilton Head, Branson, Williamsburg, and Ormond Beach resort deals starting at $269 with entertainment credits." },
+  { slug: "govip", name: "GoVIP", type: "broker", description: "Vacation deal broker (currently inactive — site under development)." },
 ];
 
 const priceRanges = [

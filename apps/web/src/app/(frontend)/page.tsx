@@ -104,6 +104,7 @@ export default async function HomePage() {
     destinationsData && destinationsData.length > 0
       ? destinationsData.slice(0, 5).map((d) => ({
           name: d.name,
+          slug: d.slug,
           state: d.state ?? "",
           deals: d.deals,
           gradient: getGradient(d.name),
@@ -210,7 +211,7 @@ export default async function HomePage() {
             return (
               <Link
                 key={dest.name}
-                href={`/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
+                href={`/${"slug" in dest && dest.slug ? dest.slug : dest.name.toLowerCase().replace(/\s+/g, "-")}`}
                 className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 aria-label={`Browse ${dest.deals} vacation deals in ${dest.name}, ${dest.state}`}
               >

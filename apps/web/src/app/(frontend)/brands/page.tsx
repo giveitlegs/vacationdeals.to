@@ -13,13 +13,12 @@ const fallbackBrands = [
   { name: "Holiday Inn Club Vacations", slug: "holiday-inn", type: "direct" as const, deals: 22, description: "Family-friendly vacation ownership by IHG with resorts in popular destinations." },
   { name: "Bluegreen Vacations", slug: "bluegreen", type: "direct" as const, deals: 18, description: "Flexible points-based vacation ownership with resorts in unique locations." },
   { name: "Hyatt Vacation Ownership", slug: "hyatt", type: "direct" as const, deals: 15, description: "Premium vacation ownership by Hyatt Hotels with select high-end resort properties." },
-  { name: "Diamond Resorts", slug: "diamond", type: "direct" as const, deals: 20, description: "Vacation ownership with a diverse portfolio of resorts worldwide, now part of Hilton Grand Vacations." },
-  { name: "Travel Smart VIP", slug: "travelsmart", type: "broker" as const, deals: 31, description: "Vacation package broker specializing in discounted timeshare preview stays." },
-  { name: "Vacation Vip Access", slug: "vip-access", type: "broker" as const, deals: 25, description: "Broker offering curated vacation packages from multiple resort brands." },
-  { name: "Shell Vacations", slug: "shell", type: "direct" as const, deals: 10, description: "Boutique vacation ownership with intimate resort properties in scenic locations." },
-  { name: "Capital Vacations", slug: "capital", type: "direct" as const, deals: 14, description: "Growing vacation ownership company with resorts across the Eastern US." },
+  { name: "Capital Vacations", slug: "capital-vacations", type: "direct" as const, deals: 14, description: "Growing vacation ownership company managing resorts across the eastern United States." },
   { name: "Monster Reservations Group", slug: "mrg", type: "broker" as const, deals: 43, description: "Major vacation package broker with 50+ destinations across US, Caribbean, and Mexico. Known for deeply discounted hotel stays." },
   { name: "Westgate Events", slug: "westgate-events", type: "direct" as const, deals: 29, description: "Part of Westgate Resorts ecosystem offering concert, sports, and entertainment vacation packages in Las Vegas, Orlando, and more." },
+  { name: "StayPromo", slug: "staypromo", type: "broker" as const, deals: 15, description: "Florida-licensed vacation deal broker with resort deals across 10+ US and international destinations." },
+  { name: "Vacation Village Resorts", slug: "vacation-village", type: "direct" as const, deals: 12, description: "Direct resort brand offering vacation deals from $49 in Orlando, Las Vegas, South Florida, and Williamsburg." },
+  { name: "Spinnaker Resorts", slug: "spinnaker", type: "direct" as const, deals: 10, description: "Hilton Head, Branson, Williamsburg, and Ormond Beach resort deals starting at $269 with entertainment credits." },
 ];
 
 // ---------------------------------------------------------------------------

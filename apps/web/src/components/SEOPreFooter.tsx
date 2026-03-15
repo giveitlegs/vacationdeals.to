@@ -26,6 +26,9 @@ const destinationLinks = [
   { slug: "lake-tahoe", label: "Lake Tahoe Vacation Deals" },
   { slug: "new-york-city", label: "New York City Vacation Deals" },
   { slug: "san-diego", label: "San Diego Vacation Deals" },
+  { slug: "san-antonio", label: "San Antonio Vacation Deals" },
+  { slug: "miami", label: "Miami Vacation Deals" },
+  { slug: "nashville", label: "Nashville Vacation Deals" },
 ];
 
 const brandLinks = [
@@ -41,6 +44,9 @@ const brandLinks = [
   { slug: "getawaydealz", label: "GetawayDealz Deals" },
   { slug: "mrg", label: "Monster Reservations Group Deals" },
   { slug: "westgate-events", label: "Westgate Events & Shows Deals" },
+  { slug: "staypromo", label: "StayPromo Vacation Deals" },
+  { slug: "vacation-village", label: "Vacation Village Resorts Deals" },
+  { slug: "spinnaker", label: "Spinnaker Resorts Deals" },
 ];
 
 const priceLinks = [

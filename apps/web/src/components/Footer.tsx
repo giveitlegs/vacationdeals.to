@@ -36,6 +36,11 @@ export function Footer() {
                   Brands
                 </Link>
               </li>
+              <li>
+                <Link href="/about" className="hover:text-gray-900">
+                  About
+                </Link>
+              </li>
             </ul>
           </div>
 

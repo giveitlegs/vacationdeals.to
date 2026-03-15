@@ -20,12 +20,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "branson", "williamsburg", "cocoa-beach", "hilton-head", "park-city",
     "daytona-beach", "cabo", "puerto-vallarta", "punta-cana", "key-west",
     "sedona", "galveston", "lake-tahoe", "new-york-city", "san-diego",
+    "san-antonio", "miami", "nashville",
   ];
 
   const brands = [
     "westgate", "hgv", "bluegreen", "wyndham", "holiday-inn",
     "hyatt", "marriott", "capital-vacations", "bookvip", "getawaydealz",
     "vacationvip", "bestvacationdealz", "mrg", "westgate-events",
+    "staypromo", "vacation-village", "spinnaker", "govip",
   ];
 
   const priceRanges = ["deals-under-100", "deals-under-200", "deals-under-300", "deals-under-500"];
