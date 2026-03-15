@@ -7,9 +7,9 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* About */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">
+            <p className="text-sm font-semibold text-gray-900">
               VacationDeals.to
-            </h3>
+            </p>
             <p className="mt-3 text-sm leading-relaxed text-gray-500">
               The best vacation deals from top timeshare resorts, all in
               one place. Compare resort deals, travel deals, and getaway
@@ -19,7 +19,7 @@ export function Footer() {
 
           {/* Browse */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">Browse</h3>
+            <p className="text-sm font-semibold text-gray-900">Browse</p>
             <ul className="mt-3 space-y-2.5 text-sm text-gray-500">
               <li>
                 <Link href="/deals" className="hover:text-gray-900">
@@ -41,9 +41,9 @@ export function Footer() {
 
           {/* Popular Destinations */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">
+            <p className="text-sm font-semibold text-gray-900">
               Popular Destinations
-            </h3>
+            </p>
             <ul className="mt-3 space-y-2.5 text-sm text-gray-500">
               <li>
                 <Link
@@ -90,9 +90,9 @@ export function Footer() {
 
           {/* Popular Brands */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">
+            <p className="text-sm font-semibold text-gray-900">
               Popular Brands
-            </h3>
+            </p>
             <ul className="mt-3 space-y-2.5 text-sm text-gray-500">
               <li>
                 <Link

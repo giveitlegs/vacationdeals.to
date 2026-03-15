@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — VacationDeals.to",
+  title: "Privacy Policy",
   description:
     "Privacy Policy for VacationDeals.to. Learn how we collect, use, and protect your information when you visit our vacation package comparison website.",
+  alternates: { canonical: "https://vacationdeals.to/privacy" },
 };
 
 export default function PrivacyPolicyPage() {

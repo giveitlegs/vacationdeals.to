@@ -4,7 +4,8 @@ import Link from "next/link";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "About VacationDeals.to — Independent Vacation Deal Comparison",
+  title: "About — Independent Vacation Deal Comparison",
+  alternates: { canonical: "https://vacationdeals.to/about" },
   description:
     "VacationDeals.to is an independent comparison site for vacation deals from timeshare resorts. Learn how we aggregate resort deals from top brands to help you find the best prices.",
   openGraph: {

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions — VacationDeals.to",
+  title: "Terms & Conditions",
   description:
     "Terms and Conditions for VacationDeals.to. Understand the rules governing your use of our vacation package comparison website, including important timeshare disclosures.",
+  alternates: { canonical: "https://vacationdeals.to/terms" },
 };
 
 export default function TermsAndConditionsPage() {

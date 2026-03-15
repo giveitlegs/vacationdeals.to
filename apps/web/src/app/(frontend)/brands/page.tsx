@@ -35,6 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: totalDeals > 0
       ? `Vacation Deal Brands — ${brandCount} Brands, ${totalDeals} Deals`
       : "Vacation Deal Brands",
+    alternates: { canonical: "https://vacationdeals.to/brands" },
     description: totalDeals > 0
       ? `Vacation deals from ${brandCount} brands with ${totalDeals} active resort deals. Browse deals from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.`
       : "Vacation deals by brand. Browse resort deals from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.",

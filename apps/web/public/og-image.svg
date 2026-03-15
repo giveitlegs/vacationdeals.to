@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB"/>
+      <stop offset="100%" style="stop-color:#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Logo icon -->
+  <g transform="translate(500, 140)">
+    <path d="M100 20C60.24 20 28 52.24 28 92c0 55 72 130 72 130s72-75 72-130c0-39.76-32.24-72-72-72z" fill="white" opacity="0.95"/>
+    <circle cx="100" cy="80" r="29" fill="#FBBF24"/>
+    <path d="M55 97h90" stroke="#2563EB" stroke-width="5" stroke-linecap="round"/>
+    <path d="M62 110c9-5.4 18-5.4 27 0s18 5.4 27 0" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- Brand name -->
+  <text x="600" y="380" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="white">
+    <tspan fill="white">Vacation</tspan><tspan fill="rgba(255,255,255,0.9)">Deals</tspan><tspan fill="rgba(255,255,255,0.6)" font-size="48">.to</tspan>
+  </text>
+  <!-- Tagline -->
+  <text x="600" y="440" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="rgba(255,255,255,0.85)">
+    The Best Vacation Deals from Top Resorts
+  </text>
+  <!-- Stats bar -->
+  <rect x="300" y="480" width="600" height="60" rx="12" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="518" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="white">500+ Deals</text>
+  <line x1="550" y1="492" x2="550" y2="528" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="650" y="518" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="white">20+ Cities</text>
+  <line x1="750" y1="492" x2="750" y2="528" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="840" y="518" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="white">From $59</text>
+</svg>

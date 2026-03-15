@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getCityIcon } from "@/lib/city-icons";
 
 export interface Deal {
   id: number;
@@ -32,15 +33,25 @@ function getGradient(city: string): string {
 }
 
 export function DealCard({ deal }: { deal: Deal }) {
+  const CityIconComponent = getCityIcon(deal.city);
+
   return (
     <Link
       href={`/deals/${deal.slug}`}
       className="deal-card group block rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+      aria-label={`${deal.resortName} in ${deal.city}, ${deal.state} — ${deal.durationNights}-night stay from $${deal.price}`}
     >
       {/* Image / Gradient Placeholder */}
       <div
         className={`relative h-48 w-full overflow-hidden rounded-t-xl bg-gradient-to-br ${getGradient(deal.city)}`}
+        role="img"
+        aria-label={`${deal.resortName} vacation deal in ${deal.city}, ${deal.state}`}
       >
+        {/* Decorative city icon */}
+        <div className="absolute bottom-2 right-2 h-20 w-20 opacity-[0.15]" aria-hidden="true">
+          <CityIconComponent className="h-full w-full" />
+        </div>
+
         {/* Brand Badge */}
         <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm backdrop-blur-sm">
           {deal.brandName}

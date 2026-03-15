@@ -1,6 +1,18 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+async function getDealSlugs(): Promise<string[]> {
+  try {
+    const { db } = await import("@vacationdeals/db");
+    const { deals } = await import("@vacationdeals/db");
+    const { eq } = await import("drizzle-orm");
+    const rows = await db.select({ slug: deals.slug }).from(deals).where(eq(deals.isActive, true));
+    return rows.map((r) => r.slug);
+  } catch {
+    return [];
+  }
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://vacationdeals.to";
 
   const destinations = [
@@ -24,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/deals`, lastModified: new Date(), changeFrequency: "daily" as const, priority: 0.9 },
     { url: `${baseUrl}/destinations`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${baseUrl}/brands`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.5 },
     { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.3 },
     { url: `${baseUrl}/terms`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.3 },
   ];
@@ -56,5 +69,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...destinationPages, ...brandPages, ...pricePages, ...durationPages];
+  // Fetch deal slugs from database
+  const dealSlugs = await getDealSlugs();
+  const dealPages = dealSlugs.map((slug) => ({
+    url: `${baseUrl}/deals/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "daily" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages];
 }

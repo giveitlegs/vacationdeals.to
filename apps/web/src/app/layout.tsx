@@ -12,6 +12,15 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "VacationDeals.to",
     type: "website",
+    images: [{ url: "https://vacationdeals.to/og-image.svg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://vacationdeals.to/og-image.svg"],
+  },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
   },
   robots: {
     index: true,

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getDealBySlug, getDeals } from "@/lib/queries";
 import { DealGrid } from "@/components/DealGrid";
 import type { Deal } from "@/components/DealCard";
+import { getCityIcon } from "@/lib/city-icons";
 
 export const revalidate = 3600;
 
@@ -52,6 +53,7 @@ export async function generateMetadata({ params }: DealPageProps): Promise<Metad
   return {
     title,
     description,
+    alternates: { canonical: `https://vacationdeals.to/deals/${slug}` },
     openGraph: {
       title,
       description,
@@ -75,6 +77,7 @@ export default async function DealPage({ params }: DealPageProps) {
 
   const location = [deal.city, deal.state].filter(Boolean).join(", ");
   const gradient = getGradient(deal.city);
+  const CityIconComponent = deal.city ? getCityIcon(deal.city) : null;
 
   // Fetch similar deals (same destination, exclude current)
   let similarDeals: Deal[] = [];
@@ -169,7 +172,16 @@ export default async function DealPage({ params }: DealPageProps) {
           {/* Image area */}
           <div
             className={`relative mb-6 flex h-64 items-end overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} p-6 sm:h-80 lg:h-96`}
+            role="img"
+            aria-label={`${deal.resortName || deal.title} resort in ${location}`}
           >
+            {/* Decorative city icon */}
+            {CityIconComponent && (
+              <div className="absolute bottom-4 right-4 h-32 w-32 opacity-[0.15]" aria-hidden="true">
+                <CityIconComponent className="h-full w-full" />
+              </div>
+            )}
+
             {/* Brand badge */}
             {deal.brandName && (
               <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm backdrop-blur-sm">
@@ -202,6 +214,7 @@ export default async function DealPage({ params }: DealPageProps) {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -243,6 +256,7 @@ export default async function DealPage({ params }: DealPageProps) {
                       viewBox="0 0 24 24"
                       strokeWidth={2}
                       stroke="currentColor"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"
@@ -272,6 +286,7 @@ export default async function DealPage({ params }: DealPageProps) {
                       viewBox="0 0 24 24"
                       strokeWidth={2}
                       stroke="currentColor"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"
@@ -315,6 +330,7 @@ export default async function DealPage({ params }: DealPageProps) {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"

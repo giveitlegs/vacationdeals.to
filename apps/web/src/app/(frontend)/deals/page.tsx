@@ -5,6 +5,8 @@ import { FilterBar } from "@/components/FilterBar";
 import { DealGrid } from "@/components/DealGrid";
 import type { Deal } from "@/components/DealCard";
 import { getDeals, getDealStats } from "@/lib/queries";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { FAQSchema } from "@/components/FAQSchema";
 
 export const revalidate = 3600;
 
@@ -15,6 +17,49 @@ const mockDeals: Deal[] = [
   { id: 4, title: "Westgate Smoky Mountain Resort", resortName: "Westgate Smoky Mountains", price: 99, originalPrice: 399, durationNights: 3, durationDays: 4, city: "Gatlinburg", state: "TN", brandName: "Westgate Resorts", brandSlug: "westgate", savingsPercent: 75, inclusions: ["Free Parking", "Wild Bear Falls Waterpark", "Fireplace Suite"], slug: "westgate-gatlinburg-3-night-99" },
   { id: 5, title: "Club Wyndham Las Vegas", resortName: "Club Wyndham Grand Desert", price: 99, originalPrice: 449, durationNights: 2, durationDays: 3, city: "Las Vegas", state: "NV", brandName: "Club Wyndham", brandSlug: "wyndham", savingsPercent: 78, inclusions: ["$200 Virtual Mastercard", "60,000 Wyndham Points"], slug: "wyndham-vegas-2-night-99" },
   { id: 6, title: "Marriott Vacation Club Myrtle Beach", resortName: "Marriott OceanWatch", price: 299, originalPrice: 899, durationNights: 3, durationDays: 4, city: "Myrtle Beach", state: "SC", brandName: "Marriott Vacation Club", brandSlug: "marriott", savingsPercent: 67, inclusions: ["20,000 Bonvoy Points", "Ocean View Room", "Daily Breakfast"], slug: "marriott-myrtle-beach-3-night-299" },
+];
+
+const dealsFaqs = [
+  {
+    question: "What is a vacation deal (vacpack)?",
+    answer: "A vacation deal, also called a vacpack or preview package, is a deeply discounted resort stay offered by timeshare companies. In exchange for the reduced rate (often 60-80% below retail), guests agree to attend a timeshare sales presentation during their stay. There is no obligation to purchase anything.",
+  },
+  {
+    question: "How much do vacation deals typically cost?",
+    answer: "Vacation deals typically range from $59 to $499 depending on the destination, resort quality, and length of stay. Most 3-night resort packages fall in the $99-$199 range. All-inclusive international packages (like Cancun or Punta Cana) may range from $299-$499 for 5-night stays.",
+  },
+  {
+    question: "Are vacation deals legitimate?",
+    answer: "Yes, vacation deals are a legitimate marketing strategy used by major resort and timeshare companies like Westgate Resorts, Hilton Grand Vacations, Marriott Vacation Club, and Club Wyndham. They offer discounted stays to introduce potential buyers to their properties. These are real resort stays at real properties.",
+  },
+  {
+    question: "What is a timeshare presentation and how long does it last?",
+    answer: "A timeshare presentation is a sales pitch where the resort showcases its vacation ownership program. Presentations typically last 90-120 minutes, though some may run longer. You are shown the resort amenities and given a sales offer, but you are under no obligation to purchase. You keep all package perks regardless of your decision.",
+  },
+  {
+    question: "What are the eligibility requirements for vacation deals?",
+    answer: "Requirements vary by provider but commonly include: minimum age of 25-30, minimum household income of $50,000-$75,000 per year, being married or cohabiting with a partner (who must attend), valid government-issued ID, and a major credit card. Some packages have additional requirements. Always check the specific deal's terms before booking.",
+  },
+  {
+    question: "How do I compare vacation deals effectively?",
+    answer: "Compare deals by looking at the total package price (not per-night), what's included (resort credits, meals, tickets, loyalty points), the resort quality and location, trip duration, and any eligibility requirements. Use filters on VacationDeals.to to narrow by destination, brand, price range, or number of nights.",
+  },
+  {
+    question: "What happens if I don't attend the timeshare presentation?",
+    answer: "If you skip the required timeshare presentation, you may be charged the full retail rate for your stay instead of the discounted promotional rate. Some providers may also charge a penalty fee. It is important to attend the presentation as agreed to keep your discounted package pricing.",
+  },
+  {
+    question: "Can I book a vacation deal for someone else?",
+    answer: "Generally, no. The person who books the package must be one of the guests who stays at the resort and attends the presentation. The booking name must match the guest's ID. Some providers allow you to transfer a package, but this varies and often involves a transfer fee.",
+  },
+  {
+    question: "What is the difference between a direct resort deal and a broker deal?",
+    answer: "Direct resort deals come straight from the timeshare company (like Westgate or Hilton Grand Vacations) and are for their specific properties. Broker deals come from third-party companies (like BookVIP or Monster Reservations Group) that have partnerships with multiple resorts, often offering more destination variety and sometimes lower prices.",
+  },
+  {
+    question: "When is the best time to book a vacation deal?",
+    answer: "Vacation deals are available year-round, but you can often find the best prices during off-peak seasons — for example, September-November for Orlando, or midweek stays at any destination. Holidays and summer months tend to have higher prices or limited availability. Booking 2-4 weeks in advance typically gives the best selection.",
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -70,6 +115,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: totalDeals > 0
       ? `All Vacation Deals — ${totalDeals} Resort Deals from $${cheapest}`
       : "All Vacation Deals",
+    alternates: { canonical: "https://vacationdeals.to/deals" },
     description: totalDeals > 0
       ? `Vacation deals from top resorts starting at $${cheapest}. Browse ${totalDeals} resort deals and hotel deals. Filter by destination, brand, price, and duration.`
       : "Vacation deals from top timeshare resorts. Browse resort deals, hotel deals, and getaway packages. Filter by destination, brand, price, and duration.",
@@ -207,6 +253,12 @@ export default async function DealsPage({ searchParams }: DealsPageProps) {
           </Link>
         </div>
       )}
+
+      {/* FAQs */}
+      <FAQSchema faqs={dealsFaqs} />
+      <section className="mt-16">
+        <FAQAccordion faqs={dealsFaqs} />
+      </section>
 
       {/* Pagination */}
       {totalPages > 1 && (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getDestinationsWithCounts, getDealStats } from "@/lib/queries";
+import { getCityIcon } from "@/lib/city-icons";
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -57,6 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: totalDeals > 0
       ? `Vacation Deals by Destination — ${destCount}+ Cities with Deals`
       : "Vacation Deals by Destination",
+    alternates: { canonical: "https://vacationdeals.to/destinations" },
     description: totalDeals > 0
       ? `Vacation deals in ${destCount}+ destinations. ${totalDeals} resort deals across Orlando, Las Vegas, Cancun, Gatlinburg, and more.`
       : "Vacation deals by destination. Browse resort deals and getaway deals in Orlando, Las Vegas, Cancun, Gatlinburg, and 50+ more cities.",
@@ -140,27 +142,38 @@ export default async function DestinationsPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {destinations.map((dest) => (
-          <Link
-            key={dest.name}
-            href={`/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
-            className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-          >
-            <div
-              className={`flex h-40 flex-col items-center justify-center bg-gradient-to-br ${dest.gradient} p-6`}
+        {destinations.map((dest) => {
+          const DestIcon = getCityIcon(dest.name);
+          return (
+            <Link
+              key={dest.name}
+              href={`/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
+              className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+              aria-label={`Browse ${dest.deals} vacation deals in ${dest.name}, ${dest.state}`}
             >
-              <span className="text-2xl font-bold text-white drop-shadow-sm">
-                {dest.name}
-              </span>
-              <span className="mb-2 text-sm font-medium text-white/80">
-                {dest.state}
-              </span>
-              <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                {dest.deals} deals available
-              </span>
-            </div>
-          </Link>
-        ))}
+              <div
+                className={`relative flex h-40 flex-col items-center justify-center bg-gradient-to-br ${dest.gradient} p-6`}
+                role="img"
+                aria-label={`${dest.name}, ${dest.state} vacation destination`}
+              >
+                {/* Decorative city icon */}
+                <div className="absolute bottom-2 right-2 h-20 w-20 opacity-[0.18]" aria-hidden="true">
+                  <DestIcon className="h-full w-full" />
+                </div>
+
+                <span className="text-2xl font-bold text-white drop-shadow-sm">
+                  {dest.name}
+                </span>
+                <span className="mb-2 text-sm font-medium text-white/80">
+                  {dest.state}
+                </span>
+                <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                  {dest.deals} deals available
+                </span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

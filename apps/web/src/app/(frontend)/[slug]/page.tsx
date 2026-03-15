@@ -207,8 +207,8 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
       return {
         title: dealCount > 0
-          ? `${name} Vacation Deals from $${cheapest} — ${dealCount} Deals | VacationDeals.to`
-          : `${name}, ${state} Vacation Deals — Resort Deals from $59 | VacationDeals.to`,
+          ? `${name} Vacation Deals from $${cheapest} — ${dealCount} Deals`
+          : `${name}, ${state} Vacation Deals — Resort Deals from $59`,
         description: dealCount > 0
           ? `${name} vacation deals starting at $${cheapest}. Compare ${dealCount} resort deals at ${brandNames}, and more. ${durationsText} getaway packages available.`
           : `Vacation deals in ${name}, ${state}. Compare resort deals and hotel deals from top timeshare resorts. ${resolved.data.description}`,
@@ -235,7 +235,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
       return {
         title: dealCount > 0
           ? `${name} Vacation Deals from $${cheapest} — ${dealCount} Deals`
-          : `${name} Vacation Deals — Compare Resort Deals | VacationDeals.to`,
+          : `${name} Vacation Deals — Compare Resort Deals`,
         description: dealCount > 0
           ? `${name} vacation deals starting at $${cheapest}. Browse ${dealCount} resort deals in ${destNames}, and more.`
           : `Vacation deals from ${name}. Compare resort deals, prices, durations, and destinations. ${resolved.data.description}`,
@@ -259,8 +259,8 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
       return {
         title: dealCount > 0
-          ? `${label} — ${dealCount} Cheap Vacation Deals | VacationDeals.to`
-          : `${label} — Cheap Vacation Deals | VacationDeals.to`,
+          ? `${label} — ${dealCount} Cheap Vacation Deals`
+          : `${label} — Cheap Vacation Deals`,
         description: dealCount > 0
           ? `${dealCount} ${label.toLowerCase()} from top timeshare resorts. ${resolved.data.description}`
           : `${resolved.data.description} Compare vacation deals from top timeshare resorts.`,
@@ -280,8 +280,8 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
       return {
         title: dealCount > 0
-          ? `${label} — ${dealCount} Resort Vacation Deals | VacationDeals.to`
-          : `${label} — Resort Vacation Deals | VacationDeals.to`,
+          ? `${label} — ${dealCount} Resort Vacation Deals`
+          : `${label} — Resort Vacation Deals`,
         description: dealCount > 0
           ? `${dealCount} ${label.toLowerCase()} from top resort brands. ${resolved.data.description}`
           : `${resolved.data.description} Compare the best ${label.toLowerCase()} from top resort brands.`,

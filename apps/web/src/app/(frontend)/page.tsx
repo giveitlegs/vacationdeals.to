@@ -9,6 +9,7 @@ import {
   getDestinationsWithCounts,
   getBrandsWithCounts,
 } from "@/lib/queries";
+import { getCityIcon } from "@/lib/city-icons";
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -75,10 +76,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const destinationCount = stats?.destinationCount || 20;
 
   return {
-    title: `VacationDeals.to — ${totalDeals}+ Vacation Deals from $${cheapest}`,
+    title: `${totalDeals}+ Vacation Deals from $${cheapest}`,
     description: `Vacation deals from ${brandCount} resort brands starting at $${cheapest}. Compare ${totalDeals}+ resort deals and travel deals across ${destinationCount}+ destinations.`,
+    alternates: { canonical: "https://vacationdeals.to" },
     openGraph: {
-      title: `VacationDeals.to — ${totalDeals}+ Vacation Deals from $${cheapest}`,
+      title: `${totalDeals}+ Vacation Deals from $${cheapest}`,
       description: `Vacation deals from ${brandCount} resort brands starting at $${cheapest}. Compare ${totalDeals}+ resort deals and getaway packages.`,
       type: "website",
       url: "https://vacationdeals.to",
@@ -203,27 +205,38 @@ export default async function HomePage() {
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {popularDestinations.map((dest) => (
-            <Link
-              key={dest.name}
-              href={`/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
-              className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div
-                className={`flex h-32 flex-col items-center justify-center bg-gradient-to-br ${dest.gradient} p-4 text-center`}
+          {popularDestinations.map((dest) => {
+            const DestIcon = getCityIcon(dest.name);
+            return (
+              <Link
+                key={dest.name}
+                href={`/${dest.name.toLowerCase().replace(/\s+/g, "-")}`}
+                className="destination-card group overflow-hidden rounded-xl shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                aria-label={`Browse ${dest.deals} vacation deals in ${dest.name}, ${dest.state}`}
               >
-                <span className="text-lg font-bold text-white drop-shadow-sm">
-                  {dest.name}
-                </span>
-                <span className="text-sm font-medium text-white/80">
-                  {dest.state}
-                </span>
-                <span className="mt-1 rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm">
-                  {dest.deals} deals
-                </span>
-              </div>
-            </Link>
-          ))}
+                <div
+                  className={`relative flex h-32 flex-col items-center justify-center bg-gradient-to-br ${dest.gradient} p-4 text-center`}
+                  role="img"
+                  aria-label={`${dest.name}, ${dest.state} vacation destination`}
+                >
+                  {/* Decorative city icon */}
+                  <div className="absolute bottom-1 right-1 h-16 w-16 opacity-[0.18]" aria-hidden="true">
+                    <DestIcon className="h-full w-full" />
+                  </div>
+
+                  <span className="text-lg font-bold text-white drop-shadow-sm">
+                    {dest.name}
+                  </span>
+                  <span className="text-sm font-medium text-white/80">
+                    {dest.state}
+                  </span>
+                  <span className="mt-1 rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm">
+                    {dest.deals} deals
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
