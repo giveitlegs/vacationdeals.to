@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllBlogPosts } from "@/lib/blog-types";
 
 async function getDealSlugs(): Promise<string[]> {
   try {
@@ -80,5 +81,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages];
+  // Blog pages
+  const blogPosts = getAllBlogPosts();
+  const blogIndexPage = {
+    url: `${baseUrl}/blog`,
+    lastModified: new Date(),
+    changeFrequency: "daily" as const,
+    priority: 0.8,
+  };
+  const blogPostPages = blogPosts.map((post) => ({
+    url: `${baseUrl}/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages];
 }

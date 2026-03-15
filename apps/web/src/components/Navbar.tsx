@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/deals", label: "All Deals" },
   { href: "/destinations", label: "Destinations" },
   { href: "/brands", label: "Brands" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export function Navbar() {
