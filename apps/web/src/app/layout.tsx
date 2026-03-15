@@ -26,6 +26,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    types: {
+      "application/rss+xml": "https://vacationdeals.to/feed.xml",
+    },
+  },
 };
 
 export default function RootLayout({
