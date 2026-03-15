@@ -62,8 +62,15 @@ export function DealCard({ deal }: { deal: Deal }) {
           {deal.savingsPercent}% OFF
         </span>
 
+        {/* Hot Deal badge */}
+        {deal.savingsPercent >= 70 && (
+          <span className="hot-badge absolute left-3 bottom-3 z-10 rounded-full px-2.5 py-0.5 text-[10px] uppercase tracking-wider">
+            Hot Deal
+          </span>
+        )}
+
         {/* Destination label inside image */}
-        <div className="absolute bottom-3 left-3 text-sm font-medium text-white drop-shadow-md">
+        <div className={`absolute ${deal.savingsPercent >= 70 ? 'bottom-3 left-24' : 'bottom-3 left-3'} text-sm font-medium text-white drop-shadow-md`}>
           {deal.city}, {deal.state}
         </div>
       </div>
@@ -82,7 +89,7 @@ export function DealCard({ deal }: { deal: Deal }) {
 
         {/* Price Row */}
         <div className="mb-3 flex items-baseline gap-2">
-          <span className="deal-price text-2xl font-bold text-emerald-600">
+          <span className="deal-price price-emphasis text-2xl font-bold text-emerald-600">
             ${deal.price}
           </span>
           <span className="text-sm text-gray-400 line-through">
@@ -105,7 +112,7 @@ export function DealCard({ deal }: { deal: Deal }) {
         )}
 
         {/* CTA */}
-        <div className="rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors group-hover:bg-blue-700">
+        <div className="cta-pulse w-full min-h-[44px] flex items-center justify-center rounded-lg bg-blue-600 px-4 py-3 text-center text-sm font-semibold text-white transition-colors group-hover:bg-blue-700">
           View Deal
         </div>
       </div>

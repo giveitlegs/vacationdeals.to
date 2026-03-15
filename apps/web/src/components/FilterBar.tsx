@@ -89,7 +89,7 @@ export function FilterBar() {
           <select
             value={currentDestination}
             onChange={(e) => updateParam("destination", e.target.value)}
-            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full min-h-[44px] rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             <option value="">All Destinations</option>
             {destinations.map((d) => (
@@ -108,7 +108,7 @@ export function FilterBar() {
           <select
             value={currentBrand}
             onChange={(e) => updateParam("brand", e.target.value)}
-            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full min-h-[44px] rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             <option value="">All Brands</option>
             {brands.map((b) => (
@@ -134,7 +134,7 @@ export function FilterBar() {
                     currentPrice === range.value ? "" : range.value,
                   )
                 }
-                className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`min-h-[44px] rounded-full px-4 py-2 text-xs font-medium transition-colors ${
                   currentPrice === range.value
                     ? "bg-blue-600 text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -161,7 +161,7 @@ export function FilterBar() {
                     currentDuration === d.value ? "" : d.value,
                   )
                 }
-                className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`min-h-[44px] rounded-full px-4 py-2 text-xs font-medium transition-colors ${
                   currentDuration === d.value
                     ? "bg-blue-600 text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -181,7 +181,7 @@ export function FilterBar() {
           <select
             value={currentSort}
             onChange={(e) => updateParam("sort", e.target.value)}
-            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full min-h-[44px] rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             <option value="">Default</option>
             {sortOptions.map((s) => (
@@ -196,7 +196,7 @@ export function FilterBar() {
         {hasFilters && (
           <button
             onClick={clearFilters}
-            className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50"
+            className="min-h-[44px] rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50"
           >
             Clear Filters
           </button>

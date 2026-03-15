@@ -102,12 +102,12 @@ export function SearchBar() {
 
       {/* Suggestions Dropdown */}
       {open && filtered.length > 0 && (
-        <div className="absolute z-20 mt-2 w-full rounded-xl border border-gray-200 bg-white py-2 shadow-lg">
+        <div className="absolute z-20 mt-2 w-full max-h-[60vh] overflow-y-auto rounded-xl border border-gray-200 bg-white py-2 shadow-lg">
           {filtered.map((suggestion) => (
             <button
               key={suggestion.label}
               onClick={() => handleSelect(suggestion)}
-              className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm text-gray-700 hover:bg-gray-50"
+              className="flex w-full items-center gap-3 px-4 py-3 min-h-[44px] text-left text-sm text-gray-700 hover:bg-gray-50"
             >
               <span
                 className={`rounded-full px-2 py-0.5 text-xs font-medium ${

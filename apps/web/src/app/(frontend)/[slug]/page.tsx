@@ -12,6 +12,9 @@ import { SEOPreFooter } from "@/components/SEOPreFooter";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FAQSchema } from "@/components/FAQSchema";
 import { getFAQsForSlug } from "@/lib/faqs";
+import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog-types";
+import type { BlogPost } from "@/lib/blog-types";
+import { BlogPostRenderer } from "@/components/BlogPost";
 
 export const dynamic = "force-dynamic"; // Always server-render with fresh DB data
 export const revalidate = 0;
@@ -103,7 +106,8 @@ type SlugType =
   | { type: "destination"; data: (typeof destinations)[number] }
   | { type: "brand"; data: (typeof brands)[number] }
   | { type: "price"; data: (typeof priceRanges)[number] }
-  | { type: "duration"; data: (typeof durations)[number] };
+  | { type: "duration"; data: (typeof durations)[number] }
+  | { type: "blog"; data: BlogPost };
 
 function resolveSlug(slug: string): SlugType | null {
   const dest = destinations.find((d) => d.slug === slug);
@@ -117,6 +121,10 @@ function resolveSlug(slug: string): SlugType | null {
 
   const dur = durations.find((d) => d.slug === slug);
   if (dur) return { type: "duration", data: dur };
+
+  // Check blog posts
+  const blogPost = getBlogPostBySlug(slug);
+  if (blogPost) return { type: "blog", data: blogPost };
 
   return null;
 }
@@ -174,11 +182,13 @@ async function getDealsForSlug(
 // ---------------------------------------------------------------------------
 
 export function generateStaticParams() {
+  const blogPosts = getAllBlogPosts();
   const allSlugs = [
     ...destinations.map((d) => d.slug),
     ...brands.map((b) => b.slug),
     ...priceRanges.map((p) => p.slug),
     ...durations.map((d) => d.slug),
+    ...blogPosts.map((p: BlogPost) => p.slug),
   ];
   return allSlugs.map((slug) => ({ slug }));
 }
@@ -301,6 +311,24 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
         },
       };
     }
+    case "blog": {
+      const post = resolved.data;
+      return {
+        title: post.metaTitle,
+        description: post.metaDescription,
+        alternates: { canonical: `${baseUrl}/${post.slug}` },
+        openGraph: {
+          title: post.metaTitle,
+          description: post.metaDescription,
+          url: `${baseUrl}/${post.slug}`,
+          type: "article",
+          ...(post.publishDate
+            ? { publishedTime: post.publishDate }
+            : {}),
+        },
+        authors: [{ name: post.author }],
+      };
+    }
   }
 }
 
@@ -314,6 +342,11 @@ export default async function SlugPage({ params }: SlugPageProps) {
 
   if (!resolved) {
     notFound();
+  }
+
+  // Blog posts don't need deal data
+  if (resolved.type === "blog") {
+    return <BlogPostRenderer post={resolved.data} />;
   }
 
   // Try to fetch deals from DB, fall back to mock data
@@ -433,7 +466,7 @@ async function DestinationPage({
 
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-1.5">
+        <ol className="flex flex-wrap items-center gap-1.5">
           <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
           <li><span className="mx-1">/</span></li>
           <li><Link href="/destinations" className="hover:text-blue-600">Vacation Destinations</Link></li>
@@ -561,7 +594,7 @@ async function BrandPage({
 
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-1.5">
+        <ol className="flex flex-wrap items-center gap-1.5">
           <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
           <li><span className="mx-1">/</span></li>
           <li><Link href="/brands" className="hover:text-blue-600">Vacation Deal Brands</Link></li>
@@ -676,7 +709,7 @@ function PricePage({
 
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-1.5">
+        <ol className="flex flex-wrap items-center gap-1.5">
           <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
           <li><span className="mx-1">/</span></li>
           <li><Link href="/deals" className="hover:text-blue-600">All Vacation Deals</Link></li>
@@ -789,7 +822,7 @@ function DurationPage({
 
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-1.5">
+        <ol className="flex flex-wrap items-center gap-1.5">
           <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
           <li><span className="mx-1">/</span></li>
           <li><Link href="/deals" className="hover:text-blue-600">All Vacation Deals</Link></li>

@@ -8,6 +8,7 @@ import { getCityIcon } from "@/lib/city-icons";
 import { generateDealFAQs } from "@/lib/faqs";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FAQSchema } from "@/components/FAQSchema";
+import { StickyDealBar } from "@/components/StickyDealBar";
 
 export const revalidate = 3600;
 
@@ -162,7 +163,7 @@ export default async function DealPage({ params }: DealPageProps) {
 
       {/* Breadcrumbs */}
       <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
-        <ol className="flex items-center gap-1.5">
+        <ol className="flex flex-wrap items-center gap-1.5">
           <li>
             <Link href="/" className="hover:text-blue-600">
               Vacation Deals
@@ -174,9 +175,9 @@ export default async function DealPage({ params }: DealPageProps) {
               All Vacation Deals
             </Link>
           </li>
-          <li>
+          <li className="min-w-0">
             <span className="mx-1">/</span>
-            <span className="text-gray-900 font-medium">
+            <span className="text-gray-900 font-medium overflow-hidden text-ellipsis whitespace-nowrap inline-block max-w-[200px] align-bottom sm:max-w-none">
               {deal.resortName || deal.title}
             </span>
           </li>
@@ -477,6 +478,13 @@ export default async function DealPage({ params }: DealPageProps) {
           booking.
         </p>
       </div>
+
+      {/* Sticky bottom CTA bar */}
+      <StickyDealBar
+        title={deal.resortName || deal.title}
+        price={Number(deal.price)}
+        url={deal.url}
+      />
 
       {/* Similar deals */}
       {similarDeals.length > 0 && (
