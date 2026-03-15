@@ -133,7 +133,7 @@ export default async function DealPage({ params }: DealPageProps) {
       "@type": "Offer",
       price: deal.price,
       priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
+      availability: deal.isActive ? "https://schema.org/InStock" : "https://schema.org/Discontinued",
       url: deal.url,
       ...(deal.originalPrice
         ? {
@@ -233,7 +233,7 @@ export default async function DealPage({ params }: DealPageProps) {
       ...(startDate ? { startDate } : {}),
       ...(endDate ? { endDate } : {}),
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-      eventStatus: "https://schema.org/EventScheduled",
+      eventStatus: deal.isActive ? "https://schema.org/EventScheduled" : "https://schema.org/EventCancelled",
       location: {
         "@type": "Place",
         ...(venueName ? { name: venueName } : { name: deal.resortName || "Westgate Resort" }),
@@ -248,7 +248,7 @@ export default async function DealPage({ params }: DealPageProps) {
         "@type": "Offer",
         price: deal.price,
         priceCurrency: "USD",
-        availability: "https://schema.org/InStock",
+        availability: deal.isActive ? "https://schema.org/InStock" : "https://schema.org/Discontinued",
         url: `https://vacationdeals.to/deals/${slug}`,
         validFrom: new Date().toISOString().split("T")[0],
       },
@@ -319,6 +319,25 @@ export default async function DealPage({ params }: DealPageProps) {
           </li>
         </ol>
       </nav>
+
+      {/* Expired deal banner */}
+      {!deal.isActive && (
+        <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4">
+          <div className="flex items-start gap-3">
+            <svg className="mt-0.5 h-5 w-5 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+            <div>
+              <h2 className="text-sm font-semibold text-red-800">This deal has expired</h2>
+              <p className="mt-1 text-sm text-red-700">
+                This deal has expired and may no longer be available. Prices and availability shown were last verified
+                {deal.updatedAt ? ` on ${new Date(deal.updatedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}` : ""}.
+                Browse <Link href="/deals" className="font-medium underline hover:text-red-800">active vacation deals</Link> for current offers.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Main deal layout */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -518,7 +537,7 @@ export default async function DealPage({ params }: DealPageProps) {
             {/* Price */}
             <div className="mb-4 text-center">
               <div className="mb-1 flex items-baseline justify-center gap-2">
-                <span className="text-4xl font-bold text-emerald-600">
+                <span className={`text-4xl font-bold ${deal.isActive ? "text-emerald-600" : "text-gray-400"}`}>
                   ${deal.price}
                 </span>
                 {deal.originalPrice && (
@@ -586,14 +605,15 @@ export default async function DealPage({ params }: DealPageProps) {
               href={deal.url}
               target="_blank"
               rel="noopener noreferrer nofollow"
-              className="block w-full rounded-xl bg-blue-600 px-6 py-3.5 text-center text-base font-semibold text-white transition-colors hover:bg-blue-700"
+              className={`block w-full rounded-xl px-6 py-3.5 text-center text-base font-semibold text-white transition-colors ${deal.isActive ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 hover:bg-gray-500"}`}
             >
-              View Deal on {deal.brandName || "Provider Site"}
+              {deal.isActive ? `View Deal on ${deal.brandName || "Provider Site"}` : "Check If Still Available"}
             </a>
 
             <p className="mt-3 text-center text-xs text-gray-400">
-              You will be redirected to the provider&apos;s website to complete
-              your booking.
+              {deal.isActive
+                ? "You will be redirected to the provider\u2019s website to complete your booking."
+                : "This deal has expired. The provider\u2019s page may no longer be available."}
             </p>
           </div>
         </div>
@@ -627,12 +647,14 @@ export default async function DealPage({ params }: DealPageProps) {
         </p>
       </div>
 
-      {/* Sticky bottom CTA bar */}
-      <StickyDealBar
-        title={isWestgateEvent ? deal.title : (deal.resortName || deal.title)}
-        price={Number(deal.price)}
-        url={deal.url}
-      />
+      {/* Sticky bottom CTA bar (hidden for expired deals) */}
+      {deal.isActive && (
+        <StickyDealBar
+          title={isWestgateEvent ? deal.title : (deal.resortName || deal.title)}
+          price={Number(deal.price)}
+          url={deal.url}
+        />
+      )}
 
       {/* Similar deals */}
       {similarDeals.length > 0 && (

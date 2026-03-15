@@ -487,6 +487,8 @@ export interface DealDetail {
   city: string | null;
   state: string | null;
   destinationSlug: string | null;
+  isActive: boolean;
+  updatedAt: string | null;
 }
 
 export async function getDealBySlug(
@@ -516,6 +518,8 @@ export async function getDealBySlug(
         presentationMinutes: schema.deals.presentationMinutes,
         travelWindow: schema.deals.travelWindow,
         savingsPercent: schema.deals.savingsPercent,
+        isActive: schema.deals.isActive,
+        updatedAt: schema.deals.updatedAt,
         brandName: schema.brands.name,
         brandSlug: schema.brands.slug,
         city: schema.destinations.city,
@@ -551,6 +555,8 @@ export async function getDealBySlug(
       presentationMinutes: r.presentationMinutes,
       travelWindow: r.travelWindow,
       savingsPercent: r.savingsPercent,
+      isActive: r.isActive,
+      updatedAt: r.updatedAt ? r.updatedAt.toISOString() : null,
       brandName: r.brandName,
       brandSlug: r.brandSlug,
       city: r.city,

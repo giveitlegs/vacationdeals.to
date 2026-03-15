@@ -17,6 +17,7 @@ export interface Deal {
   inclusions: string[];
   slug: string;
   imageUrl?: string;
+  isActive?: boolean;
 }
 
 const destinationGradients: Record<string, string> = {
@@ -34,12 +35,13 @@ function getGradient(city: string): string {
 
 export function DealCard({ deal }: { deal: Deal }) {
   const CityIconComponent = getCityIcon(deal.city);
+  const isExpired = deal.isActive === false;
 
   return (
     <Link
       href={`/deals/${deal.slug}`}
-      className="deal-card group block rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
-      aria-label={`${deal.resortName} in ${deal.city}, ${deal.state} — ${deal.durationNights}-night stay from $${deal.price}`}
+      className={`deal-card group block rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md${isExpired ? " opacity-75" : ""}`}
+      aria-label={`${deal.resortName} in ${deal.city}, ${deal.state} — ${deal.durationNights}-night stay from $${deal.price}${isExpired ? " (expired)" : ""}`}
     >
       {/* Image / Gradient Placeholder */}
       <div
@@ -47,6 +49,15 @@ export function DealCard({ deal }: { deal: Deal }) {
         role="img"
         aria-label={`${deal.resortName} vacation deal in ${deal.city}, ${deal.state}`}
       >
+        {/* Expired overlay */}
+        {isExpired && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40">
+            <span className="rounded-lg bg-red-600 px-4 py-2 text-sm font-bold uppercase tracking-wider text-white shadow-lg">
+              Expired
+            </span>
+          </div>
+        )}
+
         {/* Decorative city icon */}
         <div className="absolute bottom-2 right-2 h-20 w-20 opacity-[0.15]" aria-hidden="true">
           <CityIconComponent className="h-full w-full" />
@@ -58,21 +69,21 @@ export function DealCard({ deal }: { deal: Deal }) {
         </span>
 
         {/* Savings Badge */}
-        {deal.savingsPercent > 0 && (
+        {deal.savingsPercent > 0 && !isExpired && (
           <span className="absolute right-3 top-3 rounded-full bg-red-500 px-2.5 py-1 text-xs font-bold text-white">
             {deal.savingsPercent}% OFF
           </span>
         )}
 
         {/* Hot Deal badge */}
-        {deal.savingsPercent >= 70 && (
+        {deal.savingsPercent >= 70 && !isExpired && (
           <span className="hot-badge absolute left-3 bottom-3 z-10 rounded-full px-2.5 py-0.5 text-[10px] uppercase tracking-wider">
             Hot Deal
           </span>
         )}
 
         {/* Destination label inside image */}
-        <div className={`absolute ${deal.savingsPercent >= 70 ? 'bottom-3 left-24' : 'bottom-3 left-3'} text-sm font-medium text-white drop-shadow-md`} aria-hidden="true">
+        <div className={`absolute ${deal.savingsPercent >= 70 && !isExpired ? 'bottom-3 left-24' : 'bottom-3 left-3'} text-sm font-medium text-white drop-shadow-md`} aria-hidden="true">
           {deal.city}, {deal.state}
         </div>
       </div>
@@ -91,7 +102,7 @@ export function DealCard({ deal }: { deal: Deal }) {
 
         {/* Price Row */}
         <div className="mb-3 flex items-baseline gap-2">
-          <span className="deal-price price-emphasis text-2xl font-bold text-emerald-600">
+          <span className={`deal-price price-emphasis text-2xl font-bold ${isExpired ? "text-gray-400" : "text-emerald-600"}`}>
             ${deal.price}
           </span>
           {deal.originalPrice > 0 && deal.originalPrice > deal.price && (
@@ -116,8 +127,8 @@ export function DealCard({ deal }: { deal: Deal }) {
         )}
 
         {/* CTA */}
-        <div className="cta-pulse w-full min-h-[44px] flex items-center justify-center rounded-lg bg-blue-600 px-4 py-3 text-center text-sm font-semibold text-white transition-colors group-hover:bg-blue-700">
-          View Deal
+        <div className={`w-full min-h-[44px] flex items-center justify-center rounded-lg px-4 py-3 text-center text-sm font-semibold text-white transition-colors ${isExpired ? "bg-gray-400" : "cta-pulse bg-blue-600 group-hover:bg-blue-700"}`}>
+          {isExpired ? "View Expired Deal" : "View Deal"}
         </div>
       </div>
     </Link>
