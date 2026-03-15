@@ -118,6 +118,7 @@ export default async function DealPage({ params }: DealPageProps) {
     "@type": "Product",
     name: deal.title,
     description: deal.description || `${deal.durationNights}-night vacation deal at ${deal.resortName || deal.title} in ${location}.`,
+    dateModified: new Date().toISOString(),
     image: deal.imageUrl || undefined,
     brand: deal.brandName
       ? { "@type": "Brand", name: deal.brandName }
@@ -140,12 +141,136 @@ export default async function DealPage({ params }: DealPageProps) {
     },
   };
 
+  // Schema.org Event JSON-LD for Westgate Events deals
+  const isWestgateEvent = deal.brandSlug === "westgate-events";
+  let eventJsonLd: Record<string, unknown> | null = null;
+
+  if (isWestgateEvent) {
+    // Parse event dates from travel window (e.g. "Mar 19 - Mar 21, 2026")
+    let startDate: string | undefined;
+    let endDate: string | undefined;
+    if (deal.travelWindow) {
+      const dateMatch = deal.travelWindow.match(
+        /([A-Z][a-z]+)\s+(\d{1,2})\s*[-–]\s*(?:([A-Z][a-z]+)\s+)?(\d{1,2}),?\s*(\d{4})/,
+      );
+      if (dateMatch) {
+        const MONTHS: Record<string, string> = {
+          Jan: "01", Feb: "02", Mar: "03", Apr: "04", May: "05", Jun: "06",
+          Jul: "07", Aug: "08", Sep: "09", Oct: "10", Nov: "11", Dec: "12",
+        };
+        const sMonth = MONTHS[dateMatch[1]] || "01";
+        const sDay = dateMatch[2].padStart(2, "0");
+        const eMonthName = dateMatch[3] || dateMatch[1];
+        const eMonth = MONTHS[eMonthName] || sMonth;
+        const eDay = dateMatch[4].padStart(2, "0");
+        const year = dateMatch[5];
+        startDate = `${year}-${sMonth}-${sDay}`;
+        endDate = `${year}-${eMonth}-${eDay}`;
+      }
+    }
+
+    // Determine performer from deal title
+    // Titles like "Discount Eagles Concert Tickets Las Vegas at The Sphere"
+    // → extract between "Discount " and " Concert|Show|Comedy|Sports|Tickets"
+    let performerName: string | null = null;
+    let performerType: string | null = null;
+    const titleLower = deal.title.toLowerCase();
+
+    const performerMatch = deal.title.match(
+      /^Discount\s+(.+?)\s+(?:Concert|Comedy Show|Show|Sports|)\s*Tickets/i,
+    );
+    if (performerMatch) {
+      performerName = performerMatch[1].trim();
+    }
+
+    // Determine performer @type
+    if (performerName) {
+      if (titleLower.includes("concert")) {
+        // Could be a band or solo artist — use MusicGroup as safe default
+        performerType = "MusicGroup";
+      } else if (titleLower.includes("comedy")) {
+        performerType = "Person";
+      } else if (titleLower.includes("sports")) {
+        performerType = "SportsTeam";
+      }
+    }
+
+    // Extract venue from title: "... at {Venue}"
+    let venueName: string | null = null;
+    const venueMatch = deal.title.match(/\bat\s+(.+)$/i);
+    if (venueMatch) {
+      venueName = venueMatch[1].trim();
+    }
+
+    // Determine event @type based on title keywords
+    let eventType = "Event";
+    if (titleLower.includes("concert")) {
+      eventType = "MusicEvent";
+    } else if (titleLower.includes("sports")) {
+      eventType = "SportsEvent";
+    } else if (titleLower.includes("comedy")) {
+      eventType = "ComedyEvent";
+    } else if (titleLower.includes("show")) {
+      eventType = "TheaterEvent";
+    }
+
+    eventJsonLd = {
+      "@context": "https://schema.org",
+      "@type": eventType,
+      name: deal.title,
+      description: deal.description || `Discounted event tickets with ${deal.durationNights}-night resort stay included.`,
+      ...(startDate ? { startDate } : {}),
+      ...(endDate ? { endDate } : {}),
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      eventStatus: "https://schema.org/EventScheduled",
+      location: {
+        "@type": "Place",
+        ...(venueName ? { name: venueName } : { name: deal.resortName || "Westgate Resort" }),
+        address: {
+          "@type": "PostalAddress",
+          ...(deal.city ? { addressLocality: deal.city } : {}),
+          ...(deal.state ? { addressRegion: deal.state } : {}),
+          addressCountry: "US",
+        },
+      },
+      offers: {
+        "@type": "Offer",
+        price: deal.price,
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: `https://vacationdeals.to/deals/${slug}`,
+        validFrom: new Date().toISOString().split("T")[0],
+      },
+      ...(performerName && performerType
+        ? {
+            performer: {
+              "@type": performerType,
+              name: performerName,
+            },
+          }
+        : {}),
+      organizer: {
+        "@type": "Organization",
+        name: "Westgate Events",
+        url: "https://westgateevents.com",
+      },
+    };
+  }
+
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* Event schema for Westgate Events deals */}
+      {eventJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+        />
+      )}
 
       {/* Breadcrumb schema */}
       <script

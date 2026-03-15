@@ -44,6 +44,186 @@ const LOCATION_MAP: Record<string, { city: string; state: string }> = {
   "cocoa beach, fl": { city: "Cocoa Beach", state: "FL" },
 };
 
+// ── Event type classification ────────────────────────────────────────────────
+
+type EventType = "concert" | "show" | "sports" | "comedy" | "attraction" | "getaway";
+
+/** Keywords that signal a specific event type */
+const CONCERT_KEYWORDS = [
+  "concert", "live in concert", "tour", "band", "music",
+];
+const SHOW_KEYWORDS = [
+  "show", "dinner show", "stampede", "theater", "theatre", "cirque",
+  "performance", "spectacular", "revue", "musical",
+];
+const SPORTS_KEYWORDS = [
+  "game", "match", "nfl", "nba", "nhl", "mlb", "ufc", "boxing",
+  "football", "basketball", "hockey", "baseball", "racing", "nascar",
+];
+const COMEDY_KEYWORDS = [
+  "comedy", "comedian", "stand-up", "standup", "laugh",
+];
+const ATTRACTION_KEYWORDS = [
+  "busch gardens", "seaworld", "legoland", "disney", "universal",
+  "gatorland", "zipline", "theme park", "water park", "aquarium",
+  "museum", "zoo",
+];
+const GETAWAY_KEYWORDS = [
+  "a weekend in", "a week in", "getaway", "escape",
+];
+
+/** Known artists/performers — lets us tag concerts even without keywords */
+const KNOWN_ARTISTS = [
+  "metallica", "eagles", "jennifer lopez", "j-lo", "bruno mars",
+  "adele", "elton john", "billy joel", "garth brooks", "luke bryan",
+  "keith urban", "rod stewart", "sting", "u2", "aerosmith", "kiss",
+  "def leppard", "journey", "santana", "pitbull", "shakira", "bad bunny",
+  "maná", "mana", "marc anthony", "enrique iglesias", "reba mcentire",
+  "carrie underwood", "blake shelton", "chris stapleton", "morgan wallen",
+  "luke combs", "post malone", "drake", "usher", "janet jackson",
+  "celine dion", "mariah carey", "backstreet boys", "new kids on the block",
+  "boyz ii men", "earth wind and fire", "chicago", "fleetwood mac",
+  "stevie nicks", "lady gaga", "pink", "coldplay", "imagine dragons",
+  "foo fighters", "green day", "blink-182", "red hot chili peppers",
+  "dave chappelle", "kevin hart", "jeff dunham", "gabriel iglesias",
+  "sebastian maniscalco", "joe rogan", "bill burr", "bert kreischer",
+];
+
+function classifyEventType(title: string, pageText: string): EventType {
+  const lower = (title + " " + pageText).toLowerCase();
+
+  // Check getaway first (weekend/week resort-only packages)
+  if (GETAWAY_KEYWORDS.some((kw) => title.toLowerCase().includes(kw))) {
+    return "getaway";
+  }
+  // Attractions (theme parks, etc.)
+  if (ATTRACTION_KEYWORDS.some((kw) => lower.includes(kw))) {
+    return "attraction";
+  }
+  // Comedy
+  if (COMEDY_KEYWORDS.some((kw) => lower.includes(kw))) {
+    return "comedy";
+  }
+  // Sports
+  if (SPORTS_KEYWORDS.some((kw) => lower.includes(kw))) {
+    return "sports";
+  }
+  // Show (dinner shows, theater, etc.)
+  if (SHOW_KEYWORDS.some((kw) => lower.includes(kw))) {
+    return "show";
+  }
+  // Known artist → concert
+  if (KNOWN_ARTISTS.some((a) => title.toLowerCase().includes(a))) {
+    return "concert";
+  }
+  // Concert keywords
+  if (CONCERT_KEYWORDS.some((kw) => lower.includes(kw))) {
+    return "concert";
+  }
+  // JSON-LD type hint from the page
+  if (lower.includes('"musicevent"') || lower.includes('"sportsEvent"')) {
+    // If we haven't matched anything specific, treat MusicEvent as concert
+    return "concert";
+  }
+
+  // Default: if the page has ticket-related content, treat as concert; else getaway
+  if (lower.includes("ticket")) return "concert";
+  return "getaway";
+}
+
+/**
+ * Extract the venue name from the detail page.
+ * The site puts venue info in the page content but NOT in the JSON-LD location
+ * (which uses the resort address). Common patterns:
+ *   - "at The Sphere" / "at T-Mobile Arena" / "at The Colosseum"
+ *   - Venue names appear in text near "at" before a comma or period
+ *   - For attractions: the attraction name IS the venue (e.g. "Busch Gardens")
+ */
+function extractVenueName(
+  title: string,
+  pageText: string,
+  eventType: EventType,
+): string | null {
+  // For attractions, the title itself is the venue
+  if (eventType === "attraction") {
+    // Extract attraction name: "A Day at Busch Gardens" → "Busch Gardens"
+    const atMatch = title.match(/(?:a day at|a night at|visit)\s+(.+)/i);
+    if (atMatch) return atMatch[1].trim();
+    return title; // fallback: full title is the attraction
+  }
+
+  // For getaway packages, there's no separate venue
+  if (eventType === "getaway") return null;
+
+  // Look for "at {Venue}" patterns in the page text
+  // Common venues: The Sphere, T-Mobile Arena, The Colosseum at Caesar's Palace,
+  // Amway Center, Bridgestone Arena, etc.
+  const venuePatterns = [
+    /(?:tickets?\s+(?:to|for)\s+.+?\s+)?at\s+(The\s+Sphere)/i,
+    /at\s+(T-Mobile\s+Arena)/i,
+    /at\s+(The\s+Colosseum\s+at\s+Caesars?\s+Palace)/i,
+    /at\s+(The\s+Colosseum)/i,
+    /at\s+(Amway\s+Center)/i,
+    /at\s+(Bridgestone\s+Arena)/i,
+    /at\s+(Madison\s+Square\s+Garden)/i,
+    /at\s+(MGM\s+Grand\s+Garden\s+Arena)/i,
+    /at\s+(Mandalay\s+Bay\s+Events?\s+Center)/i,
+    /at\s+(Allegiant\s+Stadium)/i,
+    /at\s+(Hard\s+Rock\s+Stadium)/i,
+    /at\s+(Dolby\s+Live)/i,
+    /at\s+(Resorts\s+World\s+Theatre)/i,
+    /at\s+(Zappos\s+Theater)/i,
+    /at\s+(Pigeon\s+Forge)/i,
+    /at\s+(Dolly\s+Parton'?s?\s+Stampede)/i,
+    // Generic: "at The/Some Venue Name" (2-5 capitalized words)
+    /\bat\s+((?:The\s+)?[A-Z][\w']+(?:\s+[A-Z][\w']+){0,4}(?:\s+(?:Arena|Center|Theatre|Theater|Stadium|Garden|Colosseum|Amphitheatre|Amphitheater|Pavilion|Hall|Dome|Sphere|Palace|Live)))/,
+  ];
+
+  for (const pattern of venuePatterns) {
+    const m = pageText.match(pattern);
+    if (m) return m[1].trim();
+  }
+
+  // Try title: "Metallica at The Sphere" → "The Sphere"
+  const titleAt = title.match(/\bat\s+(.+)$/i);
+  if (titleAt) {
+    const venue = titleAt[1].trim();
+    // Only accept if it looks like a venue (starts with capital, not a city)
+    if (venue.match(/^[A-Z]/) && !venue.match(/^(Orlando|Las Vegas|Gatlinburg|Branson|Myrtle|Williamsburg)/)) {
+      return venue;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Build an SEO-optimized deal title based on event type, artist, city, venue.
+ */
+function buildSEOTitle(
+  eventName: string,
+  eventType: EventType,
+  city: string,
+  venueName: string | null,
+): string {
+  const venueStr = venueName ? ` at ${venueName}` : "";
+
+  switch (eventType) {
+    case "concert":
+      return `Discount ${eventName} Concert Tickets ${city}${venueStr}`;
+    case "sports":
+      return `Discount ${eventName} Sports Tickets ${city}${venueStr}`;
+    case "comedy":
+      return `Discount ${eventName} Comedy Show Tickets ${city}${venueStr}`;
+    case "show":
+      return `Discount ${eventName} Show Tickets ${city}${venueStr}`;
+    case "attraction":
+      return `Discount ${eventName} Tickets ${city}${venueStr}`;
+    case "getaway":
+      return `Discount ${city} Vacation Package — ${eventName}`;
+  }
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function parsePrice(text: string): number | null {
@@ -331,6 +511,14 @@ export async function runWestgateEventsCrawler() {
           ? resortMatch[0].trim()
           : "Westgate Resort";
 
+        // Event type classification + venue extraction
+        const eventType = classifyEventType(title, pageText);
+        const venueName = extractVenueName(title, pageText, eventType);
+        log.info(`Event type: ${eventType}, venue: ${venueName || "none"}`);
+
+        // Build SEO-optimized title
+        const seoTitle = buildSEOTitle(title, eventType, location.city, venueName);
+
         // Duration: try "X Nights" from page, then date range, then listing
         let nights: number | null = null;
         const nightsMatch = pageText.match(/(\d+)\s*nights?/i);
@@ -393,12 +581,30 @@ export async function runWestgateEventsCrawler() {
           inclusions.push(
             `${nights + 1} Days / ${nights} Nights at ${resortName}`,
           );
-          inclusions.push("Event tickets included");
+          if (eventType !== "getaway") {
+            inclusions.push("Event tickets included");
+          }
           inclusions.push("Resort accommodation");
         }
 
+        // Build description based on event type
+        const descriptionParts = [seoTitle];
+        if (eventType === "getaway") {
+          descriptionParts.push(
+            `including ${nights} nights at ${resortName} in ${location.city}, ${location.state}.`,
+          );
+        } else {
+          descriptionParts.push(
+            `vacation package including ${nights} nights at ${resortName} in ${location.city}, ${location.state}.`,
+          );
+          if (venueName) {
+            descriptionParts.push(`Event held at ${venueName}.`);
+          }
+          descriptionParts.push("Includes event tickets, accommodation, and more.");
+        }
+
         const deal: ScrapedDeal = {
-          title: `${title} - ${location.city} Event Package`,
+          title: seoTitle,
           price,
           originalPrice:
             originalPrice && originalPrice > price
@@ -406,7 +612,7 @@ export async function runWestgateEventsCrawler() {
               : undefined,
           durationNights: nights,
           durationDays: nights + 1,
-          description: `${title} event package including ${nights} nights at ${resortName} in ${location.city}, ${location.state}. Includes event tickets, accommodation, and more.`,
+          description: descriptionParts.join(" "),
           resortName,
           url,
           imageUrl,
