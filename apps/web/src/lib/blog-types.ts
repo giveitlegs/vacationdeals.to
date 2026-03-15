@@ -31,10 +31,20 @@ export interface BlogPost {
 }
 
 // Registry of all blog posts
+import { destinationPosts } from "./blog-posts/destinations";
+import { brandPosts } from "./blog-posts/brands";
+import { interestPosts } from "./blog-posts/interests";
+import { segmentPosts } from "./blog-posts/segments";
+
+const _allPosts: BlogPost[] = [
+  ...destinationPosts,
+  ...brandPosts,
+  ...interestPosts,
+  ...segmentPosts,
+].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+
 export function getAllBlogPosts(): BlogPost[] {
-  // Import all post files and combine
-  // This will be populated as content files are created
-  return [];
+  return _allPosts;
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | null {
