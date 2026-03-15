@@ -19,6 +19,14 @@
     "scrape:spinnaker": "tsx src/index.ts --source=spinnaker",
     "seo:audit": "tsx src/seo-audit.ts",
     "rss:submit": "tsx src/rss-submit.ts",
+    "scrape:departure-depot": "tsx src/index.ts --source=departure-depot",
+    "scrape:vegas-timeshare": "tsx src/index.ts --source=vegas-timeshare",
+    "scrape:premier-travel": "tsx src/index.ts --source=premier-travel",
+    "scrape:discount-vacation": "tsx src/index.ts --source=discount-vacation",
+    "scrape:legendary": "tsx src/index.ts --source=legendary",
+    "scrape:festiva": "tsx src/index.ts --source=festiva",
+    "scrape:hyatt": "tsx src/index.ts --source=hyatt",
+    "scrape:capital-vacations": "tsx src/index.ts --source=capital-vacations",
     "health:deals": "tsx src/check-deal-health.ts"
   },
   "dependencies": {

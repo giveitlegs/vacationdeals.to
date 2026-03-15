@@ -17,6 +17,8 @@ import { runPremierTravelCrawler } from "./crawlers/premier-travel";
 import { runDiscountVacationCrawler } from "./crawlers/discount-vacation";
 import { runLegendaryCrawler } from "./crawlers/legendary";
 import { runFestivaCrawler } from "./crawlers/festiva";
+import { runHyattCrawler } from "./crawlers/hyatt";
+import { runCapitalVacationsCrawler } from "./crawlers/capital-vacations";
 import { deactivateExpiredDeals } from "./storage/deal-store";
 
 const crawlers: Record<string, () => Promise<void>> = {
@@ -39,6 +41,8 @@ const crawlers: Record<string, () => Promise<void>> = {
   "discount-vacation": runDiscountVacationCrawler,
   legendary: runLegendaryCrawler,
   festiva: runFestivaCrawler,
+  hyatt: runHyattCrawler,
+  "capital-vacations": runCapitalVacationsCrawler,
 };
 
 async function main() {
