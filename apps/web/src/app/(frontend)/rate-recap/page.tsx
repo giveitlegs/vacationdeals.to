@@ -6,7 +6,7 @@ import { RateRecapClient } from "./RateRecapClient";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "VacPack Rate Recap — Track Vacation Deal Prices Daily",
+  title: "VacPack Rate Recap",
   description:
     "Track vacation deal prices in realtime. Compare daily price trends from Westgate, BookVIP, Hilton Grand Vacations, Wyndham, Marriott, and more across top destinations.",
   alternates: { canonical: "https://vacationdeals.to/rate-recap" },

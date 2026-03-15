@@ -169,7 +169,7 @@ export default async function DestinationsPage() {
                   {dest.state}
                 </span>
                 <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                  {dest.deals} deals available
+                  {dest.deals} deal{dest.deals !== 1 ? "s" : ""} available
                 </span>
               </div>
             </Link>

@@ -161,7 +161,7 @@ export default async function BrandsPage() {
             </p>
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-emerald-600">
-                {brand.deals} deals available
+                {brand.deals} deal{brand.deals !== 1 ? "s" : ""} available
               </span>
               <span className="text-sm font-medium text-blue-600 opacity-0 transition-opacity group-hover:opacity-100">
                 View deals &rarr;

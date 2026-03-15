@@ -58,9 +58,11 @@ export function DealCard({ deal }: { deal: Deal }) {
         </span>
 
         {/* Savings Badge */}
-        <span className="absolute right-3 top-3 rounded-full bg-red-500 px-2.5 py-1 text-xs font-bold text-white">
-          {deal.savingsPercent}% OFF
-        </span>
+        {deal.savingsPercent > 0 && (
+          <span className="absolute right-3 top-3 rounded-full bg-red-500 px-2.5 py-1 text-xs font-bold text-white">
+            {deal.savingsPercent}% OFF
+          </span>
+        )}
 
         {/* Hot Deal badge */}
         {deal.savingsPercent >= 70 && (
@@ -70,7 +72,7 @@ export function DealCard({ deal }: { deal: Deal }) {
         )}
 
         {/* Destination label inside image */}
-        <div className={`absolute ${deal.savingsPercent >= 70 ? 'bottom-3 left-24' : 'bottom-3 left-3'} text-sm font-medium text-white drop-shadow-md`}>
+        <div className={`absolute ${deal.savingsPercent >= 70 ? 'bottom-3 left-24' : 'bottom-3 left-3'} text-sm font-medium text-white drop-shadow-md`} aria-hidden="true">
           {deal.city}, {deal.state}
         </div>
       </div>
@@ -92,9 +94,11 @@ export function DealCard({ deal }: { deal: Deal }) {
           <span className="deal-price price-emphasis text-2xl font-bold text-emerald-600">
             ${deal.price}
           </span>
-          <span className="text-sm text-gray-400 line-through">
-            ${deal.originalPrice}
-          </span>
+          {deal.originalPrice > 0 && deal.originalPrice > deal.price && (
+            <span className="text-sm text-gray-400 line-through">
+              ${deal.originalPrice}
+            </span>
+          )}
         </div>
 
         {/* Inclusions */}

@@ -12,7 +12,7 @@ export const revalidate = 3600;
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Vacation Deals Blog — Tips, Guides & Destination Insights",
+    title: "Vacation Deals Blog",
     description:
       "Expert tips, destination guides, and insider knowledge for getting the best vacation deals. Learn how to save up to 80% on resort stays.",
     alternates: { canonical: "https://vacationdeals.to/blog" },

@@ -232,7 +232,7 @@ export default async function HomePage() {
                     {dest.state}
                   </span>
                   <span className="mt-1 rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm">
-                    {dest.deals} deals
+                    {dest.deals} deal{dest.deals !== 1 ? "s" : ""}
                   </span>
                 </div>
               </Link>
@@ -273,7 +273,7 @@ export default async function HomePage() {
                   {brand.type === "direct" ? "Direct" : "Broker"}
                 </span>
                 <span className="text-xs text-gray-400">
-                  {brand.deals} deals
+                  {brand.deals} deal{brand.deals !== 1 ? "s" : ""}
                 </span>
               </div>
             </Link>

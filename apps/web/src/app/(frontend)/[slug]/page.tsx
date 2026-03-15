@@ -223,26 +223,22 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
       const destDetail = await getDestinationBySlug(slug);
       const dealCount = destDetail?.dealCount || 0;
       const cheapest = destDetail?.cheapestPrice || 59;
-      const brandNames = destDetail?.brands?.slice(0, 3).join(", ") || "top resorts";
-      const durationsText =
-        destDetail?.durations?.map((n) => `${n}-night`).join(" and ") ||
-        "3-night and 4-night";
 
       return {
         title: dealCount > 0
-          ? `${name} Vacation Deals from $${cheapest} — ${dealCount} Deals`
-          : `${name}, ${state} Vacation Deals — Resort Deals from $59`,
+          ? `${name} Vacation Deals from $${cheapest} (${dealCount} Deals)`
+          : `${name} Vacation Deals`,
         description: dealCount > 0
-          ? `${name} vacation deals starting at $${cheapest}. Compare ${dealCount} resort deals at ${brandNames}, and more. ${durationsText} getaway packages available.`
-          : `Vacation deals in ${name}, ${state}. Compare resort deals and hotel deals from top timeshare resorts. ${resolved.data.description}`,
+          ? `${dealCount} vacation deals in ${name}, ${state} from $${cheapest}. Compare resort deals from top brands. Book premium resort stays.`.slice(0, 160)
+          : `Vacation deals in ${name}, ${state}. Compare resort deals from top timeshare brands at premium resorts.`,
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
           title: dealCount > 0
-            ? `${name} Vacation Deals from $${cheapest} — ${dealCount} Deals`
+            ? `${name} Vacation Deals from $${cheapest} (${dealCount} Deals)`
             : `${name} Vacation Deals`,
           description: dealCount > 0
-            ? `${name} vacation deals starting at $${cheapest}. Compare ${dealCount} resort deals and getaway packages.`
-            : `Vacation deals in ${name}, ${state}. Resort deals starting at $59 from top brands.`,
+            ? `${dealCount} vacation deals in ${name}, ${state} from $${cheapest}. Compare resort deals from top brands.`
+            : `Vacation deals in ${name}, ${state}. Resort deals from top brands.`,
           url: `${baseUrl}/${slug}`,
           type: "website",
         },
@@ -257,11 +253,11 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
       return {
         title: dealCount > 0
-          ? `${name} Vacation Deals from $${cheapest} — ${dealCount} Deals`
-          : `${name} Vacation Deals — Compare Resort Deals`,
+          ? `${name} Vacation Deals from $${cheapest}`
+          : `${name} Vacation Deals`,
         description: dealCount > 0
-          ? `${name} vacation deals starting at $${cheapest}. Browse ${dealCount} resort deals in ${destNames}, and more.`
-          : `Vacation deals from ${name}. Compare resort deals, prices, durations, and destinations. ${resolved.data.description}`,
+          ? `${dealCount} ${name} vacation deals from $${cheapest}. Browse resort deals in ${destNames}, and more.`.slice(0, 160)
+          : `Vacation deals from ${name}. Compare resort deals, prices, and destinations. ${resolved.data.description}`.slice(0, 160),
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
           title: dealCount > 0
@@ -452,7 +448,7 @@ async function DestinationPage({
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
         {cheapest != null && (
           <p className="mt-2 text-sm font-medium text-white/80">
-            {totalDeals} deals from ${cheapest} &middot; {brandNames.length} brands
+            {totalDeals} deal{totalDeals !== 1 ? "s" : ""} from ${cheapest} &middot; {brandNames.length} brand{brandNames.length !== 1 ? "s" : ""}
           </p>
         )}
       </div>
@@ -580,7 +576,7 @@ async function BrandPage({
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
         {cheapest != null && (
           <p className="mt-2 text-sm font-medium text-white/80">
-            {totalDeals} deals from ${cheapest} &middot; {destNames.length} destinations
+            {totalDeals} deal{totalDeals !== 1 ? "s" : ""} from ${cheapest} &middot; {destNames.length} destination{destNames.length !== 1 ? "s" : ""}
           </p>
         )}
       </div>
@@ -695,7 +691,7 @@ function PricePage({
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
         {totalDeals > 0 && (
           <p className="mt-2 text-sm font-medium text-white/80">
-            {totalDeals} deals available
+            {totalDeals} deal{totalDeals !== 1 ? "s" : ""} available
           </p>
         )}
       </div>
@@ -808,7 +804,7 @@ function DurationPage({
         <p className="max-w-2xl text-lg text-white/90">{data.description}</p>
         {totalDeals > 0 && (
           <p className="mt-2 text-sm font-medium text-white/80">
-            {totalDeals} deals available
+            {totalDeals} deal{totalDeals !== 1 ? "s" : ""} available
           </p>
         )}
       </div>
