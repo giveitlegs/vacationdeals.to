@@ -35,12 +35,25 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      {/* Breadcrumb schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Vacation Deals", "item": "https://vacationdeals.to" },
+            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://vacationdeals.to/about" },
+          ],
+        }) }}
+      />
+
       {/* Breadcrumbs */}
       <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
         <ol className="flex items-center gap-1.5">
           <li>
             <Link href="/" className="hover:text-blue-600">
-              Home
+              Vacation Deals
             </Link>
           </li>
           <li>

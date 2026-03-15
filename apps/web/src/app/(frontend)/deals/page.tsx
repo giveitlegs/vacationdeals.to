@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Link from "next/link";
 import { FilterBar } from "@/components/FilterBar";
 import { DealGrid } from "@/components/DealGrid";
 import type { Deal } from "@/components/DealCard";
@@ -74,6 +75,28 @@ export default async function DealsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* Breadcrumb schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Vacation Deals", "item": "https://vacationdeals.to" },
+            { "@type": "ListItem", "position": 2, "name": "All Vacation Deals", "item": "https://vacationdeals.to/deals" },
+          ],
+        }) }}
+      />
+
+      {/* Breadcrumbs */}
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1.5">
+          <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li className="font-medium text-gray-900">All Vacation Deals</li>
+        </ol>
+      </nav>
 
       <div className="mb-8">
         <h1 className="mb-2 text-3xl font-bold text-gray-900">

@@ -408,17 +408,29 @@ async function DestinationPage({
         )}
       </div>
 
+      {/* Breadcrumb schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Vacation Deals", "item": "https://vacationdeals.to" },
+            { "@type": "ListItem", "position": 2, "name": "Vacation Destinations", "item": "https://vacationdeals.to/destinations" },
+            { "@type": "ListItem", "position": 3, "name": `${data.name} Vacation Deals`, "item": `https://vacationdeals.to/${data.slug}` },
+          ],
+        }) }}
+      />
+
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-500">
-        <Link href="/" className="hover:text-blue-600">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/destinations" className="hover:text-blue-600">
-          Destinations
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-gray-900">{data.name}</span>
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1.5">
+          <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li><Link href="/destinations" className="hover:text-blue-600">Vacation Destinations</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li className="font-medium text-gray-900">{data.name} Vacation Deals</li>
+        </ol>
       </nav>
 
       {/* Results */}
@@ -524,17 +536,29 @@ async function BrandPage({
         )}
       </div>
 
+      {/* Breadcrumb schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Vacation Deals", "item": "https://vacationdeals.to" },
+            { "@type": "ListItem", "position": 2, "name": "Vacation Deal Brands", "item": "https://vacationdeals.to/brands" },
+            { "@type": "ListItem", "position": 3, "name": `${data.name} Vacation Deals`, "item": `https://vacationdeals.to/${data.slug}` },
+          ],
+        }) }}
+      />
+
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-500">
-        <Link href="/" className="hover:text-blue-600">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/brands" className="hover:text-blue-600">
-          Brands
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-gray-900">{data.name}</span>
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1.5">
+          <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li><Link href="/brands" className="hover:text-blue-600">Vacation Deal Brands</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li className="font-medium text-gray-900">{data.name} Vacation Deals</li>
+        </ol>
       </nav>
 
       {/* Results */}
@@ -627,17 +651,29 @@ function PricePage({
         )}
       </div>
 
+      {/* Breadcrumb schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Vacation Deals", "item": "https://vacationdeals.to" },
+            { "@type": "ListItem", "position": 2, "name": "All Vacation Deals", "item": "https://vacationdeals.to/deals" },
+            { "@type": "ListItem", "position": 3, "name": `Vacation ${data.label}`, "item": `https://vacationdeals.to/${data.slug}` },
+          ],
+        }) }}
+      />
+
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-500">
-        <Link href="/" className="hover:text-blue-600">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/deals" className="hover:text-blue-600">
-          Deals
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-gray-900">{data.label}</span>
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1.5">
+          <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li><Link href="/deals" className="hover:text-blue-600">All Vacation Deals</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li className="font-medium text-gray-900">Vacation {data.label}</li>
+        </ol>
       </nav>
 
       {/* Results */}
@@ -728,17 +764,29 @@ function DurationPage({
         )}
       </div>
 
+      {/* Breadcrumb schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Vacation Deals", "item": "https://vacationdeals.to" },
+            { "@type": "ListItem", "position": 2, "name": "All Vacation Deals", "item": "https://vacationdeals.to/deals" },
+            { "@type": "ListItem", "position": 3, "name": `${data.nights}-Night Vacation Deals`, "item": `https://vacationdeals.to/${data.slug}` },
+          ],
+        }) }}
+      />
+
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-gray-500">
-        <Link href="/" className="hover:text-blue-600">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/deals" className="hover:text-blue-600">
-          Deals
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-gray-900">{data.label}</span>
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1.5">
+          <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li><Link href="/deals" className="hover:text-blue-600">All Vacation Deals</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li className="font-medium text-gray-900">{data.nights}-Night Vacation Deals</li>
+        </ol>
       </nav>
 
       {/* Results */}
