@@ -19,6 +19,7 @@ import { runLegendaryCrawler } from "./crawlers/legendary";
 import { runFestivaCrawler } from "./crawlers/festiva";
 import { runHyattCrawler } from "./crawlers/hyatt";
 import { runCapitalVacationsCrawler } from "./crawlers/capital-vacations";
+import { runBluegreenCrawler } from "./crawlers/bluegreen";
 import { deactivateExpiredDeals } from "./storage/deal-store";
 
 const crawlers: Record<string, () => Promise<void>> = {
@@ -43,6 +44,7 @@ const crawlers: Record<string, () => Promise<void>> = {
   festiva: runFestivaCrawler,
   hyatt: runHyattCrawler,
   "capital-vacations": runCapitalVacationsCrawler,
+  bluegreen: runBluegreenCrawler,
 };
 
 async function main() {

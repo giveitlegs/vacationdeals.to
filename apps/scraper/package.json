@@ -27,6 +27,8 @@
     "scrape:festiva": "tsx src/index.ts --source=festiva",
     "scrape:hyatt": "tsx src/index.ts --source=hyatt",
     "scrape:capital-vacations": "tsx src/index.ts --source=capital-vacations",
+    "scrape:bluegreen": "tsx src/index.ts --source=bluegreen",
+    "scrape:wave": "tsx src/scrape-wave.ts",
     "health:deals": "tsx src/check-deal-health.ts"
   },
   "dependencies": {
