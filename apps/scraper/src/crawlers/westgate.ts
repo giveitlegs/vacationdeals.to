@@ -12,9 +12,20 @@ import type { ScrapedDeal } from "@vacationdeals/shared";
  * We extract that JSON blob with a regex, then parse resorts and specials
  * from it. No JS rendering is needed — CheerioCrawler is sufficient.
  *
- * Data lives on:
- *   - Homepage (resort catalog + featured specials)
- *   - /specials/{destination}/ pages (destination-specific specials)
+ * Strategy (3 phases):
+ *   Phase 1 — Homepage: extract APP_DATA containing ALL ~50 specials + resorts.
+ *             Enqueue /specials/ hub, all /specials/{destination}/ pages,
+ *             and all individual /specials/{deal-slug}/ pages discovered
+ *             from APP_DATA url fields.
+ *   Phase 2 — Destination pages (/specials/{destination}/): may surface
+ *             additional specials not in the homepage APP_DATA.
+ *   Phase 3 — Individual deal pages (/specials/{slug}/): extract richer
+ *             descriptions, resort details, and inclusions from the DOM
+ *             that aren't in the listing APP_DATA.
+ *
+ * IMPORTANT: We scrape ALL specials regardless of the `show` flag.
+ * Many deals with show:false (38 of ~50) have valid landing pages and
+ * real pricing — they're just not featured in the listing rotation.
  */
 
 // ── Types for the embedded JSON ──────────────────────────────────────────────
@@ -139,20 +150,31 @@ function savingsPercent(retail: number, discounted: number): number {
   return Math.round(((retail - discounted) / retail) * 100);
 }
 
+/** Normalize a special's url field to an absolute URL */
+function specialToAbsoluteUrl(urlField: string): string {
+  if (urlField.startsWith("http")) return urlField;
+  // url field is sometimes just the slug, sometimes /specials/slug/
+  const slug = urlField.replace(/^\/specials\//, "").replace(/\/$/, "");
+  return `https://www.westgatereservations.com/specials/${slug}/`;
+}
+
 // ── Main crawler ─────────────────────────────────────────────────────────────
 
 export async function runWestgateCrawler() {
-  const visitedSpecials = new Set<string>();
+  const enqueuedUrls = new Set<string>();
   const processedResortIds = new Set<number>();
   const processedSpecialIds = new Set<number>();
-
   const crawler = new CheerioCrawler({
-    maxRequestsPerCrawl: 50,
-    async requestHandler({ request, $, body, log, enqueueLinks }) {
+    maxRequestsPerCrawl: 150,
+    async requestHandler({ request, $, body, log }) {
       log.info(`Scraping ${request.url}`);
 
       const html = typeof body === "string" ? body : body.toString();
       const appData = extractAppData(html);
+      const isDetailPage =
+        request.url.includes("/specials/") &&
+        !isDestinationPage(request.url) &&
+        request.url !== "https://www.westgatereservations.com/specials/";
 
       if (!appData) {
         log.warning(`No APP_DATA found on ${request.url}`);
@@ -162,11 +184,23 @@ export async function runWestgateCrawler() {
       const { destinations, resorts, specials } = appData;
 
       // ── Process specials (vacation packages) ────────────────────────────
+      // NOTE: We process ALL specials regardless of `show` flag.
+      // Many deals with show:false have valid landing pages and real pricing.
       if (specials && specials.length > 0) {
         for (const special of specials) {
-          if (!special.show) continue;
+          // Skip only if price is 0 or missing (truly invalid deal)
+          if (!special.prices?.discounted || special.prices.discounted <= 0)
+            continue;
           if (processedSpecialIds.has(special.special_id)) continue;
           processedSpecialIds.add(special.special_id);
+
+          // Enqueue the individual deal page for richer data
+          const dealUrl = specialToAbsoluteUrl(special.url);
+          if (!enqueuedUrls.has(dealUrl)) {
+            enqueuedUrls.add(dealUrl);
+            await crawler.addRequests([{ url: dealUrl }]);
+            log.info(`Enqueued deal page: ${dealUrl}`);
+          }
 
           // A special can span multiple destinations. Create a deal for
           // each destination it covers, or a single deal if it's generic.
@@ -186,7 +220,7 @@ export async function runWestgateCrawler() {
               durationNights: special.nights,
               durationDays: special.days,
               description: special.excerpt || undefined,
-              url: special.url,
+              url: dealUrl,
               imageUrl: special.thumbnails?.s || special.thumbnails?.full,
               inclusions: special.package_includes?.map((p) => p.item),
               savingsPercent: savingsPercent(
@@ -217,7 +251,7 @@ export async function runWestgateCrawler() {
                 durationNights: special.nights,
                 durationDays: special.days,
                 description: special.excerpt || undefined,
-                url: special.url,
+                url: dealUrl,
                 imageUrl: special.thumbnails?.s || special.thumbnails?.full,
                 inclusions: special.package_includes?.map((p) => p.item),
                 savingsPercent: savingsPercent(
@@ -276,7 +310,10 @@ export async function runWestgateCrawler() {
               ? savingsPercent(originalTotal, totalPrice)
               : undefined,
             city: resort.city || resort.destination,
-            state: resort.state || DEST_STATE[resort.destination.toLowerCase()] || undefined,
+            state:
+              resort.state ||
+              DEST_STATE[resort.destination.toLowerCase()] ||
+              undefined,
             country: "US",
             brandSlug: "westgate",
           };
@@ -292,19 +329,97 @@ export async function runWestgateCrawler() {
         }
       }
 
-      // ── Enqueue destination-specific specials pages ─────────────────────
-      if (request.url.includes("westgatereservations.com") && !request.url.includes("/specials/")) {
+      // ── Enqueue pages from the homepage / main specials page ───────────
+      if (!isDetailPage) {
+        // Enqueue the main /specials/ hub page
+        const specialsHub =
+          "https://www.westgatereservations.com/specials/";
+        if (!enqueuedUrls.has(specialsHub)) {
+          enqueuedUrls.add(specialsHub);
+          await crawler.addRequests([{ url: specialsHub }]);
+          log.info(`Enqueued specials hub: ${specialsHub}`);
+        }
+
+        // Enqueue all destination-specific specials pages
         for (const dest of destinations) {
-          const specialsUrl = `https://www.westgatereservations.com/specials/${dest.slug}/`;
-          if (!visitedSpecials.has(specialsUrl)) {
-            visitedSpecials.add(specialsUrl);
-            await crawler.addRequests([{ url: specialsUrl }]);
-            log.info(`Enqueued specials page: ${specialsUrl}`);
+          const destUrl = `https://www.westgatereservations.com/specials/${dest.slug}/`;
+          if (!enqueuedUrls.has(destUrl)) {
+            enqueuedUrls.add(destUrl);
+            await crawler.addRequests([{ url: destUrl }]);
+            log.info(`Enqueued destination page: ${destUrl}`);
+          }
+        }
+
+        // Enqueue /vacation-deals/ category pages to catch any extras
+        const categoryPages = [
+          "https://www.westgatereservations.com/vacation-deals/",
+          "https://www.westgatereservations.com/vacation-deals/couples/",
+          "https://www.westgatereservations.com/vacation-deals/family/",
+          "https://www.westgatereservations.com/vacation-deals/beach/",
+          "https://www.westgatereservations.com/vacation-deals/spring/",
+          "https://www.westgatereservations.com/vacation-deals/summer/",
+          "https://www.westgatereservations.com/vacation-deals/fall/",
+          "https://www.westgatereservations.com/vacation-deals/last-minute/",
+          "https://www.westgatereservations.com/vacation-deals/cheap/",
+          "https://www.westgatereservations.com/vacation-deals/orlando/",
+          "https://www.westgatereservations.com/vacation-deals/gatlinburg/",
+        ];
+        for (const catUrl of categoryPages) {
+          if (!enqueuedUrls.has(catUrl)) {
+            enqueuedUrls.add(catUrl);
+            await crawler.addRequests([{ url: catUrl }]);
+            log.info(`Enqueued category page: ${catUrl}`);
           }
         }
       }
+
+      // ── Also discover deal links from the DOM (not just APP_DATA) ──────
+      $('a[href*="/specials/"]').each(function () {
+        let href = $(this).attr("href");
+        if (!href) return;
+        // Make absolute
+        if (href.startsWith("/")) {
+          href = `https://www.westgatereservations.com${href}`;
+        }
+        // Only enqueue individual deal pages, not destination pages
+        if (
+          href.includes("/specials/") &&
+          !isDestinationPage(href) &&
+          href !== "https://www.westgatereservations.com/specials/" &&
+          !enqueuedUrls.has(href)
+        ) {
+          enqueuedUrls.add(href);
+          crawler.addRequests([{ url: href }]);
+          log.info(`Enqueued DOM-discovered deal: ${href}`);
+        }
+      });
     },
   });
 
   await crawler.run(["https://www.westgatereservations.com"]);
+
+  console.log(
+    `[Westgate] Crawl complete. Processed ${processedSpecialIds.size} specials, ${processedResortIds.size} resorts, visited ${enqueuedUrls.size} URLs.`,
+  );
+}
+
+/** The 9 known destination slugs — used to distinguish destination listing
+ *  pages from individual deal pages under /specials/ */
+const DESTINATION_SLUGS = new Set([
+  "orlando",
+  "gatlinburg",
+  "las-vegas",
+  "branson",
+  "myrtle-beach",
+  "cocoa-beach",
+  "park-city",
+  "river-ranch",
+  "williamsburg",
+]);
+
+function isDestinationPage(url: string): boolean {
+  // Extract slug from /specials/{slug}/
+  const match = url.match(/\/specials\/([^/]+)\/?$/);
+  if (!match) return false;
+  return DESTINATION_SLUGS.has(match[1]);
 }
