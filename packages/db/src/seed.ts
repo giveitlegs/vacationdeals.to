@@ -22,6 +22,9 @@ async function seed() {
     { name: "Monster Reservations Group", slug: "mrg", type: "broker", website: "https://mrgvacationpackages.com" },
     { name: "Westgate Events", slug: "westgate-events", type: "direct", website: "https://westgateevents.com" },
     { name: "GoVIP", slug: "govip", type: "broker", website: "https://govip.com" },
+    { name: "StayPromo", slug: "staypromo", type: "broker", website: "https://staypromo.com" },
+    { name: "Vacation Village Resorts", slug: "vacation-village", type: "direct", website: "https://vacationvillagedeals.com" },
+    { name: "Spinnaker Resorts", slug: "spinnaker", type: "direct", website: "https://spinnakerresorts.com" },
   ]).onConflictDoNothing();
 
   // ── Destinations ────────────────────────────────────
@@ -46,6 +49,11 @@ async function seed() {
     { city: "Lake Tahoe", state: "CA", country: "US", slug: "lake-tahoe", region: "West" },
     { city: "New York City", state: "NY", country: "US", slug: "new-york-city", region: "Northeast" },
     { city: "San Diego", state: "CA", country: "US", slug: "san-diego", region: "West" },
+    { city: "New Orleans", state: "LA", country: "US", slug: "new-orleans", region: "South" },
+    { city: "Charleston", state: "SC", country: "US", slug: "charleston", region: "Southeast" },
+    { city: "Ormond Beach", state: "FL", country: "US", slug: "ormond-beach", region: "Southeast" },
+    { city: "Weston", state: "FL", country: "US", slug: "weston", region: "Southeast" },
+    { city: "New Smyrna Beach", state: "FL", country: "US", slug: "new-smyrna-beach", region: "Southeast" },
   ]).onConflictDoNothing();
 
   // ── Sources ─────────────────────────────────────────
@@ -64,6 +72,9 @@ async function seed() {
     { name: "Monster Reservations Group", baseUrl: "https://mrgvacationpackages.com", scraperKey: "mrg" },
     { name: "Westgate Events", baseUrl: "https://westgateevents.com", scraperKey: "westgate-events" },
     { name: "GoVIP", baseUrl: "https://govip.com", scraperKey: "govip" },
+    { name: "StayPromo", baseUrl: "https://staypromo.com", scraperKey: "staypromo" },
+    { name: "Vacation Village Deals", baseUrl: "https://vacationvillagedeals.com", scraperKey: "vacation-village" },
+    { name: "Spinnaker Resorts", baseUrl: "https://spinnakerresorts.com", scraperKey: "spinnaker" },
   ]).onConflictDoNothing();
 
   console.log("✅ Seed complete!");

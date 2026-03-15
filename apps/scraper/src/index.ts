@@ -8,6 +8,9 @@ import { runWyndhamCrawler } from "./crawlers/wyndham";
 import { runHolidayInnCrawler } from "./crawlers/holiday-inn";
 import { runMarriottCrawler } from "./crawlers/marriott";
 import { runGovipCrawler } from "./crawlers/govip";
+import { runStayPromoCrawler } from "./crawlers/staypromo";
+import { runVacationVillageCrawler } from "./crawlers/vacation-village";
+import { runSpinnakerCrawler } from "./crawlers/spinnaker";
 
 const crawlers: Record<string, () => Promise<void>> = {
   westgate: runWestgateCrawler,
@@ -20,6 +23,9 @@ const crawlers: Record<string, () => Promise<void>> = {
   "holiday-inn": runHolidayInnCrawler,
   marriott: runMarriottCrawler,
   govip: runGovipCrawler,
+  staypromo: runStayPromoCrawler,
+  "vacation-village": runVacationVillageCrawler,
+  spinnaker: runSpinnakerCrawler,
 };
 
 async function main() {

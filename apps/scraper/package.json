@@ -13,7 +13,10 @@
     "scrape:holiday-inn": "tsx src/index.ts --source=holiday-inn",
     "scrape:marriott": "tsx src/index.ts --source=marriott",
     "scrape:govip": "tsx src/index.ts --source=govip",
-    "scrape:westgate-events": "tsx src/index.ts --source=westgate-events"
+    "scrape:westgate-events": "tsx src/index.ts --source=westgate-events",
+    "scrape:staypromo": "tsx src/index.ts --source=staypromo",
+    "scrape:vacation-village": "tsx src/index.ts --source=vacation-village",
+    "scrape:spinnaker": "tsx src/index.ts --source=spinnaker"
   },
   "dependencies": {
     "@vacationdeals/db": "workspace:*",
