@@ -13,7 +13,8 @@ import { FAQAccordion } from "@/components/FAQAccordion";
 import { FAQSchema } from "@/components/FAQSchema";
 import { getFAQsForSlug } from "@/lib/faqs";
 
-export const revalidate = 3600; // Revalidate every hour
+export const dynamic = "force-dynamic"; // Always server-render with fresh DB data
+export const revalidate = 0;
 
 // ---------------------------------------------------------------------------
 // Static slug data — used as fallback when DB is unavailable
