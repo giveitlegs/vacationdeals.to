@@ -37,13 +37,20 @@ export function RateRecapClient({
   const [destination, setDestination] = useState("");
   const [duration, setDuration] = useState<number>(3);
 
-  // Note: For a full implementation, changing filters would re-fetch from the
-  // server. For now, we display all initial data and let the chart's brand
-  // toggles handle interactivity. The filters are wired up for future use.
+  // Filter data based on destination and duration selections
   const filteredPoints = useMemo(() => {
-    // Mock data doesn't have destination/duration metadata, so we show all
-    return initialPoints;
-  }, [initialPoints]);
+    return initialPoints.filter((p) => {
+      if (destination && p.destinationSlug !== destination) return false;
+      if (p.durationNights !== duration) return false;
+      return true;
+    });
+  }, [initialPoints, destination, duration]);
+
+  // Derive visible brands from filtered data so the chart only shows relevant toggles
+  const filteredBrands = useMemo(() => {
+    const slugs = new Set(filteredPoints.map((p) => p.brandSlug));
+    return initialBrands.filter((b) => slugs.has(b.slug));
+  }, [filteredPoints, initialBrands]);
 
   return (
     <div>
@@ -95,7 +102,7 @@ export function RateRecapClient({
       </div>
 
       {/* Chart */}
-      <PriceChart data={filteredPoints} brands={initialBrands} />
+      <PriceChart data={filteredPoints} brands={filteredBrands} />
     </div>
   );
 }

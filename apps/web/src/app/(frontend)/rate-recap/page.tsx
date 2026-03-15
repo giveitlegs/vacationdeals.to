@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RateRecapPage() {
-  const { points, brands } = await getPriceHistory({ days: 30 });
+  const { points, brands, isMock } = await getPriceHistory({ days: 30 });
 
   // Compute quick insights from data
   const latestDate = points.length > 0 ? points[points.length - 1].date : null;
@@ -95,6 +95,15 @@ export default async function RateRecapPage() {
           Track vacation deal prices on a daily basis in realtime!
         </p>
       </div>
+
+      {/* Mock data notice */}
+      {isMock && (
+        <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          <strong>Sample data</strong> — Real price tracking begins after scrapers
+          run for several days. The chart below shows simulated prices for
+          demonstration purposes.
+        </div>
+      )}
 
       {/* Interactive chart + filters (client component) */}
       <RateRecapClient

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -11,6 +11,8 @@ export interface PricePoint {
   price: number;
   brandName: string;
   brandSlug: string;
+  destinationSlug: string;
+  durationNights: number;
 }
 
 export interface BrandInfo {
@@ -88,6 +90,12 @@ export function PriceChart({ data, brands }: PriceChartProps) {
   const [enabledBrands, setEnabledBrands] = useState<Set<string>>(
     () => new Set(brands.map((b) => b.slug)),
   );
+
+  // Reset enabled brands when the brands list changes (e.g. after filtering)
+  useEffect(() => {
+    setEnabledBrands(new Set(brands.map((b) => b.slug)));
+  }, [brands]);
+
   const [tooltip, setTooltip] = useState<{
     x: number;
     y: number;
