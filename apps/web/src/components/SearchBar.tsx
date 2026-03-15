@@ -4,16 +4,23 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const suggestions = [
-  { label: "Orlando, FL", type: "destination" },
-  { label: "Las Vegas, NV", type: "destination" },
-  { label: "Cancun, QR", type: "destination" },
-  { label: "Gatlinburg, TN", type: "destination" },
-  { label: "Myrtle Beach, SC", type: "destination" },
-  { label: "Westgate Resorts", type: "brand" },
-  { label: "Hilton Grand Vacations", type: "brand" },
-  { label: "Marriott Vacation Club", type: "brand" },
-  { label: "Club Wyndham", type: "brand" },
-  { label: "BookVIP", type: "brand" },
+  { label: "Orlando, FL", slug: "orlando", type: "destination" },
+  { label: "Las Vegas, NV", slug: "las-vegas", type: "destination" },
+  { label: "Cancun, MX", slug: "cancun", type: "destination" },
+  { label: "Gatlinburg, TN", slug: "gatlinburg", type: "destination" },
+  { label: "Myrtle Beach, SC", slug: "myrtle-beach", type: "destination" },
+  { label: "Branson, MO", slug: "branson", type: "destination" },
+  { label: "Cabo San Lucas, MX", slug: "cabo", type: "destination" },
+  { label: "Key West, FL", slug: "key-west", type: "destination" },
+  { label: "Williamsburg, VA", slug: "williamsburg", type: "destination" },
+  { label: "Hilton Head, SC", slug: "hilton-head", type: "destination" },
+  { label: "Westgate Resorts", slug: "westgate", type: "brand" },
+  { label: "Hilton Grand Vacations", slug: "hgv", type: "brand" },
+  { label: "Marriott Vacation Club", slug: "marriott", type: "brand" },
+  { label: "Club Wyndham", slug: "wyndham", type: "brand" },
+  { label: "BookVIP", slug: "bookvip", type: "brand" },
+  { label: "Holiday Inn Club", slug: "holiday-inn", type: "brand" },
+  { label: "Monster Reservations", slug: "mrg", type: "brand" },
 ];
 
 export function SearchBar() {
@@ -41,19 +48,23 @@ export function SearchBar() {
   function handleSelect(suggestion: (typeof suggestions)[0]) {
     setQuery(suggestion.label);
     setOpen(false);
-    if (suggestion.type === "destination") {
-      const city = suggestion.label.split(",")[0].trim();
-      router.push(`/deals?destination=${encodeURIComponent(city)}`);
-    } else {
-      router.push(`/deals?brand=${encodeURIComponent(suggestion.label)}`);
-    }
+    router.push(`/${suggestion.slug}`);
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (query.trim()) {
-      router.push(`/deals?q=${encodeURIComponent(query.trim())}`);
-      setOpen(false);
+    if (!query.trim()) return;
+    setOpen(false);
+    // Try to match a suggestion slug
+    const match = suggestions.find((s) =>
+      s.label.toLowerCase().includes(query.toLowerCase()),
+    );
+    if (match) {
+      router.push(`/${match.slug}`);
+    } else {
+      // Fallback: slugify the query and try as a destination
+      const slug = query.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      router.push(`/${slug}`);
     }
   }
 

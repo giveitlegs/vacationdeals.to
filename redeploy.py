@@ -32,8 +32,10 @@ def main():
     run_cmd(ssh, "cd /var/www/vacationdeals && git pull origin main", timeout=30)
     run_cmd(ssh, "cd /var/www/vacationdeals && pnpm build 2>&1 | tail -30", timeout=300)
 
-    # If build succeeds, restart PM2
-    run_cmd(ssh, "pm2 restart vacationdeals-web 2>/dev/null || (cd /var/www/vacationdeals/apps/web && pm2 start 'pnpm start' --name vacationdeals-web)")
+    # Restart PM2 with env vars loaded
+    run_cmd(ssh, "pm2 delete vacationdeals-web 2>/dev/null; echo 'cleared'")
+    run_cmd(ssh, "cd /var/www/vacationdeals && export $(cat .env | xargs) && pm2 start 'pnpm start' --name vacationdeals-web --cwd /var/www/vacationdeals/apps/web")
+    run_cmd(ssh, "pm2 save")
     run_cmd(ssh, "sleep 5 && curl -s -o /dev/null -w '%{http_code}' http://localhost:3000")
     run_cmd(ssh, "pm2 list")
 
