@@ -681,6 +681,154 @@ export async function getAllDestinationSlugs(): Promise<Array<{slug: string, cit
 }
 
 // ---------------------------------------------------------------------------
+// Blog post queries
+// ---------------------------------------------------------------------------
+
+import type { BlogPost, BlogFAQ } from "@/lib/blog-types";
+
+export async function getBlogPostsFromDB(filters?: {
+  category?: string;
+  page?: number;
+  limit?: number;
+}): Promise<{ posts: BlogPost[]; total: number } | null> {
+  try {
+    const conn = await getDB();
+    if (!conn) return null;
+    const { db, schema } = conn;
+    const { eq, and, desc, count } = await import("drizzle-orm");
+
+    const page = filters?.page ?? 1;
+    const limit = filters?.limit ?? 100;
+    const offset = (page - 1) * limit;
+
+    const conditions: ReturnType<typeof eq>[] = [
+      eq(schema.blogPosts.isPublished, true),
+    ];
+
+    if (filters?.category) {
+      conditions.push(eq(schema.blogPosts.category, filters.category));
+    }
+
+    const whereClause = and(...conditions);
+
+    const totalResult = await db
+      .select({ count: count() })
+      .from(schema.blogPosts)
+      .where(whereClause);
+    const total = totalResult[0]?.count ?? 0;
+
+    const rows = await db
+      .select()
+      .from(schema.blogPosts)
+      .where(whereClause)
+      .orderBy(desc(schema.blogPosts.publishDate))
+      .limit(limit)
+      .offset(offset);
+
+    const posts: BlogPost[] = rows.map((r) => ({
+      slug: r.slug,
+      title: r.title,
+      metaTitle: r.metaTitle,
+      metaDescription: r.metaDescription,
+      category: r.category as BlogPost["category"],
+      publishDate: r.publishDate.toISOString().split("T")[0],
+      author: r.author,
+      readTime: r.readTime ?? "",
+      bluf: r.bluf,
+      heroImageAlt: r.heroImageAlt ?? "",
+      heroGradient: r.heroGradient ?? "",
+      content: r.content,
+      faqs: safeParseJson<BlogFAQ[]>(r.faqs, []),
+      internalLinks: safeParseJson<{ text: string; href: string }[]>(r.internalLinks, []),
+      relatedSlugs: safeParseJson<string[]>(r.relatedSlugs, []),
+      tags: safeParseJson<string[]>(r.tags, []),
+    }));
+
+    return { posts, total };
+  } catch (e) {
+    console.error("[queries] getBlogPostsFromDB failed:", e);
+    return null;
+  }
+}
+
+export async function getBlogPostBySlugFromDB(slug: string): Promise<BlogPost | null> {
+  try {
+    const conn = await getDB();
+    if (!conn) return null;
+    const { db, schema } = conn;
+    const { eq, and } = await import("drizzle-orm");
+
+    const rows = await db
+      .select()
+      .from(schema.blogPosts)
+      .where(
+        and(
+          eq(schema.blogPosts.slug, slug),
+          eq(schema.blogPosts.isPublished, true),
+        ),
+      )
+      .limit(1);
+
+    if (rows.length === 0) return null;
+    const r = rows[0];
+
+    return {
+      slug: r.slug,
+      title: r.title,
+      metaTitle: r.metaTitle,
+      metaDescription: r.metaDescription,
+      category: r.category as BlogPost["category"],
+      publishDate: r.publishDate.toISOString().split("T")[0],
+      author: r.author,
+      readTime: r.readTime ?? "",
+      bluf: r.bluf,
+      heroImageAlt: r.heroImageAlt ?? "",
+      heroGradient: r.heroGradient ?? "",
+      content: r.content,
+      faqs: safeParseJson<BlogFAQ[]>(r.faqs, []),
+      internalLinks: safeParseJson<{ text: string; href: string }[]>(r.internalLinks, []),
+      relatedSlugs: safeParseJson<string[]>(r.relatedSlugs, []),
+      tags: safeParseJson<string[]>(r.tags, []),
+    };
+  } catch (e) {
+    console.error("[queries] getBlogPostBySlugFromDB failed:", e);
+    return null;
+  }
+}
+
+export async function getBlogPostCount(): Promise<number> {
+  try {
+    const conn = await getDB();
+    if (!conn) return 0;
+    const { db, schema } = conn;
+    const { eq, count } = await import("drizzle-orm");
+
+    const result = await db
+      .select({ count: count() })
+      .from(schema.blogPosts)
+      .where(eq(schema.blogPosts.isPublished, true));
+
+    return result[0]?.count ?? 0;
+  } catch (e) {
+    console.error("[queries] getBlogPostCount failed:", e);
+    return 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Helper: safely parse JSON strings from DB
+// ---------------------------------------------------------------------------
+
+function safeParseJson<T>(raw: string | null | undefined, fallback: T): T {
+  if (!raw) return fallback;
+  try {
+    return JSON.parse(raw) as T;
+  } catch {
+    return fallback;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Helper: parse inclusions JSON string to string array
 // ---------------------------------------------------------------------------
 

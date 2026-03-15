@@ -85,7 +85,7 @@ export const brandPosts: BlogPost[] = [
 <p><strong>"They were too pushy."</strong> — It's a timeshare presentation. They're literally paid to be pushy. Expect it, handle it, and move on to your vacation.</p>
 
 <h2>9. Westgate vs. The Competition</h2>
-<p>How does Westgate stack up against other brands? Pretty well, actually. Their deal pricing is consistently among the lowest in the industry, their properties are generally well-maintained, and they have locations in most major tourist destinations. Where they fall short is in the luxury department — if you want five-star everything, you're better off with <a href="/hilton-grand-vacations">Hilton Grand Vacations</a> or Marriott. But for value? Westgate is hard to beat.</p>
+<p>How does Westgate stack up against other brands? Pretty well, actually. Their deal pricing is consistently among the lowest in the industry, their properties are generally well-maintained, and they have locations in most major tourist destinations. Where they fall short is in the luxury department — if you want five-star everything, you're better off with <a href="/hgv">Hilton Grand Vacations</a> or Marriott. But for value? Westgate is hard to beat.</p>
 
 <h2>10. My Final Verdict on Westgate Deals</h2>
 <p>If you're comfortable sitting through a presentation and you meet the qualifications, Westgate deals are some of the best values in travel. Period. I've personally saved thousands of dollars over the years by taking advantage of these offers, and the resorts have always been at minimum "solid" quality.</p>
@@ -130,7 +130,7 @@ export const brandPosts: BlogPost[] = [
     heroGradient: "from-blue-700 to-indigo-600",
     content: `<p>Here's a question I get asked at least once a week: "Are Hilton Grand Vacations deals actually worth the higher price?" And my answer is always the same — it depends on whether you're the kind of person who's cool sleeping in a Holiday Inn or whether you need your thread count to be at least 400. No judgement either way. I've been both people at different points in my life.</p>
 
-<p>I've personally stayed at four different HGV properties through presentation deals, and I have thoughts. Lots of them. Some good, some snarky, all honest. Let me walk you through what <a href="/hilton-grand-vacations">Hilton Grand Vacations deals</a> actually look like in 2026 and help you decide if there worth your time and money.</p>
+<p>I've personally stayed at four different HGV properties through presentation deals, and I have thoughts. Lots of them. Some good, some snarky, all honest. Let me walk you through what <a href="/hgv">Hilton Grand Vacations deals</a> actually look like in 2026 and help you decide if there worth your time and money.</p>
 
 <h2>1. The HGV Brand: What Makes Them Different</h2>
 <p>Hilton Grand Vacations is the timeshare arm of Hilton Hotels — yes, THAT Hilton. And they lean into that brand recognition hard. Everything about HGV screams "we're not like those other timeshare companies." The lobbies are nicer, the rooms are more modern, the amenities are more polished. It's like the difference between flying economy on Spirit versus JetBlue. You're still going to the same place, but one experience makes you feel like a human being.</p>
@@ -857,7 +857,7 @@ export const brandPosts: BlogPost[] = [
     heroGradient: "from-green-700 to-emerald-500",
     content: `<p>When I tell people I'm going on a "Holiday Inn vacation," they picture a sad beige room next to a highway off-ramp with a continental breakfast consisting of stale muffins and a waffle maker that hasn't been cleaned since the Obama administration. And honestly? That mental image isn't entirely wrong for regular Holiday Inns. But Holiday Inn Club Vacations? That's a completely different animal.</p>
 
-<p>HICV (their abbreviation, not mine — I would have gone with something catchier) is <a href="/holiday-inn-club-vacations">IHG's timeshare resort brand</a>, and it's genuinly one of the best-kept secrets in the vacation deal world. These properties have waterparks, spacious villas, activity programs for kids, and resort-quality pools. It's like someone took a Holiday Inn and gave it a Red Bull and a makeover.</p>
+<p>HICV (their abbreviation, not mine — I would have gone with something catchier) is <a href="/holiday-inn">IHG's timeshare resort brand</a>, and it's genuinly one of the best-kept secrets in the vacation deal world. These properties have waterparks, spacious villas, activity programs for kids, and resort-quality pools. It's like someone took a Holiday Inn and gave it a Red Bull and a makeover.</p>
 
 <h2>1. What Is Holiday Inn Club Vacations?</h2>
 <p>HICV is a timeshare resort brand owned by a partnership between IHG (InterContinental Hotels Group) and Orange Lake Resorts. They operate about 30 resort properties across the U.S., concentrated in Florida, the Carolinas, Las Vegas, and the Smoky Mountains. The brand is positioned as family-friendly and mid-range — nicer than Westgate, more affordable than Marriott.</p>
@@ -1328,7 +1328,7 @@ export const brandPosts: BlogPost[] = [
     heroGradient: "from-orange-500 to-blue-600",
     content: `<p>This is the matchup everyone asks me about: the budget champion vs. the luxury contender. Westgate Resorts, home of the $49 deal and the 2-hour sales gauntlet, versus Hilton Grand Vacations, where the rooms are nicer and the salespeople wear actual suits. It's David vs. Goliath, except David has a waterpark and Goliath has Egyptian cotton sheets.</p>
 
-<p>I've stayed at both brands multiple times, and this comparison is genuinely tricky because they're targeting completely different travelers. Comparing <a href="/westgate">Westgate</a> to <a href="/hilton-grand-vacations">HGV</a> is like comparing a backpacking trip to a cruise — both are vacations, but the experience is worlds apart.</p>
+<p>I've stayed at both brands multiple times, and this comparison is genuinely tricky because they're targeting completely different travelers. Comparing <a href="/westgate">Westgate</a> to <a href="/hgv">HGV</a> is like comparing a backpacking trip to a cruise — both are vacations, but the experience is worlds apart.</p>
 
 <h2>1. The Ultimate Comparison Table</h2>
 <table>

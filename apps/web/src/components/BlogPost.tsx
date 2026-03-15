@@ -39,9 +39,11 @@ function getCategoryColor(category: BlogPost["category"]): string {
   return colors[category];
 }
 
-export function BlogPostRenderer({ post }: BlogPostPageProps) {
-  const relatedPosts = post.relatedSlugs
-    .map((slug) => getBlogPostBySlug(slug))
+export async function BlogPostRenderer({ post }: BlogPostPageProps) {
+  const relatedPostResults = await Promise.all(
+    post.relatedSlugs.map((slug) => getBlogPostBySlug(slug))
+  );
+  const relatedPosts = relatedPostResults
     .filter((p): p is BlogPost => p !== null)
     .slice(0, 3);
 

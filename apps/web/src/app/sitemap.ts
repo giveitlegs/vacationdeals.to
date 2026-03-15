@@ -99,7 +99,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Blog pages
-  const blogPosts = getAllBlogPosts();
+  const blogPosts = await getAllBlogPosts();
   const blogIndexPage = {
     url: `${baseUrl}/blog`,
     lastModified: new Date(),

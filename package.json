@@ -8,6 +8,7 @@
     "db:generate": "turbo db:generate",
     "db:migrate": "turbo db:migrate",
     "db:seed": "turbo db:seed",
+    "db:seed-blog": "turbo db:seed-blog",
     "scrape": "turbo scrape",
     "seo:audit": "turbo seo:audit",
     "rss:submit": "turbo rss:submit"

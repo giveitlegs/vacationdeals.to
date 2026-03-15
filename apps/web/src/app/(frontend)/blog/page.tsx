@@ -76,10 +76,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   const allPosts =
     activeCategory === "all"
-      ? getAllBlogPosts()
-      : getBlogPostsByCategory(activeCategory as BlogPost["category"]);
+      ? await getAllBlogPosts()
+      : await getBlogPostsByCategory(activeCategory as BlogPost["category"]);
 
-  const featured = getFeaturedBlogPosts(3);
+  const featured = await getFeaturedBlogPosts(3);
   const showFeatured = activeCategory === "all" && currentPage === 1;
 
   // For grid: exclude featured posts if shown

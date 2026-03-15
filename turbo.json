@@ -21,6 +21,9 @@
     "db:seed": {
       "cache": false
     },
+    "db:seed-blog": {
+      "cache": false
+    },
     "scrape": {
       "cache": false
     },

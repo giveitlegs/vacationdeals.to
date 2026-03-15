@@ -59,6 +59,7 @@ const SHOW_KEYWORDS = [
 const SPORTS_KEYWORDS = [
   "game", "match", "nfl", "nba", "nhl", "mlb", "ufc", "boxing",
   "football", "basketball", "hockey", "baseball", "racing", "nascar",
+  "500", "speedway", "daytona", "talladega", "bristol", "race",
 ];
 const COMEDY_KEYWORDS = [
   "comedy", "comedian", "stand-up", "standup", "laugh",
@@ -131,6 +132,24 @@ function classifyEventType(title: string, pageText: string): EventType {
   return "getaway";
 }
 
+/** Detect a more specific sports sub-type for SEO titles */
+const NASCAR_KEYWORDS = [
+  "nascar", "500", "speedway", "daytona", "talladega", "bristol motor",
+  "race ticket", "race day", "food city", "coca-cola 600", "brickyard",
+  "all-star race", "xfinity", "truck series",
+];
+
+function getSportsSubType(title: string, pageText: string): string {
+  const lower = (title + " " + pageText).toLowerCase();
+  if (NASCAR_KEYWORDS.some((kw) => lower.includes(kw))) return "NASCAR";
+  if (lower.includes("nfl") || lower.includes("football")) return "NFL";
+  if (lower.includes("nba") || lower.includes("basketball")) return "NBA";
+  if (lower.includes("nhl") || lower.includes("hockey")) return "NHL";
+  if (lower.includes("mlb") || lower.includes("baseball")) return "MLB";
+  if (lower.includes("ufc") || lower.includes("boxing") || lower.includes("fight")) return "Fight";
+  return "Sports";
+}
+
 /**
  * Extract the venue name from the detail page.
  * The site puts venue info in the page content but NOT in the JSON-LD location
@@ -175,8 +194,20 @@ function extractVenueName(
     /at\s+(Zappos\s+Theater)/i,
     /at\s+(Pigeon\s+Forge)/i,
     /at\s+(Dolly\s+Parton'?s?\s+Stampede)/i,
-    // Generic: "at The/Some Venue Name" (2-5 capitalized words)
-    /\bat\s+((?:The\s+)?[A-Z][\w']+(?:\s+[A-Z][\w']+){0,4}(?:\s+(?:Arena|Center|Theatre|Theater|Stadium|Garden|Colosseum|Amphitheatre|Amphitheater|Pavilion|Hall|Dome|Sphere|Palace|Live)))/,
+    // Sports venues
+    /at\s+(Bristol\s+Motor\s+Speedway)/i,
+    /(Bristol\s+Motor\s+Speedway)/i,
+    /at\s+(Daytona\s+International\s+Speedway)/i,
+    /(Daytona\s+International\s+Speedway)/i,
+    /at\s+(Talladega\s+Superspeedway)/i,
+    /at\s+(Charlotte\s+Motor\s+Speedway)/i,
+    /at\s+(Indianapolis\s+Motor\s+Speedway)/i,
+    /at\s+(Camping\s+World\s+Stadium)/i,
+    /at\s+(Raymond\s+James\s+Stadium)/i,
+    /at\s+(Inter&?Co\s+Stadium)/i,
+    /at\s+(Kia\s+Center)/i,
+    // Generic: "at The/Some Venue Name" (2-5 capitalized words ending with venue-type noun)
+    /\bat\s+((?:The\s+)?[A-Z][\w']+(?:\s+[A-Z][\w']+){0,4}(?:\s+(?:Arena|Center|Centre|Theatre|Theater|Stadium|Garden|Colosseum|Amphitheatre|Amphitheater|Pavilion|Hall|Dome|Sphere|Palace|Live|Speedway|Raceway)))/,
   ];
 
   for (const pattern of venuePatterns) {
@@ -205,14 +236,19 @@ function buildSEOTitle(
   eventType: EventType,
   city: string,
   venueName: string | null,
+  sportsSubType?: string,
 ): string {
   const venueStr = venueName ? ` at ${venueName}` : "";
 
   switch (eventType) {
     case "concert":
       return `Discount ${eventName} Concert Tickets ${city}${venueStr}`;
-    case "sports":
-      return `Discount ${eventName} Sports Tickets ${city}${venueStr}`;
+    case "sports": {
+      const sportLabel = sportsSubType && sportsSubType !== "Sports"
+        ? sportsSubType
+        : "Sports";
+      return `Discount ${eventName} ${sportLabel} Tickets ${city}${venueStr}`;
+    }
     case "comedy":
       return `Discount ${eventName} Comedy Show Tickets ${city}${venueStr}`;
     case "show":

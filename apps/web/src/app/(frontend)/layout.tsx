@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ExtensionBanner } from "@/components/ExtensionBanner";
 
 export default function FrontendLayout({
   children,
@@ -13,6 +14,7 @@ export default function FrontendLayout({
         {children}
       </main>
       <Footer />
+      <ExtensionBanner />
     </>
   );
 }

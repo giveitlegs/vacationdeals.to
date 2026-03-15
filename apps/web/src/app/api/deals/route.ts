@@ -3,15 +3,26 @@ import { DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE } from "@vacationdeals/shared";
 
 export const dynamic = "force-dynamic";
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: CORS_HEADERS });
+}
+
 export async function GET(request: NextRequest) {
   const { db } = await import("@vacationdeals/db");
   const { deals, brands, destinations } = await import("@vacationdeals/db");
-  const { eq, and, gte, lte, desc, asc, sql } = await import("drizzle-orm");
+  const { eq, and, or, gte, lte, desc, asc, sql, ilike } = await import("drizzle-orm");
 
   const searchParams = request.nextUrl.searchParams;
 
   const city = searchParams.get("city");
   const brand = searchParams.get("brand");
+  const search = searchParams.get("search");
   const minPrice = searchParams.get("minPrice");
   const maxPrice = searchParams.get("maxPrice");
   const duration = searchParams.get("duration");
@@ -25,6 +36,16 @@ export async function GET(request: NextRequest) {
   const offset = (page - 1) * limit;
 
   const conditions = [eq(deals.isActive, true)];
+
+  if (search) {
+    const searchPattern = `%${search}%`;
+    conditions.push(
+      or(
+        ilike(deals.resortName, searchPattern),
+        ilike(deals.title, searchPattern),
+      )!,
+    );
+  }
 
   if (city) {
     const dest = await db.query.destinations.findFirst({
@@ -70,13 +91,16 @@ export async function GET(request: NextRequest) {
 
   const total = Number(countResult[0].count);
 
-  return NextResponse.json({
-    deals: results,
-    pagination: {
-      page,
-      limit,
-      total,
-      totalPages: Math.ceil(total / limit),
+  return NextResponse.json(
+    {
+      deals: results,
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages: Math.ceil(total / limit),
+      },
     },
-  });
+    { headers: CORS_HEADERS },
+  );
 }

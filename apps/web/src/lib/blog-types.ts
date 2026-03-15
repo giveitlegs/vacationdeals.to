@@ -30,7 +30,10 @@ export interface BlogPost {
   tags: string[];
 }
 
-// Registry of all blog posts
+// ---------------------------------------------------------------------------
+// Static blog post arrays (fallback when DB is unavailable)
+// ---------------------------------------------------------------------------
+
 import { destinationPosts } from "./blog-posts/destinations";
 import { brandPosts } from "./blog-posts/brands";
 import { interestPosts } from "./blog-posts/interests";
@@ -43,18 +46,48 @@ const _allPosts: BlogPost[] = [
   ...segmentPosts,
 ].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
-export function getAllBlogPosts(): BlogPost[] {
+// ---------------------------------------------------------------------------
+// Async functions that try DB first, fall back to static arrays
+// ---------------------------------------------------------------------------
+
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
+  try {
+    const { getBlogPostsFromDB } = await import("@/lib/queries");
+    const dbResult = await getBlogPostsFromDB({ limit: 500 });
+    if (dbResult && dbResult.posts.length > 0) {
+      return dbResult.posts;
+    }
+  } catch {
+    // DB unavailable, fall through to static
+  }
   return _allPosts;
 }
 
-export function getBlogPostBySlug(slug: string): BlogPost | null {
-  return getAllBlogPosts().find((p) => p.slug === slug) || null;
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+  try {
+    const { getBlogPostBySlugFromDB } = await import("@/lib/queries");
+    const dbPost = await getBlogPostBySlugFromDB(slug);
+    if (dbPost) return dbPost;
+  } catch {
+    // DB unavailable, fall through to static
+  }
+  return _allPosts.find((p) => p.slug === slug) || null;
 }
 
-export function getBlogPostsByCategory(category: BlogPost["category"]): BlogPost[] {
-  return getAllBlogPosts().filter((p) => p.category === category);
+export async function getBlogPostsByCategory(category: BlogPost["category"]): Promise<BlogPost[]> {
+  try {
+    const { getBlogPostsFromDB } = await import("@/lib/queries");
+    const dbResult = await getBlogPostsFromDB({ category, limit: 500 });
+    if (dbResult && dbResult.posts.length > 0) {
+      return dbResult.posts;
+    }
+  } catch {
+    // DB unavailable, fall through to static
+  }
+  return _allPosts.filter((p) => p.category === category);
 }
 
-export function getFeaturedBlogPosts(count: number = 3): BlogPost[] {
-  return getAllBlogPosts().slice(0, count);
+export async function getFeaturedBlogPosts(count: number = 3): Promise<BlogPost[]> {
+  const all = await getAllBlogPosts();
+  return all.slice(0, count);
 }

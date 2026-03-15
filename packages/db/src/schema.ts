@@ -150,6 +150,30 @@ export const seoHealth = pgTable("seo_health", {
   resolvedAt: timestamp("resolved_at"),
 });
 
+// ── Blog Posts ────────────────────────────────────────────
+export const blogPosts = pgTable("blog_posts", {
+  id: serial("id").primaryKey(),
+  slug: varchar("slug", { length: 500 }).notNull().unique(),
+  title: varchar("title", { length: 500 }).notNull(),
+  metaTitle: varchar("meta_title", { length: 200 }).notNull(),
+  metaDescription: text("meta_description").notNull(),
+  category: varchar("category", { length: 50 }).notNull(), // destinations, brands, interests, segments
+  publishDate: timestamp("publish_date").notNull(),
+  author: varchar("author", { length: 255 }).notNull().default("The VacationDeals.to Team"),
+  readTime: varchar("read_time", { length: 50 }),
+  bluf: text("bluf").notNull(), // Bottom Line Up Front
+  heroImageAlt: text("hero_image_alt"),
+  heroGradient: varchar("hero_gradient", { length: 255 }),
+  content: text("content").notNull(), // Full HTML content
+  faqs: text("faqs").notNull(), // JSON string of FAQ array
+  internalLinks: text("internal_links"), // JSON string
+  relatedSlugs: text("related_slugs"), // JSON string
+  tags: text("tags"), // JSON string
+  isPublished: boolean("is_published").notNull().default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
 // ── Ad Banners ──────────────────────────────────────────
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),

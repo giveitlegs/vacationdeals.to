@@ -50,7 +50,7 @@ export async function GET() {
   const now = toRfc822(new Date());
 
   // Blog post items
-  const blogPosts = getAllBlogPosts().slice(0, 50);
+  const blogPosts = (await getAllBlogPosts()).slice(0, 50);
   const blogItems: RssItem[] = blogPosts.map((post) => ({
     title: post.title,
     link: `${baseUrl}/${post.slug}`,

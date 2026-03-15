@@ -129,8 +129,8 @@ async function resolveSlug(slug: string): Promise<SlugType | null> {
   const durationMatch = durations.find((d) => d.slug === slug);
   if (durationMatch) return { type: "duration", data: durationMatch };
 
-  // 3. Check blog posts (static for now)
-  const blogPost = getBlogPostBySlug(slug);
+  // 3. Check blog posts (DB first, static fallback)
+  const blogPost = await getBlogPostBySlug(slug);
   if (blogPost) return { type: "blog", data: blogPost };
 
   // 4. Check DB for destination
@@ -243,7 +243,7 @@ export async function generateStaticParams() {
   for (const b of dbBrands) params.push({ slug: b.slug });
 
   // Blog posts
-  const blogPosts = getAllBlogPosts();
+  const blogPosts = await getAllBlogPosts();
   for (const p of blogPosts) params.push({ slug: p.slug });
 
   // Fallback static arrays (in case DB wasn't available)
