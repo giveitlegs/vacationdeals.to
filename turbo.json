@@ -23,6 +23,12 @@
     },
     "scrape": {
       "cache": false
+    },
+    "seo:audit": {
+      "cache": false
+    },
+    "rss:submit": {
+      "cache": false
     }
   }
 }

@@ -137,6 +137,19 @@ export const siteSettings = pgTable("site_settings", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
+// ── SEO Health ─────────────────────────────────────────
+export const seoHealth = pgTable("seo_health", {
+  id: serial("id").primaryKey(),
+  url: text("url").notNull(),
+  checkType: varchar("check_type", { length: 100 }).notNull(), // "status", "title", "meta", "schema", "canonical", "alt", "link"
+  severity: varchar("severity", { length: 20 }).notNull(), // "critical", "high", "medium", "low"
+  message: text("message").notNull(),
+  details: text("details"), // JSON string with extra context
+  isResolved: boolean("is_resolved").notNull().default(false),
+  checkedAt: timestamp("checked_at").defaultNow().notNull(),
+  resolvedAt: timestamp("resolved_at"),
+});
+
 // ── Ad Banners ──────────────────────────────────────────
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),

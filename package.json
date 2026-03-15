@@ -8,7 +8,9 @@
     "db:generate": "turbo db:generate",
     "db:migrate": "turbo db:migrate",
     "db:seed": "turbo db:seed",
-    "scrape": "turbo scrape"
+    "scrape": "turbo scrape",
+    "seo:audit": "turbo seo:audit",
+    "rss:submit": "turbo rss:submit"
   },
   "packageManager": "pnpm@10.32.1",
   "devDependencies": {

@@ -16,11 +16,14 @@
     "scrape:westgate-events": "tsx src/index.ts --source=westgate-events",
     "scrape:staypromo": "tsx src/index.ts --source=staypromo",
     "scrape:vacation-village": "tsx src/index.ts --source=vacation-village",
-    "scrape:spinnaker": "tsx src/index.ts --source=spinnaker"
+    "scrape:spinnaker": "tsx src/index.ts --source=spinnaker",
+    "seo:audit": "tsx src/seo-audit.ts",
+    "rss:submit": "tsx src/rss-submit.ts"
   },
   "dependencies": {
     "@vacationdeals/db": "workspace:*",
     "@vacationdeals/shared": "workspace:*",
+    "cheerio": "^1",
     "crawlee": "^3",
     "playwright": "^1"
   },
