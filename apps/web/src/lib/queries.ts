@@ -40,7 +40,7 @@ export async function getDeals(filters?: {
     );
 
     const page = filters?.page ?? 1;
-    const limit = filters?.limit ?? 24;
+    const limit = filters?.limit ?? 100;
     const offset = (page - 1) * limit;
 
     // Build conditions
