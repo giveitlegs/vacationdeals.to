@@ -5,6 +5,9 @@ import { getDealBySlug, getDeals } from "@/lib/queries";
 import { DealGrid } from "@/components/DealGrid";
 import type { Deal } from "@/components/DealCard";
 import { getCityIcon } from "@/lib/city-icons";
+import { generateDealFAQs } from "@/lib/faqs";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { FAQSchema } from "@/components/FAQSchema";
 
 export const revalidate = 3600;
 
@@ -92,6 +95,21 @@ export default async function DealPage({ params }: DealPageProps) {
       similarDeals = result.deals.filter((d) => d.slug !== deal.slug).slice(0, 3);
     }
   }
+
+  // Generate deal-specific FAQs
+  const faqs = generateDealFAQs({
+    title: deal.title,
+    resortName: deal.resortName,
+    city: deal.city,
+    state: deal.state,
+    price: Number(deal.price),
+    originalPrice: deal.originalPrice ? Number(deal.originalPrice) : null,
+    durationNights: deal.durationNights,
+    durationDays: deal.durationDays,
+    brandName: deal.brandName,
+    savingsPercent: deal.savingsPercent,
+    inclusions: deal.inclusions || [],
+  });
 
   // Schema.org Product/Offer JSON-LD
   const jsonLd = {
@@ -431,6 +449,15 @@ export default async function DealPage({ params }: DealPageProps) {
           </div>
         </div>
       </div>
+
+      {/* Deal FAQs */}
+      <FAQSchema faqs={faqs} />
+      <section className="mt-10">
+        <FAQAccordion
+          faqs={faqs}
+          title={`Frequently Asked Questions About This ${deal.city || ""} Deal`}
+        />
+      </section>
 
       {/* Disclaimer */}
       <div className="mt-10 rounded-xl border border-gray-200 bg-gray-50 p-5">

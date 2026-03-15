@@ -929,6 +929,141 @@ export const DURATION_FAQS: Record<string, FAQ[]> = {
 };
 
 // ---------------------------------------------------------------------------
+// Destination-specific content maps for deal FAQs
+// ---------------------------------------------------------------------------
+
+const DESTINATION_ACTIVITIES: Record<string, string> = {
+  "Orlando": "world-famous theme parks including Walt Disney World, Universal Studios, and SeaWorld, plus outlet shopping, dinner shows, and airboat rides through the Everglades",
+  "Las Vegas": "legendary entertainment, world-class shows, fine dining, casino gaming, and day trips to the Grand Canyon, Red Rock Canyon, and Hoover Dam",
+  "Gatlinburg": "Great Smoky Mountains National Park, scenic mountain hiking, Ripley's Aquarium, Ober Mountain ski resort, and charming downtown shops and restaurants",
+  "Myrtle Beach": "60 miles of sandy Atlantic coastline, championship golf courses, Broadway at the Beach entertainment complex, and fresh seafood dining along the boardwalk",
+  "Branson": "live music shows on the famous 76 Strip, Silver Dollar City theme park, Table Rock Lake water sports, and the Titanic Museum",
+  "Williamsburg": "Colonial Williamsburg living history, Busch Gardens theme park, Water Country USA, historic Jamestown, and outlet shopping",
+  "San Antonio": "the iconic River Walk, the Alamo, Six Flags Fiesta Texas, Natural Bridge Caverns, and authentic Tex-Mex cuisine",
+  "Miami": "South Beach nightlife, Art Deco architecture, Wynwood Walls street art, Everglades airboat tours, and world-class Cuban cuisine in Little Havana",
+  "Nashville": "live honky-tonk music on Broadway, the Grand Ole Opry, the Country Music Hall of Fame, hot chicken, and vibrant nightlife",
+  "Cancun": "pristine Caribbean beaches, Mayan ruins at Chichen Itza and Tulum, world-class snorkeling in cenotes, and vibrant nightlife in the Hotel Zone",
+  "Hilton Head": "pristine beaches, championship golf courses, bike trails through sea pines, dolphin watching tours, and fresh Lowcountry seafood",
+  "Daytona Beach": "the world-famous Daytona International Speedway, wide sandy beaches perfect for driving, the Daytona Beach Boardwalk, and Ponce Inlet Lighthouse",
+  "Scottsdale": "world-class spa resorts, championship golf courses, stunning Sonoran Desert hiking, Old Town galleries, and hot air balloon rides",
+  "Park City": "legendary ski slopes at Park City Mountain and Deer Valley, historic Main Street shopping, the Sundance Film Festival, and summer mountain biking",
+  "Sedona": "breathtaking red rock formations, spiritual vortex sites, Jeep tours, scenic hiking trails like Cathedral Rock, and world-class resort spas",
+  "Lake Tahoe": "crystal-clear alpine waters, skiing at Heavenly and Squaw Valley, scenic Emerald Bay, kayaking, and stunning mountain views",
+  "Maui": "pristine beaches, the Road to Hana, Haleakala sunrise, world-class snorkeling at Molokini Crater, and traditional luau dining",
+  "New Orleans": "the French Quarter, legendary jazz clubs on Bourbon Street, beignets at Cafe Du Monde, swamp tours, and Creole cuisine",
+};
+
+const DESTINATION_SEASONS: Record<string, string> = {
+  "Orlando": "Late January through March and September through mid-November offer the best combination of pleasant weather (70-85\u00B0F), lower crowds at theme parks, and the most affordable package pricing.",
+  "Las Vegas": "Spring (March-May) and fall (September-November) offer ideal weather in the 70-80\u00B0F range. Summer temperatures exceed 110\u00B0F but resorts offer the deepest discounts. Weekday arrivals are typically cheaper than weekends.",
+  "Gatlinburg": "October is the most popular time for stunning fall foliage in the Smokies. Spring (April-May) offers wildflower blooms and moderate temperatures. Summer is peak season with the highest prices. Winter offers the lowest rates.",
+  "Myrtle Beach": "Late spring (May-June) and early fall (September-October) offer warm beach weather with fewer crowds. Summer is peak season with the highest prices. Winter packages offer the deepest discounts for budget travelers.",
+  "Branson": "Spring (April-May) and fall (September-November) are ideal, with comfortable temperatures and full show schedules. The Ozark Mountain Christmas season (November-December) is magical. Summer is busiest and most expensive.",
+  "Williamsburg": "Spring (April-June) and fall (September-November) are best for comfortable weather and lower crowds. Busch Gardens Howl-O-Scream in October and Christmas Town in December are popular events. Summer is peak family season.",
+  "San Antonio": "October through April offers the most pleasant weather, with temperatures in the 60-80\u00B0F range. Summer can exceed 100\u00B0F but brings the lowest package prices. Fiesta in April is a spectacular cultural celebration.",
+  "Miami": "November through April is peak season with warm, dry weather. Summer brings afternoon thunderstorms but also the lowest hotel prices. Art Basel in December and the Miami Open in March are popular events.",
+  "Nashville": "Spring (April-May) and fall (September-October) offer the best weather and CMA Fest in June is the city's biggest event. Summer is hot and humid but full of outdoor concerts. Winter offers the lowest package rates.",
+  "Cancun": "December through April offers dry, sunny weather ideal for the beach. The rainy season (June-October) brings lower prices and shorter crowds, with rain typically limited to brief afternoon showers. Hurricane season peaks August-October.",
+  "Hilton Head": "April through June and September through October offer warm beach weather with fewer crowds. Summer is peak season. Winter offers the lowest rates but some restaurants and attractions have reduced hours.",
+  "Daytona Beach": "March through May and September through November are ideal for pleasant weather without peak-season pricing. The Daytona 500 in February and Bike Week in March bring big crowds and higher rates.",
+  "Scottsdale": "October through April offers the best weather with temperatures in the 60-80\u00B0F range. Summer temperatures regularly exceed 110\u00B0F, but resorts offer the deepest discounts and pool weather is guaranteed.",
+  "Park City": "December through March is prime ski season. Summer (June-September) offers mountain biking, hiking, and outdoor festivals at comfortable high-altitude temperatures.",
+  "Sedona": "March through May and September through November offer the most pleasant weather. Summer can be quite hot, while winter brings cool temperatures and occasional snow on the red rocks.",
+  "Lake Tahoe": "December through March for skiing, and June through September for water sports and hiking. Shoulder seasons (May and October-November) offer the lowest rates.",
+  "Maui": "April through June and September through November offer great weather with lower prices. December through March is whale season and peak pricing. Summer brings consistent sunshine.",
+  "New Orleans": "October through May offers the best weather. Mardi Gras (February/March) and Jazz Fest (April/May) are iconic but bring peak pricing. Summer is hot and humid but has the lowest rates.",
+};
+
+// ---------------------------------------------------------------------------
+// Deal-specific FAQ generator
+// ---------------------------------------------------------------------------
+
+export function generateDealFAQs(deal: {
+  title: string;
+  resortName: string | null;
+  city: string | null;
+  state: string | null;
+  price: number;
+  originalPrice: number | null;
+  durationNights: number;
+  durationDays: number;
+  brandName: string | null;
+  savingsPercent: number | null;
+  inclusions: string[];
+}): FAQ[] {
+  const city = deal.city || "this destination";
+  const resort = deal.resortName || deal.title;
+  const brand = deal.brandName || "the provider";
+  const location = [deal.city, deal.state].filter(Boolean).join(", ") || "this destination";
+  const pricePerNight = Math.round(deal.price / deal.durationNights);
+
+  // FAQ 1: What is included
+  const inclusionsText =
+    deal.inclusions.length > 0
+      ? `This package includes ${deal.inclusions.slice(0, 4).join(", ")}${deal.inclusions.length > 4 ? ", and more" : ""}. `
+      : `This package typically includes resort accommodations with full amenities such as pool access, Wi-Fi, and parking. `;
+
+  // FAQ 2: Cost
+  const savingsText =
+    deal.originalPrice && deal.savingsPercent
+      ? ` That's ${deal.savingsPercent}% off the original price of $${deal.originalPrice}, saving you $${deal.originalPrice - deal.price} compared to booking at full retail rates.`
+      : ` At just $${pricePerNight} per night, this is significantly less than comparable resort stays booked through traditional travel sites.`;
+
+  // FAQ 6: Activities
+  const activitiesText = deal.city && DESTINATION_ACTIVITIES[deal.city]
+    ? `${deal.city} offers ${DESTINATION_ACTIVITIES[deal.city]}. Your resort stay puts you within easy reach of all these attractions.`
+    : `${city} offers a variety of local attractions, dining, shopping, and outdoor activities. Check with the resort's concierge for personalized recommendations based on your interests.`;
+
+  // FAQ 10: Best time to visit
+  const seasonText = deal.city && DESTINATION_SEASONS[deal.city]
+    ? DESTINATION_SEASONS[deal.city]
+    : `${city} is a year-round destination, though shoulder seasons typically offer the best combination of pleasant weather and lower prices. Check availability for your preferred travel dates, as pricing may vary seasonally.`;
+
+  return [
+    {
+      question: `What is included in this ${city} vacation deal?`,
+      answer: `${inclusionsText}The ${deal.durationNights}-night stay at ${resort} in ${location} is designed to give you a full resort experience. Specific inclusions may vary, so check with ${brand} for the most up-to-date package details.`,
+    },
+    {
+      question: `How much does this ${resort} deal cost?`,
+      answer: `This vacation package at ${resort} is priced at $${deal.price} for a ${deal.durationNights}-night, ${deal.durationDays}-day stay.${savingsText} Pricing is subject to change, so book early to lock in this rate.`,
+    },
+    {
+      question: `How long is the ${city} resort stay?`,
+      answer: `This package includes a ${deal.durationNights}-night, ${deal.durationDays}-day stay at ${resort} in ${location}. Check-in and check-out times may vary by property, so confirm the details with ${brand} when booking to plan your travel schedule.`,
+    },
+    {
+      question: `Is ${resort} a good resort?`,
+      answer: `${resort} in ${location} is a popular choice among vacationers looking for quality accommodations at an affordable price. ${deal.city ? `${deal.city} is one of the top vacation destinations in the country, and resorts in this area typically offer excellent amenities and guest services.` : "The resort offers amenities and guest services designed for a comfortable stay."} We recommend checking recent guest reviews for the most current feedback.`,
+    },
+    {
+      question: `Do I have to attend a timeshare presentation?`,
+      answer: `Yes, this discounted rate is typically available in exchange for attending a vacation ownership presentation, usually lasting about 90 to 120 minutes. There is no obligation to purchase anything — you keep all package perks regardless of your decision. The presentation is a chance to learn about the resort's membership options.`,
+    },
+    {
+      question: `What is there to do in ${city}?`,
+      answer: activitiesText,
+    },
+    {
+      question: `Can I bring my family to this ${city} vacation deal?`,
+      answer: `Generally, yes — most resort vacation packages welcome families. Accommodations at ${resort} may include suite-style rooms with separate living areas, kitchenettes, and kid-friendly amenities. Specific guest requirements such as age and party size may apply, so verify the eligibility details with ${brand} before booking.`,
+    },
+    {
+      question: `How do I book this ${brand} deal?`,
+      answer: `To book this package, click the "View Deal" button on this page. You will be redirected to ${brand}'s website where you can review the full offer details, check availability for your preferred dates, and complete your reservation directly with the provider.`,
+    },
+    {
+      question: `Is this ${city} deal refundable?`,
+      answer: `Refund and cancellation policies vary by provider and package. We recommend reviewing ${brand}'s terms and conditions carefully before completing your booking. Many providers offer cancellation windows ranging from 72 hours to 30 days, but you should confirm the specific policy that applies to this package.`,
+    },
+    {
+      question: `When is the best time to visit ${city}?`,
+      answer: seasonText,
+    },
+  ];
+}
+
+// ---------------------------------------------------------------------------
 // Slug lookup helper
 // ---------------------------------------------------------------------------
 
