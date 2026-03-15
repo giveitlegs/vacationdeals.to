@@ -1,4 +1,4 @@
-import { PlaywrightCrawler } from "crawlee";
+import { CheerioCrawler } from "crawlee";
 import { storeDeal } from "../storage/deal-store";
 import type { ScrapedDeal } from "@vacationdeals/shared";
 
@@ -8,36 +8,29 @@ import type { ScrapedDeal } from "@vacationdeals/shared";
  * westgateevents.com is a WordPress site that sells concert/sports/show
  * vacation packages bundled with Westgate resort stays.
  *
- * Homepage structure:
- *   - Event cards in Bootstrap grid (.col-lg-3 / .col-lg-4)
- *   - #event-results container with AJAX-loaded content
- *   - AJAX endpoint: /wp-admin/admin-ajax.php?action=filter_events
- *   - Pagination via .ajax-paging a[data-page]
- *   - Filter by: category, location, month, sort
+ * Listing page: /events/ (server-rendered, paginated at /events/page/N/)
+ *   - #event-results > .row > .col-lg-3 > .event-wrapper > a.box.style3
+ *   - Each card: div.image (img + span.date + div.status_tags) +
+ *               div.text (span.title + div.action > div.left (location) +
+ *                         div.right (span.price) + span.cta-btn)
+ *   - Sold-out cards have class "sold" on a.box and span.status.sold badge
+ *   - ~111 events across 10 pages (12 per page)
  *
- * Event card structure (from AJAX HTML):
- *   <a href="/events/{slug}/">
- *     <img src="...322x190.jpg" alt="Event Name">
- *     <span class="event-label">MULTI DATE</span>
- *     <h3>Event Name</h3>
- *     <p>City, State</p>
- *     <p>From$XXXPer Couple</p>
- *     <span>View Event</span>
- *   </a>
- *
- * Individual event pages contain:
- *   - .experience-includes — list of inclusions
- *   - Price with original price and savings %
- *   - Resort name and address
- *   - Event dates
- *   - Schema.org MusicEvent / SportsEvent markup
- *   - Image in slick slider
+ * Individual event pages (/events/{slug}/):
+ *   - h2 title, price in .price span, "Was: $XXX" original price
+ *   - Resort name and address in content
+ *   - Duration shown as "X Nights + Y Tickets"
+ *   - Inclusions list (ul > li) after "Experience Includes:" heading
+ *   - Schema.org MusicEvent / SportsEvent JSON-LD
+ *   - Images in .content-video section or .wp-post-image
  *
  * Known destinations: Orlando FL, Las Vegas NV, Gatlinburg TN,
  *   Branson MO, Myrtle Beach SC, Williamsburg VA
  */
 
 const BASE_URL = "https://westgateevents.com";
+const EVENTS_URL = `${BASE_URL}/events/`;
+const MAX_PAGES = 12; // safety limit
 
 // Map location strings to structured data
 const LOCATION_MAP: Record<string, { city: string; state: string }> = {
@@ -54,21 +47,15 @@ const LOCATION_MAP: Record<string, { city: string; state: string }> = {
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function parsePrice(text: string): number | null {
-  // "From$199Per Couple" or "From $199 per couple" or "$199"
   const cleaned = text.replace(/\s+/g, " ").replace(/,/g, "");
   const match = cleaned.match(/\$(\d+)/);
   return match ? parseInt(match[1], 10) : null;
 }
 
 function parseOriginalPrice(text: string): number | null {
-  // Look for strikethrough / original price pattern: "$799" before the sale price
-  const match = text.replace(/,/g, "").match(/\$(\d{3,})/g);
-  if (match && match.length >= 2) {
-    // Highest price is likely the original
-    const prices = match.map((p) => parseInt(p.replace("$", ""), 10));
-    prices.sort((a, b) => b - a);
-    return prices[0];
-  }
+  // "Was: $799" or "Was:$799"
+  const m = text.match(/was\s*:?\s*\$(\d[\d,]*)/i);
+  if (m) return parseInt(m[1].replace(/,/g, ""), 10);
   return null;
 }
 
@@ -85,346 +72,376 @@ function parseLocation(text: string): { city: string; state: string } | null {
   if (LOCATION_MAP[normalized]) return LOCATION_MAP[normalized];
 
   // Try "City, ST" pattern
-  const m = text.match(/^([\w\s]+),\s*([A-Z]{2})$/);
+  const m = text.match(/([\w\s]+),\s*([A-Z]{2})/);
   if (m) return { city: m[1].trim(), state: m[2] };
 
   return null;
 }
 
-function parseNightsFromText(text: string): number | null {
-  const m = text.match(/(\d+)\s*nights?/i);
-  return m ? parseInt(m[1], 10) : null;
+function parseNightsFromDate(dateText: string): number | null {
+  // "May 25 – May 27, 2026" => 2 nights
+  // "Mar 19 - Mar 21, 2026" => 2 nights
+  // "Mar 20 - Mar 23, 2026" => 3 nights
+  // "Apr 10 – Apr 13, 2026" => 3 nights
+  const m = dateText.match(
+    /([A-Z][a-z]+)\s+(\d{1,2})\s*[-–]\s*(?:([A-Z][a-z]+)\s+)?(\d{1,2}),?\s*(\d{4})/,
+  );
+  if (!m) return null;
+
+  const startMonth = m[1];
+  const startDay = parseInt(m[2], 10);
+  const endMonth = m[3] || startMonth;
+  const endDay = parseInt(m[4], 10);
+  const year = parseInt(m[5], 10);
+
+  const MONTHS: Record<string, number> = {
+    Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+    Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+  };
+
+  const startIdx = MONTHS[startMonth];
+  const endIdx = MONTHS[endMonth];
+  if (startIdx === undefined || endIdx === undefined) return null;
+
+  const start = new Date(year, startIdx, startDay);
+  const end = new Date(year, endIdx, endDay);
+  const diffMs = end.getTime() - start.getTime();
+  const nights = Math.round(diffMs / (1000 * 60 * 60 * 24));
+  return nights > 0 && nights <= 14 ? nights : null;
 }
 
-function parseDatesFromText(text: string): string | null {
-  // "May 25 - 27, 2026" or "Sep 30 - Oct 2, 2026"
-  const m = text.match(
-    /([A-Z][a-z]+\s+\d{1,2})\s*[-–]\s*(?:([A-Z][a-z]+)\s+)?(\d{1,2}),?\s*(\d{4})/,
-  );
-  if (m) return m[0];
-  return null;
+function inferLocationFromText(text: string): { city: string; state: string } {
+  const lower = text.toLowerCase();
+  if (lower.includes("kissimmee") || lower.includes("orlando"))
+    return { city: "Orlando", state: "FL" };
+  if (lower.includes("las vegas"))
+    return { city: "Las Vegas", state: "NV" };
+  if (lower.includes("gatlinburg"))
+    return { city: "Gatlinburg", state: "TN" };
+  if (lower.includes("branson"))
+    return { city: "Branson", state: "MO" };
+  if (lower.includes("myrtle beach"))
+    return { city: "Myrtle Beach", state: "SC" };
+  if (lower.includes("williamsburg"))
+    return { city: "Williamsburg", state: "VA" };
+  if (lower.includes("cocoa beach"))
+    return { city: "Cocoa Beach", state: "FL" };
+  return { city: "Unknown", state: "" };
 }
 
 // ── Main crawler ─────────────────────────────────────────────────────────────
 
 export async function runWestgateEventsCrawler() {
-  const processedUrls = new Set<string>();
+  const processedSlugs = new Set<string>();
+  let totalStored = 0;
 
-  const crawler = new PlaywrightCrawler({
-    maxRequestsPerCrawl: 80,
-    navigationTimeoutSecs: 60,
-    requestHandlerTimeoutSecs: 90,
-    headless: true,
-    async requestHandler({ request, page, log }) {
-      log.info(`Scraping ${request.url}`);
+  const crawler = new CheerioCrawler({
+    maxRequestsPerCrawl: 150,
+    maxConcurrency: 3,
+    async requestHandler({ request, $, log }) {
       const url = request.url;
+      const label = request.label || "LISTING";
 
-      // ── Homepage / listing page: extract event cards and paginate ──────
-      if (url === BASE_URL || url === `${BASE_URL}/` || url.includes("admin-ajax")) {
-        // Wait for event results to load
-        await page
-          .waitForSelector("#event-results a, .filter_result", { timeout: 15000 })
-          .catch(() => {});
-        await page.waitForTimeout(1500);
+      // ── Listing pages: /events/ and /events/page/N/ ────────────────────
+      if (label === "LISTING") {
+        const cards = $("#event-results a.box");
+        log.info(`[${url}] Found ${cards.length} event cards`);
 
-        // Extract event card links from the current page
-        const eventLinks = await page.$$eval(
-          '#event-results a[href*="/events/"]',
-          (els) =>
-            els.map((a) => {
-              const anchor = a as HTMLAnchorElement;
-              const h3 = anchor.querySelector("h3");
-              const paragraphs = anchor.querySelectorAll("p");
-              let location = "";
-              let priceText = "";
-
-              paragraphs.forEach((p) => {
-                const text = p.textContent || "";
-                if (text.includes("$")) {
-                  priceText = text;
-                } else if (text.includes(",")) {
-                  location = text.trim();
-                }
-              });
-
-              return {
-                url: anchor.href,
-                title: h3?.textContent?.trim() || "",
-                location,
-                priceText,
-                imageUrl:
-                  anchor.querySelector("img")?.getAttribute("src") || "",
-                isSoldOut: (anchor.textContent || "").includes("SOLD OUT"),
-              };
-            }),
-        );
-
-        log.info(`Found ${eventLinks.length} event cards on listing page`);
-
-        // Enqueue individual event pages for detailed scraping
-        for (const event of eventLinks) {
-          if (event.isSoldOut) {
-            log.info(`Skipping sold-out event: ${event.title}`);
-            continue;
+        if (cards.length === 0) {
+          // Fallback: try homepage "New Events" section cards
+          const homeCards = $("a.box.style3");
+          if (homeCards.length > 0) {
+            log.info(`Fallback: found ${homeCards.length} cards on page`);
           }
-          if (event.url && !processedUrls.has(event.url)) {
-            await crawler.addRequests([
-              {
-                url: event.url,
-                userData: {
-                  listingTitle: event.title,
-                  listingLocation: event.location,
-                  listingPrice: event.priceText,
-                  listingImage: event.imageUrl,
-                },
+        }
+
+        cards.each((_, el) => {
+          const $card = $(el);
+          const href = $card.attr("href") || "";
+          const isSold =
+            $card.hasClass("sold") ||
+            $card.find(".status.sold").length > 0;
+
+          if (isSold) {
+            const soldTitle = $card.find(".title").text().trim();
+            log.info(`Skipping sold-out: ${soldTitle}`);
+            return;
+          }
+
+          // Extract listing-level data from the card
+          const title = $card.find(".title").text().trim();
+          const priceText = $card.find(".price").text().trim();
+          const locationText = $card.find(".action .left span").text().trim();
+          const dateText = $card.find(".date span").last().text().trim();
+          const imageUrl =
+            $card.find(".image img").first().attr("src") || "";
+
+          // Dedupe by slug
+          const slugMatch = href.match(/\/events\/([^/]+)\/?$/);
+          const slug = slugMatch ? slugMatch[1] : href;
+          if (processedSlugs.has(slug)) return;
+          processedSlugs.add(slug);
+
+          const fullUrl = href.startsWith("http")
+            ? href
+            : `${BASE_URL}${href}`;
+
+          // Parse card data for use as fallback on detail page
+          const price = parsePrice(priceText);
+          const location = parseLocation(locationText);
+          const nights = parseNightsFromDate(dateText);
+
+          // Enqueue the individual event page
+          crawler.addRequests([
+            {
+              url: fullUrl,
+              label: "DETAIL",
+              userData: {
+                listingTitle: title,
+                listingPrice: price,
+                listingLocation: location,
+                listingNights: nights,
+                listingDate: dateText,
+                listingImage: imageUrl,
               },
-            ]);
-          }
-        }
+            },
+          ]);
+        });
 
-        // Handle AJAX pagination — click through pages
-        if (!url.includes("admin-ajax")) {
-          const totalPages = await page
-            .$$eval(".ajax-paging a[data-page]", (els) =>
-              Math.max(...els.map((a) => parseInt(a.getAttribute("data-page") || "1", 10))),
-            )
-            .catch(() => 1);
+        // Enqueue pagination links: /events/page/2/ through /events/page/N/
+        const pageLinks = $("a.page");
+        const pageNumbers: number[] = [];
+        pageLinks.each((_, el) => {
+          const pageHref = $(el).attr("href") || "";
+          const pageMatch = pageHref.match(/\/page\/(\d+)/);
+          if (pageMatch) pageNumbers.push(parseInt(pageMatch[1], 10));
+        });
 
-          if (totalPages > 1) {
-            log.info(`Found ${totalPages} pages of events`);
-            for (let pg = 2; pg <= Math.min(totalPages, 10); pg++) {
-              // Click the pagination link and wait for new content
-              const pageSelector = `.ajax-paging a[data-page="${pg}"]`;
-              const pageLink = await page.$(pageSelector);
-              if (pageLink) {
-                await pageLink.click();
-                await page.waitForTimeout(2000);
+        if (pageNumbers.length > 0) {
+          const maxPage = Math.min(Math.max(...pageNumbers), MAX_PAGES);
+          const currentPageMatch = url.match(/\/page\/(\d+)/);
+          const currentPage = currentPageMatch
+            ? parseInt(currentPageMatch[1], 10)
+            : 1;
 
-                // Extract event cards from the new page
-                const newLinks = await page.$$eval(
-                  '#event-results a[href*="/events/"]',
-                  (els) =>
-                    els.map((a) => {
-                      const anchor = a as HTMLAnchorElement;
-                      const h3 = anchor.querySelector("h3");
-                      const paragraphs = anchor.querySelectorAll("p");
-                      let location = "";
-                      let priceText = "";
-                      paragraphs.forEach((p) => {
-                        const text = p.textContent || "";
-                        if (text.includes("$"))  priceText = text;
-                        else if (text.includes(",")) location = text.trim();
-                      });
-                      return {
-                        url: anchor.href,
-                        title: h3?.textContent?.trim() || "",
-                        location,
-                        priceText,
-                        isSoldOut: (anchor.textContent || "").includes("SOLD OUT"),
-                      };
-                    }),
-                );
-
-                for (const event of newLinks) {
-                  if (event.isSoldOut) continue;
-                  if (event.url && !processedUrls.has(event.url)) {
-                    await crawler.addRequests([
-                      {
-                        url: event.url,
-                        userData: {
-                          listingTitle: event.title,
-                          listingLocation: event.location,
-                          listingPrice: event.priceText,
-                        },
-                      },
-                    ]);
-                  }
-                }
-
-                log.info(`Page ${pg}: found ${newLinks.length} event cards`);
-              }
+          // Only enqueue pages we haven't visited yet (from page 1, enqueue all)
+          if (currentPage === 1) {
+            for (let pg = 2; pg <= maxPage; pg++) {
+              crawler.addRequests([
+                {
+                  url: `${EVENTS_URL}page/${pg}/`,
+                  label: "LISTING",
+                },
+              ]);
             }
+            log.info(`Enqueued pages 2-${maxPage}`);
           }
         }
 
         return;
       }
 
-      // ── Individual event page: extract full deal details ───────────────
-      if (!url.includes("/events/")) return;
-      if (processedUrls.has(url)) return;
-      processedUrls.add(url);
+      // ── Individual event detail page ───────────────────────────────────
+      if (label === "DETAIL") {
+        const userData = request.userData as {
+          listingTitle?: string;
+          listingPrice?: number | null;
+          listingLocation?: { city: string; state: string } | null;
+          listingNights?: number | null;
+          listingDate?: string;
+          listingImage?: string;
+        };
 
-      await page.waitForLoadState("networkidle", { timeout: 20000 }).catch(() => {});
-      await page.waitForTimeout(1000);
+        const pageText = $("body").text() || "";
 
-      const userData = request.userData as {
-        listingTitle?: string;
-        listingLocation?: string;
-        listingPrice?: string;
-        listingImage?: string;
-      };
+        // Check for sold out on detail page
+        if (
+          $(".status.sold").length > 0 ||
+          pageText.includes("SOLD OUT")
+        ) {
+          log.info(`Skipping sold-out detail page: ${url}`);
+          return;
+        }
 
-      // Check for sold out
-      const pageText = await page.evaluate(() => document.body?.innerText || "");
-      if (pageText.includes("SOLD OUT")) {
-        log.info(`Skipping sold-out event page: ${url}`);
-        return;
-      }
+        // Title: prefer h2 (main event heading), then h1, then listing data
+        let title =
+          $("h2").first().text().trim() ||
+          $("h1").first().text().trim() ||
+          userData.listingTitle ||
+          "";
 
-      // Event title
-      const title = await page
-        .$eval("h1", (el) => el.textContent?.trim() || "")
-        .catch(() => userData.listingTitle || "");
+        // Some h1/h2 contain site-wide text; filter those out
+        if (
+          title.toLowerCase().includes("westgate events") ||
+          title.toLowerCase().includes("cheer harder")
+        ) {
+          title = userData.listingTitle || "";
+        }
 
-      if (!title) {
-        log.info(`No title found on ${url}, skipping`);
-        return;
-      }
+        if (!title) {
+          log.info(`No title found on ${url}, skipping`);
+          return;
+        }
 
-      // Price
-      let price: number | null = null;
-      const priceText = await page.evaluate(() => {
-        const body = document.body?.innerText || "";
-        // Look for "From $XXX" or "$XXX per couple"
-        const m = body.match(/(?:from\s*)?\$(\d+)\s*(?:per\s*couple)?/i);
-        return m ? m[0] : "";
-      });
-      price = parsePrice(priceText);
+        // Price: try .price element, then body regex, then listing data
+        let price: number | null = null;
+        const priceEl = $(".price").first().text().trim();
+        if (priceEl) price = parsePrice(priceEl);
+        if (!price) {
+          const priceMatch = pageText.match(
+            /(?:from\s*)?\$(\d[\d,]*)\s*(?:per\s*couple)?/i,
+          );
+          if (priceMatch)
+            price = parseInt(priceMatch[1].replace(/,/g, ""), 10);
+        }
+        if (!price && userData.listingPrice) {
+          price = userData.listingPrice;
+        }
+        if (!price || price <= 0) {
+          log.info(`No price found for "${title}", skipping`);
+          return;
+        }
 
-      // Fallback: try listing data
-      if (!price && userData.listingPrice) {
-        price = parsePrice(userData.listingPrice);
-      }
+        // Original price
+        const originalPrice = parseOriginalPrice(pageText);
+        const savingsPercent = parseSavings(pageText);
 
-      if (!price || price <= 0) {
-        log.info(`No price found for "${title}", skipping`);
-        return;
-      }
+        // Location: try detail page address, then listing data, then infer
+        let location: { city: string; state: string } | null = null;
 
-      // Original price and savings
-      const originalPrice = parseOriginalPrice(pageText);
-      const savingsPercent = parseSavings(pageText);
-
-      // Location
-      let location: { city: string; state: string } | null = null;
-
-      // Try from page content first
-      const locationText = await page.evaluate(() => {
-        // Look for map-pin or location elements
-        const locEl = document.querySelector(
-          ".event-location, [class*='location'], .map-pin + span, .map-pin ~ *",
+        // Look for address pattern in page text
+        const addrMatch = pageText.match(
+          /\d+[^,\n]+,\s*([\w\s]+),\s*([A-Z]{2})\s*\d{5}/,
         );
-        if (locEl) return locEl.textContent?.trim() || "";
-
-        // Check for "City, ST" pattern in paragraphs
-        const paragraphs = document.querySelectorAll("p");
-        for (const p of paragraphs) {
-          const text = p.textContent?.trim() || "";
-          if (/^[\w\s]+,\s*[A-Z]{2}\s*\d{5}/.test(text)) return text;
-          if (/^[\w\s]+,\s*[A-Z]{2}$/.test(text)) return text;
+        if (addrMatch) {
+          location = { city: addrMatch[1].trim(), state: addrMatch[2] };
         }
-        return "";
-      });
-
-      if (locationText) {
-        // Extract city, state from address or location text
-        const m = locationText.match(/([\w\s]+),\s*([A-Z]{2})/);
-        if (m) location = { city: m[1].trim(), state: m[2] };
-      }
-
-      if (!location && userData.listingLocation) {
-        location = parseLocation(userData.listingLocation);
-      }
-
-      if (!location) {
-        // Try to infer from resort name
-        if (pageText.toLowerCase().includes("kissimmee") || pageText.toLowerCase().includes("orlando")) {
-          location = { city: "Orlando", state: "FL" };
-        } else if (pageText.toLowerCase().includes("las vegas")) {
-          location = { city: "Las Vegas", state: "NV" };
-        } else if (pageText.toLowerCase().includes("gatlinburg")) {
-          location = { city: "Gatlinburg", state: "TN" };
-        } else if (pageText.toLowerCase().includes("branson")) {
-          location = { city: "Branson", state: "MO" };
-        } else if (pageText.toLowerCase().includes("myrtle beach")) {
-          location = { city: "Myrtle Beach", state: "SC" };
-        } else {
-          location = { city: "Unknown", state: "" };
+        if (!location && userData.listingLocation) {
+          location = userData.listingLocation;
         }
-      }
+        if (!location) {
+          location = inferLocationFromText(pageText);
+        }
 
-      // Resort name
-      const resortName = await page.evaluate(() => {
-        const body = document.body?.innerText || "";
-        // Look for "Westgate [Resort Name]" pattern
-        const m = body.match(/Westgate\s[\w\s]+(?:Resort|Hotel|Casino|Club)/i);
-        return m ? m[0].trim() : "";
-      }) || "Westgate Resort";
+        // Resort name
+        const resortMatch = pageText.match(
+          /Westgate\s[\w\s]+(?:Resort|Hotel|Casino|Club|Tower)/i,
+        );
+        const resortName = resortMatch
+          ? resortMatch[0].trim()
+          : "Westgate Resort";
 
-      // Duration: event packages are typically 2-3 nights
-      const nights = parseNightsFromText(pageText) || 2;
+        // Duration: try "X Nights" from page, then date range, then listing
+        let nights: number | null = null;
+        const nightsMatch = pageText.match(/(\d+)\s*nights?/i);
+        if (nightsMatch) nights = parseInt(nightsMatch[1], 10);
+        if (!nights && userData.listingDate) {
+          nights = parseNightsFromDate(userData.listingDate);
+        }
+        if (!nights && userData.listingNights) {
+          nights = userData.listingNights;
+        }
+        if (!nights) nights = 2; // default for event packages
 
-      // Travel dates
-      const travelWindow = parseDatesFromText(pageText) || undefined;
+        // Travel window / dates
+        const travelWindow = userData.listingDate || undefined;
 
-      // Image URL
-      const imageUrl = await page
-        .$eval(
-          ".slick-slide img, .event-details img, .wp-post-image",
-          (img) => (img as HTMLImageElement).src,
-        )
-        .catch(() => userData.listingImage || undefined);
+        // Image: try detail page images, then listing image
+        let imageUrl =
+          $(".content-video img, .wp-post-image, .slick-slide img")
+            .first()
+            .attr("src") ||
+          userData.listingImage ||
+          undefined;
+        // Prefer full-size image over 322x190 thumbnail
+        if (imageUrl && imageUrl.includes("-322x190")) {
+          imageUrl = imageUrl.replace(/-322x190/, "");
+        }
 
-      // Inclusions from .experience-includes
-      const inclusions = await page.$$eval(
-        ".experience-includes li, .experience-includes p",
-        (els) =>
-          els
-            .map((el) => el.textContent?.trim() || "")
-            .filter((t) => t.length > 0),
-      ).catch(() => [] as string[]);
+        // Inclusions: look for list items in the experience/includes section
+        const inclusions: string[] = [];
+        $("ul li").each((_, el) => {
+          const text = $(el).text().trim();
+          // Filter to inclusion-like items (skip nav, footer, etc.)
+          if (
+            text.length > 5 &&
+            text.length < 200 &&
+            (text.toLowerCase().includes("night") ||
+              text.toLowerCase().includes("ticket") ||
+              text.toLowerCase().includes("transport") ||
+              text.toLowerCase().includes("accommodation") ||
+              text.toLowerCase().includes("dinner") ||
+              text.toLowerCase().includes("drink") ||
+              text.toLowerCase().includes("welcome") ||
+              text.toLowerCase().includes("checkout") ||
+              text.toLowerCase().includes("party") ||
+              text.toLowerCase().includes("resort") ||
+              text.toLowerCase().includes("seat") ||
+              text.toLowerCase().includes("pass") ||
+              text.toLowerCase().includes("admission") ||
+              text.toLowerCase().includes("breakfast") ||
+              text.toLowerCase().includes("helicopter") ||
+              text.toLowerCase().includes("cruise") ||
+              text.toLowerCase().includes("zipline") ||
+              text.toLowerCase().includes("park"))
+          ) {
+            inclusions.push(text);
+          }
+        });
 
-      if (inclusions.length === 0) {
-        inclusions.push(`${nights + 1} Days / ${nights} Nights at ${resortName}`);
-        inclusions.push("Event tickets included");
-        inclusions.push("Resort accommodation");
-      }
+        if (inclusions.length === 0) {
+          inclusions.push(
+            `${nights + 1} Days / ${nights} Nights at ${resortName}`,
+          );
+          inclusions.push("Event tickets included");
+          inclusions.push("Resort accommodation");
+        }
 
-      const deal: ScrapedDeal = {
-        title: `${title} - ${location.city} Event Package`,
-        price,
-        originalPrice: originalPrice && originalPrice > price ? originalPrice : undefined,
-        durationNights: nights,
-        durationDays: nights + 1,
-        description: `${title} event package including ${nights} nights at ${resortName} in ${location.city}, ${location.state}. Includes event tickets, accommodation, and more.`,
-        resortName,
-        url,
-        imageUrl,
-        inclusions: inclusions.length > 0 ? inclusions : undefined,
-        requirements: [
-          "Must attend 120-minute timeshare presentation",
-          "Ages 25-70",
-          "Must be employed with combined household income $50,000+",
-          "Married/cohabitating couples must attend together",
-        ],
-        presentationMinutes: 120,
-        travelWindow,
-        savingsPercent: savingsPercent ?? undefined,
-        city: location.city,
-        state: location.state,
-        country: "US",
-        brandSlug: "westgate-events",
-      };
+        const deal: ScrapedDeal = {
+          title: `${title} - ${location.city} Event Package`,
+          price,
+          originalPrice:
+            originalPrice && originalPrice > price
+              ? originalPrice
+              : undefined,
+          durationNights: nights,
+          durationDays: nights + 1,
+          description: `${title} event package including ${nights} nights at ${resortName} in ${location.city}, ${location.state}. Includes event tickets, accommodation, and more.`,
+          resortName,
+          url,
+          imageUrl,
+          inclusions: inclusions.length > 0 ? inclusions : undefined,
+          requirements: [
+            "Must attend 120-minute timeshare presentation",
+            "Ages 25-70",
+            "Must be employed with combined household income $50,000+",
+            "Married/cohabitating couples must attend together",
+          ],
+          presentationMinutes: 120,
+          travelWindow,
+          savingsPercent: savingsPercent ?? undefined,
+          city: location.city,
+          state: location.state,
+          country: "US",
+          brandSlug: "westgate-events",
+        };
 
-      try {
-        await storeDeal(deal, "westgate-events");
-        log.info(`Stored: ${deal.title} ($${deal.price})`);
-      } catch (err) {
-        log.error(`Failed to store ${deal.title}: ${err}`);
+        try {
+          await storeDeal(deal, "westgate-events");
+          totalStored++;
+          log.info(`Stored: ${deal.title} ($${deal.price})`);
+        } catch (err) {
+          log.error(`Failed to store ${deal.title}: ${err}`);
+        }
+
+        return;
       }
     },
   });
 
-  await crawler.run([BASE_URL]);
+  await crawler.run([{ url: EVENTS_URL, label: "LISTING" }]);
+
+  console.log(
+    `[westgate-events] Finished. Stored ${totalStored} deals from ${processedSlugs.size} unique events.`,
+  );
 }
