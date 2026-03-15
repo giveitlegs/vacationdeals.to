@@ -11,6 +11,12 @@ import { runGovipCrawler } from "./crawlers/govip";
 import { runStayPromoCrawler } from "./crawlers/staypromo";
 import { runVacationVillageCrawler } from "./crawlers/vacation-village";
 import { runSpinnakerCrawler } from "./crawlers/spinnaker";
+import { runDepartureDepotCrawler } from "./crawlers/departure-depot";
+import { runVegasTimeshareCrawler } from "./crawlers/vegas-timeshare";
+import { runPremierTravelCrawler } from "./crawlers/premier-travel";
+import { runDiscountVacationCrawler } from "./crawlers/discount-vacation";
+import { runLegendaryCrawler } from "./crawlers/legendary";
+import { runFestivaCrawler } from "./crawlers/festiva";
 
 const crawlers: Record<string, () => Promise<void>> = {
   westgate: runWestgateCrawler,
@@ -26,6 +32,12 @@ const crawlers: Record<string, () => Promise<void>> = {
   staypromo: runStayPromoCrawler,
   "vacation-village": runVacationVillageCrawler,
   spinnaker: runSpinnakerCrawler,
+  "departure-depot": runDepartureDepotCrawler,
+  "vegas-timeshare": runVegasTimeshareCrawler,
+  "premier-travel": runPremierTravelCrawler,
+  "discount-vacation": runDiscountVacationCrawler,
+  legendary: runLegendaryCrawler,
+  festiva: runFestivaCrawler,
 };
 
 async function main() {

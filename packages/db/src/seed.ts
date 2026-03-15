@@ -25,6 +25,12 @@ async function seed() {
     { name: "StayPromo", slug: "staypromo", type: "broker", website: "https://staypromo.com" },
     { name: "Vacation Village Resorts", slug: "vacation-village", type: "direct", website: "https://vacationvillagedeals.com" },
     { name: "Spinnaker Resorts", slug: "spinnaker", type: "direct", website: "https://spinnakerresorts.com" },
+    { name: "Departure Depot", slug: "departure-depot", type: "broker", website: "https://departuredepot.com" },
+    { name: "Las Vegas Timeshare", slug: "vegas-timeshare", type: "broker", website: "https://las-vegas-timeshare.com" },
+    { name: "Premier Travel Resorts", slug: "premier-travel", type: "broker", website: "https://premiertravelresorts.com" },
+    { name: "Discount Vacation Hotels", slug: "discount-vacation", type: "broker", website: "https://discountvacationhotels.com" },
+    { name: "Legendary Vacation Club", slug: "legendary", type: "direct", website: "https://legendaryvacationclub.com" },
+    { name: "Festiva Hospitality Group", slug: "festiva", type: "direct", website: "https://festiva.com" },
   ]).onConflictDoNothing();
 
   // ── Destinations ────────────────────────────────────
@@ -54,6 +60,28 @@ async function seed() {
     { city: "Ormond Beach", state: "FL", country: "US", slug: "ormond-beach", region: "Southeast" },
     { city: "Weston", state: "FL", country: "US", slug: "weston", region: "Southeast" },
     { city: "New Smyrna Beach", state: "FL", country: "US", slug: "new-smyrna-beach", region: "Southeast" },
+    { city: "Savannah", state: "GA", country: "US", slug: "savannah", region: "Southeast" },
+    { city: "St. Thomas", state: null, country: "USVI", slug: "st-thomas", region: "Caribbean" },
+    { city: "Fort Lauderdale", state: "FL", country: "US", slug: "fort-lauderdale", region: "Southeast" },
+    { city: "Atlantic Beach", state: "NC", country: "US", slug: "atlantic-beach", region: "Southeast" },
+    { city: "Ocean City", state: "MD", country: "US", slug: "ocean-city", region: "Mid-Atlantic" },
+    { city: "Orange Beach", state: "AL", country: "US", slug: "orange-beach", region: "South" },
+    { city: "St. Augustine", state: "FL", country: "US", slug: "st-augustine", region: "Southeast" },
+    { city: "Rangeley", state: "ME", country: "US", slug: "rangeley", region: "Northeast" },
+    { city: "Garden City", state: "SC", country: "US", slug: "garden-city", region: "Southeast" },
+    { city: "Mashpee", state: "MA", country: "US", slug: "mashpee", region: "Northeast" },
+    { city: "Wisconsin Dells", state: "WI", country: "US", slug: "wisconsin-dells", region: "Midwest" },
+    { city: "Hot Springs Village", state: "AR", country: "US", slug: "hot-springs-village", region: "South" },
+    { city: "North Myrtle Beach", state: "SC", country: "US", slug: "north-myrtle-beach", region: "Southeast" },
+    { city: "Simpson Bay", state: null, country: "St Maarten", slug: "simpson-bay", region: "Caribbean" },
+    { city: "Los Cabos", state: "BCS", country: "MX", slug: "los-cabos", region: "Mexico" },
+    { city: "Riviera Maya", state: "Quintana Roo", country: "MX", slug: "riviera-maya", region: "Mexico" },
+    { city: "Montego Bay", state: null, country: "JM", slug: "montego-bay", region: "Caribbean" },
+    { city: "Chicago", state: "IL", country: "US", slug: "chicago", region: "Midwest" },
+    { city: "Miami Beach", state: "FL", country: "US", slug: "miami-beach", region: "Southeast" },
+    { city: "Nassau", state: null, country: "BS", slug: "nassau", region: "Caribbean" },
+    { city: "Costa Rica", state: null, country: "CR", slug: "costa-rica", region: "Central America" },
+    { city: "Miami", state: "FL", country: "US", slug: "miami", region: "Southeast" },
   ]).onConflictDoNothing();
 
   // ── Sources ─────────────────────────────────────────
@@ -75,6 +103,12 @@ async function seed() {
     { name: "StayPromo", baseUrl: "https://staypromo.com", scraperKey: "staypromo" },
     { name: "Vacation Village Deals", baseUrl: "https://vacationvillagedeals.com", scraperKey: "vacation-village" },
     { name: "Spinnaker Resorts", baseUrl: "https://spinnakerresorts.com", scraperKey: "spinnaker" },
+    { name: "Departure Depot", baseUrl: "https://departuredepot.com", scraperKey: "departure-depot" },
+    { name: "Las Vegas Timeshare", baseUrl: "https://las-vegas-timeshare.com", scraperKey: "vegas-timeshare" },
+    { name: "Premier Travel Resorts", baseUrl: "https://premiertravelresorts.com", scraperKey: "premier-travel" },
+    { name: "Discount Vacation Hotels", baseUrl: "https://discountvacationhotels.com", scraperKey: "discount-vacation" },
+    { name: "Legendary Vacation Club", baseUrl: "https://legendaryvacationclub.com", scraperKey: "legendary" },
+    { name: "Festiva Hospitality Group", baseUrl: "https://festiva.com", scraperKey: "festiva" },
   ]).onConflictDoNothing();
 
   console.log("✅ Seed complete!");
