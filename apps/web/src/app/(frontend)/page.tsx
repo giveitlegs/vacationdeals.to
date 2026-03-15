@@ -97,8 +97,8 @@ export default async function HomePage() {
     [getFeaturedDeals(6), getDealStats(), getDestinationsWithCounts(), getBrandsWithCounts()],
   );
 
-  // Use DB data if available, otherwise fall back to mock data
-  const dealsToShow = featuredDeals?.length ? featuredDeals : mockDeals;
+  // Use DB data only — no mock fallback
+  const dealsToShow = featuredDeals?.length ? featuredDeals : [];
 
   const popularDestinations =
     destinationsData && destinationsData.length > 0

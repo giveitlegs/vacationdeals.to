@@ -105,21 +105,12 @@ export default async function RateRecapPage() {
           };
           return (
             <p className="mt-1 text-sm text-gray-500">
-              {isMock ? "Sample data" : "Tracking"}: {fmt(earliest)}
+              Tracking: {fmt(earliest)}
               {earliest !== latest ? ` \u2013 ${fmt(latest)}` : ""}
             </p>
           );
         })()}
       </div>
-
-      {/* Mock data notice */}
-      {isMock && (
-        <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-          <strong>Sample data</strong> — Real price tracking begins after scrapers
-          run for several days. The chart below shows simulated prices for
-          demonstration purposes.
-        </div>
-      )}
 
       {/* Interactive chart + filters (client component) */}
       <RateRecapClient

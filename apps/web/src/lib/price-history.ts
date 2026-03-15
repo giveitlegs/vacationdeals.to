@@ -106,7 +106,8 @@ export async function getPriceHistory(filters?: {
       .where(and(...conditions))
       .orderBy(schema.dealPriceHistory.scrapedAt);
 
-    if (rows.length > 0) {
+    // Always use real data — no mock fallback
+    {
       // Group by brand + date + destination + duration, average price
       const grouped = new Map<string, {
         total: number;
@@ -174,12 +175,12 @@ export async function getPriceHistory(filters?: {
 
       return { points, brands, isMock: false };
     }
-  } catch {
-    // DB unavailable, fall through to mock
+  } catch (e) {
+    console.error("[price-history] DB query failed:", e);
   }
 
-  const mock = generateMockData(days);
-  return { ...mock, isMock: true };
+  // Return empty data — no mock
+  return { points: [], brands: [], isMock: false };
 }
 
 // ---------------------------------------------------------------------------
