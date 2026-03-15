@@ -310,6 +310,7 @@ export default async function SlugPage({ params }: SlugPageProps) {
 
   // Try to fetch deals from DB, fall back to mock data
   const dbResult = await getDealsForSlug(resolved);
+  console.log(`[slug] ${slug}: dbResult=${dbResult ? `${dbResult.deals.length} deals, total=${dbResult.total}` : 'null'}`);
   const deals = dbResult && dbResult.deals.length > 0 ? dbResult.deals : filterMockDeals(resolved);
   const totalDeals = dbResult?.total ?? deals.length;
 
