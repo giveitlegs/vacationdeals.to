@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/destinations", label: "Destinations" },
   { href: "/brands", label: "Brands" },
   { href: "/blog", label: "Blog" },
+  { href: "/rate-recap", label: "Rate Recap" },
 ];
 
 export function Navbar() {
