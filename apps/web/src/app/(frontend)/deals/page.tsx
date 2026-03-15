@@ -164,6 +164,7 @@ export default async function DealsPage({ searchParams }: DealsPageProps) {
     "@type": "CollectionPage",
     name: "All Vacation Deals",
     url: "https://vacationdeals.to/deals",
+    dateModified: new Date().toISOString(),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: totalDeals,

@@ -468,6 +468,7 @@ async function DestinationPage({
     name: data.name,
     description: data.description,
     url: `https://vacationdeals.to/${data.slug}`,
+    dateModified: new Date().toISOString(),
     containedInPlace: {
       "@type": "AdministrativeArea",
       name: data.state,
@@ -598,6 +599,7 @@ async function BrandPage({
     name: data.name,
     description: data.description,
     url: `https://vacationdeals.to/${data.slug}`,
+    dateModified: new Date().toISOString(),
     ...(cheapest != null
       ? {
           makesOffer: {
@@ -720,6 +722,7 @@ function PricePage({
     name: data.label,
     description: data.description,
     url: `https://vacationdeals.to/${data.slug}`,
+    dateModified: new Date().toISOString(),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: totalDeals,
@@ -833,6 +836,7 @@ function DurationPage({
     name: data.label,
     description: data.description,
     url: `https://vacationdeals.to/${data.slug}`,
+    dateModified: new Date().toISOString(),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: totalDeals,

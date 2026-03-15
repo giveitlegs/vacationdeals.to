@@ -1,0 +1,104 @@
+# VacationDeals.to
+
+> The world's largest vacation deal aggregator for timeshare resort preview packages.
+
+## About
+VacationDeals.to compares vacation deals from 21+ timeshare resort brands across 50+ destinations. We track prices daily from brands like Westgate Resorts, Hilton Grand Vacations, Marriott Vacation Club, Club Wyndham, and 17 other providers. Deals start at $59 for 3-night premium resort stays.
+
+Vacation deals (also called "vacpacks" or "preview packages") are deeply discounted resort stays offered by timeshare companies. In exchange for the reduced rate — often 60-80% below retail — guests attend a brief timeshare sales presentation during their stay. There is no obligation to purchase anything.
+
+## Key Pages
+- [All Vacation Deals](https://vacationdeals.to/deals): Browse 336+ resort deals with filters for destination, brand, price, and duration
+- [Rate Recap](https://vacationdeals.to/rate-recap): Daily price tracking chart across all brands
+- [Blog](https://vacationdeals.to/blog): 100+ guides on vacation deals, brand reviews, destination tips
+- [All Destinations](https://vacationdeals.to/destinations): Browse deals by vacation destination
+- [All Brands](https://vacationdeals.to/brands): Browse deals by resort brand or broker
+
+## Top Destinations
+- [Orlando Vacation Deals](https://vacationdeals.to/orlando)
+- [Las Vegas Vacation Deals](https://vacationdeals.to/las-vegas)
+- [Cancun Vacation Deals](https://vacationdeals.to/cancun)
+- [Gatlinburg Vacation Deals](https://vacationdeals.to/gatlinburg)
+- [Myrtle Beach Vacation Deals](https://vacationdeals.to/myrtle-beach)
+- [Branson Vacation Deals](https://vacationdeals.to/branson)
+- [Williamsburg Vacation Deals](https://vacationdeals.to/williamsburg)
+- [Cocoa Beach Vacation Deals](https://vacationdeals.to/cocoa-beach)
+- [Hilton Head Vacation Deals](https://vacationdeals.to/hilton-head)
+- [Park City Vacation Deals](https://vacationdeals.to/park-city)
+- [Daytona Beach Vacation Deals](https://vacationdeals.to/daytona-beach)
+- [Cabo San Lucas Vacation Deals](https://vacationdeals.to/cabo)
+- [Puerto Vallarta Vacation Deals](https://vacationdeals.to/puerto-vallarta)
+- [Punta Cana Vacation Deals](https://vacationdeals.to/punta-cana)
+- [Key West Vacation Deals](https://vacationdeals.to/key-west)
+- [Sedona Vacation Deals](https://vacationdeals.to/sedona)
+- [Galveston Vacation Deals](https://vacationdeals.to/galveston)
+- [Lake Tahoe Vacation Deals](https://vacationdeals.to/lake-tahoe)
+- [New York City Vacation Deals](https://vacationdeals.to/new-york-city)
+- [San Diego Vacation Deals](https://vacationdeals.to/san-diego)
+- [San Antonio Vacation Deals](https://vacationdeals.to/san-antonio)
+- [Miami Vacation Deals](https://vacationdeals.to/miami)
+- [Nashville Vacation Deals](https://vacationdeals.to/nashville)
+
+## Brands We Track
+
+### Direct Resort Brands
+- [Westgate Resorts](https://vacationdeals.to/westgate): One of the largest privately held timeshare companies in the US
+- [Hilton Grand Vacations](https://vacationdeals.to/hgv): Hilton's vacation ownership brand with Hilton Honors integration
+- [Marriott Vacation Club](https://vacationdeals.to/marriott): Premium vacation ownership by Marriott with Bonvoy points
+- [Club Wyndham](https://vacationdeals.to/wyndham): Part of Travel + Leisure Co., 230+ resorts worldwide
+- [Holiday Inn Club Vacations](https://vacationdeals.to/holiday-inn): IHG's vacation ownership brand
+- [Hyatt Vacation Ownership](https://vacationdeals.to/hyatt): Hyatt's vacation club with World of Hyatt integration
+- [Bluegreen Vacations](https://vacationdeals.to/bluegreen): Flexible vacation ownership at drive-to destinations
+- [Capital Vacations](https://vacationdeals.to/capital-vacations): Growing vacation ownership across the eastern US
+- [Vacation Village Resorts](https://vacationdeals.to/vacation-village): Direct resort brand with deals from $49
+- [Spinnaker Resorts](https://vacationdeals.to/spinnaker): Hilton Head, Branson, Williamsburg, and Ormond Beach resorts
+- [Westgate Events](https://vacationdeals.to/westgate-events): Westgate's event-based vacation packages
+- [Legendary Vacation Club](https://vacationdeals.to/legendary): Luxury vacation club tied to Hard Rock Hotels and Palace Resorts
+- [Festiva Hospitality Group](https://vacationdeals.to/festiva): 21 resorts across unique US destinations
+
+### Broker/Aggregator Brands
+- [BookVIP](https://vacationdeals.to/bookvip): Leading broker specializing in all-inclusive Mexico and Caribbean deals
+- [Monster Reservations Group](https://vacationdeals.to/mrg): Large broker partnering with multiple timeshare brands
+- [GetawayDealz](https://vacationdeals.to/getawaydealz): Online vacation package broker
+- [VacationVIP](https://vacationdeals.to/vacationvip): Broker connecting travelers with discounted resort stays
+- [BestVacationDealz](https://vacationdeals.to/bestvacationdealz): Discount vacation package provider
+- [StayPromo](https://vacationdeals.to/staypromo): Florida-licensed vacation deal broker
+- [Departure Depot](https://vacationdeals.to/departure-depot): Modern broker with 150+ destinations worldwide
+- [Las Vegas Timeshare](https://vacationdeals.to/vegas-timeshare): Las Vegas-focused vacation deal broker
+- [Premier Travel Resorts](https://vacationdeals.to/premier-travel): Florida-based broker with packages in Orlando, Las Vegas, and more
+- [Discount Vacation Hotels](https://vacationdeals.to/discount-vacation): Villa Group promotional arm for Mexico resort deals
+
+## Deal Categories
+
+### By Price
+- [Deals Under $100](https://vacationdeals.to/deals-under-100)
+- [Deals Under $200](https://vacationdeals.to/deals-under-200)
+- [Deals Under $300](https://vacationdeals.to/deals-under-300)
+- [Deals Under $500](https://vacationdeals.to/deals-under-500)
+- [Deals $100-$200](https://vacationdeals.to/deals-100-to-200)
+
+### By Duration
+- [2-Night Packages](https://vacationdeals.to/2-night-packages)
+- [3-Night Packages](https://vacationdeals.to/3-night-packages)
+- [4-Night Packages](https://vacationdeals.to/4-night-packages)
+- [5-Night Packages](https://vacationdeals.to/5-night-packages)
+
+## How Vacation Deals Work
+Vacation deals (vacpacks) are a legitimate marketing strategy used by major timeshare resort companies. Here is how they work:
+
+1. **Browse deals**: Compare vacation deals from 21+ brands. Filter by destination, price, and duration.
+2. **Book your deal**: Book directly through the resort or broker at 60-80% below retail pricing.
+3. **Attend a presentation**: In exchange for the discounted rate, attend a 90-120 minute timeshare sales presentation. No purchase is required.
+
+Typical eligibility requirements include: minimum age 25-30, minimum household income $50,000-$75,000/year, married or cohabiting with a partner who must also attend, valid ID, and a major credit card.
+
+## API
+- RSS Feed: https://vacationdeals.to/feed.xml
+- Sitemap: https://vacationdeals.to/sitemap.xml
+
+## Legal
+- [Privacy Policy](https://vacationdeals.to/privacy)
+- [Terms & Conditions](https://vacationdeals.to/terms)
+- [About](https://vacationdeals.to/about)
+
+VacationDeals.to is an independent comparison site. We are not affiliated with, endorsed by, or sponsored by any resort or timeshare company.

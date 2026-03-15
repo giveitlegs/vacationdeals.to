@@ -1,0 +1,251 @@
+# VacationDeals.to — Full Site Reference
+
+> The world's largest vacation deal aggregator for timeshare resort preview packages. We track 336+ deals from 21+ brands across 23+ destinations, updated daily.
+
+## About VacationDeals.to
+
+VacationDeals.to is the most comprehensive comparison site for vacation deals from timeshare resorts. We aggregate resort deals from over 21 major brands including Westgate Resorts, Hilton Grand Vacations, Marriott Vacation Club, Club Wyndham, BookVIP, Monster Reservations Group, and more.
+
+These vacation deals — sometimes called vacation packages, "vacpacks," or "preview stays" — offer incredible value. Stay at premium resorts in destinations like Orlando, Las Vegas, Cancun, Gatlinburg, and Myrtle Beach for a fraction of the retail price. In exchange, you simply attend a timeshare sales presentation during your stay.
+
+Our team tracks and updates deals daily so you always see the latest prices and availability. Deals typically range from $59 to $499 depending on the destination, resort quality, and length of stay. Most 3-night resort packages fall in the $99-$199 range. All-inclusive international packages (like Cancun or Punta Cana) may range from $299-$499 for 5-night stays.
+
+---
+
+## Key Pages
+
+### [All Vacation Deals](https://vacationdeals.to/deals)
+Browse 336+ resort deals with filters for destination, brand, price range, and trip duration. Sort by price, savings percentage, or duration. Results include deal cards showing the resort name, location, price, original price, savings percentage, duration, brand, and included perks.
+
+### [Rate Recap](https://vacationdeals.to/rate-recap)
+Daily price tracking chart that visualizes pricing trends across all brands over time. See which brands are offering the best deals and how prices fluctuate throughout the year. Features SVG price chart with brand-specific line colors and interactive filters.
+
+### [Blog](https://vacationdeals.to/blog)
+100+ in-depth guides covering vacation deals, brand reviews, destination tips, and travel advice. Categories include Destinations, Brands, Interests, and Segments. Each post includes FAQs, related articles, and internal links to relevant deal pages.
+
+### [All Destinations](https://vacationdeals.to/destinations)
+Browse all 23+ vacation destinations with deal counts, starting prices, and quick links to destination-specific deal pages.
+
+### [All Brands](https://vacationdeals.to/brands)
+Browse all 21+ resort brands and brokers with deal counts, type labels (Direct Resort vs. Broker), and links to brand-specific deal pages.
+
+---
+
+## Destinations — Detailed Guide
+
+### [Orlando, FL](https://vacationdeals.to/orlando)
+Theme park capital with world-class resorts, Walt Disney World, Universal Studios, and year-round sunshine. One of the most popular timeshare destinations in the world with deals from Westgate, Hilton Grand Vacations, Marriott, Wyndham, Holiday Inn Club, and many brokers. Deals typically start around $79-$99 for 3-night stays.
+
+### [Las Vegas, NV](https://vacationdeals.to/las-vegas)
+Entertainment capital of the world with luxury resorts, shows, dining, and nightlife on the famous Strip. Popular timeshare packages from Wyndham, Hilton Grand Vacations, and multiple brokers. Deals often include show tickets, dining credits, or casino credits. Typical prices: $79-$199 for 2-3 night stays.
+
+### [Cancun, MX](https://vacationdeals.to/cancun)
+Caribbean paradise with stunning beaches, all-inclusive resorts, ancient Mayan ruins, and vibrant nightlife. All-inclusive deals from BookVIP and other brokers are especially popular. Packages typically include meals, drinks, airport transfers, and resort credits. Prices range from $299-$499 for 5-night all-inclusive stays.
+
+### [Gatlinburg, TN](https://vacationdeals.to/gatlinburg)
+Gateway to the Great Smoky Mountains with charming downtown, ski resorts, and family-friendly attractions. Westgate Smoky Mountain Resort is the dominant deal source. Deals typically include waterpark access and fireplace suites. Prices: $79-$149 for 3-night stays.
+
+### [Myrtle Beach, SC](https://vacationdeals.to/myrtle-beach)
+60 miles of sandy beaches, oceanfront resorts, golf courses, and family entertainment along the Grand Strand. Deals from Westgate, Marriott, and brokers. Typical prices: $99-$299 for 3-night oceanfront stays.
+
+### [Branson, MO](https://vacationdeals.to/branson)
+Live entertainment capital with over 100 shows, theme parks, and beautiful Ozark Mountain scenery. Deals from Westgate, Spinnaker, and brokers. Prices: $79-$199 for 3-night stays.
+
+### [Williamsburg, VA](https://vacationdeals.to/williamsburg)
+Historic colonial city with Busch Gardens, Water Country USA, and living history museums. Deals from Westgate, Bluegreen, Spinnaker, and brokers. Prices: $79-$199 for 3-night stays.
+
+### [Cocoa Beach, FL](https://vacationdeals.to/cocoa-beach)
+Florida's Space Coast with Kennedy Space Center, beautiful beaches, and relaxed coastal vibes. Deals from Westgate and brokers. Prices: $79-$149 for 3-night stays.
+
+### [Hilton Head, SC](https://vacationdeals.to/hilton-head)
+Upscale island resort destination with pristine beaches, world-class golf, and Lowcountry charm. Deals from Spinnaker, Marriott, and Hilton Grand Vacations. Prices: $149-$349 for 3-night stays.
+
+### [Park City, UT](https://vacationdeals.to/park-city)
+Premier ski destination with two world-class ski areas, historic Main Street, and Sundance Film Festival. Seasonal deals from Marriott and Hilton Grand Vacations. Prices: $199-$399 for 3-night stays.
+
+### [Daytona Beach, FL](https://vacationdeals.to/daytona-beach)
+Famous for motorsports, wide sandy beaches, boardwalk attractions, and year-round events. Deals from Westgate and brokers. Prices: $79-$149 for 3-night stays.
+
+### [Cabo San Lucas, MX](https://vacationdeals.to/cabo)
+Mexican resort city at the tip of Baja California with stunning coastline, luxury resorts, and vibrant nightlife. All-inclusive deals from BookVIP and other brokers. Prices: $299-$499 for 5-night stays.
+
+### [Puerto Vallarta, MX](https://vacationdeals.to/puerto-vallarta)
+Charming Mexican beach town with cobblestone streets, all-inclusive resorts, and Pacific Ocean views. Deals from BookVIP and Discount Vacation Hotels. Prices: $249-$449 for 5-night all-inclusive stays.
+
+### [Punta Cana, DR](https://vacationdeals.to/punta-cana)
+Dominican Republic's top resort area with white-sand beaches, all-inclusive resorts, and turquoise waters. Deals from BookVIP and brokers. Prices: $299-$499 for 5-night all-inclusive stays.
+
+### [Key West, FL](https://vacationdeals.to/key-west)
+Southernmost point of the US with island vibes, historic architecture, water sports, and legendary sunsets.
+
+### [Sedona, AZ](https://vacationdeals.to/sedona)
+Red rock canyon country with stunning desert scenery, spiritual retreats, hiking, and luxury spas.
+
+### [Galveston, TX](https://vacationdeals.to/galveston)
+Gulf Coast island with historic Victorian architecture, beaches, Moody Gardens, and Pleasure Pier.
+
+### [Lake Tahoe, CA](https://vacationdeals.to/lake-tahoe)
+Crystal-clear alpine lake with world-class skiing, summer water sports, and breathtaking mountain scenery.
+
+### [New York City, NY](https://vacationdeals.to/new-york-city)
+The city that never sleeps — Broadway, Central Park, iconic landmarks, and endless dining and shopping.
+
+### [San Diego, CA](https://vacationdeals.to/san-diego)
+Perfect weather, beautiful beaches, the San Diego Zoo, and a vibrant craft beer and dining scene.
+
+### [San Antonio, TX](https://vacationdeals.to/san-antonio)
+Historic Texas city with the Alamo, River Walk, world-class Tex-Mex cuisine, and family-friendly attractions.
+
+### [Miami, FL](https://vacationdeals.to/miami)
+Vibrant South Florida city with Art Deco architecture, stunning beaches, nightlife, and diverse cultural experiences.
+
+### [Nashville, TN](https://vacationdeals.to/nashville)
+Music City USA with honky-tonks, live music, the Grand Ole Opry, and a thriving food and entertainment scene.
+
+---
+
+## Brands We Track — Detailed Guide
+
+### Direct Resort Brands
+
+**[Westgate Resorts](https://vacationdeals.to/westgate)** — One of the largest privately held timeshare companies in the US with resorts in top vacation destinations including Orlando, Las Vegas, Gatlinburg, Myrtle Beach, Branson, Cocoa Beach, and more. Known for affordable 3-night packages starting at $79-$99 with perks like waterpark access and free parking.
+
+**[Hilton Grand Vacations (HGV)](https://vacationdeals.to/hgv)** — Hilton's vacation ownership brand offering premium resort experiences with Hilton Honors integration. Deals often include Hilton Honors points (50,000+) as a booking incentive. Properties in Orlando, Las Vegas, Myrtle Beach, Park City, and Hawaii.
+
+**[Marriott Vacation Club](https://vacationdeals.to/marriott)** — Premium vacation ownership by Marriott with resorts worldwide and Bonvoy points integration. Deals include Marriott Bonvoy points as incentives. Properties in destinations including Orlando, Myrtle Beach, Hilton Head, and Park City.
+
+**[Club Wyndham](https://vacationdeals.to/wyndham)** — Part of Travel + Leisure Co., offering vacation ownership at 230+ resorts worldwide. Deals often include Wyndham Rewards points and Virtual Mastercard incentives. Properties across the US and internationally.
+
+**[Holiday Inn Club Vacations](https://vacationdeals.to/holiday-inn)** — IHG's vacation ownership brand with family-friendly resorts in top US vacation destinations. Part of the InterContinental Hotels Group.
+
+**[Hyatt Vacation Ownership](https://vacationdeals.to/hyatt)** — Hyatt's vacation club offering luxury resort experiences with World of Hyatt integration.
+
+**[Bluegreen Vacations](https://vacationdeals.to/bluegreen)** — Flexible vacation ownership with resorts in popular drive-to destinations across the US.
+
+**[Capital Vacations](https://vacationdeals.to/capital-vacations)** — Growing vacation ownership company managing resorts across the eastern United States.
+
+**[Vacation Village Resorts](https://vacationdeals.to/vacation-village)** — Direct resort brand offering vacation deals from $49 in Orlando, Las Vegas, South Florida, and Williamsburg.
+
+**[Spinnaker Resorts](https://vacationdeals.to/spinnaker)** — Hilton Head, Branson, Williamsburg, and Ormond Beach resort deals starting at $269 with entertainment credits.
+
+**[Westgate Events](https://vacationdeals.to/westgate-events)** — Westgate's event-based marketing division offering vacation packages at special events and venues.
+
+**[Legendary Vacation Club](https://vacationdeals.to/legendary)** — Luxury vacation club tied to Hard Rock Hotels and Palace Resorts with all-inclusive deals in Mexico and Caribbean.
+
+**[Festiva Hospitality Group](https://vacationdeals.to/festiva)** — Vacation ownership with 21 resorts across unique US destinations including Asheville, Cape Cod, and Wisconsin Dells.
+
+### Broker/Aggregator Brands
+
+**[BookVIP](https://vacationdeals.to/bookvip)** — Leading vacation package broker specializing in all-inclusive resort deals in Mexico and the Caribbean. Known for Cancun, Cabo, Puerto Vallarta, and Punta Cana packages. Often the best prices for international all-inclusive stays.
+
+**[Monster Reservations Group (MRG)](https://vacationdeals.to/mrg)** — Large vacation package broker partnering with multiple timeshare brands for discounted getaways. One of the largest aggregators with 40+ deals across many destinations.
+
+**[GetawayDealz](https://vacationdeals.to/getawaydealz)** — Online vacation package broker offering discounted timeshare preview packages across US destinations.
+
+**[VacationVIP](https://vacationdeals.to/vacationvip)** — Vacation package broker connecting travelers with discounted resort stays nationwide.
+
+**[BestVacationDealz](https://vacationdeals.to/bestvacationdealz)** — Discount vacation package provider with deals from major timeshare brands.
+
+**[StayPromo](https://vacationdeals.to/staypromo)** — Florida-licensed vacation deal broker with resort deals across 10+ US and international destinations.
+
+**[Departure Depot](https://vacationdeals.to/departure-depot)** — Modern vacation deal broker with 150+ destinations worldwide, offering Resort Preview Getaways with deep discounts.
+
+**[Las Vegas Timeshare](https://vacationdeals.to/vegas-timeshare)** — Las Vegas-focused vacation deal broker with deals at Strip properties including SAHARA and Planet Hollywood.
+
+**[Premier Travel Resorts](https://vacationdeals.to/premier-travel)** — Florida-based vacation deal broker offering promotional packages in Orlando, Las Vegas, Costa Rica, and more.
+
+**[Discount Vacation Hotels](https://vacationdeals.to/discount-vacation)** — Villa Group promotional arm offering discounted all-inclusive deals at Mexico resort properties.
+
+---
+
+## Deal Categories
+
+### By Price Range
+- [Deals Under $100](https://vacationdeals.to/deals-under-100): Incredible vacation deals for under $100. Stay at premium resorts for a fraction of the retail price. Most are 2-3 night stays at US domestic resorts.
+- [Deals Under $200](https://vacationdeals.to/deals-under-200): Affordable vacation deals under $200 with resort stays, perks, and extras included. The sweet spot for most domestic vacpacks.
+- [Deals Under $300](https://vacationdeals.to/deals-under-300): Great value vacation deals under $300 at top-rated resorts nationwide. Includes some international options.
+- [Deals Under $500](https://vacationdeals.to/deals-under-500): Premium resort deals under $500 including all-inclusive options and luxury stays. Covers nearly all available deals.
+- [Deals $100-$200](https://vacationdeals.to/deals-100-to-200): Mid-range vacation deals between $100 and $200 at popular resort destinations.
+
+### By Duration
+- [2-Night Packages](https://vacationdeals.to/2-night-packages): Quick weekend getaway deals with 2-night stays at top resorts. Perfect for a short escape. Often the cheapest option.
+- [3-Night Packages](https://vacationdeals.to/3-night-packages): Our most popular deal length — 3-night resort stays with amazing inclusions and perks. The most common duration offered.
+- [4-Night Packages](https://vacationdeals.to/4-night-packages): Extended 4-night vacation deals for a more relaxed resort experience with extra time to explore.
+- [5-Night Packages](https://vacationdeals.to/5-night-packages): 5-night vacation deals for the ultimate getaway. More time to enjoy the resort and local attractions. Common for international destinations.
+
+---
+
+## How Vacation Deals Work — Complete Guide
+
+### What is a Vacation Deal?
+A vacation deal, also called a vacpack or preview package, is a deeply discounted resort stay offered by timeshare companies. In exchange for the reduced rate (often 60-80% below retail), guests agree to attend a timeshare sales presentation during their stay. There is no obligation to purchase anything.
+
+### Step 1: Browse Deals
+Compare vacation deals from 21+ brands on VacationDeals.to. Filter by destination, price, brand, and duration to find your perfect getaway. Each deal card shows the resort name, location, price, original retail price, savings percentage, trip duration, brand name, and included perks.
+
+### Step 2: Book Your Deal
+Book directly through the resort or broker website. You will be redirected to the provider's site to complete your booking. Payment is typically made at the time of booking with a major credit card.
+
+### Step 3: Attend a Presentation
+In exchange for the discounted rate, attend a 90-120 minute timeshare sales presentation during your stay. Presentations are conducted by the resort's sales team who will showcase the property and their vacation ownership program. You are under no obligation to purchase. You keep all package perks regardless of your decision.
+
+### Eligibility Requirements
+Requirements vary by provider but commonly include:
+- Minimum age of 25-30 years old
+- Minimum household income of $50,000-$75,000 per year
+- Being married or cohabiting with a partner (who must also attend the presentation)
+- Valid government-issued photo ID
+- A major credit card (Visa, Mastercard, American Express)
+- US or Canadian residency (for most deals)
+- Must not have attended a timeshare presentation with the same company in the past 12-24 months
+
+### What Happens If You Skip the Presentation?
+If you skip the required timeshare presentation, you may be charged the full retail rate for your stay instead of the discounted promotional rate. Some providers may also charge a penalty fee. It is important to attend the presentation as agreed to keep your discounted package pricing.
+
+### Direct Resorts vs. Brokers
+- **Direct resort deals** come straight from the timeshare company (like Westgate or Hilton Grand Vacations) and are for their specific properties.
+- **Broker deals** come from third-party companies (like BookVIP or Monster Reservations Group) that have partnerships with multiple resorts, often offering more destination variety and sometimes lower prices.
+
+### Best Time to Book
+Vacation deals are available year-round, but you can often find the best prices during off-peak seasons — for example, September-November for Orlando, or midweek stays at any destination. Holidays and summer months tend to have higher prices or limited availability. Booking 2-4 weeks in advance typically gives the best selection.
+
+---
+
+## Frequently Asked Questions
+
+**Q: Is VacationDeals.to a booking site?**
+A: No. VacationDeals.to is an independent comparison site. We aggregate and display vacation deals from multiple resort brands and brokers so you can compare them in one place. When you click "View Deal," you are redirected to the provider's website to complete your booking.
+
+**Q: Are these deals legitimate?**
+A: Yes. These are real vacation deals offered by major publicly traded and privately held resort companies including Hilton, Marriott, Wyndham, and Westgate. The discounted rates are a legitimate marketing strategy to attract potential timeshare buyers.
+
+**Q: Do I have to buy a timeshare?**
+A: No. You are never obligated to purchase a timeshare. You simply attend the presentation, listen to the offer, and decline if you are not interested. You keep all package perks regardless of your decision.
+
+**Q: How often are deals updated?**
+A: Our scrapers run every 6 hours to capture the latest prices and availability from all sources. The website revalidates every hour.
+
+**Q: Can I book for someone else?**
+A: Generally, no. The person who books must be one of the guests who stays and attends the presentation. The booking name must match your ID.
+
+**Q: What credit cards are accepted?**
+A: Most providers accept Visa, Mastercard, and American Express. Debit cards and prepaid cards are usually not accepted for the initial booking.
+
+**Q: How far in advance should I book?**
+A: Most deals allow booking 2-4 weeks to 12 months in advance. For peak seasons, booking further ahead is recommended.
+
+**Q: Can I cancel or reschedule?**
+A: Cancellation and rescheduling policies vary by provider. Most offer some flexibility, but check the specific terms before booking. Some providers charge a fee for changes.
+
+---
+
+## API & Feeds
+- RSS Feed: https://vacationdeals.to/feed.xml
+- XML Sitemap: https://vacationdeals.to/sitemap.xml
+
+## Legal
+- [Privacy Policy](https://vacationdeals.to/privacy): CCPA, GDPR, GA/GTM disclosures
+- [Terms & Conditions](https://vacationdeals.to/terms): 11-state timeshare disclosures
+- [About](https://vacationdeals.to/about)
+
+VacationDeals.to is an independent comparison site. We are not affiliated with, endorsed by, or sponsored by any resort or timeshare company. We aggregate publicly available deal information to help travelers compare options. Prices and availability are subject to change. Always verify details directly with the provider before booking.

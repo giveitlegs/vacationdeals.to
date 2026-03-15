@@ -76,6 +76,7 @@ export function BlogPostRenderer({ post }: BlogPostPageProps) {
     headline: post.title,
     description: post.metaDescription,
     datePublished: post.publishDate,
+    dateModified: new Date().toISOString(),
     author: {
       "@type": "Person",
       name: post.author,

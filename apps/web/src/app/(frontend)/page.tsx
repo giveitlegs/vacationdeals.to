@@ -133,6 +133,7 @@ export default async function HomePage() {
     name: "VacationDeals.to",
     url: "https://vacationdeals.to",
     description: `Compare ${totalDeals}+ vacation deals from ${brandCount} resort brands starting at $${cheapest}.`,
+    dateModified: new Date().toISOString(),
     potentialAction: {
       "@type": "SearchAction",
       target: "https://vacationdeals.to/deals?q={search_term_string}",
