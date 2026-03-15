@@ -479,27 +479,33 @@ export async function runWestgateEventsCrawler() {
           return;
         }
 
-        // Title: prefer h2 (main event heading), then h1, then listing data
-        let title =
-          $("h2").first().text().trim() ||
-          $("h1").first().text().trim() ||
-          userData.listingTitle ||
-          "";
+        // ── 1. Extract the ACTUAL event name ─────────────────────────────
+        // Prefer h1 (the main event heading on detail pages), then h2,
+        // then the listing card title. Filter out site-wide generic headings.
+        let eventName = "";
+        const h1Text = $("h1").first().text().trim();
+        const h2Text = $("h2").first().text().trim();
 
-        // Some h1/h2 contain site-wide text; filter those out
-        if (
-          title.toLowerCase().includes("westgate events") ||
-          title.toLowerCase().includes("cheer harder")
-        ) {
-          title = userData.listingTitle || "";
+        const genericHeadings = ["westgate events", "cheer harder", "menu", "navigation"];
+        if (h1Text && !genericHeadings.some((g) => h1Text.toLowerCase().includes(g))) {
+          eventName = h1Text;
+        } else if (h2Text && !genericHeadings.some((g) => h2Text.toLowerCase().includes(g))) {
+          eventName = h2Text;
         }
 
-        if (!title) {
-          log.info(`No title found on ${url}, skipping`);
+        // Fall back to listing card title
+        if (!eventName && userData.listingTitle) {
+          eventName = userData.listingTitle;
+        }
+
+        if (!eventName) {
+          log.info(`No event name found on ${url}, skipping`);
           return;
         }
 
-        // Price: try .price element, then body regex, then listing data
+        log.info(`Event name from page: "${eventName}"`);
+
+        // ── 2. Price extraction ──────────────────────────────────────────
         let price: number | null = null;
         const priceEl = $(".price").first().text().trim();
         if (priceEl) price = parsePrice(priceEl);
@@ -514,18 +520,17 @@ export async function runWestgateEventsCrawler() {
           price = userData.listingPrice;
         }
         if (!price || price <= 0) {
-          log.info(`No price found for "${title}", skipping`);
+          log.info(`No price found for "${eventName}", skipping`);
           return;
         }
 
-        // Original price
+        // Original price & savings
         const originalPrice = parseOriginalPrice(pageText);
         const savingsPercent = parseSavings(pageText);
 
-        // Location: try detail page address, then listing data, then infer
+        // ── 3. Location extraction ───────────────────────────────────────
         let location: { city: string; state: string } | null = null;
 
-        // Look for address pattern in page text
         const addrMatch = pageText.match(
           /\d+[^,\n]+,\s*([\w\s]+),\s*([A-Z]{2})\s*\d{5}/,
         );
@@ -539,23 +544,27 @@ export async function runWestgateEventsCrawler() {
           location = inferLocationFromText(pageText);
         }
 
-        // Resort name
+        // ── 4. Resort name extraction ────────────────────────────────────
         const resortMatch = pageText.match(
-          /Westgate\s[\w\s]+(?:Resort|Hotel|Casino|Club|Tower)/i,
+          /Westgate\s[\w\s&]+(?:Resort(?:\s*&\s*[\w\s]+)?|Hotel(?:\s*&\s*[\w\s]+)?|Casino|Club|Tower)/i,
         );
-        const resortName = resortMatch
+        let resortName = resortMatch
           ? resortMatch[0].trim()
           : "Westgate Resort";
+        resortName = resortName.replace(/\s+/g, " ").trim();
 
-        // Event type classification + venue extraction
-        const eventType = classifyEventType(title, pageText);
-        const venueName = extractVenueName(title, pageText, eventType);
-        log.info(`Event type: ${eventType}, venue: ${venueName || "none"}`);
+        // ── 5. Event type + venue + sports sub-type ──────────────────────
+        const eventType = classifyEventType(eventName, pageText);
+        const venueName = extractVenueName(eventName, pageText, eventType);
+        const sportsSubType = eventType === "sports"
+          ? getSportsSubType(eventName, pageText)
+          : undefined;
+        log.info(`Event type: ${eventType}${sportsSubType ? ` (${sportsSubType})` : ""}, venue: ${venueName || "none"}`);
 
-        // Build SEO-optimized title
-        const seoTitle = buildSEOTitle(title, eventType, location.city, venueName);
+        // ── 6. Build SEO-optimized title ─────────────────────────────────
+        const seoTitle = buildSEOTitle(eventName, eventType, location.city, venueName, sportsSubType);
 
-        // Duration: try "X Nights" from page, then date range, then listing
+        // ── 7. Duration from page content ────────────────────────────────
         let nights: number | null = null;
         const nightsMatch = pageText.match(/(\d+)\s*nights?/i);
         if (nightsMatch) nights = parseInt(nightsMatch[1], 10);
@@ -567,52 +576,96 @@ export async function runWestgateEventsCrawler() {
         }
         if (!nights) nights = 2; // default for event packages
 
-        // Travel window / dates
-        const travelWindow = userData.listingDate || undefined;
+        // ── 8. Travel window / event dates from detail page ──────────────
+        let travelWindow: string | undefined;
 
-        // Image: try detail page images, then listing image
+        // "Apr 10 - Apr 13, 2026" or "September 30 - October 2, 2026"
+        const detailDateMatch = pageText.match(
+          /([A-Z][a-z]+)\s+(\d{1,2})\s*[-–]\s*([A-Z][a-z]+)\s+(\d{1,2}),?\s*(\d{4})/,
+        );
+        if (detailDateMatch) {
+          travelWindow = detailDateMatch[0].trim();
+        }
+        // "Apr 10 - 13, 2026" (same month)
+        if (!travelWindow) {
+          const sameMoMatch = pageText.match(
+            /([A-Z][a-z]+)\s+(\d{1,2})\s*[-–]\s*(\d{1,2}),?\s*(\d{4})/,
+          );
+          if (sameMoMatch) {
+            travelWindow = sameMoMatch[0].trim();
+          }
+        }
+        // Fall back to listing card date
+        if (!travelWindow && userData.listingDate) {
+          travelWindow = userData.listingDate;
+        }
+
+        // ── 9. Image extraction ──────────────────────────────────────────
         let imageUrl =
           $(".content-video img, .wp-post-image, .slick-slide img")
             .first()
             .attr("src") ||
           userData.listingImage ||
           undefined;
-        // Prefer full-size image over 322x190 thumbnail
         if (imageUrl && imageUrl.includes("-322x190")) {
           imageUrl = imageUrl.replace(/-322x190/, "");
         }
 
-        // Inclusions: look for list items in the experience/includes section
+        // ── 10. Inclusions from "Experience Includes" section ────────────
         const inclusions: string[] = [];
-        $("ul li").each((_, el) => {
-          const text = $(el).text().trim();
-          // Filter to inclusion-like items (skip nav, footer, etc.)
+        const seenInclusions = new Set<string>();
+
+        // Strategy A: Find "Experience Includes" heading and grab the next <ul>
+        $("strong, b, h2, h3, h4, p").each((_, heading) => {
+          const headingText = $(heading).text().trim().toLowerCase();
           if (
-            text.length > 5 &&
-            text.length < 200 &&
-            (text.toLowerCase().includes("night") ||
-              text.toLowerCase().includes("ticket") ||
-              text.toLowerCase().includes("transport") ||
-              text.toLowerCase().includes("accommodation") ||
-              text.toLowerCase().includes("dinner") ||
-              text.toLowerCase().includes("drink") ||
-              text.toLowerCase().includes("welcome") ||
-              text.toLowerCase().includes("checkout") ||
-              text.toLowerCase().includes("party") ||
-              text.toLowerCase().includes("resort") ||
-              text.toLowerCase().includes("seat") ||
-              text.toLowerCase().includes("pass") ||
-              text.toLowerCase().includes("admission") ||
-              text.toLowerCase().includes("breakfast") ||
-              text.toLowerCase().includes("helicopter") ||
-              text.toLowerCase().includes("cruise") ||
-              text.toLowerCase().includes("zipline") ||
-              text.toLowerCase().includes("park"))
+            headingText.includes("experience includes") ||
+            headingText.includes("package includes") ||
+            headingText.includes("what's included") ||
+            headingText.includes("your package includes")
           ) {
-            inclusions.push(text);
+            const $parent = $(heading).parent();
+            const $ul = $parent.find("ul").length > 0
+              ? $parent.find("ul").first()
+              : $parent.next("ul").length > 0
+                ? $parent.next("ul")
+                : $(heading).closest("div").find("ul").first();
+
+            if ($ul.length > 0) {
+              $ul.find("li").each((__, li) => {
+                const text = $(li).text().trim();
+                if (text.length > 3 && text.length < 300 && !seenInclusions.has(text)) {
+                  seenInclusions.add(text);
+                  inclusions.push(text);
+                }
+              });
+            }
           }
         });
 
+        // Strategy B: keyword-matched <li> items as fallback
+        if (inclusions.length === 0) {
+          const inclusionKeywords = [
+            "night", "ticket", "transport", "accommodation", "dinner",
+            "drink", "checkout", "party", "resort", "seat", "pass",
+            "admission", "breakfast", "helicopter", "cruise", "zipline",
+            "park", "concierge", "credit", "welcome",
+          ];
+          $("ul li").each((_, el) => {
+            const text = $(el).text().trim();
+            if (
+              text.length > 5 &&
+              text.length < 200 &&
+              inclusionKeywords.some((kw) => text.toLowerCase().includes(kw)) &&
+              !seenInclusions.has(text)
+            ) {
+              seenInclusions.add(text);
+              inclusions.push(text);
+            }
+          });
+        }
+
+        // Strategy C: build generic inclusions as last resort
         if (inclusions.length === 0) {
           inclusions.push(
             `${nights + 1} Days / ${nights} Nights at ${resortName}`,
@@ -623,20 +676,50 @@ export async function runWestgateEventsCrawler() {
           inclusions.push("Resort accommodation");
         }
 
-        // Build description based on event type
-        const descriptionParts = [seoTitle];
-        if (eventType === "getaway") {
-          descriptionParts.push(
-            `including ${nights} nights at ${resortName} in ${location.city}, ${location.state}.`,
-          );
+        log.info(`Extracted ${inclusions.length} inclusions: ${inclusions.slice(0, 3).join("; ")}...`);
+
+        // ── 11. Build rich description from actual inclusions ─────────────
+        const descParts: string[] = [];
+
+        // Find accommodation inclusion (e.g. "3 Nights at Westgate Smoky...")
+        const accommodationInc = inclusions.find((i) =>
+          i.toLowerCase().includes("night") && i.toLowerCase().includes("at"),
+        );
+        // Find ticket inclusion (e.g. "2 Race Tickets with seating...")
+        const ticketInc = inclusions.find((i) =>
+          i.toLowerCase().includes("ticket") || i.toLowerCase().includes("seat"),
+        );
+        // Other inclusions (welcome party, transport, etc.)
+        const otherIncs = inclusions.filter((i) =>
+          i !== accommodationInc &&
+          i !== ticketInc &&
+          !i.toLowerCase().includes("checkout") &&
+          !i.toLowerCase().includes("concierge"),
+        );
+
+        if (accommodationInc) {
+          descParts.push(accommodationInc);
         } else {
-          descriptionParts.push(
-            `vacation package including ${nights} nights at ${resortName} in ${location.city}, ${location.state}.`,
-          );
-          if (venueName) {
-            descriptionParts.push(`Event held at ${venueName}.`);
-          }
-          descriptionParts.push("Includes event tickets, accommodation, and more.");
+          descParts.push(`${nights} nights at ${resortName}`);
+        }
+
+        if (ticketInc) {
+          descParts.push(ticketInc);
+        }
+
+        // Add up to 2 other notable inclusions
+        for (const inc of otherIncs.slice(0, 2)) {
+          const short = inc.length > 60 ? inc.slice(0, 57) + "..." : inc;
+          descParts.push(short.toLowerCase());
+        }
+
+        let description = descParts.join(" + ");
+
+        // Append pricing
+        if (originalPrice && savingsPercent && originalPrice > price) {
+          description += `. $${price} per couple (${savingsPercent}% off $${originalPrice} retail).`;
+        } else {
+          description += `. $${price} per couple.`;
         }
 
         const deal: ScrapedDeal = {
@@ -648,7 +731,7 @@ export async function runWestgateEventsCrawler() {
               : undefined,
           durationNights: nights,
           durationDays: nights + 1,
-          description: descriptionParts.join(" "),
+          description,
           resortName,
           url,
           imageUrl,

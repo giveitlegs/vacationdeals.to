@@ -51,8 +51,13 @@ export async function generateMetadata({ params }: DealPageProps): Promise<Metad
   }
 
   const location = [deal.city, deal.state].filter(Boolean).join(", ");
-  const title = `${deal.resortName || deal.title} — ${deal.durationNights}-Night Stay from $${deal.price}`;
-  const description = `Book a ${deal.durationNights}-night vacation deal at ${deal.resortName || deal.title} in ${location} for just $${deal.price}. ${deal.originalPrice ? `Save ${deal.savingsPercent}% off the $${deal.originalPrice} retail price.` : ""} Compare resort deals at VacationDeals.to.`;
+  const isEvent = deal.brandSlug === "westgate-events";
+  const title = isEvent
+    ? `${deal.title} — ${deal.durationNights}-Night Package from $${deal.price}`
+    : `${deal.resortName || deal.title} — ${deal.durationNights}-Night Stay from $${deal.price}`;
+  const description = isEvent
+    ? `${deal.title} vacation package: ${deal.description || `${deal.durationNights} nights + event tickets from $${deal.price}.`} Compare event deals at VacationDeals.to.`
+    : `Book a ${deal.durationNights}-night vacation deal at ${deal.resortName || deal.title} in ${location} for just $${deal.price}. ${deal.originalPrice ? `Save ${deal.savingsPercent}% off the $${deal.originalPrice} retail price.` : ""} Compare resort deals at VacationDeals.to.`;
 
   return {
     title,
@@ -113,6 +118,7 @@ export default async function DealPage({ params }: DealPageProps) {
   });
 
   // Schema.org Product/Offer JSON-LD
+  const isWestgateEvent = deal.brandSlug === "westgate-events";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -142,7 +148,6 @@ export default async function DealPage({ params }: DealPageProps) {
   };
 
   // Schema.org Event JSON-LD for Westgate Events deals
-  const isWestgateEvent = deal.brandSlug === "westgate-events";
   let eventJsonLd: Record<string, unknown> | null = null;
 
   if (isWestgateEvent) {
@@ -169,29 +174,33 @@ export default async function DealPage({ params }: DealPageProps) {
       }
     }
 
-    // Determine performer from deal title
-    // Titles like "Discount Eagles Concert Tickets Las Vegas at The Sphere"
-    // → extract between "Discount " and " Concert|Show|Comedy|Sports|Tickets"
-    let performerName: string | null = null;
-    let performerType: string | null = null;
+    // Extract the actual event name from the SEO title
+    // Format: "Discount {EventName} {Type} Tickets {City} at {Venue}"
+    let eventName: string | null = null;
     const titleLower = deal.title.toLowerCase();
 
-    const performerMatch = deal.title.match(
-      /^Discount\s+(.+?)\s+(?:Concert|Comedy Show|Show|Sports|)\s*Tickets/i,
+    // Extract event name: between "Discount " and type keyword
+    const eventNameMatch = deal.title.match(
+      /^Discount\s+(.+?)\s+(?:Concert|Comedy Show|Show|NASCAR|NFL|NBA|NHL|MLB|Fight|Sports|)\s*Tickets/i,
     );
-    if (performerMatch) {
-      performerName = performerMatch[1].trim();
+    if (eventNameMatch) {
+      eventName = eventNameMatch[1].trim();
     }
 
-    // Determine performer @type
+    // Determine performer from event name
+    let performerName: string | null = eventName;
+    let performerType: string | null = null;
+
     if (performerName) {
       if (titleLower.includes("concert")) {
-        // Could be a band or solo artist — use MusicGroup as safe default
         performerType = "MusicGroup";
       } else if (titleLower.includes("comedy")) {
         performerType = "Person";
-      } else if (titleLower.includes("sports")) {
-        performerType = "SportsTeam";
+      } else if (titleLower.includes("nascar") || titleLower.includes("sports") ||
+                 titleLower.includes("nfl") || titleLower.includes("nba")) {
+        // For sports events, the event name IS the event, not a performer
+        performerType = null;
+        performerName = null;
       }
     }
 
@@ -206,7 +215,9 @@ export default async function DealPage({ params }: DealPageProps) {
     let eventType = "Event";
     if (titleLower.includes("concert")) {
       eventType = "MusicEvent";
-    } else if (titleLower.includes("sports")) {
+    } else if (titleLower.includes("nascar") || titleLower.includes("sports") ||
+               titleLower.includes("nfl") || titleLower.includes("nba") ||
+               titleLower.includes("nhl") || titleLower.includes("mlb")) {
       eventType = "SportsEvent";
     } else if (titleLower.includes("comedy")) {
       eventType = "ComedyEvent";
@@ -217,7 +228,7 @@ export default async function DealPage({ params }: DealPageProps) {
     eventJsonLd = {
       "@context": "https://schema.org",
       "@type": eventType,
-      name: deal.title,
+      name: eventName || deal.title,
       description: deal.description || `Discounted event tickets with ${deal.durationNights}-night resort stay included.`,
       ...(startDate ? { startDate } : {}),
       ...(endDate ? { endDate } : {}),
@@ -281,7 +292,7 @@ export default async function DealPage({ params }: DealPageProps) {
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Vacation Deals", "item": "https://vacationdeals.to" },
             { "@type": "ListItem", "position": 2, "name": "All Vacation Deals", "item": "https://vacationdeals.to/deals" },
-            { "@type": "ListItem", "position": 3, "name": deal.resortName || deal.title, "item": `https://vacationdeals.to/deals/${slug}` },
+            { "@type": "ListItem", "position": 3, "name": isWestgateEvent ? deal.title : (deal.resortName || deal.title), "item": `https://vacationdeals.to/deals/${slug}` },
           ],
         }) }}
       />
@@ -303,7 +314,7 @@ export default async function DealPage({ params }: DealPageProps) {
           <li className="min-w-0">
             <span className="mx-1">/</span>
             <span className="text-gray-900 font-medium overflow-hidden text-ellipsis whitespace-nowrap inline-block max-w-[200px] align-bottom sm:max-w-none">
-              {deal.resortName || deal.title}
+              {isWestgateEvent ? deal.title : (deal.resortName || deal.title)}
             </span>
           </li>
         </ol>
@@ -317,7 +328,7 @@ export default async function DealPage({ params }: DealPageProps) {
           <div
             className={`relative mb-6 flex h-64 items-end overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} p-6 sm:h-80 lg:h-96`}
             role="img"
-            aria-label={`${deal.resortName || deal.title} resort in ${location}`}
+            aria-label={isWestgateEvent ? `${deal.title} event package in ${location}` : `${deal.resortName || deal.title} resort in ${location}`}
           >
             {/* Decorative city icon */}
             {CityIconComponent && (
@@ -348,7 +359,7 @@ export default async function DealPage({ params }: DealPageProps) {
 
           {/* Deal title + location */}
           <h1 className="mb-2 text-2xl font-bold text-gray-900 sm:text-3xl">
-            {deal.resortName || deal.title}
+            {isWestgateEvent ? deal.title : (deal.resortName || deal.title)}
           </h1>
           {location && (
             <p className="mb-4 flex items-center gap-1.5 text-gray-500">
@@ -379,9 +390,21 @@ export default async function DealPage({ params }: DealPageProps) {
           {deal.description && (
             <div className="mb-6">
               <h2 className="mb-2 text-lg font-semibold text-gray-900">
-                About This Package
+                {isWestgateEvent ? "About This Event Package" : "About This Package"}
               </h2>
               <p className="leading-relaxed text-gray-600">{deal.description}</p>
+            </div>
+          )}
+
+          {/* Resort info for event deals (show where you stay) */}
+          {isWestgateEvent && deal.resortName && (
+            <div className="mb-6 flex items-center gap-2 text-sm text-gray-600">
+              <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21" />
+              </svg>
+              <span>
+                <strong>Stay at:</strong> {deal.resortName}
+              </span>
             </div>
           )}
 
@@ -606,7 +629,7 @@ export default async function DealPage({ params }: DealPageProps) {
 
       {/* Sticky bottom CTA bar */}
       <StickyDealBar
-        title={deal.resortName || deal.title}
+        title={isWestgateEvent ? deal.title : (deal.resortName || deal.title)}
         price={Number(deal.price)}
         url={deal.url}
       />
