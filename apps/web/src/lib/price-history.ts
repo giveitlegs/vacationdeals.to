@@ -32,11 +32,11 @@ const BRAND_COLORS: Record<string, string> = {
   "vacation-village": "#14B8A6", // teal
   spinnaker: "#A855F7",          // purple
   "departure-depot": "#0EA5E9",  // sky
-  "las-vegas-timeshare": "#DC2626", // red-600
+  "vegas-timeshare": "#DC2626",  // red-600
   "premier-travel": "#059669",   // emerald-600
   festiva: "#7C3AED",            // violet-600
   "discount-vacation": "#D97706", // amber-600
-  "legendary-vc": "#BE185D",     // pink-700
+  legendary: "#BE185D",           // pink-700
   "westgate-events": "#4338CA",  // indigo-700
   hyatt: "#B45309",              // amber-700
   bluegreen: "#047857",          // emerald-700
@@ -200,6 +200,15 @@ function generateMockData(days: number): { points: PricePoint[]; brands: BrandIn
     { name: "Departure Depot", slug: "departure-depot", color: "#0EA5E9" },
     { name: "Spinnaker Resorts", slug: "spinnaker", color: "#A855F7" },
     { name: "Bluegreen Vacations", slug: "bluegreen", color: "#047857" },
+    { name: "Vacation Village Resorts", slug: "vacation-village", color: "#14B8A6" },
+    { name: "Las Vegas Timeshare", slug: "vegas-timeshare", color: "#DC2626" },
+    { name: "Premier Travel Resorts", slug: "premier-travel", color: "#059669" },
+    { name: "Festiva Hospitality Group", slug: "festiva", color: "#7C3AED" },
+    { name: "Westgate Events", slug: "westgate-events", color: "#4338CA" },
+    { name: "Legendary Vacation Club", slug: "legendary", color: "#BE185D" },
+    { name: "Discount Vacation Hotels", slug: "discount-vacation", color: "#D97706" },
+    { name: "Capital Vacations", slug: "capital-vacations", color: "#6D28D9" },
+    { name: "Hyatt Vacation Club", slug: "hyatt", color: "#B45309" },
   ];
 
   const mockDestinations = ["orlando", "las-vegas", "cancun"];
