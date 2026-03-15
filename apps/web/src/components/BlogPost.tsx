@@ -4,6 +4,7 @@ import { getBlogPostBySlug } from "@/lib/blog-types";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FAQSchema } from "@/components/FAQSchema";
 import { SEOPreFooter } from "@/components/SEOPreFooter";
+import { addBlogIllustrations } from "@/lib/blog-images";
 
 interface BlogPostPageProps {
   post: BlogPost;
@@ -158,7 +159,7 @@ export function BlogPostRenderer({ post }: BlogPostPageProps) {
 
       {/* Content Area */}
       <article className="blog-content mx-auto max-w-3xl text-gray-700">
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div dangerouslySetInnerHTML={{ __html: addBlogIllustrations(post.content) }} />
       </article>
 
       {/* Tags */}

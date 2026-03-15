@@ -322,6 +322,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
           description: post.metaDescription,
           url: `${baseUrl}/${post.slug}`,
           type: "article",
+          images: [{ url: `${baseUrl}/og-image.svg`, width: 1200, height: 630 }],
           ...(post.publishDate
             ? { publishedTime: post.publishDate }
             : {}),

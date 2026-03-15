@@ -1435,7 +1435,7 @@ export const destinationPosts: BlogPost[] = [
 
 <h2>3. Manhattan Club — $159/Night for 3 Nights</h2>
 <p>The Manhattan Club is a timeshare property right on 56th and 7th — two blocks from Central Park and a short walk from Carnegie Hall, the Theater District, and Columbus Circle. The one-bedroom suites are spacious (by NYC standards) with full kitchens, living rooms, and city views. This is the closest to "living in Manhattan" you'll get on a vacation budget.</p>
-<p>The Manhattan Club runs their own promotional deals, and the presentation is about 2 hours. The full kitchen is a game-changer in a city where restaurant meals easily hit $50+ per person. Cook breakfast, pack sandwiches for lunch, and splurge on dinner. That's the NYC budget hack.</p>
+<p>The Manhattan Club runs their own promotional deals, and the presentation is about 2 hours. The full kitchen is a huge win in a city where restaurant meals easily hit $50+ per person. Cook breakfast, pack sandwiches for lunch, and splurge on dinner. That's the NYC budget hack.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Buy discount Broadway tickets at the TKTS booth in Times Square. You can get same-day tickets for 25-50% off. The digital board shows all available shows and discounts. Go in the afternoon for evening shows — the line is shorter than the evening rush.</div>
 

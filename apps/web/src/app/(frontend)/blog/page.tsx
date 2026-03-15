@@ -69,7 +69,7 @@ interface BlogPageProps {
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const { category: categoryParam, page: pageParam } = await searchParams;
-  const POSTS_PER_PAGE = 24;
+  const POSTS_PER_PAGE = 48;
 
   const activeCategory = categoryParam || "all";
   const currentPage = Math.max(1, parseInt(pageParam || "1", 10));
@@ -215,6 +215,13 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           </div>
         </section>
       )}
+
+      {/* Post Count */}
+      <div className="mb-4 text-sm text-gray-500">
+        {allPosts.length} article{allPosts.length !== 1 ? "s" : ""}
+        {activeCategory !== "all" ? ` in ${activeCategory}` : ""}
+        {totalPages > 1 ? ` — Page ${currentPage} of ${totalPages}` : ""}
+      </div>
 
       {/* Posts Grid */}
       {paginatedPosts.length > 0 ? (

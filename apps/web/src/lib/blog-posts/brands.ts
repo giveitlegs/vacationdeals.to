@@ -1603,7 +1603,7 @@ export const brandPosts: BlogPost[] = [
 <h2>4. When Broker Booking Wins</h2>
 <p><strong>Price:</strong> In most cases, brokers are genuinely cheaper. They buy room blocks at wholesale rates and can sell at prices the brand's own website can't match. For budget brands especially, the savings are significant.</p>
 <p><strong>Variety:</strong> Brokers aggregate deals from multiple brands. Instead of checking Westgate's site, then Wyndham's, then Bluegreen's, you can see everything in one place and compare. This alone saves time and helps ensure you're getting the best price.</p>
-<p><strong>International Deals:</strong> For Mexican and Caribbean resort deals, brokers are often the ONLY way to access promotional pricing. Many international timeshare companies don't have robust direct-to-consumer websites in English.</p>
+<p><strong>International Deals:</strong> For Mexican and Caribbean resort deals, brokers are often the ONLY way to access promotional pricing. Many international timeshare companies don't have strong direct-to-consumer websites in English.</p>
 
 <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;">
 <strong>🎯 Pro Tip:</strong> Here's my exact process for every deal I book: Step 1 — Find the deal on a broker site. Step 2 — Call the brand directly and ask if they can match or beat the broker price. Step 3 — Book wherever the total cost is lowest. This takes an extra 10 minutes but has saved me hundreds of dollars over the years.
@@ -1773,7 +1773,7 @@ export const brandPosts: BlogPost[] = [
 </ul>
 
 <h2>9. Final Verdict</h2>
-<p>StayPromo is a solid third option in the broker landscape. They won't replace BookVIP for international deals or GetawayDealz for customer service, but they offer a pleasant booking experience with competitive pricing. Add them to your comparison checklist alongside the bigger brokers — you might be surprised how often they have the best price.</p>
+<p>StayPromo is a solid third option in the broker market. They won't replace BookVIP for international deals or GetawayDealz for customer service, but they offer a pleasant booking experience with competitive pricing. Add them to your comparison checklist alongside the bigger brokers — you might be surprised how often they have the best price.</p>
 <p>Compare StayPromo deals against <a href="/blog/bookvip-review">BookVIP</a> and <a href="/blog/getawaydealz-review">GetawayDealz</a> on our <a href="/deals">deals page</a>, and book wherever the total cost is lowest.</p>`,
     faqs: [
       { question: "Is StayPromo legitimate?", answer: "Yes, StayPromo is a legitimate vacation deal broker that has been operating since the late 2010s. They partner with real timeshare resort companies and deliver real vacations at discounted prices." },
@@ -2465,7 +2465,7 @@ export const brandPosts: BlogPost[] = [
 </div>
 
 <h2>10. Final Thoughts on 2026 Rankings</h2>
-<p>The vacation deal landscape continues to evolve. More brands are offering deals, brokers are getting more competitive, and the overall quality of timeshare properties keeps improving. It's never been a better time to be a deal-seeker.</p>
+<p>The vacation deal market continues to evolve. More brands are offering deals, brokers are getting more competitive, and the overall quality of timeshare properties keeps improving. It's never been a better time to be a deal-seeker.</p>
 <p>Our rankings will update throughout 2026 as we get more reader reports and as brands change their offerings. If you've recently done a deal with any brand on this list, we'd love to hear about your experience — it directly influences future rankings.</p>
 <p>Browse all current deals from every ranked brand on our <a href="/deals">deals page</a>, and check out individual reviews for deep dives: <a href="/blog/bookvip-review">BookVIP</a>, <a href="/blog/hilton-grand-vacations-deals-worth-it">HGV</a>, <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate</a>, and <a href="/blog/club-wyndham-vacation-deals">Wyndham</a>.</p>`,
     faqs: [
@@ -2557,13 +2557,13 @@ export const brandPosts: BlogPost[] = [
 <p>Don't overlook the small guys — they sometimes outperform the big brands in specific destinations or categories.</p>
 
 <h2>9. Industry Trends to Watch in 2026</h2>
-<p>The vacation deal landscape is shifting. Here's what I'm watching:</p>
+<p>The vacation deal market is shifting. Here's what I'm watching:</p>
 <ul>
 <li><strong>More brands going digital:</strong> Expect more email-first booking processes and less phone-heavy sales calls</li>
 <li><strong>Shorter presentations:</strong> Some brands are testing 60-minute presentations to attract more deal-seekers. Spinnaker already does this.</li>
 <li><strong>Better properties:</strong> Competition is driving renovation and improvement across the industry. Even budget brands are upgrading.</li>
 <li><strong>More broker competition:</strong> New brokers are entering the market, driving prices down and service quality up</li>
-<li><strong>Virtual presentations:</strong> A few brands are experimenting with virtual/online presentations. If this becomes widespread, it could be a game-changer.</li>
+<li><strong>Virtual presentations:</strong> A few brands are experimenting with virtual/online presentations. If this becomes widespread, it could be a huge win.</li>
 </ul>
 
 <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;">
@@ -2608,7 +2608,7 @@ export const brandPosts: BlogPost[] = [
     heroGradient: "from-red-700 to-red-500",
     content: `<p>Not every vacation deal is a good one. I know — shocking revelation from a website literally called VacationDeals.to. But for every legitimate $49 Westgate deal, there's a sketchy offer from a company nobody's heard of promising a free Caribbean cruise if you just provide your credit card number and social security number and the name of your first pet. Spoiler: don't do that.</p>
 
-<p>I've seen enough bad deals (and heard enough horror stories from readers) to compile a definitive list of red flags that should make you run the other direction. Bookmark this page and check it before booking any deal that seems questionable. And always compare deals on <a href="/deals">our curated deals page</a> where we've already vetted the sources.</p>
+<p>I've seen enough bad deals (and heard enough horror stories from readers) to compile a definitive list of red flags that should make you run the other direction. Bookmark this page and check it before booking any deal that seems questionable. And always compare deals on <a href="/deals">our vetted deals page</a> where we've already vetted the sources.</p>
 
 <h2>1. Red Flag: No Verifiable Company Information</h2>
 <p>The biggest red flag is also the easiest to spot: the company selling the deal has no verifiable online presence. No website (or a terrible one), no social media accounts, no reviews, no BBB listing, no physical address. If you can't find basic information about who you're giving money to, don't give them money.</p>
