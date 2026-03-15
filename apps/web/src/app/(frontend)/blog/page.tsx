@@ -191,7 +191,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 href={`/${post.slug}`}
                 className="deal-card group block overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:-translate-y-0.5"
               >
-                <div className={`h-40 ${post.heroGradient}`} />
+                <div className={`h-40 bg-gradient-to-br ${post.heroGradient}`} />
                 <div className="p-6">
                   <span
                     className={`mb-3 inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${getCategoryColor(post.category)}`}
@@ -233,7 +233,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 href={`/${post.slug}`}
                 className="deal-card group block overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:-translate-y-0.5"
               >
-                <div className={`h-32 ${post.heroGradient}`} />
+                <div className={`h-32 bg-gradient-to-br ${post.heroGradient}`} />
                 <div className="p-5">
                   <span
                     className={`mb-2 inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${getCategoryColor(post.category)}`}

@@ -13,7 +13,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "9 min read",
     bluf: "Orlando vacation packages start as low as $99/night when you book through timeshare promotions. You get resort-quality stays near the parks without the resort-quality price tag.",
     heroImageAlt: "Orlando vacation deals with theme park and resort views",
-    heroGradient: "bg-gradient-to-br from-blue-400 to-cyan-300",
+    heroGradient: "from-blue-400 to-cyan-300",
     content: `<p>Look, I once spent $437 a night on an Orlando hotel room that smelled faintly of chlorine and broken dreams. The ice machine was busted, the pool was the size of a bathtub, and my kids still talk about it — but not in a good way. That was the trip that sent me down the rabbit hole of <a href="/orlando">Orlando vacation deals</a>, and I've never looked back. If your paying full price for Orlando in 2026, your basically lighting money on fire. Let me show you 10 deals that'll make your wallet weep with joy instead of sorrow. Check out all our <a href="/destinations">destination deals</a> while your here.</p>
 
 <h2>1. Westgate Lakes Resort — $99/Night for 4 Nights</h2>
@@ -102,7 +102,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "8 min read",
     bluf: "Las Vegas resort deals let you stay at luxury Strip properties for as low as $79/night through timeshare promotions. You'll get suites that normally cost $300+ per night.",
     heroImageAlt: "Las Vegas vacation deals with Strip resort views at night",
-    heroGradient: "bg-gradient-to-br from-amber-400 to-orange-500",
+    heroGradient: "from-amber-400 to-orange-500",
     content: `<p>The first time I went to Vegas, I thought I was being clever by booking a "budget" room at a Strip hotel. $189 a night, baby! What a steal! Then I got there and realized my room was roughly the size of a walk-in closet, the bathroom had a mysterious stain I chose not to investigate, and the "Strip view" was actually a view of the parking garage. Cool. Since then, I've discoverd the world of <a href="/las-vegas">Las Vegas vacation deals</a> through resort promotions, and now I stay in suites that make me feel like I actually won something. Check our <a href="/">homepage</a> for deals across all destinations.</p>
 
 <h2>1. Hilton Grand Vacations on the Strip — $99/Night for 3 Nights</h2>
@@ -177,7 +177,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "9 min read",
     bluf: "Cancun all-inclusive deals through timeshare promotions can drop your nightly rate to $149 or less, including unlimited food and drinks at beachfront resorts in the Hotel Zone.",
     heroImageAlt: "Cancun vacation deals with turquoise Caribbean water and resort beach",
-    heroGradient: "bg-gradient-to-br from-teal-400 to-emerald-300",
+    heroGradient: "from-teal-400 to-emerald-300",
     content: `<p>I have a confession: the first time I went to Cancun, I panicked at customs because I forgot the name of my hotel. I just pointed vaguely at the ocean and said "the big one with the pool." Turns out that describes literally every hotel in Cancun. Anyway, I've since become a serial Cancun visitor thanks to these absurdly cheap <a href="/cancun">Cancun all-inclusive deals</a>. We're talking beachfront resorts with unlimted food and drinks for less than you'd pay for a Holiday Inn in Nebraska. Check out our <a href="/destinations">full destination list</a> for more steals.</p>
 
 <h2>1. The Royal Sands — $179/Night All-Inclusive for 5 Nights</h2>
@@ -256,7 +256,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "7 min read",
     bluf: "Gatlinburg vacation deals through timeshare promotions get you mountain-view suites from $79/night. The Smoky Mountains are one of the most affordable family destinations in America.",
     heroImageAlt: "Gatlinburg vacation deals with Smoky Mountain views and cabins",
-    heroGradient: "bg-gradient-to-br from-green-500 to-emerald-600",
+    heroGradient: "from-green-500 to-emerald-600",
     content: `<p>There's something deeply humbling about standing on a mountain at sunrise, breathing in crisp mountain air, surrounded by ancient forests — and then realizing you paid less per night than a Marriott in Des Moines. That's the magic of <a href="/gatlinburg">Gatlinburg vacation deals</a>. I first discovered these deals when my wife vetoed my "camping is basically free" vacation pitch. (Apparently sleeping bags on dirt don't count as "accomodations.") Now we stay in mountain-view suites for less than most campground cabins. Browse our <a href="/destinations">destination deals</a> for more bargains across the country.</p>
 
 <h2>1. Westgate Smoky Mountain Resort — $89/Night for 4 Nights</h2>
@@ -327,7 +327,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "9 min read",
     bluf: "Myrtle Beach vacation deals start at $69/night for oceanfront resorts. It's one of the cheapest beach destinations in the US, and timeshare promotions make it even cheaper.",
     heroImageAlt: "Myrtle Beach vacation deals with ocean view and boardwalk",
-    heroGradient: "bg-gradient-to-br from-sky-400 to-blue-500",
+    heroGradient: "from-sky-400 to-blue-500",
     content: `<p>Myrtle Beach is what happens when a beach, a mini-golf course, and a buffet restaurant have a beautiful baby. It's gloriously tacky, unapologetically fun, and — here's the kicker — shockingly affordable. I first went to Myrtle Beach on a dare. My buddy said, "I bet you can't find a beach vacation for under $100 a night." Challenge acepted. I found one for $69. He still owes me dinner. If you want to join the <a href="/myrtle-beach">Myrtle Beach vacation deals</a> fan club, keep reading. Also check our <a href="/">main deals page</a> for deals at every destination we cover.</p>
 
 <h2>1. Westgate Myrtle Beach Oceanfront — $79/Night for 4 Nights</h2>
@@ -410,7 +410,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "8 min read",
     bluf: "Branson is America's most underrated family destination, and timeshare deals make it absurdly affordable. Expect mountain-view resorts from $69/night with free show tickets included.",
     heroImageAlt: "Branson vacation deals with Ozark mountain lake views",
-    heroGradient: "bg-gradient-to-br from-rose-400 to-pink-500",
+    heroGradient: "from-rose-400 to-pink-500",
     content: `<p>I'll be honest: I went to Branson expecting it to be a retirement community with a lake. What I found was a full-blown entertainment capital hiding in the Ozark Mountains — live shows, theme parks, zip lines, and enough go-kart tracks to satisfy even the most adrenaline-addicted 8-year-old. Also, the <a href="/branson">Branson vacation deals</a> are so cheap I thought there was a typo on the website. There wasn't. Branson is just genuinley that affordable. My kids now request Branson over Disney, which saves me roughly one million dollars per year. See all our <a href="/destinations">destination deals</a> for more family-friendly options.</p>
 
 <h2>1. Westgate Branson Woods — $69/Night for 4 Nights</h2>
@@ -485,7 +485,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "7 min read",
     bluf: "Williamsburg deals combine history and theme parks at resort prices starting at $79/night. It's the rare destination where kids learn something and actually enjoy it.",
     heroImageAlt: "Williamsburg vacation deals with colonial architecture and resort views",
-    heroGradient: "bg-gradient-to-br from-violet-400 to-purple-500",
+    heroGradient: "from-violet-400 to-purple-500",
     content: `<p>I took my kids to Colonial Williamsburg expecting boredom and complaints. Instead, my 9-year-old spent three hours watching a blacksmith make nails and declared it "better than YouTube." My 12-year-old asked a colonial reenactor about taxation without representation and started a genuine political debate. It was the most educational accident of my parenting career. And the <a href="/williamsburg">Williamsburg vacation deals</a> made it ridiculously affordable. Combine history with Busch Gardens and Water Country, and you've got a destination that's secretly one of the best family trips in America. See more picks on our <a href="/">homepage</a>.</p>
 
 <h2>1. Williamsburg Plantation Resort — $79/Night for 4 Nights</h2>
@@ -550,7 +550,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "7 min read",
     bluf: "Hilton Head Island deals offer upscale beach and golf resort stays from $99/night. It's the South Carolina Lowcountry at its finest — Spanish moss, sea breezes, and serious savings.",
     heroImageAlt: "Hilton Head vacation deals with golf course and beach views",
-    heroGradient: "bg-gradient-to-br from-lime-400 to-green-500",
+    heroGradient: "from-lime-400 to-green-500",
     content: `<p>Hilton Head is the beach destination for people who think Myrtle Beach is "too much." And I say that with love for both places. If Myrtle Beach is the fun uncle who shows up to the BBQ with fireworks and a karaoke machine, Hilton Head is the cool aunt who brings artisanal cheese and knows the best wine. I discoverd <a href="/hilton-head">Hilton Head vacation deals</a> after my wife said, and I quote, "I want to go to a beach where nobody is doing body shots." Fair enough. Check out more coastal getaways on our <a href="/destinations">destinations page</a>.</p>
 
 <h2>1. Marriott's Harbour Point — $119/Night for 4 Nights</h2>
@@ -621,7 +621,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "9 min read",
     bluf: "Cabo San Lucas deals put you in luxury beachfront resorts from $129/night. The combination of desert, ocean, and Mexican hospitality makes it one of the best vacation values on the Pacific coast.",
     heroImageAlt: "Cabo San Lucas vacation deals with El Arco and resort beach",
-    heroGradient: "bg-gradient-to-br from-emerald-400 to-teal-500",
+    heroGradient: "from-emerald-400 to-teal-500",
     content: `<p>The first time I saw El Arco — that dramatic rock arch at the tip of the Baja Peninsula — I actually gasped. Out loud. On a boat full of strangers. One guy thought I was choking and offered me water. I was just overwhelmed by how beautiful <a href="/cabo">Cabo San Lucas</a> is in person. Pictures don't do it justice. And the vacation deals? They make it even more stunning. I'm talking luxury resorts with infinity pools overlooking the Sea of Cortez for less then a mid-range hotel in San Diego. If that doesn't make you gasp, check your pulse. Browse our <a href="/">homepage</a> for deals across all our destinations.</p>
 
 <h2>1. Pueblo Bonito Rosé — $149/Night for 5 Nights</h2>
@@ -700,7 +700,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "8 min read",
     bluf: "Key West deals get you into tropical island resorts from $119/night. The drive down the Overseas Highway is half the adventure, and the savings make the destination even sweeter.",
     heroImageAlt: "Key West vacation deals with sunset pier and tropical resort",
-    heroGradient: "bg-gradient-to-br from-orange-400 to-rose-500",
+    heroGradient: "from-orange-400 to-rose-500",
     content: `<p>Key West is the end of the road — literally. Mile Marker 0. The southernmost point in the continental US. And the first time I drove the Overseas Highway, crossing bridge after bridge over impossibly blue water, I understood why Hemingway moved here and never really left. (That and the six-toed cats. The man loved his polydactyl cats.) The only problem with Key West has always been the price. Hotels here can cost more per night than some people's car payments. But <a href="/key-west">Key West vacation deals</a> through resort promotions change the math entirely. Suddenly, island living is within reach for us regular folks. Check out our <a href="/destinations">destination deals page</a> for more tropical options.</p>
 
 <h2>1. Hyatt Windward Pointe — $139/Night for 3 Nights</h2>
@@ -775,7 +775,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "7 min read",
     bluf: "Sedona resort deals start at $109/night and put you amid the most breathtaking red rock landscapes in America. Hiking, spas, and stargazing are all included in the scenery.",
     heroImageAlt: "Sedona vacation deals with red rock formations and desert resort",
-    heroGradient: "bg-gradient-to-br from-red-400 to-orange-600",
+    heroGradient: "from-red-400 to-orange-600",
     content: `<p>I'm going to say something controversial: Sedona is the most beautiful place in America. Yes, more than Yosemite. More than the Grand Canyon. More than your aunt's Facebook photos of fall in Vermont. The red rocks at sunset look like they were painted by someone who had way too much fun with the color palette, and the energy of the place is — I know this sounds woo-woo — genuienly different. Even my deeply skeptical husband admitted he "felt something" at a vortex site. (He later claimed it was indigestion, but I know the truth.) <a href="/sedona">Sedona vacation deals</a> make this magical place surprizingly accessible. Check our <a href="/">main page</a> for deals everywhere.</p>
 
 <h2>1. Hyatt Piñon Pointe — $129/Night for 3 Nights</h2>
@@ -840,7 +840,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "7 min read",
     bluf: "Park City ski vacation deals start at $119/night for slope-side resorts. Utah's legendary powder and two world-class ski areas make it one of the best ski values in America.",
     heroImageAlt: "Park City vacation deals with snow-covered slopes and mountain resort",
-    heroGradient: "bg-gradient-to-br from-slate-400 to-blue-600",
+    heroGradient: "from-slate-400 to-blue-600",
     content: `<p>I'm not going to pretend I'm a good skier. Last time I hit Park City, I spent more time on my backside than my skis. A seven-year-old literally asked if I needed help. But even from a sitting position in the snow, the views of the Wasatch Mountains were spectacular, and when I finally made it back to my resort suite — complete with a hot tub, fireplace, and views of the slopes — all was forgiven. <a href="/park-city">Park City vacation deals</a> let you experience world-class skiing without the world-class price tag that normally comes with Utah's most famous mountain town. Check out our <a href="/destinations">other destination deals</a> if mountains aren't your thing.</p>
 
 <h2>1. Marriott's MountainSide — $149/Night for 4 Nights</h2>
@@ -909,7 +909,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "9 min read",
     bluf: "Punta Cana all-inclusive deals through resort promotions start at $139/night — including unlimited food, drinks, and beachfront access at Dominican Republic resorts. It's the best value in Caribbean travel.",
     heroImageAlt: "Punta Cana vacation deals with Caribbean beach and palm trees",
-    heroGradient: "bg-gradient-to-br from-cyan-400 to-blue-500",
+    heroGradient: "from-cyan-400 to-blue-500",
     content: `<p>The first time I stepped off a plane in Punta Cana, I was hit by a wall of warm, humid air that smelled like coconut and possibility. Thirty minutes later I was lying on the whitest sand I've ever seen, holding a drink I didn't pay for (all-inclusive, baby), staring at water so blue it looked photoshopped. And I was spending less per night than my buddy was paying for his "getaway" to Cleveland. No shade to Cleveland, but come on. <a href="/punta-cana">Punta Cana vacation deals</a> are the best-kept secret in Caribbean travel, and I'm about to blow that secret wide open. Browse our <a href="/destinations">full destination list</a> for more options.</p>
 
 <h2>1. Barceló Bávaro Beach — $159/Night All-Inclusive for 5 Nights</h2>
@@ -988,7 +988,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "8 min read",
     bluf: "Puerto Vallarta deals combine beachfront resorts with authentic Mexican culture at prices starting from $119/night. The Sierra Madre mountains meet the Pacific Ocean here, and it's gorgeous.",
     heroImageAlt: "Puerto Vallarta vacation deals with beach and Sierra Madre mountains",
-    heroGradient: "bg-gradient-to-br from-amber-500 to-rose-500",
+    heroGradient: "from-amber-500 to-rose-500",
     content: `<p>If Cancun is Mexico's spring break party, Puerto Vallarta is its sophisticated older sibling who studied abroad and actually learned the language. PV (as regulars call it) has cobblestone streets, world-class restaurants, a thriving art scene, and beaches backed by jungle-covered mountains. It also has <a href="/puerto-vallarta">vacation deals so good</a> they feel illegal. My first PV trip was supposed to be three nights. I extended it to seven because the resort deal was $119 a night and I literally could not justify going home to weather that was 40 degrees colder. My boss was understanding. Mostly. See all our deals on the <a href="/">homepage</a>.</p>
 
 <h2>1. Vidanta Nuevo Vallarta — $159/Night for 5 Nights</h2>
@@ -1063,7 +1063,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "7 min read",
     bluf: "Cocoa Beach deals give you oceanfront resorts from $79/night on Florida's Space Coast. You can watch rocket launches from the beach while spending less than a motel in Daytona.",
     heroImageAlt: "Cocoa Beach vacation deals with ocean view and rocket launch in distance",
-    heroGradient: "bg-gradient-to-br from-indigo-500 to-cyan-400",
+    heroGradient: "from-indigo-500 to-cyan-400",
     content: `<p>There are exactly two places in America where you can watch a rocket launch while drinking a margarita on the beach. One of them requires security clearance. The other is Cocoa Beach. I watched my first SpaceX launch from a beach chair at my resort, and the sonic boom literally shook my drink. My daughter screamed. I might have screamed too. It was the most Florida thing that's ever happened to me, and that includes the time an alligator walked through a Wendy's drive-thru. <a href="/cocoa-beach">Cocoa Beach vacation deals</a> put you front-row for science AND beach time, which is a combinaton I didn't know I needed. See more Florida options on our <a href="/destinations">destinations page</a>.</p>
 
 <h2>1. Westgate Cocoa Beach Resort — $89/Night for 4 Nights</h2>
@@ -1132,7 +1132,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "6 min read",
     bluf: "Daytona Beach delivers classic Florida beach vibes at rock-bottom prices. Resort deals start at $69/night for oceanfront stays with boardwalk access and hard-packed sand you can drive on.",
     heroImageAlt: "Daytona Beach vacation deals with boardwalk and ocean view",
-    heroGradient: "bg-gradient-to-br from-indigo-400 to-blue-500",
+    heroGradient: "from-indigo-400 to-blue-500",
     content: `<p>Daytona Beach has a reputation, and I'm not going to pretend otherwise. Yes, it's the spring break capital. Yes, you can drive on the beach (which is either amazing or terrifying depending on your relationship with automobiles near your beach towel). But underneath the stereotype is a genuinley fun, affordable beach town that's perfect for families. I know this because my family goes every year, and my kids' idea of paradise is the Daytona Boardwalk arcade followed by unlimited beach time. <a href="/daytona-beach">Daytona Beach vacation deals</a> make this possible for under $70 a night, which is less than I spend on a family dinner at Applebee's. Don't judge me. See our <a href="/destinations">full destination list</a> for more steals.</p>
 
 <h2>1. Perry's Ocean Edge Resort — $79/Night for 4 Nights</h2>
@@ -1197,7 +1197,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "9 min read",
     bluf: "Lake Tahoe deals offer year-round mountain resort stays from $99/night. Whether you ski in winter or hike in summer, the crystal-clear lake and Sierra Nevada views are always included.",
     heroImageAlt: "Lake Tahoe vacation deals with crystal blue lake and mountain peaks",
-    heroGradient: "bg-gradient-to-br from-blue-500 to-indigo-600",
+    heroGradient: "from-blue-500 to-indigo-600",
     content: `<p>The water at Lake Tahoe is so clear that you can see the bottom at 70 feet. I know this because I rented a kayak, looked down, panicked about the depth, and nearly capsized. But even my fear-induced wobbling couldn't diminish the beauty of this place. Tahoe is the kind of destination that makes you understand why people write poetry about mountains. I don't write poetry — I write about <a href="/lake-tahoe">Lake Tahoe vacation deals</a> — but the sentiment is the same. This place is magic, and these deals make it afordable. Whether you're skiing in winter or hiking in summer, Tahoe delivers. See all our <a href="/destinations">destination deals</a> for more mountain getaways.</p>
 
 <h2>1. Marriott's Timber Lodge — $139/Night for 4 Nights</h2>
@@ -1276,7 +1276,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "8 min read",
     bluf: "San Diego deals put you in beach resorts from $109/night in a city with 266 sunny days per year. Combine the zoo, beaches, and incredible food scene and you've got a perfect vacation.",
     heroImageAlt: "San Diego vacation deals with beach sunset and downtown skyline",
-    heroGradient: "bg-gradient-to-br from-yellow-400 to-orange-500",
+    heroGradient: "from-yellow-400 to-orange-500",
     content: `<p>San Diego's weather is so perfect it feels like a bug in the simulation. 70 degrees and sunny. Every. Single. Day. (Okay, 266 days a year, but who's counting?) The first time I visited, I kept waiting for the catch — the traffic, the crowds, the absurd prices. But San Diego is weirdly... reasonable? Especially with <a href="/san-diego">San Diego vacation deals</a> that put you in resort suites for about what you'd pay for a Motel 6 in LA. My family now goes annually, and every year I consider just... not going back. To our regular life, I mean. Not to San Diego. I'm always going back to San Diego. Browse all our <a href="/">vacation deals</a> for more sunny getaways.</p>
 
 <h2>1. Marriott's Newport Coast Villas — $149/Night for 4 Nights</h2>
@@ -1351,7 +1351,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "7 min read",
     bluf: "Galveston vacation deals start at $79/night for beachfront resorts on the Texas coast. It's the closest beach to Houston and packs surprising charm, history, and killer seafood.",
     heroImageAlt: "Galveston vacation deals with beach and historic Strand District",
-    heroGradient: "bg-gradient-to-br from-orange-400 to-amber-500",
+    heroGradient: "from-orange-400 to-amber-500",
     content: `<p>Look, I'll be straight with you: Galveston's beach water isn't the crystal-clear Caribbean blue you see in travel magazines. It's more of a... Gulf of Mexico brown. But you know what? I've had some of the best beach vacations of my life on Galveston Island, because the water color is literally the only thing that isn't amazing about this place. The history is fasinating, the seafood is world-class, the people are Texas-friendly (which means aggressively nice), and the <a href="/galveston">Galveston vacation deals</a> are stupid cheap. Like, "is this a mistake?" cheap. It's the beach getaway Houston doesn't want you to know about. Check our <a href="/">main page</a> for deals everywhere else too.</p>
 
 <h2>1. San Luis Resort — $99/Night for 3 Nights</h2>
@@ -1420,7 +1420,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "9 min read",
     bluf: "NYC vacation deals exist, and they start at $119/night for suite-style accommodations in Manhattan and nearby. Timeshare promotions make the city that never sleeps surprisingly affordable.",
     heroImageAlt: "New York City vacation deals with Manhattan skyline and Times Square",
-    heroGradient: "bg-gradient-to-br from-slate-500 to-indigo-600",
+    heroGradient: "from-slate-500 to-indigo-600",
     content: `<p>When I tell people I found a vacation deal in New York City, they look at me like I said I found a parking spot in Manhattan. That level of skepticism. "Sure you did, buddy." But I'm dead serious. The same timeshare promotion machine that powers deals in Orlando and Cancun has crept into the Big Apple, and the results are beautful. I stayed in a suite near Times Square for $139 a night — the same price as that depressing airport hotel I once booked in Newark. With a kitchenette. In Manhattan. <a href="/new-york-city">NYC vacation deals</a> are real, and I'm the missionary here to spread the gospel. Check our <a href="/destinations">other destinations</a> if you need more convincing that deals exist everywhere.</p>
 
 <h2>1. Hilton New York Grand Central — $149/Night for 3 Nights</h2>
@@ -1505,7 +1505,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "9 min read",
     bluf: "Florida dominates the vacation deal market with resort stays from $69/night statewide. From Orlando's theme parks to Key West's island charm, the Sunshine State has more deals per square mile than anywhere else.",
     heroImageAlt: "Florida vacation deals across beaches theme parks and resorts statewide",
-    heroGradient: "bg-gradient-to-br from-cyan-400 to-emerald-400",
+    heroGradient: "from-cyan-400 to-emerald-400",
     content: `<p>Florida is basically the vacation deal capital of the world, and I say that with zero exaggeration. The state has more timeshare resorts than any other place on Earth, which means more promotional deals, more competition, and more insanely cheap resort stays for people like us who know where to look. I've personally stayed at Florida resorts in 8 different cities, and the cheapest one cost $69 a night. For a two-bedroom suite. On the ocean. In America. If that doesn't make you want to book a flight, I'm not sure we can be freinds. Here's the best of the best across the entire <a href="/destinations">Sunshine State</a>. Also check our <a href="/">main deals page</a> for the full picture.</p>
 
 <h2>1. Orlando — Westgate Lakes Resort — $99/Night for 4 Nights</h2>
@@ -1589,7 +1589,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "9 min read",
     bluf: "Mexico vacation deals through timeshare promotions start at $119/night for beachfront resorts across Cancun, Cabo, and Puerto Vallarta. All-inclusive options make budgeting effortless.",
     heroImageAlt: "Mexico vacation deals with beachfront resorts across top destinations",
-    heroGradient: "bg-gradient-to-br from-green-500 to-emerald-500",
+    heroGradient: "from-green-500 to-emerald-500",
     content: `<p>Mexico is what happens when beautiful beaches, incredible food, rich culture, and insanely cheap resort deals all exist in the same country. It's the vacation trifecta — or quadfecta, or whatever the word is for four good things happening at once. I've visited three different Mexican resort destinations in the past two years, and each one made me wonder why I'd ever vacation anywhere else. The <a href="/cancun">Cancun deals</a>, the <a href="/cabo">Cabo deals</a>, the <a href="/puerto-vallarta">Puerto Vallarta deals</a> — they're all absurdly good. Here's the best of the best across all of Mexico. More deals at our <a href="/">homepage</a>.</p>
 
 <h2>1. Cancun — The Royal Sands — $179/Night All-Inclusive for 5 Nights</h2>
@@ -1663,7 +1663,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "8 min read",
     bluf: "Caribbean all-inclusive deals start at $139/night and include food, drinks, and beach at island resorts. From Punta Cana to Jamaica to Aruba, island paradise is more affordable than you think.",
     heroImageAlt: "Caribbean vacation deals with turquoise water and palm-lined beach resorts",
-    heroGradient: "bg-gradient-to-br from-teal-400 to-blue-500",
+    heroGradient: "from-teal-400 to-blue-500",
     content: `<p>The Caribbean is where winter goes to die a beautiful, sunny, rum-soaked death. I first flew to the Caribbean in February, leaving behind a city that was 15 degrees and gray. Four hours later I was standing on white sand in 85-degree sunshine, holding a drink with an umbrella in it, wondering why I'd waited so long. The flight was the hardest part — the deals made everythng else easy. <a href="/punta-cana">Caribbean vacation deals</a> through resort promotions are genuinely life-changing, and I don't use that phrase lightly. (Okay, I also said that about my air fryer. But this is a close second.) See all our <a href="/destinations">destination deals</a> for options closer to home too.</p>
 
 <h2>1. Punta Cana, Dominican Republic — Barceló Bávaro — $159/Night All-Inclusive for 5 Nights</h2>
@@ -1736,7 +1736,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "8 min read",
     bluf: "The cheapest vacation deals in America start at $65/night for resort stays with full kitchens and pools. Branson, Myrtle Beach, and Gatlinburg lead the pack for rock-bottom pricing.",
     heroImageAlt: "Cheapest US vacation deals at budget resorts across America",
-    heroGradient: "bg-gradient-to-br from-green-400 to-emerald-500",
+    heroGradient: "from-green-400 to-emerald-500",
     content: `<p>I have a theory: the best vacations aren't the most expensive ones — they're the ones where you feel like you got away with something. Like you gamed the system. Like you found a glitch in the matrix. That's what these deals feel like. We're talking resort stays with full kitchens, pools, and real amenities for less than a hundred bucks a night. Some are under $70. I've stayed at all of these price points, and I can tell you from experience that the view from a $69/night balcony is just as pretty as the view from a $400 one. Prettier, actually, because you're not stressed about paying for it. Here's the <a href="/destinations">cheapest of the cheap</a> across America. More deals on our <a href="/">homepage</a>.</p>
 
 <h2>1. Branson, MO — Holiday Hills Resort — $65/Night for 4 Nights</h2>
@@ -1814,7 +1814,7 @@ export const destinationPosts: BlogPost[] = [
     readTime: "8 min read",
     bluf: "Weekend getaway deals start at $65/night for resort stays perfect for 2-3 night escapes. You don't need a week off to take a real vacation — a long weekend at a resort can reset your entire outlook.",
     heroImageAlt: "Weekend getaway vacation deals at resorts across the United States",
-    heroGradient: "bg-gradient-to-br from-purple-400 to-indigo-500",
+    heroGradient: "from-purple-400 to-indigo-500",
     content: `<p>Here's a radical idea: you don't need to save up two weeks of PTO and plan for six months to take a vacation. Sometimes you just need to escape for 48-72 hours, sleep in a room that isn't yours, sit by a pool you didn't have to maintain, and eat food you didn't cook. That's the beauty of weekend getaway deals — they're short enough to fit into any schedule and cheap enough to not wreck your budget. I take 3-4 weekend trips a year now, and my stress levels have dropped accordingly. My therpaist is thrilled. My credit card is fine. Everyone wins. Browse our <a href="/destinations">full destination list</a> for longer trips, but if you just need a quick escape, keep reading. More options on our <a href="/">main page</a>.</p>
 
 <h2>1. Branson, MO — Holiday Hills — $65/Night for 3 Nights</h2>

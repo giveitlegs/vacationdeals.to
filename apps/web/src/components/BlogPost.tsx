@@ -138,7 +138,7 @@ export function BlogPostRenderer({ post }: BlogPostPageProps) {
 
       {/* Hero */}
       <div
-        className={`mb-10 rounded-2xl px-8 py-12 text-white ${post.heroGradient}`}
+        className={`mb-10 rounded-2xl px-8 py-12 text-white bg-gradient-to-br ${post.heroGradient}`}
       >
         <span
           className={`mb-4 inline-block rounded-full px-3 py-1 text-xs font-semibold ${getCategoryColor(post.category)}`}
@@ -202,7 +202,7 @@ export function BlogPostRenderer({ post }: BlogPostPageProps) {
                 className="deal-card group block rounded-xl border border-gray-200 bg-white overflow-hidden transition-all hover:-translate-y-0.5"
               >
                 <div
-                  className={`h-32 ${related.heroGradient}`}
+                  className={`h-32 bg-gradient-to-br ${related.heroGradient}`}
                 />
                 <div className="p-5">
                   <span
