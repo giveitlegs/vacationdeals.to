@@ -3,7 +3,8 @@ import Link from "next/link";
 import { getDestinationsWithCounts, getDealStats } from "@/lib/queries";
 import { getCityIcon } from "@/lib/city-icons";
 
-export const revalidate = 3600; // Revalidate every hour
+export const dynamic = "force-dynamic";
+export const revalidate = 0; // Revalidate every hour
 
 const fallbackDestinations = [
   { name: "Orlando", state: "FL", deals: 47, gradient: "from-blue-400 to-cyan-300" },

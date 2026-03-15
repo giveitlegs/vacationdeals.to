@@ -12,7 +12,8 @@ async function getDB() {
     const { db } = await import("@vacationdeals/db");
     const schema = await import("@vacationdeals/db");
     return { db, schema };
-  } catch {
+  } catch (e) {
+    console.error("[queries] getDB failed:", e);
     return null;
   }
 }

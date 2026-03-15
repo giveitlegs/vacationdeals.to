@@ -3,7 +3,8 @@ import Link from "next/link";
 import { getPriceHistory } from "@/lib/price-history";
 import { RateRecapClient } from "./RateRecapClient";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "VacPack Rate Recap",

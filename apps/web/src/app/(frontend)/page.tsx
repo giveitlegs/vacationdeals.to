@@ -11,7 +11,8 @@ import {
 } from "@/lib/queries";
 import { getCityIcon } from "@/lib/city-icons";
 
-export const revalidate = 3600; // Revalidate every hour
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 // ---------------------------------------------------------------------------
 // Mock / fallback data

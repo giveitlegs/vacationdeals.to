@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getBrandsWithCounts, getDealStats } from "@/lib/queries";
 
-export const revalidate = 3600; // Revalidate every hour
+export const dynamic = "force-dynamic";
+export const revalidate = 0; // Revalidate every hour
 
 const fallbackBrands = [
   { name: "Westgate Resorts", slug: "westgate", type: "direct" as const, deals: 52, description: "One of the largest timeshare companies in the US with resorts across Florida, Tennessee, and more." },
