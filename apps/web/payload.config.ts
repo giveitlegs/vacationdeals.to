@@ -35,5 +35,5 @@ export default buildConfig({
   typescript: {
     outputFile: "./src/payload-types.ts",
   },
-  secret: process.env.PAYLOAD_SECRET || "vacationdeals-dev-secret-change-me",
+  secret: process.env.PAYLOAD_SECRET!,
 });

@@ -21,6 +21,17 @@ vpsssl.txt
 *.credentials
 *.secret
 
+# deployment scripts with credentials (NEVER commit)
+provision_vps.py
+provision_resume.py
+finalize_vps.py
+deploy_and_ssl.py
+activate_pipeline.py
+run_scrapers.py
+redeploy.py
+ssl_retry.py
+*.png
+
 # debug
 npm-debug.log*
 yarn-debug.log*
