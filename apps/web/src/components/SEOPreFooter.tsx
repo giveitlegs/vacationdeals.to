@@ -47,6 +47,12 @@ const brandLinks = [
   { slug: "staypromo", label: "StayPromo Vacation Deals" },
   { slug: "vacation-village", label: "Vacation Village Resorts Deals" },
   { slug: "spinnaker", label: "Spinnaker Resorts Deals" },
+  { slug: "departure-depot", label: "Departure Depot Vacation Deals" },
+  { slug: "vegas-timeshare", label: "Las Vegas Timeshare Deals" },
+  { slug: "premier-travel", label: "Premier Travel Resorts Deals" },
+  { slug: "discount-vacation", label: "Discount Vacation Hotel Deals" },
+  { slug: "legendary", label: "Legendary Vacation Club Deals" },
+  { slug: "festiva", label: "Festiva Resorts Deals" },
 ];
 
 const priceLinks = [

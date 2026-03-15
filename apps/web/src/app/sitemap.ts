@@ -29,6 +29,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "hyatt", "marriott", "capital-vacations", "bookvip", "getawaydealz",
     "vacationvip", "bestvacationdealz", "mrg", "westgate-events",
     "staypromo", "vacation-village", "spinnaker", "govip",
+    "departure-depot", "vegas-timeshare", "premier-travel",
+    "discount-vacation", "legendary", "festiva",
   ];
 
   const priceRanges = ["deals-under-100", "deals-under-200", "deals-under-300", "deals-under-500"];

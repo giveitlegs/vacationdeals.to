@@ -68,6 +68,12 @@ const brands = [
   { slug: "vacation-village", name: "Vacation Village Resorts", type: "direct", description: "Direct resort brand offering vacation deals from $49 in Orlando, Las Vegas, South Florida, and Williamsburg." },
   { slug: "spinnaker", name: "Spinnaker Resorts", type: "direct", description: "Hilton Head, Branson, Williamsburg, and Ormond Beach resort deals starting at $269 with entertainment credits." },
   { slug: "govip", name: "GoVIP", type: "broker", description: "Vacation deal broker (currently inactive — site under development)." },
+  { slug: "departure-depot", name: "Departure Depot", type: "broker", description: "Modern vacation deal broker with 150+ destinations worldwide, offering Resort Preview Getaways with deep discounts." },
+  { slug: "vegas-timeshare", name: "Las Vegas Timeshare", type: "broker", description: "Las Vegas-focused vacation deal broker with deals at Strip properties including SAHARA and Planet Hollywood." },
+  { slug: "premier-travel", name: "Premier Travel Resorts", type: "broker", description: "Florida-based vacation deal broker offering promotional packages in Orlando, Las Vegas, Costa Rica, and more." },
+  { slug: "discount-vacation", name: "Discount Vacation Hotels", type: "broker", description: "Villa Group promotional arm offering discounted all-inclusive deals at Mexico resort properties." },
+  { slug: "legendary", name: "Legendary Vacation Club", type: "direct", description: "Luxury vacation club tied to Hard Rock Hotels and Palace Resorts with all-inclusive deals in Mexico and Caribbean." },
+  { slug: "festiva", name: "Festiva Hospitality Group", type: "direct", description: "Vacation ownership with 21 resorts across unique US destinations including Asheville, Cape Cod, and Wisconsin Dells." },
 ];
 
 const priceRanges = [
