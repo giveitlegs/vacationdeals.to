@@ -9,6 +9,7 @@ export interface PricePoint {
   brandSlug: string;
   destinationSlug: string;
   durationNights: number;
+  dealSlug: string; // slug for linking to /deals/{dealSlug}
 }
 
 export interface BrandInfo {
@@ -17,16 +18,30 @@ export interface BrandInfo {
   color: string;
 }
 
-// Brand color map
+// Brand color map — covers ALL brands with distinct colors
 const BRAND_COLORS: Record<string, string> = {
-  westgate: "#2563EB",
-  bookvip: "#10B981",
-  getawaydealz: "#F59E0B",
-  mrg: "#EF4444",
-  wyndham: "#8B5CF6",
-  hgv: "#06B6D4",
-  marriott: "#EC4899",
-  "holiday-inn": "#84CC16",
+  westgate: "#2563EB",           // blue
+  bookvip: "#10B981",            // emerald
+  getawaydealz: "#F59E0B",      // amber
+  mrg: "#EF4444",                // red
+  wyndham: "#8B5CF6",            // violet
+  hgv: "#06B6D4",                // cyan
+  marriott: "#EC4899",           // pink
+  "holiday-inn": "#84CC16",      // lime
+  staypromo: "#F97316",          // orange
+  "vacation-village": "#14B8A6", // teal
+  spinnaker: "#A855F7",          // purple
+  "departure-depot": "#0EA5E9",  // sky
+  "las-vegas-timeshare": "#DC2626", // red-600
+  "premier-travel": "#059669",   // emerald-600
+  festiva: "#7C3AED",            // violet-600
+  "discount-vacation": "#D97706", // amber-600
+  "legendary-vc": "#BE185D",     // pink-700
+  "westgate-events": "#4338CA",  // indigo-700
+  hyatt: "#B45309",              // amber-700
+  bluegreen: "#047857",          // emerald-700
+  "capital-vacations": "#6D28D9", // purple-700
+  govip: "#64748B",              // slate
 };
 const DEFAULT_COLOR = "#6B7280";
 
@@ -82,6 +97,7 @@ export async function getPriceHistory(filters?: {
         brandSlug: schema.brands.slug,
         destinationSlug: schema.destinations.slug,
         durationNights: schema.deals.durationNights,
+        dealSlug: schema.deals.slug,
       })
       .from(schema.dealPriceHistory)
       .innerJoin(schema.deals, sql`${schema.dealPriceHistory.dealId} = ${schema.deals.id}`)
@@ -99,6 +115,8 @@ export async function getPriceHistory(filters?: {
         brandSlug: string;
         destinationSlug: string;
         durationNights: number;
+        dealSlug: string;
+        cheapestPrice: number;
       }>();
       for (const r of rows) {
         const dateStr = r.scrapedAt.toISOString().split("T")[0];
@@ -106,18 +124,26 @@ export async function getPriceHistory(filters?: {
         const destSlug = r.destinationSlug ?? "unknown";
         const dur = r.durationNights ?? 3;
         const key = `${slug}|${dateStr}|${destSlug}|${dur}`;
+        const price = Number(r.price);
         const existing = grouped.get(key);
         if (existing) {
-          existing.total += Number(r.price);
+          existing.total += price;
           existing.count += 1;
+          // Keep the slug of the cheapest deal in this group
+          if (price < existing.cheapestPrice) {
+            existing.cheapestPrice = price;
+            existing.dealSlug = r.dealSlug ?? "";
+          }
         } else {
           grouped.set(key, {
-            total: Number(r.price),
+            total: price,
             count: 1,
             brandName: r.brandName ?? "Unknown",
             brandSlug: slug,
             destinationSlug: destSlug,
             durationNights: dur,
+            dealSlug: r.dealSlug ?? "",
+            cheapestPrice: price,
           });
         }
       }
@@ -135,6 +161,7 @@ export async function getPriceHistory(filters?: {
           brandSlug: val.brandSlug,
           destinationSlug: val.destinationSlug,
           durationNights: val.durationNights,
+          dealSlug: val.dealSlug,
         });
         brandSet.set(val.brandSlug, val.brandName);
       }
@@ -166,6 +193,13 @@ function generateMockData(days: number): { points: PricePoint[]; brands: BrandIn
     { name: "Club Wyndham", slug: "wyndham", color: "#8B5CF6" },
     { name: "Hilton Grand Vacations", slug: "hgv", color: "#06B6D4" },
     { name: "Marriott Vacation Club", slug: "marriott", color: "#EC4899" },
+    { name: "GetawayDealz", slug: "getawaydealz", color: "#F59E0B" },
+    { name: "Monster Reservations Group", slug: "mrg", color: "#EF4444" },
+    { name: "Holiday Inn Club Vacations", slug: "holiday-inn", color: "#84CC16" },
+    { name: "StayPromo", slug: "staypromo", color: "#F97316" },
+    { name: "Departure Depot", slug: "departure-depot", color: "#0EA5E9" },
+    { name: "Spinnaker Resorts", slug: "spinnaker", color: "#A855F7" },
+    { name: "Bluegreen Vacations", slug: "bluegreen", color: "#047857" },
   ];
 
   const mockDestinations = ["orlando", "las-vegas", "cancun"];
@@ -183,6 +217,13 @@ function generateMockData(days: number): { points: PricePoint[]; brands: BrandIn
     wyndham: 119,
     hgv: 179,
     marriott: 229,
+    getawaydealz: 129,
+    mrg: 109,
+    "holiday-inn": 159,
+    staypromo: 89,
+    "departure-depot": 139,
+    spinnaker: 169,
+    bluegreen: 189,
   };
 
   const points: PricePoint[] = [];
@@ -214,6 +255,9 @@ function generateMockData(days: number): { points: PricePoint[]; brands: BrandIn
           const durationAdj = dur === 2 ? -20 : 0;
           const price = Math.max(79, Math.min(299, Math.round(base + variance + durationAdj)));
 
+          // Generate a realistic deal slug
+          const dealSlug = `${brand.slug}-${dest}-${dur + 1}-night-${price}`;
+
           points.push({
             date: dateStr,
             price,
@@ -221,6 +265,7 @@ function generateMockData(days: number): { points: PricePoint[]; brands: BrandIn
             brandSlug: brand.slug,
             destinationSlug: dest,
             durationNights: dur,
+            dealSlug,
           });
         }
       }

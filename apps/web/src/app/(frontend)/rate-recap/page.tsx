@@ -94,6 +94,22 @@ export default async function RateRecapPage() {
         <p className="text-lg text-gray-600">
           Track vacation deal prices on a daily basis in realtime!
         </p>
+        {/* Date range label */}
+        {points.length > 0 && (() => {
+          const sortedDates = [...new Set(points.map((p) => p.date))].sort();
+          const earliest = sortedDates[0];
+          const latest = sortedDates[sortedDates.length - 1];
+          const fmt = (iso: string) => {
+            const d = new Date(iso + "T00:00:00");
+            return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+          };
+          return (
+            <p className="mt-1 text-sm text-gray-500">
+              {isMock ? "Sample data" : "Tracking"}: {fmt(earliest)}
+              {earliest !== latest ? ` \u2013 ${fmt(latest)}` : ""}
+            </p>
+          );
+        })()}
       </div>
 
       {/* Mock data notice */}

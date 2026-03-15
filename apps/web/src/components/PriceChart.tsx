@@ -13,6 +13,7 @@ export interface PricePoint {
   brandSlug: string;
   destinationSlug: string;
   durationNights: number;
+  dealSlug: string;
 }
 
 export interface BrandInfo {
@@ -103,6 +104,7 @@ export function PriceChart({ data, brands }: PriceChartProps) {
     price: number;
     date: string;
     color: string;
+    dealSlug: string;
   } | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -231,6 +233,7 @@ export function PriceChart({ data, brands }: PriceChartProps) {
           price: closest.point.price,
           date: closest.point.date,
           color: closest.color,
+          dealSlug: closest.point.dealSlug,
         });
       } else {
         setTooltip(null);
@@ -240,6 +243,12 @@ export function PriceChart({ data, brands }: PriceChartProps) {
   );
 
   const handleMouseLeave = useCallback(() => setTooltip(null), []);
+
+  const handleClick = useCallback(() => {
+    if (tooltip?.dealSlug) {
+      window.location.href = `/deals/${tooltip.dealSlug}`;
+    }
+  }, [tooltip]);
 
   return (
     <div>
@@ -280,9 +289,10 @@ export function PriceChart({ data, brands }: PriceChartProps) {
           ref={svgRef}
           viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}
           className="w-full"
-          style={{ minWidth: 600 }}
+          style={{ minWidth: 600, cursor: tooltip ? "pointer" : "default" }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
         >
           {/* Grid lines */}
           {gridPrices.map((p) => (
@@ -362,60 +372,88 @@ export function PriceChart({ data, brands }: PriceChartProps) {
           })}
 
           {/* Tooltip */}
-          {tooltip && (
-            <g>
-              {/* Vertical line */}
-              <line
-                x1={tooltip.x}
-                y1={PADDING.top}
-                x2={tooltip.x}
-                y2={CHART_HEIGHT - PADDING.bottom}
-                stroke="#9CA3AF"
-                strokeWidth={1}
-                strokeDasharray="4 4"
-              />
-              {/* Highlight circle */}
-              <circle
-                cx={tooltip.x}
-                cy={tooltip.y}
-                r={6}
-                fill={tooltip.color}
-                stroke="white"
-                strokeWidth={2}
-              />
-              {/* Tooltip box */}
-              <rect
-                x={tooltip.x + (tooltip.x > CHART_WIDTH / 2 ? -170 : 12)}
-                y={tooltip.y - 40}
-                width={158}
-                height={56}
-                rx={8}
-                fill="white"
-                stroke="#E5E7EB"
-                strokeWidth={1}
-                filter="drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
-              />
-              <text
-                x={tooltip.x + (tooltip.x > CHART_WIDTH / 2 ? -90 : 91)}
-                y={tooltip.y - 20}
-                textAnchor="middle"
-                fill="#111827"
-                fontSize={13}
-                fontWeight="600"
-              >
-                {tooltip.brand}
-              </text>
-              <text
-                x={tooltip.x + (tooltip.x > CHART_WIDTH / 2 ? -90 : 91)}
-                y={tooltip.y}
-                textAnchor="middle"
-                fill="#6B7280"
-                fontSize={12}
-              >
-                ${tooltip.price} &middot; {formatDateFull(tooltip.date)}
-              </text>
-            </g>
-          )}
+          {tooltip && (() => {
+            const boxW = 180;
+            const boxH = tooltip.dealSlug ? 72 : 56;
+            const flipX = tooltip.x > CHART_WIDTH / 2;
+            const boxX = flipX ? tooltip.x - boxW - 12 : tooltip.x + 12;
+            const boxY = tooltip.y - 44;
+            const centerX = boxX + boxW / 2;
+            return (
+              <g>
+                {/* Vertical line */}
+                <line
+                  x1={tooltip.x}
+                  y1={PADDING.top}
+                  x2={tooltip.x}
+                  y2={CHART_HEIGHT - PADDING.bottom}
+                  stroke="#9CA3AF"
+                  strokeWidth={1}
+                  strokeDasharray="4 4"
+                />
+                {/* Outer glow circle */}
+                <circle
+                  cx={tooltip.x}
+                  cy={tooltip.y}
+                  r={10}
+                  fill={tooltip.color}
+                  opacity={0.2}
+                />
+                {/* Highlight circle */}
+                <circle
+                  cx={tooltip.x}
+                  cy={tooltip.y}
+                  r={6}
+                  fill={tooltip.color}
+                  stroke="white"
+                  strokeWidth={2}
+                />
+                {/* Tooltip box */}
+                <rect
+                  x={boxX}
+                  y={boxY}
+                  width={boxW}
+                  height={boxH}
+                  rx={8}
+                  fill="white"
+                  stroke="#E5E7EB"
+                  strokeWidth={1}
+                  filter="drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
+                />
+                <text
+                  x={centerX}
+                  y={boxY + 20}
+                  textAnchor="middle"
+                  fill="#111827"
+                  fontSize={13}
+                  fontWeight="600"
+                >
+                  {tooltip.brand}
+                </text>
+                <text
+                  x={centerX}
+                  y={boxY + 38}
+                  textAnchor="middle"
+                  fill="#6B7280"
+                  fontSize={12}
+                >
+                  ${tooltip.price} &middot; {formatDateFull(tooltip.date)}
+                </text>
+                {tooltip.dealSlug && (
+                  <text
+                    x={centerX}
+                    y={boxY + 56}
+                    textAnchor="middle"
+                    fill="#2563EB"
+                    fontSize={10}
+                    fontWeight="500"
+                  >
+                    {"Click to view this deal \u2192"}
+                  </text>
+                )}
+              </g>
+            );
+          })()}
         </svg>
       </div>
 
