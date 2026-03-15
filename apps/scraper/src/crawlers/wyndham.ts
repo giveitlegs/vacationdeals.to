@@ -365,7 +365,7 @@ export async function runWyndhamCrawler() {
           };
 
           try {
-            await storeDeal(deal, "wyndham");
+            await storeDeal(deal, "wyndham", html);
             log.info(`Stored destination deal: ${deal.title} ($${deal.price})`);
           } catch (err) {
             log.error(`Failed to store deal ${deal.title}: ${err}`);
@@ -416,7 +416,7 @@ export async function runWyndhamCrawler() {
             };
 
             try {
-              await storeDeal(deal, "wyndham");
+              await storeDeal(deal, "wyndham", html);
               log.info(`Stored Your Choice deal ($${deal.price})`);
             } catch (err) {
               log.error(`Failed to store Your Choice deal: ${err}`);
@@ -513,7 +513,7 @@ export async function runWyndhamCrawler() {
               brandSlug: "wyndham",
             };
 
-            storeDeal(deal, "wyndham")
+            storeDeal(deal, "wyndham", html)
               .then(() => log.info(`Stored special: ${deal.title} ($${deal.price})`))
               .catch((err) => log.error(`Failed to store special: ${err}`));
           }

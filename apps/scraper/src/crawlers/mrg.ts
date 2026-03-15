@@ -632,7 +632,7 @@ export async function runMrgCrawler() {
         const deal = extractDestinationDeal($, url, slug, log);
         if (deal) {
           log.info(`Storing destination deal: ${deal.title} @ $${deal.price}`);
-          await storeDeal(deal, "mrg");
+          await storeDeal(deal, "mrg", $.html());
         }
         return;
       }
@@ -642,7 +642,7 @@ export async function runMrgCrawler() {
         const deal = extractBundleDeal($, url, log);
         if (deal) {
           log.info(`Storing bundle deal: ${deal.title} @ $${deal.price}`);
-          await storeDeal(deal, "mrg");
+          await storeDeal(deal, "mrg", $.html());
         }
         return;
       }

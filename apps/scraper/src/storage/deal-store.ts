@@ -1,6 +1,6 @@
 import { db } from "@vacationdeals/db";
 import { deals, destinations, brands, sources, dealPriceHistory } from "@vacationdeals/db";
-import { eq, and } from "drizzle-orm";
+import { eq, and, lt } from "drizzle-orm";
 import type { ScrapedDeal } from "@vacationdeals/shared";
 
 function slugify(text: string): string {
@@ -10,7 +10,139 @@ function slugify(text: string): string {
     .replace(/^-|-$/g, "");
 }
 
-export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string) {
+// ---------------------------------------------------------------------------
+// Expired / inactive deal detection
+// ---------------------------------------------------------------------------
+
+/**
+ * Keywords that strongly suggest a deal is expired or tied to a past event.
+ * Holiday keywords only trigger expiration when combined with a past year or
+ * when the current date is clearly outside the event window.
+ */
+const EXPIRED_STATUS_KEYWORDS = [
+  "expired", "sold out", "no longer available", "offer has ended",
+  "deal has ended", "promotion ended", "sale ended", "not available",
+  "out of stock", "unavailable", "closed", "past deadline",
+];
+
+const HOLIDAY_KEYWORDS = [
+  "cyber monday", "black friday", "memorial day", "labor day",
+  "presidents day", "4th of july", "fourth of july",
+  "christmas", "new year", "valentine", "easter",
+];
+
+const PAST_SEASON_PATTERNS = [
+  /spring\s+break\s+202[0-5]/i,
+  /summer\s+202[0-5]/i,
+  /fall\s+202[0-5]/i,
+  /winter\s+202[0-5]/i,
+  /spring\s+202[0-5]/i,
+];
+
+/**
+ * Regex patterns that capture explicit expiration dates from deal text.
+ * Group 1 should be a parseable date string.
+ */
+const EXPIRED_DATE_PATTERNS = [
+  /(?:ends?|expires?|valid\s+(?:through|until|thru)|deadline)\s*:?\s*(\w+\s+\d{1,2},?\s+\d{4})/i,
+  /(?:ends?|expires?|valid\s+(?:through|until|thru))\s*:?\s*(\d{1,2}\/\d{1,2}\/\d{4})/i,
+];
+
+/**
+ * Determine whether a scraped deal is likely expired.
+ *
+ * Conservative approach: only returns true when there is strong evidence
+ * the deal has ended. When in doubt, keeps the deal active.
+ *
+ * @param deal     The scraped deal metadata
+ * @param pageText Optional full page HTML or body text for deeper analysis
+ * @returns        `{ expired: boolean; expiresAt?: Date }` — if an expiration
+ *                 date is detected in the future, expired will be false but
+ *                 expiresAt will be set.
+ */
+function detectExpiration(
+  deal: ScrapedDeal,
+  pageText?: string,
+): { expired: boolean; expiresAt?: Date } {
+  const now = new Date();
+  const title = deal.title.toLowerCase();
+  const desc = (deal.description || "").toLowerCase();
+  const url = deal.url.toLowerCase();
+  const fullText = `${title} ${desc} ${url} ${(pageText || "").toLowerCase()}`;
+
+  // 1. Explicit "expired / sold out" language — high confidence
+  for (const keyword of EXPIRED_STATUS_KEYWORDS) {
+    if (fullText.includes(keyword)) {
+      return { expired: true };
+    }
+  }
+
+  // 2. Past-season patterns (e.g. "Summer 2025" when current year is 2026)
+  for (const pattern of PAST_SEASON_PATTERNS) {
+    if (pattern.test(fullText)) {
+      return { expired: true };
+    }
+  }
+
+  // 3. Holiday keywords + past-year evidence
+  for (const keyword of HOLIDAY_KEYWORDS) {
+    if (fullText.includes(keyword)) {
+      // If the text also mentions a year that has already passed, mark expired
+      if (/20(?:2[0-5])/.test(fullText)) {
+        return { expired: true };
+      }
+      // For Black Friday / Cyber Monday, if we're well outside Nov/Dec
+      // window, the deal is almost certainly stale
+      if (keyword === "cyber monday" || keyword === "black friday") {
+        const month = now.getMonth(); // 0-indexed
+        if (month >= 1 && month <= 9) {
+          // Feb through Oct — these deals are expired
+          return { expired: true };
+        }
+      }
+    }
+  }
+
+  // 4. Explicit expiration dates in the page text
+  for (const pattern of EXPIRED_DATE_PATTERNS) {
+    const match = fullText.match(pattern);
+    if (match) {
+      try {
+        const expDate = new Date(match[1]);
+        if (!isNaN(expDate.getTime())) {
+          if (expDate < now) {
+            return { expired: true, expiresAt: expDate };
+          }
+          // Future expiration — deal is still active but we know when it ends
+          return { expired: false, expiresAt: expDate };
+        }
+      } catch {
+        // Unparseable date, skip
+      }
+    }
+  }
+
+  return { expired: false };
+}
+
+/**
+ * Mark all deals whose `expiresAt` timestamp has passed as inactive.
+ * Intended to be called once per scraper run (or on a schedule).
+ */
+export async function deactivateExpiredDeals(): Promise<number> {
+  const now = new Date();
+  const result = await db
+    .update(deals)
+    .set({ isActive: false, updatedAt: now })
+    .where(and(eq(deals.isActive, true), lt(deals.expiresAt, now)));
+  const count = (result as any).rowCount ?? (result as any).count ?? 0;
+  if (count > 0) {
+    console.log(`[expired] Deactivated ${count} deal(s) past their expiresAt date`);
+  }
+  return count;
+}
+
+export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pageText?: string) {
   // Find or match brand
   const brand = await db.query.brands.findFirst({
     where: eq(brands.slug, scrapedDeal.brandSlug),
@@ -43,6 +175,12 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string) {
     `${scrapedDeal.brandSlug}-${scrapedDeal.city}-${scrapedDeal.durationNights}-night-${scrapedDeal.price}`,
   );
 
+  // --- Expiration detection ---
+  const { expired, expiresAt } = detectExpiration(scrapedDeal, pageText);
+  if (expired) {
+    console.log(`[expired] Detected expired deal: ${scrapedDeal.title}`);
+  }
+
   // Upsert deal
   const existingDeal = await db.query.deals.findFirst({
     where: eq(deals.url, scrapedDeal.url),
@@ -56,6 +194,11 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string) {
         price: String(scrapedDeal.price),
       });
     }
+
+    // If the new scrape detects expiration, mark inactive.
+    // If a previously-expired deal is scraped again WITHOUT expiration
+    // signals, re-activate it (it may have been renewed).
+    const isActive = !expired;
 
     await db
       .update(deals)
@@ -76,7 +219,8 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string) {
         presentationMinutes: scrapedDeal.presentationMinutes || null,
         travelWindow: scrapedDeal.travelWindow || null,
         savingsPercent: scrapedDeal.savingsPercent || null,
-        isActive: true,
+        isActive,
+        expiresAt: expiresAt ?? existingDeal.expiresAt,
         scrapedAt: new Date(),
         updatedAt: new Date(),
       })
@@ -113,14 +257,18 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string) {
       presentationMinutes: scrapedDeal.presentationMinutes || null,
       travelWindow: scrapedDeal.travelWindow || null,
       savingsPercent: scrapedDeal.savingsPercent || null,
+      isActive: !expired,
+      expiresAt: expiresAt ?? null,
     })
     .returning();
 
-  // Record initial price
-  await db.insert(dealPriceHistory).values({
-    dealId: newDeal.id,
-    price: String(scrapedDeal.price),
-  });
+  // Record initial price (only for active deals to keep chart clean)
+  if (!expired) {
+    await db.insert(dealPriceHistory).values({
+      dealId: newDeal.id,
+      price: String(scrapedDeal.price),
+    });
+  }
 
   return newDeal.id;
 }

@@ -234,7 +234,7 @@ export async function runWestgateCrawler() {
               brandSlug: "westgate",
             };
             try {
-              await storeDeal(deal, "westgate");
+              await storeDeal(deal, "westgate", html);
               log.info(`Stored special: ${deal.title} ($${deal.price})`);
             } catch (err) {
               log.error(`Failed to store special ${deal.title}: ${err}`);
@@ -266,7 +266,7 @@ export async function runWestgateCrawler() {
               };
 
               try {
-                await storeDeal(deal, "westgate");
+                await storeDeal(deal, "westgate", html);
                 log.info(
                   `Stored special: ${deal.title} - ${city} ($${deal.price})`,
                 );
@@ -319,7 +319,7 @@ export async function runWestgateCrawler() {
           };
 
           try {
-            await storeDeal(deal, "westgate");
+            await storeDeal(deal, "westgate", html);
             log.info(
               `Stored resort: ${deal.title} ($${deal.price}/3 nights)`,
             );

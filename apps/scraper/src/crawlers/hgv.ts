@@ -322,7 +322,7 @@ export async function runHgvCrawler() {
           };
 
           try {
-            await storeDeal(deal, "hgv");
+            await storeDeal(deal, "hgv", html);
             log.info(`Stored GA4 deal: ${deal.title} ($${deal.price})`);
           } catch (err) {
             log.error(`Failed to store GA4 deal ${deal.title}: ${err}`);
@@ -373,7 +373,7 @@ export async function runHgvCrawler() {
           };
 
           try {
-            await storeDeal(deal, "hgv");
+            await storeDeal(deal, "hgv", html);
             log.info(`Stored CTA deal: ${deal.title} ($${deal.price})`);
           } catch (err) {
             log.error(`Failed to store CTA deal ${deal.title}: ${err}`);
@@ -416,7 +416,7 @@ export async function runHgvCrawler() {
         };
 
         try {
-          await storeDeal(deal, "hgv");
+          await storeDeal(deal, "hgv", html);
           log.info(`Stored nav deal: ${deal.title} ($${deal.price})`);
         } catch (err) {
           log.error(`Failed to store nav deal ${deal.title}: ${err}`);
@@ -487,7 +487,7 @@ export async function runHgvCrawler() {
               brandSlug: "hgv",
             };
 
-            storeDeal(deal, "hgv")
+            storeDeal(deal, "hgv", html)
               .then(() => log.info(`Stored DOM deal: ${deal.title} ($${deal.price})`))
               .catch((err) => log.error(`Failed to store DOM deal: ${err}`));
           } catch (err) {
@@ -537,7 +537,7 @@ export async function runHgvCrawler() {
               brandSlug: "hgv",
             };
 
-            storeDeal(deal, "hgv")
+            storeDeal(deal, "hgv", html)
               .then(() => log.info(`Stored teaser deal: ${deal.title} ($${deal.price})`))
               .catch((err) => log.error(`Failed to store teaser deal: ${err}`));
           } catch (err) {

@@ -589,6 +589,7 @@ export interface DealStats {
   cheapestPrice: number;
   destinationCount: number;
   brandCount: number;
+  expiredDeals: number;
 }
 
 export async function getDealStats(): Promise<DealStats | null> {
@@ -600,6 +601,7 @@ export async function getDealStats(): Promise<DealStats | null> {
       "drizzle-orm"
     );
 
+    // Active deal stats
     const rows = await db
       .select({
         totalDeals: count(schema.deals.id),
@@ -611,6 +613,12 @@ export async function getDealStats(): Promise<DealStats | null> {
       .from(schema.deals)
       .where(eq(schema.deals.isActive, true));
 
+    // Expired/inactive deal count
+    const expiredRows = await db
+      .select({ expiredDeals: count(schema.deals.id) })
+      .from(schema.deals)
+      .where(eq(schema.deals.isActive, false));
+
     const row = rows[0];
     if (!row || row.totalDeals === 0) return null;
 
@@ -620,6 +628,7 @@ export async function getDealStats(): Promise<DealStats | null> {
       cheapestPrice: Number(row.cheapestPrice ?? 0),
       destinationCount: row.destinationCount,
       brandCount: row.brandCount,
+      expiredDeals: expiredRows[0]?.expiredDeals ?? 0,
     };
   } catch (e) {
     console.error("[queries] getDealStats failed:", e);

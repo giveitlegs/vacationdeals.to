@@ -247,7 +247,7 @@ export async function runBookvipCrawler() {
               brandSlug: "bookvip",
             };
 
-            storeDeal(deal, "bookvip")
+            storeDeal(deal, "bookvip", html)
               .then(() => log.info(`Stored deal: ${deal.title} ($${deal.price})`))
               .catch((err) => log.error(`Failed to store deal ${deal.title}: ${err}`));
           } catch (err) {
@@ -282,7 +282,7 @@ export async function runBookvipCrawler() {
           };
 
           try {
-            await storeDeal(deal, "bookvip");
+            await storeDeal(deal, "bookvip", html);
             log.info(`Stored productObj deal: ${deal.title} ($${deal.price})`);
           } catch (err) {
             log.error(`Failed to store productObj deal ${deal.title}: ${err}`);
@@ -343,7 +343,7 @@ export async function runBookvipCrawler() {
           brandSlug: "bookvip",
         };
 
-        storeDeal(deal, "bookvip")
+        storeDeal(deal, "bookvip", html)
           .then(() => log.info(`Stored destination deal: ${deal.title} ($${deal.price})`))
           .catch((err) => log.error(`Failed to store destination deal: ${err}`));
       });

@@ -17,6 +17,7 @@ import { runPremierTravelCrawler } from "./crawlers/premier-travel";
 import { runDiscountVacationCrawler } from "./crawlers/discount-vacation";
 import { runLegendaryCrawler } from "./crawlers/legendary";
 import { runFestivaCrawler } from "./crawlers/festiva";
+import { deactivateExpiredDeals } from "./storage/deal-store";
 
 const crawlers: Record<string, () => Promise<void>> = {
   westgate: runWestgateCrawler,
@@ -43,6 +44,14 @@ const crawlers: Record<string, () => Promise<void>> = {
 async function main() {
   const sourceArg = process.argv.find((arg) => arg.startsWith("--source="));
   const sourceKey = sourceArg?.split("=")[1];
+
+  // Deactivate deals whose expiresAt date has passed before scraping
+  console.log("Deactivating deals past their expiration date...");
+  try {
+    await deactivateExpiredDeals();
+  } catch (err) {
+    console.error("Failed to deactivate expired deals:", err);
+  }
 
   if (sourceKey) {
     const crawler = crawlers[sourceKey];
