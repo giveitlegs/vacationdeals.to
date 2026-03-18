@@ -196,6 +196,9 @@ export function PriceChart({ data, brands }: PriceChartProps) {
   // Handle hover on SVG
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<SVGSVGElement>) => {
+      // Clear any pending hide timeout when mouse moves back to chart
+      if (hideTimeout.current) clearTimeout(hideTimeout.current);
+      tooltipHovered.current = false;
       const svg = svgRef.current;
       if (!svg) return;
       const rect = svg.getBoundingClientRect();
@@ -242,7 +245,27 @@ export function PriceChart({ data, brands }: PriceChartProps) {
     [brandLines, brands, xScale, yScale],
   );
 
-  const handleMouseLeave = useCallback(() => setTooltip(null), []);
+  const hideTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tooltipHovered = useRef(false);
+
+  const handleMouseLeave = useCallback(() => {
+    // Delay hiding to give user time to move cursor to the tooltip
+    hideTimeout.current = setTimeout(() => {
+      if (!tooltipHovered.current) {
+        setTooltip(null);
+      }
+    }, 300);
+  }, []);
+
+  const handleTooltipEnter = useCallback(() => {
+    tooltipHovered.current = true;
+    if (hideTimeout.current) clearTimeout(hideTimeout.current);
+  }, []);
+
+  const handleTooltipLeave = useCallback(() => {
+    tooltipHovered.current = false;
+    setTooltip(null);
+  }, []);
 
   const handleClick = useCallback(() => {
     if (tooltip?.dealSlug) {
@@ -371,90 +394,72 @@ export function PriceChart({ data, brands }: PriceChartProps) {
             );
           })}
 
-          {/* Tooltip */}
-          {tooltip && (() => {
-            const boxW = 180;
-            const boxH = tooltip.dealSlug ? 72 : 56;
-            const flipX = tooltip.x > CHART_WIDTH / 2;
-            const boxX = flipX ? tooltip.x - boxW - 12 : tooltip.x + 12;
-            const boxY = tooltip.y - 44;
-            const centerX = boxX + boxW / 2;
-            return (
-              <g>
-                {/* Vertical line */}
-                <line
-                  x1={tooltip.x}
-                  y1={PADDING.top}
-                  x2={tooltip.x}
-                  y2={CHART_HEIGHT - PADDING.bottom}
-                  stroke="#9CA3AF"
-                  strokeWidth={1}
-                  strokeDasharray="4 4"
-                />
-                {/* Outer glow circle */}
-                <circle
-                  cx={tooltip.x}
-                  cy={tooltip.y}
-                  r={10}
-                  fill={tooltip.color}
-                  opacity={0.2}
-                />
-                {/* Highlight circle */}
-                <circle
-                  cx={tooltip.x}
-                  cy={tooltip.y}
-                  r={6}
-                  fill={tooltip.color}
-                  stroke="white"
-                  strokeWidth={2}
-                />
-                {/* Tooltip box */}
-                <rect
-                  x={boxX}
-                  y={boxY}
-                  width={boxW}
-                  height={boxH}
-                  rx={8}
-                  fill="white"
-                  stroke="#E5E7EB"
-                  strokeWidth={1}
-                  filter="drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
-                />
-                <text
-                  x={centerX}
-                  y={boxY + 20}
-                  textAnchor="middle"
-                  fill="#111827"
-                  fontSize={13}
-                  fontWeight="600"
-                >
-                  {tooltip.brand}
-                </text>
-                <text
-                  x={centerX}
-                  y={boxY + 38}
-                  textAnchor="middle"
-                  fill="#6B7280"
-                  fontSize={12}
-                >
-                  ${tooltip.price} &middot; {formatDateFull(tooltip.date)}
-                </text>
-                {tooltip.dealSlug && (
-                  <text
-                    x={centerX}
-                    y={boxY + 56}
-                    textAnchor="middle"
-                    fill="#2563EB"
-                    fontSize={10}
-                    fontWeight="500"
-                  >
-                    {"Click to view this deal \u2192"}
-                  </text>
-                )}
-              </g>
-            );
-          })()}
+          {/* SVG crosshair + highlight dot (tooltip box is HTML overlay below) */}
+          {tooltip && (
+            <g>
+              <line
+                x1={tooltip.x}
+                y1={PADDING.top}
+                x2={tooltip.x}
+                y2={CHART_HEIGHT - PADDING.bottom}
+                stroke="#9CA3AF"
+                strokeWidth={1}
+                strokeDasharray="4 4"
+              />
+              <circle
+                cx={tooltip.x}
+                cy={tooltip.y}
+                r={10}
+                fill={tooltip.color}
+                opacity={0.2}
+              />
+              <circle
+                cx={tooltip.x}
+                cy={tooltip.y}
+                r={6}
+                fill={tooltip.color}
+                stroke="white"
+                strokeWidth={2}
+              />
+            </g>
+          )}
         </svg>
+
+        {/* HTML tooltip overlay — hoverable and clickable */}
+        {tooltip && svgRef.current && (() => {
+          const rect = svgRef.current.getBoundingClientRect();
+          const scaleX = rect.width / CHART_WIDTH;
+          const scaleY = rect.height / CHART_HEIGHT;
+          const pixelX = tooltip.x * scaleX;
+          const pixelY = tooltip.y * scaleY;
+          const flipX = pixelX > rect.width / 2;
+
+          return (
+            <a
+              href={tooltip.dealSlug ? `/deals/${tooltip.dealSlug}` : undefined}
+              onMouseEnter={handleTooltipEnter}
+              onMouseLeave={handleTooltipLeave}
+              className="absolute z-10 rounded-lg border border-gray-200 bg-white px-4 py-3 shadow-lg transition-opacity"
+              style={{
+                left: flipX ? pixelX - 200 : pixelX + 16,
+                top: Math.max(8, pixelY - 40),
+                minWidth: 180,
+                pointerEvents: "auto",
+                textDecoration: "none",
+              }}
+            >
+              <p className="text-sm font-semibold text-gray-900">{tooltip.brand}</p>
+              <p className="text-xs text-gray-500">
+                ${tooltip.price} &middot; {formatDateFull(tooltip.date)}
+              </p>
+              {tooltip.dealSlug && (
+                <p className="mt-1 text-xs font-medium text-blue-600">
+                  Click to view this deal &rarr;
+                </p>
+              )}
+            </a>
+          );
+        })()}
       </div>
 
       {/* Empty state */}
