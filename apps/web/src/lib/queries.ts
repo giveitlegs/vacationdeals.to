@@ -487,6 +487,8 @@ export interface DealDetail {
   city: string | null;
   state: string | null;
   destinationSlug: string | null;
+  latitude: string | null;
+  longitude: string | null;
   isActive: boolean;
   updatedAt: string | null;
 }
@@ -525,6 +527,8 @@ export async function getDealBySlug(
         city: schema.destinations.city,
         state: schema.destinations.state,
         destinationSlug: schema.destinations.slug,
+        latitude: schema.destinations.latitude,
+        longitude: schema.destinations.longitude,
       })
       .from(schema.deals)
       .leftJoin(schema.brands, sql`${schema.deals.brandId} = ${schema.brands.id}`)
@@ -562,6 +566,8 @@ export async function getDealBySlug(
       city: r.city,
       state: r.state,
       destinationSlug: r.destinationSlug,
+      latitude: r.latitude ?? null,
+      longitude: r.longitude ?? null,
     };
   } catch (e) {
     console.error("[queries] getDealBySlug failed:", e);

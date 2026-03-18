@@ -268,12 +268,95 @@ export default async function DealPage({ params }: DealPageProps) {
     };
   }
 
+  // Hotel + Offer MTE (Multi-Type Entity) Schema
+  // Combines LodgingBusiness schema with Offer pricing so Google understands
+  // these are resort deals with bookable rates. Automatically updates when
+  // scrapers detect rate or offer changes. Similar to Westgate Resorts' approach.
+  let hotelMteJsonLd: Record<string, unknown> | null = null;
+
+  if (deal.resortName && deal.isActive) {
+    const hotelType = isWestgateEvent
+      ? ["Hotel", "LodgingBusiness", "EventVenue"]
+      : ["Hotel", "LodgingBusiness"];
+
+    const now = new Date();
+    const validThrough = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+
+    hotelMteJsonLd = {
+      "@context": "https://schema.org",
+      "@type": hotelType,
+      name: deal.resortName,
+      description: `Vacation deal at ${deal.resortName} in ${[deal.city, deal.state].filter(Boolean).join(", ")}. ${deal.durationNights}-night stay from $${deal.price}.`,
+      url: `https://vacationdeals.to/deals/${slug}`,
+      address: {
+        "@type": "PostalAddress",
+        ...(deal.city ? { addressLocality: deal.city } : {}),
+        ...(deal.state ? { addressRegion: deal.state } : {}),
+        addressCountry: "US",
+      },
+      ...(deal.latitude && deal.longitude
+        ? {
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: Number(deal.latitude),
+              longitude: Number(deal.longitude),
+            },
+          }
+        : {}),
+      checkinTime: "16:00",
+      checkoutTime: "11:00",
+      starRating: {
+        "@type": "Rating",
+        ratingValue: "4",
+      },
+      makesOffer: {
+        "@type": "Offer",
+        name: deal.title,
+        price: String(deal.price),
+        priceCurrency: "USD",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: String(deal.price),
+          priceCurrency: "USD",
+          unitText: `${deal.durationNights} nights`,
+        },
+        availability: "https://schema.org/InStock",
+        url: deal.url,
+        validFrom: now.toISOString().split("T")[0],
+        validThrough: validThrough.toISOString().split("T")[0],
+        seller: deal.brandName
+          ? { "@type": "Organization", name: deal.brandName }
+          : undefined,
+      },
+      ...(deal.brandName
+        ? { brand: { "@type": "Brand", name: deal.brandName } }
+        : {}),
+      ...(deal.inclusions.length > 0
+        ? {
+            amenityFeature: deal.inclusions.map((item) => ({
+              "@type": "LocationFeatureSpecification",
+              name: item,
+              value: true,
+            })),
+          }
+        : {}),
+    };
+  }
+
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* Hotel + Offer MTE schema for resort deals */}
+      {hotelMteJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelMteJsonLd) }}
+        />
+      )}
 
       {/* Event schema for Westgate Events deals */}
       {eventJsonLd && (
