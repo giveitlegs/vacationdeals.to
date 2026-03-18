@@ -146,6 +146,15 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
       />
 
+      {/* Breadcrumbs */}
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1.5">
+          <li><Link href="/" className="hover:text-blue-600">Vacation Deals</Link></li>
+          <li><span className="mx-1">/</span></li>
+          <li className="font-medium text-gray-900">Blog</li>
+        </ol>
+      </nav>
+
       {/* Hero */}
       <div className="mb-10 rounded-2xl bg-gradient-to-br from-blue-50 via-white to-emerald-50 border border-gray-100 px-8 py-12 text-center">
         <h1 className="mb-3 text-3xl font-bold text-gray-900 sm:text-4xl">

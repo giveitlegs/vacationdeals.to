@@ -161,6 +161,13 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
+      {/* Breadcrumbs */}
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1.5">
+          <li className="font-medium text-gray-900">Vacation Deals</li>
+        </ol>
+      </nav>
+
       {/* Hero Section */}
       <section className="mb-16 pt-8 text-center">
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
