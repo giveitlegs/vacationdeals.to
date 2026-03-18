@@ -4,6 +4,8 @@ import { destinationPosts } from "../../../apps/web/src/lib/blog-posts/destinati
 import { brandPosts } from "../../../apps/web/src/lib/blog-posts/brands";
 import { interestPosts } from "../../../apps/web/src/lib/blog-posts/interests";
 import { segmentPosts } from "../../../apps/web/src/lib/blog-posts/segments";
+import { itineraryPosts } from "../../../apps/web/src/lib/blog-posts/itineraries";
+import { bestofPosts } from "../../../apps/web/src/lib/blog-posts/bestof";
 
 interface BlogPost {
   slug: string;
@@ -32,6 +34,8 @@ async function seedBlog() {
     ...brandPosts,
     ...interestPosts,
     ...segmentPosts,
+    ...itineraryPosts,
+    ...bestofPosts,
   ];
 
   console.log(`Found ${allPosts.length} blog posts to seed.`);
