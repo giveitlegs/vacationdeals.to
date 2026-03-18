@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -8,8 +9,47 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPolicyPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Vacation Deals",
+        item: "https://vacationdeals.to",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Privacy Policy",
+        item: "https://vacationdeals.to/privacy",
+      },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-4xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      {/* Breadcrumb */}
+      <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-1.5">
+          <li>
+            <Link href="/" className="hover:text-blue-600">
+              Vacation Deals
+            </Link>
+          </li>
+          <li>
+            <span className="mx-1">/</span>
+          </li>
+          <li className="font-medium text-gray-900">Privacy Policy</li>
+        </ol>
+      </nav>
+
       <h1 className="mb-2 text-3xl font-bold text-gray-900">Privacy Policy</h1>
       <p className="mb-8 text-sm text-gray-500">Last Updated: March 2026</p>
 

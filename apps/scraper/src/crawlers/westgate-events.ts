@@ -260,6 +260,18 @@ function buildSEOTitle(
   }
 }
 
+// ── Title sanitization ───────────────────────────────────────────────────────
+
+function sanitizeDealTitle(title: string): string {
+  return title
+    .replace(/\r?\n/g, ' ')        // Remove newlines
+    .replace(/\t/g, ' ')            // Remove tabs
+    .replace(/\d{3,5}\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+(?:Road|Rd|Boulevard|Blvd|Drive|Dr|Street|St|Avenue|Ave|Way|Lane|Ln|Circle|Ct|Court|Pike|Highway|Hwy)\b/gi, '') // Remove street addresses
+    .replace(/\b\d{5}(?:-\d{4})?\b/g, '') // Remove zip codes
+    .replace(/\s{2,}/g, ' ')        // Collapse multiple spaces
+    .trim();
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function parsePrice(text: string): number | null {
@@ -562,7 +574,7 @@ export async function runWestgateEventsCrawler() {
         log.info(`Event type: ${eventType}${sportsSubType ? ` (${sportsSubType})` : ""}, venue: ${venueName || "none"}`);
 
         // ── 6. Build SEO-optimized title ─────────────────────────────────
-        const seoTitle = buildSEOTitle(eventName, eventType, location.city, venueName, sportsSubType);
+        const seoTitle = sanitizeDealTitle(buildSEOTitle(eventName, eventType, location.city, venueName, sportsSubType));
 
         // ── 7. Duration from page content ────────────────────────────────
         let nights: number | null = null;

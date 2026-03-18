@@ -45,6 +45,16 @@ export default async function RateRecapPage() {
     }
   }
 
+  // WebPage schema
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "VacPack Rate Recap",
+    description: "Track vacation deal prices daily across 25+ resort brands.",
+    url: "https://vacationdeals.to/rate-recap",
+    dateModified: new Date().toISOString(),
+  };
+
   // BreadcrumbList schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -68,6 +78,10 @@ export default async function RateRecapPage() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

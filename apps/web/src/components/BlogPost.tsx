@@ -83,10 +83,17 @@ export async function BlogPostRenderer({ post }: BlogPostPageProps) {
       "@type": "Person",
       name: post.author,
     },
+    image: "https://vacationdeals.to/og/default.jpg",
     publisher: {
       "@type": "Organization",
       name: "VacationDeals.to",
       url: "https://vacationdeals.to",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://vacationdeals.to/og/default.jpg",
+        width: 1200,
+        height: 630,
+      },
     },
     mainEntityOfPage: {
       "@type": "WebPage",

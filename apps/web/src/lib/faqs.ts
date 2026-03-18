@@ -808,6 +808,58 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
         "BookVIP often offers lower prices than booking directly with the resort because they purchase packages in bulk. However, booking direct sometimes gives you more flexibility on dates and room types. BookVIP's strength is their curated all-inclusive international deals, where the savings can be $1,000+ compared to booking the same resort through an OTA.",
     },
   ],
+  "westgate-events": [
+    {
+      question: "What are Westgate Events vacation packages?",
+      answer:
+        "Westgate Events packages bundle concert, show, or sporting event tickets with a 2-3 night stay at a Westgate resort. You get event tickets plus resort accommodations at a deeply discounted price — typically 50-70% less than buying tickets and hotel separately.",
+    },
+    {
+      question: "What types of events does Westgate Events offer?",
+      answer:
+        "Westgate Events offers packages for concerts (major artists like Metallica, Eagles, and country stars), NASCAR races, dinner shows (like Dolly Parton's Stampede), comedy shows, sports events (NFL, NBA, NHL), and theme park attractions like Busch Gardens and SeaWorld.",
+    },
+    {
+      question: "How much do Westgate Events packages cost?",
+      answer:
+        "Westgate Events packages range from $199 to $699 per couple depending on the event, seat quality, and resort. Concert packages at venues like The Sphere in Las Vegas are on the higher end, while dinner show packages in Branson or Gatlinburg start around $199-$299.",
+    },
+    {
+      question: "What's included in a Westgate Events package?",
+      answer:
+        "Each package typically includes 2-3 nights of resort accommodations at a Westgate property, event tickets for two, free parking at the resort, and resort amenities like pools and waterparks. Some packages also include welcome parties, transportation to the venue, or VIP concierge services.",
+    },
+    {
+      question: "Do I have to attend a timeshare presentation with Westgate Events deals?",
+      answer:
+        "Yes, like all Westgate vacation packages, Events packages require attendance at a 120-minute timeshare sales presentation during your stay. You must be aged 25-70, employed with a combined household income of $50,000+, and married or cohabitating couples must attend together. There is no obligation to purchase anything.",
+    },
+    {
+      question: "Which destinations have Westgate Events packages?",
+      answer:
+        "Westgate Events packages are available in Orlando FL, Las Vegas NV, Gatlinburg TN, Branson MO, Myrtle Beach SC, and Williamsburg VA. Each destination has its own Westgate resort property and nearby entertainment venues.",
+    },
+    {
+      question: "Can I choose my event seats with a Westgate Events package?",
+      answer:
+        "Seat assignments vary by package. Some packages specify the seating section (e.g., lower bowl, premium reserved), while others are general admission. The event listing page typically describes the seating level included. Upgrades may be available at additional cost.",
+    },
+    {
+      question: "What happens if a Westgate Events show is cancelled?",
+      answer:
+        "If an event is cancelled by the artist or venue, Westgate Events typically offers a full refund or the option to rebook for a rescheduled date. Resort accommodations may still be honored at the discounted rate even if the event is cancelled. Check the specific package terms when booking.",
+    },
+    {
+      question: "How far in advance should I book a Westgate Events package?",
+      answer:
+        "Popular events — especially major concerts and NASCAR races — sell out quickly. Booking 2-4 months in advance is recommended for the best selection. Some high-demand events like Las Vegas Sphere concerts may sell out within days of release. Westgate Events regularly adds new events as they are announced.",
+    },
+    {
+      question: "Are Westgate Events packages a good deal compared to buying separately?",
+      answer:
+        "Yes, Westgate Events packages typically save 40-60% compared to purchasing event tickets and hotel rooms separately. For example, a NASCAR weekend package with 2 race tickets and 3 nights at a Westgate resort might cost $399, versus $800+ for tickets alone plus $150+/night for a comparable hotel.",
+    },
+  ],
 };
 
 // ---------------------------------------------------------------------------
