@@ -823,6 +823,88 @@ export async function getBlogPostCount(): Promise<number> {
 }
 
 // ---------------------------------------------------------------------------
+// Get top cheapest active deals for the ticker banner
+// ---------------------------------------------------------------------------
+
+export interface TickerDeal {
+  slug: string;
+  price: number;
+  brandName: string;
+  durationNights: number;
+  durationDays: number;
+  perk: string | null;
+}
+
+export async function getTickerDeals(limit: number = 20): Promise<TickerDeal[] | null> {
+  try {
+    const conn = await getDB();
+    if (!conn) return null;
+    const { db, schema } = conn;
+    const { eq, asc, sql } = await import("drizzle-orm");
+
+    const rows = await db
+      .select({
+        slug: schema.deals.slug,
+        price: schema.deals.price,
+        brandName: schema.brands.name,
+        durationNights: schema.deals.durationNights,
+        durationDays: schema.deals.durationDays,
+        inclusions: schema.deals.inclusions,
+      })
+      .from(schema.deals)
+      .leftJoin(schema.brands, sql`${schema.deals.brandId} = ${schema.brands.id}`)
+      .where(eq(schema.deals.isActive, true))
+      .orderBy(asc(schema.deals.price))
+      .limit(limit);
+
+    if (rows.length === 0) return null;
+
+    return rows.map((r) => {
+      const inclusions = parseInclusions(r.inclusions);
+      const perk = inclusions.length > 0
+        ? inclusions[0].length > 20
+          ? inclusions[0].slice(0, 20) + "\u2026"
+          : inclusions[0]
+        : null;
+
+      // Abbreviate long brand names
+      let brandName = r.brandName ?? "Unknown";
+      const abbreviations: Record<string, string> = {
+        "Westgate Reservations": "Westgate",
+        "Hilton Grand Vacations": "HGV",
+        "Monster Reservations Group": "MRG",
+        "Club Wyndham": "Wyndham",
+        "Marriott Vacation Club": "Marriott",
+        "Holiday Inn Club Vacations": "Holiday Inn",
+        "Bluegreen Vacations": "Bluegreen",
+        "Vacation Village Resorts": "Vacation Village",
+        "Spinnaker Resorts": "Spinnaker",
+        "Capital Vacations": "Capital Vac",
+        "Hyatt Vacation Club": "Hyatt",
+        "Festiva Hospitality Group": "Festiva",
+        "Premier Travel Resorts": "Premier",
+        "Las Vegas Timeshare": "Vegas TS",
+        "Discount Vacation Hotels": "Discount Vac",
+        "Legendary Vacation Club": "Legendary",
+      };
+      brandName = abbreviations[brandName] ?? brandName;
+
+      return {
+        slug: r.slug,
+        price: Number(r.price),
+        brandName,
+        durationNights: r.durationNights,
+        durationDays: r.durationDays,
+        perk,
+      };
+    });
+  } catch (e) {
+    console.error("[queries] getTickerDeals failed:", e);
+    return null;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Helper: safely parse JSON strings from DB
 // ---------------------------------------------------------------------------
 

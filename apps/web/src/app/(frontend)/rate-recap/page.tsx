@@ -30,18 +30,18 @@ export default async function RateRecapPage() {
   weekAgo.setDate(weekAgo.getDate() - 7);
   const weekStr = weekAgo.toISOString().split("T")[0];
   const recentPoints = points.filter((p) => p.date >= weekStr);
-  const brandAvgs = new Map<string, { total: number; count: number; name: string }>();
+  const brandAvgs = new Map<string, { total: number; count: number; name: string; slug: string }>();
   for (const p of recentPoints) {
-    const entry = brandAvgs.get(p.brandSlug) ?? { total: 0, count: 0, name: p.brandName };
+    const entry = brandAvgs.get(p.brandSlug) ?? { total: 0, count: 0, name: p.brandName, slug: p.brandSlug };
     entry.total += p.price;
     entry.count += 1;
     brandAvgs.set(p.brandSlug, entry);
   }
-  let cheapestWeekBrand: { name: string; avg: number } | null = null;
+  let cheapestWeekBrand: { name: string; slug: string; avg: number } | null = null;
   for (const [, val] of brandAvgs) {
     const avg = Math.round(val.total / val.count);
     if (!cheapestWeekBrand || avg < cheapestWeekBrand.avg) {
-      cheapestWeekBrand = { name: val.name, avg };
+      cheapestWeekBrand = { name: val.name, slug: val.slug, avg };
     }
   }
 
@@ -144,7 +144,13 @@ export default async function RateRecapPage() {
                 <span className="font-semibold text-blue-600">
                   Cheapest today:
                 </span>{" "}
-                {cheapestToday.brandName} at ${cheapestToday.price}
+                <Link href={`/${cheapestToday.brandSlug}`} className="font-semibold text-blue-600 underline underline-offset-2 hover:text-blue-800">
+                  {cheapestToday.brandName}
+                </Link>{" "}
+                at{" "}
+                <Link href={`/deals/${cheapestToday.dealSlug}`} className="font-semibold text-emerald-600 underline underline-offset-2 hover:text-emerald-800">
+                  ${cheapestToday.price}
+                </Link>
               </p>
             )}
             {cheapestWeekBrand && (
@@ -152,7 +158,10 @@ export default async function RateRecapPage() {
                 <span className="font-semibold text-blue-600">
                   Best value this week:
                 </span>{" "}
-                {cheapestWeekBrand.name} averaging ${cheapestWeekBrand.avg}/night
+                <Link href={`/${cheapestWeekBrand.slug}`} className="font-semibold text-blue-600 underline underline-offset-2 hover:text-blue-800">
+                  {cheapestWeekBrand.name}
+                </Link>{" "}
+                averaging ${cheapestWeekBrand.avg}/night
               </p>
             )}
           </div>

@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* ── Deal Ticker ── */
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.deal-ticker {
+  animation: ticker-scroll 60s linear infinite;
+  will-change: transform;
+}
+.deal-ticker:hover {
+  animation-play-state: paused;
+}
+
 /* ── Vacation-themed hover effects ── */
 
 /* Nav link animated underline (grows from center) */
