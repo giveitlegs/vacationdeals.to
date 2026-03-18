@@ -10,6 +10,7 @@ import {
   getBrandsWithCounts,
 } from "@/lib/queries";
 import { getCityIcon } from "@/lib/city-icons";
+import { FloatingIcon } from "@/components/FloatingIcon";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -170,9 +171,12 @@ export default async function HomePage() {
 
       {/* Hero Section */}
       <section className="mb-16 pt-8 text-center">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-          The Best Vacation Deals from Top Resorts
-        </h1>
+        <div className="relative inline-block">
+          <FloatingIcon />
+          <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+            The Best Vacation Deals from Top Resorts
+          </h1>
+        </div>
         <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
           Vacation deals from top timeshare resorts — all in one place. Resort
           deals starting at ${cheapest} for 3-night stays at premium properties.

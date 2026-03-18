@@ -33,6 +33,29 @@
   animation: corner-peel 8s ease-in-out infinite;
 }
 
+/* ── Floating vacation icon arc ── */
+
+@keyframes icon-arc-fly {
+  0%   { left: -5%; top: 0; opacity: 0; transform: scale(0.5); }
+  10%  { opacity: 0.6; transform: scale(1); }
+  25%  { top: -20px; }
+  50%  { top: -32px; }
+  75%  { top: -20px; }
+  90%  { opacity: 0.6; transform: scale(1); }
+  100% { left: 100%; top: 0; opacity: 0; transform: scale(0.5); }
+}
+
+.floating-icon {
+  animation: icon-arc-fly 4s ease-in-out forwards;
+  pointer-events: none;
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+}
+
 /* ── Vacation-themed hover effects ── */
 
 /* Nav link animated underline (grows from center) */
