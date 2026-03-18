@@ -14,6 +14,25 @@
   animation-play-state: paused;
 }
 
+/* Luggage tag subtle float */
+@keyframes tag-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1.5px); }
+}
+.ticker-tag {
+  animation: tag-float 3s ease-in-out infinite;
+}
+
+/* Corner peel — appears every 8 seconds, subtle */
+@keyframes corner-peel {
+  0%, 85%, 100% { opacity: 0; transform: scale(1) rotate(0deg); }
+  90% { opacity: 0.6; transform: scale(1.3) rotate(-5deg); }
+  95% { opacity: 0.3; transform: scale(1.1) rotate(-2deg); }
+}
+.ticker-peel {
+  animation: corner-peel 8s ease-in-out infinite;
+}
+
 /* ── Vacation-themed hover effects ── */
 
 /* Nav link animated underline (grows from center) */

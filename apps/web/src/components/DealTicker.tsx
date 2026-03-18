@@ -88,11 +88,13 @@ export async function DealTicker() {
   // Duplicate for seamless loop
   return (
     <div className="sticky top-0 z-50 overflow-hidden bg-gray-900 border-b border-gray-800" style={{ height: "36px" }}>
-      {/* Luggage tag label */}
+      {/* Luggage tag label — subtle float + corner peel */}
       <div className="absolute left-0 top-0 z-10 flex h-[36px] items-center">
-        <span className="relative ml-2 inline-flex items-center gap-1 rounded-r-md border border-l-0 border-amber-500/40 bg-amber-500 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gray-900 shadow-md" style={{ clipPath: "polygon(8px 0%, 100% 0%, 100% 100%, 8px 100%, 0% 50%)" }}>
+        <span className="ticker-tag relative ml-2 inline-flex items-center gap-1 rounded-r-md border border-l-0 border-amber-500/40 bg-amber-500 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gray-900 shadow-md" style={{ clipPath: "polygon(8px 0%, 100% 0%, 100% 100%, 8px 100%, 0% 50%)" }}>
           <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" className="shrink-0 opacity-70"><circle cx="2" cy="5" r="1.5" fill="none" stroke="currentColor" strokeWidth="1"/><path d="M3.5 2 L9 2 Q10 2 10 3 L10 7 Q10 8 9 8 L3.5 8 L3.5 2Z" fillOpacity="0.3"/></svg>
           VacPack Rate Ticker
+          {/* Corner peel effect */}
+          <span className="ticker-peel absolute -right-[1px] -top-[1px] h-2 w-2 rounded-bl-sm bg-gray-900 opacity-0" />
         </span>
       </div>
       <div className="deal-ticker inline-flex items-center pl-40" style={{ height: "36px" }}>
