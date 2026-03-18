@@ -6,7 +6,7 @@ async function seed() {
 
   // ── Brands ──────────────────────────────────────────
   await db.insert(brands).values([
-    { name: "Westgate Resorts", slug: "westgate", type: "direct", website: "https://westgatereservations.com" },
+    { name: "Westgate Reservations", slug: "westgate", type: "direct", website: "https://westgatereservations.com" },
     { name: "Hilton Grand Vacations", slug: "hgv", type: "direct", website: "https://hiltongrandvacations.com" },
     { name: "Bluegreen Vacations", slug: "bluegreen", type: "direct", website: "https://bluegreenvacations.com" },
     { name: "Club Wyndham", slug: "wyndham", type: "direct", website: "https://clubwyndham.wyndhamdestinations.com" },

@@ -103,7 +103,12 @@ function detectExpiration(
     }
   }
 
-  // 4. JSON/structured data expiration fields (e.g. Westgate's offer_ends)
+  // 4. JSON/structured data expiration fields
+  // IMPORTANT: Only check against the deal's own URL, NOT the full page text.
+  // Full page HTML often contains offer_ends dates from OTHER deals on the same
+  // page, causing false positives (e.g., Westgate's APP_DATA has dates for all
+  // specials, not just the one being stored).
+  const dealSpecificText = `${title} ${desc} ${url}`;
   const jsonDatePatterns = [
     /["']offer_ends["']\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/i,
     /["']end_date["']\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/i,
@@ -113,7 +118,8 @@ function detectExpiration(
     /["']sale_ends["']\s*:\s*["'](\d{4}-\d{2}-\d{2})["']/i,
   ];
   for (const pattern of jsonDatePatterns) {
-    const match = fullText.match(pattern);
+    // Only match in deal-specific text, not full page HTML
+    const match = dealSpecificText.match(pattern);
     if (match) {
       try {
         const expDate = new Date(match[1] + "T23:59:59");
