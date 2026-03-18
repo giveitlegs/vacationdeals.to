@@ -38,12 +38,16 @@ import { destinationPosts } from "./blog-posts/destinations";
 import { brandPosts } from "./blog-posts/brands";
 import { interestPosts } from "./blog-posts/interests";
 import { segmentPosts } from "./blog-posts/segments";
+import { itineraryPosts } from "./blog-posts/itineraries";
+import { bestofPosts } from "./blog-posts/bestof";
 
 const _allPosts: BlogPost[] = [
   ...destinationPosts,
   ...brandPosts,
   ...interestPosts,
   ...segmentPosts,
+  ...itineraryPosts,
+  ...bestofPosts,
 ].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
 // ---------------------------------------------------------------------------
