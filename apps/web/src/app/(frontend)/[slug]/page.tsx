@@ -299,6 +299,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
             : `Vacation deals in ${name}, ${state}. Resort deals from top brands.`,
           url: `${baseUrl}/${slug}`,
           type: "website",
+          images: [{ url: `${baseUrl}/og/${slug}.jpg`, width: 1200, height: 630 }],
         },
       };
     }
