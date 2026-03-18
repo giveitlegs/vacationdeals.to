@@ -14,7 +14,7 @@ const suggestions = [
   { label: "Key West, FL", slug: "key-west", type: "destination" },
   { label: "Williamsburg, VA", slug: "williamsburg", type: "destination" },
   { label: "Hilton Head, SC", slug: "hilton-head", type: "destination" },
-  { label: "Westgate Resorts", slug: "westgate", type: "brand" },
+  { label: "Westgate Reservations", slug: "westgate", type: "brand" },
   { label: "Hilton Grand Vacations", slug: "hgv", type: "brand" },
   { label: "Marriott Vacation Club", slug: "marriott", type: "brand" },
   { label: "Club Wyndham", slug: "wyndham", type: "brand" },

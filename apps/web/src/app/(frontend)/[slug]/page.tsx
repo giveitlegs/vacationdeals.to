@@ -52,7 +52,7 @@ const destinations = [
 ];
 
 const brands = [
-  { slug: "westgate", name: "Westgate Resorts", type: "direct", description: "One of the largest privately held timeshare companies in the US with resorts in top vacation destinations." },
+  { slug: "westgate", name: "Westgate Reservations", type: "direct", description: "One of the largest privately held timeshare companies in the US with resorts in top vacation destinations." },
   { slug: "hgv", name: "Hilton Grand Vacations", type: "direct", description: "Hilton's vacation ownership brand offering premium resort experiences with Hilton Honors integration." },
   { slug: "bluegreen", name: "Bluegreen Vacations", type: "direct", description: "Flexible vacation ownership with resorts in popular drive-to destinations across the US." },
   { slug: "wyndham", name: "Club Wyndham", type: "direct", description: "Part of Travel + Leisure Co., offering vacation ownership at 230+ resorts worldwide." },
@@ -98,10 +98,10 @@ const durations = [
 // ---------------------------------------------------------------------------
 
 const mockDeals: Deal[] = [
-  { id: 1, title: "Westgate Lakes Resort & Spa", resortName: "Westgate Lakes", price: 99, originalPrice: 449, durationNights: 3, durationDays: 4, city: "Orlando", state: "FL", brandName: "Westgate Resorts", brandSlug: "westgate", savingsPercent: 78, inclusions: ["Free Parking", "Waterpark Access", "2 Adults + 2 Kids"], slug: "westgate-orlando-3-night-99" },
+  { id: 1, title: "Westgate Lakes Resort & Spa", resortName: "Westgate Lakes", price: 99, originalPrice: 449, durationNights: 3, durationDays: 4, city: "Orlando", state: "FL", brandName: "Westgate Reservations", brandSlug: "westgate", savingsPercent: 78, inclusions: ["Free Parking", "Waterpark Access", "2 Adults + 2 Kids"], slug: "westgate-orlando-3-night-99" },
   { id: 2, title: "Hilton Grand Vacations Orlando", resortName: "Hilton Grand Vacations", price: 149, originalPrice: 599, durationNights: 3, durationDays: 4, city: "Orlando", state: "FL", brandName: "Hilton Grand Vacations", brandSlug: "hgv", savingsPercent: 75, inclusions: ["50,000 Hilton Honors Points", "Resort Fee Included"], slug: "hgv-orlando-3-night-149" },
   { id: 3, title: "Cancun All-Inclusive 5-Night Getaway", resortName: "Grand Oasis Cancun", price: 399, originalPrice: 1499, durationNights: 5, durationDays: 6, city: "Cancun", state: "QR", brandName: "BookVIP", brandSlug: "bookvip", savingsPercent: 73, inclusions: ["All Meals & Drinks", "Airport Transfers", "Resort Credits"], slug: "bookvip-cancun-5-night-399" },
-  { id: 4, title: "Westgate Smoky Mountain Resort", resortName: "Westgate Smoky Mountains", price: 99, originalPrice: 399, durationNights: 3, durationDays: 4, city: "Gatlinburg", state: "TN", brandName: "Westgate Resorts", brandSlug: "westgate", savingsPercent: 75, inclusions: ["Free Parking", "Wild Bear Falls Waterpark", "Fireplace Suite"], slug: "westgate-gatlinburg-3-night-99" },
+  { id: 4, title: "Westgate Smoky Mountain Resort", resortName: "Westgate Smoky Mountains", price: 99, originalPrice: 399, durationNights: 3, durationDays: 4, city: "Gatlinburg", state: "TN", brandName: "Westgate Reservations", brandSlug: "westgate", savingsPercent: 75, inclusions: ["Free Parking", "Wild Bear Falls Waterpark", "Fireplace Suite"], slug: "westgate-gatlinburg-3-night-99" },
   { id: 5, title: "Club Wyndham Las Vegas", resortName: "Club Wyndham Grand Desert", price: 99, originalPrice: 449, durationNights: 2, durationDays: 3, city: "Las Vegas", state: "NV", brandName: "Club Wyndham", brandSlug: "wyndham", savingsPercent: 78, inclusions: ["$200 Virtual Mastercard", "60,000 Wyndham Points"], slug: "wyndham-vegas-2-night-99" },
   { id: 6, title: "Marriott Vacation Club Myrtle Beach", resortName: "Marriott OceanWatch", price: 299, originalPrice: 899, durationNights: 3, durationDays: 4, city: "Myrtle Beach", state: "SC", brandName: "Marriott Vacation Club", brandSlug: "marriott", savingsPercent: 67, inclusions: ["20,000 Bonvoy Points", "Ocean View Room", "Daily Breakfast"], slug: "marriott-myrtle-beach-3-night-299" },
 ];
@@ -284,7 +284,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
       return {
         title: dealCount > 0
-          ? `${name} Vacation Deals from $${cheapest} (${dealCount} Deals)`
+          ? `${name} Vacation Deals from $${cheapest} (${dealCount} Deal${dealCount !== 1 ? "s" : ""})`
           : `${name} Vacation Deals`,
         description: dealCount > 0
           ? `${dealCount} vacation deals in ${name}, ${state} from $${cheapest}. Compare resort deals from top brands. Book premium resort stays.`.slice(0, 160)
@@ -292,7 +292,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
         alternates: { canonical: `${baseUrl}/${slug}` },
         openGraph: {
           title: dealCount > 0
-            ? `${name} Vacation Deals from $${cheapest} (${dealCount} Deals)`
+            ? `${name} Vacation Deals from $${cheapest} (${dealCount} Deal${dealCount !== 1 ? "s" : ""})`
             : `${name} Vacation Deals`,
           description: dealCount > 0
             ? `${dealCount} vacation deals in ${name}, ${state} from $${cheapest}. Compare resort deals from top brands.`

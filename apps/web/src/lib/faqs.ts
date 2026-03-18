@@ -546,9 +546,9 @@ export const DESTINATION_FAQS: Record<string, FAQ[]> = {
 export const BRAND_FAQS: Record<string, FAQ[]> = {
   westgate: [
     {
-      question: "What is Westgate Resorts?",
+      question: "What is Westgate Reservations?",
       answer:
-        "Westgate Resorts is one of the largest privately held timeshare companies in the United States, founded by David Siegel. They own and operate over 28 resorts across popular vacation destinations including Orlando, Las Vegas, Gatlinburg, Myrtle Beach, Branson, Park City, and Cocoa Beach.",
+        "Westgate Reservations is one of the largest privately held timeshare companies in the United States, founded by David Siegel. They own and operate over 28 resorts across popular vacation destinations including Orlando, Las Vegas, Gatlinburg, Myrtle Beach, Branson, Park City, and Cocoa Beach.",
     },
     {
       question: "How much do Westgate vacation deals cost?",
@@ -563,7 +563,7 @@ export const BRAND_FAQS: Record<string, FAQ[]> = {
     {
       question: "Are Westgate vacation deals legitimate?",
       answer:
-        "Yes, Westgate Resorts is a well-established company with over 50 years in the hospitality industry. They operate real resorts at real addresses, and vacation deals are a legitimate marketing tool used by the timeshare industry. You do need to attend a sales presentation, but there is no obligation to purchase anything.",
+        "Yes, Westgate Reservations is a well-established company with over 50 years in the hospitality industry. They operate real resorts at real addresses, and vacation deals are a legitimate marketing tool used by the timeshare industry. You do need to attend a sales presentation, but there is no obligation to purchase anything.",
     },
     {
       question: "What happens at a Westgate timeshare presentation?",

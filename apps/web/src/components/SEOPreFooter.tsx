@@ -32,7 +32,7 @@ const destinationLinks = [
 ];
 
 const brandLinks = [
-  { slug: "westgate", label: "Westgate Resorts Vacation Deals" },
+  { slug: "westgate", label: "Westgate Reservations Vacation Deals" },
   { slug: "hgv", label: "Hilton Grand Vacations Deals" },
   { slug: "marriott", label: "Marriott Vacation Club Deals" },
   { slug: "wyndham", label: "Club Wyndham Vacation Deals" },

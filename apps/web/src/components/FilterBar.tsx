@@ -17,7 +17,7 @@ const destinations = [
 ];
 
 const brands = [
-  "Westgate Resorts",
+  "Westgate Reservations",
   "Hilton Grand Vacations",
   "Marriott Vacation Club",
   "Club Wyndham",

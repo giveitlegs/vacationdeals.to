@@ -119,6 +119,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     description:
       "Expert tips, destination guides, and insider knowledge for getting the best vacation deals.",
     url: "https://vacationdeals.to/blog",
+    dateModified: new Date().toISOString(),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: allPosts.length,

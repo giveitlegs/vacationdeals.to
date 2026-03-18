@@ -189,7 +189,7 @@ export async function getPriceHistory(filters?: {
 
 function generateMockData(days: number): { points: PricePoint[]; brands: BrandInfo[] } {
   const mockBrands: BrandInfo[] = [
-    { name: "Westgate Resorts", slug: "westgate", color: "#2563EB" },
+    { name: "Westgate Reservations", slug: "westgate", color: "#2563EB" },
     { name: "BookVIP", slug: "bookvip", color: "#10B981" },
     { name: "Club Wyndham", slug: "wyndham", color: "#8B5CF6" },
     { name: "Hilton Grand Vacations", slug: "hgv", color: "#06B6D4" },

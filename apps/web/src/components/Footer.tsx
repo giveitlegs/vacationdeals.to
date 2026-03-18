@@ -109,7 +109,7 @@ export function Footer() {
                   href="/westgate"
                   className="hover:text-gray-900"
                 >
-                  Westgate Resorts
+                  Westgate Reservations
                 </Link>
               </li>
               <li>

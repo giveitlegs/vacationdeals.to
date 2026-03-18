@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0; // Revalidate every hour
 
 const fallbackBrands = [
-  { name: "Westgate Resorts", slug: "westgate", type: "direct" as const, deals: 52, description: "One of the largest timeshare companies in the US with resorts across Florida, Tennessee, and more." },
+  { name: "Westgate Reservations", slug: "westgate", type: "direct" as const, deals: 52, description: "One of the largest timeshare companies in the US with resorts across Florida, Tennessee, and more." },
   { name: "Hilton Grand Vacations", slug: "hgv", type: "direct" as const, deals: 38, description: "Premium vacation ownership by Hilton with properties in Orlando, Las Vegas, Hawaii, and beyond." },
   { name: "Marriott Vacation Club", slug: "marriott", type: "direct" as const, deals: 41, description: "Luxury vacation ownership by Marriott International with world-class resorts." },
   { name: "Club Wyndham", slug: "wyndham", type: "direct" as const, deals: 35, description: "Flexible vacation ownership with access to resorts nationwide through Wyndham Destinations." },

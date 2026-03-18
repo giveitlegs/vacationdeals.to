@@ -49,6 +49,7 @@ export default async function RateRecapPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    dateModified: new Date().toISOString(),
     itemListElement: [
       {
         "@type": "ListItem",

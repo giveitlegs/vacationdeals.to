@@ -26,6 +26,7 @@ export default function AboutPage() {
     url: "https://vacationdeals.to",
     description:
       "Independent comparison site for timeshare vacation packages from top resort brands.",
+    dateModified: new Date().toISOString(),
     sameAs: [],
   };
 
@@ -86,7 +87,7 @@ export default function AboutPage() {
               VacationDeals.to is a free comparison site that helps travelers
               find the best vacation package deals from timeshare resort brands
               and third-party brokers. We aggregate publicly available offers
-              from companies like Westgate Resorts, Hilton Grand Vacations,
+              from companies like Westgate Reservations, Hilton Grand Vacations,
               Marriott Vacation Club, Club Wyndham, BookVIP, and many more —
               all in one easy-to-browse interface.
             </p>
