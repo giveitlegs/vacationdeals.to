@@ -56,6 +56,14 @@ import { runCapitalVacationsCrawler } from "./crawlers/capital-vacations";
 import { runBluegreenCrawler } from "./crawlers/bluegreen";
 import { runWestgateEventsCrawler } from "./crawlers/westgate-events";
 import { runGovipCrawler } from "./crawlers/govip";
+import { runElCidCrawler } from "./crawlers/el-cid";
+import { runPuebloBtonitoCrawler } from "./crawlers/pueblo-bonito";
+import { runDiviCrawler } from "./crawlers/divi";
+import { runBahiaPrincipeCrawler } from "./crawlers/bahia-principe";
+import { runTaferCrawler } from "./crawlers/tafer";
+import { runVillaGroupCrawler } from "./crawlers/villa-group";
+import { runSheratonVcCrawler } from "./crawlers/sheraton-vc";
+import { runWestinVcCrawler } from "./crawlers/westin-vc";
 
 // ── Wave definitions ────────────────────────────────────────────────────────
 
@@ -82,6 +90,14 @@ const CRAWLERS: Record<string, () => Promise<void>> = {
   bluegreen: runBluegreenCrawler,
   "westgate-events": runWestgateEventsCrawler,
   govip: runGovipCrawler,
+  "el-cid": runElCidCrawler,
+  "pueblo-bonito": runPuebloBtonitoCrawler,
+  divi: runDiviCrawler,
+  "bahia-principe": runBahiaPrincipeCrawler,
+  tafer: runTaferCrawler,
+  "villa-group": runVillaGroupCrawler,
+  "sheraton-vc": runSheratonVcCrawler,
+  "westin-vc": runWestinVcCrawler,
 };
 
 const WAVES: Record<number, string[]> = {
@@ -89,7 +105,7 @@ const WAVES: Record<number, string[]> = {
   2: ["mrg", "staypromo", "wyndham", "hgv"],
   3: ["marriott", "holiday-inn", "spinnaker", "vacation-village"],
   4: ["departure-depot", "vegas-timeshare", "premier-travel", "discount-vacation", "legendary", "festiva"],
-  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip"],
+  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc"],
 };
 
 // ── Runner ──────────────────────────────────────────────────────────────────

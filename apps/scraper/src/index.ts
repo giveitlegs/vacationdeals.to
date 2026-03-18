@@ -20,6 +20,14 @@ import { runFestivaCrawler } from "./crawlers/festiva";
 import { runHyattCrawler } from "./crawlers/hyatt";
 import { runCapitalVacationsCrawler } from "./crawlers/capital-vacations";
 import { runBluegreenCrawler } from "./crawlers/bluegreen";
+import { runElCidCrawler } from "./crawlers/el-cid";
+import { runPuebloBtonitoCrawler } from "./crawlers/pueblo-bonito";
+import { runDiviCrawler } from "./crawlers/divi";
+import { runBahiaPrincipeCrawler } from "./crawlers/bahia-principe";
+import { runTaferCrawler } from "./crawlers/tafer";
+import { runVillaGroupCrawler } from "./crawlers/villa-group";
+import { runSheratonVcCrawler } from "./crawlers/sheraton-vc";
+import { runWestinVcCrawler } from "./crawlers/westin-vc";
 import { deactivateExpiredDeals } from "./storage/deal-store";
 
 const crawlers: Record<string, () => Promise<void>> = {
@@ -45,6 +53,14 @@ const crawlers: Record<string, () => Promise<void>> = {
   hyatt: runHyattCrawler,
   "capital-vacations": runCapitalVacationsCrawler,
   bluegreen: runBluegreenCrawler,
+  "el-cid": runElCidCrawler,
+  "pueblo-bonito": runPuebloBtonitoCrawler,
+  divi: runDiviCrawler,
+  "bahia-principe": runBahiaPrincipeCrawler,
+  tafer: runTaferCrawler,
+  "villa-group": runVillaGroupCrawler,
+  "sheraton-vc": runSheratonVcCrawler,
+  "westin-vc": runWestinVcCrawler,
 };
 
 async function main() {

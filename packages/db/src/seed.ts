@@ -31,6 +31,14 @@ async function seed() {
     { name: "Discount Vacation Hotels", slug: "discount-vacation", type: "broker", website: "https://discountvacationhotels.com" },
     { name: "Legendary Vacation Club", slug: "legendary", type: "direct", website: "https://legendaryvacationclub.com" },
     { name: "Festiva Hospitality Group", slug: "festiva", type: "direct", website: "https://festiva.com" },
+    { name: "El Cid Vacations Club", slug: "el-cid", type: "direct", website: "https://elcidvacationsclub.com" },
+    { name: "Pueblo Bonito Resorts", slug: "pueblo-bonito", type: "direct", website: "https://pueblobonito.com" },
+    { name: "Divi Resorts", slug: "divi", type: "direct", website: "https://diviresorts.com" },
+    { name: "Bahia Principe Privilege Club", slug: "bahia-principe", type: "direct", website: "https://bpprivilegeclub.com" },
+    { name: "TAFER Hotels & Resorts", slug: "tafer", type: "direct", website: "https://taferresorts.com" },
+    { name: "Villa Group Resorts", slug: "villa-group", type: "direct", website: "https://villagroupresorts.com" },
+    { name: "Sheraton Vacation Club", slug: "sheraton-vc", type: "direct", website: "https://sheratonvacationclub.marriott.com" },
+    { name: "Westin Vacation Club", slug: "westin-vc", type: "direct", website: "https://westinvacationclub.marriott.com" },
   ]).onConflictDoNothing();
 
   // ── Destinations ────────────────────────────────────
@@ -82,6 +90,24 @@ async function seed() {
     { city: "Nassau", state: null, country: "BS", slug: "nassau", region: "Caribbean" },
     { city: "Costa Rica", state: null, country: "CR", slug: "costa-rica", region: "Central America" },
     { city: "Miami", state: "FL", country: "US", slug: "miami", region: "Southeast" },
+    { city: "Mazatlan", state: "Sinaloa", country: "MX", slug: "mazatlan", region: "Mexico" },
+    { city: "Cozumel", state: "Quintana Roo", country: "MX", slug: "cozumel", region: "Mexico" },
+    { city: "San Miguel de Allende", state: "Guanajuato", country: "MX", slug: "san-miguel-de-allende", region: "Mexico" },
+    { city: "Oranjestad", state: null, country: "Aruba", slug: "oranjestad-aruba", region: "Caribbean" },
+    { city: "Christ Church", state: null, country: "Barbados", slug: "christ-church-barbados", region: "Caribbean" },
+    { city: "Kralendijk", state: null, country: "Bonaire", slug: "kralendijk-bonaire", region: "Caribbean" },
+    { city: "Christiansted", state: null, country: "USVI", slug: "christiansted-st-croix", region: "Caribbean" },
+    { city: "Philipsburg", state: null, country: "St Maarten", slug: "philipsburg-st-maarten", region: "Caribbean" },
+    { city: "La Romana", state: null, country: "DO", slug: "la-romana", region: "Caribbean" },
+    { city: "Runaway Bay", state: null, country: "JM", slug: "runaway-bay", region: "Caribbean" },
+    { city: "Loreto", state: "BCS", country: "MX", slug: "loreto", region: "Mexico" },
+    { city: "Scottsdale", state: "AZ", country: "US", slug: "scottsdale", region: "West" },
+    { city: "Palm Desert", state: "CA", country: "US", slug: "palm-desert", region: "West" },
+    { city: "Avon", state: "CO", country: "US", slug: "avon", region: "West" },
+    { city: "Steamboat Springs", state: "CO", country: "US", slug: "steamboat-springs", region: "West" },
+    { city: "Princeville", state: "HI", country: "US", slug: "princeville", region: "West" },
+    { city: "Maui", state: "HI", country: "US", slug: "maui", region: "West" },
+    { city: "Kapaa", state: "HI", country: "US", slug: "kapaa", region: "West" },
   ]).onConflictDoNothing();
 
   // ── Sources ─────────────────────────────────────────
@@ -109,6 +135,14 @@ async function seed() {
     { name: "Discount Vacation Hotels", baseUrl: "https://discountvacationhotels.com", scraperKey: "discount-vacation" },
     { name: "Legendary Vacation Club", baseUrl: "https://legendaryvacationclub.com", scraperKey: "legendary" },
     { name: "Festiva Hospitality Group", baseUrl: "https://festiva.com", scraperKey: "festiva" },
+    { name: "El Cid Vacations Club", baseUrl: "https://elcidvacationsclub.com", scraperKey: "el-cid" },
+    { name: "Pueblo Bonito Resorts", baseUrl: "https://pueblobonito.com", scraperKey: "pueblo-bonito" },
+    { name: "Divi Resorts", baseUrl: "https://diviresorts.com", scraperKey: "divi" },
+    { name: "Bahia Principe Privilege Club", baseUrl: "https://bpprivilegeclub.com", scraperKey: "bahia-principe" },
+    { name: "TAFER Hotels & Resorts", baseUrl: "https://taferresorts.com", scraperKey: "tafer" },
+    { name: "Villa Group Resorts", baseUrl: "https://villagroupresorts.com", scraperKey: "villa-group" },
+    { name: "Sheraton Vacation Club", baseUrl: "https://sheratonvacationclub.marriott.com", scraperKey: "sheraton-vc" },
+    { name: "Westin Vacation Club", baseUrl: "https://westinvacationclub.marriott.com", scraperKey: "westin-vc" },
   ]).onConflictDoNothing();
 
   console.log("✅ Seed complete!");
