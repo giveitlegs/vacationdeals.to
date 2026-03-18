@@ -73,8 +73,15 @@ export default function RootLayout({
           </>
         )}
 
-        {/* ClickRank SEO Script — add your script below */}
-        {/* CUSTOM_HEAD_SCRIPTS: Add any custom <script> tags here */}
+        {/* ClickRank SEO Script */}
+        <Script id="clickrank" strategy="afterInteractive">
+          {`var clickRankAi = document.createElement("script");
+          clickRankAi.src = "https://js.clickrank.ai/seo/8c0e51ac-528a-479a-9ad5-2747395a293f/script?" + new Date().getTime();
+          clickRankAi.async = true;
+          document.head.appendChild(clickRankAi);`}
+        </Script>
+
+        {/* CUSTOM_HEAD_SCRIPTS: Additional scripts via env var */}
         {process.env.NEXT_PUBLIC_CUSTOM_HEAD_SCRIPT && (
           <div dangerouslySetInnerHTML={{ __html: process.env.NEXT_PUBLIC_CUSTOM_HEAD_SCRIPT }} />
         )}
