@@ -1,0 +1,15 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "VacationDeals.to",
+  "name_for_model": "vacationdeals",
+  "description_for_human": "Find the best vacation deals from 25+ timeshare resort brands. Compare prices across 50+ destinations starting at $59.",
+  "description_for_model": "Search and compare vacation deals (also known as vacpacks or timeshare preview packages) from 25+ resort brands across 50+ destinations. Returns real-time pricing, inclusions, duration, and booking links. Deals range from $59-$499 for 2-7 night premium resort stays.",
+  "auth": { "type": "none" },
+  "api": {
+    "type": "openapi",
+    "url": "https://vacationdeals.to/api/deals"
+  },
+  "logo_url": "https://vacationdeals.to/icon.svg",
+  "contact_email": "hello@vacationdeals.to",
+  "legal_info_url": "https://vacationdeals.to/terms"
+}

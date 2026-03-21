@@ -73,15 +73,32 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function DestinationsPage() {
   const dbDestinations = await getDestinationsWithCounts();
 
+  // Filter out junk destinations: "Various", entries with addresses/numbers,
+  // unknown, or names longer than 30 chars (likely scraped resort addresses)
+  const EXCLUDED_NAMES = ["various", "unknown", "multi-destination", "multiple"];
+
   const destinations =
     dbDestinations && dbDestinations.length > 0
-      ? dbDestinations.map((d) => ({
-          name: d.name,
-          slug: d.slug,
-          state: d.state ?? "",
-          deals: d.deals,
-          gradient: getGradient(d.name),
-        }))
+      ? dbDestinations
+          .filter((d) => {
+            const lower = d.name.toLowerCase();
+            // Skip excluded names
+            if (EXCLUDED_NAMES.includes(lower)) return false;
+            // Skip names with digits (addresses like "7700 Westgate Blvd...")
+            if (/\d/.test(d.name)) return false;
+            // Skip names longer than 30 chars (likely dirty data)
+            if (d.name.length > 30) return false;
+            // Skip destinations with 0 deals
+            if (d.deals <= 0) return false;
+            return true;
+          })
+          .map((d) => ({
+            name: d.name,
+            slug: d.slug,
+            state: d.state ?? "",
+            deals: d.deals,
+            gradient: getGradient(d.name),
+          }))
       : fallbackDestinations;
 
   // Schema.org JSON-LD

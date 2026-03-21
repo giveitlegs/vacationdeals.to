@@ -4,7 +4,7 @@ import "./globals.css";
 
 // ── Analytics & Tracking IDs (set via env vars or hardcode here) ──
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-VP66NVW631";
 
 export const metadata: Metadata = {
   title: {

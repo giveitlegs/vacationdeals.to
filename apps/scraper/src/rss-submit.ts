@@ -33,31 +33,57 @@ interface RssTarget {
 }
 
 const SUBMITTABLE_TARGETS: RssTarget[] = [
-  // Feedly discovery - GET with feed URL in path
+  // ── WebSub / PubSubHubbub ──
+  // Notifies Google's hub when our RSS updates — subscribers get pinged instantly
+  {
+    name: "WebSub (Google Hub)",
+    url: "https://pubsubhubbub.appspot.com/",
+    method: "POST",
+    body: { "hub.mode": "publish", "hub.url": FEED_URL },
+  },
+  // ── IndexNow fan-out to all 5 engines ──
+  {
+    name: "IndexNow (Bing)",
+    url: `https://www.bing.com/indexnow?url=${encodeURIComponent(FEED_URL)}&key=vacationdeals`,
+    method: "GET",
+  },
+  {
+    name: "IndexNow (Yandex)",
+    url: `https://yandex.com/indexnow?url=${encodeURIComponent(FEED_URL)}&key=vacationdeals`,
+    method: "GET",
+  },
+  {
+    name: "IndexNow (Naver)",
+    url: `https://searchadvisor.naver.com/indexnow?url=${encodeURIComponent(FEED_URL)}&key=vacationdeals`,
+    method: "GET",
+  },
+  {
+    name: "IndexNow (Seznam)",
+    url: `https://search.seznam.cz/indexnow?url=${encodeURIComponent(FEED_URL)}&key=vacationdeals`,
+    method: "GET",
+  },
+  {
+    name: "IndexNow (Yep)",
+    url: `https://indexnow.yep.com/indexnow?url=${encodeURIComponent(FEED_URL)}&key=vacationdeals`,
+    method: "GET",
+  },
+  // ── Feed directories ──
   {
     name: "Feedly",
     url: `https://feedly.com/i/discover/sources/search/feed/${encodeURIComponent(FEED_URL)}`,
     method: "GET",
   },
-  // Feed Validator (verifies feed is valid - good for indexing)
   {
     name: "W3C Feed Validator",
     url: `https://validator.w3.org/feed/check.cgi?url=${encodeURIComponent(FEED_URL)}`,
     method: "GET",
   },
-  // Google ping endpoint (sitemap ping)
   {
-    name: "Google Sitemap Ping",
-    url: `https://www.google.com/ping?sitemap=${encodeURIComponent(SITE_URL + "/sitemap.xml")}`,
+    name: "Plazoo",
+    url: `https://www.plazoo.com/en/addfeed.asp?url=${encodeURIComponent(FEED_URL)}`,
     method: "GET",
   },
-  // IndexNow ping (Bing/Yandex)
-  {
-    name: "IndexNow (feed)",
-    url: `https://www.bing.com/indexnow?url=${encodeURIComponent(FEED_URL)}&key=vacationdeals`,
-    method: "GET",
-  },
-  // XML-RPC pings to major blog ping services
+  // ── XML-RPC pings (live services only) ──
   {
     name: "Ping-o-Matic",
     url: "http://rpc.pingomatic.com/",
@@ -69,30 +95,14 @@ const SUBMITTABLE_TARGETS: RssTarget[] = [
     method: "XML-RPC",
   },
   {
-    name: "Google Blog Search",
-    url: "http://blogsearch.google.com/ping/RPC2",
+    name: "Twingly",
+    url: "https://ping.twingly.com/RPC2",
     method: "XML-RPC",
   },
   {
-    name: "Feed Burner",
-    url: "http://ping.feedburner.com/",
+    name: "Blo.gs",
+    url: "http://ping.blo.gs/",
     method: "XML-RPC",
-  },
-  {
-    name: "Moreover",
-    url: "http://api.moreover.com/RPC2",
-    method: "XML-RPC",
-  },
-  {
-    name: "Blog People",
-    url: "http://www.blogpeople.net/ping/",
-    method: "XML-RPC",
-  },
-  // Plazoo RSS submission
-  {
-    name: "Plazoo",
-    url: `https://www.plazoo.com/en/addfeed.asp?url=${encodeURIComponent(FEED_URL)}`,
-    method: "GET",
   },
 ];
 

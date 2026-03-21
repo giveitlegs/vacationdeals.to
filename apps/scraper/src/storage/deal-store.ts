@@ -10,6 +10,60 @@ function slugify(text: string): string {
     .replace(/^-|-$/g, "");
 }
 
+// Known valid city names — maps common dirty variations to clean names
+const CITY_CORRECTIONS: Record<string, string> = {
+  kissimmee: "Orlando",
+  "orlando, fl": "Orlando",
+  "las vegas, nv": "Las Vegas",
+  "gatlinburg, tn": "Gatlinburg",
+  "branson, mo": "Branson",
+  "myrtle beach, sc": "Myrtle Beach",
+  "williamsburg, va": "Williamsburg",
+  "cocoa beach, fl": "Cocoa Beach",
+  "hilton head, sc": "Hilton Head",
+  "daytona beach, fl": "Daytona Beach",
+};
+
+function sanitizeCity(city: string): string {
+  if (!city) return "Unknown";
+
+  // Check corrections map first
+  const lower = city.toLowerCase().trim();
+  if (CITY_CORRECTIONS[lower]) return CITY_CORRECTIONS[lower];
+
+  // If city contains digits (addresses like "7700 Westgate Blvd Kissimmee"),
+  // try to extract a known city name from it
+  if (/\d/.test(city)) {
+    const cityLower = city.toLowerCase();
+    for (const [pattern, corrected] of Object.entries(CITY_CORRECTIONS)) {
+      const cleanPattern = pattern.replace(/,\s*[a-z]{2}$/, ""); // strip state suffix
+      if (cityLower.includes(cleanPattern)) return corrected;
+    }
+    // Check for common city names in the dirty string
+    const knownCities = ["Orlando", "Las Vegas", "Gatlinburg", "Branson", "Myrtle Beach",
+      "Williamsburg", "Cocoa Beach", "Kissimmee", "Hilton Head", "Daytona Beach",
+      "Cancun", "Cabo", "Puerto Vallarta", "Punta Cana", "Key West", "Sedona",
+      "Park City", "Lake Tahoe", "San Diego", "San Antonio", "Miami", "Nashville",
+      "Galveston", "New York"];
+    for (const known of knownCities) {
+      if (cityLower.includes(known.toLowerCase())) {
+        return known === "Kissimmee" ? "Orlando" : known;
+      }
+    }
+    return "Unknown";
+  }
+
+  // If city name is too long (>30 chars), it's probably dirty data
+  if (city.length > 30) return "Unknown";
+
+  // Normalize: "Various" → skip
+  if (lower === "various" || lower === "unknown" || lower === "multi-destination") {
+    return "Various";
+  }
+
+  return city.trim();
+}
+
 function sanitizeTitle(title: string): string {
   return title
     .replace(/\r?\n/g, ' ')        // Remove newlines
@@ -78,35 +132,35 @@ function detectExpiration(
   const title = deal.title.toLowerCase();
   const desc = (deal.description || "").toLowerCase();
   const url = deal.url.toLowerCase();
-  const fullText = `${title} ${desc} ${url} ${(pageText || "").toLowerCase()}`;
+  // IMPORTANT: Only check status keywords against deal-specific text (title + desc + url).
+  // Full page HTML often contains "sold out", "expired", "christmas", etc. from OTHER deals
+  // on the same page, causing massive false positives (e.g., Westgate's APP_DATA page has
+  // all specials, and sold-out labels for other deals would mark valid deals as expired).
+  const dealText = `${title} ${desc} ${url}`;
 
-  // 1. Explicit "expired / sold out" language — high confidence
+  // 1. Explicit "expired / sold out" language — only in deal's own text
   for (const keyword of EXPIRED_STATUS_KEYWORDS) {
-    if (fullText.includes(keyword)) {
+    if (dealText.includes(keyword)) {
       return { expired: true };
     }
   }
 
   // 2. Past-season patterns (e.g. "Summer 2025" when current year is 2026)
   for (const pattern of PAST_SEASON_PATTERNS) {
-    if (pattern.test(fullText)) {
+    if (pattern.test(dealText)) {
       return { expired: true };
     }
   }
 
-  // 3. Holiday keywords + past-year evidence
+  // 3. Holiday keywords + past-year evidence — only in deal text
   for (const keyword of HOLIDAY_KEYWORDS) {
-    if (fullText.includes(keyword)) {
-      // If the text also mentions a year that has already passed, mark expired
-      if (/20(?:2[0-5])/.test(fullText)) {
+    if (dealText.includes(keyword)) {
+      if (/20(?:2[0-5])/.test(dealText)) {
         return { expired: true };
       }
-      // For Black Friday / Cyber Monday, if we're well outside Nov/Dec
-      // window, the deal is almost certainly stale
       if (keyword === "cyber monday" || keyword === "black friday") {
-        const month = now.getMonth(); // 0-indexed
+        const month = now.getMonth();
         if (month >= 1 && month <= 9) {
-          // Feb through Oct — these deals are expired
           return { expired: true };
         }
       }
@@ -145,7 +199,7 @@ function detectExpiration(
 
   // 5. Explicit expiration dates in the page text
   for (const pattern of EXPIRED_DATE_PATTERNS) {
-    const match = fullText.match(pattern);
+    const match = dealText.match(pattern);
     if (match) {
       try {
         const expDate = new Date(match[1]);
@@ -204,6 +258,9 @@ export async function deactivateExpiredDeals(): Promise<number> {
 export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pageText?: string) {
   // Sanitize title to remove address fragments, whitespace artifacts, etc.
   scrapedDeal.title = sanitizeTitle(scrapedDeal.title);
+
+  // Sanitize city name — strip addresses, numbers, resort names from city field
+  scrapedDeal.city = sanitizeCity(scrapedDeal.city);
 
   // Find or match brand
   const brand = await db.query.brands.findFirst({

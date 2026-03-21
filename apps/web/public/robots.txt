@@ -8,6 +8,7 @@ Sitemap: https://vacationdeals.to/sitemap.xml
 
 # AI-readable site summary
 # https://vacationdeals.to/llms.txt
+# https://vacationdeals.to/llms-full.txt (with live deal data)
 
 # Block admin panel from search engines
 Disallow: /admin
@@ -35,4 +36,26 @@ User-agent: cohere-ai
 Allow: /
 
 User-agent: BingPreview
+Allow: /
+
+# AI Search crawlers (separate from training bots)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: meta-externalagent
 Allow: /

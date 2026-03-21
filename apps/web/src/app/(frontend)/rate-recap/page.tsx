@@ -14,7 +14,8 @@ export const metadata: Metadata = {
 };
 
 export default async function RateRecapPage() {
-  const { points, brands, isMock } = await getPriceHistory({ days: 30 });
+  // Fetch 365 days so the client can slice by time range
+  const { points, brands, isMock } = await getPriceHistory({ days: 365 });
 
   // Compute quick insights from data
   const latestDate = points.length > 0 ? points[points.length - 1].date : null;

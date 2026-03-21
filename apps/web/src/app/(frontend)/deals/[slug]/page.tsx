@@ -145,6 +145,10 @@ export default async function DealPage({ params }: DealPageProps) {
           }
         : {}),
     },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".deal-price", "[data-deal-summary]"],
+    },
   };
 
   // Schema.org Event JSON-LD for Westgate Events deals

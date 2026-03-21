@@ -99,6 +99,10 @@ export async function BlogPostRenderer({ post }: BlogPostPageProps) {
       "@type": "WebPage",
       "@id": `https://vacationdeals.to/${post.slug}`,
     },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".blog-content h2", ".blog-content p:first-of-type", ".blog-content .protip"],
+    },
   };
 
   return (

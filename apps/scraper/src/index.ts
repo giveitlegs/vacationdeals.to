@@ -28,6 +28,9 @@ import { runTaferCrawler } from "./crawlers/tafer";
 import { runVillaGroupCrawler } from "./crawlers/villa-group";
 import { runSheratonVcCrawler } from "./crawlers/sheraton-vc";
 import { runWestinVcCrawler } from "./crawlers/westin-vc";
+import { runVacationvipCrawler } from "./crawlers/vacationvip";
+import { runBestvacationdealzCrawler } from "./crawlers/bestvacationdealz";
+import { runMonsterVacationsCrawler } from "./crawlers/monster-vacations";
 import { deactivateExpiredDeals } from "./storage/deal-store";
 
 const crawlers: Record<string, () => Promise<void>> = {
@@ -61,6 +64,9 @@ const crawlers: Record<string, () => Promise<void>> = {
   "villa-group": runVillaGroupCrawler,
   "sheraton-vc": runSheratonVcCrawler,
   "westin-vc": runWestinVcCrawler,
+  vacationvip: runVacationvipCrawler,
+  bestvacationdealz: runBestvacationdealzCrawler,
+  "monster-vacations": runMonsterVacationsCrawler,
 };
 
 async function main() {

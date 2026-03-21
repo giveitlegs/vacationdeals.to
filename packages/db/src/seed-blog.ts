@@ -6,6 +6,18 @@ import { interestPosts } from "../../../apps/web/src/lib/blog-posts/interests";
 import { segmentPosts } from "../../../apps/web/src/lib/blog-posts/segments";
 import { itineraryPosts } from "../../../apps/web/src/lib/blog-posts/itineraries";
 import { bestofPosts } from "../../../apps/web/src/lib/blog-posts/bestof";
+import { bestofPricesPosts } from "../../../apps/web/src/lib/blog-posts/bestof-prices";
+import { bestofSegments2Posts } from "../../../apps/web/src/lib/blog-posts/bestof-segments2";
+import { bestofDestinations2Posts } from "../../../apps/web/src/lib/blog-posts/bestof-destinations2";
+import { lowKdPosts } from "../../../apps/web/src/lib/blog-posts/low-kd-posts";
+import { bestofAmenitiesPosts } from "../../../apps/web/src/lib/blog-posts/bestof-amenities";
+import { bestofSeasonsPosts } from "../../../apps/web/src/lib/blog-posts/bestof-seasons";
+import { vacationIdeas1Posts } from "../../../apps/web/src/lib/blog-posts/vacation-ideas-1";
+import { vacationIdeas2Posts } from "../../../apps/web/src/lib/blog-posts/vacation-ideas-2";
+import { vacationIdeas3Posts } from "../../../apps/web/src/lib/blog-posts/vacation-ideas-3";
+import { vacationIdeas4Posts } from "../../../apps/web/src/lib/blog-posts/vacation-ideas-4";
+import { vacationIdeas6Posts } from "../../../apps/web/src/lib/blog-posts/vacation-ideas-6";
+import { vacationIdeas10Posts } from "../../../apps/web/src/lib/blog-posts/vacation-ideas-10";
 
 interface BlogPost {
   slug: string;
@@ -36,6 +48,18 @@ async function seedBlog() {
     ...segmentPosts,
     ...itineraryPosts,
     ...bestofPosts,
+    ...bestofPricesPosts,
+    ...bestofSegments2Posts,
+    ...bestofDestinations2Posts,
+    ...lowKdPosts,
+    ...bestofAmenitiesPosts,
+    ...bestofSeasonsPosts,
+    ...vacationIdeas1Posts,
+    ...vacationIdeas2Posts,
+    ...vacationIdeas3Posts,
+    ...vacationIdeas4Posts,
+    ...vacationIdeas6Posts,
+    ...vacationIdeas10Posts,
   ];
 
   console.log(`Found ${allPosts.length} blog posts to seed.`);

@@ -86,6 +86,7 @@ export async function GET() {
     <language>en-us</language>
     <lastBuildDate>${now}</lastBuildDate>
     <atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://pubsubhubbub.appspot.com" rel="hub"/>
     <image>
       <url>${baseUrl}/og-image.svg</url>
       <title>VacationDeals.to</title>

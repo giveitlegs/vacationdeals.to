@@ -92,9 +92,11 @@ Vacation deals (vacpacks) are a legitimate marketing strategy used by major time
 
 Typical eligibility requirements include: minimum age 25-30, minimum household income $50,000-$75,000/year, married or cohabiting with a partner who must also attend, valid ID, and a major credit card.
 
-## API
+## API & Machine-Readable Resources
+- Full LLM reference (with live deal data): https://vacationdeals.to/llms-full.txt
 - RSS Feed: https://vacationdeals.to/feed.xml
 - Sitemap: https://vacationdeals.to/sitemap.xml
+- AI Plugin manifest: https://vacationdeals.to/.well-known/ai-plugin.json
 
 ## Legal
 - [Privacy Policy](https://vacationdeals.to/privacy)
