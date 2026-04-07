@@ -306,13 +306,12 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pag
   });
 
   if (existingDeal) {
-    // Update existing deal and record price history if changed
-    if (existingDeal.price !== String(scrapedDeal.price)) {
-      await db.insert(dealPriceHistory).values({
-        dealId: existingDeal.id,
-        price: String(scrapedDeal.price),
-      });
-    }
+    // Always record a price snapshot on every scrape run so the rate recap
+    // chart has continuous data points (not just when prices change).
+    await db.insert(dealPriceHistory).values({
+      dealId: existingDeal.id,
+      price: String(scrapedDeal.price),
+    });
 
     // If the new scrape detects expiration, mark inactive.
     // If a previously-expired deal is scraped again WITHOUT expiration

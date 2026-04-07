@@ -4,27 +4,6 @@ import { useState, useMemo } from "react";
 import { PriceChart } from "@/components/PriceChart";
 import type { PricePoint, BrandInfo } from "@/lib/price-history";
 
-const DESTINATIONS = [
-  { label: "All Destinations", value: "" },
-  { label: "Orlando", value: "orlando" },
-  { label: "Las Vegas", value: "las-vegas" },
-  { label: "Cancun", value: "cancun" },
-  { label: "Gatlinburg", value: "gatlinburg" },
-  { label: "Myrtle Beach", value: "myrtle-beach" },
-  { label: "Branson", value: "branson" },
-  { label: "Williamsburg", value: "williamsburg" },
-  { label: "Cocoa Beach", value: "cocoa-beach" },
-  { label: "Hilton Head", value: "hilton-head" },
-  { label: "Daytona Beach", value: "daytona-beach" },
-  { label: "Cabo", value: "cabo" },
-  { label: "Punta Cana", value: "punta-cana" },
-];
-
-const DURATIONS = [
-  { label: "3 Days / 2 Nights", value: 2 },
-  { label: "4 Days / 3 Nights", value: 3 },
-];
-
 type TimeRange = "30d" | "60d" | "90d" | "ytd" | "12m";
 
 const TIME_RANGES: { label: string; value: TimeRange }[] = [
@@ -65,14 +44,19 @@ function getDateCutoff(range: TimeRange): string {
 interface RateRecapClientProps {
   initialPoints: PricePoint[];
   initialBrands: BrandInfo[];
+  destinations: { label: string; value: string }[];
+  durations: { label: string; value: number }[];
 }
 
 export function RateRecapClient({
   initialPoints,
   initialBrands,
+  destinations,
+  durations,
 }: RateRecapClientProps) {
   const [destination, setDestination] = useState("");
-  const [duration, setDuration] = useState<number>(3);
+  const defaultDuration = durations.length > 0 ? durations[0].value : 3;
+  const [duration, setDuration] = useState<number>(defaultDuration);
   const [timeRange, setTimeRange] = useState<TimeRange>("30d");
   const [bestRateOnly, setBestRateOnly] = useState(false);
 
@@ -127,7 +111,8 @@ export function RateRecapClient({
             onChange={(e) => setDestination(e.target.value)}
             className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 transition-colors focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
-            {DESTINATIONS.map((d) => (
+            <option value="">All Destinations</option>
+            {destinations.map((d) => (
               <option key={d.value} value={d.value}>
                 {d.label}
               </option>
@@ -140,8 +125,8 @@ export function RateRecapClient({
           <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">
             Duration
           </span>
-          <div className="inline-flex rounded-lg border border-gray-300 bg-white">
-            {DURATIONS.map((d) => (
+          <div className="inline-flex flex-wrap rounded-lg border border-gray-300 bg-white">
+            {durations.map((d) => (
               <button
                 key={d.value}
                 onClick={() => setDuration(d.value)}

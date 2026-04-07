@@ -12,8 +12,12 @@ export interface PricePoint {
   brandName: string;
   brandSlug: string;
   destinationSlug: string;
+  destinationName: string;
   durationNights: number;
   dealSlug: string;
+  sourceUrl: string;
+  lastScrapedAt: string;
+  priceChange?: number;
 }
 
 export interface BrandInfo {
@@ -105,6 +109,10 @@ export function PriceChart({ data, brands }: PriceChartProps) {
     date: string;
     color: string;
     dealSlug: string;
+    sourceUrl: string;
+    lastScrapedAt: string;
+    priceChange?: number;
+    destinationName: string;
   } | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -237,6 +245,10 @@ export function PriceChart({ data, brands }: PriceChartProps) {
           date: closest.point.date,
           color: closest.color,
           dealSlug: closest.point.dealSlug,
+          sourceUrl: closest.point.sourceUrl,
+          lastScrapedAt: closest.point.lastScrapedAt,
+          priceChange: closest.point.priceChange,
+          destinationName: closest.point.destinationName,
         });
       } else {
         setTooltip(null);
@@ -268,8 +280,9 @@ export function PriceChart({ data, brands }: PriceChartProps) {
   }, []);
 
   const handleClick = useCallback(() => {
+    // Click on a data point in the chart navigates to the deal
     if (tooltip?.dealSlug) {
-      window.location.href = `/deals/${tooltip.dealSlug}`;
+      window.open(`/deals/${tooltip.dealSlug}`, "_self");
     }
   }, [tooltip]);
 
@@ -378,18 +391,48 @@ export function PriceChart({ data, brands }: PriceChartProps) {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                {/* Data points */}
-                {coords.map((c, i) => (
-                  <circle
-                    key={i}
-                    cx={c.x}
-                    cy={c.y}
-                    r={3}
-                    fill={brand.color}
-                    stroke="white"
-                    strokeWidth={1.5}
-                  />
-                ))}
+                {/* Data points + price change badges */}
+                {coords.map((c, i) => {
+                  const point = sorted[i];
+                  const hasChange = point?.priceChange != null && Math.abs(point.priceChange) >= 10;
+                  return (
+                    <g key={i}>
+                      <circle
+                        cx={c.x}
+                        cy={c.y}
+                        r={3}
+                        fill={brand.color}
+                        stroke="white"
+                        strokeWidth={1.5}
+                      />
+                      {hasChange && (
+                        <g>
+                          {/* Badge background */}
+                          <rect
+                            x={c.x - 14}
+                            y={c.y - 22}
+                            width={28}
+                            height={16}
+                            rx={4}
+                            fill={point.priceChange! > 0 ? "#EF4444" : "#10B981"}
+                            opacity={0.9}
+                          />
+                          {/* Arrow + percentage */}
+                          <text
+                            x={c.x}
+                            y={c.y - 11}
+                            textAnchor="middle"
+                            fill="white"
+                            fontSize={9}
+                            fontWeight="bold"
+                          >
+                            {point.priceChange! > 0 ? "\u2191" : "\u2193"}{Math.abs(point.priceChange!)}%
+                          </text>
+                        </g>
+                      )}
+                    </g>
+                  );
+                })}
               </g>
             );
           })}
@@ -435,29 +478,73 @@ export function PriceChart({ data, brands }: PriceChartProps) {
           const flipX = pixelX > rect.width / 2;
 
           return (
-            <a
-              href={tooltip.dealSlug ? `/deals/${tooltip.dealSlug}` : undefined}
+            <div
               onMouseEnter={handleTooltipEnter}
               onMouseLeave={handleTooltipLeave}
               className="absolute z-10 rounded-lg border border-gray-200 bg-white px-4 py-3 shadow-lg transition-opacity"
               style={{
-                left: flipX ? pixelX - 200 : pixelX + 16,
-                top: Math.max(8, pixelY - 40),
-                minWidth: 180,
+                left: flipX ? pixelX - 240 : pixelX + 16,
+                top: Math.max(8, pixelY - 50),
+                minWidth: 220,
                 pointerEvents: "auto",
-                textDecoration: "none",
               }}
             >
-              <p className="text-sm font-semibold text-gray-900">{tooltip.brand}</p>
-              <p className="text-xs text-gray-500">
-                ${tooltip.price} &middot; {formatDateFull(tooltip.date)}
+              <p className="text-sm font-semibold text-gray-900">
+                {tooltip.brand}
+                {tooltip.priceChange != null && Math.abs(tooltip.priceChange) >= 10 && (
+                  <span className={`ml-2 inline-flex items-center rounded px-1.5 py-0.5 text-xs font-bold ${
+                    tooltip.priceChange > 0 ? "bg-red-100 text-red-700" : "bg-emerald-100 text-emerald-700"
+                  }`}>
+                    {tooltip.priceChange > 0 ? "\u2191" : "\u2193"}{Math.abs(tooltip.priceChange)}%
+                  </span>
+                )}
               </p>
-              {tooltip.dealSlug && (
-                <p className="mt-1 text-xs font-medium text-blue-600">
-                  Click to view this deal &rarr;
-                </p>
-              )}
-            </a>
+              <p className="text-xs text-gray-500">
+                <span className="font-semibold text-gray-800">${tooltip.price}</span>
+                {tooltip.destinationName && tooltip.destinationName !== "Unknown" && (
+                  <> &middot; {tooltip.destinationName}</>
+                )}
+                {" "}&middot; {formatDateFull(tooltip.date)}
+              </p>
+              {/* Last verified timestamp */}
+              {tooltip.lastScrapedAt && (() => {
+                const scraped = new Date(tooltip.lastScrapedAt);
+                const hoursAgo = Math.max(0, Math.round((Date.now() - scraped.getTime()) / 3600000));
+                const verifiedLabel = hoursAgo < 1
+                  ? "just now"
+                  : hoursAgo < 24
+                    ? `${hoursAgo}h ago`
+                    : `${Math.round(hoursAgo / 24)}d ago`;
+                return (
+                  <p className="mt-1 flex items-center gap-1 text-xs text-gray-400">
+                    <span className={`inline-block h-1.5 w-1.5 rounded-full ${hoursAgo < 7 ? "bg-emerald-500" : hoursAgo < 24 ? "bg-amber-500" : "bg-red-500"}`} />
+                    Verified {verifiedLabel}
+                  </p>
+                );
+              })()}
+              {/* Action links */}
+              <div className="mt-2 flex flex-col gap-1">
+                {tooltip.dealSlug && (
+                  <a
+                    href={`/deals/${tooltip.dealSlug}`}
+                    className="text-xs font-medium text-blue-600 hover:text-blue-800"
+                  >
+                    View this deal &rarr;
+                  </a>
+                )}
+                {tooltip.sourceUrl && (
+                  <a
+                    href={tooltip.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-medium text-gray-500 hover:text-gray-700"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Verify price on {tooltip.brand} site &nearr;
+                  </a>
+                )}
+              </div>
+            </div>
           );
         })()}
       </div>

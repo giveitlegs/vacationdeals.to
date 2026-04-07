@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getPriceHistory } from "@/lib/price-history";
+import { getPriceHistory, getFilterOptions } from "@/lib/price-history";
 import { RateRecapClient } from "./RateRecapClient";
 
 export const dynamic = "force-dynamic";
@@ -15,7 +15,10 @@ export const metadata: Metadata = {
 
 export default async function RateRecapPage() {
   // Fetch 365 days so the client can slice by time range
-  const { points, brands, isMock } = await getPriceHistory({ days: 365 });
+  const [{ points, brands, isMock }, filterOptions] = await Promise.all([
+    getPriceHistory({ days: 365 }),
+    getFilterOptions(),
+  ]);
 
   // Compute quick insights from data
   const latestDate = points.length > 0 ? points[points.length - 1].date : null;
@@ -127,12 +130,32 @@ export default async function RateRecapPage() {
             </p>
           );
         })()}
+
+        {/* Data freshness indicator */}
+        {filterOptions.lastScrapedAt && (() => {
+          const lastScrape = new Date(filterOptions.lastScrapedAt!);
+          const hoursAgo = Math.round((Date.now() - lastScrape.getTime()) / 3600000);
+          const isFresh = hoursAgo < 7;    // green: scraped within 7 hours
+          const isStale = hoursAgo >= 24;   // red: older than 24 hours
+          const dotColor = isFresh ? "bg-emerald-500" : isStale ? "bg-red-500" : "bg-amber-500";
+          const label = hoursAgo < 1
+            ? "less than 1 hour ago"
+            : `${hoursAgo} hour${hoursAgo !== 1 ? "s" : ""} ago`;
+          return (
+            <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs text-gray-600">
+              <span className={`inline-block h-2 w-2 rounded-full ${dotColor}`} />
+              Prices updated every 6 hours &middot; Last scrape: {label}
+            </div>
+          );
+        })()}
       </div>
 
       {/* Interactive chart + filters (client component) */}
       <RateRecapClient
         initialPoints={points}
         initialBrands={brands}
+        destinations={filterOptions.destinations}
+        durations={filterOptions.durations}
       />
 
       {/* Price Trends section */}
