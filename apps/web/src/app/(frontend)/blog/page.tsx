@@ -22,6 +22,14 @@ export function generateMetadata(): Metadata {
         "Expert tips, destination guides, and insider knowledge for getting the best vacation deals.",
       url: "https://vacationdeals.to/blog",
       type: "website",
+      images: [
+        {
+          url: "https://vacationdeals.to/og-blog.png",
+          width: 1200,
+          height: 630,
+          alt: "VacationDeals.to Blog — Expert Vacation Deal Guides",
+        },
+      ],
     },
   };
 }

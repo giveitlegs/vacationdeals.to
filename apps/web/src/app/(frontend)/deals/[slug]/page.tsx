@@ -52,9 +52,11 @@ export async function generateMetadata({ params }: DealPageProps): Promise<Metad
 
   const location = [deal.city, deal.state].filter(Boolean).join(", ");
   const isEvent = deal.brandSlug === "westgate-events";
-  const title = isEvent
-    ? `${deal.title} — ${deal.durationNights}-Night Package from $${deal.price}`
-    : `${deal.resortName || deal.title} — ${deal.durationNights}-Night Stay from $${deal.price}`;
+  // Keep title under 60 chars for SERP display
+  const rawTitle = isEvent
+    ? `${deal.title} — ${deal.durationNights}N from $${deal.price}`
+    : `${(deal.resortName || deal.title).slice(0, 35)} — ${deal.durationNights}N from $${deal.price}`;
+  const title = rawTitle.length > 58 ? rawTitle.slice(0, 55) + "..." : rawTitle;
   const description = isEvent
     ? `${deal.title} vacation package: ${deal.description || `${deal.durationNights} nights + event tickets from $${deal.price}.`} Compare event deals at VacationDeals.to.`
     : `Book a ${deal.durationNights}-night vacation deal at ${deal.resortName || deal.title} in ${location} for just $${deal.price}. ${deal.originalPrice ? `Save ${deal.savingsPercent}% off the $${deal.originalPrice} retail price.` : ""} Compare resort deals at VacationDeals.to.`;

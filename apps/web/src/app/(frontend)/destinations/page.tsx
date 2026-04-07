@@ -55,14 +55,23 @@ export async function generateMetadata(): Promise<Metadata> {
   const destCount = stats?.destinationCount || 50;
   const totalDeals = stats?.totalDeals || 0;
 
+  const title = totalDeals > 0
+    ? `Vacation Deals by Destination — ${destCount}+ Cities`
+    : "Vacation Deals by Destination";
+  const description = totalDeals > 0
+    ? `Vacation deals in ${destCount}+ destinations. ${totalDeals} resort deals across Orlando, Las Vegas, Cancun, Gatlinburg, and more.`
+    : "Vacation deals by destination. Browse resort deals and getaway deals in Orlando, Las Vegas, Cancun, Gatlinburg, and 50+ more cities.";
+
   return {
-    title: totalDeals > 0
-      ? `Vacation Deals by Destination — ${destCount}+ Cities with Deals`
-      : "Vacation Deals by Destination",
+    title,
     alternates: { canonical: "https://vacationdeals.to/destinations" },
-    description: totalDeals > 0
-      ? `Vacation deals in ${destCount}+ destinations. ${totalDeals} resort deals across Orlando, Las Vegas, Cancun, Gatlinburg, and more.`
-      : "Vacation deals by destination. Browse resort deals and getaway deals in Orlando, Las Vegas, Cancun, Gatlinburg, and 50+ more cities.",
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      url: "https://vacationdeals.to/destinations",
+    },
   };
 }
 

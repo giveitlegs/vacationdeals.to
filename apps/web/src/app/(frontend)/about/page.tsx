@@ -27,7 +27,14 @@ export default function AboutPage() {
     description:
       "Independent comparison site for timeshare vacation packages from top resort brands.",
     dateModified: new Date().toISOString(),
-    sameAs: [],
+    sameAs: [
+      "https://github.com/giveitlegs/vacationdeals.to",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      url: "https://vacationdeals.to/about",
+    },
   };
 
   return (

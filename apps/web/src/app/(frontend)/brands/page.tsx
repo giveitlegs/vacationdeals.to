@@ -31,14 +31,23 @@ export async function generateMetadata(): Promise<Metadata> {
   const brandCount = stats?.brandCount || 13;
   const totalDeals = stats?.totalDeals || 0;
 
+  const title = totalDeals > 0
+    ? `Vacation Deal Brands — ${brandCount} Brands, ${totalDeals} Deals`
+    : "Vacation Deal Brands";
+  const description = totalDeals > 0
+    ? `Vacation deals from ${brandCount} brands with ${totalDeals} active resort deals. Browse deals from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.`
+    : "Vacation deals by brand. Browse resort deals from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.";
+
   return {
-    title: totalDeals > 0
-      ? `Vacation Deal Brands — ${brandCount} Brands, ${totalDeals} Deals`
-      : "Vacation Deal Brands",
+    title,
     alternates: { canonical: "https://vacationdeals.to/brands" },
-    description: totalDeals > 0
-      ? `Vacation deals from ${brandCount} brands with ${totalDeals} active resort deals. Browse deals from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.`
-      : "Vacation deals by brand. Browse resort deals from Westgate, Hilton Grand Vacations, Marriott, Wyndham, and more.",
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      url: "https://vacationdeals.to/brands",
+    },
   };
 }
 
@@ -51,13 +60,15 @@ export default async function BrandsPage() {
 
   const brands =
     dbBrands && dbBrands.length > 0
-      ? dbBrands.map((b) => ({
-          name: b.name,
-          slug: b.slug,
-          type: b.type as "direct" | "broker",
-          deals: b.deals,
-          description: b.description ?? "",
-        }))
+      ? dbBrands
+          .filter((b) => b.deals > 0) // Hide brands with 0 active deals
+          .map((b) => ({
+            name: b.name,
+            slug: b.slug,
+            type: b.type as "direct" | "broker",
+            deals: b.deals,
+            description: b.description ?? "",
+          }))
       : fallbackBrands;
 
   // Schema.org JSON-LD

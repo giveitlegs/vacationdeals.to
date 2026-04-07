@@ -385,7 +385,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
           type: "article",
           images: [{ url: `${baseUrl}/og-image.svg`, width: 1200, height: 630 }],
           ...(post.publishDate
-            ? { publishedTime: post.publishDate }
+            ? { publishedTime: post.publishDate, modifiedTime: new Date().toISOString() }
             : {}),
         },
         authors: [{ name: post.author }],
