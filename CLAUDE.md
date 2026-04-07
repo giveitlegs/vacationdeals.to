@@ -31,28 +31,27 @@ packages/shared/    — Shared TypeScript types (ScrapedDeal, DealFilters) and c
 scripts/            — deploy.sh (VPS deployment)
 ```
 
-## Active Scrapers (10)
-| Scraper | File | Type | Brand | Status |
-|---------|------|------|-------|--------|
-| Westgate | westgate.ts | CheerioCrawler | westgate | Working (33 deals) |
-| BookVIP | bookvip.ts | CheerioCrawler | bookvip | Working (19 deals) |
-| GetawayDealz | getawaydealz.ts | PlaywrightCrawler | getawaydealz | Working (23 deals) |
-| MRG | mrg.ts | CheerioCrawler | mrg | Working (47 deals) |
-| HGV | hgv.ts | CheerioCrawler | hgv | Working (4 deals) |
-| Wyndham | wyndham.ts | CheerioCrawler | wyndham | Working (19 deals) |
-| Holiday Inn | holiday-inn.ts | CheerioCrawler | holiday-inn | Fallback seeding (IHG blocks bots) |
-| Marriott | marriott.ts | PlaywrightCrawler | marriott | Working (9 deals) |
-| GoVIP | govip.ts | CheerioCrawler | govip | Parked domain (monitored) |
-| Westgate Events | westgate-events.ts | PlaywrightCrawler | westgate-events | Ready (concerts/shows) |
+## Scrapers (33 crawlers — see docs/SCRAPING-REFERENCE.md for full details)
+**26 CheerioCrawler + 7 PlaywrightCrawler** across 31 sources, 33 brands, 64 destinations.
 
-## Database Schema (7 tables)
-- `brands` — 15+ timeshare brands (direct + broker types)
-- `destinations` — 20+ cities with slugs, regions, lat/lng
-- `sources` — Scrape target websites with status tracking
+| Status | Count | Examples |
+|--------|-------|---------|
+| Working | 22 | Westgate, BookVIP, MRG, HGV, Wyndham, StayPromo, Vacation Village, VacationVIP, BestVacationDealz, El Cid, Pueblo Bonito, DIVI, Bahia Principe, Villa Group, Spinnaker, Departure Depot, Vegas Timeshare, Premier Travel, Festiva, Hyatt, Bluegreen |
+| JS-Heavy (Playwright) | 4 | GetAwayDealz, Marriott, Discount Vacation, Legendary |
+| Fallback (catalog seed) | 2 | Holiday Inn, Capital Vacations |
+| Graceful 403 | 3 | TAFER, Sheraton VC, Westin VC |
+| Parked (monitored) | 2 | GoVIP, Monster Vacations |
+
+## Database Schema (9 tables)
+- `brands` — 33 timeshare brands (direct + broker types)
+- `destinations` — 64 cities with slugs, regions, lat/lng
+- `sources` — 31 scrape target websites with status tracking
 - `deals` — Main deal table (title, price, duration, URL, inclusions, requirements, etc.)
 - `deal_price_history` — Price tracking over time per deal
 - `site_settings` — Key/value pairs (GTM ID, GA ID, AdSense)
 - `ad_banners` — Configurable ad placements (header, sidebar, inline, footer)
+- `blog_posts` — 274+ CMS-managed blog posts (HTML content, FAQs, SEO metadata)
+- `seo_health` — SEO issue tracking (URL, severity, check type, resolution status)
 
 ## SEO Architecture
 - **Primary keyword**: "vacation deals" (2:1 ratio over "vacation packages")
