@@ -202,6 +202,45 @@ export const dataInquiries = pgTable("data_inquiries", {
 });
 
 // ── Ad Banners ──────────────────────────────────────────
+// ── Ad Library Pages (Facebook/Meta advertiser pages) ──
+export const adLibraryPages = pgTable("ad_library_pages", {
+  id: serial("id").primaryKey(),
+  brandId: integer("brand_id").references(() => brands.id),
+  pageId: varchar("page_id", { length: 100 }).notNull().unique(), // Facebook Page ID
+  pageName: varchar("page_name", { length: 500 }).notNull(),
+  pageUrl: text("page_url"), // facebook.com/{page}
+  platform: varchar("platform", { length: 50 }).default("facebook"), // facebook, instagram
+  totalAdsFound: integer("total_ads_found").default(0),
+  lastScrapedAt: timestamp("last_scraped_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// ── Ad Library Ads (scraped from Meta Ad Library) ──────
+export const adLibraryAds = pgTable("ad_library_ads", {
+  id: serial("id").primaryKey(),
+  adLibraryPageId: integer("ad_library_page_id").references(() => adLibraryPages.id),
+  brandId: integer("brand_id").references(() => brands.id),
+  metaAdId: varchar("meta_ad_id", { length: 100 }).notNull().unique(), // Meta's ad library ID
+  adCreativeBody: text("ad_creative_body"), // Main ad copy
+  adCreativeLinkTitle: text("ad_creative_link_title"), // CTA title
+  adCreativeLinkDescription: text("ad_creative_link_description"), // CTA description
+  adCreativeLinkCaption: text("ad_creative_link_caption"), // CTA caption
+  adSnapshotUrl: text("ad_snapshot_url"), // URL to view ad creative on Meta
+  adDeliveryStartTime: timestamp("ad_delivery_start_time"),
+  adDeliveryStopTime: timestamp("ad_delivery_stop_time"),
+  adCreationTime: timestamp("ad_creation_time"),
+  publisherPlatforms: text("publisher_platforms"), // JSON array: ["FACEBOOK","INSTAGRAM"]
+  languages: text("languages"), // JSON array of ISO 639-1 codes
+  isActive: boolean("is_active").notNull().default(true),
+  scrapedAt: timestamp("scraped_at").defaultNow().notNull(),
+});
+
+export const adLibraryAdsRelations = relations(adLibraryAds, ({ one }) => ({
+  brand: one(brands, { fields: [adLibraryAds.brandId], references: [brands.id] }),
+  page: one(adLibraryPages, { fields: [adLibraryAds.adLibraryPageId], references: [adLibraryPages.id] }),
+}));
+
+// ── Ad Banners ──────────────────────────────────────────
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 255 }).notNull(),
