@@ -113,14 +113,27 @@ const mockDeals: Deal[] = [
 type DestinationData = { slug: string; name: string; state: string; region?: string; description: string };
 type BrandData = { slug: string; name: string; type: string; description: string; website?: string };
 
+type RateRecapBrandData = { brandSlug: string; brandName: string };
+
 type SlugType =
   | { type: "destination"; data: DestinationData }
   | { type: "brand"; data: BrandData }
   | { type: "price"; data: (typeof priceRanges)[number] }
   | { type: "duration"; data: (typeof durations)[number] }
-  | { type: "blog"; data: BlogPost };
+  | { type: "blog"; data: BlogPost }
+  | { type: "rate-recap-brand"; data: RateRecapBrandData };
 
 async function resolveSlug(slug: string): Promise<SlugType | null> {
+  // 0. Check rate-recap-{brand} pattern
+  if (slug.startsWith("rate-recap-")) {
+    const brandSlug = slug.replace("rate-recap-", "");
+    const dbBrands = await getAllBrandSlugs();
+    const brand = dbBrands.find((b) => b.slug === brandSlug);
+    if (brand) {
+      return { type: "rate-recap-brand", data: { brandSlug: brand.slug, brandName: brand.name } };
+    }
+  }
+
   // 1. Check static price ranges (these never change)
   const priceMatch = priceRanges.find((p) => p.slug === slug);
   if (priceMatch) return { type: "price", data: priceMatch };
@@ -241,6 +254,9 @@ export async function generateStaticParams() {
   // DB brands
   const dbBrands = await getAllBrandSlugs();
   for (const b of dbBrands) params.push({ slug: b.slug });
+
+  // Brand rate recap pages
+  for (const b of dbBrands) params.push({ slug: `rate-recap-${b.slug}` });
 
   // Blog posts
   const blogPosts = await getAllBlogPosts();
@@ -391,6 +407,16 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
         authors: [{ name: post.author }],
       };
     }
+    case "rate-recap-brand": {
+      const { brandSlug, brandName } = resolved.data;
+      const title = `${brandName} Rate Recap \u2014 VacPack Price Tracker`;
+      const description = `Track every ${brandName} vacation deal price over time. Historical rates, scrape timestamps, and pricing trends.`;
+      return {
+        title, description,
+        alternates: { canonical: `${baseUrl}/rate-recap-${brandSlug}` },
+        openGraph: { title, description, type: "website", url: `${baseUrl}/rate-recap-${brandSlug}` },
+      };
+    }
   }
 }
 
@@ -409,6 +435,12 @@ export default async function SlugPage({ params }: SlugPageProps) {
   // Blog posts don't need deal data
   if (resolved.type === "blog") {
     return <BlogPostRenderer post={resolved.data} />;
+  }
+
+  // Brand rate recap pages — delegate to the dedicated component
+  if (resolved.type === "rate-recap-brand") {
+    const { default: BrandRateRecapPage } = await import("../rate-recap-[brand]/page");
+    return <BrandRateRecapPage params={Promise.resolve({ brand: resolved.data.brandSlug })} />;
   }
 
   // Try to fetch deals from DB, fall back to mock data
