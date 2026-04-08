@@ -31,7 +31,56 @@ import { runWestinVcCrawler } from "./crawlers/westin-vc";
 import { runVacationvipCrawler } from "./crawlers/vacationvip";
 import { runBestvacationdealzCrawler } from "./crawlers/bestvacationdealz";
 import { runMonsterVacationsCrawler } from "./crawlers/monster-vacations";
-import { deactivateExpiredDeals } from "./storage/deal-store";
+import { deactivateExpiredDeals, getRunStats } from "./storage/deal-store";
+import { db } from "@vacationdeals/db";
+import { scrapeRuns, sources } from "@vacationdeals/db";
+import { eq } from "drizzle-orm";
+
+async function logScrapeRun(scraperKey: string, runFn: () => Promise<void>) {
+  const startedAt = new Date();
+  const statsBefore = await getRunStats(scraperKey);
+
+  // Create run record
+  let runId: number | null = null;
+  try {
+    const source = await db.query.sources.findFirst({
+      where: eq(sources.scraperKey, scraperKey),
+    });
+    const [run] = await db.insert(scrapeRuns).values({
+      sourceId: source?.id ?? null,
+      scraperKey,
+      startedAt,
+      status: "running",
+    }).returning();
+    runId = run.id;
+  } catch (e) {
+    console.warn(`[scrape-run] Could not log start for ${scraperKey}:`, e);
+  }
+
+  try {
+    await runFn();
+    const statsAfter = await getRunStats(scraperKey);
+    const dealsStored = (statsAfter?.dealCount ?? 0) - (statsBefore?.dealCount ?? 0);
+
+    if (runId) {
+      await db.update(scrapeRuns).set({
+        finishedAt: new Date(),
+        dealsFound: statsAfter?.dealCount ?? 0,
+        dealsStored: Math.max(0, dealsStored),
+        status: "success",
+      }).where(eq(scrapeRuns.id, runId));
+    }
+  } catch (err) {
+    if (runId) {
+      await db.update(scrapeRuns).set({
+        finishedAt: new Date(),
+        status: "failed",
+        errorMessage: String(err),
+      }).where(eq(scrapeRuns.id, runId)).catch(() => {});
+    }
+    throw err;
+  }
+}
 
 const crawlers: Record<string, () => Promise<void>> = {
   westgate: runWestgateCrawler,
@@ -89,13 +138,13 @@ async function main() {
       process.exit(1);
     }
     console.log(`Running ${sourceKey} crawler...`);
-    await crawler();
+    await logScrapeRun(sourceKey, crawler);
   } else {
     console.log("Running all crawlers...");
     for (const [name, crawler] of Object.entries(crawlers)) {
       console.log(`\n--- ${name} ---`);
       try {
-        await crawler();
+        await logScrapeRun(name, crawler);
       } catch (err) {
         console.error(`${name} crawler failed:`, err);
       }

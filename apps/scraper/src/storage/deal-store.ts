@@ -1,7 +1,24 @@
 import { db } from "@vacationdeals/db";
 import { deals, destinations, brands, sources, dealPriceHistory } from "@vacationdeals/db";
-import { eq, and, lt } from "drizzle-orm";
+import { eq, and, lt, count } from "drizzle-orm";
 import type { ScrapedDeal } from "@vacationdeals/shared";
+
+/** Get current deal count for a source (used for scrape run delta tracking) */
+export async function getRunStats(scraperKey: string): Promise<{ dealCount: number } | null> {
+  try {
+    const source = await db.query.sources.findFirst({
+      where: eq(sources.scraperKey, scraperKey),
+    });
+    if (!source) return null;
+    const [result] = await db
+      .select({ dealCount: count() })
+      .from(deals)
+      .where(and(eq(deals.sourceId, source.id), eq(deals.isActive, true)));
+    return { dealCount: result?.dealCount ?? 0 };
+  } catch {
+    return null;
+  }
+}
 
 function slugify(text: string): string {
   return text

@@ -174,6 +174,33 @@ export const blogPosts = pgTable("blog_posts", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
+// ── Scrape Runs (provenance logging) ───────────────────
+export const scrapeRuns = pgTable("scrape_runs", {
+  id: serial("id").primaryKey(),
+  sourceId: integer("source_id").references(() => sources.id),
+  scraperKey: varchar("scraper_key", { length: 100 }).notNull(),
+  startedAt: timestamp("started_at").notNull(),
+  finishedAt: timestamp("finished_at"),
+  dealsFound: integer("deals_found").default(0),
+  dealsStored: integer("deals_stored").default(0),
+  urlsCrawled: integer("urls_crawled").default(0),
+  status: varchar("status", { length: 50 }).notNull().default("running"), // running, success, failed
+  errorMessage: text("error_message"),
+  pagesVisited: text("pages_visited"), // JSON array of URLs crawled
+});
+
+// ── Data Inquiries (B2B leads) ─────────────────────────
+export const dataInquiries = pgTable("data_inquiries", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 255 }).notNull(),
+  company: varchar("company", { length: 255 }),
+  message: text("message"),
+  inquiryType: varchar("inquiry_type", { length: 50 }).notNull().default("historical_data"), // historical_data, api_access, custom_report
+  status: varchar("status", { length: 50 }).notNull().default("new"), // new, contacted, qualified, closed
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 // ── Ad Banners ──────────────────────────────────────────
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),

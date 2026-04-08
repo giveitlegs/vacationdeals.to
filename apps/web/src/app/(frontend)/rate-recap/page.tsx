@@ -227,6 +227,78 @@ export default async function RateRecapPage() {
           </div>
         </div>
       </section>
+      {/* Brand Rate Recap Pages */}
+      <section className="mt-12">
+        <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          Rate Recap by Brand
+        </h2>
+        <p className="mb-6 text-gray-600">
+          Dive deep into pricing trends for a specific brand. Every rate we scrape, when we scraped it, and how it has changed over time.
+        </p>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          {brands.map((brand) => (
+            <Link
+              key={brand.slug}
+              href={`/rate-recap-${brand.slug}`}
+              className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 transition-all hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-sm"
+            >
+              <span
+                className="inline-block h-3 w-3 shrink-0 rounded-full"
+                style={{ backgroundColor: brand.color }}
+              />
+              {brand.name}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Rate Showdown CTA */}
+      <section className="mt-12">
+        <Link
+          href="/vacpack-rate-showdown"
+          className="block rounded-xl border-2 border-dashed border-blue-300 bg-blue-50 p-8 text-center transition-colors hover:border-blue-500 hover:bg-blue-100"
+        >
+          <h2 className="mb-2 text-2xl font-bold text-blue-900">
+            VacPack Rate Showdown
+          </h2>
+          <p className="text-blue-700">
+            Compare two brands head-to-head. See which resort brand consistently offers the lowest rates, biggest savings, and best value across destinations.
+          </p>
+          <span className="mt-4 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white">
+            Launch Showdown &rarr;
+          </span>
+        </Link>
+      </section>
+
+      {/* B2B Historical Data CTA */}
+      <section className="mt-12 rounded-xl border border-gray-200 bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="mb-3 text-2xl font-bold">
+            Need Historical VacPack Rate Data?
+          </h2>
+          <p className="mb-2 text-gray-300">
+            We offer comprehensive data reports for businesses, analysts, and researchers who need verified historical pricing data across all timeshare vacation package brands.
+          </p>
+          <ul className="mb-6 space-y-1 text-sm text-gray-400">
+            <li>Full price history across 33 brands and 97+ destinations</li>
+            <li>Exact scrape timestamps with source URL provenance</li>
+            <li>Methodology documentation and data verification</li>
+            <li>Custom date ranges and brand/destination filtering</li>
+          </ul>
+          <a
+            href="mailto:data@vacationdeals.to?subject=Historical%20VacPack%20Rate%20Data%20Inquiry&body=Hi%2C%0A%0AI%27m%20interested%20in%20purchasing%20historical%20VacPack%20rate%20data.%0A%0ACompany%3A%20%0AUse%20case%3A%20%0ADate%20range%20needed%3A%20%0ABrands%2Fdestinations%20of%20interest%3A%20%0A%0AThanks!"
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-100"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            Request Data Report
+          </a>
+          <p className="mt-3 text-xs text-gray-500">
+            Enterprise pricing starts at $5,000. Includes full provenance documentation.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
