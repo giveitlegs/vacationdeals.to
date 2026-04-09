@@ -39,6 +39,13 @@ async function seed() {
     { name: "Villa Group Resorts", slug: "villa-group", type: "direct", website: "https://villagroupresorts.com" },
     { name: "Sheraton Vacation Club", slug: "sheraton-vc", type: "direct", website: "https://sheratonvacationclub.marriott.com" },
     { name: "Westin Vacation Club", slug: "westin-vc", type: "direct", website: "https://westinvacationclub.marriott.com" },
+    { name: "Timeshare Presentation Deals", slug: "timeshare-presentation-deals", type: "broker", website: "https://timesharepresentationdeals.com" },
+    { name: "All Inclusive Promotions", slug: "all-inclusive-promotions", type: "broker", website: "https://allinclusivepromotions.com" },
+    { name: "Exploria Resorts", slug: "exploria", type: "direct", website: "https://exploriavacations.com" },
+    { name: "Massanutten Resort", slug: "massanutten", type: "direct", website: "https://massresort.com" },
+    { name: "I Want To Travel To", slug: "iwanttotravelto", type: "broker", website: "https://iwanttotravelto.com" },
+    { name: "Vacation Offer", slug: "vacation-offer", type: "broker", website: "https://vacationoffer.com" },
+    { name: "Margaritaville Vacation Club", slug: "margaritaville", type: "direct", website: "https://margaritavillevcrentals.com" },
   ]).onConflictDoNothing();
 
   // ── Destinations ────────────────────────────────────
@@ -108,6 +115,10 @@ async function seed() {
     { city: "Princeville", state: "HI", country: "US", slug: "princeville", region: "West" },
     { city: "Maui", state: "HI", country: "US", slug: "maui", region: "West" },
     { city: "Kapaa", state: "HI", country: "US", slug: "kapaa", region: "West" },
+    { city: "Massanutten", state: "VA", country: "US", slug: "massanutten", region: "Southeast" },
+    { city: "Pocono Mountains", state: "PA", country: "US", slug: "pocono-mountains", region: "Northeast" },
+    { city: "Rio Grande", state: "PR", country: "US", slug: "rio-grande-pr", region: "Caribbean" },
+    { city: "Willemstad", state: null, country: "CW", slug: "willemstad-curacao", region: "Caribbean" },
   ]).onConflictDoNothing();
 
   // ── Sources ─────────────────────────────────────────
@@ -143,6 +154,13 @@ async function seed() {
     { name: "Villa Group Resorts", baseUrl: "https://villagroupresorts.com", scraperKey: "villa-group" },
     { name: "Sheraton Vacation Club", baseUrl: "https://sheratonvacationclub.marriott.com", scraperKey: "sheraton-vc" },
     { name: "Westin Vacation Club", baseUrl: "https://westinvacationclub.marriott.com", scraperKey: "westin-vc" },
+    { name: "Timeshare Presentation Deals", baseUrl: "https://timesharepresentationdeals.com", scraperKey: "timeshare-presentation-deals" },
+    { name: "All Inclusive Promotions", baseUrl: "https://allinclusivepromotions.com", scraperKey: "all-inclusive-promotions" },
+    { name: "Exploria Resorts", baseUrl: "https://exploriavacations.com", scraperKey: "exploria" },
+    { name: "Massanutten Resort", baseUrl: "https://massresort.com", scraperKey: "massanutten" },
+    { name: "I Want To Travel To", baseUrl: "https://iwanttotravelto.com", scraperKey: "iwanttotravelto" },
+    { name: "Vacation Offer", baseUrl: "https://vacationoffer.com", scraperKey: "vacation-offer" },
+    { name: "Margaritaville Vacation Club", baseUrl: "https://margaritavillevcrentals.com", scraperKey: "margaritaville" },
   ]).onConflictDoNothing();
 
   console.log("✅ Seed complete!");

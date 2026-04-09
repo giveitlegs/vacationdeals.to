@@ -31,6 +31,13 @@ import { runWestinVcCrawler } from "./crawlers/westin-vc";
 import { runVacationvipCrawler } from "./crawlers/vacationvip";
 import { runBestvacationdealzCrawler } from "./crawlers/bestvacationdealz";
 import { runMonsterVacationsCrawler } from "./crawlers/monster-vacations";
+import { runTimesharePresentationDealsCrawler } from "./crawlers/timeshare-presentation-deals";
+import { runAllInclusivePromotionsCrawler } from "./crawlers/all-inclusive-promotions";
+import { runExploriaCrawler } from "./crawlers/exploria";
+import { runMassannutenCrawler } from "./crawlers/massanutten";
+import { runIWantToTravelToCrawler } from "./crawlers/iwanttotravelto";
+import { runVacationOfferCrawler } from "./crawlers/vacation-offer";
+import { runMargaritavilleCrawler } from "./crawlers/margaritaville";
 import { deactivateExpiredDeals, getRunStats } from "./storage/deal-store";
 import { db } from "@vacationdeals/db";
 import { scrapeRuns, sources } from "@vacationdeals/db";
@@ -116,6 +123,13 @@ const crawlers: Record<string, () => Promise<void>> = {
   vacationvip: runVacationvipCrawler,
   bestvacationdealz: runBestvacationdealzCrawler,
   "monster-vacations": runMonsterVacationsCrawler,
+  "timeshare-presentation-deals": runTimesharePresentationDealsCrawler,
+  "all-inclusive-promotions": runAllInclusivePromotionsCrawler,
+  exploria: runExploriaCrawler,
+  massanutten: runMassannutenCrawler,
+  iwanttotravelto: runIWantToTravelToCrawler,
+  "vacation-offer": runVacationOfferCrawler,
+  margaritaville: runMargaritavilleCrawler,
 };
 
 async function main() {
