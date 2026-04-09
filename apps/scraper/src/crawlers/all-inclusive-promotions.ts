@@ -41,7 +41,7 @@ export async function runAllInclusivePromotionsCrawler() {
             curacao: { city: "Willemstad", state: "", country: "CW" },
           };
 
-          let dest = { city: title, state: "", country: "US" };
+          let dest = { city: "Various", state: "", country: "MX" };
           for (const [key, val] of Object.entries(destMap)) {
             if (title.toLowerCase().includes(key)) { dest = val; break; }
           }
