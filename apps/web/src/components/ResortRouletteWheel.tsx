@@ -374,13 +374,32 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
 
       setSlices(result.wheelSlices);
 
-      // Calculate target rotation to land on winner
+      // Calculate target rotation so the winner slice center lands at the top (pointer).
+      //
+      // Slice i is drawn starting at angle (rotation + i * sliceAngle - π/2) in canvas
+      // coordinates (0 = 3 o'clock, clockwise positive). The center of slice i is at:
+      //   rotation + i * sliceAngle + sliceAngle/2 - π/2
+      //
+      // For the pointer at the top (angle -π/2), we need:
+      //   rotation + winnerIndex * sliceAngle + sliceAngle/2 - π/2 = -π/2 + 2πk
+      //   rotation = -winnerIndex * sliceAngle - sliceAngle/2 + 2πk
+      //
+      // So the FINAL rotation (mod 2π) must equal desiredFinalMod below.
+      // We independently compute this instead of additively carrying over prior rotation
+      // (which was the bug: the prior rotation offset was never canceled out).
       const n = result.wheelSlices.length;
       const sliceAngle = (Math.PI * 2) / n;
-      // Winner should be at top (pointer position)
-      // Start rotation + target = multiple full spins + offset to winner
-      const spins = 5 + Math.random() * 2; // 5-7 full rotations
-      const targetAngle = rotationRef.current + Math.PI * 2 * spins - (result.winnerIndex * sliceAngle + sliceAngle / 2);
+      const normalize = (a: number) => ((a % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+      const desiredFinalMod = normalize(-result.winnerIndex * sliceAngle - sliceAngle / 2);
+      const currentMod = normalize(rotationRef.current);
+
+      // Base: 5-7 full rotations for a satisfying spin
+      const baseSpins = 5 + Math.random() * 2;
+      let delta = baseSpins * Math.PI * 2 + (desiredFinalMod - currentMod);
+      // Ensure delta is at least 5 full rotations forward
+      while (delta < 5 * Math.PI * 2) delta += Math.PI * 2;
+
+      const targetAngle = rotationRef.current + delta;
 
       // Draw the initial wheel with new slices, then start animation
       drawWheel(rotationRef.current, result.wheelSlices);
