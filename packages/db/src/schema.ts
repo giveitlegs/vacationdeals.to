@@ -240,6 +240,32 @@ export const adLibraryAdsRelations = relations(adLibraryAds, ({ one }) => ({
   page: one(adLibraryPages, { fields: [adLibraryAds.adLibraryPageId], references: [adLibraryPages.id] }),
 }));
 
+// ── Roulette Deals (admin-weighted deals for Resort Roulette) ──
+export const rouletteDeals = pgTable("roulette_deals", {
+  id: serial("id").primaryKey(),
+  dealId: integer("deal_id").references(() => deals.id, { onDelete: "cascade" }).notNull().unique(),
+  weight: integer("weight").notNull().default(5),
+  isFeatured: boolean("is_featured").notNull().default(false),
+  isExcluded: boolean("is_excluded").notNull().default(false),
+  rarity: varchar("rarity", { length: 20 }).notNull().default("common"),
+  spinCount: integer("spin_count").notNull().default(0),
+  clickCount: integer("click_count").notNull().default(0),
+  conversionCount: integer("conversion_count").notNull().default(0),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+// ── Roulette Spins (log every spin for analytics) ──────
+export const rouletteSpins = pgTable("roulette_spins", {
+  id: serial("id").primaryKey(),
+  dealId: integer("deal_id").references(() => deals.id),
+  sessionId: varchar("session_id", { length: 100 }),
+  userAgent: text("user_agent"),
+  clicked: boolean("clicked").notNull().default(false),
+  rarity: varchar("rarity", { length: 20 }),
+  spunAt: timestamp("spun_at").defaultNow().notNull(),
+});
+
 // ── Ad Banners ──────────────────────────────────────────
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),
