@@ -18,6 +18,7 @@ import { vacationIdeas3Posts } from "../../../apps/web/src/lib/blog-posts/vacati
 import { vacationIdeas4Posts } from "../../../apps/web/src/lib/blog-posts/vacation-ideas-4";
 import { vacationIdeas6Posts } from "../../../apps/web/src/lib/blog-posts/vacation-ideas-6";
 import { vacationIdeas10Posts } from "../../../apps/web/src/lib/blog-posts/vacation-ideas-10";
+import { humanized100Posts } from "../../../apps/web/src/lib/blog-posts/humanized-100";
 
 interface BlogPost {
   slug: string;
@@ -60,6 +61,7 @@ async function seedBlog() {
     ...vacationIdeas4Posts,
     ...vacationIdeas6Posts,
     ...vacationIdeas10Posts,
+    ...humanized100Posts,
   ];
 
   console.log(`Found ${allPosts.length} blog posts to seed.`);
