@@ -28,6 +28,8 @@ interface ResortRouletteWheelProps {
   sessionId: string;
 }
 
+const TAU = Math.PI * 2;
+
 const RARITY_COLORS = {
   common: { bg: "#3B82F6", border: "#2563EB", glow: "#60A5FA" },
   rare: { bg: "#8B5CF6", border: "#7C3AED", glow: "#A78BFA" },
@@ -36,7 +38,7 @@ const RARITY_COLORS = {
 
 const ALT_SLICE_COLOR = "#1E293B";
 
-// ── Sound effects via Web Audio API (no external files) ──
+// Web Audio API sound effects
 function playSound(type: "tick" | "whoosh" | "fanfare" | "sparkle") {
   try {
     const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
@@ -61,7 +63,6 @@ function playSound(type: "tick" | "whoosh" | "fanfare" | "sparkle") {
       osc.start();
       osc.stop(ctx.currentTime + 0.4);
     } else if (type === "fanfare") {
-      // Play a quick arpeggio
       [523, 659, 784, 1047].forEach((freq, i) => {
         const o = ctx.createOscillator();
         const g = ctx.createGain();
@@ -87,26 +88,59 @@ function playSound(type: "tick" | "whoosh" | "fanfare" | "sparkle") {
   } catch {}
 }
 
-// ── Confetti particle system ──
 interface Particle {
   x: number; y: number; vx: number; vy: number; color: string;
   size: number; rotation: number; rotSpeed: number; life: number;
+}
+
+// ============================================================================
+// WHEEL GEOMETRY MODEL
+// ============================================================================
+//
+// We use a custom angle convention that makes the math clean:
+//
+//   angle = 0    → TOP of wheel (12 o'clock) — where the pointer is
+//   angle > 0   → clockwise (1, 2, 3 o'clock...)
+//   angle = π   → bottom (6 o'clock)
+//   angle = 2π  → back to top
+//
+// Slice i (0-indexed) occupies the angular range:
+//   [i * sliceAngle, (i + 1) * sliceAngle]
+// Slice i's CENTER is at:
+//   i * sliceAngle + sliceAngle / 2
+//
+// The wheel's rotation offsets every slice by the same amount:
+//   rendered angle = slice angle - rotation
+// (negative because clockwise rotation of the wheel moves slices clockwise)
+//
+// For slice i to be CENTERED under the pointer (at angle 0):
+//   i * sliceAngle + sliceAngle / 2 - rotation = 0
+//   rotation = i * sliceAngle + sliceAngle / 2
+//
+// To convert our clean angle → canvas angle (where 0 = 3 o'clock, clockwise):
+//   canvas_angle = wheel_angle - π/2
+// ============================================================================
+
+function wheelToCanvas(wheelAngle: number): number {
+  return wheelAngle - Math.PI / 2;
+}
+
+function normalize(a: number): number {
+  return ((a % TAU) + TAU) % TAU;
 }
 
 export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining, sessionId }: ResortRouletteWheelProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particleCanvasRef = useRef<HTMLCanvasElement>(null);
   const [isSpinning, setIsSpinning] = useState(false);
-  const [slices, setSlices] = useState<WheelSlice[]>([]);
   const [muted, setMuted] = useState(false);
   const rotationRef = useRef(0);
-  const targetRotationRef = useRef(0);
+  const currentSlicesRef = useRef<WheelSlice[]>([]);
   const animFrameRef = useRef<number | null>(null);
   const particlesRef = useRef<Particle[]>([]);
   const particleAnimRef = useRef<number | null>(null);
   const lastTickSliceRef = useRef(-1);
 
-  // Load persisted mute setting
   useEffect(() => {
     const stored = localStorage.getItem("roulette-muted");
     if (stored === "true") setMuted(true);
@@ -124,7 +158,9 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
     if (!muted) playSound(type);
   }, [muted]);
 
-  // Draw the wheel at current rotation
+  // ==========================================================================
+  // DRAW WHEEL
+  // ==========================================================================
   const drawWheel = useCallback((rotation: number, wheelSlices: WheelSlice[]) => {
     const canvas = canvasRef.current;
     if (!canvas || wheelSlices.length === 0) return;
@@ -136,25 +172,33 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
     const cx = w / 2;
     const cy = h / 2;
     const outerR = Math.min(w, h) / 2 - 20;
-    const innerR = outerR * 0.5;
-    const hubR = outerR * 0.15;
+    const innerR = outerR * 0.55;
+    const hubR = outerR * 0.16;
 
     ctx.clearRect(0, 0, w, h);
 
     const n = wheelSlices.length;
-    const sliceAngle = (Math.PI * 2) / n;
+    const sliceAngle = TAU / n;
 
-    // Draw outer ring slices (destinations)
+    // Draw each slice: outer ring (destination) + inner ring (price)
     for (let i = 0; i < n; i++) {
-      const start = rotation + i * sliceAngle - Math.PI / 2;
-      const end = start + sliceAngle;
+      // Clean wheel-space angles for slice i (0 = top, positive = clockwise)
+      const wheelStart = i * sliceAngle - rotation;
+      const wheelEnd = wheelStart + sliceAngle;
+      const wheelCenter = wheelStart + sliceAngle / 2;
+
+      // Convert to canvas angles for drawing
+      const canvasStart = wheelToCanvas(wheelStart);
+      const canvasEnd = wheelToCanvas(wheelEnd);
+      const canvasCenter = wheelToCanvas(wheelCenter);
+
       const slice = wheelSlices[i];
       const colors = RARITY_COLORS[slice.rarity];
 
-      // Slice fill (alternate darker shade for variety)
+      // ---- Outer ring slice (destination) ----
       ctx.beginPath();
       ctx.moveTo(cx, cy);
-      ctx.arc(cx, cy, outerR, start, end);
+      ctx.arc(cx, cy, outerR, canvasStart, canvasEnd);
       ctx.closePath();
       ctx.fillStyle = i % 2 === 0 ? colors.bg : ALT_SLICE_COLOR;
       ctx.fill();
@@ -162,56 +206,89 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      // Legendary glow
       if (slice.rarity === "legendary" && isSpinning) {
+        ctx.save();
         ctx.shadowColor = colors.glow;
-        ctx.shadowBlur = 20;
+        ctx.shadowBlur = 25;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, outerR, canvasStart, canvasEnd);
+        ctx.closePath();
+        ctx.fillStyle = colors.bg;
+        ctx.fill();
+        ctx.restore();
       }
 
-      // Destination text (outer ring)
-      ctx.save();
-      ctx.translate(cx, cy);
-      ctx.rotate(start + sliceAngle / 2);
-      ctx.textAlign = "right";
-      ctx.fillStyle = "#FFFFFF";
-      ctx.font = "bold 13px system-ui, sans-serif";
-      ctx.fillText(slice.city.toUpperCase().slice(0, 14), outerR - 12, 4);
-      ctx.restore();
-
-      ctx.shadowBlur = 0;
-    }
-
-    // Draw inner ring slices (prices) — rotated by half a slice for visual offset
-    for (let i = 0; i < n; i++) {
-      const start = rotation + i * sliceAngle - Math.PI / 2;
-      const end = start + sliceAngle;
-      const slice = wheelSlices[i];
-
-      // Inner fill
+      // ---- Inner ring slice (price) ----
       ctx.beginPath();
       ctx.moveTo(cx, cy);
-      ctx.arc(cx, cy, innerR, start, end);
+      ctx.arc(cx, cy, innerR, canvasStart, canvasEnd);
       ctx.closePath();
-      ctx.fillStyle = i % 2 === 0 ? "#F3F4F6" : "#E5E7EB";
+      ctx.fillStyle = i % 2 === 0 ? "#F8FAFC" : "#E5E7EB";
       ctx.fill();
       ctx.strokeStyle = "#9CA3AF";
       ctx.lineWidth = 1;
       ctx.stroke();
 
-      // Price text
+      // ---- Destination text (outer ring, radially-aligned, always readable) ----
+      // Rotate so text reads from center outward along the slice center.
+      // Flip text upside-down on the bottom half so it reads normally.
       ctx.save();
       ctx.translate(cx, cy);
-      ctx.rotate(start + sliceAngle / 2);
-      ctx.textAlign = "right";
-      ctx.fillStyle = slice.rarity === "legendary" ? "#B45309" : "#111827";
-      ctx.font = slice.rarity === "legendary" ? "bold 16px system-ui, sans-serif" : "bold 14px system-ui, sans-serif";
-      ctx.fillText(`$${slice.price}`, innerR - 10, 5);
+
+      // For radial text, we rotate so the x-axis points along the slice center radially
+      // Canvas default: 0 rad = right, π/2 = down (clockwise positive)
+      // So rotating by canvasCenter aligns +x with the slice center direction
+      const normalizedCenter = normalize(canvasCenter);
+      const isBottomHalf = normalizedCenter > 0 && normalizedCenter < Math.PI;
+
+      if (isBottomHalf) {
+        // Bottom half: rotate 180° extra so text reads right-side-up
+        ctx.rotate(canvasCenter + Math.PI);
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "#FFFFFF";
+        ctx.font = "bold 12px system-ui, sans-serif";
+        const text = slice.city.toUpperCase();
+        const maxWidth = outerR - innerR - 16;
+        ctx.fillText(text, -(outerR - 8), 0, maxWidth);
+      } else {
+        // Top half: text reads outward from center
+        ctx.rotate(canvasCenter);
+        ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "#FFFFFF";
+        ctx.font = "bold 12px system-ui, sans-serif";
+        const text = slice.city.toUpperCase();
+        const maxWidth = outerR - innerR - 16;
+        ctx.fillText(text, outerR - 8, 0, maxWidth);
+      }
+      ctx.restore();
+
+      // ---- Price text (inner ring) ----
+      ctx.save();
+      ctx.translate(cx, cy);
+      if (isBottomHalf) {
+        ctx.rotate(canvasCenter + Math.PI);
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = slice.rarity === "legendary" ? "#B45309" : "#111827";
+        ctx.font = slice.rarity === "legendary" ? "bold 16px system-ui, sans-serif" : "bold 14px system-ui, sans-serif";
+        ctx.fillText(`$${slice.price}`, -(innerR - 6), 0);
+      } else {
+        ctx.rotate(canvasCenter);
+        ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = slice.rarity === "legendary" ? "#B45309" : "#111827";
+        ctx.font = slice.rarity === "legendary" ? "bold 16px system-ui, sans-serif" : "bold 14px system-ui, sans-serif";
+        ctx.fillText(`$${slice.price}`, innerR - 6, 0);
+      }
       ctx.restore();
     }
 
-    // Draw hub (center)
+    // ---- Hub ----
     ctx.beginPath();
-    ctx.arc(cx, cy, hubR, 0, Math.PI * 2);
+    ctx.arc(cx, cy, hubR, 0, TAU);
     const hubGradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, hubR);
     hubGradient.addColorStop(0, "#FBBF24");
     hubGradient.addColorStop(1, "#D97706");
@@ -221,33 +298,34 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
     ctx.lineWidth = 3;
     ctx.stroke();
 
-    // Hub star
     ctx.save();
     ctx.translate(cx, cy);
     ctx.fillStyle = "#FFFFFF";
-    ctx.font = "bold 20px system-ui, sans-serif";
+    ctx.font = "bold 22px system-ui, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText("★", 0, 1);
+    ctx.fillText("\u2605", 0, 1);
     ctx.restore();
 
-    // Draw pointer (top, fixed)
+    // ---- Pointer (fixed at top, pointing down into the wheel) ----
     ctx.save();
-    ctx.translate(cx, 20);
     ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(-14, -20);
-    ctx.lineTo(14, -20);
+    // Base at y=4 (near top of canvas), tip at y=25 (just inside outer wheel edge)
+    ctx.moveTo(cx, 25); // tip (pointing at slice center)
+    ctx.lineTo(cx - 16, 4); // base left
+    ctx.lineTo(cx + 16, 4); // base right
     ctx.closePath();
     ctx.fillStyle = "#DC2626";
-    ctx.fill();
     ctx.strokeStyle = "#7F1D1D";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3;
+    ctx.fill();
     ctx.stroke();
     ctx.restore();
   }, [isSpinning]);
 
-  // Spawn confetti
+  // ==========================================================================
+  // CONFETTI
+  // ==========================================================================
   const spawnConfetti = useCallback((rarity: "common" | "rare" | "legendary") => {
     const count = rarity === "legendary" ? 120 : rarity === "rare" ? 80 : 50;
     const colors = rarity === "legendary"
@@ -268,14 +346,13 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
         vy: (Math.random() - 0.5) * 16 - 4,
         color: colors[Math.floor(Math.random() * colors.length)],
         size: Math.random() * 6 + 3,
-        rotation: Math.random() * Math.PI * 2,
+        rotation: Math.random() * TAU,
         rotSpeed: (Math.random() - 0.5) * 0.3,
         life: 1.0,
       });
     }
   }, []);
 
-  // Particle animation loop
   useEffect(() => {
     const canvas = particleCanvasRef.current;
     if (!canvas) return;
@@ -284,15 +361,13 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
 
     const loop = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       particlesRef.current = particlesRef.current.filter((p) => {
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.35; // gravity
+        p.vy += 0.35;
         p.vx *= 0.99;
         p.rotation += p.rotSpeed;
         p.life -= 0.008;
-
         if (p.life <= 0 || p.y > canvas.height + 50) return false;
 
         ctx.save();
@@ -302,39 +377,40 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
         ctx.fillStyle = p.color;
         ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
         ctx.restore();
-
         return true;
       });
-
       particleAnimRef.current = requestAnimationFrame(loop);
     };
-
     loop();
     return () => {
       if (particleAnimRef.current) cancelAnimationFrame(particleAnimRef.current);
     };
   }, []);
 
-  // Spin animation (easing-out cubic for natural slow-down)
+  // ==========================================================================
+  // SPIN ANIMATION
+  // ==========================================================================
   const animateSpin = useCallback((targetRotation: number, wheelSlices: WheelSlice[], winner: WheelSlice) => {
     const startRotation = rotationRef.current;
     const startTime = performance.now();
-    const DURATION = 4500; // 4.5 seconds
+    const DURATION = 4500;
     const n = wheelSlices.length;
-    const sliceAngle = (Math.PI * 2) / n;
+    const sliceAngle = TAU / n;
+
+    lastTickSliceRef.current = -1;
 
     const frame = (now: number) => {
       const elapsed = now - startTime;
       const t = Math.min(elapsed / DURATION, 1);
-      // Ease-out cubic
       const eased = 1 - Math.pow(1 - t, 3);
       const rotation = startRotation + (targetRotation - startRotation) * eased;
       rotationRef.current = rotation;
       drawWheel(rotation, wheelSlices);
 
-      // Tick sound when pointer crosses a slice boundary
-      const pointerAngle = ((-rotation - Math.PI / 2) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
-      const currentSlice = Math.floor(pointerAngle / sliceAngle);
+      // Tick sound: slice i is at the top when rotation = (i + 0.5) * sliceAngle mod TAU
+      // So: i = round((rotation mod TAU - sliceAngle/2) / sliceAngle) mod n
+      const normRot = normalize(rotation);
+      const currentSlice = (Math.round((normRot - sliceAngle / 2) / sliceAngle) % n + n) % n;
       if (currentSlice !== lastTickSliceRef.current) {
         sound("tick");
         lastTickSliceRef.current = currentSlice;
@@ -343,11 +419,13 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
       if (t < 1) {
         animFrameRef.current = requestAnimationFrame(frame);
       } else {
+        // Animation complete — snap exactly to target to avoid float drift
+        rotationRef.current = targetRotation;
+        drawWheel(targetRotation, wheelSlices);
         setIsSpinning(false);
         spawnConfetti(winner.rarity);
         sound("fanfare");
         if (winner.rarity === "legendary") {
-          // Extra confetti burst for legendary
           setTimeout(() => spawnConfetti("legendary"), 300);
           setTimeout(() => spawnConfetti("legendary"), 600);
         }
@@ -357,6 +435,9 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
     animFrameRef.current = requestAnimationFrame(frame);
   }, [drawWheel, sound, spawnConfetti, onWin]);
 
+  // ==========================================================================
+  // SPIN HANDLER
+  // ==========================================================================
   const handleSpin = useCallback(async () => {
     if (isSpinning || spinsRemaining <= 0) return;
     setIsSpinning(true);
@@ -372,90 +453,91 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
       if (!res.ok) throw new Error("Spin request failed");
       const result: SpinResult = await res.json();
 
-      setSlices(result.wheelSlices);
-
-      // Calculate target rotation so the winner slice center lands at the top (pointer).
-      //
-      // Slice i is drawn starting at angle (rotation + i * sliceAngle - π/2) in canvas
-      // coordinates (0 = 3 o'clock, clockwise positive). The center of slice i is at:
-      //   rotation + i * sliceAngle + sliceAngle/2 - π/2
-      //
-      // For the pointer at the top (angle -π/2), we need:
-      //   rotation + winnerIndex * sliceAngle + sliceAngle/2 - π/2 = -π/2 + 2πk
-      //   rotation = -winnerIndex * sliceAngle - sliceAngle/2 + 2πk
-      //
-      // So the FINAL rotation (mod 2π) must equal desiredFinalMod below.
-      // We independently compute this instead of additively carrying over prior rotation
-      // (which was the bug: the prior rotation offset was never canceled out).
+      currentSlicesRef.current = result.wheelSlices;
       const n = result.wheelSlices.length;
-      const sliceAngle = (Math.PI * 2) / n;
-      const normalize = (a: number) => ((a % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
-      const desiredFinalMod = normalize(-result.winnerIndex * sliceAngle - sliceAngle / 2);
+      const sliceAngle = TAU / n;
+
+      // ── TARGET ROTATION CALCULATION ──
+      // drawWheel formula: wheelStart = i*sliceAngle - rotation
+      //                    canvasCenter = (i + 0.5)*sliceAngle - rotation - π/2
+      //
+      // Pointer is at canvas angle -π/2 (top of wheel). For slice winnerIndex
+      // to be centered under the pointer:
+      //   (winnerIndex + 0.5)*sliceAngle - rotation - π/2 = -π/2
+      //   rotation = (winnerIndex + 0.5) * sliceAngle
+      //
+      // We want final rotation mod TAU = this value. Compute delta:
+      const desiredFinal = normalize((result.winnerIndex + 0.5) * sliceAngle);
       const currentMod = normalize(rotationRef.current);
-
-      // Base: 5-7 full rotations for a satisfying spin
       const baseSpins = 5 + Math.random() * 2;
-      let delta = baseSpins * Math.PI * 2 + (desiredFinalMod - currentMod);
-      // Ensure delta is at least 5 full rotations forward
-      while (delta < 5 * Math.PI * 2) delta += Math.PI * 2;
+      let delta = baseSpins * TAU + (desiredFinal - currentMod);
+      while (delta < 5 * TAU) delta += TAU;
+      const targetRotation = rotationRef.current + delta;
 
-      const targetAngle = rotationRef.current + delta;
+      // Debug log for verification
+      if (typeof window !== "undefined") {
+        // eslint-disable-next-line no-console
+        console.log("[roulette]", {
+          winnerIndex: result.winnerIndex,
+          winner: `${result.winner.city} $${result.winner.price}`,
+          currentRotation: rotationRef.current,
+          currentMod,
+          desiredFinal,
+          delta,
+          targetRotation,
+          expectedFinalMod: normalize(targetRotation),
+        });
+      }
 
-      // Draw the initial wheel with new slices, then start animation
       drawWheel(rotationRef.current, result.wheelSlices);
-      animateSpin(targetAngle, result.wheelSlices, result.winner);
+      animateSpin(targetRotation, result.wheelSlices, result.winner);
     } catch (e) {
       console.error("Spin failed:", e);
       setIsSpinning(false);
     }
   }, [isSpinning, spinsRemaining, onSpinStart, sessionId, filter, animateSpin, drawWheel, sound]);
 
-  // Initial wheel render with placeholder
+  // Initial placeholder render
   useEffect(() => {
-    if (slices.length === 0) {
-      // Draw a placeholder wheel
+    if (currentSlicesRef.current.length === 0) {
       const placeholder: WheelSlice[] = Array.from({ length: 12 }, (_, i) => ({
-        dealId: i, price: 99 + i * 20, city: "Loading", state: "", brandName: "...", brandSlug: "",
-        slug: "", resortName: "", rarity: "common" as const,
+        dealId: i, price: 99 + i * 20, city: "Loading", state: "", brandName: "",
+        brandSlug: "", slug: "", resortName: "", rarity: "common" as const,
       }));
       drawWheel(0, placeholder);
     }
-  }, [slices.length, drawWheel]);
+  }, [drawWheel]);
 
   return (
     <div className="relative flex flex-col items-center">
-      {/* Wheel container */}
       <div className="relative">
         <canvas
           ref={canvasRef}
-          width={500}
-          height={500}
+          width={560}
+          height={560}
           className="drop-shadow-2xl"
           style={{ maxWidth: "100%", height: "auto" }}
         />
-        {/* Particle layer on top */}
         <canvas
           ref={particleCanvasRef}
-          width={500}
-          height={500}
+          width={560}
+          height={560}
           className="pointer-events-none absolute inset-0"
           style={{ maxWidth: "100%", height: "auto" }}
         />
-        {/* Sparkler ring (CSS) */}
         {isSpinning && (
           <div className="pointer-events-none absolute inset-0 animate-spin" style={{ animationDuration: "3s" }}>
             {[0, 60, 120, 180, 240, 300].map((deg) => (
               <div
                 key={deg}
                 className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-300 shadow-[0_0_20px_6px_rgba(253,224,71,0.8)]"
-                style={{ transform: `translate(-50%, -50%) rotate(${deg}deg) translateY(-240px)` }}
+                style={{ transform: `translate(-50%, -50%) rotate(${deg}deg) translateY(-270px)` }}
               />
             ))}
           </div>
         )}
       </div>
 
-      {/* Spin button */}
       <button
         onClick={handleSpin}
         disabled={isSpinning || spinsRemaining <= 0}
@@ -470,13 +552,12 @@ export function ResortRouletteWheel({ filter, onWin, onSpinStart, spinsRemaining
         )}
       </button>
 
-      {/* Mute toggle */}
       <button
         onClick={toggleMute}
         className="mt-4 text-xs text-gray-400 hover:text-gray-600"
         title={muted ? "Unmute sounds" : "Mute sounds"}
       >
-        {muted ? "🔇 Sounds off" : "🔊 Sounds on"}
+        {muted ? "\uD83D\uDD07 Sounds off" : "\uD83D\uDD0A Sounds on"}
       </button>
     </div>
   );
