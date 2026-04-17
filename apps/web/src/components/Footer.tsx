@@ -145,20 +145,37 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Row */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-8 sm:flex-row">
-          <p className="text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} VacationDeals.to. All rights
-            reserved.
-          </p>
-          <div className="flex gap-6 text-xs text-gray-400">
-            <Link href="/privacy" className="hover:text-gray-600">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-gray-600">
-              Terms of Service
-            </Link>
+        {/* Legal Links */}
+        <div className="mt-10 border-t border-gray-200 pt-8">
+          <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-400 sm:gap-6">
+            <Link href="/privacy" className="hover:text-gray-600">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-gray-600">Terms &amp; Conditions</Link>
+            <Link href="/timeshare-laws" className="hover:text-gray-600">Timeshare Laws by State</Link>
+            <a href="mailto:privacy@vacationdeals.to?subject=Do%20Not%20Sell%20My%20Personal%20Information" className="hover:text-gray-600">Do Not Sell My Info</a>
           </div>
+        </div>
+
+        {/* Aggregator Disclaimer */}
+        <div className="mt-6 rounded-lg border border-gray-200 bg-gray-100 p-4 text-xs leading-relaxed text-gray-500">
+          <p>
+            <strong>Disclaimer:</strong> VacationDeals.to is an independent vacation deal comparison and aggregator website.
+            We are <strong>NOT</strong> a timeshare company, resort developer, real estate broker, or travel agency. We do not
+            sell, book, market, or facilitate the sale of vacation packages, timeshare interests, or any real estate. All deals
+            displayed are sourced from publicly available information on third-party websites. Clicking a deal redirects you to
+            the third-party provider&apos;s site. We make no guarantees about pricing, availability, or accuracy of any listing.
+            All trademarks are property of their respective owners. See our{" "}
+            <Link href="/terms" className="text-gray-600 underline hover:text-gray-800">Terms &amp; Conditions</Link>{" "}
+            and{" "}
+            <Link href="/privacy" className="text-gray-600 underline hover:text-gray-800">Privacy Policy</Link>{" "}
+            for full details.
+          </p>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-6 text-center">
+          <p className="text-xs text-gray-400">
+            &copy; {new Date().getFullYear()} VacationDeals.to. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

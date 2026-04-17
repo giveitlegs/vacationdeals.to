@@ -72,6 +72,7 @@ export async function getPriceHistory(filters?: {
   destinationSlug?: string;
   durationNights?: number;
   days?: number; // last N days, default 30
+  excludeBrands?: string[]; // brand slugs to exclude (e.g., ["mrg"])
 }): Promise<{ points: PricePoint[]; brands: BrandInfo[]; isMock: boolean }> {
   const days = filters?.days ?? 30;
 
@@ -126,6 +127,12 @@ export async function getPriceHistory(filters?: {
 
     // Always use real data — no mock fallback
     {
+      // Filter out excluded brands (e.g., MRG with its multi-night bundles)
+      const excludeSet = new Set(filters?.excludeBrands ?? []);
+      const filteredRows = excludeSet.size > 0
+        ? rows.filter((r) => !excludeSet.has(r.brandSlug ?? ""))
+        : rows;
+
       // Group by brand + date + destination + duration, keep CHEAPEST price
       // (not average — the displayed price must match the linked deal)
       const grouped = new Map<string, {
@@ -139,7 +146,7 @@ export async function getPriceHistory(filters?: {
         lastScrapedAt: string;
         cheapestPrice: number;
       }>();
-      for (const r of rows) {
+      for (const r of filteredRows) {
         const dateStr = r.scrapedAt.toISOString().split("T")[0];
         const slug = r.brandSlug ?? "unknown";
         const destSlug = r.destinationSlug ?? "unknown";

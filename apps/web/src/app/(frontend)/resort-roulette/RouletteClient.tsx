@@ -23,7 +23,10 @@ export function RouletteClient() {
   const [tickerIdx, setTickerIdx] = useState(0);
   const [holdTimer, setHoldTimer] = useState(0);
   const [showEmailGate, setShowEmailGate] = useState(false);
+  const [showDoubleOptIn, setShowDoubleOptIn] = useState(false);
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [termsChecked, setTermsChecked] = useState(false);
   const [streak, setStreak] = useState(0);
   const sessionIdRef = useRef<string>("");
 
@@ -88,15 +91,28 @@ export function RouletteClient() {
     window.location.href = `/deals/${winner.slug}`;
   };
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
+  const handleEmailSubmit = () => {
+    if (!email || !termsChecked) return;
     // Give 5 bonus spins
     setSpinsRemaining(5);
     const dateKey = new Date().toISOString().split("T")[0];
     localStorage.setItem("roulette-spins-" + dateKey, JSON.stringify({ remaining: 5 }));
     setShowEmailGate(false);
-    // In production, POST email to a lead capture endpoint
+    setShowDoubleOptIn(false);
+    // POST to lead capture API with full TCPA consent data
+    const consentText = `I agree to the Terms & Conditions and Privacy Policy, and consent to receive promotional emails${phone ? " and SMS messages" : ""} from VacationDeals.to. Message & data rates may apply. Consent is not a condition of any purchase.`;
+    fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        phone: phone || undefined,
+        source: "roulette_optin",
+        tcpaConsent: true,
+        termsConsent: true,
+        consentText,
+      }),
+    }).catch(() => {});
   };
 
   const formatTime = (seconds: number) => {
@@ -281,37 +297,96 @@ export function RouletteClient() {
         </p>
       </section>
 
-      {/* Email gate modal */}
+      {/* Email/SMS gate modal with TCPA consent */}
       {showEmailGate && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
           <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
-            <h2 className="mb-2 text-2xl font-bold text-gray-900">Out of Free Spins!</h2>
-            <p className="mb-6 text-sm text-gray-600">
-              Drop your email to get <strong>5 bonus spins</strong> and our weekly best deals alerts.
-            </p>
-            <form onSubmit={handleEmailSubmit}>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                className="mb-4 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm"
-              />
-              <button
-                type="submit"
-                className="w-full rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700"
-              >
-                Get 5 Bonus Spins
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowEmailGate(false)}
-                className="mt-2 w-full text-xs text-gray-400 hover:text-gray-600"
-              >
-                Maybe later
-              </button>
-            </form>
+            {!showDoubleOptIn ? (
+              <>
+                <h2 className="mb-2 text-2xl font-bold text-gray-900">Out of Free Spins!</h2>
+                <p className="mb-4 text-sm text-gray-600">
+                  Drop your email (and phone if you want SMS alerts) to get{" "}
+                  <strong>5 bonus spins</strong> and our weekly best deals.
+                </p>
+                <form onSubmit={(e) => { e.preventDefault(); if (!email || !termsChecked) return; setShowDoubleOptIn(true); }}>
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    className="mb-3 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm"
+                  />
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="(555) 555-5555 (optional, for SMS deals)"
+                    className="mb-4 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm"
+                  />
+                  {/* TCPA consent checkbox */}
+                  <label className="mb-4 flex items-start gap-2 text-xs text-gray-500 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={termsChecked}
+                      onChange={(e) => setTermsChecked(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300"
+                      required
+                    />
+                    <span>
+                      I agree to the{" "}
+                      <a href="/terms" target="_blank" rel="noopener" className="text-blue-600 underline">Terms &amp; Conditions</a>{" "}
+                      and{" "}
+                      <a href="/privacy" target="_blank" rel="noopener" className="text-blue-600 underline">Privacy Policy</a>,
+                      and consent to receive promotional emails and SMS messages from VacationDeals.to.
+                      Message &amp; data rates may apply. Consent is not a condition of any purchase.
+                      Reply STOP to opt out of SMS at any time.
+                    </span>
+                  </label>
+                  <button
+                    type="submit"
+                    disabled={!termsChecked || !email}
+                    className="w-full rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Get 5 Bonus Spins
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowEmailGate(false)}
+                    className="mt-2 w-full text-xs text-gray-400 hover:text-gray-600"
+                  >
+                    Maybe later
+                  </button>
+                </form>
+              </>
+            ) : (
+              /* Funny double opt-in confirmation */
+              <div className="text-center">
+                <p className="mb-3 text-4xl">&#129300;</p>
+                <h2 className="mb-2 text-xl font-bold text-gray-900">Wait, are you SURE?</h2>
+                <p className="mb-4 text-sm text-gray-600">
+                  Like, <em>really</em> sure you want to give us your email
+                  {phone ? " and phone number" : ""}? Because we ARE going
+                  to send you some messages, ya know? Vacation deals, hot
+                  offers, the occasional terrible pun. Better be sure!
+                </p>
+                <div className="space-y-3">
+                  <button
+                    onClick={handleEmailSubmit}
+                    className="w-full rounded-lg bg-emerald-600 px-6 py-4 text-base font-bold text-white hover:bg-emerald-700 animate-pulse"
+                    style={{ animationDuration: "2s" }}
+                  >
+                    Yes, I&apos;m in! Send me the deals!
+                  </button>
+                  <button
+                    onClick={() => { setShowDoubleOptIn(false); setShowEmailGate(false); }}
+                    className="w-full text-xs text-gray-400 hover:text-gray-600"
+                  >
+                    Nah, I like paying full price for hotels
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

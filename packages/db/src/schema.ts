@@ -201,6 +201,21 @@ export const dataInquiries = pgTable("data_inquiries", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+// ── Consent Records (TCPA compliance) ──────────────────
+export const consentRecords = pgTable("consent_records", {
+  id: serial("id").primaryKey(),
+  email: varchar("email", { length: 255 }).notNull(),
+  phone: varchar("phone", { length: 50 }),
+  ipAddress: varchar("ip_address", { length: 100 }).notNull(),
+  userAgent: text("user_agent"),
+  formSource: varchar("form_source", { length: 100 }).notNull(), // "roulette_optin", "deal_alerts", "data_inquiry"
+  consentText: text("consent_text").notNull(), // exact checkbox text user agreed to
+  tcpaConsent: boolean("tcpa_consent").notNull().default(false),
+  termsConsent: boolean("terms_consent").notNull().default(false),
+  doubleOptInConfirmed: boolean("double_opt_in_confirmed").notNull().default(false),
+  consentedAt: timestamp("consented_at").defaultNow().notNull(),
+});
+
 // ── Ad Banners ──────────────────────────────────────────
 // ── Ad Library Pages (Facebook/Meta advertiser pages) ──
 export const adLibraryPages = pgTable("ad_library_pages", {

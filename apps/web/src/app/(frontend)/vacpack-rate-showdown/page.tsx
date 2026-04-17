@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ShowdownPage() {
-  const { points, brands } = await getPriceHistory({ days: 365 });
+  const { points, brands } = await getPriceHistory({ days: 365, excludeBrands: ["mrg"] });
 
   return (
     <div>

@@ -53,7 +53,7 @@ export default function TermsAndConditionsPage() {
       <h1 className="mb-2 text-3xl font-bold text-gray-900">
         Terms &amp; Conditions
       </h1>
-      <p className="mb-8 text-sm text-gray-500">Last Updated: March 2026</p>
+      <p className="mb-8 text-sm text-gray-500">Last Updated: April 16, 2026</p>
 
       {/* ── Critical Disclaimers Banner ── */}
       <div className="mb-10 rounded-lg border border-amber-300 bg-amber-50 p-5 text-sm leading-relaxed text-amber-900">
@@ -698,7 +698,84 @@ export default function TermsAndConditionsPage() {
           </p>
         </section>
 
-        {/* ── 17. Changes to Terms ── */}
+        {/* ── 17. DMCA ── */}
+        <section>
+          <h2 className="mb-3 text-xl font-semibold text-gray-900">
+            17. DMCA / Copyright Claims
+          </h2>
+          <p>
+            If you believe that content on this Site infringes your copyright, please
+            send a written notice to{" "}
+            <a href="mailto:legal@vacationdeals.to" className="text-blue-600 underline hover:text-blue-800">
+              legal@vacationdeals.to
+            </a>{" "}
+            with the following information: (a) identification of the copyrighted work;
+            (b) identification of the infringing material and its location on the Site;
+            (c) your contact information; (d) a statement that you have a good faith
+            belief the use is not authorized; and (e) a statement under penalty of
+            perjury that your notice is accurate and you are the copyright owner or
+            authorized to act on their behalf.
+          </p>
+        </section>
+
+        {/* ── 18. Binding Arbitration ── */}
+        <section>
+          <h2 className="mb-3 text-xl font-semibold text-gray-900">
+            18. Binding Arbitration &amp; Class Action Waiver
+          </h2>
+          <div className="rounded-lg border border-gray-300 bg-gray-50 p-4 text-sm">
+            <p>
+              <strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS.</strong>
+            </p>
+            <p className="mt-3">
+              You and VacationDeals.to agree that any dispute, claim, or controversy
+              arising out of or relating to these Terms or the Site shall be resolved by
+              binding individual arbitration administered by the American Arbitration
+              Association (&ldquo;AAA&rdquo;) under its Consumer Arbitration Rules, and
+              not in court, except that either party may bring individual claims in small
+              claims court if they qualify.
+            </p>
+            <p className="mt-3">
+              <strong>CLASS ACTION WAIVER:</strong> You and VacationDeals.to agree that
+              any arbitration or court proceeding shall be conducted only on an
+              individual basis and not in a class, consolidated, or representative
+              action. If a court or arbitrator determines that the class action waiver
+              is void or unenforceable for any reason, then the arbitration agreement
+              shall be null and void.
+            </p>
+            <p className="mt-3">
+              You may opt out of this arbitration provision by sending written notice to{" "}
+              <a href="mailto:legal@vacationdeals.to" className="text-blue-600 underline hover:text-blue-800">
+                legal@vacationdeals.to
+              </a>{" "}
+              within 30 days of first using the Site.
+            </p>
+          </div>
+        </section>
+
+        {/* ── 19. Communications Consent (TCPA) ── */}
+        <section>
+          <h2 className="mb-3 text-xl font-semibold text-gray-900">
+            19. Communications Consent
+          </h2>
+          <p>
+            By providing your email address and/or mobile phone number through any form
+            on the Site, you provide your prior express written consent under the
+            Telephone Consumer Protection Act (47 U.S.C. &sect; 227) to receive promotional
+            communications from VacationDeals.to. This consent is not a condition of any
+            purchase. You may revoke consent at any time by emailing{" "}
+            <a href="mailto:privacy@vacationdeals.to" className="text-blue-600 underline hover:text-blue-800">
+              privacy@vacationdeals.to
+            </a>{" "}
+            or replying STOP to any SMS message. See our{" "}
+            <a href="/privacy" className="text-blue-600 underline hover:text-blue-800">
+              Privacy Policy
+            </a>{" "}
+            for full details on how we handle your information.
+          </p>
+        </section>
+
+        {/* ── 20. Changes to Terms ── */}
         <section>
           <h2 className="mb-3 text-xl font-semibold text-gray-900">
             17. Changes to These Terms

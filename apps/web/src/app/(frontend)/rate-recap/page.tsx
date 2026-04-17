@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default async function RateRecapPage() {
   // Fetch 365 days so the client can slice by time range
   const [{ points, brands, isMock }, filterOptions] = await Promise.all([
-    getPriceHistory({ days: 365 }),
+    getPriceHistory({ days: 365, excludeBrands: ["mrg"] }),
     getFilterOptions(),
   ]);
 

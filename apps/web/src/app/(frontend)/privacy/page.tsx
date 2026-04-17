@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
       </nav>
 
       <h1 className="mb-2 text-3xl font-bold text-gray-900">Privacy Policy</h1>
-      <p className="mb-8 text-sm text-gray-500">Last Updated: March 2026</p>
+      <p className="mb-8 text-sm text-gray-500">Last Updated: April 16, 2026</p>
 
       <div className="space-y-10 text-gray-700 leading-relaxed">
         {/* ── Introduction ── */}
@@ -110,9 +110,22 @@ export default function PrivacyPolicyPage() {
             1.3 Information You Provide Voluntarily
           </h3>
           <p>
-            If you contact us via email or a contact form, we collect the
-            information you provide (e.g., name, email address, message content).
-            We do not require account creation to browse the Site.
+            If you contact us via email, a contact form, or opt-in to our
+            communications (such as the Resort Roulette email gate or deal alerts
+            signup), we collect the information you provide, which may include:
+          </p>
+          <ul className="ml-6 mt-2 list-disc space-y-1">
+            <li>Email address</li>
+            <li>Mobile phone number (if provided for SMS alerts)</li>
+            <li>Name (if provided)</li>
+            <li>Message content (if contacting us)</li>
+            <li>IP address and user agent at the time of submission (for consent verification)</li>
+            <li>Date and timestamp of submission</li>
+          </ul>
+          <p className="mt-2">
+            We do not require account creation to browse the Site. Providing your
+            email or phone number is entirely voluntary and constitutes your express
+            consent to receive communications as described in Section 16 (TCPA Compliance).
           </p>
         </section>
 
@@ -573,10 +586,76 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        {/* ── 15. Contact ── */}
+        {/* ── 15. TCPA Compliance ── */}
         <section>
           <h2 className="mb-3 text-xl font-semibold text-gray-900">
-            15. Contact Us
+            15. Communications &amp; TCPA Compliance
+          </h2>
+          <p>
+            By voluntarily providing your email address and/or mobile phone number through
+            any form on the Site (including but not limited to the Resort Roulette bonus
+            spins form, deal alerts signup, or data inquiry forms), you provide your{" "}
+            <strong>prior express written consent</strong> under the Telephone Consumer
+            Protection Act (TCPA), 47 U.S.C. &sect; 227, and all applicable FCC regulations,
+            to receive:
+          </p>
+          <ul className="ml-6 mt-2 list-disc space-y-1">
+            <li>Promotional emails about vacation deals and offers</li>
+            <li>SMS/text messages about vacation deals (if you provided a mobile number)</li>
+            <li>Marketing communications from VacationDeals.to</li>
+          </ul>
+          <p className="mt-3">
+            <strong>Consent is not a condition of purchase.</strong> You are not required to
+            provide consent to receive communications in order to use the Site or access
+            vacation deal listings. Message and data rates may apply to SMS messages.
+            Message frequency varies.
+          </p>
+
+          <h3 className="mb-2 mt-4 text-lg font-medium text-gray-800">
+            Opting Out
+          </h3>
+          <p>
+            You may opt out of communications at any time by:
+          </p>
+          <ul className="ml-6 mt-2 list-disc space-y-1">
+            <li>
+              <strong>Email:</strong> Clicking the &ldquo;unsubscribe&rdquo; link in any
+              marketing email we send
+            </li>
+            <li>
+              <strong>SMS:</strong> Replying STOP to any text message we send
+            </li>
+            <li>
+              <strong>Direct request:</strong> Emailing{" "}
+              <a href="mailto:privacy@vacationdeals.to" className="text-blue-600 underline hover:text-blue-800">
+                privacy@vacationdeals.to
+              </a>{" "}
+              with &ldquo;Unsubscribe&rdquo; in the subject line
+            </li>
+          </ul>
+          <p className="mt-3">
+            We will honor opt-out requests within 10 business days for email and immediately
+            for SMS. Opting out of marketing communications does not affect transactional
+            messages (e.g., responses to your direct inquiries).
+          </p>
+
+          <h3 className="mb-2 mt-4 text-lg font-medium text-gray-800">
+            Consent Records
+          </h3>
+          <p>
+            When you submit your contact information through any form on the Site, we
+            securely record the following as proof of your consent: your IP address, user
+            agent string, the exact form submitted, the date and time of submission (UTC),
+            and the version of the terms you agreed to. These records are stored securely
+            and retained for a minimum of 5 years to comply with TCPA record-keeping
+            requirements.
+          </p>
+        </section>
+
+        {/* ── 16. Contact ── */}
+        <section>
+          <h2 className="mb-3 text-xl font-semibold text-gray-900">
+            16. Contact Us
           </h2>
           <p>
             If you have questions or concerns about this Privacy Policy, or wish to
