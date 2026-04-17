@@ -3,18 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ResortRouletteWheel } from "@/components/ResortRouletteWheel";
-
-interface WheelSlice {
-  dealId: number;
-  price: number;
-  city: string;
-  state: string;
-  brandName: string;
-  brandSlug: string;
-  slug: string;
-  resortName: string;
-  rarity: "common" | "rare" | "legendary";
-}
+import type { WheelSlice } from "@/components/ResortRouletteWheel";
 
 const FAKE_RECENT_WINNERS = [
   { name: "Jessica from Ohio", deal: "$89 Orlando 3-night", time: "2 min ago" },
