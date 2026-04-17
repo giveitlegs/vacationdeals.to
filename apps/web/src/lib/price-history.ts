@@ -73,6 +73,7 @@ export async function getPriceHistory(filters?: {
   durationNights?: number;
   days?: number; // last N days, default 30
   excludeBrands?: string[]; // brand slugs to exclude (e.g., ["mrg"])
+  maxDurationNights?: number; // exclude deals longer than this (e.g., 5)
 }): Promise<{ points: PricePoint[]; brands: BrandInfo[]; isMock: boolean }> {
   const days = filters?.days ?? 30;
 
@@ -128,10 +129,14 @@ export async function getPriceHistory(filters?: {
     // Always use real data — no mock fallback
     {
       // Filter out excluded brands (e.g., MRG with its multi-night bundles)
+      // and deals exceeding maxDurationNights (e.g., 6+ night bundles)
       const excludeSet = new Set(filters?.excludeBrands ?? []);
-      const filteredRows = excludeSet.size > 0
-        ? rows.filter((r) => !excludeSet.has(r.brandSlug ?? ""))
-        : rows;
+      const maxNights = filters?.maxDurationNights ?? 999;
+      const filteredRows = rows.filter((r) => {
+        if (excludeSet.size > 0 && excludeSet.has(r.brandSlug ?? "")) return false;
+        if ((r.durationNights ?? 0) > maxNights) return false;
+        return true;
+      });
 
       // Group by brand + date + destination + duration, keep CHEAPEST price
       // (not average — the displayed price must match the linked deal)

@@ -56,6 +56,7 @@ import { vacationIdeas6Posts } from "./blog-posts/vacation-ideas-6";
 import { vacationIdeas10Posts } from "./blog-posts/vacation-ideas-10";
 // Batch 4: 100 humanized posts (2026-04-09)
 import { humanized100Posts } from "./blog-posts/humanized-100";
+import { guideBatch2Posts } from "./blog-posts/guides-batch2";
 
 const _allPosts: BlogPost[] = [
   ...destinationPosts,
@@ -80,6 +81,8 @@ const _allPosts: BlogPost[] = [
   ...vacationIdeas10Posts,
   // Batch 4
   ...humanized100Posts,
+  // Batch 5
+  ...guideBatch2Posts,
 ].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
 // ---------------------------------------------------------------------------

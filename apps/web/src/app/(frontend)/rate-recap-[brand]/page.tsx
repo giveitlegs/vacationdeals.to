@@ -31,6 +31,15 @@ async function getBrandScrapeHistory(slug: string) {
   } catch { return []; }
 }
 
+async function getBrandSource(slug: string) {
+  try {
+    const { db } = await import("@vacationdeals/db");
+    const schema = await import("@vacationdeals/db");
+    const { eq } = await import("drizzle-orm");
+    return await db.query.sources.findFirst({ where: eq(schema.sources.scraperKey, slug) }) ?? null;
+  } catch { return null; }
+}
+
 async function getAllBrandSlugs() {
   try {
     const { db } = await import("@vacationdeals/db");
@@ -63,11 +72,12 @@ export default async function BrandRateRecapPage({ params }: BrandRateRecapProps
   const brand = await getBrandInfo(brandSlug);
   if (!brand) notFound();
 
-  const [{ points, brands: allBrands }, filterOptions, scrapeHistory, allBrandSlugs] = await Promise.all([
+  const [{ points, brands: allBrands }, filterOptions, scrapeHistory, allBrandSlugs, brandSource] = await Promise.all([
     getPriceHistory({ days: 365 }),
     getFilterOptions(),
     getBrandScrapeHistory(brandSlug),
     getAllBrandSlugs(),
+    getBrandSource(brandSlug),
   ]);
 
   const brandPoints = points.filter((p) => p.brandSlug === brandSlug);
@@ -134,6 +144,17 @@ export default async function BrandRateRecapPage({ params }: BrandRateRecapProps
             <p className="text-xs text-gray-500">Data Points</p>
           </div>
         </div>
+
+        {/* Source info */}
+        {brandSource && (
+          <div className="mt-4 rounded-lg border border-gray-200 bg-white p-3 text-sm">
+            <span className="font-medium text-gray-700">Data Source: </span>
+            <span className="text-gray-500">{brandSource.baseUrl}</span>
+            <span className="ml-3 text-xs text-gray-400">
+              {scrapeHistory.length} verified scrape run{scrapeHistory.length !== 1 ? "s" : ""} logged
+            </span>
+          </div>
+        )}
       </div>
 
       <RateRecapClient
@@ -157,6 +178,7 @@ export default async function BrandRateRecapPage({ params }: BrandRateRecapProps
                   <th className="px-4 py-3">Status</th>
                   <th className="px-4 py-3">Deals Found</th>
                   <th className="px-4 py-3">New Deals</th>
+                  <th className="px-4 py-3">URLs Crawled</th>
                   <th className="px-4 py-3">Duration</th>
                 </tr>
               </thead>
@@ -178,6 +200,7 @@ export default async function BrandRateRecapPage({ params }: BrandRateRecapProps
                       </td>
                       <td className="px-4 py-3 text-gray-700">{run.dealsFound ?? "\u2014"}</td>
                       <td className="px-4 py-3 text-gray-700">{run.dealsStored ?? "\u2014"}</td>
+                      <td className="px-4 py-3 text-gray-700">{run.urlsCrawled ?? "\u2014"}</td>
                       <td className="px-4 py-3 text-gray-500">{dur ? `${dur}s` : "\u2014"}</td>
                     </tr>
                   );
