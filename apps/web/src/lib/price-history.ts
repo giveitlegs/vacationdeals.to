@@ -285,7 +285,7 @@ export async function getFilterOptions(): Promise<FilterOptions> {
       .map((d) => ({ label: d.city!, value: d.slug! }));
 
     const durations = durRows
-      .filter((d) => d.durationNights != null)
+      .filter((d) => d.durationNights != null && d.durationNights <= 5) // Exclude 6+ night deals (MRG bundles)
       .map((d) => ({
         label: `${d.durationNights! + 1} Days / ${d.durationNights} Night${d.durationNights !== 1 ? "s" : ""}`,
         value: d.durationNights!,
