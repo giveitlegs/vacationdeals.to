@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getDestinationsWithCounts, getDealStats } from "@/lib/queries";
 import { getCityIcon } from "@/lib/city-icons";
+import { DealMapClient } from "../vacation-deals-map/DealMapClient";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0; // Revalidate every hour
@@ -159,7 +160,7 @@ export default async function DestinationsPage() {
         </ol>
       </nav>
 
-      <div className="mb-8">
+      <div className="mb-6">
         <h1 className="mb-2 text-3xl font-bold text-gray-900">
           Vacation Destinations
         </h1>
@@ -167,6 +168,11 @@ export default async function DestinationsPage() {
           Browse vacation deals by destination. Find the best resort deals and
           travel deals for your favorite getaway spots.
         </p>
+      </div>
+
+      {/* Interactive map */}
+      <div className="mb-10">
+        <DealMapClient />
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
