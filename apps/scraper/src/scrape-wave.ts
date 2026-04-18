@@ -64,6 +64,16 @@ import { runTaferCrawler } from "./crawlers/tafer";
 import { runVillaGroupCrawler } from "./crawlers/villa-group";
 import { runSheratonVcCrawler } from "./crawlers/sheraton-vc";
 import { runWestinVcCrawler } from "./crawlers/westin-vc";
+import { runVacationvipCrawler } from "./crawlers/vacationvip";
+import { runBestvacationdealzCrawler } from "./crawlers/bestvacationdealz";
+import { runMonsterVacationsCrawler } from "./crawlers/monster-vacations";
+import { runTimesharePresentationDealsCrawler } from "./crawlers/timeshare-presentation-deals";
+import { runAllInclusivePromotionsCrawler } from "./crawlers/all-inclusive-promotions";
+import { runExploriaCrawler } from "./crawlers/exploria";
+import { runMassannutenCrawler } from "./crawlers/massanutten";
+import { runIWantToTravelToCrawler } from "./crawlers/iwanttotravelto";
+import { runVacationOfferCrawler } from "./crawlers/vacation-offer";
+import { runMargaritavilleCrawler } from "./crawlers/margaritaville";
 
 // ── Wave definitions ────────────────────────────────────────────────────────
 
@@ -98,6 +108,16 @@ const CRAWLERS: Record<string, () => Promise<void>> = {
   "villa-group": runVillaGroupCrawler,
   "sheraton-vc": runSheratonVcCrawler,
   "westin-vc": runWestinVcCrawler,
+  vacationvip: runVacationvipCrawler,
+  bestvacationdealz: runBestvacationdealzCrawler,
+  "monster-vacations": runMonsterVacationsCrawler,
+  "timeshare-presentation-deals": runTimesharePresentationDealsCrawler,
+  "all-inclusive-promotions": runAllInclusivePromotionsCrawler,
+  exploria: runExploriaCrawler,
+  massanutten: runMassannutenCrawler,
+  iwanttotravelto: runIWantToTravelToCrawler,
+  "vacation-offer": runVacationOfferCrawler,
+  margaritaville: runMargaritavilleCrawler,
 };
 
 const WAVES: Record<number, string[]> = {
@@ -105,7 +125,7 @@ const WAVES: Record<number, string[]> = {
   2: ["mrg", "staypromo", "wyndham", "hgv"],
   3: ["marriott", "holiday-inn", "spinnaker", "vacation-village"],
   4: ["departure-depot", "vegas-timeshare", "premier-travel", "discount-vacation", "legendary", "festiva"],
-  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc"],
+  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc", "vacationvip", "bestvacationdealz", "monster-vacations", "timeshare-presentation-deals", "all-inclusive-promotions", "exploria", "massanutten", "iwanttotravelto", "vacation-offer", "margaritaville"],
 };
 
 // ── Runner ──────────────────────────────────────────────────────────────────
