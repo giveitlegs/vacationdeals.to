@@ -240,33 +240,18 @@ export async function runWyndhamCrawler() {
       // Extract duration from page text
       const duration = parseDuration(pageText) || { days: 4, nights: 3 };
 
-      // ── Strategy 2: Extract deal data from embedded scripts ───────────
-      // Look for any JSON data embedded in the page
-      $("script").each((_i, el) => {
-        const scriptContent = $(el).html() || "";
-
-        // Look for destination/offer data objects
-        const offerRegex = /(?:offer|deal|package)(?:Data|Info|Config)\s*[=:]\s*(\{[\s\S]*?\});/gi;
-        let match: RegExpExecArray | null;
-        while ((match = offerRegex.exec(scriptContent)) !== null) {
-          try {
-            const obj = JSON.parse(match[1]);
-            if (obj.price || obj.offerPrice) {
-              const price = obj.price || obj.offerPrice;
-              const city = obj.destination || obj.city || obj.destinationCity;
-              if (city && price) {
-                const key = `script-${city}-${price}`;
-                if (!processedKeys.has(key)) {
-                  processedKeys.add(key);
-                  log.info(`Found embedded offer: ${city} $${price}`);
-                }
-              }
-            }
-          } catch {
-            // skip malformed JSON
-          }
+      // ── Strategy 2: Extract offerPrice from embedded JSON ──────────────
+      // Wyndham embeds real prices as "offerPrice":"249" in their data
+      let jsonOfferPrice: number | null = null;
+      const offerPriceMatch = html.match(/"offerPrice"\s*:\s*"?(\d{2,4})"?/);
+      if (offerPriceMatch) {
+        jsonOfferPrice = parseInt(offerPriceMatch[1], 10);
+        if (jsonOfferPrice >= 99 && jsonOfferPrice <= 999) {
+          log.info("Found JSON offerPrice: $" + jsonOfferPrice);
+        } else {
+          jsonOfferPrice = null;
         }
-      });
+      }
 
       // ── Strategy 3: Parse card containers on the page ─────────────────
       const cards = $(".card-container, [class*='card-container'], [class*='offer-card'], [class*='deal-card']");
@@ -296,8 +281,8 @@ export async function runWyndhamCrawler() {
 
       // ── Strategy 4: If on a destination page, create deals ────────────
       if (destMatch) {
-        // Use the base price ($199) or any price found on the page
-        const basePrice = prices.find((p) => p >= 99 && p <= 499) || 199;
+        // Prioritize: 1) JSON offerPrice, 2) page text price, 3) fallback $199
+        const basePrice = jsonOfferPrice || prices.find((p) => p >= 99 && p <= 499) || 199;
         const key = `dest-${destMatch.city}-${basePrice}`;
 
         if (!processedKeys.has(key)) {
