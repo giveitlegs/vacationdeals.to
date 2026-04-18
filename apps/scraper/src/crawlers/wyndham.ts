@@ -241,15 +241,25 @@ export async function runWyndhamCrawler() {
       const duration = parseDuration(pageText) || { days: 4, nights: 3 };
 
       // ── Strategy 2: Extract offerPrice from embedded JSON ──────────────
-      // Wyndham embeds real prices as "offerPrice":"249" in their data
+      // Wyndham embeds real prices in their data. The HTML may use &#34; or "
+      // for quotes, so we check both patterns.
       let jsonOfferPrice: number | null = null;
-      const offerPriceMatch = html.match(/"offerPrice"\s*:\s*"?(\d{2,4})"?/);
-      if (offerPriceMatch) {
-        jsonOfferPrice = parseInt(offerPriceMatch[1], 10);
-        if (jsonOfferPrice >= 99 && jsonOfferPrice <= 999) {
-          log.info("Found JSON offerPrice: $" + jsonOfferPrice);
-        } else {
-          jsonOfferPrice = null;
+      // Pattern 1: Standard quotes "offerPrice":"249"
+      // Pattern 2: HTML entities &#34;offerPrice&#34;:&#34;249&#34;
+      const pricePatterns = [
+        /"offerPrice"\s*:\s*"?(\d{2,4})"?/,
+        /&#34;offerPrice&#34;\s*:\s*&#34;(\d{2,4})&#34;/,
+        /offerPrice['":\s]+(\d{2,4})/,
+      ];
+      for (const pattern of pricePatterns) {
+        const m = html.match(pattern);
+        if (m) {
+          const p = parseInt(m[1], 10);
+          if (p >= 99 && p <= 999) {
+            jsonOfferPrice = p;
+            log.info("Found JSON offerPrice: $" + jsonOfferPrice);
+            break;
+          }
         }
       }
 
