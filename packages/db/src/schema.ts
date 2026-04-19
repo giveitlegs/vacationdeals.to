@@ -255,6 +255,21 @@ export const adLibraryAdsRelations = relations(adLibraryAds, ({ one }) => ({
   page: one(adLibraryPages, { fields: [adLibraryAds.adLibraryPageId], references: [adLibraryPages.id] }),
 }));
 
+// ── Site Discovery (full crawl of brand websites) ──────
+export const sitePages = pgTable("site_pages", {
+  id: serial("id").primaryKey(),
+  sourceId: integer("source_id").references(() => sources.id),
+  url: text("url").notNull(),
+  title: varchar("title", { length: 500 }),
+  statusCode: integer("status_code"),
+  contentType: varchar("content_type", { length: 100 }),
+  hasPrice: boolean("has_price").default(false),
+  priceFound: decimal("price_found", { precision: 10, scale: 2 }),
+  wordCount: integer("word_count"),
+  lastCrawledAt: timestamp("last_crawled_at").defaultNow().notNull(),
+  discoveredAt: timestamp("discovered_at").defaultNow().notNull(),
+});
+
 // ── Roulette Deals (admin-weighted deals for Resort Roulette) ──
 export const rouletteDeals = pgTable("roulette_deals", {
   id: serial("id").primaryKey(),

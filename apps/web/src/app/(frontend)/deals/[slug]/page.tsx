@@ -386,6 +386,17 @@ export default async function DealPage({ params }: DealPageProps) {
         }) }}
       />
 
+      {/* Expired deal banner — page stays live, but flagged */}
+      {!deal.isActive && (
+        <div className="mb-6 rounded-xl border-2 border-red-300 bg-red-50 p-5 text-center">
+          <p className="text-lg font-bold text-red-700">This Deal Has Expired</p>
+          <p className="mt-1 text-sm text-red-600">
+            This deal is no longer available from the provider. It may return in the future.
+            Check out <Link href={deal.city ? `/${deal.destinationSlug || deal.city.toLowerCase().replace(/\s+/g, "-")}` : "/deals"} className="font-semibold underline">other {deal.city || ""} deals</Link> or <Link href="/deals" className="font-semibold underline">browse all active deals</Link>.
+          </p>
+        </div>
+      )}
+
       {/* Breadcrumbs */}
       <nav className="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
         <ol className="flex flex-wrap items-center gap-1.5">
