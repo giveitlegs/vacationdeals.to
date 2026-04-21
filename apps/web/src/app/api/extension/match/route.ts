@@ -234,19 +234,37 @@ export async function GET(request: NextRequest) {
 
     const cityMatches = scored.filter((r) => r.cityMatch);
 
+    // Detect whether the user's query mentions ANY known destination (from
+    // our full destinations table, not just ones this brand serves). If yes
+    // and we don't have a deal in that city for this brand, stay silent
+    // rather than show a wrong-city deal.
+    const allCitiesResult = await db
+      .select({ city: schema.destinations.city })
+      .from(schema.destinations);
+    const queryMentionsKnownCity = allCitiesResult.some((c) =>
+      c.city ? containsPhrase(resortQuery, c.city) : false,
+    );
+
     let winner;
     if (cityMatches.length > 0) {
-      // User mentioned a destination we recognize. Prefer city matches, then
-      // refine by resort_name overlap, then by price.
+      // User mentioned a destination we recognize AND we have a deal there.
       winner = cityMatches.sort((a, b) => {
         if (a.resortMatch !== b.resortMatch) return b.resortMatch - a.resortMatch;
         return Number(a.price) - Number(b.price);
       })[0];
+    } else if (queryMentionsKnownCity) {
+      // User named a city we know about, but this brand has no deal there.
+      // Silence beats a wrong-city lander — the extension promises "always
+      // match up", so we'd rather show nothing than send them to the wrong
+      // city's deal.
+      return NextResponse.json(
+        { deal: null, reason: "no_match", detail: "brand_no_deal_in_named_city" },
+        { headers: CORS_HEADERS },
+      );
     } else {
-      // Query lacks a known destination (e.g., "Westgate Lakes Resort & Spa").
-      // Fall through to the brand's cheapest active deal. This is correct
-      // behavior for the Chrome extension: we're showing "the lowest active
-      // vacpack rate at this brand" when we can't disambiguate the property.
+      // Query lacks a known destination (e.g., "Westgate Lakes Resort & Spa"
+      // with no city). Show the brand's cheapest active deal as a
+      // best-effort "lowest vacpack with this brand" hook.
       winner = scored.sort((a, b) => Number(a.price) - Number(b.price))[0];
     }
 
