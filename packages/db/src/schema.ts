@@ -255,6 +255,88 @@ export const adLibraryAdsRelations = relations(adLibraryAds, ({ one }) => ({
   page: one(adLibraryPages, { fields: [adLibraryAds.adLibraryPageId], references: [adLibraryPages.id] }),
 }));
 
+// ── Admin Users ────────────────────────────────────────
+export const adminUsers = pgTable("admin_users", {
+  id: serial("id").primaryKey(),
+  email: varchar("email", { length: 255 }).notNull().unique(),
+  passwordHash: text("password_hash").notNull(),
+  name: varchar("name", { length: 255 }),
+  role: varchar("role", { length: 50 }).notNull().default("admin"), // super-admin, admin, editor, moderator
+  lastLoginAt: timestamp("last_login_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const adminSessions = pgTable("admin_sessions", {
+  id: serial("id").primaryKey(),
+  token: varchar("token", { length: 100 }).notNull().unique(),
+  adminUserId: integer("admin_user_id").references(() => adminUsers.id, { onDelete: "cascade" }).notNull(),
+  ipAddress: varchar("ip_address", { length: 100 }),
+  userAgent: text("user_agent"),
+  expiresAt: timestamp("expires_at").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const adminActions = pgTable("admin_actions", {
+  id: serial("id").primaryKey(),
+  adminUserId: integer("admin_user_id").references(() => adminUsers.id),
+  action: varchar("action", { length: 100 }).notNull(), // deal.expire, deal.feature, brand.suppress, etc.
+  entityType: varchar("entity_type", { length: 50 }),
+  entityId: integer("entity_id"),
+  details: text("details"), // JSON
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// ── Subscribers (unified email/SMS list) ───────────────
+export const subscribers = pgTable("subscribers", {
+  id: serial("id").primaryKey(),
+  email: varchar("email", { length: 255 }).notNull().unique(),
+  phone: varchar("phone", { length: 50 }),
+  name: varchar("name", { length: 255 }),
+  source: varchar("source", { length: 100 }), // roulette, data_inquiry, newsletter, etc.
+  status: varchar("status", { length: 50 }).notNull().default("active"), // active, unsubscribed, bounced, spam
+  unsubscribeToken: varchar("unsubscribe_token", { length: 100 }).unique(),
+  tags: text("tags"), // JSON array
+  preferences: text("preferences"), // JSON: { emailOptIn, smsOptIn, weeklyDigest, dealAlerts }
+  lastEmailedAt: timestamp("last_emailed_at"),
+  unsubscribedAt: timestamp("unsubscribed_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// ── Email Campaigns ────────────────────────────────────
+export const emailCampaigns = pgTable("email_campaigns", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  subject: varchar("subject", { length: 500 }).notNull(),
+  htmlBody: text("html_body").notNull(),
+  textBody: text("text_body"),
+  fromName: varchar("from_name", { length: 255 }).default("VacationDeals.to"),
+  fromEmail: varchar("from_email", { length: 255 }).default("hello@vacationdeals.to"),
+  segmentFilter: text("segment_filter"), // JSON filter for subscribers
+  status: varchar("status", { length: 50 }).notNull().default("draft"), // draft, scheduled, sending, sent
+  scheduledAt: timestamp("scheduled_at"),
+  sentAt: timestamp("sent_at"),
+  totalSent: integer("total_sent").default(0),
+  totalOpened: integer("total_opened").default(0),
+  totalClicked: integer("total_clicked").default(0),
+  totalBounced: integer("total_bounced").default(0),
+  totalUnsubscribed: integer("total_unsubscribed").default(0),
+  createdByAdminId: integer("created_by_admin_id").references(() => adminUsers.id),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// ── Email Sends (per-recipient tracking) ───────────────
+export const emailSends = pgTable("email_sends", {
+  id: serial("id").primaryKey(),
+  campaignId: integer("campaign_id").references(() => emailCampaigns.id, { onDelete: "cascade" }),
+  subscriberId: integer("subscriber_id").references(() => subscribers.id, { onDelete: "cascade" }),
+  email: varchar("email", { length: 255 }).notNull(),
+  providerMessageId: varchar("provider_message_id", { length: 255 }), // Resend ID
+  status: varchar("status", { length: 50 }).notNull().default("sent"), // sent, delivered, opened, clicked, bounced, complained
+  sentAt: timestamp("sent_at").defaultNow().notNull(),
+  openedAt: timestamp("opened_at"),
+  clickedAt: timestamp("clicked_at"),
+});
+
 // ── Site Discovery (full crawl of brand websites) ──────
 export const sitePages = pgTable("site_pages", {
   id: serial("id").primaryKey(),
