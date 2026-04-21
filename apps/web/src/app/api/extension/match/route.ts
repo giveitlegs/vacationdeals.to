@@ -222,23 +222,35 @@ export async function GET(request: NextRequest) {
 
     // 3. Score each candidate: brand is already matched (required above), so
     //    the scoring differentiates within the brand's deals.
+    //    NB: when the query *doesn't* mention a city, we deliberately ignore
+    //    resort_name fuzzy overlap — otherwise a specific city's resort_name
+    //    ("Westgate Branson Lakes Resort") wins over the cheapest deal in the
+    //    brand. Price should be the tiebreaker when intent is ambiguous.
     const scored = rows.map((r) => {
       const cityMatch = r.destinationCity ? containsPhrase(resortQuery, r.destinationCity) : false;
       const resortMatch = r.resortName ? jaccardOverlap(resortQuery, r.resortName) : 0;
-
-      // Base 0.6 for brand, +0.25 for city, +0.15 weighted by resort jaccard
-      const confidence = 0.6 + (cityMatch ? 0.25 : 0) + resortMatch * 0.15;
-      return { ...r, cityMatch, resortMatch, confidence };
+      return { ...r, cityMatch, resortMatch };
     });
 
-    // Prefer city-matching deals. If any match by city, only consider those.
     const cityMatches = scored.filter((r) => r.cityMatch);
-    const pool = cityMatches.length > 0 ? cityMatches : scored;
 
-    // Within the pool, pick the top-confidence tier (within 0.05 of max), then cheapest.
-    const maxConf = pool.reduce((m, r) => Math.max(m, r.confidence), 0);
-    const topTier = pool.filter((r) => r.confidence >= maxConf - 0.05);
-    const winner = topTier.sort((a, b) => Number(a.price) - Number(b.price))[0];
+    let winner;
+    if (cityMatches.length > 0) {
+      // User mentioned a destination we recognize. Prefer city matches, then
+      // refine by resort_name overlap, then by price.
+      winner = cityMatches.sort((a, b) => {
+        if (a.resortMatch !== b.resortMatch) return b.resortMatch - a.resortMatch;
+        return Number(a.price) - Number(b.price);
+      })[0];
+    } else {
+      // Query lacks a known destination (e.g., "Westgate Lakes Resort & Spa").
+      // Fall through to the brand's cheapest active deal. This is correct
+      // behavior for the Chrome extension: we're showing "the lowest active
+      // vacpack rate at this brand" when we can't disambiguate the property.
+      winner = scored.sort((a, b) => Number(a.price) - Number(b.price))[0];
+    }
+
+    const matchConfidence = winner.cityMatch ? 0.85 + winner.resortMatch * 0.15 : 0.6;
 
     // Tag derivation
     const history = await db
@@ -275,7 +287,7 @@ export async function GET(request: NextRequest) {
           tag: tag.label,
           tagColor: tag.color,
           landerUrl: `https://vacationdeals.to/deals/${winner.slug}?utm_source=chrome_ext&utm_medium=gbp_injection&utm_campaign=vacpack_rate`,
-          matchConfidence: Math.round(winner.confidence * 100) / 100,
+          matchConfidence: Math.round(matchConfidence * 100) / 100,
           matchDetail: {
             brand: true,
             city: winner.cityMatch,
