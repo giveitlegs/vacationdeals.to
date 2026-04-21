@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [rateRecapOpen, setRateRecapOpen] = useState(false);
+  const [gamesOpen, setGamesOpen] = useState(false);
   const [showPlayNow, setShowPlayNow] = useState(false);
 
   // Flutter "PLAY NOW!" label every 8 seconds
@@ -89,6 +90,41 @@ export function Navbar() {
               )}
             </div>
 
+            {/* VacPack Games dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setGamesOpen(true)}
+              onMouseLeave={() => setGamesOpen(false)}
+            >
+              <Link href="/vacpack-games" className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-fuchsia-600">
+                <span className="text-base">🎮</span>
+                <span className="bg-gradient-to-r from-fuchsia-600 via-amber-500 to-emerald-500 bg-clip-text text-transparent font-semibold">Games</span>
+              </Link>
+              {gamesOpen && (
+                <div className="absolute left-0 top-full z-50 mt-1 w-60 rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
+                  <Link href="/vacpack-games" className="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50 hover:text-fuchsia-600">
+                    All Games
+                  </Link>
+                  <div className="my-1 border-t border-gray-100" />
+                  <Link href="/vacpack-games/survival-kit" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600">
+                    🎯 Survival Kit
+                  </Link>
+                  <Link href="/vacpack-games/bingo" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-fuchsia-600">
+                    🎱 VacPack Bingo
+                  </Link>
+                  <Link href="/vacpack-games/59-challenge" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-600">
+                    💰 $59 Challenge
+                  </Link>
+                  <Link href="/vacpack-games/time-machine" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
+                    🕰️ Time Machine
+                  </Link>
+                  <Link href="/vacpack-games/scratch-off" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">
+                    🎟️ Scratch-Off
+                  </Link>
+                </div>
+              )}
+            </div>
+
             {/* Resort Roulette with spinning wheel + PLAY NOW */}
             <div className="relative">
               <Link
@@ -153,6 +189,12 @@ export function Navbar() {
                 { href: "/rate-recap", label: "Rate Recap" },
                 { href: "/vacpack-rate-showdown", label: "\u00A0\u00A0\u2192 Rate Showdown" },
                 { href: "/data-report", label: "\u00A0\u00A0\u2192 Data Report" },
+                { href: "/vacpack-games", label: "\u{1F3AE} VacPack Games" },
+                { href: "/vacpack-games/survival-kit", label: "  → Survival Kit" },
+                { href: "/vacpack-games/bingo", label: "  → VacPack Bingo" },
+                { href: "/vacpack-games/59-challenge", label: "  → $59 Challenge" },
+                { href: "/vacpack-games/time-machine", label: "  → Time Machine" },
+                { href: "/vacpack-games/scratch-off", label: "  → Scratch-Off" },
               ].map((link) => (
                 <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
                   className="rounded-lg px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600">

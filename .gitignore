@@ -57,3 +57,8 @@ next-env.d.ts
 # scraper crawlee runtime storage (not src/storage/)
 **/crawlee_storage/
 **/apify_storage/
+
+# local admin credentials (NEVER commit)
+admin-creds.txt
+.admin-creds
+*.creds
