@@ -1,0 +1,164 @@
+/* VacationDeals.to — injected banner styles.
+   Scoped via #vd-deal-banner to avoid bleeding into Google's DOM. */
+
+#vd-deal-banner {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 10px 0 12px 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+#vd-deal-banner * {
+  box-sizing: border-box;
+}
+
+#vd-deal-banner .vd-banner {
+  display: block;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);
+  border-radius: 14px;
+  padding: 14px 16px 10px 16px;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28), 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+  cursor: pointer;
+  line-height: 1.25;
+}
+
+#vd-deal-banner .vd-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.12), transparent 40%);
+  pointer-events: none;
+}
+
+#vd-deal-banner .vd-banner:hover,
+#vd-deal-banner .vd-banner:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35), 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+#vd-deal-banner .vd-tag {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  padding: 4px 9px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+#vd-deal-banner .vd-main {
+  position: relative;
+  z-index: 1;
+}
+
+#vd-deal-banner .vd-line1 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+#vd-deal-banner .vd-duration {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.92;
+}
+
+#vd-deal-banner .vd-price {
+  font-size: 26px;
+  font-weight: 900;
+  color: #fde047;
+  letter-spacing: -0.5px;
+}
+
+#vd-deal-banner .vd-original {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: line-through;
+}
+
+#vd-deal-banner .vd-savings-chip {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #064e3b;
+  background: #bbf7d0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+#vd-deal-banner .vd-line2 {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.94);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+#vd-deal-banner .vd-line2 strong {
+  font-weight: 700;
+}
+
+#vd-deal-banner .vd-arrow {
+  margin-left: auto;
+  font-weight: 800;
+  font-size: 14px;
+  color: #fde047;
+  transition: transform 0.15s ease;
+}
+
+#vd-deal-banner .vd-banner:hover .vd-arrow,
+#vd-deal-banner .vd-banner:focus .vd-arrow {
+  transform: translateX(3px);
+}
+
+#vd-deal-banner .vd-footer {
+  margin-top: 8px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 9.5px;
+  letter-spacing: 0.3px;
+  opacity: 0.7;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Mobile: tighten paddings + scale price */
+@media (max-width: 640px) {
+  #vd-deal-banner .vd-banner {
+    padding: 12px 14px 9px 14px;
+    border-radius: 12px;
+  }
+  #vd-deal-banner .vd-price {
+    font-size: 22px;
+  }
+  #vd-deal-banner .vd-duration {
+    font-size: 12px;
+  }
+  #vd-deal-banner .vd-line2 {
+    font-size: 11.5px;
+  }
+  #vd-deal-banner .vd-footer {
+    font-size: 9px;
+  }
+}
+
+/* Dark-mode Google — keep the banner readable */
+@media (prefers-color-scheme: dark) {
+  #vd-deal-banner .vd-banner {
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45), 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+}
