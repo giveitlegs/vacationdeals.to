@@ -47,6 +47,8 @@ export async function getDeals(filters?: {
     // Build conditions
     const conditions: ReturnType<typeof eq>[] = [
       eq(schema.deals.isActive, true),
+      // Hide deals whose brand is admin-suppressed
+      sql`(${schema.deals.brandId} IS NULL OR ${schema.deals.brandId} NOT IN (SELECT id FROM brands WHERE is_suppressed = true))` as unknown as ReturnType<typeof eq>,
     ];
 
     if (filters?.destinationSlug) {
@@ -209,6 +211,7 @@ export async function getBrandsWithCounts(): Promise<BrandWithCount[] | null> {
         schema.deals,
         sql`${schema.deals.brandId} = ${schema.brands.id} AND ${schema.deals.isActive} = true`,
       )
+      .where(sql`${schema.brands.isSuppressed} = false`)
       .groupBy(
         schema.brands.id,
         schema.brands.name,

@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifyPassword, createSession, setSessionCookie } from "@/lib/admin/auth";
 
+function redirect(path: string) {
+  return new NextResponse(null, { status: 303, headers: { Location: path } });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
@@ -8,7 +12,7 @@ export async function POST(request: NextRequest) {
     const password = String(formData.get("password") || "");
 
     if (!email || !password) {
-      return NextResponse.redirect(new URL("/admin/login?error=invalid", request.url), 303);
+      return redirect("/admin/login?error=invalid");
     }
 
     const { db } = await import("@vacationdeals/db");
@@ -20,7 +24,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (!user || !verifyPassword(password, user.passwordHash)) {
-      return NextResponse.redirect(new URL("/admin/login?error=invalid", request.url), 303);
+      return redirect("/admin/login?error=invalid");
     }
 
     const ipAddress = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
@@ -28,9 +32,9 @@ export async function POST(request: NextRequest) {
     const { token, expiresAt } = await createSession(user.id, ipAddress, userAgent);
     await setSessionCookie(token, expiresAt);
 
-    return NextResponse.redirect(new URL("/admin", request.url), 303);
+    return redirect("/admin");
   } catch (e) {
     console.error("[admin/login]", e);
-    return NextResponse.redirect(new URL("/admin/login?error=failed", request.url), 303);
+    return redirect("/admin/login?error=failed");
   }
 }

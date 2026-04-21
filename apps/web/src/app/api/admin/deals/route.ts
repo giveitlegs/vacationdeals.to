@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getCurrentAdmin, logAdminAction } from "@/lib/admin/auth";
 
 export async function POST(request: NextRequest) {
@@ -12,6 +13,10 @@ export async function POST(request: NextRequest) {
     const { db } = await import("@vacationdeals/db");
     const schema = await import("@vacationdeals/db");
     const { eq } = await import("drizzle-orm");
+
+    let dealSlug: string | null = null;
+    const dealRow = await db.query.deals.findFirst({ where: eq(schema.deals.id, dealId) });
+    if (dealRow) dealSlug = dealRow.slug;
 
     if (action === "expire") {
       await db.update(schema.deals).set({ isActive: false, updatedAt: new Date() }).where(eq(schema.deals.id, dealId));
@@ -27,6 +32,11 @@ export async function POST(request: NextRequest) {
     } else {
       return NextResponse.json({ error: "Unknown action" }, { status: 400 });
     }
+
+    // Immediately refresh ISR caches that display this deal
+    revalidatePath("/deals");
+    revalidatePath("/");
+    if (dealSlug) revalidatePath(`/deals/${dealSlug}`);
 
     return NextResponse.json({ ok: true });
   } catch (e) {

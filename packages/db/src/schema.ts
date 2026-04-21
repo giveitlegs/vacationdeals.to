@@ -20,6 +20,7 @@ export const brands = pgTable("brands", {
   website: text("website"),
   type: varchar("type", { length: 50 }).notNull().default("broker"), // "direct" | "broker"
   description: text("description"),
+  isSuppressed: boolean("is_suppressed").notNull().default(false),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });

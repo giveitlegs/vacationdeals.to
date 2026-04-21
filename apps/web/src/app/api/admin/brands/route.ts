@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getCurrentAdmin, logAdminAction } from "@/lib/admin/auth";
 
 export async function POST(request: NextRequest) {
@@ -9,16 +10,14 @@ export async function POST(request: NextRequest) {
     const { brandId, action } = await request.json();
     if (!brandId || !action) return NextResponse.json({ error: "Missing fields" }, { status: 400 });
 
+    const { db } = await import("@vacationdeals/db");
+    const schema = await import("@vacationdeals/db");
+    const { eq } = await import("drizzle-orm");
+
+    const brand = await db.query.brands.findFirst({ where: eq(schema.brands.id, brandId) });
+    if (!brand) return NextResponse.json({ error: "Brand not found" }, { status: 404 });
+
     if (action === "trigger_scrape") {
-      // Queue a scrape (writes a pending scrape_runs row that cron picks up)
-      const { db } = await import("@vacationdeals/db");
-      const schema = await import("@vacationdeals/db");
-      const { eq } = await import("drizzle-orm");
-
-      const brand = await db.query.brands.findFirst({ where: eq(schema.brands.id, brandId) });
-      if (!brand) return NextResponse.json({ error: "Brand not found" }, { status: 404 });
-
-      // This just logs the request — actual scrape happens via cron or manual trigger
       await logAdminAction(admin.id, "brand.scrape_requested", "brand", brandId, { slug: brand.slug });
       return NextResponse.json({
         ok: true,
@@ -27,8 +26,16 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === "toggle_suppress") {
-      await logAdminAction(admin.id, "brand.toggle_suppress", "brand", brandId);
-      return NextResponse.json({ ok: true, message: "Suppression toggled (implement store)" });
+      const newValue = !brand.isSuppressed;
+      await db.update(schema.brands).set({ isSuppressed: newValue, updatedAt: new Date() }).where(eq(schema.brands.id, brandId));
+      await logAdminAction(admin.id, "brand.toggle_suppress", "brand", brandId, { slug: brand.slug, isSuppressed: newValue });
+
+      revalidatePath("/brands");
+      revalidatePath(`/${brand.slug}`);
+      revalidatePath("/deals");
+      revalidatePath("/");
+
+      return NextResponse.json({ ok: true, isSuppressed: newValue, message: newValue ? "Brand suppressed" : "Brand unsuppressed" });
     }
 
     return NextResponse.json({ error: "Unknown action" }, { status: 400 });
