@@ -417,6 +417,9 @@ export interface DestinationDetail {
   description?: string;
   dealCount: number;
   cheapestPrice: number | null;
+  highestPrice: number | null;
+  latitude: string | null;
+  longitude: string | null;
   brands: string[];
   durations: number[];
 }
@@ -428,7 +431,7 @@ export async function getDestinationBySlug(
     const conn = await getDB();
     if (!conn) return null;
     const { db, schema } = conn;
-    const { eq, and, sql, count, min } = await import("drizzle-orm");
+    const { eq, and, sql, count, min, max } = await import("drizzle-orm");
 
     const destRows = await db
       .select()
@@ -439,11 +442,12 @@ export async function getDestinationBySlug(
     if (destRows.length === 0) return null;
     const dest = destRows[0];
 
-    // Stats
+    // Stats — include both low and high for priceRange schema
     const statsRows = await db
       .select({
         dealCount: count(schema.deals.id),
         cheapestPrice: min(schema.deals.price),
+        highestPrice: max(schema.deals.price),
       })
       .from(schema.deals)
       .where(
@@ -487,6 +491,11 @@ export async function getDestinationBySlug(
       cheapestPrice: statsRows[0]?.cheapestPrice
         ? Number(statsRows[0].cheapestPrice)
         : null,
+      highestPrice: statsRows[0]?.highestPrice
+        ? Number(statsRows[0].highestPrice)
+        : null,
+      latitude: dest.latitude,
+      longitude: dest.longitude,
       brands: brandRows
         .map((b) => b.name)
         .filter((n): n is string => n !== null),

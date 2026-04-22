@@ -12,6 +12,7 @@ import {
 } from "@vacationdeals/shared";
 import type { Modifier } from "@vacationdeals/shared";
 import type { SublanderOverride } from "@/lib/sublander-overrides";
+import { getRelatedBlogPosts } from "@/lib/related-blog-posts";
 
 interface Props {
   citySlug: string;
@@ -51,7 +52,7 @@ function buildSubnav(citySlug: string, currentModifierSlug: string): SubnavItem[
   }));
 }
 
-export function SublanderPage({
+export async function SublanderPage({
   citySlug,
   cityName,
   cityState,
@@ -60,6 +61,7 @@ export function SublanderPage({
   totalDeals,
   override,
 }: Props) {
+  const relatedBlogs = await getRelatedBlogPosts(citySlug, modifier, 4);
   const h1 = `Vacation Deals in ${cityName} ${modifier.h1Fragment}`.replace(/\s+/g, " ").trim();
   const lowPrice = deals.length > 0 ? Math.min(...deals.map((d) => d.price)) : null;
   const brandCount = new Set(deals.map((d) => d.brandSlug)).size;
@@ -266,6 +268,26 @@ export function SublanderPage({
             </div>
           ))}
         </div>
+
+        {relatedBlogs.length > 0 && (
+          <div className="mt-8 border-t border-gray-200 pt-6">
+            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Related reading</h3>
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {relatedBlogs.map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    href={`/${p.slug}`}
+                    className="block rounded-lg border border-gray-200 bg-white p-3 transition-colors hover:border-blue-400 hover:bg-blue-50"
+                  >
+                    <p className="text-sm font-semibold text-gray-900">{p.title}</p>
+                    <p className="mt-1 line-clamp-2 text-xs text-gray-500">{p.metaDescription}</p>
+                    <p className="mt-1 text-xs text-blue-600">{p.readTime} →</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {relatedCities.length > 0 && (
           <div className="mt-8 border-t border-gray-200 pt-6">

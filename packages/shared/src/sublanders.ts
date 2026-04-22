@@ -125,6 +125,28 @@ export const CITY_BLURB_POOLS: Record<string, string[]> = {
   "key-west": [
     "Key West preview stays run higher than most Florida markets because the island is small and demand is year-round. Expect $199-$399 vacpack rates for 3-4 nights.",
   ],
+  maui: [
+    "Maui preview inventory is dominated by Hilton Grand Vacations' Ocean Tower on Ka'anapali Beach. 4-night vacpacks from $599-$899 — a fraction of the $549+ public nightly rate. Premium brand, gentle presentation.",
+    "Hawaii's Maui market is small but high-value. HGV and Marriott Vacation Club both operate preview programs on Ka'anapali, with beachfront suites, whale-watching seasons, and 50,000+ Hilton Honors point bonuses bundled in.",
+  ],
+  "hilton-head": [
+    "Hilton Head's upscale beach vacpacks come from Marriott's Monarch at Sea Pines and a handful of Westgate/Bluegreen oceanfront properties. $199-$349 for 3-4 nights with golf + beach access.",
+  ],
+  "ormond-beach": [
+    "Ormond Beach sits just north of Daytona with calmer beaches and lower vacpack prices. Westgate and Vacation Village both run $99-$149 3-night stays year-round.",
+  ],
+  "new-smyrna-beach": [
+    "New Smyrna Beach is Florida's secret surf town with preview inventory from Vacation Village at Weston Beach Resort. 3-night stays from $99-$179.",
+  ],
+  cozumel: [
+    "Cozumel all-inclusive vacpacks leverage the island's snorkel and dive scene. Bahia Principe Grand Cozumel and Occidental Cozumel both run preview packages from $599-$899 for 4-5 nights.",
+  ],
+  atlanta: [
+    "Atlanta has a small but growing preview market anchored by Club Wyndham Atlanta. Most vacpacks here are 2-3 night urban packages from $149-$249 — ideal for events and short getaways.",
+  ],
+  "river-ranch": [
+    "Westgate River Ranch is a unique dude-ranch-style Florida preview resort. 3-night vacpacks from $99 include horseback riding, archery, and a working-ranch experience not found at other timeshare properties.",
+  ],
 };
 
 // ---------------------------------------------------------------------------
@@ -810,14 +832,136 @@ export const MODIFIERS: Record<string, Modifier> = {
       faqDeposit,
     ],
   },
+
+  // ===================== Tier-2 city-specific interest modifiers =====================
+  "near-beach": {
+    slug: "near-beach",
+    label: "Near Beach",
+    h1Fragment: "Near the Beach",
+    metaBlurb: "near-beach",
+    type: "interest",
+    chipLabel: "Near Beach",
+    filter: { sort: "price-asc" },
+    applicableCities: ["hilton-head", "ormond-beach", "new-smyrna-beach"],
+    introTemplate:
+      "Near-beach vacpacks in {{city}} put you within walking distance of the sand without the oceanfront premium. {{dealCount}} packages are live from \\${{lowPrice}}.\n\n{{cityBlurb}}\n\nThese properties are 2-10 minute walks to the beach with shuttle access where applicable.",
+    faqs: [
+      { q: "How close is 'near-beach' exactly?", a: "Usually 2-10 minute walk. Call the resort directly to confirm exact distance." },
+      { q: "Is beach access free?", a: "Public beaches — yes. Private-resort beach sections — included for resort guests." },
+      faqDeposit,
+    ],
+  },
+  "historic-district": {
+    slug: "historic-district",
+    label: "Historic District",
+    h1Fragment: "Near Historic District",
+    metaBlurb: "historic district",
+    type: "interest",
+    chipLabel: "Historic",
+    filter: { sort: "price-asc" },
+    applicableCities: ["charleston", "williamsburg", "savannah", "new-orleans"],
+    introTemplate:
+      "Historic-district-adjacent vacpacks in {{city}} put you near colonial architecture, walkable old towns, and cultural attractions. {{dealCount}} packages from \\${{lowPrice}}.\n\n{{cityBlurb}}",
+    faqs: [
+      { q: "Are the resorts themselves historic?", a: "Generally no — the resorts are modern properties near historic walkable districts, not inside them." },
+      { q: "Is parking included?", a: "Usually yes at the resort. Street parking in historic districts varies." },
+      faqDeposit,
+    ],
+  },
+  "golf-included": {
+    slug: "golf-included",
+    label: "Golf Included",
+    h1Fragment: "(Golf Included)",
+    metaBlurb: "golf-included",
+    type: "interest",
+    chipLabel: "Golf",
+    filter: { sort: "price-asc", inclusionsIncludeAny: ["golf", "course", "greens"] },
+    applicableCities: ["hilton-head", "park-city", "myrtle-beach", "williamsburg"],
+    introTemplate:
+      "Golf vacpacks in {{city}} bundle greens fees with the resort stay. {{dealCount}} golf-inclusive packages from \\${{lowPrice}}.\n\n{{cityBlurb}}",
+    faqs: [
+      { q: "How many rounds are included?", a: "Varies by package — usually 1-2 rounds per stay. Additional rounds at discounted member rates." },
+      { q: "Are cart + greens fees both covered?", a: "Most packages include both. Confirm at booking." },
+      faqDeposit,
+    ],
+  },
+  "dude-ranch": {
+    slug: "dude-ranch",
+    label: "Dude Ranch",
+    h1Fragment: "(Dude Ranch Style)",
+    metaBlurb: "dude-ranch",
+    type: "interest",
+    chipLabel: "Dude Ranch",
+    filter: { sort: "price-asc" },
+    applicableCities: ["river-ranch"],
+    introTemplate:
+      "Dude-ranch-style vacpacks in {{city}} include horseback riding, archery, and working-ranch experiences alongside standard resort amenities. {{dealCount}} packages from \\${{lowPrice}}.\n\n{{cityBlurb}}",
+    faqs: [
+      { q: "Is horseback riding included?", a: "Yes at Westgate River Ranch. Multiple trail rides per stay typically included." },
+      { q: "Is this kid-friendly?", a: "Yes — kid-specific riding lessons and ranch activities offered." },
+      faqDeposit,
+    ],
+  },
+  "beachfront-hawaii": {
+    slug: "beachfront-hawaii",
+    label: "Beachfront Hawaii",
+    h1Fragment: "Beachfront",
+    metaBlurb: "beachfront Hawaii",
+    type: "interest",
+    chipLabel: "Beachfront",
+    filter: { sort: "price-asc" },
+    applicableCities: ["maui", "oahu", "waikoloa-beach"],
+    introTemplate:
+      "Beachfront Hawaii vacpacks put you directly on the sand. {{dealCount}} packages from \\${{lowPrice}} — a fraction of Hawaii's public nightly rates.\n\n{{cityBlurb}}",
+    faqs: [
+      { q: "Is this really beachfront?", a: "Yes on packages labeled beachfront. HGV Ocean Tower sits directly on Ka'anapali Beach." },
+      { q: "Whale-watching season?", a: "December to April. Visible from many units in winter months." },
+      faqDeposit,
+    ],
+  },
+  "snorkeling": {
+    slug: "snorkeling",
+    label: "Snorkeling",
+    h1Fragment: "(Snorkeling)",
+    metaBlurb: "snorkeling",
+    type: "interest",
+    chipLabel: "Snorkeling",
+    filter: { sort: "price-asc" },
+    applicableCities: ["cozumel", "maui", "cancun", "nassau"],
+    introTemplate:
+      "Snorkeling vacpacks in {{city}} bundle beach access with reef experiences. {{dealCount}} packages from \\${{lowPrice}}.\n\n{{cityBlurb}}",
+    faqs: [
+      { q: "Is gear included?", a: "Often yes at resorts with snorkel inclusions. Otherwise rental is $15-$25/day." },
+      { q: "What's the best snorkel time?", a: "Early morning — calmer water, better visibility, fewer crowds." },
+      faqDeposit,
+    ],
+  },
+  "urban-event": {
+    slug: "urban-event",
+    label: "Urban Event Trip",
+    h1Fragment: "(Urban Event)",
+    metaBlurb: "urban event",
+    type: "interest",
+    chipLabel: "Urban",
+    filter: { durationNights: [2, 3], sort: "price-asc" },
+    applicableCities: ["atlanta", "nashville", "new-orleans", "austin"],
+    introTemplate:
+      "Urban event-trip vacpacks in {{city}} handle the 2-3 night concert/conference/wedding pattern. {{dealCount}} short-stay packages from \\${{lowPrice}}.\n\n{{cityBlurb}}",
+    faqs: [
+      { q: "Is downtown close?", a: "Most urban vacpack resorts are 10-20 min from downtown. Uber/Lyft are cheap and abundant in these markets." },
+      { q: "Can we book for one night?", a: "Rarely. Most vacpacks require 2+ nights minimum." },
+      faqDeposit,
+    ],
+  },
 };
 
 // ---------------------------------------------------------------------------
 // Per-city modifier allowlists
 // ---------------------------------------------------------------------------
 
-/** Priority cities that get full sublander rollout. */
+/** Cities with sublander rollout (Tier 1: full ~30 modifiers, Tier 2: ~12 modifiers + city-specific interests). */
 export const PRIORITY_CITIES: string[] = [
+  // Tier 1 — full rollout
   "orlando",
   "las-vegas",
   "gatlinburg",
@@ -830,6 +974,16 @@ export const PRIORITY_CITIES: string[] = [
   "puerto-vallarta",
   "punta-cana",
   "daytona-beach",
+  // Tier 2 — audience + season + budget + duration + city-specific interest
+  "maui",
+  "charleston",
+  "park-city",
+  "hilton-head",
+  "ormond-beach",
+  "new-smyrna-beach",
+  "cozumel",
+  "atlanta",
+  "river-ranch",
 ];
 
 /** Per-city: which modifier slugs are allowed. Trims ~40 modifiers → ~30 per city. */
@@ -934,6 +1088,83 @@ export const CITY_SUBLANDERS: Record<string, string[]> = {
     "under-99", "under-149", "under-199", "cheap",
     "weekend", "2-night", "3-night",
     "oceanfront",
+  ],
+  // ── Tier 2 cities ─────────────────────────────────────────
+  maui: [
+    "for-couples", "honeymoon", "destination-wedding",
+    "summer", "fall", "winter", "spring",
+    "last-minute", "christmas", "new-years",
+    "luxury", "under-199",
+    "3-night", "5-night",
+    "oceanfront", "beachfront-hawaii", "snorkeling",
+  ],
+  charleston: [
+    "for-couples", "for-seniors", "for-groups",
+    "girls-trip", "honeymoon",
+    "summer", "fall", "spring", "shoulder-season",
+    "last-minute", "memorial-day-weekend",
+    "under-199", "cheap",
+    "weekend", "2-night", "3-night",
+    "historic-district", "oceanfront", "golf-included",
+  ],
+  "park-city": [
+    "for-couples", "for-groups",
+    "honeymoon",
+    "winter", "summer", "fall", "shoulder-season",
+    "christmas", "new-years",
+    "under-199", "luxury",
+    "weekend", "3-night", "5-night",
+    "ski-in-ski-out", "golf-included",
+  ],
+  "hilton-head": [
+    "for-families", "for-couples", "for-seniors",
+    "summer", "fall", "spring", "shoulder-season",
+    "last-minute", "memorial-day-weekend", "july-4th", "labor-day-weekend",
+    "under-199", "luxury",
+    "weekend", "3-night",
+    "oceanfront", "near-beach", "golf-included",
+  ],
+  "ormond-beach": [
+    "for-families", "for-couples", "for-seniors",
+    "summer", "fall", "spring", "winter", "shoulder-season",
+    "last-minute",
+    "under-99", "under-149", "cheap",
+    "weekend", "2-night", "3-night",
+    "oceanfront", "near-beach",
+  ],
+  "new-smyrna-beach": [
+    "for-families", "for-couples", "for-seniors",
+    "summer", "fall", "spring", "winter", "shoulder-season",
+    "last-minute",
+    "under-99", "under-149", "cheap",
+    "weekend", "2-night", "3-night",
+    "oceanfront", "near-beach",
+  ],
+  cozumel: [
+    "for-couples", "for-groups",
+    "honeymoon", "destination-wedding",
+    "summer", "fall", "winter", "spring-break",
+    "last-minute",
+    "luxury",
+    "3-night", "5-night",
+    "all-inclusive", "oceanfront", "snorkeling", "adults-only",
+  ],
+  atlanta: [
+    "for-couples", "for-groups", "solo-travelers",
+    "bachelor-party", "bachelorette-party", "girls-trip",
+    "summer", "fall", "spring", "winter",
+    "last-minute", "memorial-day-weekend", "july-4th",
+    "under-149", "under-199",
+    "weekend", "2-night", "3-night",
+    "urban-event",
+  ],
+  "river-ranch": [
+    "for-families", "for-groups",
+    "summer", "fall", "spring", "winter", "shoulder-season",
+    "last-minute", "thanksgiving", "christmas",
+    "under-99", "under-149", "cheap",
+    "weekend", "2-night", "3-night",
+    "dude-ranch", "pet-friendly",
   ],
 };
 

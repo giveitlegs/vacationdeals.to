@@ -669,6 +669,10 @@ async function DestinationPage({
   const childSublanderSlugs = CITY_SUBLANDERS[data.slug] || [];
   const sublanderMods = childSublanderSlugs.map((s) => MODIFIERS[s]).filter(Boolean);
 
+  const highPrice = destDetail?.highestPrice ?? (deals.length > 0 ? Math.max(...deals.map((d) => d.price)) : null);
+  const latitude = destDetail?.latitude ? Number(destDetail.latitude) : null;
+  const longitude = destDetail?.longitude ? Number(destDetail.longitude) : null;
+
   const jsonLdGraph: unknown[] = [
     {
       "@type": "TouristDestination",
@@ -678,12 +682,22 @@ async function DestinationPage({
       url: `https://vacationdeals.to/${data.slug}`,
       dateModified: new Date().toISOString(),
       containedInPlace: { "@type": "AdministrativeArea", name: data.state },
+      ...(latitude != null && longitude != null
+        ? {
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude,
+              longitude,
+            },
+          }
+        : {}),
       ...(cheapest != null
         ? {
             makesOffer: {
               "@type": "AggregateOffer",
               lowPrice: cheapest,
-              highPrice: Math.max(...deals.map((d) => d.price)),
+              highPrice: highPrice ?? cheapest,
+              priceRange: `$${cheapest}-$${highPrice ?? cheapest}`,
               priceCurrency: "USD",
               offerCount: totalDeals,
               priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
