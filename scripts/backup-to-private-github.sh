@@ -13,7 +13,9 @@ set -e
 
 PROJECT_DIR="/c/Users/givei/Dropbox/PERS/CLAUDECODE/VACATIONDEALS.TO"
 BACKUP_DIR="/c/Users/givei/Dropbox/PERS/CLAUDECODE/.backups/vacationdeals-mirror"
-BACKUP_REPO="${VD_BACKUP_REPO:-git@github.com:giveitlegs/vacationdeals-private-backup.git}"
+# Default to HTTPS so the user's `gh` OAuth token works without SSH setup.
+# Override via VD_BACKUP_REPO if you prefer SSH (git@github.com:...)
+BACKUP_REPO="${VD_BACKUP_REPO:-https://github.com/giveitlegs/vacationdeals-private-backup.git}"
 TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
 
 echo "=== Secure GitHub Backup ==="
