@@ -22,6 +22,7 @@ import { CityModifierSubnav } from "@/components/CityModifierSubnav";
 import { MODIFIERS, CITY_SUBLANDERS, PRIORITY_CITIES, getModifiersForCity, parseSublanderSlug } from "@vacationdeals/shared";
 import type { Modifier } from "@vacationdeals/shared";
 import { getSublanderOverride } from "@/lib/sublander-overrides";
+import { EN_TO_ES } from "@/lib/i18n/es-destinations";
 
 export const dynamic = "force-dynamic"; // Always server-render with fresh DB data
 export const revalidate = 0;
@@ -405,6 +406,17 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
       const dealCount = destDetail?.dealCount || 0;
       const cheapest = destDetail?.cheapestPrice || 59;
 
+      // If this destination has a Spanish sister page, emit hreflang so Google
+      // understands EN and ES pages are translations of each other.
+      const esSlug = EN_TO_ES[slug];
+      const languages: Record<string, string> = esSlug
+        ? {
+            en: `${baseUrl}/${slug}`,
+            es: `${baseUrl}/es/${esSlug}`,
+            "x-default": `${baseUrl}/${slug}`,
+          }
+        : {};
+
       return {
         title: dealCount > 0
           ? `${name} Vacation Deals from $${cheapest} (${dealCount} Deal${dealCount !== 1 ? "s" : ""})`
@@ -412,7 +424,10 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
         description: dealCount > 0
           ? `${dealCount} vacation deals in ${name}, ${state} from $${cheapest}. Compare resort deals from top brands. Book premium resort stays.`.slice(0, 160)
           : `Vacation deals in ${name}, ${state}. Compare resort deals from top timeshare brands at premium resorts.`,
-        alternates: { canonical: `${baseUrl}/${slug}` },
+        alternates: {
+          canonical: `${baseUrl}/${slug}`,
+          ...(esSlug ? { languages } : {}),
+        },
         openGraph: {
           title: dealCount > 0
             ? `${name} Vacation Deals from $${cheapest} (${dealCount} Deal${dealCount !== 1 ? "s" : ""})`

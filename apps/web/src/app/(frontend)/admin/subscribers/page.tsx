@@ -1,4 +1,5 @@
 import { AdminShell } from "@/components/AdminShell";
+import { SubscriberToolbar, UnsubscribeButton } from "./SubscriberActions";
 
 export const dynamic = "force-dynamic";
 
@@ -36,6 +37,8 @@ export default async function AdminSubscribersPage() {
         </div>
       </div>
 
+      <SubscriberToolbar />
+
       <h2 className="mb-3 mt-8 text-lg font-bold text-gray-900">TCPA Consent Records</h2>
       <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
         <table className="w-full text-sm">
@@ -46,11 +49,12 @@ export default async function AdminSubscribersPage() {
               <th className="px-3 py-3">Source</th>
               <th className="px-3 py-3">IP</th>
               <th className="px-3 py-3">Consented</th>
+              <th className="px-3 py-3 text-right">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
             {consents.length === 0 ? (
-              <tr><td colSpan={5} className="px-3 py-6 text-center text-gray-400">No consents yet</td></tr>
+              <tr><td colSpan={6} className="px-3 py-6 text-center text-gray-400">No consents yet</td></tr>
             ) : consents.map((c) => (
               <tr key={c.id}>
                 <td className="px-3 py-2 font-medium text-gray-900">{c.email}</td>
@@ -58,6 +62,7 @@ export default async function AdminSubscribersPage() {
                 <td className="px-3 py-2 text-xs text-gray-500">{c.formSource}</td>
                 <td className="px-3 py-2 font-mono text-xs text-gray-400">{c.ipAddress}</td>
                 <td className="px-3 py-2 text-xs text-gray-500">{new Date(c.consentedAt).toLocaleString()}</td>
+                <td className="px-3 py-2 text-right"><UnsubscribeButton email={c.email || ""} /></td>
               </tr>
             ))}
           </tbody>

@@ -92,6 +92,8 @@ export const deals = pgTable(
     isActive: boolean("is_active").notNull().default(true),
     scrapedAt: timestamp("scraped_at").defaultNow().notNull(),
     expiresAt: timestamp("expires_at"),
+    reviewHtml: text("review_html"),
+    reviewGeneratedAt: timestamp("review_generated_at"),
     createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at").defaultNow().notNull(),
   },

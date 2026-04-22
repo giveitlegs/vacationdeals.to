@@ -23,5 +23,8 @@
       "esbuild",
       "sharp"
     ]
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.90.0"
   }
 }

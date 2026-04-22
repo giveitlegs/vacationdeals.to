@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllBlogPosts } from "@/lib/blog-types";
 import { getAllBrandSlugs, getAllDestinationSlugs } from "@/lib/queries";
 import { CITY_SUBLANDERS } from "@vacationdeals/shared";
+import { ES_DESTINATIONS } from "@/lib/i18n/es-destinations";
 
 async function getDealSlugs(): Promise<string[]> {
   try {
@@ -144,5 +145,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   );
 
-  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...sublanderPages];
+  // Spanish localized pages
+  const spanishPages = [
+    { url: `${baseUrl}/es`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
+    ...ES_DESTINATIONS.map((d) => ({
+      url: `${baseUrl}/es/${d.esSlug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  // Vacation Carnival attractions (live only)
+  const carnivalPages = [
+    { url: `${baseUrl}/vacation-carnival`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
+    { url: `${baseUrl}/vacation-carnival/pto-debt`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.6 },
+    { url: `${baseUrl}/vacation-carnival/severance`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.6 },
+  ];
+
+  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...sublanderPages, ...spanishPages, ...carnivalPages];
 }

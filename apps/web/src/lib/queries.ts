@@ -528,6 +528,7 @@ export interface DealDetail {
   longitude: string | null;
   isActive: boolean;
   expiresAt: string | null;
+  reviewHtml: string | null;
   updatedAt: string | null;
 }
 
@@ -560,6 +561,7 @@ export async function getDealBySlug(
         savingsPercent: schema.deals.savingsPercent,
         isActive: schema.deals.isActive,
         expiresAt: schema.deals.expiresAt,
+        reviewHtml: schema.deals.reviewHtml,
         updatedAt: schema.deals.updatedAt,
         brandName: schema.brands.name,
         brandSlug: schema.brands.slug,
@@ -600,6 +602,7 @@ export async function getDealBySlug(
       savingsPercent: r.savingsPercent,
       isActive: r.isActive,
       expiresAt: r.expiresAt ? r.expiresAt.toISOString() : null,
+      reviewHtml: r.reviewHtml ?? null,
       updatedAt: r.updatedAt ? r.updatedAt.toISOString() : null,
       brandName: r.brandName,
       brandSlug: r.brandSlug,

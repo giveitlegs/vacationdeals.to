@@ -36,6 +36,7 @@ import { getCityIcon } from "@/lib/city-icons";
 import { generateDealFAQs } from "@/lib/faqs";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FAQSchema } from "@/components/FAQSchema";
+import { TrustedHtmlBlock } from "@/components/TrustedHtmlBlock";
 import { StickyDealBar } from "@/components/StickyDealBar";
 
 export const revalidate = 3600;
@@ -757,6 +758,19 @@ export default async function DealPage({ params }: DealPageProps) {
           </div>
         </div>
       </div>
+
+      {/* Our review — emitted when generated via scripts/generate-deal-reviews.ts */}
+      {deal.reviewHtml && (
+        <section className="mt-10 rounded-2xl border-2 border-blue-100 bg-blue-50/50 p-6 sm:p-8">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+              Our Review
+            </span>
+            <span className="text-xs text-gray-500">by the VacationDeals.to editors</span>
+          </div>
+          <TrustedHtmlBlock html={deal.reviewHtml} />
+        </section>
+      )}
 
       {/* Deal FAQs */}
       <FAQSchema faqs={faqs} />
