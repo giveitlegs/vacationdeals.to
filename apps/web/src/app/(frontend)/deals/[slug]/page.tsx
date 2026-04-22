@@ -81,15 +81,20 @@ export async function generateMetadata({ params }: DealPageProps): Promise<Metad
 
   const location = [deal.city, deal.state].filter(Boolean).join(", ");
   const isEvent = deal.brandSlug === "westgate-events";
-  // Build a uniqueness-guaranteed title: include resort + city + duration + price.
-  // SF audit found duplicate titles on competing deals that shared brand+price+duration
-  // but different cities; city in the title resolves that collision.
-  const baseName = (deal.resortName || deal.title).slice(0, 30);
+  // Build a uniqueness-guaranteed title. Price + duration go at the END and
+  // are never truncated — we trim the resort-name prefix instead so the
+  // differentiating info (price, nights) always survives.
+  const priceFrag = ` — ${deal.durationDays}D/${deal.durationNights}N from $${deal.price}`;
   const cityFrag = deal.city ? ` ${deal.city}` : "";
-  const rawTitle = isEvent
-    ? `${deal.title} — ${deal.durationNights}N from $${deal.price}`
-    : `${baseName}${cityFrag} — ${deal.durationDays}D/${deal.durationNights}N from $${deal.price}`;
-  const title = rawTitle.length > 60 ? rawTitle.slice(0, 57) + "..." : rawTitle;
+  const SUFFIX = " | VacationDeals.to";
+  const maxBase = 60 - priceFrag.length - cityFrag.length; // leave room
+  let baseName = deal.resortName || deal.title;
+  if (baseName.length > maxBase) baseName = baseName.slice(0, maxBase - 1).trim() + "…";
+  const title = isEvent
+    ? `${deal.title.slice(0, 60 - priceFrag.length)}${priceFrag}`
+    : `${baseName}${cityFrag}${priceFrag}`;
+  // Next.js will append " | VacationDeals.to" via the root layout template;
+  // keep total under 60 here to allow for that suffix.
   const description = isEvent
     ? `${deal.title} vacation package: ${deal.description || `${deal.durationNights} nights + event tickets from $${deal.price}.`} Compare event deals at VacationDeals.to.`
     : `Book a ${deal.durationNights}-night vacation deal at ${deal.resortName || deal.title} in ${location} for just $${deal.price}. ${deal.originalPrice ? `Save ${deal.savingsPercent}% off the $${deal.originalPrice} retail price.` : ""} Compare resort deals at VacationDeals.to.`;

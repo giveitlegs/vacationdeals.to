@@ -106,7 +106,7 @@ const durations = [
 const mockDeals: Deal[] = [
   { id: 1, title: "Westgate Lakes Resort & Spa", resortName: "Westgate Lakes", price: 99, originalPrice: 449, durationNights: 3, durationDays: 4, city: "Orlando", state: "FL", brandName: "Westgate Reservations", brandSlug: "westgate", savingsPercent: 78, inclusions: ["Free Parking", "Waterpark Access", "2 Adults + 2 Kids"], slug: "westgate-orlando-3-night-99" },
   { id: 2, title: "Hilton Grand Vacations Orlando", resortName: "Hilton Grand Vacations", price: 149, originalPrice: 599, durationNights: 3, durationDays: 4, city: "Orlando", state: "FL", brandName: "Hilton Grand Vacations", brandSlug: "hgv", savingsPercent: 75, inclusions: ["50,000 Hilton Honors Points", "Resort Fee Included"], slug: "hgv-orlando-3-night-149" },
-  { id: 3, title: "Cancun All-Inclusive 5-Night Getaway", resortName: "Grand Oasis Cancun", price: 399, originalPrice: 1499, durationNights: 5, durationDays: 6, city: "Cancun", state: "QR", brandName: "BookVIP", brandSlug: "bookvip", savingsPercent: 73, inclusions: ["All Meals & Drinks", "Airport Transfers", "Resort Credits"], slug: "bookvip-cancun-5-night-399" },
+  { id: 3, title: "Cancun All-Inclusive 5-Night Getaway", resortName: "Grand Oasis Cancun", price: 399, originalPrice: 1499, durationNights: 5, durationDays: 6, city: "Cancun", state: "QR", brandName: "StayPromo", brandSlug: "staypromo", savingsPercent: 73, inclusions: ["All Meals & Drinks", "Airport Transfers", "Resort Credits"], slug: "staypromo-cancun-4-night-499" },
   { id: 4, title: "Westgate Smoky Mountain Resort", resortName: "Westgate Smoky Mountains", price: 99, originalPrice: 399, durationNights: 3, durationDays: 4, city: "Gatlinburg", state: "TN", brandName: "Westgate Reservations", brandSlug: "westgate", savingsPercent: 75, inclusions: ["Free Parking", "Wild Bear Falls Waterpark", "Fireplace Suite"], slug: "westgate-gatlinburg-3-night-99" },
   { id: 5, title: "Club Wyndham Las Vegas", resortName: "Club Wyndham Grand Desert", price: 99, originalPrice: 449, durationNights: 2, durationDays: 3, city: "Las Vegas", state: "NV", brandName: "Club Wyndham", brandSlug: "wyndham", savingsPercent: 78, inclusions: ["$200 Virtual Mastercard", "60,000 Wyndham Points"], slug: "wyndham-vegas-2-night-99" },
   { id: 6, title: "Marriott Vacation Club Myrtle Beach", resortName: "Marriott OceanWatch", price: 299, originalPrice: 899, durationNights: 3, durationDays: 4, city: "Myrtle Beach", state: "SC", brandName: "Marriott Vacation Club", brandSlug: "marriott", savingsPercent: 67, inclusions: ["20,000 Bonvoy Points", "Ocean View Room", "Daily Breakfast"], slug: "marriott-myrtle-beach-3-night-299" },
@@ -417,6 +417,11 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
           }
         : {};
 
+      // Canonical uses the resolved destination's real slug, not the alias
+      // (e.g., /caribbean → canonical /cancun). Dedupes regional aliases.
+      const canonicalDestSlug = resolved.data.slug;
+      const canonicalUrl = `${baseUrl}/${canonicalDestSlug}`;
+
       return {
         title: dealCount > 0
           ? `${name} Vacation Deals from $${cheapest} (${dealCount} Deal${dealCount !== 1 ? "s" : ""})`
@@ -425,7 +430,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
           ? `${dealCount} vacation deals in ${name}, ${state} from $${cheapest}. Compare resort deals from top brands. Book premium resort stays.`.slice(0, 160)
           : `Vacation deals in ${name}, ${state}. Compare resort deals from top timeshare brands at premium resorts.`,
         alternates: {
-          canonical: `${baseUrl}/${slug}`,
+          canonical: canonicalUrl,
           ...(esSlug ? { languages } : {}),
         },
         openGraph: {
@@ -435,18 +440,21 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
           description: dealCount > 0
             ? `${dealCount} vacation deals in ${name}, ${state} from $${cheapest}. Compare resort deals from top brands.`
             : `Vacation deals in ${name}, ${state}. Resort deals from top brands.`,
-          url: `${baseUrl}/${slug}`,
+          url: canonicalUrl,
           type: "website",
-          images: [{ url: `${baseUrl}/og/${slug}.jpg`, width: 1200, height: 630 }],
+          images: [{ url: `${baseUrl}/og/${canonicalDestSlug}.jpg`, width: 1200, height: 630 }],
         },
       };
     }
     case "brand": {
-      const { name } = resolved.data;
-      const brandDetail = await getBrandBySlug(slug);
+      const { name, slug: canonicalBrandSlug } = resolved.data;
+      const brandDetail = await getBrandBySlug(canonicalBrandSlug);
       const dealCount = brandDetail?.dealCount || 0;
       const cheapest = brandDetail?.cheapestPrice || 59;
       const destNames = brandDetail?.destinations?.slice(0, 4).join(", ") || "top destinations";
+      // If user landed on a long-form alias (e.g., /hilton-grand-vacations),
+      // canonical points to the short form (/hgv) to avoid duplicate content
+      const canonicalUrl = `${baseUrl}/${canonicalBrandSlug}`;
 
       return {
         title: dealCount > 0
@@ -455,7 +463,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
         description: dealCount > 0
           ? `${dealCount} ${name} vacation deals from $${cheapest}. Browse resort deals in ${destNames}, and more.`.slice(0, 160)
           : `Vacation deals from ${name}. Compare resort deals, prices, and destinations. ${resolved.data.description}`.slice(0, 160),
-        alternates: { canonical: `${baseUrl}/${slug}` },
+        alternates: { canonical: canonicalUrl },
         openGraph: {
           title: dealCount > 0
             ? `${name} Vacation Deals from $${cheapest}`
@@ -463,7 +471,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
           description: dealCount > 0
             ? `Browse ${dealCount} resort deals starting at $${cheapest}.`
             : `Compare all ${name} vacation deals. Find the best resort deals and save up to 80%.`,
-          url: `${baseUrl}/${slug}`,
+          url: canonicalUrl,
           type: "website",
         },
       };

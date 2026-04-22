@@ -90,7 +90,7 @@ export const brandPosts: BlogPost[] = [
 <h2>10. My Final Verdict on Westgate Deals</h2>
 <p>If you're comfortable sitting through a presentation and you meet the qualifications, Westgate deals are some of the best values in travel. Period. I've personally saved thousands of dollars over the years by taking advantage of these offers, and the resorts have always been at minimum "solid" quality.</p>
 <p>The key is going in with eyes wide open. You WILL be pitched on a timeshare. You WILL need to say no (unless you actually want one, in which case, talk to me first — I have thoughts). But the vacation itself? Totally worth it.</p>
-<p>Check out our <a href="/deals">latest deals page</a> to see what Westgate packages are currently available, and don't forget to read our guide on <a href="/blog/how-to-survive-timeshare-presentation">surviving the presentation</a> before you go.</p>
+<p>Check out our <a href="/deals">latest deals page</a> to see what Westgate packages are currently available, and don't forget to read our guide on <a href="/how-to-survive-timeshare-presentation">surviving the presentation</a> before you go.</p>
 
 <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;">
 <strong>🎯 Pro Tip:</strong> If you've already done a Westgate presentation and want to go again, wait at least 18 months and try a different property. Each resort location has its own "do not repeat" list, and they don't always cross-reference between properties. Not that I would know from personal experience or anything...
@@ -214,7 +214,7 @@ export const brandPosts: BlogPost[] = [
 <p><strong>Off-season is your friend:</strong> January-February and September-October typically have the best availability and lowest prices. Avoid holiday weeks like the plague — prices double and availability disappears.</p>
 
 <h2>10. The Bottom Line: Is HGV Worth It?</h2>
-<p>Yes — with a caveat. If you're purely optimizing for the cheapest possible vacation, HGV isn't your play. Go with <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate</a> or <a href="/blog/bluegreen-vacations-deals">Bluegreen</a> instead. But if you want a vacation where the resort itself is part of the experience — where you'll actually enjoy hanging out at the property, not just using it as a place to crash — HGV is worth the premium.</p>
+<p>Yes — with a caveat. If you're purely optimizing for the cheapest possible vacation, HGV isn't your play. Go with <a href="/westgate-resorts-vacation-deals-complete-guide">Westgate</a> or <a href="/bluegreen-vacations-deals">Bluegreen</a> instead. But if you want a vacation where the resort itself is part of the experience — where you'll actually enjoy hanging out at the property, not just using it as a place to crash — HGV is worth the premium.</p>
 <p>I think of it like this: Westgate is the Honda Civic of timeshare deals. Reliable, affordable, gets the job done. HGV is the Lexus. More expensive, but the ride is just... nicer. And sometimes you want the nicer ride.</p>
 <p>Check out our <a href="/deals">deals page</a> for the latest HGV packages, and compare them against other brands to find your sweet spot.</p>`,
     faqs: [
@@ -333,7 +333,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>10. Final Verdict: Should You Book an MVC Deal?</h2>
 <p>If you meet the qualification requirements and can afford the higher deal price, absolutely yes. MVC delivers a premium vacation experience that you simply can't get from budget timeshare brands. The properties are gorgeous, the amenities are top-notch, and you'll feel like you're staying at a luxury resort — because you are.</p>
-<p>For budget-conscious travelers, check out our guides on <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate deals</a> or <a href="/blog/bluegreen-vacations-deals">Bluegreen deals</a> instead. And whatever brand you choose, always compare prices on our <a href="/deals">deals page</a> before booking anywhere.</p>`,
+<p>For budget-conscious travelers, check out our guides on <a href="/westgate-resorts-vacation-deals-complete-guide">Westgate deals</a> or <a href="/bluegreen-vacations-deals">Bluegreen deals</a> instead. And whatever brand you choose, always compare prices on our <a href="/deals">deals page</a> before booking anywhere.</p>`,
     faqs: [
       { question: "How much do Marriott Vacation Club deals cost?", answer: "MVC presentation deals range from $299 for a 3-night preview package to $799+ for extended stays at premium locations like Hawaii or the Caribbean. The average deal price is $399-$549 for 4-5 nights." },
       { question: "What's the income requirement for Marriott Vacation Club deals?", answer: "MVC requires a combined household income of $100,000 or more, which is the highest requirement among major timeshare brands. They also require a credit card with at least $5,000 in available credit." },
@@ -450,7 +450,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>10. Bottom Line</h2>
 <p>Club Wyndham is the safe choice. You're not going to have a mind-blowing luxury experience, but you're also not going to be disappointed. The deals are reasonably priced, the properties range from good to great (if you choose wisely), and the sheer number of locations means you can probably find a deal wherever you want to go.</p>
-<p>If you want cheaper, check out <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate</a>. If you want fancier, try <a href="/blog/marriott-vacation-club-deals">Marriott</a>. If you want the most options? Wyndham's your brand. Browse <a href="/deals">all current deals</a> to compare.</p>`,
+<p>If you want cheaper, check out <a href="/westgate-resorts-vacation-deals-complete-guide">Westgate</a>. If you want fancier, try <a href="/marriott-vacation-club-deals">Marriott</a>. If you want the most options? Wyndham's your brand. Browse <a href="/deals">all current deals</a> to compare.</p>`,
     faqs: [
       { question: "How much do Club Wyndham vacation deals cost?", answer: "Club Wyndham deals range from $99 for basic 3-night getaways to $399 for premium 5-7 night packages. The most popular deals fall in the $149-$249 range for 4-5 nights in a suite." },
       { question: "What is the best Club Wyndham property?", answer: "Bonnet Creek in Orlando is widely considered the best Club Wyndham property. Located inside Walt Disney World resort area, it features multiple pools, a lazy river, and spacious suites that rival nearby Disney deluxe resorts." },
@@ -530,7 +530,7 @@ export const brandPosts: BlogPost[] = [
 </div>
 
 <h2>5. My Personal BookVIP Experiences</h2>
-<p><strong>Trip 1 — Orlando, Westgate:</strong> Booked a $79 deal for 4 nights. Total cost after fees was $149. Room was clean and spacious, presentation was standard Westgate fare (see my <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate review</a>). Would do again. 8/10.</p>
+<p><strong>Trip 1 — Orlando, Westgate:</strong> Booked a $79 deal for 4 nights. Total cost after fees was $149. Room was clean and spacious, presentation was standard Westgate fare (see my <a href="/westgate-resorts-vacation-deals-complete-guide">Westgate review</a>). Would do again. 8/10.</p>
 <p><strong>Trip 2 — Cancun, Vidanta:</strong> Booked a $49 deal for 5 nights. Total cost was $179 after fees. The resort was INCREDIBLE — like, legitimately one of the nicest places I've ever stayed. Multiple pools, oceanfront, great restaurants. The presentation was longer than U.S. ones (about 3 hours), but the resort experience more than made up for it. 9/10.</p>
 <p><strong>Trip 3 — Las Vegas:</strong> Booked a $49 deal for 3 nights. Total was $119. Room was fine, nothing special. Standard Vegas timeshare experience. The gift they gave us for attending the presentation (show tickets) was actually worth more than we paid for the deal. 7/10.</p>
 <p><strong>Trip 4 — Myrtle Beach:</strong> This one was rougher. Booked a $69 deal, showed up, and the room was in an older building that clearly needed renovation. Carpet stains, outdated furniture, that weird musty smell that old hotel rooms get. The presentation was also the most aggressive I've ever experienced. I left feeling like I needed a shower. 5/10.</p>
@@ -582,7 +582,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>10. Final Verdict: Should You Book Through BookVIP?</h2>
 <p>Yes, with caveats. BookVIP is a legitimate way to get deeply discounted resort vacations, and I've personally had more good experiences than bad. But go in with your eyes open, read every piece of fine print, and don't be afraid to ask questions. The people who get burned by BookVIP are almost always the ones who didn't do their homework.</p>
-<p>Compare BookVIP deals against other brokers like <a href="/blog/getawaydealz-review">GetawayDealz</a> and <a href="/blog/staypromo-review">StayPromo</a> before booking. And check our <a href="/deals">deals page</a> where we aggregate prices from multiple sources so you can always find the best offer.</p>`,
+<p>Compare BookVIP deals against other brokers like <a href="/getawaydealz-review">GetawayDealz</a> and <a href="/staypromo-review">StayPromo</a> before booking. And check our <a href="/deals">deals page</a> where we aggregate prices from multiple sources so you can always find the best offer.</p>`,
     faqs: [
       { question: "Is BookVIP legitimate?", answer: "Yes, BookVIP is a legitimate vacation deal broker that has been operating since 2010. They partner with major resort brands like Westgate, Wyndham, and Vidanta to offer discounted vacation packages in exchange for attending timeshare presentations." },
       { question: "What is the real cost of a BookVIP deal?", answer: "The total cost is typically $50-$150 more than the advertised price due to taxes, resort fees, and processing charges. A $49 deal might actually cost $149-$199 total. Always ask for the complete breakdown before finalizing." },
@@ -690,7 +690,7 @@ export const brandPosts: BlogPost[] = [
 </div>
 
 <h2>8. Is GetawayDealz Better Than BookVIP?</h2>
-<p>It depends on what you're looking for. For domestic U.S. deals with better customer service, GetawayDealz gets my vote. For international deals (especially Cancun and the Caribbean), <a href="/blog/bookvip-review">BookVIP wins hands down</a> because GetawayDealz barely has international inventory. For a detailed side-by-side, check out our <a href="/blog/bookvip-vs-getawaydealz">BookVIP vs GetawayDealz comparison</a>.</p>
+<p>It depends on what you're looking for. For domestic U.S. deals with better customer service, GetawayDealz gets my vote. For international deals (especially Cancun and the Caribbean), <a href="/bookvip-review">BookVIP wins hands down</a> because GetawayDealz barely has international inventory. For a detailed side-by-side, check out our <a href="/bookvip-vs-getawaydealz">BookVIP vs GetawayDealz comparison</a>.</p>
 
 <h2>9. Tips for Using GetawayDealz</h2>
 <ol>
@@ -818,7 +818,7 @@ export const brandPosts: BlogPost[] = [
 </ol>
 
 <h2>9. Should You Trust Monster Reservations Group?</h2>
-<p>Trust, but verify. MRG is a legitimate operation that delivers on its promises for the majority of customers. But they're still a growing company working out some kinks, particularly in customer service. If your the type of person who needs hand-holding through the booking process, you might be happier with <a href="/blog/getawaydealz-review">GetawayDealz</a> or <a href="/blog/bookvip-review">BookVIP</a>. If you're an experienced deal-seeker who knows the drill, MRG can save you money.</p>
+<p>Trust, but verify. MRG is a legitimate operation that delivers on its promises for the majority of customers. But they're still a growing company working out some kinks, particularly in customer service. If your the type of person who needs hand-holding through the booking process, you might be happier with <a href="/getawaydealz-review">GetawayDealz</a> or <a href="/bookvip-review">BookVIP</a>. If you're an experienced deal-seeker who knows the drill, MRG can save you money.</p>
 
 <h2>10. Final Verdict</h2>
 <p>Monster Reservations Group is a B-tier broker that's working its way toward A-tier. Their deals are real, their prices are competitive, and their bundled extras add genuine value. The customer service needs work, and the aggressive follow-up is annoying, but neither is a dealbreaker. Keep them in your deal-hunting toolkit alongside the bigger brokers, and always compare prices on our <a href="/deals">deals page</a> before committing.</p>`,
@@ -930,7 +930,7 @@ export const brandPosts: BlogPost[] = [
 <p>HICV deals are available through their website (orangelake.com), third-party brokers, and social media ads. Their direct deals are actually competitive with broker prices, which isn't always the case with timeshare brands. Check <a href="/bookvip">BookVIP</a> and other brokers for comparison, but don't sleep on HICV's own promotional offers.</p>
 
 <h2>9. HICV vs. Other Family Brands</h2>
-<p>For families specifically, HICV is one of the best options in the timeshare deal space. Their waterparks and activity programs put them ahead of Westgate and Wyndham for family appeal. <a href="/blog/bluegreen-vacations-deals">Bluegreen</a> is a close competitor in the family-friendly category but has fewer resort amenities. The only brand that truly competes with HICV on the family front is Great Wolf Lodge, which isn't a timeshare company at all.</p>
+<p>For families specifically, HICV is one of the best options in the timeshare deal space. Their waterparks and activity programs put them ahead of Westgate and Wyndham for family appeal. <a href="/bluegreen-vacations-deals">Bluegreen</a> is a close competitor in the family-friendly category but has fewer resort amenities. The only brand that truly competes with HICV on the family front is Great Wolf Lodge, which isn't a timeshare company at all.</p>
 
 <h2>10. Final Verdict</h2>
 <p>Holiday Inn Club Vacations is the smart family pick. You get resort-quality amenities, spacious villas, and solid deal pricing without the aggressive sales pressure of budget brands. If you're traveling with kids and want a vacation where the resort itself is a destination, HICV should be at the top of your list. Browse our <a href="/deals">deals page</a> to see what's currently available.</p>`,
@@ -1043,7 +1043,7 @@ export const brandPosts: BlogPost[] = [
 </div>
 
 <h2>8. Where to Find Bluegreen Deals</h2>
-<p>Three main channels: Bass Pro/Cabela's kiosks (cheapest), the Bluegreen website, and third-party brokers like <a href="/blog/bookvip-review">BookVIP</a>. The kiosk deals are almost always the best value, so if you happen to be near a Bass Pro, swing by and see what they're offering.</p>
+<p>Three main channels: Bass Pro/Cabela's kiosks (cheapest), the Bluegreen website, and third-party brokers like <a href="/bookvip-review">BookVIP</a>. The kiosk deals are almost always the best value, so if you happen to be near a Bass Pro, swing by and see what they're offering.</p>
 
 <h2>9. Is Bluegreen Right for You?</h2>
 <p>If your primary goal is "cheapest possible resort vacation," Bluegreen is your brand. They're not trying to be Marriott, and they're not pretending to be. They're the honest budget option in a market full of brands trying to upsell you into luxury. There's something refreshing about that.</p>
@@ -1129,7 +1129,7 @@ export const brandPosts: BlogPost[] = [
 <li>U.S. resident</li>
 <li>No HVC/Marriott presentation in the past 18 months</li>
 </ul>
-<p>The $100K income requirement and narrower age range make HVC deals less accessible than budget brands. They're clearly targeting a higher-income demographic, similar to Marriott. If you don't meet these requirements, check out <a href="/blog/club-wyndham-vacation-deals">Wyndham</a> or <a href="/blog/bluegreen-vacations-deals">Bluegreen</a> with their lower thresholds.</p>
+<p>The $100K income requirement and narrower age range make HVC deals less accessible than budget brands. They're clearly targeting a higher-income demographic, similar to Marriott. If you don't meet these requirements, check out <a href="/club-wyndham-vacation-deals">Wyndham</a> or <a href="/bluegreen-vacations-deals">Bluegreen</a> with their lower thresholds.</p>
 
 <h2>7. Why HVC Flies Under the Radar</h2>
 <p>With only ~20 properties, Hyatt Vacation Club simply doesn't have the marketing budget or inventory to compete with Westgate's Facebook ad blitz or Wyndham's 230-property empire. They don't need to — their target market is smaller and more affluent. But this means fewer deals available and less visibility for deal-seekers.</p>
@@ -1158,7 +1158,7 @@ export const brandPosts: BlogPost[] = [
 <p>HVC deals are primarily available through Marriott Vacations Worldwide's marketing channels (since they manage the properties). Check the Hyatt Vacation Club website, call their marketing line, or watch for deals on our <a href="/deals">deals page</a>. Third-party broker availability is limited but not unheard of.</p>
 
 <h2>10. Final Verdict</h2>
-<p>Hyatt Vacation Club is the hidden gem of the timeshare deal world. If you qualify and can snag a deal, you're getting premium resort quality, low-pressure presentations, and access to one of the best hotel loyalty programs in the world. The limited inventory means you need to act fast when deals appear, but the experience is well worth the effort. Compare HVC deals against <a href="/blog/hilton-grand-vacations-deals-worth-it">Hilton Grand Vacations</a> and <a href="/blog/marriott-vacation-club-deals">Marriott</a> to find your best fit.</p>`,
+<p>Hyatt Vacation Club is the hidden gem of the timeshare deal world. If you qualify and can snag a deal, you're getting premium resort quality, low-pressure presentations, and access to one of the best hotel loyalty programs in the world. The limited inventory means you need to act fast when deals appear, but the experience is well worth the effort. Compare HVC deals against <a href="/hilton-grand-vacations-deals-worth-it">Hilton Grand Vacations</a> and <a href="/marriott-vacation-club-deals">Marriott</a> to find your best fit.</p>`,
     faqs: [
       { question: "What is Hyatt Vacation Club?", answer: "Hyatt Vacation Club (formerly Hyatt Residence Club) is Hyatt Hotels' timeshare brand with about 20 premium resort properties in Florida, Colorado, Texas, and the Caribbean. Properties are managed by Marriott Vacations Worldwide." },
       { question: "How much do Hyatt Vacation Club deals cost?", answer: "HVC deals range from $199 for 3-night preview packages to $599 for premium 5-7 night stays. Pricing is between Hilton Grand Vacations and Marriott Vacation Club." },
@@ -1291,7 +1291,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>10. Final Verdict</h2>
 <p>It's not really BookVIP OR GetawayDealz — it's BookVIP AND GetawayDealz. Use both. Check both for every trip. The one that wins for your specific destination and dates is the one you should book. For international, BookVIP is your only realistic option. For domestic, GetawayDealz often edges ahead on price and service. But always compare on our <a href="/deals">deals page</a> where we show you both side by side.</p>
-<p>And if you want to explore more brokers, check out our reviews of <a href="/blog/staypromo-review">StayPromo</a> and <a href="/blog/monster-reservations-group-review">Monster Reservations Group</a> for even more options.</p>`,
+<p>And if you want to explore more brokers, check out our reviews of <a href="/staypromo-review">StayPromo</a> and <a href="/monster-reservations-group-review">Monster Reservations Group</a> for even more options.</p>`,
     faqs: [
       { question: "Is BookVIP or GetawayDealz cheaper?", answer: "For domestic U.S. deals, GetawayDealz is typically $20-$40 cheaper when you factor in all taxes and fees. For international deals (Cancun, Caribbean), BookVIP is the only option between the two." },
       { question: "Which broker has better customer service?", answer: "GetawayDealz has noticeably better customer service with faster response times, more helpful agents, and easier problem resolution. BookVIP's service is adequate but more transactional." },
@@ -1417,7 +1417,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>10. Final Answer</h2>
 <p>There's no single "better" brand — it depends entirely on what you value. Westgate is the undisputed budget champion. HGV is the premium value play. Both deliver genuine savings over regular hotel bookings, and both require the same basic commitment (sitting through a presentation).</p>
-<p>My personal preference? I alternate between both depending on the trip. Check out our detailed reviews of <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate</a> and <a href="/blog/hilton-grand-vacations-deals-worth-it">HGV</a> for more depth on each brand, and compare current deals from both on our <a href="/deals">deals page</a>.</p>`,
+<p>My personal preference? I alternate between both depending on the trip. Check out our detailed reviews of <a href="/westgate-resorts-vacation-deals-complete-guide">Westgate</a> and <a href="/hilton-grand-vacations-deals-worth-it">HGV</a> for more depth on each brand, and compare current deals from both on our <a href="/deals">deals page</a>.</p>`,
     faqs: [
       { question: "Is Westgate or Hilton Grand Vacations cheaper?", answer: "Westgate is significantly cheaper, with deals starting at $49 compared to HGV's $199 starting price. Average Westgate deals run $99-$149 while comparable HGV deals are $299-$399." },
       { question: "Which has better rooms, Westgate or HGV?", answer: "HGV has noticeably better room quality with modern furnishings, premium linens, and upscale finishes. Westgate rooms are clean and spacious but more utilitarian in design." },
@@ -1537,7 +1537,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>10. Bottom Line</h2>
 <p>Marriott is the BMW of timeshare deals — premium quality, premium price, premium experience. Wyndham is the Toyota — reliable, affordable, everywhere. Neither is "better" in absolute terms; they serve different needs and different budgets.</p>
-<p>For most deal-seekers, I'd recommend starting with Wyndham (accessible, cheap, lower stakes) and trying Marriott for special occasions when you want to treat yourself. Read our full reviews of <a href="/blog/marriott-vacation-club-deals">Marriott Vacation Club</a> and <a href="/blog/club-wyndham-vacation-deals">Club Wyndham</a> for deeper dives into each brand, and compare current prices on our <a href="/deals">deals page</a>.</p>`,
+<p>For most deal-seekers, I'd recommend starting with Wyndham (accessible, cheap, lower stakes) and trying Marriott for special occasions when you want to treat yourself. Read our full reviews of <a href="/marriott-vacation-club-deals">Marriott Vacation Club</a> and <a href="/club-wyndham-vacation-deals">Club Wyndham</a> for deeper dives into each brand, and compare current prices on our <a href="/deals">deals page</a>.</p>`,
     faqs: [
       { question: "Is Marriott or Wyndham cheaper for vacation deals?", answer: "Wyndham is significantly cheaper, with deals starting at $99 versus Marriott's $299. Average Wyndham deals run $149-$249 while Marriott deals average $399-$549." },
       { question: "Which has more properties, Marriott or Wyndham?", answer: "Wyndham has dramatically more properties — over 230 compared to Marriott's approximately 70. Wyndham covers more domestic U.S. destinations." },
@@ -1774,7 +1774,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>9. Final Verdict</h2>
 <p>StayPromo is a solid third option in the broker market. They won't replace BookVIP for international deals or GetawayDealz for customer service, but they offer a pleasant booking experience with competitive pricing. Add them to your comparison checklist alongside the bigger brokers — you might be surprised how often they have the best price.</p>
-<p>Compare StayPromo deals against <a href="/blog/bookvip-review">BookVIP</a> and <a href="/blog/getawaydealz-review">GetawayDealz</a> on our <a href="/deals">deals page</a>, and book wherever the total cost is lowest.</p>`,
+<p>Compare StayPromo deals against <a href="/bookvip-review">BookVIP</a> and <a href="/getawaydealz-review">GetawayDealz</a> on our <a href="/deals">deals page</a>, and book wherever the total cost is lowest.</p>`,
     faqs: [
       { question: "Is StayPromo legitimate?", answer: "Yes, StayPromo is a legitimate vacation deal broker that has been operating since the late 2010s. They partner with real timeshare resort companies and deliver real vacations at discounted prices." },
       { question: "How does StayPromo compare to BookVIP?", answer: "StayPromo has a better website and more transparent pricing, but BookVIP has a larger selection and international deals. Pricing is competitive between both for domestic U.S. destinations." },
@@ -1875,7 +1875,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>7. Is Vacation Village Worth It?</h2>
 <p>If your only goal is "cheapest possible Orlando vacation with a roof over your head," absolutely yes. You're paying $49-$99 for accommodations that would cost $100-$200/night through a normal hotel booking. The math works even if the room isn't Instagram-worthy.</p>
-<p>If you want a resort experience — nice pools, modern rooms, good amenities — look at <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate</a> or <a href="/blog/holiday-inn-club-vacations-deals">Holiday Inn Club Vacations</a> instead. You'll pay more, but you'll enjoy the property more.</p>
+<p>If you want a resort experience — nice pools, modern rooms, good amenities — look at <a href="/westgate-resorts-vacation-deals-complete-guide">Westgate</a> or <a href="/holiday-inn-club-vacations-deals">Holiday Inn Club Vacations</a> instead. You'll pay more, but you'll enjoy the property more.</p>
 
 <h2>8. How to Find Vacation Village Deals</h2>
 <p>Vacation Village deals pop up on third-party broker sites, Facebook ads, and sometimes through direct marketing. They're also commonly offered through kiosk-style promotions at Florida tourist attractions and shopping areas. If you're already in Orlando, keep an eye out for kiosks at outlet malls and tourist areas — they often have day-of deals.</p>
@@ -1890,7 +1890,7 @@ export const brandPosts: BlogPost[] = [
 </ol>
 
 <h2>10. Bottom Line</h2>
-<p>Vacation Village won't win any resort beauty pageants, but they will save you money. Lots of it. If your plan is to spend all day at Disney/Universal and only need a place to sleep, shower, and store your leftover theme park snacks, these $49 deals are genuinely unbeatable. Check our <a href="/deals">deals page</a> for current availability and compare with <a href="/blog/bluegreen-vacations-deals">Bluegreen</a> for another budget option.</p>`,
+<p>Vacation Village won't win any resort beauty pageants, but they will save you money. Lots of it. If your plan is to spend all day at Disney/Universal and only need a place to sleep, shower, and store your leftover theme park snacks, these $49 deals are genuinely unbeatable. Check our <a href="/deals">deals page</a> for current availability and compare with <a href="/bluegreen-vacations-deals">Bluegreen</a> for another budget option.</p>`,
     faqs: [
       { question: "Are Vacation Village $49 deals real?", answer: "Yes, Vacation Village offers legitimate $49 deals for 3-night stays at their Florida properties. The catch is attending a 90-120 minute timeshare presentation, and the rooms are basic but functional." },
       { question: "Where are Vacation Village resorts located?", answer: "Vacation Village properties are concentrated in the Kissimmee/Orlando area of Florida, typically 15-20 minutes from Walt Disney World and other major theme parks." },
@@ -2005,7 +2005,7 @@ export const brandPosts: BlogPost[] = [
 </ul>
 
 <h2>10. Final Verdict</h2>
-<p>Spinnaker Resorts is a hidden gem that deserves more attention. Their deals are competatively priced, their properties are well-maintained, and their presentations are the least painful in the industry. The limited destination selection is the main drawback, but if Hilton Head, Branson, or Ormond Beach are on your list, Spinnaker should be your first call. Browse our <a href="/deals">deals page</a> and also check out <a href="/blog/bluegreen-vacations-deals">Bluegreen</a> for more budget options.</p>`,
+<p>Spinnaker Resorts is a hidden gem that deserves more attention. Their deals are competatively priced, their properties are well-maintained, and their presentations are the least painful in the industry. The limited destination selection is the main drawback, but if Hilton Head, Branson, or Ormond Beach are on your list, Spinnaker should be your first call. Browse our <a href="/deals">deals page</a> and also check out <a href="/bluegreen-vacations-deals">Bluegreen</a> for more budget options.</p>`,
     faqs: [
       { question: "Is Spinnaker Resorts legitimate?", answer: "Yes, Spinnaker Resorts is a legitimate, family-owned timeshare company that has been operating since 1988. They have over 35 years of history and a solid reputation in Hilton Head and their other destinations." },
       { question: "How much do Spinnaker Resorts deals cost?", answer: "Spinnaker deals range from $79 in Branson to $149 in Hilton Head for 3-4 night villa stays. All deals include 1-bedroom villas with full kitchens." },
@@ -2047,13 +2047,13 @@ export const brandPosts: BlogPost[] = [
 <p><strong>Price:</strong> $49-$99 for 3-5 nights</p>
 <p><strong>Value per hour of presentation:</strong> $150-$300 in savings per hour</p>
 <p>This is the deal that started the whole timeshare deal-seeking movement. Westgate's Orlando properties (Town Center, Lakes Resort) offer resort stays that would normally cost $150-$250/night for essentially pocket change. At $49 for 3 nights, you're saving roughly $400-$700 compared to booking through a regular travel site.</p>
-<p>The presentation is aggressive (see our <a href="/blog/westgate-resorts-vacation-deals-complete-guide">full Westgate review</a>), but the value is undeniable. If you can handle 2 hours of sales pressure, you're rewarded with a legitimate resort vacation at a price that defies logic.</p>
+<p>The presentation is aggressive (see our <a href="/westgate-resorts-vacation-deals-complete-guide">full Westgate review</a>), but the value is undeniable. If you can handle 2 hours of sales pressure, you're rewarded with a legitimate resort vacation at a price that defies logic.</p>
 
 <h2>2. BookVIP Cancun: The International Showstopper</h2>
 <p><strong>Price:</strong> $49-$149 for 5 nights (some all-inclusive)</p>
 <p><strong>Value per hour of presentation:</strong> $400-$800+ in savings per hour</p>
 <p>This is objectively the best value in the entire timeshare deal universe. Five nights at an all-inclusive Mexican resort for under $150? The normal cost for this would be $1,500-$3,000+. You're saving over $1,000 in exchange for a presentation that lasts about 2-3 hours.</p>
-<p>The presentation in Mexico tends to be longer (2-3 hours vs. 90 minutes domestic), and the resorts are operated by brands like Vidanta and Palace that most Americans haven't heard of. But the resort quality is often INSANE — infinity pools, ocean views, gourmet dining. Read our <a href="/blog/bookvip-review">BookVIP review</a> for the full breakdown.</p>
+<p>The presentation in Mexico tends to be longer (2-3 hours vs. 90 minutes domestic), and the resorts are operated by brands like Vidanta and Palace that most Americans haven't heard of. But the resort quality is often INSANE — infinity pools, ocean views, gourmet dining. Read our <a href="/bookvip-review">BookVIP review</a> for the full breakdown.</p>
 
 <h2>3. HGV Las Vegas (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) Elara: The Premium Play</h2>
 <p><strong>Price:</strong> $199-$299 for 3-4 nights</p>
@@ -2064,12 +2064,12 @@ export const brandPosts: BlogPost[] = [
 <h2>4. Wyndham Bonnet Creek Orlando: The Disney Insider</h2>
 <p><strong>Price:</strong> $99-$199 for 3-5 nights</p>
 <p><strong>Value per hour of presentation:</strong> $200-$400 in savings per hour</p>
-<p>Located literally inside the Walt Disney World gates, Bonnet Creek is one of the best timeshare properties in Orlando. Multiple pools, lazy river, spacious suites, and a location that can't be beat for Disney visitors. Comparable Disney-area resorts run $250-$500/night. A <a href="/blog/club-wyndham-vacation-deals">Wyndham deal</a> here is absolute gold.</p>
+<p>Located literally inside the Walt Disney World gates, Bonnet Creek is one of the best timeshare properties in Orlando. Multiple pools, lazy river, spacious suites, and a location that can't be beat for Disney visitors. Comparable Disney-area resorts run $250-$500/night. A <a href="/club-wyndham-vacation-deals">Wyndham deal</a> here is absolute gold.</p>
 
 <h2>5. Marriott Hilton Head or Marco Island: The Luxury Steal</h2>
 <p><strong>Price:</strong> $299-$449 for 3-5 nights</p>
 <p><strong>Value per hour of presentation:</strong> $300-$600 in savings per hour</p>
-<p>Yes, the deal price is higher, but the properties are genuinely world-class. <a href="/blog/marriott-vacation-club-deals">Marriott's Barony Beach Club</a> (Hilton Head) and Crystal Shores (Marco Island) are five-star experiences that retail at $400-$700/night. Even at $449 for 5 nights, you're saving $1,500-$3,000+.</p>
+<p>Yes, the deal price is higher, but the properties are genuinely world-class. <a href="/marriott-vacation-club-deals">Marriott's Barony Beach Club</a> (Hilton Head) and Crystal Shores (Marco Island) are five-star experiences that retail at $400-$700/night. Even at $449 for 5 nights, you're saving $1,500-$3,000+.</p>
 
 <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;">
 <strong>🎯 Pro Tip:</strong> Calculate the "presentation hourly rate" for any deal: (Normal cost - Deal cost) / Presentation hours = Savings per hour. If that number is above $100/hour, the deal is worth your time. Most deals on this list are $150-$800/hour — way better than your actual job pays (probably).
@@ -2126,7 +2126,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>10. Final Thoughts</h2>
 <p>Timeshare presentation deals are one of the last true "hacks" in travel. In a world where flight deals get posted on social media and sell out in minutes, these resort deals are still available to anyone who meets the qualifications and can handle a sales pitch. The deals on this list represent hundreds to thousands of dollars in genuine savings.</p>
-<p>Start with whatever deal matches your budget and comfort level. Check our <a href="/deals">deals page</a> for the latest availability, and read our guide on <a href="/blog/how-to-survive-timeshare-presentation">how to survive a timeshare presentation</a> before you go.</p>`,
+<p>Start with whatever deal matches your budget and comfort level. Check our <a href="/deals">deals page</a> for the latest availability, and read our guide on <a href="/how-to-survive-timeshare-presentation">how to survive a timeshare presentation</a> before you go.</p>`,
     faqs: [
       { question: "What are the best timeshare presentation deals?", answer: "Top picks: BookVIP Cancun ($49-$149 for 5 nights all-inclusive), Westgate Orlando ($49 for 3 nights), HGV Las Vegas Elara ($199 for 3 nights on the Strip), and Wyndham Bonnet Creek ($99-$199 inside Disney World gates)." },
       { question: "How much do timeshare presentation deals save?", answer: "Savings range from $150 to $3,000+ depending on the deal. Budget deals (Westgate, Vacation Village) save $300-$900. Premium deals (Marriott, BookVIP Cancun) save $1,000-$3,000+." },
@@ -2248,7 +2248,7 @@ export const brandPosts: BlogPost[] = [
 <tr><td>Exit & Gift</td><td>5-10 min</td><td>Collect your gift, thank them, leave</td></tr>
 </tbody>
 </table>
-<p>Total: 90-135 minutes. You got this. Check out our <a href="/blog/best-timeshare-presentation-deals">best presentation deals</a> guide and browse <a href="/deals">current deals</a> to find your next cheap vacation. Read our take on <a href="/blog/5-things-they-dont-tell-you-timeshare-deals">things they don't tell you about these deals</a> for more insider info.</p>`,
+<p>Total: 90-135 minutes. You got this. Check out our <a href="/best-timeshare-presentation-deals">best presentation deals</a> guide and browse <a href="/deals">current deals</a> to find your next cheap vacation. Read our take on <a href="/blog/5-things-they-dont-tell-you-timeshare-deals">things they don't tell you about these deals</a> for more insider info.</p>`,
     faqs: [
       { question: "How do I say no at a timeshare presentation?", answer: "Use clear, direct phrases: 'We're not making any financial decisions today, period.' Don't explain, justify, or elaborate. Repeat the same phrase each time they try a new angle. Be polite but firm." },
       { question: "How long do timeshare presentations actually last?", answer: "Officially 90-120 minutes, but they can stretch to 2-3 hours if you're not firm. Set a phone alarm for 120 minutes and be ready to leave when it goes off. Having after-presentation plans helps." },
@@ -2339,8 +2339,8 @@ export const brandPosts: BlogPost[] = [
 
 <h2>The Bottom Line</h2>
 <p>None of these revelations should scare you away from timeshare vacation deals — they're still incredible values. But going in informed makes the experience better. You'll budget correctly (add 50-100% to the advertised price), plan for the real time commitment (2-3 hours, not 90 minutes), and have the knowledge to say no with confidence if they try to sell you ownership.</p>
-<p>Knowledge is power. And in the timeshare presentation room, power is the ability to enjoy your free breakfast, say "no thank you" with a smile, collect your gift card, and walk out to enjoy your vacation. Read our <a href="/blog/how-to-survive-timeshare-presentation">presentation survival guide</a> for tactical advice, and browse <a href="/deals">current deals</a> to find your next adventure.</p>
-<p>Also check out our guide on <a href="/blog/vacation-deal-red-flags">vacation deal red flags</a> to make sure you're booking with legitimate companies.</p>`,
+<p>Knowledge is power. And in the timeshare presentation room, power is the ability to enjoy your free breakfast, say "no thank you" with a smile, collect your gift card, and walk out to enjoy your vacation. Read our <a href="/how-to-survive-timeshare-presentation">presentation survival guide</a> for tactical advice, and browse <a href="/deals">current deals</a> to find your next adventure.</p>
+<p>Also check out our guide on <a href="/vacation-deal-red-flags">vacation deal red flags</a> to make sure you're booking with legitimate companies.</p>`,
     faqs: [
       { question: "What hidden fees do timeshare vacation deals have?", answer: "Expect processing fees ($25-$75), taxes ($30-$100+), resort fees ($15-$50/night), and sometimes parking charges ($10-$30/night). Total additional costs typically add 50-100% to the advertised deal price." },
       { question: "How long do timeshare presentations really last?", answer: "While advertised as 90 minutes, real total time including wait time, manager rotation, and exit survey is typically 2-3 hours. International presentations (Mexico, Caribbean) can run 3-4 hours." },
@@ -2467,7 +2467,7 @@ export const brandPosts: BlogPost[] = [
 <h2>10. Final Thoughts on 2026 Rankings</h2>
 <p>The vacation deal market continues to evolve. More brands are offering deals, brokers are getting more competitive, and the overall quality of timeshare properties keeps improving. It's never been a better time to be a deal-seeker.</p>
 <p>Our rankings will update throughout 2026 as we get more reader reports and as brands change their offerings. If you've recently done a deal with any brand on this list, we'd love to hear about your experience — it directly influences future rankings.</p>
-<p>Browse all current deals from every ranked brand on our <a href="/deals">deals page</a>, and check out individual reviews for deep dives: <a href="/blog/bookvip-review">BookVIP</a>, <a href="/blog/hilton-grand-vacations-deals-worth-it">HGV</a>, <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate</a>, and <a href="/blog/club-wyndham-vacation-deals">Wyndham</a>.</p>`,
+<p>Browse all current deals from every ranked brand on our <a href="/deals">deals page</a>, and check out individual reviews for deep dives: <a href="/bookvip-review">BookVIP</a>, <a href="/hilton-grand-vacations-deals-worth-it">HGV</a>, <a href="/westgate-resorts-vacation-deals-complete-guide">Westgate</a>, and <a href="/club-wyndham-vacation-deals">Wyndham</a>.</p>`,
     faqs: [
       { question: "What is the best vacation deal brand in 2026?", answer: "BookVIP ranks #1 overall for their unmatched international deal value (Cancun 5 nights from $49). For domestic premium deals, HGV is #2. For budget domestic, Westgate is #3." },
       { question: "Which timeshare brand has the cheapest deals?", answer: "Westgate, Bluegreen, and Vacation Village all offer deals starting at $49 for 3-night stays. BookVIP also starts at $49 for international all-inclusive packages." },
@@ -2553,7 +2553,7 @@ export const brandPosts: BlogPost[] = [
 </div>
 
 <h2>8. What About the Smaller Brands?</h2>
-<p>We focused on the major players, but smaller brands like <a href="/blog/spinnaker-resorts-review">Spinnaker Resorts</a> and <a href="/blog/vacation-village-resorts-49-deals">Vacation Village</a> have their niches. Spinnaker is the best for Hilton Head deals with the gentlest presentation in the industry. Vacation Village offers the absolute cheapest Orlando deals with the lowest qualification barriers.</p>
+<p>We focused on the major players, but smaller brands like <a href="/spinnaker-resorts-review">Spinnaker Resorts</a> and <a href="/vacation-village-resorts-49-deals">Vacation Village</a> have their niches. Spinnaker is the best for Hilton Head deals with the gentlest presentation in the industry. Vacation Village offers the absolute cheapest Orlando deals with the lowest qualification barriers.</p>
 <p>Don't overlook the small guys — they sometimes outperform the big brands in specific destinations or categories.</p>
 
 <h2>9. Industry Trends to Watch in 2026</h2>
@@ -2572,7 +2572,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>10. The Final Answer</h2>
 <p>There is no single "best" brand — there's only the best brand for YOU. Use the decision tree above, read our individual brand reviews, compare current prices on our <a href="/deals">deals page</a>, and pick the deal that matches your budget, priorities, and travel style.</p>
-<p>The beauty of the vacation deal world is that there's something for everyone. Whether your budget is $49 or $799, whether you want a beach condo or a ski lodge, whether you prefer a gentle presentation or don't care about the presentation at all — there's a deal waiting for you. Go find it. Read our <a href="/blog/best-vacation-deal-brands-ranked">2026 Power Rankings</a> for more detailed scoring, and our <a href="/blog/ultimate-guide-timeshare-vacation-deals-2026">Ultimate Guide</a> for everything else you need to know.</p>`,
+<p>The beauty of the vacation deal world is that there's something for everyone. Whether your budget is $49 or $799, whether you want a beach condo or a ski lodge, whether you prefer a gentle presentation or don't care about the presentation at all — there's a deal waiting for you. Go find it. Read our <a href="/best-vacation-deal-brands-ranked">2026 Power Rankings</a> for more detailed scoring, and our <a href="/ultimate-guide-timeshare-vacation-deals-2026">Ultimate Guide</a> for everything else you need to know.</p>`,
     faqs: [
       { question: "Which timeshare brand has the cheapest deals?", answer: "Westgate, Bluegreen, and Vacation Village all offer deals starting at $49 for 3-night stays. Bluegreen's Bass Pro kiosk deals and Westgate's Orlando specials are the cheapest consistently available." },
       { question: "Which timeshare brand has the best quality?", answer: "Marriott Vacation Club and Hyatt Vacation Club have the highest-quality properties with the most consistent standards. HGV is a close third with excellent properties across most locations." },
@@ -2685,8 +2685,8 @@ export const brandPosts: BlogPost[] = [
 
 <h2>9. Trusted Sources for Deals</h2>
 <p>Stick with sources that have established reputations:</p>
-<p><strong>Brands:</strong> <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate</a>, <a href="/blog/hilton-grand-vacations-deals-worth-it">HGV</a>, <a href="/blog/marriott-vacation-club-deals">Marriott</a>, <a href="/blog/club-wyndham-vacation-deals">Wyndham</a>, <a href="/blog/bluegreen-vacations-deals">Bluegreen</a>, <a href="/blog/holiday-inn-club-vacations-deals">HICV</a></p>
-<p><strong>Brokers:</strong> <a href="/blog/bookvip-review">BookVIP</a>, <a href="/blog/getawaydealz-review">GetawayDealz</a>, <a href="/blog/staypromo-review">StayPromo</a></p>
+<p><strong>Brands:</strong> <a href="/westgate-resorts-vacation-deals-complete-guide">Westgate</a>, <a href="/hilton-grand-vacations-deals-worth-it">HGV</a>, <a href="/marriott-vacation-club-deals">Marriott</a>, <a href="/club-wyndham-vacation-deals">Wyndham</a>, <a href="/bluegreen-vacations-deals">Bluegreen</a>, <a href="/holiday-inn-club-vacations-deals">HICV</a></p>
+<p><strong>Brokers:</strong> <a href="/bookvip-review">BookVIP</a>, <a href="/getawaydealz-review">GetawayDealz</a>, <a href="/staypromo-review">StayPromo</a></p>
 <p><strong>Aggregators:</strong> VacationDeals.to (that's us — we only list verified deals from legitimate sources)</p>
 
 <h2>10. Final Advice</h2>
@@ -2725,7 +2725,7 @@ export const brandPosts: BlogPost[] = [
     bluf: "Brokers buy resort room blocks at wholesale ($15-$30/night) and resell them to deal-seekers at a markup that's still below direct booking prices. Understanding this business model helps you negotiate better prices and avoid overpaying.",
     heroImageAlt: "Behind the scenes look at vacation deal broker operations",
     heroGradient: "from-gray-700 to-slate-600",
-    content: `<p>Ever wonder how <a href="/blog/bookvip-review">BookVIP</a> can offer you a 5-night Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) (more on <a href="/cancun-5-night">Cancun 5-Night vacation deals</a>) resort stay for $49 and still make money? Or why <a href="/blog/getawaydealz-review">GetawayDealz</a> can sell the same Westgate room for $30 less than Westgate itself? The answer lies in a business model that's equal parts genius and absurd — a three-way transaction where everyone wins, sort of, as long as nobody actually buys the timeshare.</p>
+    content: `<p>Ever wonder how <a href="/bookvip-review">BookVIP</a> can offer you a 5-night Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) (more on <a href="/cancun-5-night">Cancun 5-Night vacation deals</a>) resort stay for $49 and still make money? Or why <a href="/getawaydealz-review">GetawayDealz</a> can sell the same Westgate room for $30 less than Westgate itself? The answer lies in a business model that's equal parts genius and absurd — a three-way transaction where everyone wins, sort of, as long as nobody actually buys the timeshare.</p>
 
 <p>I've spent considerable time understanding how this industry works behind the scenes, and knowing the mechanics gives you a massive advantage as a deal-seeker. Let's pull back the curtain and look at how the sausage gets made. Then I'll show you how to use this knowledge to get even better prices on our <a href="/deals">deals page</a>.</p>
 
@@ -2811,7 +2811,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>10. Bottom Line</h2>
 <p>Vacation deal brokers exist because the economics of timeshare marketing make them profitable for everyone involved. Understanding these economics makes you a smarter deal-seeker who can negotiate better prices, avoid bad deals, and maximize the value of every presentation you sit through.</p>
-<p>Use our <a href="/deals">deals page</a> to compare prices across multiple brokers and brands in one place. Read our individual broker reviews — <a href="/blog/bookvip-review">BookVIP</a>, <a href="/blog/getawaydealz-review">GetawayDealz</a>, <a href="/blog/staypromo-review">StayPromo</a> — for deeper dives. And check out our guide on <a href="/blog/vacation-deal-red-flags">red flags</a> to avoid the bad actors.</p>`,
+<p>Use our <a href="/deals">deals page</a> to compare prices across multiple brokers and brands in one place. Read our individual broker reviews — <a href="/bookvip-review">BookVIP</a>, <a href="/getawaydealz-review">GetawayDealz</a>, <a href="/staypromo-review">StayPromo</a> — for deeper dives. And check out our guide on <a href="/vacation-deal-red-flags">red flags</a> to avoid the bad actors.</p>`,
     faqs: [
       { question: "How do vacation deal brokers make money?", answer: "Brokers earn from two sources: the deal price you pay ($49-$299) and a lead fee from the resort ($200-$500 per qualified attendee). This dual revenue stream is how they offer such low consumer prices." },
       { question: "What do resorts pay brokers per lead?", answer: "Resorts typically pay brokers $200-$500 per qualified presentation attendee. This is cheaper than the resort's own marketing cost of $500-$1,000+ per lead, making brokers a cost-effective marketing channel." },
@@ -2879,7 +2879,7 @@ export const brandPosts: BlogPost[] = [
 <p>Budget brands (Westgate, Bluegreen, Vacation Village) have the lowest requirements. Premium brands (Marriott, Hyatt) have the strictest. Check specific brand requirements before booking.</p>
 
 <h2>4. Where to Find Deals</h2>
-<p><strong>Brokers:</strong> <a href="/blog/bookvip-review">BookVIP</a>, <a href="/blog/getawaydealz-review">GetawayDealz</a>, <a href="/blog/staypromo-review">StayPromo</a> — third-party sites that aggregate deals from multiple brands, often at the lowest prices.</p>
+<p><strong>Brokers:</strong> <a href="/bookvip-review">BookVIP</a>, <a href="/getawaydealz-review">GetawayDealz</a>, <a href="/staypromo-review">StayPromo</a> — third-party sites that aggregate deals from multiple brands, often at the lowest prices.</p>
 <p><strong>Direct from brands:</strong> Westgate.com, ClubWyndham.com, MarriottVacationClub.com — sometimes have exclusive promotions not available through brokers.</p>
 <p><strong>In-store kiosks:</strong> Bluegreen has kiosks at Bass Pro Shops/Cabela's. Other brands occasionally set up at malls and tourist areas.</p>
 <p><strong>Social media ads:</strong> Facebook and Instagram ads from brands and brokers. These are legitimate but always verify before booking.</p>
@@ -2895,14 +2895,14 @@ export const brandPosts: BlogPost[] = [
 <li><strong>The Close (10-20 min):</strong> They ask you to buy. You say no. Manager comes over. You say no again.</li>
 <li><strong>Exit & Gift (5-10 min):</strong> Collect your gift card/tickets, sign the exit form, leave</li>
 </ol>
-<p>Total time: 90-150 minutes for most brands. See our detailed <a href="/blog/how-to-survive-timeshare-presentation">presentation survival guide</a>.</p>
+<p>Total time: 90-150 minutes for most brands. See our detailed <a href="/how-to-survive-timeshare-presentation">presentation survival guide</a>.</p>
 
 <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;">
 <strong>🎯 Pro Tip:</strong> The single most important thing you can do: decide BEFORE the presentation that you're not buying. If both partners agree on "no" before walking in, the entire experience becomes much easier. The presentation is only stressful when you're undecided.
 </div>
 
 <h2>6. Choosing the Right Brand</h2>
-<p>Based on our <a href="/blog/best-vacation-deal-brands-ranked">2026 Power Rankings</a>, here's the quick guide:</p>
+<p>Based on our <a href="/best-vacation-deal-brands-ranked">2026 Power Rankings</a>, here's the quick guide:</p>
 <table>
 <thead><tr><th>Priority</th><th>Best Brand</th><th>Why</th></tr></thead>
 <tbody>
@@ -2965,13 +2965,13 @@ export const brandPosts: BlogPost[] = [
 <li><strong>Compare prices</strong> across 2-3 brokers or channels for the same destination</li>
 <li><strong>Read the terms</strong> and understand the total cost, presentation requirements, and cancellation policy</li>
 <li><strong>Book with a credit card</strong> for purchase protection</li>
-<li><strong>Read our <a href="/blog/how-to-survive-timeshare-presentation">presentation survival guide</a></strong> before your trip</li>
+<li><strong>Read our <a href="/how-to-survive-timeshare-presentation">presentation survival guide</a></strong> before your trip</li>
 <li><strong>Enjoy your vacation!</strong> You've earned it. For $49-$299. Like a boss.</li>
 </ol>
 
 <p>For first-timers, I recommend starting with either an HGV deal (gentlest presentation experience at a premium property) or a Westgate Orlando deal (cheapest entry point, most information available online). Both are established brands with predictable experiences.</p>
 
-<p>Welcome to the deal-seeking community. We're glad to have you. Now go save some money and have some fun. Read our brand reviews — <a href="/blog/westgate-resorts-vacation-deals-complete-guide">Westgate</a>, <a href="/blog/hilton-grand-vacations-deals-worth-it">HGV</a>, <a href="/blog/club-wyndham-vacation-deals">Wyndham</a>, <a href="/blog/bookvip-review">BookVIP</a> — and check out our <a href="/blog/best-vacation-deal-brands-ranked">2026 Power Rankings</a> for the full picture.</p>`,
+<p>Welcome to the deal-seeking community. We're glad to have you. Now go save some money and have some fun. Read our brand reviews — <a href="/westgate-resorts-vacation-deals-complete-guide">Westgate</a>, <a href="/hilton-grand-vacations-deals-worth-it">HGV</a>, <a href="/club-wyndham-vacation-deals">Wyndham</a>, <a href="/bookvip-review">BookVIP</a> — and check out our <a href="/best-vacation-deal-brands-ranked">2026 Power Rankings</a> for the full picture.</p>`,
     faqs: [
       { question: "What is a timeshare vacation deal?", answer: "A deeply discounted resort stay (60-90% off) offered in exchange for attending a 90-120 minute timeshare sales presentation. You're under no obligation to buy — the deal is the cheap room, the presentation is the 'price' you pay in time." },
       { question: "How much do timeshare vacation deals cost?", answer: "Budget deals start at $49, mid-range runs $99-$249, premium deals cost $249-$599, and international packages range from $49-$299. Add 50-100% to advertised prices for the true total cost including fees." },

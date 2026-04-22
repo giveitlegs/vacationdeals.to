@@ -874,7 +874,7 @@ export const segmentPosts: BlogPost[] = [
 <h2>5. Making the Most of Solo Resort Time</h2>
 <p>Here's the secret nobody tells you about solo resort vacations: they're incredibly relaxing. No compromising on activities. No waiting for someone else to get ready. No arguments about where to eat dinner. It's just you, the pool, and absolute freedom.</p>
 <p>My solo resort routine looks something like this: Wake up naturally (no alarm — revolutionary). Make coffee in the suite kitchen. Swim laps while the pool is empty. Read a book by the pool. Take a mid-afternoon nap without guilt. Explore the local area for dinner. Watch the sunset with a drink. Go to bed whenever. Repeat.</p>
-<p>If that sounds like heaven, you're my people. If that sounds boring, you might be on the wrong blog post. Check out our <a href="/blog/best-vacation-deals-girls-weekend-getaways">girls' trip</a> or <a href="/blog/best-vacation-deals-guys-trips">guys' trip</a> posts instead.</p>
+<p>If that sounds like heaven, you're my people. If that sounds boring, you might be on the wrong blog post. Check out our <a href="/best-vacation-deals-girls-weekend-getaways">girls' trip</a> or <a href="/best-vacation-deals-guys-trips">guys' trip</a> posts instead.</p>
 
 <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6">
 <p class="font-bold">Fun Fact:</p>
@@ -1031,7 +1031,7 @@ export const segmentPosts: BlogPost[] = [
 <h2>6. The Presentation on Your Anniversary Trip</h2>
 <p>I know, I know — sitting through a timeshare presentation on your anniversary trip sounds about as romantic as doing taxes together. But here's how to make it painless:</p>
 <p>Schedule the presentation for the morning of your second day. Get it over with early, then spend the rest of your trip presentation-free. Think of it as the "work" part of your work-life balance vacation. Ninety minutes of mild inconvenience followed by 3-4 days of pure celebration.</p>
-<p>Also — here's a bonus — if the salesperson asks why you're visiting, tell them it's your anniversary. Salespeople love selling the "memories" angle, but it also means they'll try to wrap up faster to let you "get back to celebrating." Some will even add extra gifts as an anniversary bonus. Learn more at our <a href="/blog/how-to-get-most-out-timeshare-presentation">presentation tips guide</a>.</p>
+<p>Also — here's a bonus — if the salesperson asks why you're visiting, tell them it's your anniversary. Salespeople love selling the "memories" angle, but it also means they'll try to wrap up faster to let you "get back to celebrating." Some will even add extra gifts as an anniversary bonus. Learn more at our <a href="/how-to-get-most-out-timeshare-presentation">presentation tips guide</a>.</p>
 
 <h2>7. Resort Amenities That Scream Romance</h2>
 <p>When choosing your anniversary deal, look for resorts with these romantic amenities:</p>
@@ -1433,7 +1433,7 @@ export const segmentPosts: BlogPost[] = [
 <li>"Lock in today's price before you have kids and your budget gets tighter!"</li>
 </ul>
 <p>All emotionally compelling. All designed to exploit your honeymoon glow. Smile, nod, and say no. You just spent $35,000 on a party — you're not dropping another $25,000 on a timeshare three weeks later. That's just math.</p>
-<p>Get more presentation strategies from our <a href="/blog/how-to-get-most-out-timeshare-presentation">presentation guide</a>.</p>
+<p>Get more presentation strategies from our <a href="/how-to-get-most-out-timeshare-presentation">presentation guide</a>.</p>
 
 <h2>8. Honeymoon Registry Hack</h2>
 <p>Here's a creative move: instead of a traditional wedding registry (you don't need a fourth set of champagne flutes), set up a honeymoon fund. Guests contribute money toward your trip instead of buying physical gifts. Then use those funds to upgrade your vacation deal experience — nicer dinners, spa treatments, activities.</p>
@@ -1686,7 +1686,7 @@ export const segmentPosts: BlogPost[] = [
 <li><strong>Time management:</strong> You manage bell schedules all year. You can manage a 90-minute presentation. Set a timer.</li>
 <li><strong>Patience:</strong> You've explained long division to a room of disinterested 10-year-olds. You can politely endure a sales pitch.</li>
 </ul>
-<p>Honestly, the timeshare salesperson should be nervous. You're the one with crowd control experience. Learn more at our <a href="/blog/how-to-get-most-out-timeshare-presentation">presentation tips page</a>.</p>
+<p>Honestly, the timeshare salesperson should be nervous. You're the one with crowd control experience. Learn more at our <a href="/how-to-get-most-out-timeshare-presentation">presentation tips page</a>.</p>
 
 <h2>7. Teacher Group Trips</h2>
 <p>Some of the best teacher vacation deals happen when you go with colleagues. Grab 2-3 teacher friends, book a suite, split the cost, and bond over something other than faculty meetings and fire drills.</p>
@@ -1973,7 +1973,7 @@ export const segmentPosts: BlogPost[] = [
 <h2>7. Couples vs. Friends vs. Solo Long Weekends</h2>
 <p>The long weekend deal works for every configuration:</p>
 <p><strong>Couples:</strong> The classic. Drive in together, attend the presentation together, spend the weekend reconnecting without the distractions of home. Romance rating: high. Difficulty rating: low.</p>
-<p><strong>Friends:</strong> Grab 2-3 friends, pile into one suite, split the cost to $25-$50 each. Perfect for birthday weekends, reunion trips, or just a "we haven't hung out in forever" excuse. Check our <a href="/blog/best-vacation-deals-girls-weekend-getaways">girls' trip guide</a> or <a href="/blog/best-vacation-deals-guys-trips">guys' trip guide</a> for more ideas.</p>
+<p><strong>Friends:</strong> Grab 2-3 friends, pile into one suite, split the cost to $25-$50 each. Perfect for birthday weekends, reunion trips, or just a "we haven't hung out in forever" excuse. Check our <a href="/best-vacation-deals-girls-weekend-getaways">girls' trip guide</a> or <a href="/best-vacation-deals-guys-trips">guys' trip guide</a> for more ideas.</p>
 <p><strong>Solo:</strong> A solo long weekend at a resort is the ultimate reset button. No compromise, no coordination, no conversation you don't want to have. Just you, the pool, and beautiful silence. Solo deals start at $129-$199.</p>
 
 <h2>8. Monthly Long Weekend Schedule</h2>
@@ -2807,7 +2807,7 @@ export const segmentPosts: BlogPost[] = [
 <p><strong>Be engaged but firm:</strong> The worst exit gifts go to people who are rude or check out mentally during the presentation. The best gifts go to people who were attentive, asked good questions, but ultimately declined for legitimate reasons. Salespeople and their managers want you to leave happy.</p>
 <p><strong>Decline gracefully, not abruptly:</strong> When the closer asks for the sale, take a moment. Say something like "We really appreciate the presentation and the resort is beautiful, but we've decided that timeshare ownership doesn't fit our current financial plan." This graceful decline often triggers better exit gifts than a blunt "no."</p>
 <p><strong>Ask about the exit gift:</strong> If they don't mention it, you can ask: "We were told we'd receive [gift] for attending the presentation. Where do we pick that up?" This ensures you don't walk out empty-handed. Some less scrupulous locations may "forget" to mention the gift if you don't ask.</p>
-<p>Read our complete <a href="/blog/how-to-get-most-out-timeshare-presentation">presentation guide</a> for more tips on maximizing your experience.</p>
+<p>Read our complete <a href="/how-to-get-most-out-timeshare-presentation">presentation guide</a> for more tips on maximizing your experience.</p>
 
 <h2>7. The Grocery Store Big Win</h2>
 <p>This isn't glamorous, but it's the single biggest non-deal savings hack: stop at a grocery store before checking into your resort. Buy breakfast supplies, lunch ingredients, snacks, and drinks for your entire stay.</p>
@@ -3220,7 +3220,7 @@ export const segmentPosts: BlogPost[] = [
 
 <div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-6">
 <p class="font-bold">Pro Tip:</p>
-<p>Think of the presentation as a "free experience" rather than an obligation. You get a resort tour (cool), free refreshments (nice), and sometimes exit gifts worth $50-$200 (amazing). When framed as a free activity with bonuses rather than an annoying requirement, the whole thing feels different. Mindset matters. Visit our <a href="/blog/how-to-get-most-out-timeshare-presentation">presentation guide</a> for more tips.</p>
+<p>Think of the presentation as a "free experience" rather than an obligation. You get a resort tour (cool), free refreshments (nice), and sometimes exit gifts worth $50-$200 (amazing). When framed as a free activity with bonuses rather than an annoying requirement, the whole thing feels different. Mindset matters. Visit our <a href="/how-to-get-most-out-timeshare-presentation">presentation guide</a> for more tips.</p>
 </div>
 
 <h2>6. The Hotel Loyalty Program Myth</h2>
@@ -3374,7 +3374,7 @@ export const segmentPosts: BlogPost[] = [
 
 <p><strong>RCI:</strong> Resort Condominiums International. The largest timeshare exchange company in the world. Salespeople will tout RCI membership as a benefit of ownership. For deal guests, it's just background information.</p>
 
-<p><strong>Rescission Period:</strong> The legally mandated cooling-off period after a timeshare purchase during which you can cancel with a full refund. Ranges from 3-15 days depending on the state. If you buy and regret it, act within this window. Also called "right of rescission" or "cancellation period." See our <a href="/blog/how-to-get-most-out-timeshare-presentation">presentation guide</a> for more details.</p>
+<p><strong>Rescission Period:</strong> The legally mandated cooling-off period after a timeshare purchase during which you can cancel with a full refund. Ranges from 3-15 days depending on the state. If you buy and regret it, act within this window. Also called "right of rescission" or "cancellation period." See our <a href="/how-to-get-most-out-timeshare-presentation">presentation guide</a> for more details.</p>
 
 <p><strong>Resort Fee:</strong> An additional daily charge for resort amenities (pool access, WiFi, fitness center). Most vacation deals include this in the deal price, but some charge $10-$25/night on top. Read the fine print.</p>
 
