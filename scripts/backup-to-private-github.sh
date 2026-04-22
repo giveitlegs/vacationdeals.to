@@ -1,14 +1,13 @@
 #!/bin/bash
 # Secure backup of project to a PRIVATE GitHub repo.
-# - Scrubs all secrets before pushing (.env, vpsssl.txt, credentials, API keys)
-# - Pushes to a separate private repo (not the public vacationdeals.to repo)
-# - Uses --force-with-lease to avoid accidentally nuking history
+# - Uses `git archive` instead of rsync (cross-platform, respects .gitignore)
+# - Scrubs secrets defensively (AWS, OpenAI, GitHub, Resend, Meta, Twilio)
+# - Exits gracefully if the remote is unreachable (e.g., repo not yet created)
 #
 # Setup (first time):
-#   1. Create a PRIVATE repo on GitHub (e.g., giveitlegs/vacationdeals-private-backup)
-#   2. Set BACKUP_REPO env var below or in ~/.bashrc
-#   3. Ensure your SSH key is registered with GitHub
-#   4. chmod +x this file
+#   1. Create a PRIVATE repo on GitHub
+#   2. Register your SSH key with GitHub OR set VD_BACKUP_REPO to HTTPS + PAT
+#   3. Optional: export VD_BACKUP_REPO=git@github.com:YOU/YOUR_PRIVATE_REPO.git
 
 set -e
 
@@ -19,67 +18,75 @@ TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
 
 echo "=== Secure GitHub Backup ==="
 
-# ── 1. Mirror the project to a clean staging directory ──
-if [ ! -d "${BACKUP_DIR}" ]; then
+cd "${PROJECT_DIR}"
+
+# ── 1. Probe remote reachability before doing any work ──
+if ! git -c core.askPass=/bin/true ls-remote "${BACKUP_REPO}" HEAD > /tmp/vd-backup-ls 2>&1; then
+  echo "⚠️  Cannot reach ${BACKUP_REPO}"
+  echo "   Last error: $(tail -1 /tmp/vd-backup-ls)"
+  echo "   Setup: create the repo on GitHub, register SSH key, or set VD_BACKUP_REPO."
+  rm -f /tmp/vd-backup-ls
+  exit 0
+fi
+rm -f /tmp/vd-backup-ls
+
+# ── 2. Ensure mirror dir is initialized ──
+if [ ! -d "${BACKUP_DIR}/.git" ] || [ -z "$(ls -A "${BACKUP_DIR}/.git" 2>/dev/null)" ]; then
+  rm -rf "${BACKUP_DIR}"
   mkdir -p "$(dirname "${BACKUP_DIR}")"
+  echo "Cloning backup repo..."
   git clone "${BACKUP_REPO}" "${BACKUP_DIR}" 2>/dev/null || {
-    echo "Initializing new backup repo..."
+    echo "Remote empty; initializing fresh repo..."
     mkdir -p "${BACKUP_DIR}"
     cd "${BACKUP_DIR}"
-    git init -q
+    git init -q -b main
     git remote add origin "${BACKUP_REPO}"
+    cd "${PROJECT_DIR}"
   }
 fi
 
+# ── 3. Export tracked files via `git archive` (cross-platform, no rsync) ──
+# git archive respects .gitignore automatically — secrets never leave the repo.
+echo "Exporting tracked files via git archive..."
+
+# Clear mirror contents (preserve .git)
+find "${BACKUP_DIR}" -mindepth 1 -maxdepth 1 -not -name '.git' -exec rm -rf {} + 2>/dev/null || true
+
+# Pack tracked files into tar, extract into mirror
+git archive --format=tar HEAD | tar -xf - -C "${BACKUP_DIR}"
+
+# Also include untracked-but-not-ignored files (new work not yet committed)
+git ls-files --modified --others --exclude-standard -z 2>/dev/null | while IFS= read -r -d '' f; do
+  [ -f "$f" ] || continue
+  mkdir -p "${BACKUP_DIR}/$(dirname "$f")"
+  cp -p "$f" "${BACKUP_DIR}/$f"
+done
+
+# ── 4. Defensive secret scan on the mirror ──
 cd "${BACKUP_DIR}"
 
-# ── 2. Clear staging (keep .git) ──
-find . -mindepth 1 -not -path "./.git*" -delete 2>/dev/null || true
-
-# ── 3. Copy project, excluding secrets and build artifacts ──
-rsync -a \
-  --exclude='node_modules/' \
-  --exclude='.next/' \
-  --exclude='.turbo/' \
-  --exclude='dist/' \
-  --exclude='build/' \
-  --exclude='.env' \
-  --exclude='.env.*' \
-  --exclude='*.env' \
-  --exclude='vpsssl.txt' \
-  --exclude='*.credentials' \
-  --exclude='*.secret' \
-  --exclude='*.key' \
-  --exclude='*.pem' \
-  --exclude='id_rsa*' \
-  --exclude='*.log' \
-  --exclude='.playwright-mcp/' \
-  --exclude='apps/scraper/storage/' \
-  --exclude='crawlee_storage/' \
-  --exclude='.claude/worktrees/' \
-  --exclude='.DS_Store' \
-  --exclude='Thumbs.db' \
-  "${PROJECT_DIR}/" "${BACKUP_DIR}/"
-
-# ── 4. Final scrub: any stray secret patterns in file contents ──
-# This is a belt-and-suspenders check for API keys that might be hardcoded
 SCRUB_PATTERNS=(
-  'AKIA[0-9A-Z]{16}'              # AWS access key
-  'sk-[a-zA-Z0-9]{40,}'           # OpenAI / Anthropic secret keys
-  'ghp_[a-zA-Z0-9]{36,}'          # GitHub personal access token
-  'ghs_[a-zA-Z0-9]{36,}'          # GitHub server token
-  're_[a-zA-Z0-9]{30,}'           # Resend API key
-  'SG\.[a-zA-Z0-9_-]{22}\.[a-zA-Z0-9_-]{43}'  # SendGrid
-  'xox[baprs]-[0-9]+-[0-9]+-[a-zA-Z0-9]+'     # Slack token
-  'AC[a-f0-9]{32}'                # Twilio account SID
-  'EAAG[a-zA-Z0-9]{100,}'         # Meta/Facebook access token
+  'AKIA[0-9A-Z]{16}'                           # AWS access key
+  'sk-ant-[a-zA-Z0-9_-]{40,}'                  # Anthropic key
+  'sk-[a-zA-Z0-9]{40,}'                        # OpenAI / generic sk-
+  'ghp_[a-zA-Z0-9]{36,}'                       # GitHub PAT
+  'ghs_[a-zA-Z0-9]{36,}'                       # GitHub server token
+  're_[a-zA-Z0-9]{30,}'                        # Resend
+  'SG\.[a-zA-Z0-9_-]{22}\.[a-zA-Z0-9_-]{43}'   # SendGrid
+  'xox[baprs]-[0-9]+-[0-9]+-[a-zA-Z0-9]+'      # Slack
+  'AC[a-f0-9]{32}'                             # Twilio
+  'EAAG[a-zA-Z0-9]{100,}'                      # Meta FB
 )
 
 SECRETS_FOUND=0
 for pattern in "${SCRUB_PATTERNS[@]}"; do
-  if grep -rE "${pattern}" --include="*.ts" --include="*.js" --include="*.json" --include="*.md" --include="*.txt" --include="*.sh" --include="*.py" . 2>/dev/null | head -1 > /tmp/scrub-check; then
+  if grep -rE "${pattern}" \
+    --include='*.ts' --include='*.js' --include='*.json' \
+    --include='*.md' --include='*.txt' --include='*.sh' --include='*.py' \
+    --exclude-dir='.git' \
+    . 2>/dev/null | head -1 > /tmp/scrub-check; then
     if [ -s /tmp/scrub-check ]; then
-      echo "⚠️  SECRET PATTERN DETECTED, aborting backup: ${pattern}"
+      echo "⚠️  SECRET PATTERN DETECTED, aborting: ${pattern}"
       cat /tmp/scrub-check
       rm -f /tmp/scrub-check
       SECRETS_FOUND=1
@@ -88,24 +95,21 @@ for pattern in "${SCRUB_PATTERNS[@]}"; do
 done
 
 if [ "${SECRETS_FOUND}" = "1" ]; then
-  echo "❌ Backup aborted due to secret detection. Fix the file then retry."
+  echo "❌ Backup aborted. Remove secrets from tracked files and retry."
   exit 1
 fi
 
-# ── 5. Commit + push (if there are changes) ──
+# ── 5. Commit + push ──
 if [ -n "$(git status --porcelain)" ]; then
   git add -A
-  git -c user.email="backup@local" -c user.name="VacationDeals Backup" commit -q -m "Backup ${TIMESTAMP}" 2>/dev/null || true
+  git -c user.email="backup@local" -c user.name="VacationDeals Backup" \
+    commit -q -m "Backup ${TIMESTAMP}" 2>/dev/null || true
 
-  # Push only if remote is configured and reachable
-  if git ls-remote origin > /dev/null 2>&1; then
-    git push origin HEAD --force-with-lease 2>&1 | tail -3
-    SIZE=$(du -sh . | cut -f1)
+  if git push origin HEAD --force-with-lease 2>&1 | tail -3; then
+    SIZE=$(du -sh --exclude=.git . 2>/dev/null | cut -f1)
     echo "✅ Backup pushed (${SIZE}) to private repo"
   else
-    echo "⚠️  No reachable remote 'origin'. Backup committed locally only."
-    echo "   To enable: create PRIVATE GitHub repo, then run:"
-    echo "     cd ${BACKUP_DIR} && git remote set-url origin git@github.com:YOUR_USER/YOUR_PRIVATE_REPO.git"
+    echo "⚠️  Push failed; committed locally. Retry later or check creds."
   fi
 else
   echo "No changes since last backup."

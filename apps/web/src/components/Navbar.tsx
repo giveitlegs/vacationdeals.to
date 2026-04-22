@@ -88,7 +88,8 @@ export function Navbar() {
                 Destinations
               </Link>
               {destinationsOpen && (
-                <div className="absolute left-0 top-full z-50 mt-1 grid w-[520px] grid-cols-2 gap-1 rounded-lg border border-gray-200 bg-white p-3 shadow-lg">
+                <div className="absolute left-0 top-full z-50 w-[520px] pt-2">
+                  <div className="grid grid-cols-2 gap-1 rounded-lg border border-gray-200 bg-white p-3 shadow-lg">
                   {TOP_CITIES.map((c) => (
                     <Link
                       key={c.slug}
@@ -103,6 +104,7 @@ export function Navbar() {
                   <Link href="/destinations" className="col-span-2 rounded-md bg-gray-50 px-3 py-2 text-center text-sm font-semibold text-blue-600 hover:bg-gray-100">
                     View all destinations →
                   </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -120,17 +122,19 @@ export function Navbar() {
                 Rate Recap
               </Link>
               {rateRecapOpen && (
-                <div className="absolute left-0 top-full z-50 mt-1 w-56 rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
-                  <Link href="/rate-recap" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">
-                    Rate Recap Overview
-                  </Link>
-                  <Link href="/vacpack-rate-showdown" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">
-                    Rate Showdown (Compare)
-                  </Link>
-                  <div className="my-1 border-t border-gray-100" />
-                  <Link href="/data-report" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">
-                    Data Report (B2B)
-                  </Link>
+                <div className="absolute left-0 top-full z-50 w-56 pt-2">
+                  <div className="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
+                    <Link href="/rate-recap" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">
+                      Rate Recap Overview
+                    </Link>
+                    <Link href="/vacpack-rate-showdown" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">
+                      Rate Showdown (Compare)
+                    </Link>
+                    <div className="my-1 border-t border-gray-100" />
+                    <Link href="/data-report" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">
+                      Data Report (B2B)
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -146,26 +150,28 @@ export function Navbar() {
                 <span className="bg-gradient-to-r from-fuchsia-600 via-amber-500 to-emerald-500 bg-clip-text text-transparent font-semibold">Games</span>
               </Link>
               {gamesOpen && (
-                <div className="absolute left-0 top-full z-50 mt-1 w-60 rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
-                  <Link href="/vacpack-games" className="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50 hover:text-fuchsia-600">
-                    All Games
-                  </Link>
-                  <div className="my-1 border-t border-gray-100" />
-                  <Link href="/vacpack-games/survival-kit" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600">
-                    🎯 Survival Kit
-                  </Link>
-                  <Link href="/vacpack-games/bingo" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-fuchsia-600">
-                    🎱 VacPack Bingo
-                  </Link>
-                  <Link href="/vacpack-games/59-challenge" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-600">
-                    💰 $59 Challenge
-                  </Link>
-                  <Link href="/vacpack-games/time-machine" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
-                    🕰️ Time Machine
-                  </Link>
-                  <Link href="/vacpack-games/scratch-off" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">
-                    🎟️ Scratch-Off
-                  </Link>
+                <div className="absolute left-0 top-full z-50 w-60 pt-2">
+                  <div className="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
+                    <Link href="/vacpack-games" className="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50 hover:text-fuchsia-600">
+                      All Games
+                    </Link>
+                    <div className="my-1 border-t border-gray-100" />
+                    <Link href="/vacpack-games/survival-kit" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600">
+                      🎯 Survival Kit
+                    </Link>
+                    <Link href="/vacpack-games/bingo" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-fuchsia-600">
+                      🎱 VacPack Bingo
+                    </Link>
+                    <Link href="/vacpack-games/59-challenge" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-600">
+                      💰 $59 Challenge
+                    </Link>
+                    <Link href="/vacpack-games/time-machine" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
+                      🕰️ Time Machine
+                    </Link>
+                    <Link href="/vacpack-games/scratch-off" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">
+                      🎟️ Scratch-Off
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
