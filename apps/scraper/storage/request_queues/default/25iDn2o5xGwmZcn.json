@@ -1,0 +1,9 @@
+{
+	"id": "25iDn2o5xGwmZcn",
+	"json": "{\"id\":\"25iDn2o5xGwmZcn\",\"url\":\"https://www.westgatereservations.com/specials/discount-getaway-only-for-wow-members/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/discount-getaway-only-for-wow-members/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/discount-getaway-only-for-wow-members\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.621Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/discount-getaway-only-for-wow-members",
+	"url": "https://www.westgatereservations.com/specials/discount-getaway-only-for-wow-members/"
+}

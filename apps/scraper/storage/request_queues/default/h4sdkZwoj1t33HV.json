@@ -1,0 +1,9 @@
+{
+	"id": "h4sdkZwoj1t33HV",
+	"json": "{\"id\":\"h4sdkZwoj1t33HV\",\"url\":\"https://www.westgatereservations.com/specials/westgate-towers-resort/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-towers-resort/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-towers-resort\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:04.333Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-towers-resort",
+	"url": "https://www.westgatereservations.com/specials/westgate-towers-resort/"
+}

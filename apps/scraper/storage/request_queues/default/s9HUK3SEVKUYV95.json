@@ -1,0 +1,9 @@
+{
+	"id": "s9HUK3SEVKUYV95",
+	"json": "{\"id\":\"s9HUK3SEVKUYV95\",\"url\":\"https://www.westgatereservations.com/specials/orlando-memorial-day/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/orlando-memorial-day/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/orlando-memorial-day\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:05.489Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/orlando-memorial-day",
+	"url": "https://www.westgatereservations.com/specials/orlando-memorial-day/"
+}

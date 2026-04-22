@@ -1,0 +1,9 @@
+{
+	"id": "LfjAUidSSHyMPOZ",
+	"json": "{\"id\":\"LfjAUidSSHyMPOZ\",\"url\":\"https://www.westgatereservations.com/specials/home-on-the-ranch-glamping/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/home-on-the-ranch-glamping\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:04.140Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/home-on-the-ranch-glamping",
+	"url": "https://www.westgatereservations.com/specials/home-on-the-ranch-glamping/"
+}

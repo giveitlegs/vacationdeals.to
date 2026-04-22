@@ -1,0 +1,9 @@
+{
+	"id": "83LcB7l3Uu9DNqc",
+	"json": "{\"id\":\"83LcB7l3Uu9DNqc\",\"url\":\"https://www.westgatereservations.com/specials/park-city-getaway/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/park-city-getaway/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/park-city-getaway\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:07.154Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/park-city-getaway",
+	"url": "https://www.westgatereservations.com/specials/park-city-getaway/"
+}

@@ -1,0 +1,646 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - img [ref=e5]
+      - text: VacPack Rate Ticker
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - link "$49 · Westgate Events · 3N/4D · Three-night stay at …" [ref=e12] [cursor=pointer]:
+          - /url: /deals/westgate-events-branson-3-night-49.00
+          - generic [ref=e13]: $49
+          - generic [ref=e14]: ·
+          - generic [ref=e15]: Westgate Events
+          - generic [ref=e16]: ·
+          - generic [ref=e17]: 3N/4D
+          - generic [ref=e18]: ·
+          - generic [ref=e19]: Three-night stay at …
+        - generic [ref=e20]:
+          - img [ref=e21]
+          - link "$49 · GoVIP · 3N/4D · Three-night stay at …" [ref=e25] [cursor=pointer]:
+            - /url: /deals/govip-various-3-night-149
+            - generic [ref=e26]: $49
+            - generic [ref=e27]: ·
+            - generic [ref=e28]: GoVIP
+            - generic [ref=e29]: ·
+            - generic [ref=e30]: 3N/4D
+            - generic [ref=e31]: ·
+            - generic [ref=e32]: Three-night stay at …
+        - generic [ref=e33]:
+          - img [ref=e34]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e37] [cursor=pointer]:
+            - /url: /deals/vacationvip-myrtle-beach-3-night-59
+            - generic [ref=e38]: $59
+            - generic [ref=e39]: ·
+            - generic [ref=e40]: VacationVIP
+            - generic [ref=e41]: ·
+            - generic [ref=e42]: 3N/4D
+            - generic [ref=e43]: ·
+            - generic [ref=e44]: 4 Days / 3 Nights
+        - generic [ref=e45]:
+          - img [ref=e46]
+          - link "$59 · Westgate · 3N/4D · 30,000+ sq ft Sports…" [ref=e51] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-3-night-59
+            - generic [ref=e52]: $59
+            - generic [ref=e53]: ·
+            - generic [ref=e54]: Westgate
+            - generic [ref=e55]: ·
+            - generic [ref=e56]: 3N/4D
+            - generic [ref=e57]: ·
+            - generic [ref=e58]: 30,000+ sq ft Sports…
+        - generic [ref=e59]:
+          - img [ref=e60]
+          - link "$59 · Westgate · 3N/4D · Bonus! $50 Gift Card" [ref=e66] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-3-night-59
+            - generic [ref=e67]: $59
+            - generic [ref=e68]: ·
+            - generic [ref=e69]: Westgate
+            - generic [ref=e70]: ·
+            - generic [ref=e71]: 3N/4D
+            - generic [ref=e72]: ·
+            - generic [ref=e73]: Bonus! $50 Gift Card
+        - generic [ref=e74]:
+          - img [ref=e75]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e78] [cursor=pointer]:
+            - /url: /deals/vacationvip-orlando-3-night-59
+            - generic [ref=e79]: $59
+            - generic [ref=e80]: ·
+            - generic [ref=e81]: VacationVIP
+            - generic [ref=e82]: ·
+            - generic [ref=e83]: 3N/4D
+            - generic [ref=e84]: ·
+            - generic [ref=e85]: 4 Days / 3 Nights
+        - generic [ref=e86]:
+          - img [ref=e87]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e89] [cursor=pointer]:
+            - /url: /deals/vacationvip-gatlinburg-3-night-59
+            - generic [ref=e90]: $59
+            - generic [ref=e91]: ·
+            - generic [ref=e92]: VacationVIP
+            - generic [ref=e93]: ·
+            - generic [ref=e94]: 3N/4D
+            - generic [ref=e95]: ·
+            - generic [ref=e96]: 4 Days / 3 Nights
+        - generic [ref=e97]:
+          - img [ref=e98]
+          - link "$59 · Westgate · 2N/3D · 2 Wild Bear Falls Ti…" [ref=e102] [cursor=pointer]:
+            - /url: /deals/westgate-gatlinburg-2-night-59
+            - generic [ref=e103]: $59
+            - generic [ref=e104]: ·
+            - generic [ref=e105]: Westgate
+            - generic [ref=e106]: ·
+            - generic [ref=e107]: 2N/3D
+            - generic [ref=e108]: ·
+            - generic [ref=e109]: 2 Wild Bear Falls Ti…
+        - generic [ref=e110]:
+          - img [ref=e111]
+          - link "$59 · Westgate · 3N/4D · Resort close to Silv…" [ref=e114] [cursor=pointer]:
+            - /url: /deals/westgate-branson-3-night-59
+            - generic [ref=e115]: $59
+            - generic [ref=e116]: ·
+            - generic [ref=e117]: Westgate
+            - generic [ref=e118]: ·
+            - generic [ref=e119]: 3N/4D
+            - generic [ref=e120]: ·
+            - generic [ref=e121]: Resort close to Silv…
+        - generic [ref=e122]:
+          - img [ref=e123]
+          - link "$59 · Westgate · 3N/4D · Oceanfront resort cl…" [ref=e128] [cursor=pointer]:
+            - /url: /deals/westgate-myrtle-beach-3-night-59
+            - generic [ref=e129]: $59
+            - generic [ref=e130]: ·
+            - generic [ref=e131]: Westgate
+            - generic [ref=e132]: ·
+            - generic [ref=e133]: 3N/4D
+            - generic [ref=e134]: ·
+            - generic [ref=e135]: Oceanfront resort cl…
+        - generic [ref=e136]:
+          - img [ref=e137]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e143] [cursor=pointer]:
+            - /url: /deals/vacationvip-daytona-beach-3-night-59
+            - generic [ref=e144]: $59
+            - generic [ref=e145]: ·
+            - generic [ref=e146]: VacationVIP
+            - generic [ref=e147]: ·
+            - generic [ref=e148]: 3N/4D
+            - generic [ref=e149]: ·
+            - generic [ref=e150]: 4 Days / 3 Nights
+        - generic [ref=e151]:
+          - img [ref=e152]
+          - link "$59 · Westgate · 2N/3D · Luxury Studio Suite" [ref=e155] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-59
+            - generic [ref=e156]: $59
+            - generic [ref=e157]: ·
+            - generic [ref=e158]: Westgate
+            - generic [ref=e159]: ·
+            - generic [ref=e160]: 2N/3D
+            - generic [ref=e161]: ·
+            - generic [ref=e162]: Luxury Studio Suite
+        - generic [ref=e163]:
+          - img [ref=e164]
+          - link "$59 · Westgate · 3N/4D · Travel between 1/2 -…" [ref=e166] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-59
+            - generic [ref=e167]: $59
+            - generic [ref=e168]: ·
+            - generic [ref=e169]: Westgate
+            - generic [ref=e170]: ·
+            - generic [ref=e171]: 3N/4D
+            - generic [ref=e172]: ·
+            - generic [ref=e173]: Travel between 1/2 -…
+        - generic [ref=e174]:
+          - img [ref=e175]
+          - link "$79 · Westgate · 2N/3D · 30,000+ sq ft Sports…" [ref=e179] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-2-night-79
+            - generic [ref=e180]: $79
+            - generic [ref=e181]: ·
+            - generic [ref=e182]: Westgate
+            - generic [ref=e183]: ·
+            - generic [ref=e184]: 2N/3D
+            - generic [ref=e185]: ·
+            - generic [ref=e186]: 30,000+ sq ft Sports…
+        - generic [ref=e187]:
+          - img [ref=e188]
+          - link "$79 · Westgate · 2N/3D · 3 Days / 2 Nights" [ref=e191] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-2-night-79
+            - generic [ref=e192]: $79
+            - generic [ref=e193]: ·
+            - generic [ref=e194]: Westgate
+            - generic [ref=e195]: ·
+            - generic [ref=e196]: 2N/3D
+            - generic [ref=e197]: ·
+            - generic [ref=e198]: 3 Days / 2 Nights
+        - generic [ref=e199]:
+          - img [ref=e200]
+          - link "$79 · Westgate Events · 3N/4D · 3 nights at Westgate…" [ref=e205] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-3-night-79
+            - generic [ref=e206]: $79
+            - generic [ref=e207]: ·
+            - generic [ref=e208]: Westgate Events
+            - generic [ref=e209]: ·
+            - generic [ref=e210]: 3N/4D
+            - generic [ref=e211]: ·
+            - generic [ref=e212]: 3 nights at Westgate…
+        - generic [ref=e213]:
+          - img [ref=e214]
+          - link "$79 · Westgate · 2N/3D · Top Orlando Deal!" [ref=e220] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-79
+            - generic [ref=e221]: $79
+            - generic [ref=e222]: ·
+            - generic [ref=e223]: Westgate
+            - generic [ref=e224]: ·
+            - generic [ref=e225]: 2N/3D
+            - generic [ref=e226]: ·
+            - generic [ref=e227]: Top Orlando Deal!
+        - generic [ref=e228]:
+          - img [ref=e229]
+          - link "$79 · Westgate Events · 2N/3D · 2 nights at Westgate…" [ref=e232] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-2-night-99.00
+            - generic [ref=e233]: $79
+            - generic [ref=e234]: ·
+            - generic [ref=e235]: Westgate Events
+            - generic [ref=e236]: ·
+            - generic [ref=e237]: 2N/3D
+            - generic [ref=e238]: ·
+            - generic [ref=e239]: 2 nights at Westgate…
+        - generic [ref=e240]:
+          - img [ref=e241]
+          - link "$79 · Westgate · 3N/4D · 4 days / 3 nights" [ref=e243] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-79
+            - generic [ref=e244]: $79
+            - generic [ref=e245]: ·
+            - generic [ref=e246]: Westgate
+            - generic [ref=e247]: ·
+            - generic [ref=e248]: 3N/4D
+            - generic [ref=e249]: ·
+            - generic [ref=e250]: 4 days / 3 nights
+        - generic [ref=e251]:
+          - img [ref=e252]
+          - link "$79 · Westgate · 2N/3D · Spacious Accommodati…" [ref=e256] [cursor=pointer]:
+            - /url: /deals/westgate-williamsburg-2-night-79
+            - generic [ref=e257]: $79
+            - generic [ref=e258]: ·
+            - generic [ref=e259]: Westgate
+            - generic [ref=e260]: ·
+            - generic [ref=e261]: 2N/3D
+            - generic [ref=e262]: ·
+            - generic [ref=e263]: Spacious Accommodati…
+        - img [ref=e264]
+      - generic [ref=e267]:
+        - link [ref=e269] [cursor=pointer]:
+          - /url: /deals/westgate-events-branson-3-night-49.00
+          - generic [ref=e270]: $49
+          - generic [ref=e271]: ·
+          - generic [ref=e272]: Westgate Events
+          - generic [ref=e273]: ·
+          - generic [ref=e274]: 3N/4D
+          - generic [ref=e275]: ·
+          - generic [ref=e276]: Three-night stay at …
+        - generic [ref=e277]:
+          - img [ref=e278]
+          - link [ref=e282] [cursor=pointer]:
+            - /url: /deals/govip-various-3-night-149
+            - generic [ref=e283]: $49
+            - generic [ref=e284]: ·
+            - generic [ref=e285]: GoVIP
+            - generic [ref=e286]: ·
+            - generic [ref=e287]: 3N/4D
+            - generic [ref=e288]: ·
+            - generic [ref=e289]: Three-night stay at …
+        - generic [ref=e290]:
+          - img [ref=e291]
+          - link [ref=e294] [cursor=pointer]:
+            - /url: /deals/vacationvip-myrtle-beach-3-night-59
+            - generic [ref=e295]: $59
+            - generic [ref=e296]: ·
+            - generic [ref=e297]: VacationVIP
+            - generic [ref=e298]: ·
+            - generic [ref=e299]: 3N/4D
+            - generic [ref=e300]: ·
+            - generic [ref=e301]: 4 Days / 3 Nights
+        - generic [ref=e302]:
+          - img [ref=e303]
+          - link [ref=e308] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-3-night-59
+            - generic [ref=e309]: $59
+            - generic [ref=e310]: ·
+            - generic [ref=e311]: Westgate
+            - generic [ref=e312]: ·
+            - generic [ref=e313]: 3N/4D
+            - generic [ref=e314]: ·
+            - generic [ref=e315]: 30,000+ sq ft Sports…
+        - generic [ref=e316]:
+          - img [ref=e317]
+          - link [ref=e323] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-3-night-59
+            - generic [ref=e324]: $59
+            - generic [ref=e325]: ·
+            - generic [ref=e326]: Westgate
+            - generic [ref=e327]: ·
+            - generic [ref=e328]: 3N/4D
+            - generic [ref=e329]: ·
+            - generic [ref=e330]: Bonus! $50 Gift Card
+        - generic [ref=e331]:
+          - img [ref=e332]
+          - link [ref=e335] [cursor=pointer]:
+            - /url: /deals/vacationvip-orlando-3-night-59
+            - generic [ref=e336]: $59
+            - generic [ref=e337]: ·
+            - generic [ref=e338]: VacationVIP
+            - generic [ref=e339]: ·
+            - generic [ref=e340]: 3N/4D
+            - generic [ref=e341]: ·
+            - generic [ref=e342]: 4 Days / 3 Nights
+        - generic [ref=e343]:
+          - img [ref=e344]
+          - link [ref=e346] [cursor=pointer]:
+            - /url: /deals/vacationvip-gatlinburg-3-night-59
+            - generic [ref=e347]: $59
+            - generic [ref=e348]: ·
+            - generic [ref=e349]: VacationVIP
+            - generic [ref=e350]: ·
+            - generic [ref=e351]: 3N/4D
+            - generic [ref=e352]: ·
+            - generic [ref=e353]: 4 Days / 3 Nights
+        - generic [ref=e354]:
+          - img [ref=e355]
+          - link [ref=e359] [cursor=pointer]:
+            - /url: /deals/westgate-gatlinburg-2-night-59
+            - generic [ref=e360]: $59
+            - generic [ref=e361]: ·
+            - generic [ref=e362]: Westgate
+            - generic [ref=e363]: ·
+            - generic [ref=e364]: 2N/3D
+            - generic [ref=e365]: ·
+            - generic [ref=e366]: 2 Wild Bear Falls Ti…
+        - generic [ref=e367]:
+          - img [ref=e368]
+          - link [ref=e371] [cursor=pointer]:
+            - /url: /deals/westgate-branson-3-night-59
+            - generic [ref=e372]: $59
+            - generic [ref=e373]: ·
+            - generic [ref=e374]: Westgate
+            - generic [ref=e375]: ·
+            - generic [ref=e376]: 3N/4D
+            - generic [ref=e377]: ·
+            - generic [ref=e378]: Resort close to Silv…
+        - generic [ref=e379]:
+          - img [ref=e380]
+          - link [ref=e385] [cursor=pointer]:
+            - /url: /deals/westgate-myrtle-beach-3-night-59
+            - generic [ref=e386]: $59
+            - generic [ref=e387]: ·
+            - generic [ref=e388]: Westgate
+            - generic [ref=e389]: ·
+            - generic [ref=e390]: 3N/4D
+            - generic [ref=e391]: ·
+            - generic [ref=e392]: Oceanfront resort cl…
+        - generic [ref=e393]:
+          - img [ref=e394]
+          - link [ref=e400] [cursor=pointer]:
+            - /url: /deals/vacationvip-daytona-beach-3-night-59
+            - generic [ref=e401]: $59
+            - generic [ref=e402]: ·
+            - generic [ref=e403]: VacationVIP
+            - generic [ref=e404]: ·
+            - generic [ref=e405]: 3N/4D
+            - generic [ref=e406]: ·
+            - generic [ref=e407]: 4 Days / 3 Nights
+        - generic [ref=e408]:
+          - img [ref=e409]
+          - link [ref=e412] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-59
+            - generic [ref=e413]: $59
+            - generic [ref=e414]: ·
+            - generic [ref=e415]: Westgate
+            - generic [ref=e416]: ·
+            - generic [ref=e417]: 2N/3D
+            - generic [ref=e418]: ·
+            - generic [ref=e419]: Luxury Studio Suite
+        - generic [ref=e420]:
+          - img [ref=e421]
+          - link [ref=e423] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-59
+            - generic [ref=e424]: $59
+            - generic [ref=e425]: ·
+            - generic [ref=e426]: Westgate
+            - generic [ref=e427]: ·
+            - generic [ref=e428]: 3N/4D
+            - generic [ref=e429]: ·
+            - generic [ref=e430]: Travel between 1/2 -…
+        - generic [ref=e431]:
+          - img [ref=e432]
+          - link [ref=e436] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-2-night-79
+            - generic [ref=e437]: $79
+            - generic [ref=e438]: ·
+            - generic [ref=e439]: Westgate
+            - generic [ref=e440]: ·
+            - generic [ref=e441]: 2N/3D
+            - generic [ref=e442]: ·
+            - generic [ref=e443]: 30,000+ sq ft Sports…
+        - generic [ref=e444]:
+          - img [ref=e445]
+          - link [ref=e448] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-2-night-79
+            - generic [ref=e449]: $79
+            - generic [ref=e450]: ·
+            - generic [ref=e451]: Westgate
+            - generic [ref=e452]: ·
+            - generic [ref=e453]: 2N/3D
+            - generic [ref=e454]: ·
+            - generic [ref=e455]: 3 Days / 2 Nights
+        - generic [ref=e456]:
+          - img [ref=e457]
+          - link [ref=e462] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-3-night-79
+            - generic [ref=e463]: $79
+            - generic [ref=e464]: ·
+            - generic [ref=e465]: Westgate Events
+            - generic [ref=e466]: ·
+            - generic [ref=e467]: 3N/4D
+            - generic [ref=e468]: ·
+            - generic [ref=e469]: 3 nights at Westgate…
+        - generic [ref=e470]:
+          - img [ref=e471]
+          - link [ref=e477] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-79
+            - generic [ref=e478]: $79
+            - generic [ref=e479]: ·
+            - generic [ref=e480]: Westgate
+            - generic [ref=e481]: ·
+            - generic [ref=e482]: 2N/3D
+            - generic [ref=e483]: ·
+            - generic [ref=e484]: Top Orlando Deal!
+        - generic [ref=e485]:
+          - img [ref=e486]
+          - link [ref=e489] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-2-night-99.00
+            - generic [ref=e490]: $79
+            - generic [ref=e491]: ·
+            - generic [ref=e492]: Westgate Events
+            - generic [ref=e493]: ·
+            - generic [ref=e494]: 2N/3D
+            - generic [ref=e495]: ·
+            - generic [ref=e496]: 2 nights at Westgate…
+        - generic [ref=e497]:
+          - img [ref=e498]
+          - link [ref=e500] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-79
+            - generic [ref=e501]: $79
+            - generic [ref=e502]: ·
+            - generic [ref=e503]: Westgate
+            - generic [ref=e504]: ·
+            - generic [ref=e505]: 3N/4D
+            - generic [ref=e506]: ·
+            - generic [ref=e507]: 4 days / 3 nights
+        - generic [ref=e508]:
+          - img [ref=e509]
+          - link [ref=e513] [cursor=pointer]:
+            - /url: /deals/westgate-williamsburg-2-night-79
+            - generic [ref=e514]: $79
+            - generic [ref=e515]: ·
+            - generic [ref=e516]: Westgate
+            - generic [ref=e517]: ·
+            - generic [ref=e518]: 2N/3D
+            - generic [ref=e519]: ·
+            - generic [ref=e520]: Spacious Accommodati…
+        - img [ref=e521]
+  - navigation [ref=e524]:
+    - generic [ref=e525]:
+      - link "Vacation Deals .to" [ref=e526] [cursor=pointer]:
+        - /url: /
+        - img [ref=e527]
+        - generic [ref=e531]:
+          - generic [ref=e532]: Vacation
+          - generic [ref=e533]: Deals
+          - generic [ref=e534]: .to
+      - generic [ref=e535]:
+        - link "All Deals" [ref=e536] [cursor=pointer]:
+          - /url: /deals
+        - link "Destinations" [ref=e537] [cursor=pointer]:
+          - /url: /destinations
+        - link "Brands" [ref=e538] [cursor=pointer]:
+          - /url: /brands
+        - link "Blog" [ref=e539] [cursor=pointer]:
+          - /url: /blog
+        - link "Rate Recap" [ref=e541] [cursor=pointer]:
+          - /url: /rate-recap
+        - link "🎮 Games" [ref=e543] [cursor=pointer]:
+          - /url: /vacpack-games
+          - generic [ref=e544]: 🎮
+          - generic [ref=e545]: Games
+        - link "Roulette" [ref=e547] [cursor=pointer]:
+          - /url: /resort-roulette
+          - img [ref=e548]
+          - text: Roulette
+  - main [ref=e555]:
+    - generic [ref=e556]:
+      - complementary [ref=e557]:
+        - generic [ref=e558]:
+          - generic [ref=e559]: VacationDeals
+          - generic [ref=e560]: ADMIN
+        - navigation [ref=e561]:
+          - link "📊 Dashboard" [ref=e562] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=e563]: 📊
+            - text: Dashboard
+          - link "🏨 Deals" [ref=e564] [cursor=pointer]:
+            - /url: /admin/deals
+            - generic [ref=e565]: 🏨
+            - text: Deals
+          - link "🏷️ Brands" [ref=e566] [cursor=pointer]:
+            - /url: /admin/brands
+            - generic [ref=e567]: 🏷️
+            - text: Brands
+          - link "📢 Ad Banners" [ref=e568] [cursor=pointer]:
+            - /url: /admin/banners
+            - generic [ref=e569]: 📢
+            - text: Ad Banners
+          - link "🎰 Roulette" [ref=e570] [cursor=pointer]:
+            - /url: /admin/roulette
+            - generic [ref=e571]: 🎰
+            - text: Roulette
+          - link "📧 Subscribers" [ref=e572] [cursor=pointer]:
+            - /url: /admin/subscribers
+            - generic [ref=e573]: 📧
+            - text: Subscribers
+          - link "📬 Campaigns" [ref=e574] [cursor=pointer]:
+            - /url: /admin/campaigns
+            - generic [ref=e575]: 📬
+            - text: Campaigns
+          - link "🕷️ Scrapers" [ref=e576] [cursor=pointer]:
+            - /url: /admin/scrapers
+            - generic [ref=e577]: 🕷️
+            - text: Scrapers
+        - generic [ref=e578]:
+          - paragraph [ref=e579]: Admin
+          - paragraph [ref=e580]: super-admin
+          - button "Log out" [ref=e582]
+      - main [ref=e583]:
+        - heading "Deal Management" [level=1] [ref=e584]
+        - generic [ref=e585]:
+          - textbox "Search title, slug, resort..." [ref=e586]: Westin Los Cabos
+          - generic [ref=e587]:
+            - link "All" [ref=e588] [cursor=pointer]:
+              - /url: /admin/deals?filter=all&q=Westin Los Cabos
+            - link "Active" [ref=e589] [cursor=pointer]:
+              - /url: /admin/deals?filter=active&q=Westin Los Cabos
+            - link "Expired" [ref=e590] [cursor=pointer]:
+              - /url: /admin/deals?filter=expired&q=Westin Los Cabos
+          - button "Search" [ref=e591]
+        - table [ref=e593]:
+          - rowgroup [ref=e594]:
+            - row "Title Brand Destination Nights Price Status Scraped Actions" [ref=e595]:
+              - columnheader "Title" [ref=e596]
+              - columnheader "Brand" [ref=e597]
+              - columnheader "Destination" [ref=e598]
+              - columnheader "Nights" [ref=e599]
+              - columnheader "Price" [ref=e600]
+              - columnheader "Status" [ref=e601]
+              - columnheader "Scraped" [ref=e602]
+              - columnheader "Actions" [ref=e603]
+          - rowgroup [ref=e604]:
+            - row "Westin Los Cabos Resort Villas & Spa - Cabo San Lu... Westin Vacation Club Maui 5N $499 Active 4/21/2026 Expire Edit $" [ref=e605]:
+              - cell "Westin Los Cabos Resort Villas & Spa - Cabo San Lu..." [ref=e606]:
+                - link "Westin Los Cabos Resort Villas & Spa - Cabo San Lu..." [ref=e607] [cursor=pointer]:
+                  - /url: /deals/westin-vc-maui-5-night-949
+              - cell "Westin Vacation Club" [ref=e608]
+              - cell "Maui" [ref=e609]
+              - cell "5N" [ref=e610]
+              - cell "$499" [ref=e611]
+              - cell "Active" [ref=e612]
+              - cell "4/21/2026" [ref=e613]
+              - cell "Expire Edit $" [ref=e614]:
+                - generic [ref=e615]:
+                  - button "Expire" [ref=e616]
+                  - button "Edit $" [ref=e617]
+  - contentinfo [ref=e618]:
+    - generic [ref=e619]:
+      - generic [ref=e620]:
+        - generic [ref=e621]:
+          - paragraph [ref=e622]: VacationDeals.to
+          - paragraph [ref=e623]: The best vacation deals from top timeshare resorts, all in one place. Compare resort deals, travel deals, and getaway packages. Book your next vacation for less.
+        - generic [ref=e624]:
+          - paragraph [ref=e625]: Browse
+          - list [ref=e626]:
+            - listitem [ref=e627]:
+              - link "All Deals" [ref=e628] [cursor=pointer]:
+                - /url: /deals
+            - listitem [ref=e629]:
+              - link "Destinations" [ref=e630] [cursor=pointer]:
+                - /url: /destinations
+            - listitem [ref=e631]:
+              - link "Brands" [ref=e632] [cursor=pointer]:
+                - /url: /brands
+            - listitem [ref=e633]:
+              - link "Blog" [ref=e634] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e635]:
+              - link "About" [ref=e636] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e637]:
+          - paragraph [ref=e638]: Popular Destinations
+          - list [ref=e639]:
+            - listitem [ref=e640]:
+              - link "Orlando, FL" [ref=e641] [cursor=pointer]:
+                - /url: /orlando
+            - listitem [ref=e642]:
+              - link "Las Vegas, NV" [ref=e643] [cursor=pointer]:
+                - /url: /las-vegas
+            - listitem [ref=e644]:
+              - link "Cancun, MX" [ref=e645] [cursor=pointer]:
+                - /url: /cancun
+            - listitem [ref=e646]:
+              - link "Gatlinburg, TN" [ref=e647] [cursor=pointer]:
+                - /url: /gatlinburg
+            - listitem [ref=e648]:
+              - link "Myrtle Beach, SC" [ref=e649] [cursor=pointer]:
+                - /url: /myrtle-beach
+        - generic [ref=e650]:
+          - paragraph [ref=e651]: Popular Brands
+          - list [ref=e652]:
+            - listitem [ref=e653]:
+              - link "Westgate Reservations" [ref=e654] [cursor=pointer]:
+                - /url: /westgate
+            - listitem [ref=e655]:
+              - link "Hilton Grand Vacations" [ref=e656] [cursor=pointer]:
+                - /url: /hgv
+            - listitem [ref=e657]:
+              - link "Marriott Vacation Club" [ref=e658] [cursor=pointer]:
+                - /url: /marriott
+            - listitem [ref=e659]:
+              - link "Club Wyndham" [ref=e660] [cursor=pointer]:
+                - /url: /wyndham
+            - listitem [ref=e661]:
+              - link "BookVIP" [ref=e662] [cursor=pointer]:
+                - /url: /bookvip
+      - generic [ref=e664]:
+        - link "Privacy Policy" [ref=e665] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms & Conditions" [ref=e666] [cursor=pointer]:
+          - /url: /terms
+        - link "Timeshare Laws by State" [ref=e667] [cursor=pointer]:
+          - /url: /timeshare-laws
+        - link "Do Not Sell My Info" [ref=e668] [cursor=pointer]:
+          - /url: mailto:privacy@vacationdeals.to?subject=Do%20Not%20Sell%20My%20Personal%20Information
+      - paragraph [ref=e670]:
+        - strong [ref=e671]: "Disclaimer:"
+        - text: VacationDeals.to is an independent vacation deal comparison and aggregator website. We are
+        - strong [ref=e672]: NOT
+        - text: a timeshare company, resort developer, real estate broker, or travel agency. We do not sell, book, market, or facilitate the sale of vacation packages, timeshare interests, or any real estate. All deals displayed are sourced from publicly available information on third-party websites. Clicking a deal redirects you to the third-party provider's site. We make no guarantees about pricing, availability, or accuracy of any listing. All trademarks are property of their respective owners. See our
+        - link "Terms & Conditions" [ref=e673] [cursor=pointer]:
+          - /url: /terms
+        - text: and
+        - link "Privacy Policy" [ref=e674] [cursor=pointer]:
+          - /url: /privacy
+        - text: for full details.
+      - paragraph [ref=e676]: © 2026 VacationDeals.to. All rights reserved.
+  - alert [ref=e677]
+  - generic [ref=e679]:
+    - generic [ref=e680]:
+      - generic [ref=e681]: NEW
+      - paragraph [ref=e682]: Get our FREE Chrome Extension — See hidden resort rates on Google!
+    - generic [ref=e683]:
+      - link "Install Free" [ref=e684] [cursor=pointer]:
+        - /url: "#"
+      - button "Dismiss" [ref=e685]:
+        - img [ref=e686]

@@ -1,0 +1,9 @@
+{
+	"id": "nhzlFV3RtQO0MHu",
+	"json": "{\"id\":\"nhzlFV3RtQO0MHu\",\"url\":\"https://www.westgatereservations.com/specials/choose-your-destination-from-99-chuck-e-cheese/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/choose-your-destination-from-99-chuck-e-cheese/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/choose-your-destination-from-99-chuck-e-cheese\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.715Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/choose-your-destination-from-99-chuck-e-cheese",
+	"url": "https://www.westgatereservations.com/specials/choose-your-destination-from-99-chuck-e-cheese/"
+}

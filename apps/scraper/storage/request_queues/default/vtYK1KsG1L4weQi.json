@@ -1,0 +1,9 @@
+{
+	"id": "vtYK1KsG1L4weQi",
+	"json": "{\"id\":\"vtYK1KsG1L4weQi\",\"url\":\"https://www.westgatereservations.com/specials/travel-deal-tuesday/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/travel-deal-tuesday/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/travel-deal-tuesday\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:00.787Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/travel-deal-tuesday",
+	"url": "https://www.westgatereservations.com/specials/travel-deal-tuesday/"
+}

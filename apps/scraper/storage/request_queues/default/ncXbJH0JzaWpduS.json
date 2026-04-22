@@ -1,0 +1,9 @@
+{
+	"id": "ncXbJH0JzaWpduS",
+	"json": "{\"id\":\"ncXbJH0JzaWpduS\",\"url\":\"https://www.westgatereservations.com/specials/orlando-couples-vacation/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/orlando-couples-vacation/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/orlando-couples-vacation\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:01.343Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/orlando-couples-vacation",
+	"url": "https://www.westgatereservations.com/specials/orlando-couples-vacation/"
+}

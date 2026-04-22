@@ -1,0 +1,9 @@
+{
+	"id": "8aQ4KtTiMk3S5kX",
+	"json": "{\"id\":\"8aQ4KtTiMk3S5kX\",\"url\":\"https://www.westgatereservations.com/specials/christmas-vacation-myrtle-beach/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/christmas-vacation-myrtle-beach/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/christmas-vacation-myrtle-beach\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:05.264Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/christmas-vacation-myrtle-beach",
+	"url": "https://www.westgatereservations.com/specials/christmas-vacation-myrtle-beach/"
+}

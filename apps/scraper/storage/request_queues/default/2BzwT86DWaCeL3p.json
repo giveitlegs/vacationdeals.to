@@ -1,0 +1,9 @@
+{
+	"id": "2BzwT86DWaCeL3p",
+	"json": "{\"id\":\"2BzwT86DWaCeL3p\",\"url\":\"https://www.westgatereservations.com/specials/multi-destination-vacation-package/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/multi-destination-vacation-package/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/multi-destination-vacation-package\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:00.613Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/multi-destination-vacation-package",
+	"url": "https://www.westgatereservations.com/specials/multi-destination-vacation-package/"
+}

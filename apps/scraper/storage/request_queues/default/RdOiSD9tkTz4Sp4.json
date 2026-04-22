@@ -1,0 +1,9 @@
+{
+	"id": "RdOiSD9tkTz4Sp4",
+	"json": "{\"id\":\"RdOiSD9tkTz4Sp4\",\"url\":\"https://www.westgatereservations.com/specials/3days-2nights-plus-seaworld-vacation/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/3days-2nights-plus-seaworld-vacation/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/3days-2nights-plus-seaworld-vacation\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:01.345Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/3days-2nights-plus-seaworld-vacation",
+	"url": "https://www.westgatereservations.com/specials/3days-2nights-plus-seaworld-vacation/"
+}

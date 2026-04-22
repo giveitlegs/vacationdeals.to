@@ -1,0 +1,9 @@
+{
+	"id": "byG7UhVmcxYqqs0",
+	"json": "{\"id\":\"byG7UhVmcxYqqs0\",\"url\":\"https://www.westgatereservations.com/specials/gatlinburg-romantic-vacation-packages/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/gatlinburg-romantic-vacation-packages/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/gatlinburg-romantic-vacation-packages\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:03.555Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/gatlinburg-romantic-vacation-packages",
+	"url": "https://www.westgatereservations.com/specials/gatlinburg-romantic-vacation-packages/"
+}

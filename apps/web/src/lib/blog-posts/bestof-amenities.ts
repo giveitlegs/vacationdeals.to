@@ -22,7 +22,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 
 <h2>Top All-Inclusive Vacation Deals for 2026</h2>
 
-<h3>1. Westgate Lakes Resort, Orlando — $99/Night All-In Package</h3>
+<h3>1. Westgate Lakes Resort, Orlando (see our <a href="/orlando-solo-travelers">Orlando deals for Solo Travelers</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — $99/Night All-In Package</h3>
 <p>Westgate's Orlando flagship runs an all-inclusive promotional package that bundles a full suite with kitchen, daily breakfast buffet, two dinner vouchers, water park access, and a $50 resort credit. For a family of four, that's roughly $200/day in included extras on top of the room. The suites have full kitchens so you can handle lunches yourself, making this functionally all-inclusive for under $100 a night. That's hard to beat anywhere in <a href="/orlando">Orlando</a>.</p>
 
 <h3>2. Wyndham Grand Rio Mar, Puerto Rico — $179/Night</h3>
@@ -33,7 +33,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 
 <div class="protip"><strong>Pro Tip:</strong> The best all-inclusive deals drop in January and September — right after holiday travel peaks. Resorts need to fill rooms during shoulder season, so they bundle more extras into promotional packages. Book during these windows and you'll get 20-30% more inclusions than peak-season deals.</div>
 
-<h3>4. Hilton Grand Vacations at Flamingo, Las Vegas — $89/Night</h3>
+<h3>4. Hilton Grand Vacations at Flamingo, Las Vegas (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) — $89/Night</h3>
 <p>Vegas all-inclusive deals are a different animal. HGV's Flamingo property bundles rooms with buffet credits, show tickets, and a drink package. At $89 a night on the Strip, you're already winning, but when meals and entertainment are folded in, the total value exceeds $300 per day. Vegas <a href="/las-vegas">vacation deals</a> are already legendary, and this one sits at the top.</p>
 
 <h3>5. BookVIP Cancun Collection — $149/Night</h3>
@@ -139,7 +139,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 
 <h2>Top Water Park Resort Vacation Deals</h2>
 
-<h3>1. Westgate Lakes Resort, Orlando — $99/Night</h3>
+<h3>1. Westgate Lakes Resort, Orlando (more on <a href="/orlando-spring-break">Orlando Spring Break vacation deals</a>) (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — $99/Night</h3>
 <p>Westgate Lakes has a massive water park area with a lazy river, multiple water slides, a splash pad for little kids, and several heated pools. The lazy river alone is worth the price of admission — oh wait, there's no admission because you're staying there. Full suites with kitchens, washer/dryer, and you're ten minutes from Disney. This is the gold standard of <a href="/orlando">Orlando water park vacation deals</a>.</p>
 
 <h3>2. Orange Lake Resort, Kissimmee — $89/Night</h3>
@@ -249,7 +249,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 
 <h2>Best Beachfront Vacation Deals Under $200/Night</h2>
 
-<h3>1. Westgate Cocoa Beach Resort — $89/Night</h3>
+<h3>1. Westgate Cocoa Beach (compare <a href="/cocoa-beach-for-families">Cocoa Beach vacpacks for Families</a>) Resort — $89/Night</h3>
 <p>Directly on Cocoa Beach with Atlantic Ocean views from your private balcony. Two-bedroom suites with full kitchens at $89 a night, right on the sand. You can watch SpaceX launches from the beach when the timing lines up. The surf is gentle enough for kids, and the resort has a nice pool area if you want a break from salt water. This is the best-value beachfront deal in the state of Florida, hands down. See all <a href="/florida">Florida vacation deals</a> for more options.</p>
 
 <h3>2. Wyndham Santa Barbara, Pompano Beach — $109/Night</h3>
@@ -260,7 +260,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 
 <div class="protip"><strong>Pro Tip:</strong> Beachfront deals are cheapest from late August through November on the Atlantic coast and from September through early December on the Gulf Coast. You'll save 30-40% versus summer pricing, beaches are less crowded, and the water is still warm enough for swimming. Just budget for travel insurance during hurricane season.</div>
 
-<h3>4. Holiday Inn Club Vacations, Myrtle Beach — $99/Night</h3>
+<h3>4. Holiday Inn Club Vacations, Myrtle Beach (compare <a href="/myrtle-beach-shoulder-season">Myrtle Beach vacpacks Shoulder Season</a>) (browse <a href="/myrtle-beach-summer">Myrtle Beach vacation deals Summer</a>) (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) — $99/Night</h3>
 <p>Myrtle Beach delivers some of the most affordable beachfront pricing in the country, and Holiday Inn's property right on the sand starts at $99 a night through promotional channels. The Grand Strand has 60 miles of beach, so you're never fighting for space. The resort has multiple pools, a lazy river, and on-site dining, but the beach is the main attraction here.</p>
 
 <h3>5. Hyatt Residence Club, Key West — $179/Night</h3>
@@ -363,7 +363,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 <h2>Top Vacation Deals with Theme Park Tickets Included</h2>
 
 <h3>1. Hilton Grand Vacations at SeaWorld — $119/Night + SeaWorld Tickets</h3>
-<p>HGV's SeaWorld property is literally across the street from SeaWorld Orlando, and their promotional packages frequently include park tickets for up to four guests. SeaWorld tickets normally run $90-100 per person, so a family of four is getting $360-400 in tickets on top of an already-affordable resort stay. The suites are modern, the pools are excellent, and the presentation is one of the more relaxed in <a href="/orlando">Orlando</a>.</p>
+<p>HGV's SeaWorld property is literally across the street from SeaWorld Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (more on <a href="/orlando-near-disney">Orlando Near Disney vacation deals</a>) (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), and their promotional packages frequently include park tickets for up to four guests. SeaWorld tickets normally run $90-100 per person, so a family of four is getting $360-400 in tickets on top of an already-affordable resort stay. The suites are modern, the pools are excellent, and the presentation is one of the more relaxed in <a href="/orlando">Orlando</a>.</p>
 
 <h3>2. Westgate Lakes Resort, Orlando — $99/Night + Attraction Tickets</h3>
 <p>Westgate's flagship Orlando property bundles attraction tickets with many of their promotional packages. The specific parks vary — sometimes it's Fun Spot, ICON Park, or Gatorland — but the tickets add $50-150 per person in value. Combined with the resort's own water park amenities, you're getting a full vacation's worth of entertainment bundled into a $99/night deal.</p>
@@ -483,7 +483,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 
 <h2>Best Spa-Inclusive Vacation Deals</h2>
 
-<h3>1. Marriott's Grande Lakes, Orlando — $139/Night + Spa Access</h3>
+<h3>1. Marriott's Grande Lakes, Orlando (more on <a href="/orlando-new-years">Orlando New Year's vacation deals</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (see our <a href="/orlando-solo-travelers">Orlando deals for Solo Travelers</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) — $139/Night + Spa Access</h3>
 <p>Marriott's Grande Lakes complex houses a world-class spa with a lap pool, steam rooms, sauna, relaxation lounge, and a full menu of treatments. Promotional resort packages include facility access and sometimes a $75-100 spa credit. The property is lush and expansive, and the spa alone would cost $50-75 per visit at comparable facilities. See all <a href="/marriott">Marriott vacation deals</a> for availability.</p>
 
 <h3>2. Wyndham Grand Rio Mar, Puerto Rico — $179/Night + Spa Credits</h3>
@@ -623,7 +623,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 
 <h2>Best Golf Destinations by Season</h2>
 <p><strong>Winter (Dec-Feb):</strong> Arizona (Scottsdale, Phoenix), Southern California (Palm Desert), Florida (all regions). Northern courses are closed, so southern destinations offer peak-season golf with promotional pricing.</p>
-<p><strong>Spring (Mar-May):</strong> Myrtle Beach, SC leads the country in spring golf deals. Also excellent in Orlando, Hilton Head, and Las Vegas.</p>
+<p><strong>Spring (Mar-May):</strong> Myrtle Beach, SC leads the country in spring golf deals. Also excellent in Orlando, Hilton Head, and Las Vegas (more on <a href="/las-vegas-winter">Las Vegas Winter vacation deals</a>) (browse <a href="/las-vegas-fall">Las Vegas vacation deals Fall</a>) (browse <a href="/las-vegas-summer">Las Vegas vacation deals Summer</a>) (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>).</p>
 <p><strong>Summer (Jun-Aug):</strong> Best time for mountain golf — Park City, UT, Branson, MO, and Smoky Mountain area courses. Florida deals drop in summer heat, creating value for heat-tolerant golfers.</p>
 <p><strong>Fall (Sep-Nov):</strong> Shoulder season pricing across most destinations. Branson's fall foliage, Myrtle Beach's moderate weather, and Orlando's cooling temperatures make this the sweet spot for golf trip value.</p>
 
@@ -701,7 +701,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 <h3>1. Westgate Park City Resort & Spa, Utah — $119/Night</h3>
 <p>Park City is a world-class ski destination (it hosted the 2002 Winter Olympics), and Westgate's resort here is gorgeous. Slope proximity, heated outdoor pools and hot tubs, a spa, and ski storage make this a complete mountain experience. Promotional packages sometimes include discounted lift passes to Park City Mountain Resort. At $119/night during ski season, you're paying less than most Airbnbs in the area.</p>
 
-<h3>2. Westgate Smoky Mountain Resort, Gatlinburg — $89/Night</h3>
+<h3>2. Westgate Smoky Mountain Resort, Gatlinburg (compare <a href="/gatlinburg-christmas">Gatlinburg vacpacks Christmas</a>) (browse <a href="/gatlinburg-winter">Gatlinburg vacation deals Winter</a>) (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>) — $89/Night</h3>
 <p>Ober Mountain ski area is right in Gatlinburg, and Westgate's Smoky Mountain resort combines skiing with an indoor water park for the ultimate all-weather family trip. Ski in the morning, water slides in the afternoon. At $89/night with the Wild Bear Falls water park included, this is the most affordable ski-adjacent vacation deal in the eastern US. See more <a href="/gatlinburg">Gatlinburg vacation deals</a>.</p>
 
 <h3>3. Marriott's MountainSide, Park City — $159/Night</h3>
@@ -909,7 +909,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 
 <h2>Top Coastal Fishing Vacation Deals</h2>
 
-<h3>1. Westgate Cocoa Beach Resort — $89/Night</h3>
+<h3>1. Westgate Cocoa Beach (compare <a href="/cocoa-beach-for-families">Cocoa Beach vacpacks for Families</a>) Resort — $89/Night</h3>
 <p>Directly on Cocoa Beach, one of <a href="/florida">Florida's</a> best surf fishing spots. The resort is near the Cocoa Beach Pier (free to fish from with a license) and minutes from Port Canaveral, where charter boats run daily for offshore fishing. Red drum, snook, tarpon, and flounder are all catchable from shore. Two-bedroom suites with full kitchens mean you can cook your catch for dinner. At $89 a night on the Atlantic, this is the best-value fishing vacation deal on the East Coast.</p>
 
 <h3>2. Holiday Inn Club Vacations, Cape Canaveral — $99/Night</h3>
@@ -950,7 +950,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 <h2>Best Fishing Months by Coast</h2>
 <p><strong>Florida Atlantic Coast:</strong> Year-round, but April-June and September-November are peak. Summer is tarpon season. Winter brings sheepshead and pompano runs.</p>
 <p><strong>Florida Gulf Coast:</strong> Spring (March-May) for snook and redfish inshore. Summer for offshore grouper and snapper. Fall for king mackerel and bull redfish.</p>
-<p><strong>Carolinas:</strong> April-October is prime season. Red drum, flounder, and Spanish mackerel dominate the Myrtle Beach and Outer Banks catches.</p>
+<p><strong>Carolinas:</strong> April-October is prime season. Red drum, flounder, and Spanish mackerel dominate the Myrtle Beach (more on <a href="/myrtle-beach-winter">Myrtle Beach Winter vacation deals</a>) (browse <a href="/myrtle-beach-summer">Myrtle Beach vacation deals Summer</a>) (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) and Outer Banks catches.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Ask your resort front desk about local fishing reports. Many coastal resort staff are anglers themselves and can point you to the best current spots, what's biting, and which charter captains give the best value. This local knowledge is free and invaluable. Browse <a href="/deals-under-100">deals under $100</a> for the most affordable coastal fishing base camps.</div>
 
@@ -1016,7 +1016,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 
 <h2>Top Kitchen Suite Vacation Deals</h2>
 
-<h3>1. Westgate Lakes Resort, Orlando — $99/Night (Full Kitchen)</h3>
+<h3>1. Westgate Lakes Resort, Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (see our <a href="/orlando-5-night">Orlando deals 5-Night</a>) (more on <a href="/orlando-thanksgiving">Orlando Thanksgiving vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — $99/Night (Full Kitchen)</h3>
 <p>Westgate Lakes suites come with full kitchens that rival some apartment setups: full-size fridge, stove, oven, microwave, dishwasher, coffee maker, and a full set of pots, pans, dishes, and utensils. The one- and two-bedroom suites also have dining areas and living rooms. A family of four cooking breakfast and lunch in-suite saves $80-120/day on <a href="/orlando">Orlando</a> restaurant prices. Over a 4-night stay, that's $320-480 in savings — more than the total room cost.</p>
 
 <h3>2. Wyndham Bonnet Creek, Orlando — $149/Night (Full Kitchen)</h3>
@@ -1256,7 +1256,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 <h3>4. Hyatt Residence Club, Key West — $179/Night</h3>
 <p>Key West luxury at under $200/night is unicorn pricing. This Hyatt property in Old Town puts you walking distance to Duval Street with upscale suites, a beautiful pool, and the kind of service that makes you feel like you belong on a yacht. Key West hotel rooms average $350-500/night in season. This deal is exceptional value.</p>
 
-<h3>5. Wyndham Bonnet Creek, Orlando — $149/Night</h3>
+<h3>5. Wyndham Bonnet Creek, Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (see our <a href="/orlando-honeymoon">Orlando deals Honeymoon</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) — $149/Night</h3>
 <p>Bonnet Creek's newer towers feel distinctly upscale — modern suites with high-end finishes, a lazy river pool complex, and that magical on-Disney-property location. Standard rates push $350/night. At $149 for a two-bedroom suite, you're getting luxury square footage at economy pricing. This is the deal that makes Disney's own Deluxe resorts look overpriced (because they are).</p>
 
 <table>
@@ -1350,7 +1350,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
     content: `<p>Entertainment tickets are the sneaky budget item that people don't account for until they're staring at a $200 tab for Cirque du Soleil. Shows, concerts, dinner theater, comedy clubs — they're the stuff that makes a vacation memorable, and they're expensive. Unless you book <a href="/deals">vacation deals</a> that bundle entertainment into the room rate. Then they're free. Or at least dramatically cheaper. Here's where to find the best entertainment-inclusive deals in 2026.</p>
 
 <h2>Entertainment Capitals with the Best Vacation Deals</h2>
-<p>Three cities dominate the entertainment vacation deal landscape: Las Vegas (residency shows, Cirque, comedy, magic), Branson (country music, variety shows, dinner theater), and Orlando (dinner shows, concerts, themed entertainment). Each has a distinct flavor and price range, but all three offer deals where show tickets come bundled with resort stays.</p>
+<p>Three cities dominate the entertainment vacation deal landscape: Las Vegas (browse <a href="/las-vegas-new-years">Las Vegas vacation deals New Year's</a>) (residency shows, Cirque, comedy, magic), Branson (country music, variety shows, dinner theater), and Orlando (more on <a href="/orlando-new-years">Orlando New Year's vacation deals</a>) (compare <a href="/orlando-christmas">Orlando vacpacks Christmas</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) (dinner shows, concerts, themed entertainment). Each has a distinct flavor and price range, but all three offer deals where show tickets come bundled with resort stays.</p>
 
 <h2>Top Vacation Deals with Live Entertainment</h2>
 
@@ -1462,7 +1462,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 <h3>1. BookVIP Adults-Only All-Inclusive, Cancun — $149/Night</h3>
 <p>Cancun has some of the best adults-only all-inclusive resorts in the world, and BookVIP offers promotional rates that make them accessible. All meals, unlimited drinks, ocean activities, and a beachfront room — all adults-only. The resort atmosphere is sophisticated, the food is excellent, and the swim-up bars are next-level. At $149/night all-inclusive, this beats any domestic option for pure romantic value.</p>
 
-<h3>2. Marriott Grand Chateau, Las Vegas — $129/Night</h3>
+<h3>2. Marriott Grand Chateau, Las Vegas (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) — $129/Night</h3>
 <p>Las Vegas is inherently adult-oriented, and the Grand Chateau delivers a refined Vegas experience. Rooftop pool with Strip views (the pool is 21+ after 8 PM), upscale suites, and proximity to Vegas's best restaurants and shows. No kids policy at the rooftop pool means you can actually enjoy it. Check <a href="/marriott">Marriott vacation deals</a> for availability.</p>
 
 <h3>3. Hyatt Residence Club, Key West — $179/Night</h3>
@@ -1490,7 +1490,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 <div class="funfact"><strong>Fun Fact:</strong> Adults-only travel is the fastest-growing segment of the vacation industry, with a 35% increase in bookings since 2020. The demand is driven by couples ages 30-55 who — and I'm reading between the lines here — absolutely love their children but absolutely love quiet pools more.</div>
 
 <h2>Planning the Perfect Adults-Only Getaway</h2>
-<p><strong>Choose the right destination.</strong> Las Vegas, Key West, Napa Valley, Sedona, and international beach destinations naturally cater to adult travelers. Orlando and Branson are family-dominant and harder to find kid-free zones, even at nice resorts.</p>
+<p><strong>Choose the right destination.</strong> Las Vegas, Key West, Napa Valley, Sedona, and international beach destinations naturally cater to adult travelers. Orlando (more on <a href="/orlando-spring-break">Orlando Spring Break vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) and Branson are family-dominant and harder to find kid-free zones, even at nice resorts.</p>
 <p><strong>Book couples' experiences.</strong> Spa treatments for two, sunset cruises, wine tastings, private dining — these are the experiences that make adults-only trips memorable. Many resort deals include credits toward these activities.</p>
 <p><strong>Embrace late-night dining.</strong> One of the best parts of traveling without kids is eating dinner at 9 PM instead of 5:30 PM. Late reservations at resort restaurants and nearby fine dining spots are easier to get and often more romantic.</p>
 
@@ -1563,7 +1563,7 @@ export const bestofAmenitiesPosts: BlogPost[] = [
     content: `<p>Here's a cost most travelers forget to budget for until they're standing at the airport rental car counter: ground transportation. A rental car for five days runs $200-400 depending on the city and season. Daily parking at a resort adds $15-25/day. Airport rideshares cost $25-60 each way. Suddenly your $99/night resort deal has $300-500 in hidden transport costs. The smart play? Book <a href="/deals">vacation deals</a> that include airport shuttle service and design your trip around the resort's location. Here's how to make it work.</p>
 
 <h2>The True Cost of Ground Transportation on Vacation</h2>
-<p>Let's run the real numbers for a 5-night Orlando trip:</p>
+<p>Let's run the real numbers for a 5-night Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (see our <a href="/orlando-5-night">Orlando deals 5-Night</a>) trip:</p>
 <p><strong>With rental car:</strong> Car rental ($250-400) + gas ($40-60) + parking at resort ($0-25/day) + parking at theme parks ($25-30/day when visiting) = $350-600 total transport cost.</p>
 <p><strong>With rideshares:</strong> Airport Uber/Lyft ($30-50 each way) + daily Ubers to parks/attractions ($20-40/day round trip) = $180-320 total.</p>
 <p><strong>With resort shuttle:</strong> Free airport pickup + free park shuttles + walking distance amenities = $0-50 total (with occasional supplemental rides).</p>
@@ -1611,9 +1611,9 @@ export const bestofAmenitiesPosts: BlogPost[] = [
 <h2>When You Actually Need a Rental Car</h2>
 <p>To be fair, not every vacation works without a car. You'll want a rental if you're:</p>
 <p><strong>Visiting multiple destinations</strong> (road tripping between cities). Shuttles only cover resort-to-airport-to-attractions routes.</p>
-<p><strong>Exploring rural areas.</strong> Gatlinburg, Sedona, and other non-urban destinations have limited shuttle infrastructure.</p>
+<p><strong>Exploring rural areas.</strong> Gatlinburg (see our <a href="/gatlinburg-with-waterpark">Gatlinburg deals with Waterpark</a>), Sedona, and other non-urban destinations have limited shuttle infrastructure.</p>
 <p><strong>Traveling with a large group.</strong> When your party exceeds four people, two Uber rides cost more than a rental car for the day.</p>
-<p>For single-destination resort vacations in cities with good shuttle service (Orlando, Las Vegas, Cancun), going car-free is the clear budget winner.</p>
+<p>For single-destination resort vacations in cities with good shuttle service (Orlando, Las Vegas, Cancun (more on <a href="/cancun-5-night">Cancun 5-Night vacation deals</a>)), going car-free is the clear budget winner.</p>
 
 <h2>Destination-Specific Car-Free Vacation Guides</h2>
 <p>The feasibility of a car-free vacation depends heavily on destination. Here's a detailed breakdown:</p>

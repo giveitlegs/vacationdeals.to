@@ -1,0 +1,9 @@
+{
+	"id": "LT6j7WHipdGEjyH",
+	"json": "{\"id\":\"LT6j7WHipdGEjyH\",\"url\":\"https://www.westgatereservations.com/specials/legoland-sealife-vacation-package/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/legoland-sealife-vacation-package/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/legoland-sealife-vacation-package\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.417Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/legoland-sealife-vacation-package",
+	"url": "https://www.westgatereservations.com/specials/legoland-sealife-vacation-package/"
+}

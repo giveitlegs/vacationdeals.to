@@ -1,0 +1,7 @@
+[    2523ms] [ERROR] Not signed in with the identity provider. @ https://x.com/i/flow/login?redirect_after_login=%2Fhome:0
+[    2523ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with AbortError: signal is aborted without reason @ https://accounts.google.com/gsi/client:81
+[    2524ms] [ERROR] Not signed in with the identity provider. @ https://x.com/i/flow/login?redirect_after_login=%2Fhome:0
+[    3373ms] [WARNING] [GSI_LOGGER]: google.accounts.id.initialize() is called multiple times. This could cause unexpected behavior and only the last initialized instance will be used. @ https://accounts.google.com/gsi/client:80
+[    4201ms] [ERROR] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token. @ https://accounts.google.com/gsi/client:81
+[  135569ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.postMessage call. @ https://accounts.google.com/gsi/client:361
+[  135569ms] [ERROR] Cross-Origin-Opener-Policy policy would block the window.postMessage call. @ https://accounts.google.com/gsi/client:361

@@ -34,8 +34,8 @@ export const bestofPricesPosts: BlogPost[] = [
 <tr><td>Westgate Smoky Mountain</td><td>Gatlinburg, TN</td><td>$69</td><td>4</td><td>$276</td></tr>
 <tr><td>Wyndham Bonnet Creek</td><td>Orlando, FL</td><td>$99</td><td>4</td><td>$396</td></tr>
 <tr><td>Bluegreen Fountains</td><td>Orlando, FL</td><td>$79</td><td>4</td><td>$316</td></tr>
-<tr><td>Westgate Las Vegas</td><td>Las Vegas, NV</td><td>$59</td><td>3</td><td>$177</td></tr>
-<tr><td>Westgate Myrtle Beach</td><td>Myrtle Beach, SC</td><td>$89</td><td>4</td><td>$356</td></tr>
+<tr><td>Westgate Las Vegas (compare <a href="/las-vegas-shoulder-season">Las Vegas vacpacks Shoulder Season</a>) (browse <a href="/las-vegas-summer">Las Vegas vacation deals Summer</a>) (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>)</td><td>Las Vegas, NV</td><td>$59</td><td>3</td><td>$177</td></tr>
+<tr><td>Westgate Myrtle Beach (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>)</td><td>Myrtle Beach, SC</td><td>$89</td><td>4</td><td>$356</td></tr>
 <tr><td>Holiday Inn Club Cape Canaveral</td><td>Cape Canaveral, FL</td><td>$99</td><td>4</td><td>$396</td></tr>
 <tr><td>Wyndham Palm-Aire</td><td>Pompano Beach, FL</td><td>$99</td><td>4</td><td>$396</td></tr>
 <tr><td>Westgate Cocoa Beach</td><td>Cocoa Beach, FL</td><td>$89</td><td>3</td><td>$267</td></tr>
@@ -316,7 +316,7 @@ export const bestofPricesPosts: BlogPost[] = [
     bluf: "All-inclusive vacation deals under $500 total do exist in 2026 — mostly through timeshare preview packages that bundle resort stays, meals, and activities at heavily subsidized rates. The best ones are in Cancun, Orlando, and Las Vegas.",
     heroImageAlt: "All-inclusive resort with beachfront pool bar and tropical drinks",
     heroGradient: "from-cyan-400 to-blue-600",
-    content: `<p>When someone says "all-inclusive under $500," most people picture a rundown resort in the middle of nowhere with a breakfast buffet that makes a hospital cafeteria look gourmet. I understand that skepticism — I shared it until I actually booked one of these deals and found myself at a beachfront resort in Cancun with open-bar cocktails, three meals a day, and a suite with an ocean view. Total cost for four nights: $449. I still check my credit card statement sometimes just to confirm it was real. Start browsing <a href="/deals">all available vacation deals</a> to see what's live right now.</p>
+    content: `<p>When someone says "all-inclusive under $500," most people picture a rundown resort in the middle of nowhere with a breakfast buffet that makes a hospital cafeteria look gourmet. I understand that skepticism — I shared it until I actually booked one of these deals and found myself at a beachfront resort in Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) with open-bar cocktails, three meals a day, and a suite with an ocean view. Total cost for four nights: $449. I still check my credit card statement sometimes just to confirm it was real. Start browsing <a href="/deals">all available vacation deals</a> to see what's live right now.</p>
 
 <h2>What "All-Inclusive" Actually Means in Vacation Deals</h2>
 <p>Let's set expectations correctly. In the timeshare preview deal world, "all-inclusive" can mean different things depending on the provider:</p>
@@ -325,7 +325,7 @@ export const bestofPricesPosts: BlogPost[] = [
 
 <p><strong>Modified all-inclusive:</strong> Room plus breakfast, sometimes dinner, and resort amenities. Common at domestic US resorts. You might get breakfast daily plus a dinner voucher or resort credit for meals.</p>
 
-<p><strong>Room + perks:</strong> Room plus specific add-ons like theme park tickets, spa credits, or activity vouchers. This is the most common format for Orlando and Las Vegas deals.</p>
+<p><strong>Room + perks:</strong> Room plus specific add-ons like theme park tickets, spa credits, or activity vouchers. This is the most common format for Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (more on <a href="/orlando-near-disney">Orlando Near Disney vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) and Las Vegas deals.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> When comparing deals, always calculate the total cost — not just the nightly rate. A $149/night deal for 3 nights with meals included ($447 total) is often cheaper than a $79/night deal for 4 nights ($316) where you spend $40-60 per day on food ($160-240 additional).</div>
 
@@ -483,7 +483,7 @@ export const bestofPricesPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Rank</th><th>Resort</th><th>Location</th><th>Price/Night</th><th>Min Nights</th><th>Provider</th></tr></thead>
 <tbody>
-<tr><td>1</td><td>Westgate Las Vegas Resort</td><td>Las Vegas, NV</td><td>$59</td><td>3</td><td>Westgate Direct</td></tr>
+<tr><td>1</td><td>Westgate Las Vegas (more on <a href="/las-vegas-cheap">Las Vegas Cheap vacation deals</a>) (compare <a href="/las-vegas-shoulder-season">Las Vegas vacpacks Shoulder Season</a>) (browse <a href="/las-vegas-summer">Las Vegas vacation deals Summer</a>) Resort</td><td>Las Vegas, NV</td><td>$59</td><td>3</td><td>Westgate Direct</td></tr>
 <tr><td>2</td><td>Westgate Smoky Mountain</td><td>Gatlinburg, TN</td><td>$69</td><td>4</td><td>BookVIP</td></tr>
 <tr><td>3</td><td>Bluegreen Fountains</td><td>Orlando, FL</td><td>$79</td><td>4</td><td>BookVIP</td></tr>
 <tr><td>4</td><td>Westgate Towers</td><td>Kissimmee, FL</td><td>$79</td><td>4</td><td>Westgate Direct</td></tr>
@@ -491,7 +491,7 @@ export const bestofPricesPosts: BlogPost[] = [
 <tr><td>6</td><td>Westgate Lakes Resort</td><td>Orlando, FL</td><td>$89</td><td>4</td><td>Westgate Direct</td></tr>
 <tr><td>7</td><td>Orange Lake Resort</td><td>Kissimmee, FL</td><td>$89</td><td>4</td><td>BookVIP</td></tr>
 <tr><td>8</td><td>Westgate Cocoa Beach</td><td>Cocoa Beach, FL</td><td>$89</td><td>3</td><td>Westgate Direct</td></tr>
-<tr><td>9</td><td>Westgate Myrtle Beach</td><td>Myrtle Beach, SC</td><td>$89</td><td>4</td><td>BookVIP</td></tr>
+<tr><td>9</td><td>Westgate Myrtle Beach (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>)</td><td>Myrtle Beach, SC</td><td>$89</td><td>4</td><td>BookVIP</td></tr>
 <tr><td>10</td><td>Wyndham Palm-Aire</td><td>Pompano Beach, FL</td><td>$99</td><td>4</td><td>Wyndham Direct</td></tr>
 </tbody>
 </table>
@@ -660,12 +660,12 @@ export const bestofPricesPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Resort</th><th>Location</th><th>Price/Night</th><th>Nights</th><th>Availability</th></tr></thead>
 <tbody>
-<tr><td>Westgate Las Vegas</td><td>Las Vegas, NV</td><td>$49</td><td>3</td><td>This week</td></tr>
+<tr><td>Westgate Las Vegas (more on <a href="/las-vegas-last-minute">Las Vegas Last Minute vacation deals</a>) (compare <a href="/las-vegas-shoulder-season">Las Vegas vacpacks Shoulder Season</a>) (browse <a href="/las-vegas-fall">Las Vegas vacation deals Fall</a>)</td><td>Las Vegas, NV</td><td>$49</td><td>3</td><td>This week</td></tr>
 <tr><td>Westgate Smoky Mountain</td><td>Gatlinburg, TN</td><td>$59</td><td>4</td><td>Next 2 weeks</td></tr>
 <tr><td>Bluegreen Fountains</td><td>Orlando, FL</td><td>$69</td><td>4</td><td>This week</td></tr>
 <tr><td>Westgate Lakes</td><td>Orlando, FL</td><td>$79</td><td>4</td><td>Next 2 weeks</td></tr>
 <tr><td>Wyndham Bonnet Creek</td><td>Orlando, FL</td><td>$129</td><td>4</td><td>This month</td></tr>
-<tr><td>Westgate Myrtle Beach</td><td>Myrtle Beach, SC</td><td>$79</td><td>4</td><td>Next 2 weeks</td></tr>
+<tr><td>Westgate Myrtle Beach (browse <a href="/myrtle-beach-fall">Myrtle Beach vacation deals Fall</a>)</td><td>Myrtle Beach, SC</td><td>$79</td><td>4</td><td>Next 2 weeks</td></tr>
 <tr><td>Orange Lake Resort</td><td>Kissimmee, FL</td><td>$79</td><td>4</td><td>This week</td></tr>
 <tr><td>Westgate Cocoa Beach</td><td>Cocoa Beach, FL</td><td>$79</td><td>3</td><td>This month</td></tr>
 </tbody>
@@ -803,13 +803,13 @@ export const bestofPricesPosts: BlogPost[] = [
 <p>Let's be upfront: deals under $59 per night are not available at every destination or every time of year. They're concentrated in specific markets where timeshare resorts have excess inventory or intense competition. Here are the reliable sources:</p>
 
 <h3>Las Vegas — The $49-59 Capital</h3>
-<p><a href="/las-vegas">Las Vegas</a> is the only destination that consistently offers sub-$59 deals year-round. Westgate Las Vegas Resort leads at $49-59/night for three-night stays. The Cancun Resort Las Vegas (despite the name, it's in Vegas) offers similar pricing. Vegas resorts can afford these rock-bottom prices because they have additional revenue streams — restaurants, entertainment, and gaming — that subsidize the rooms beyond what the timeshare presentation alone provides.</p>
+<p><a href="/las-vegas">Las Vegas</a> is the only destination that consistently offers sub-$59 deals year-round. Westgate Las Vegas Resort leads at $49-59/night for three-night stays. The Cancun (browse <a href="/cancun-3-night">Cancun vacation deals 3-Night</a>) Resort Las Vegas (despite the name, it's in Vegas) offers similar pricing. Vegas resorts can afford these rock-bottom prices because they have additional revenue streams — restaurants, entertainment, and gaming — that subsidize the rooms beyond what the timeshare presentation alone provides.</p>
 
 <h3>Gatlinburg — Seasonal Drops to $59</h3>
 <p><a href="/gatlinburg">Gatlinburg</a> deals hover at $69/night normally but can drop to $59/night during January-February and mid-September when tourist traffic is lowest. Westgate Smoky Mountain Resort is the primary provider, offering cabin-style suites with fireplaces and mountain views at this price point.</p>
 
 <h3>Branson — The Hidden Budget Destination</h3>
-<p>Branson, Missouri doesn't get the attention of Orlando or Vegas, but it quietly offers some of the cheapest resort deals in the country. Holiday Inn Club and Wyndham properties run $59/night deals, especially during the spring and fall shoulder seasons.</p>
+<p>Branson, Missouri doesn't get the attention of Orlando (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (see our <a href="/orlando-shoulder-season">Orlando deals Shoulder Season</a>) or Vegas, but it quietly offers some of the cheapest resort deals in the country. Holiday Inn Club and Wyndham properties run $59/night deals, especially during the spring and fall shoulder seasons.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> The absolute cheapest deals often appear as "limited time offers" on booking platforms. These are flash sales that last 24-72 hours and can drop prices to $39-49/night. Sign up for email alerts from BookVIP and Westgate Direct to catch these.</div>
 
@@ -978,13 +978,13 @@ export const bestofPricesPosts: BlogPost[] = [
 <h2>The Best Near-Free Deals Available Now</h2>
 <p>Since truly free deals are typically invitation-only, let's focus on the near-free deals that anyone can book. These are the closest thing to free that's consistently available:</p>
 
-<h3>Westgate Las Vegas — $49/Night (3 Nights = $147)</h3>
+<h3>Westgate Las Vegas (see our <a href="/las-vegas-3-night">Las Vegas deals 3-Night</a>) — $49/Night (3 Nights = $147)</h3>
 <p>At $49/night, a <a href="/las-vegas">Las Vegas vacation</a> at a major resort is as close to free as publicly available deals get. The suite alone would cost $189-300/night at the regular rate, so you're saving $420-750 on a 3-night stay.</p>
 
-<h3>Westgate Gatlinburg — $59/Night (4 Nights = $236)</h3>
+<h3>Westgate Gatlinburg (compare <a href="/gatlinburg-3-night">Gatlinburg vacpacks 3-Night</a>) — $59/Night (4 Nights = $236)</h3>
 <p>Mountain cabins in the Smokies for $59/night. With the national park being free and Gatlinburg restaurants being affordable, your total trip cost can stay under $400 including food. That's practically free for a <a href="/gatlinburg">four-night mountain vacation</a>.</p>
 
-<h3>BookVIP Orlando Deals — $69-79/Night (4 Nights = $276-316)</h3>
+<h3>BookVIP Orlando (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) Deals — $69-79/Night (4 Nights = $276-316)</h3>
 <p>BookVIP frequently runs <a href="/orlando">Orlando deals</a> that include breakfast and sometimes park tickets, making the effective nightly rate close to free when you factor in the value of inclusions.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> Timeshare companies in the United States spend an estimated $3.5 billion annually on marketing, including subsidized preview trips. Your "free" vacation is a marketing expense that's already budgeted for in their balance sheet.</div>
@@ -1113,8 +1113,8 @@ export const bestofPricesPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Factor</th><th>Presentation Deal</th><th>Regular Booking</th><th>Savings</th></tr></thead>
 <tbody>
-<tr><td>4 nights Orlando resort</td><td>$316 ($79/night)</td><td>$1,000 ($250/night)</td><td>$684</td></tr>
-<tr><td>3 nights Las Vegas resort</td><td>$177 ($59/night)</td><td>$567 ($189/night)</td><td>$390</td></tr>
+<tr><td>4 nights Orlando (more on <a href="/orlando-2-night">Orlando 2-Night vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) resort</td><td>$316 ($79/night)</td><td>$1,000 ($250/night)</td><td>$684</td></tr>
+<tr><td>3 nights Las Vegas (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) resort</td><td>$177 ($59/night)</td><td>$567 ($189/night)</td><td>$390</td></tr>
 <tr><td>4 nights Gatlinburg cabin</td><td>$276 ($69/night)</td><td>$800 ($200/night)</td><td>$524</td></tr>
 <tr><td>5 nights Cancun all-inclusive</td><td>$499</td><td>$1,750 ($350/night)</td><td>$1,251</td></tr>
 <tr><td>4 nights Myrtle Beach oceanfront</td><td>$356 ($89/night)</td><td>$900 ($225/night)</td><td>$544</td></tr>
@@ -1283,7 +1283,7 @@ export const bestofPricesPosts: BlogPost[] = [
 <p>Not all timeshare preview deals include breakfast, but a significant number do. Here are the most reliable sources for breakfast-included deals:</p>
 
 <h3>Westgate Resorts</h3>
-<p><a href="/westgate">Westgate</a> offers breakfast vouchers or buffet access on many of their promotional packages. Westgate Lakes in Orlando, Westgate Smoky Mountain in Gatlinburg, and Westgate Las Vegas all run deals with breakfast included at various times throughout the year. The breakfast is typically a hot buffet with eggs, bacon, sausage, pancakes, fruit, and coffee — not a continental basket with a sad muffin.</p>
+<p><a href="/westgate">Westgate</a> offers breakfast vouchers or buffet access on many of their promotional packages. Westgate Lakes in Orlando (browse <a href="/orlando-cheap">Orlando vacation deals Cheap</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Westgate Smoky Mountain in Gatlinburg (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>), and Westgate Las Vegas (more on <a href="/las-vegas-cheap">Las Vegas Cheap vacation deals</a>) all run deals with breakfast included at various times throughout the year. The breakfast is typically a hot buffet with eggs, bacon, sausage, pancakes, fruit, and coffee — not a continental basket with a sad muffin.</p>
 
 <h3>BookVIP Deals</h3>
 <p>BookVIP is a broker that packages deals from multiple brands, and they frequently include breakfast as a sweetener. Their Orlando and Gatlinburg deals almost always include some form of breakfast — either a buffet voucher, a restaurant credit, or a pre-presentation breakfast at the resort.</p>
@@ -1440,7 +1440,7 @@ export const bestofPricesPosts: BlogPost[] = [
 <h3>Orange Lake Resort — Kissimmee, FL ($89/Night)</h3>
 <p>Orange Lake is the undisputed water park champion of the timeshare world. Their River Island water park features a 1,200-foot lazy river, an 80-foot water slide tower, a kid's splash zone, multiple hot tubs, and a poolside bar and grill. This isn't a couple of slides bolted onto a pool — it's a legitimate water park that rivals standalone attractions. All included with your resort stay.</p>
 
-<p>The resort also has three other pool complexes scattered across the property, so even when River Island is crowded, you have options. At $89/night through <a href="/deals-under-100">our under-$100 deals</a>, this is arguably the best family value in Orlando.</p>
+<p>The resort also has three other pool complexes scattered across the property, so even when River Island is crowded, you have options. At $89/night through <a href="/deals-under-100">our under-$100 deals</a>, this is arguably the best family value in Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>).</p>
 
 <h3>Westgate Smoky Mountain Resort — Gatlinburg, TN ($69/Night)</h3>
 <p>Wild Bear Falls is Westgate Smoky Mountain's indoor/outdoor water park, and it's fantastic. The indoor section means rainy days and cold weather don't ruin water park plans — a huge advantage over Orlando's outdoor-only options. Features include a wave pool, water slides, lazy river, children's play area, and hot tubs. All included with your <a href="/gatlinburg">Gatlinburg vacation deal</a> at just $69 per night.</p>
@@ -1590,7 +1590,7 @@ export const bestofPricesPosts: BlogPost[] = [
     bluf: "An Orlando vacation for a family of four costs $1,500-6,000+ depending on your approach. Using vacation deals, a family can do 5 nights with theme parks for around $1,500-2,000 total. Without deals, expect $3,000-5,000 for a comparable trip.",
     heroImageAlt: "Family of four at Orlando theme park with resort and budget calculator overlay",
     heroGradient: "from-blue-500 to-purple-600",
-    content: `<p>The number one question I hear from families planning their first Orlando trip: "How much is this actually going to cost us?" The internet is full of vague answers — "it depends on your style!" — which is technically true but completely unhelpful when you're trying to set a budget. So let me give you real numbers based on real 2026 prices, broken down into three tiers: budget (using <a href="/deals">vacation deals</a>), mid-range, and luxury. Pick the tier that fits your wallet.</p>
+    content: `<p>The number one question I hear from families planning their first Orlando (browse <a href="/orlando-luxury">Orlando vacation deals Luxury</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) trip: "How much is this actually going to cost us?" The internet is full of vague answers — "it depends on your style!" — which is technically true but completely unhelpful when you're trying to set a budget. So let me give you real numbers based on real 2026 prices, broken down into three tiers: budget (using <a href="/deals">vacation deals</a>), mid-range, and luxury. Pick the tier that fits your wallet.</p>
 
 <h2>The Quick Answer: Three Budget Tiers</h2>
 
@@ -1795,7 +1795,7 @@ export const bestofPricesPosts: BlogPost[] = [
 <p>Westgate Smoky Mountain Resort in <a href="/gatlinburg">Gatlinburg</a> drops to $59/night during January-February and mid-September, putting a 5-night stay at $295. You get cabin-style suites with fireplaces, mountain views, and access to Wild Bear Falls indoor water park. The Great Smoky Mountains National Park — the most visited national park in America — is free to enter and right at your doorstep.</p>
 
 <h2>Branson: The Underrated Budget King</h2>
-<p>Branson, Missouri doesn't have the name recognition of Orlando or Vegas, but it punches way above its weight for budget travelers. Westgate Branson Woods offers cabin-style suites at $55/night ($275 for 5 nights) with pools, a game room, and proximity to Branson's entertainment district. Silver Dollar City, the Titanic Museum, and dozens of live shows are all within a short drive.</p>
+<p>Branson, Missouri doesn't have the name recognition of Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (see our <a href="/orlando-5-night">Orlando deals 5-Night</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) or Vegas, but it punches way above its weight for budget travelers. Westgate Branson Woods offers cabin-style suites at $55/night ($275 for 5 nights) with pools, a game room, and proximity to Branson's entertainment district. Silver Dollar City, the Titanic Museum, and dozens of live shows are all within a short drive.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> Branson, Missouri (population: ~12,000) has more theater seats than Broadway in New York City. The town hosts over 100 live shows running simultaneously during peak season, many with tickets under $30.</div>
 
@@ -2153,7 +2153,7 @@ export const bestofPricesPosts: BlogPost[] = [
 <strong>Cons:</strong> Website can be overwhelming, some deals have aggressive upselling, prices slightly higher than direct booking for some brands.</p>
 
 <h3>3. Westgate Direct — Lowest Base Prices</h3>
-<p><a href="/westgate">Westgate Resorts</a> offers some of the lowest per-night prices in the industry, starting at $49/night in Las Vegas. Booking directly through Westgate's promotional site gives you the best rates on their properties, which span Orlando, Gatlinburg, Las Vegas, Myrtle Beach, Branson, and more.</p>
+<p><a href="/westgate">Westgate Resorts</a> offers some of the lowest per-night prices in the industry, starting at $49/night in Las Vegas (more on <a href="/las-vegas-last-minute">Las Vegas Last Minute vacation deals</a>). Booking directly through Westgate's promotional site gives you the best rates on their properties, which span Orlando (browse <a href="/orlando-last-minute">Orlando vacation deals Last Minute</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Gatlinburg (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>), Las Vegas, Myrtle Beach, Branson, and more.</p>
 
 <p><strong>Pros:</strong> Lowest prices, no broker markup, direct resort communication, reliable booking process.<br/>
 <strong>Cons:</strong> Only Westgate properties, website could be more user-friendly, presentations can run long.</p>

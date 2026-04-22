@@ -1,0 +1,9 @@
+{
+	"id": "3DzYuD6Ao8XVgAP",
+	"json": "{\"id\":\"3DzYuD6Ao8XVgAP\",\"url\":\"https://www.westgatereservations.com/specials/orlando-resort-getaway-plus-100-toward-gas/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/orlando-resort-getaway-plus-100-toward-gas/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/orlando-resort-getaway-plus-100-toward-gas\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:08.019Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/orlando-resort-getaway-plus-100-toward-gas",
+	"url": "https://www.westgatereservations.com/specials/orlando-resort-getaway-plus-100-toward-gas/"
+}

@@ -1,0 +1,9 @@
+{
+	"id": "bnoc4X7YLrOMDmT",
+	"json": "{\"id\":\"bnoc4X7YLrOMDmT\",\"url\":\"https://www.westgatereservations.com/specials/westgate-branson-lakes-resort/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-branson-lakes-resort/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-branson-lakes-resort\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:00.382Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-branson-lakes-resort",
+	"url": "https://www.westgatereservations.com/specials/westgate-branson-lakes-resort/"
+}

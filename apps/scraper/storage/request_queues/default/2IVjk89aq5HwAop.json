@@ -1,0 +1,9 @@
+{
+	"id": "2IVjk89aq5HwAop",
+	"json": "{\"id\":\"2IVjk89aq5HwAop\",\"url\":\"https://www.westgatereservations.com/specials/branson-silver-dollar-city-christmas-packages/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/branson-silver-dollar-city-christmas-packages/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/branson-silver-dollar-city-christmas-packages\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:02.848Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/branson-silver-dollar-city-christmas-packages",
+	"url": "https://www.westgatereservations.com/specials/branson-silver-dollar-city-christmas-packages/"
+}

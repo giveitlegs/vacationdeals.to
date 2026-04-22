@@ -1,0 +1,9 @@
+{
+	"id": "Y0yjaaORDvuqyjz",
+	"json": "{\"id\":\"Y0yjaaORDvuqyjz\",\"url\":\"https://www.westgatereservations.com/specials/christmas-vacation-gatlinburg/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/christmas-vacation-gatlinburg/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/christmas-vacation-gatlinburg\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:04.972Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/christmas-vacation-gatlinburg",
+	"url": "https://www.westgatereservations.com/specials/christmas-vacation-gatlinburg/"
+}

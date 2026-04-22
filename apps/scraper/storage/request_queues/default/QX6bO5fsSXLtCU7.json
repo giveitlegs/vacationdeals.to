@@ -1,0 +1,9 @@
+{
+	"id": "QX6bO5fsSXLtCU7",
+	"json": "{\"id\":\"QX6bO5fsSXLtCU7\",\"url\":\"https://www.westgatereservations.com/specials/last-minute-vacation-packages-gatlinburg/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/last-minute-vacation-packages-gatlinburg/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/last-minute-vacation-packages-gatlinburg\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.422Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/last-minute-vacation-packages-gatlinburg",
+	"url": "https://www.westgatereservations.com/specials/last-minute-vacation-packages-gatlinburg/"
+}

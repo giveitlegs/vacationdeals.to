@@ -1,7 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getDealBySlug, getDeals } from "@/lib/queries";
+
+/**
+ * Attempt to recover from stale deal slugs. Deal slugs include price
+ * (e.g., `bookvip-cancun-5-night-399`), so when prices change the old
+ * slug 404s. If the trailing price segment is stale but the
+ * brand-destination-duration prefix matches an active deal, redirect to it.
+ * Returns the new slug to redirect to, or null if no recovery possible.
+ */
+async function findReplacementSlug(staleSlug: string): Promise<string | null> {
+  // Slug shape: {brand}-{destination}-{N}-night-{price}
+  // Example: bookvip-cancun-5-night-399
+  const m = staleSlug.match(/^(.+?)-(\d+)-night-\d+$/);
+  if (!m) return null;
+  const prefix = `${m[1]}-${m[2]}-night-`;
+  try {
+    const { db } = await import("@vacationdeals/db");
+    const schema = await import("@vacationdeals/db");
+    const { like, and, eq } = await import("drizzle-orm");
+    const row = await db
+      .select({ slug: schema.deals.slug })
+      .from(schema.deals)
+      .where(and(eq(schema.deals.isActive, true), like(schema.deals.slug, `${prefix}%`)))
+      .limit(1);
+    return row.length > 0 ? row[0].slug : null;
+  } catch {
+    return null;
+  }
+}
 import { DealGrid } from "@/components/DealGrid";
 import type { Deal } from "@/components/DealCard";
 import { getCityIcon } from "@/lib/city-icons";
@@ -52,11 +80,15 @@ export async function generateMetadata({ params }: DealPageProps): Promise<Metad
 
   const location = [deal.city, deal.state].filter(Boolean).join(", ");
   const isEvent = deal.brandSlug === "westgate-events";
-  // Keep title under 60 chars for SERP display
+  // Build a uniqueness-guaranteed title: include resort + city + duration + price.
+  // SF audit found duplicate titles on competing deals that shared brand+price+duration
+  // but different cities; city in the title resolves that collision.
+  const baseName = (deal.resortName || deal.title).slice(0, 30);
+  const cityFrag = deal.city ? ` ${deal.city}` : "";
   const rawTitle = isEvent
     ? `${deal.title} — ${deal.durationNights}N from $${deal.price}`
-    : `${(deal.resortName || deal.title).slice(0, 35)} — ${deal.durationNights}N from $${deal.price}`;
-  const title = rawTitle.length > 58 ? rawTitle.slice(0, 55) + "..." : rawTitle;
+    : `${baseName}${cityFrag} — ${deal.durationDays}D/${deal.durationNights}N from $${deal.price}`;
+  const title = rawTitle.length > 60 ? rawTitle.slice(0, 57) + "..." : rawTitle;
   const description = isEvent
     ? `${deal.title} vacation package: ${deal.description || `${deal.durationNights} nights + event tickets from $${deal.price}.`} Compare event deals at VacationDeals.to.`
     : `Book a ${deal.durationNights}-night vacation deal at ${deal.resortName || deal.title} in ${location} for just $${deal.price}. ${deal.originalPrice ? `Save ${deal.savingsPercent}% off the $${deal.originalPrice} retail price.` : ""} Compare resort deals at VacationDeals.to.`;
@@ -83,6 +115,8 @@ export default async function DealPage({ params }: DealPageProps) {
   const deal = await getDealBySlug(slug);
 
   if (!deal) {
+    const replacement = await findReplacementSlug(slug);
+    if (replacement) redirect(`/deals/${replacement}`);
     notFound();
   }
 
@@ -137,15 +171,11 @@ export default async function DealPage({ params }: DealPageProps) {
       priceCurrency: "USD",
       availability: deal.isActive ? "https://schema.org/InStock" : "https://schema.org/Discontinued",
       url: deal.url,
-      ...(deal.originalPrice
-        ? {
-            priceValidUntil: new Date(
-              Date.now() + 30 * 24 * 60 * 60 * 1000,
-            )
-              .toISOString()
-              .split("T")[0],
-          }
-        : {}),
+      // priceValidUntil is required (soft) per Google's Offer structured-data guidelines.
+      // Always emit; prefer actual deal.expiresAt, fall back to 30 days from now.
+      priceValidUntil: deal.expiresAt
+        ? new Date(deal.expiresAt).toISOString().split("T")[0]
+        : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
     },
     speakable: {
       "@type": "SpeakableSpecification",
@@ -257,6 +287,9 @@ export default async function DealPage({ params }: DealPageProps) {
         availability: deal.isActive ? "https://schema.org/InStock" : "https://schema.org/Discontinued",
         url: `https://vacationdeals.to/deals/${slug}`,
         validFrom: new Date().toISOString().split("T")[0],
+        priceValidUntil: deal.expiresAt
+          ? new Date(deal.expiresAt).toISOString().split("T")[0]
+          : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
       },
       ...(performerName && performerType
         ? {
@@ -476,9 +509,15 @@ export default async function DealPage({ params }: DealPageProps) {
             </span>
           </div>
 
-          {/* Deal title + location */}
+          {/* Deal title + location — include duration + price for uniqueness */}
           <h1 className="mb-2 text-2xl font-bold text-gray-900 sm:text-3xl">
-            {isWestgateEvent ? deal.title : (deal.resortName || deal.title)}
+            {(() => {
+              const base = isWestgateEvent ? deal.title : (deal.resortName || deal.title);
+              const tail = `— ${deal.durationDays}D/${deal.durationNights}N from $${deal.price}`;
+              // If the title already contains the price or nights, skip the tail
+              if (base.includes(`$${deal.price}`) || base.match(/\b\d+\s*(night|day)/i)) return base;
+              return `${base} ${tail}`;
+            })()}
           </h1>
           {location && (
             <p className="mb-4 flex items-center gap-1.5 text-gray-500">

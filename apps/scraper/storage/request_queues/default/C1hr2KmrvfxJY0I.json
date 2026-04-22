@@ -1,0 +1,9 @@
+{
+	"id": "C1hr2KmrvfxJY0I",
+	"json": "{\"id\":\"C1hr2KmrvfxJY0I\",\"url\":\"https://www.westgatereservations.com/specials/universal-epic-universe-tickets-vacation-package/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/universal-epic-universe-tickets-vacation-package/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/universal-epic-universe-tickets-vacation-package\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:01.021Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/universal-epic-universe-tickets-vacation-package",
+	"url": "https://www.westgatereservations.com/specials/universal-epic-universe-tickets-vacation-package/"
+}

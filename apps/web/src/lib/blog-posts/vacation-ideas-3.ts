@@ -43,7 +43,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>6. Savannah, Georgia</h3>
 <p>Spanish moss, cobblestone streets, and some of the best food in the South. Wyndham has properties near Savannah's historic district from $109/night. Walk around the squares, take a riverboat cruise, and eat your weight in shrimp and grits. The city is incredibly romantic without trying too hard.</p>
 
-<h3>7. Branson, Missouri</h3>
+<h3>7. Branson (browse <a href="/branson-winter">Branson vacation deals Winter</a>) (browse <a href="/branson-for-couples">Branson vacation deals for Couples</a>), Missouri</h3>
 <p>Hear me out — Branson gets a bad rap but it's actually perfect for couples over 50 who want entertainment, nature, and value. Westgate Branson Woods offers deals from $89/night with gorgeous Ozark Mountain views. Table Rock Lake is stunning, and the shows are genuinly entertaining.</p>
 
 <h3>8. San Antonio, Texas</h3>
@@ -52,7 +52,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>9. Cancun Hotel Zone, Mexico</h3>
 <p>Skip the party zone and book the quieter end of the Hotel Zone near Punta Nizuc. BookVIP has all-inclusive deals from $129/night at properties like the Westin and Marriott. The water is ridiculous blue, the food is amazing, and the Mayan ruins at Tulum are a short day-trip away.</p>
 
-<h3>10. Orlando (But Not the Theme Parks)</h3>
+<h3>10. Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (But Not the Theme Parks)</h3>
 <p>Orlando has world-class dining, gorgeous nature preserves, and resort spas that rival anything in the country. <a href="/westgate">Westgate resorts</a> in Orlando start at $99/night, and you never have to step foot in a theme park. Take an airboat ride, visit the wine bars on Park Avenue in Winter Park, or just float in the lazy river all day.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Book mid-week (Tuesday-Thursday arrivals) for the best rates. Resorts offer lower promotional prices during low-occupancy periods, and mid-week is always quieter. You'll also avoid weekend traffic at popular destinations.</div>
@@ -105,13 +105,13 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <div class="protip"><strong>Pro Tip:</strong> Call the resort directly after booking your deal and request ADA-accessible rooms or ground-floor units. These rooms have wider doorways, grab bars, and walk-in showers. Even if you don't need them now, they're more comfortable for everyone.</div>
 
-<h3>1. Myrtle Beach, South Carolina</h3>
+<h3>1. Myrtle Beach (more on <a href="/myrtle-beach-for-seniors">Myrtle Beach for Seniors vacation deals</a>) (more on <a href="/myrtle-beach-for-couples">Myrtle Beach for Couples vacation deals</a>), South Carolina</h3>
 <p>Westgate runs Myrtle Beach deals from $89/night for 4 nights. The beach is wide and flat (easy walking), the seafood is outstanding, and there's mini golf, dinner theaters, and shopping for days. Its the kind of place where doing nothing feels like doing everything. The Westgate property has full suites with kitchens so you can eat in when you want.</p>
 
 <h3>2. San Diego, California</h3>
 <p>Perfect weather year-round, Balboa Park, the Gaslamp Quarter, and Marriott vacation club deals from $159/night. San Diego is walkable, beautiful, and has a relaxed pace thats perfect for couples who dont want to feel rushed. The zoo alone is worth the trip, and they have excellent accessibility.</p>
 
-<h3>3. Gatlinburg, Tennessee</h3>
+<h3>3. Gatlinburg (browse <a href="/gatlinburg-for-seniors">Gatlinburg vacation deals for Seniors</a>) (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>), Tennessee</h3>
 <p>The gateway to Great Smoky Mountains National Park. Westgate Smoky Mountain Resort offers deals from $99/night with incredible mountain views. You can drive through the park without hiking a single step — the scenic roads are stunning. Dollywood is nearby if you want some entertainment, and the aquarium in town is world-class.</p>
 
 <h3>4. Palm Desert, California</h3>
@@ -192,7 +192,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>1. Cancun, Mexico — From $99/Night All-Inclusive</h3>
 <p>All-inclusive means unlimited cocktails by the pool, romantic dinners included, and zero wallet anxiety. BookVIP runs Cancun deals constantly with brands like the Westin and Marriott in the Hotel Zone. The turquoise water and white sand beaches are the most photogenic backdrop for a couples trip anywhere in the Western Hemisphere.</p>
 
-<h3>2. Orlando, Florida — From $79/Night</h3>
+<h3>2. Orlando (see our <a href="/orlando-honeymoon">Orlando deals Honeymoon</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Florida — From $79/Night</h3>
 <p>I know, Orlando sounds like a kids destination. But the <a href="/orlando">Orlando resort deals</a> include some seriously romantic properties. Westgate Lakes has suites with private balconies overlooking the lake, lazy rivers for floating together, and it's minutes from Disney Springs where you can have a world-class dinner. Skip the theme parks and enjoy the resort.</p>
 
 <h3>3. Savannah, Georgia — From $109/Night</h3>
@@ -201,7 +201,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>4. Puerto Vallarta, Mexico — From $119/Night All-Inclusive</h3>
 <p>The Malecon sunset walk is one of the most romantic things you can do anywhere. Pueblo Bonito has beachfront resorts with adults-only pools and all-inclusive packages through BookVIP. The food in PV is incredible — fresh ceviche, street tacos, and restaurants where a world-class meal costs $30 for two.</p>
 
-<h3>5. Gatlinburg, Tennessee — From $89/Night</h3>
+<h3>5. Gatlinburg (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>), Tennessee — From $89/Night</h3>
 <p>Mountain cabins, scenic overlooks, and Westgate deals from $89/night. Gatlinburg is surprisingly romantic — the Smoky Mountains provide a dramatic backdrop and there are tons of cozy restaurants, wineries, and even moonshine distilleries. The resort has fireplaces in the suites which is peak romance from October through March.</p>
 
 <h3>6. Key West, Florida — From $149/Night</h3>
@@ -278,7 +278,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <p>This is the gold standard for adults-only resort deals in Mexico. Perched on Pacific-facing cliffs, the property has infinity pools, multiple gourmet restaurants, and a spa that'll make you forget what day it is. BookVIP runs this deal regularly and it includes everything — food, drinks, beach service, the works.</p>
 
 <h3>2. El Cid Marina, Mazatlan — $109/Night All-Inclusive</h3>
-<p>Mazatlan is Mexico's most underrated beach destination and El Cid's marina property has adults-only sections with ocean views. At $109/night all-inclusive, this is one of the best value deals we track. The malecon in Mazatlan is gorgeous and the city has an authentic Mexican feel that Cancun lost decades ago.</p>
+<p>Mazatlan is Mexico's most underrated beach destination and El Cid's marina property has adults-only sections with ocean views. At $109/night all-inclusive, this is one of the best value deals we track. The malecon in Mazatlan is gorgeous and the city has an authentic Mexican feel that Cancun (more on <a href="/cancun-adults-only">Cancun Adults Only vacation deals</a>) (see our <a href="/cancun-oceanfront">Cancun deals Oceanfront</a>) (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) (see our <a href="/cancun-for-couples">Cancun deals for Couples</a>) lost decades ago.</p>
 
 <h3>3. Sedona Spa Resorts — $129/Night</h3>
 <p>Sedona naturally repels children — there's no theme park, no waterslide, and the main attractions are silent hikes and energy vortexes. Wyndham offers deals from $129/night and the whole town feels like an adults-only resort. Book a couples massage at one of the famous red rock spas and you'll understand why people move here.</p>
@@ -353,19 +353,19 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <div class="protip"><strong>Pro Tip:</strong> Book your adventure excursions through local operators, not through the resort concierge. Resort-booked tours are typically 30-50% more expensive. Do your research on TripAdvisor or Google Maps reviews before you arrive and book directly.</div>
 
-<h3>1. Cancun & Riviera Maya, Mexico — From $99/Night</h3>
+<h3>1. Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) & Riviera Maya, Mexico — From $99/Night</h3>
 <p>The Yucatan Peninsula is an adventure playground. Cenote diving, zip-lining through the jungle at Xplor park, swimming with whale sharks, and exploring Mayan ruins at Tulum and Chichen Itza. BookVIP has all-inclusive deals from $99/night that give you a luxury base for daily adventures. I've done the cenote diving here and it's honestly the coolest thing I've ever experienced.</p>
 
 <h3>2. Orlando, Florida — From $79/Night</h3>
 <p>Beyond the theme parks, Orlando has airboat rides through alligator-infested swamps, indoor skydiving, go-karting at ridiculous speeds, and some of the best roller coasters on the planet. <a href="/orlando">Westgate Orlando deals</a> start at $79/night, making it the cheapest adventure base on this list. ICON Park's StarFlyer is the world's tallest swing ride and it's terrifying in the best way.</p>
 
-<h3>3. Cabo San Lucas, Mexico — From $139/Night</h3>
+<h3>3. Cabo (compare <a href="/cabo-san-lucas-all-inclusive">Cabo vacpacks All-Inclusive</a>) San Lucas, Mexico — From $139/Night</h3>
 <p>ATV tours through desert canyons, parasailing over the Sea of Cortez, deep-sea fishing for marlin, and snorkeling at Pelican Rock. Pueblo Bonito runs all-inclusive deals through BookVIP from $139/night. The Land's End arch is stunning from a jet ski, and the Pacific side has waves big enough for serious surfing.</p>
 
 <h3>4. Gatlinburg, Tennessee — From $89/Night</h3>
 <p>White water rafting on the Pigeon River, zip-lining through the Smokies, and hiking trails ranging from easy to "why did I do this." Westgate Smoky Mountain Resort has deals from $89/night and you're right at the entrance to Great Smoky Mountains National Park. The Ober Mountain tram and ski area add even more adventure options.</p>
 
-<h3>5. Puerto Vallarta, Mexico — From $119/Night</h3>
+<h3>5. Puerto Vallarta (see our <a href="/puerto-vallarta-all-inclusive">Puerto Vallarta deals All-Inclusive</a>), Mexico — From $119/Night</h3>
 <p>The Sierra Madre mountains meet the Pacific Ocean here, creating one of the most diverse adventure landscapes anywhere. Zip-lining over the canopy, ATV tours to hidden waterfalls, deep-sea fishing, parasailing, and world-class surfing at Sayulita. El Cid and Pueblo Bonito have deals through BookVIP from $119/night with all-inclusive packages.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> The cenotes in Mexico's Yucatan Peninsula are actually the surface openings of the world's largest underwater cave system, stretching over 215 miles. Scuba divers have been mapping them for decades and they're still finding new passages. Some cenotes are over 100 meters deep.</div>
@@ -439,7 +439,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>2. Williamsburg, Virginia — From $99/Night</h3>
 <p>Colonial Williamsburg is popular in summer, but visit January through March and you'll have the historic area almost to yourself. Westgate deals from $99/night include suites with fireplaces — perfect for the cooler months. The restaurants and shops are all still open, but the streets are blissfully quiet.</p>
 
-<h3>3. Branson, Missouri — From $89/Night</h3>
+<h3>3. Branson (see our <a href="/branson-for-families">Branson deals for Families</a>), Missouri — From $89/Night</h3>
 <p>September and October in Branson are magical. The Ozark foliage is stunning, the shows are still running, and the summer crowds are gone. Westgate Branson Woods has deals from $89/night with mountain views and that crisp fall air. Table Rock Lake is peacful and perfect for fishing or just sitting on a dock.</p>
 
 <h3>4. Hilton Head Island, South Carolina — From $139/Night</h3>
@@ -459,7 +459,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>8. San Antonio, Texas (Winter) — From $89/Night</h3>
 <p>December through February, San Antonio's River Walk has holiday lights instead of crowds. Wyndham deals from $89/night put you close to downtown. The missions are uncrowded, the restaurants have immediate seating, and the weather is mild compared to most of the country.</p>
 
-<h3>9. Gatlinburg, Tennessee (Late Winter) — From $79/Night</h3>
+<h3>9. Gatlinburg (browse <a href="/gatlinburg-winter">Gatlinburg vacation deals Winter</a>) (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>) (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>), Tennessee (Late Winter) — From $79/Night</h3>
 <p>February and early March in Gatlinburg are dead quiet. The Smokies have a stark, misty beauty in winter thats actually more dramatic than the summer green. Westgate deals drop to $79/night and the town's restaurants and distilleries are wide open. Skip the summer chaos entirely.</p>
 
 <h3>10. Palm Springs, California (Summer) — From $89/Night</h3>
@@ -512,7 +512,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <div class="protip"><strong>Pro Tip:</strong> Let your kids help plan the itinerary. Show them three or four options per day and let them choose. When children feel ownership over the activities, they're more engaged and retain more. Plus, it eliminates the "I don't wanna go" complaints.</div>
 
-<h3>1. Orlando, Florida — From $79/Night</h3>
+<h3>1. Orlando (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Florida — From $79/Night</h3>
 <p>Kennedy Space Center alone makes Orlando an educational goldmine. Your kids will see actual rockets, meet astronauts, and watch launch simulations that make physics exciting. Add in EPCOT's World Showcase for cultural education and the Orlando Science Center for hands-on experiments. <a href="/orlando">Westgate Orlando deals</a> from $79/night keep the cost manageable for families.</p>
 
 <h3>2. Williamsburg, Virginia — From $99/Night</h3>
@@ -524,7 +524,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>4. Washington, D.C. Area — From $109/Night</h3>
 <p>The Smithsonian museums are FREE. The National Mall, Library of Congress, and Capitol Building are all accessible. Wyndham and Marriott have resort deals in the Virginia suburbs from $109/night, putting you 30-45 minutes from the best free museums in the world. The Air and Space Museum and Natural History Museum will blow kids' minds.</p>
 
-<h3>5. Gatlinburg, Tennessee — From $89/Night</h3>
+<h3>5. Gatlinburg (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>), Tennessee — From $89/Night</h3>
 <p>Great Smoky Mountains National Park is a living classroom for ecology, biology, and geology. The park has Junior Ranger programs where kids earn badges by completing nature-based activities. Westgate deals from $89/night include resort amenities for downtime. Ripley's Aquarium in Gatlinburg is world-class and the Sugarlands Visitor Center has excellent exhibits.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> Great Smoky Mountains National Park is the most visited national park in America with over 12 million visitors per year. Its also one of the most biodiverse places in the temperate world — more tree species than all of Northern Europe combined.</div>
@@ -532,10 +532,10 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>6. St. Augustine, Florida — From $99/Night</h3>
 <p>America's oldest European settlement (founded 1565). The Castillo de San Marcos, Pirate & Treasure Museum, and St. Augustine Lighthouse give kids history lessons they'll actually remember. Florida resort deals nearby from $99/night work perfectly as a base. The alligator farm is educational AND terrifying, which kids love.</p>
 
-<h3>7. Cancun/Tulum, Mexico — From $99/Night All-Inclusive</h3>
+<h3>7. Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>)/Tulum, Mexico — From $99/Night All-Inclusive</h3>
 <p>Mayan ruins at Tulum and Chichen Itza are incredible history lessons. Xcaret eco-park combines marine biology, archaeology, and Mexican cultural performances in one place. BookVIP all-inclusive deals from $99/night include meals, so the only extra cost is excursions. Kids who visit ancient ruins develop a fascination with history that lasts.</p>
 
-<h3>8. Cocoa Beach, Florida — From $89/Night</h3>
+<h3>8. Cocoa Beach (compare <a href="/cocoa-beach-for-families">Cocoa Beach vacpacks for Families</a>), Florida — From $89/Night</h3>
 <p>Kennedy Space Center is the main attraction, but the Brevard Zoo, Sebastian Inlet State Park, and the Canaveral National Seashore add layers of marine biology and ecology education. Westgate Cocoa Beach deals from $89/night put you on the beach with science at your doorstep. Watching a rocket launch will be your kids' favorite memory ever.</p>
 
 <h3>9. San Diego, California — From $159/Night</h3>
@@ -593,7 +593,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <h3>The Cheapest Vacation Deals We Track</h3>
 
-<h3>1. Orlando, Florida — From $69/Night</h3>
+<h3>1. Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Florida — From $69/Night</h3>
 <p>Liki Tiki Village offers the cheapest deal on our entire site at $69/night for 3 nights. That's $207 total for a two-bedroom suite that sleeps six with a full kitchen, water park access, and mini-golf. <a href="/orlando">Orlando deals</a> are the best value in vacation travel because the competition between brands is fierce. Westgate Towers runs $79/night and is closer to the parks.</p>
 
 <h3>2. Branson, Missouri — From $79/Night</h3>
@@ -616,7 +616,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>7. Williamsburg, Virginia — From $99/Night</h3>
 <p>Westgate Williamsburg has 3-night deals from $99/night. Colonial Williamsburg's outdoor historic area is partially free to walk through, and Busch Gardens runs frequent discount promotions. The outlet shopping here is great too if you need to stretch your clothing budget.</p>
 
-<h3>8. Las Vegas, Nevada — From $99/Night</h3>
+<h3>8. Las Vegas (see our <a href="/las-vegas-3-night">Las Vegas deals 3-Night</a>), Nevada — From $99/Night</h3>
 <p>Wyndham and other brands run Strip-adjacent deals from $99/night. Vegas has tons of free stuff — the Bellagio fountains, volcano show at Mirage, street performers on Fremont, and people-watching that beats any paid entertainment. Just avoid the casinos if your on a tight budget (obvious but worth saying).</p>
 
 <h3>9. Mazatlan, Mexico — From $99/Night All-Inclusive</h3>
@@ -763,13 +763,13 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <h3>Vacation Deals for People Who'd Rather Stay Home</h3>
 
-<h3>1. Branson, Missouri — $79/Night, Do Nothing Edition</h3>
+<h3>1. Branson (see our <a href="/branson-for-families">Branson deals for Families</a>), Missouri — $79/Night, Do Nothing Edition</h3>
 <p>Westgate Branson Woods is basically a nicer version of your house, except it's in the mountains and someone else cleans it. Suite with a kitchen, fireplace, and a balcony overlooking the Ozarks. Cook your own food, read a book, nap whenever you want. The pools are there if you feel ambitious. You probably won't. That's fine.</p>
 
-<h3>2. Gatlinburg, Tennessee — $79/Night, Nature Without Effort</h3>
+<h3>2. Gatlinburg (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>), Tennessee — $79/Night, Nature Without Effort</h3>
 <p>Westgate Smoky Mountain Resort has suites with mountain views you can enjoy from the balcony without ever putting on shoes. The Smokies are right there if you feel like a drive, but the resort itself has enough to keep non-vacationers content — pools, hot tubs, and a grill if you feel like making burgers.</p>
 
-<h3>3. Orlando, Florida — $79/Night, Skip Everything</h3>
+<h3>3. Orlando (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Florida — $79/Night, Skip Everything</h3>
 <p><a href="/orlando">Westgate Orlando</a> resorts have lazy rivers, multiple pools, and full kitchens. You could spend four days here without going to a single theme park and have a better time than the sunburned families waiting 90 minutes for Space Mountain. The WiFi is good. Bring your laptop.</p>
 
 <h3>4. Myrtle Beach, South Carolina — $89/Night, Just the Beach</h3>
@@ -780,7 +780,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <div class="funfact"><strong>Fun Fact:</strong> A Priceline survey found that 53% of Americans say they need a "vacation from their vacation." The problem isn't vacations — it's overscheduled, overambitious trip planning. People who do less on vacation report higher satisfaction. Science supports being lazy.</div>
 
-<h3>6. Cocoa Beach, Florida — $89/Night, Beach + Space</h3>
+<h3>6. Cocoa Beach (compare <a href="/cocoa-beach-for-families">Cocoa Beach vacpacks for Families</a>), Florida — $89/Night, Beach + Space</h3>
 <p>Westgate Cocoa Beach. Beach in front. Kitchen inside. If a rocket launches while you're there, you'll see it from the beach without planning or tickets. If it doesn't, you still had a nice beach trip. Low effort, potentially spectacular, zero commitment required.</p>
 
 <h3>7. Sedona, Arizona — $129/Night, Scenic Sitting</h3>
@@ -842,19 +842,19 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <h3>Top 10 Fishing Vacation Destinations</h3>
 
-<h3>1. Orlando/Kissimmee, Florida — From $79/Night</h3>
+<h3>1. Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>)/Kissimmee, Florida — From $79/Night</h3>
 <p>Central Florida has some of the best largemouth bass fishing in the world. Lake Toho, the Butler Chain, and the St. Johns River are all within 30 minutes of <a href="/orlando">Westgate Orlando resorts</a> at $79/night. The bass here average 4-6 pounds with trophy fish over 10 pounds caught regularly. Winter and spring are the best seasons.</p>
 
 <h3>2. Branson, Missouri — From $79/Night</h3>
 <p>Table Rock Lake is a world-class bass fishery — largemouth, smallmouth, and spotted bass all thrive here. Westgate Branson Woods deals from $79/night put you 15 minutes from multiple boat ramps. The lake also has excellent walleye and crappie fishing. Spring and fall are prime seasons when the bass move shallow.</p>
 
-<h3>3. Myrtle Beach, South Carolina — From $89/Night</h3>
+<h3>3. Myrtle Beach (browse <a href="/myrtle-beach-oceanfront">Myrtle Beach vacation deals Oceanfront</a>) (more on <a href="/myrtle-beach-winter">Myrtle Beach Winter vacation deals</a>), South Carolina — From $89/Night</h3>
 <p>Inshore redfish and flounder in the salt marshes, offshore king mackerel and cobia, and pier fishing right from the boardwalk. Westgate Myrtle Beach deals from $89/night give you oceanfront lodging with fishing a short drive away. The fall run from September to November is absolutely spectacular for redfish.</p>
 
 <h3>4. Cocoa Beach, Florida — From $89/Night</h3>
 <p>The Indian River Lagoon system has redfish, snook, trout, and tarpon. Offshore, you can target sailfish, mahi, and wahoo. Westgate Cocoa Beach deals from $89/night put you right on the Atlantic. The Banana River and Mosquito Lagoon are both within 30 minutes and offer some of the best sight-fishing in the country.</p>
 
-<h3>5. Gatlinburg, Tennessee — From $89/Night</h3>
+<h3>5. Gatlinburg (browse <a href="/gatlinburg-winter">Gatlinburg vacation deals Winter</a>), Tennessee — From $89/Night</h3>
 <p>Trout fishing in the Smokies is bucket-list caliber. The national park has rainbow, brown, and brook trout in crystal-clear mountain streams. Westgate deals from $89/night. The Tuckasegee and Little River are excellent, and fly fishing in these mountains is as close to meditation as fishing gets. You dont need a park fishing license — your Tennessee license covers it.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> Florida's largemouth bass grow significantly larger than their northern counterparts due to the year-round warm weather and long growing season. The state record is 17.27 pounds, and bass over 10 pounds are caught in central Florida nearly every week during spring spawning season.</div>
@@ -923,7 +923,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <h3>Top 10 Golf Vacation Destinations</h3>
 
-<h3>1. Myrtle Beach, South Carolina — From $89/Night</h3>
+<h3>1. Myrtle Beach (more on <a href="/myrtle-beach-winter">Myrtle Beach Winter vacation deals</a>) (browse <a href="/myrtle-beach-summer">Myrtle Beach vacation deals Summer</a>), South Carolina — From $89/Night</h3>
 <p>The golf capital of America. Over 80 courses within 30 minutes of the Westgate resort, with green fees ranging from $30 to $150. Westgate Myrtle Beach deals from $89/night put you in the heart of it. TPC Myrtle Beach, Caledonia, and Tidewater are must-plays. Spring and fall are the best seasons when weather is perfect and rates are reasonable.</p>
 
 <h3>2. Scottsdale, Arizona — From $149/Night</h3>
@@ -932,7 +932,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>3. Hilton Head, South Carolina — From $139/Night</h3>
 <p>Harbour Town Golf Links hosts the PGA Tour's RBC Heritage every April. The island has over 20 courses, all beautifully maintained and scenic. HGV deals from $139/night. <a href="/hilton-head">Hilton Head</a> is quieter and more refined than Myrtle Beach — the courses are fewer but the quality is consistenly higher.</p>
 
-<h3>4. Orlando, Florida — From $79/Night</h3>
+<h3>4. Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>), Florida — From $79/Night</h3>
 <p>Over 100 golf courses within 30 minutes including Orange County National, ChampionsGate, and Shingle Creek. Westgate resorts from $79/night are the cheapest golf base on this list. Winter is prime season when northern golfers escape the cold, but the courses are playable year-round. Green fees average $50-100.</p>
 
 <h3>5. Branson, Missouri — From $89/Night</h3>
@@ -995,7 +995,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
     bluf: "Scuba diving vacations usually mean expensive dive resorts in the middle of nowhere. These vacation deals pair world-class diving with comfortable resort stays from $89/night, so your non-diving partner doesn't hate you.",
     heroImageAlt: "Scuba diver exploring a colorful coral reef with tropical fish",
     heroGradient: "from-blue-700 to-teal-400",
-    content: `<p>I got my PADI certification on a vacation deal in Cancun and it changed my life. Not in a cheesy motivational poster way, but in a "I now plan every vacation around what's underwater" way. The thing most divers don't realize is that you don't need to stay at a $300/night dive resort to access incredible diving. Some of the best dive sites in the world are a short boat ride from resorts with <a href="/deals">vacation deals</a> under $150/night.</p>
+    content: `<p>I got my PADI certification on a vacation deal in Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) (see our <a href="/cancun-summer">Cancun deals Summer</a>) and it changed my life. Not in a cheesy motivational poster way, but in a "I now plan every vacation around what's underwater" way. The thing most divers don't realize is that you don't need to stay at a $300/night dive resort to access incredible diving. Some of the best dive sites in the world are a short boat ride from resorts with <a href="/deals">vacation deals</a> under $150/night.</p>
 
 <h2>Why Resort Deals Beat Dive Lodges</h2>
 <p>Dive lodges are great if your entire travel party dives. But most of us travel with non-divers who want pools, restaurants, and things to do while we're 60 feet underwater. Resort deals solve this — your partner enjoys resort amenities while you do 2-3 dives per day. Everyone's happy, and your total cost is usually less than a dedicated dive resort.</p>
@@ -1013,7 +1013,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>3. Cabo San Lucas, Mexico — From $139/Night All-Inclusive</h3>
 <p>Cabo's Sea of Cortez (which Cousteau called "the aquarium of the world") has sea lions, manta rays, whale sharks, and hammerhead sharks. Pueblo Bonito all-inclusive deals from $139/night through BookVIP. The Cabo Pulmo marine reserve is one of the most succesful conservation stories in the ocean — fish biomass has increased 460% since protection began.</p>
 
-<h3>4. Cocoa Beach, Florida — From $89/Night</h3>
+<h3>4. Cocoa Beach (browse <a href="/cocoa-beach-summer">Cocoa Beach vacation deals Summer</a>), Florida — From $89/Night</h3>
 <p>Florida's east coast has artificial reef systems, wreck dives, and during summer months, sea turtle encounters. Westgate Cocoa Beach deals from $89/night. The charter boats out of Port Canaveral access multiple dive sites within 30 minutes. The visibility isn't Caribbean-clear but the marine life diversity is excellent.</p>
 
 <h3>5. Key West/Florida Keys — From $149/Night</h3>
@@ -1024,7 +1024,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>6. Puerto Vallarta, Mexico — From $119/Night All-Inclusive</h3>
 <p>Las Marietas Islands (the "Hidden Beach"), Los Arcos marine park, and El Morro are excellent dive sites. Visibility is best November through May. El Cid all-inclusive deals from $119/night through BookVIP. The humpback whale season (December-March) means you might hear whale songs underwater — an unforgettable experience.</p>
 
-<h3>7. Myrtle Beach, South Carolina — From $89/Night</h3>
+<h3>7. Myrtle Beach (browse <a href="/myrtle-beach-summer">Myrtle Beach vacation deals Summer</a>), South Carolina — From $89/Night</h3>
 <p>Shipwreck diving on the SS Hebe, artificial reefs, and shark tooth hunting. Not a tropical dive destination, but surpisingly productive for marine life. Westgate deals from $89/night. The water is warmest June through September with visibility around 20-40 feet. Advanced divers will enjoy the deeper offshore wrecks.</p>
 
 <h3>8. San Juan, Puerto Rico — From $129/Night</h3>
@@ -1082,7 +1082,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>1. Cocoa Beach, Florida — From $89/Night</h3>
 <p>The Indian River Lagoon has bioluminescent kayaking in summer (June-September) that is absolutly mind-blowing. The Banana River and Merritt Island National Wildlife Refuge offer manatee encounters in winter and dolphin sightings year-round. <a href="/westgate">Westgate Cocoa Beach</a> deals from $89/night put you right on the water. This is my number one kayaking destination, hands down.</p>
 
-<h3>2. Orlando/Kissimmee, Florida — From $79/Night</h3>
+<h3>2. Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>)/Kissimmee, Florida — From $79/Night</h3>
 <p>Shingle Creek (headwaters of the Everglades), Wekiva Springs, and Rock Springs Run offer crystal-clear spring-fed kayaking through lush Florida wilderness. Westgate Orlando deals from $79/night. The springs maintain 72 degrees year-round, so the water is refreshing in summer and warm in winter. Paddle past gators, turtles, and herons.</p>
 
 <h3>3. Key West/Florida Keys — From $149/Night</h3>
@@ -1105,7 +1105,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>8. Cabo San Lucas, Mexico — From $139/Night</h3>
 <p>Sea kayaking around the famous Arch of Cabo San Lucas, Lover's Beach (only accessible by water), and Pelican Rock for snorkeling. Pueblo Bonito all-inclusive deals from $139/night through BookVIP. The Sea of Cortez side has calmer conditions than the Pacific side for safer paddling. Sea lion colonies are a frequent kayak-by attraction.</p>
 
-<h3>9. Gatlinburg, Tennessee — From $89/Night</h3>
+<h3>9. Gatlinburg (browse <a href="/gatlinburg-winter">Gatlinburg vacation deals Winter</a>) (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>), Tennessee — From $89/Night</h3>
 <p>Peaceful river kayaking on the Little Pigeon River and Fontana Lake in the Smokies. Not ocean kayaking but the mountain scenery is incredible and the water is clean and refreshing. Westgate deals from $89/night. Fontana Lake is surrounded by national park land with zero development on the shoreline — its like paddling through pure wilderness.</p>
 
 <h3>10. Mazatlan, Mexico — From $109/Night All-Inclusive</h3>
@@ -1163,16 +1163,16 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>1. Sedona, Arizona — From $129/Night</h3>
 <p>Sedona is a designated International Dark Sky Community. The combination of high desert elevation (4,350 feet), low humidity, and strict light pollution ordinances creates spectacular viewing conditions. Wyndham deals from $129/night. Several local companies offer guided stargazing tours with high-powered telescopes for $50-80 per person. The red rocks under starlight are hauntingly beautiful.</p>
 
-<h3>2. Gatlinburg/Great Smokies, Tennessee — From $79/Night</h3>
+<h3>2. Gatlinburg (browse <a href="/gatlinburg-winter">Gatlinburg vacation deals Winter</a>)/Great Smokies, Tennessee — From $79/Night</h3>
 <p>Clingmans Dome in the Smokies is 6,643 feet elevation and offers some of the darkest skies in the eastern US. Westgate deals from $79/night — the cheapest stargazing base on this list. Cades Cove and Newfound Gap are also excellent viewing spots. The park hosts "Stars Over the Smokies" programs with rangers and telescopes. Fall and winter have the clearest skies.</p>
 
-<h3>3. Branson, Missouri — From $79/Night</h3>
+<h3>3. Branson (browse <a href="/branson-winter">Branson vacation deals Winter</a>), Missouri — From $79/Night</h3>
 <p>The Ozarks have surprisingly dark skies once you get away from Branson's main strip. Westgate Branson Woods is positioned in the mountains away from the worst light pollution. Deals from $79/night. Table Rock Lake after dark, or any pull-off along Highway 76 heading south, offers views you simply cannot get in a city. The fall sky with Orion rising is spectacular.</p>
 
 <h3>4. Palm Springs/Joshua Tree, California — From $119/Night</h3>
 <p>Joshua Tree National Park is a world-renowned dark sky destination, and it's only 45 minutes from Palm Springs. Wyndham deals from $119/night. The desert air is dry and clear, elevation is moderate, and the bizarre Joshua Tree landscape under starlight looks like another planet. Star parties happen regularly at the park's campgrounds.</p>
 
-<h3>5. Cabo San Lucas, Mexico — From $139/Night</h3>
+<h3>5. Cabo (compare <a href="/cabo-san-lucas-all-inclusive">Cabo vacpacks All-Inclusive</a>) (more on <a href="/cabo-san-lucas-winter">Cabo Winter vacation deals</a>) San Lucas, Mexico — From $139/Night</h3>
 <p>The Baja California desert has some of the darkest skies accessable from a resort destination. Once you get away from the resort zone's lights, the viewing is phenomenal. Pueblo Bonito Sunset Beach faces the Pacific with minimal light pollution to the west and south. All-inclusive deals from $139/night through BookVIP. Stargazing from your balcony with the ocean below is pure magic.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> In a truly dark sky location, you can see approximately 4,500 stars with the naked eye. In a typical US suburb, you see about 200-500 stars. In a major city, you might see 10-20. The difference between city viewing and dark sky viewing is a 100x improvement in visible stars.</div>
@@ -1241,7 +1241,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <h3>Top Fall Foliage Destinations</h3>
 
-<h3>1. Gatlinburg, Tennessee (Great Smokies) — From $89/Night</h3>
+<h3>1. Gatlinburg (more on <a href="/gatlinburg-fall">Gatlinburg Fall vacation deals</a>) (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>), Tennessee (Great Smokies) — From $89/Night</h3>
 <p>The undisputed champion of fall foliage with resort deals. Over 100 native tree species create a quilt of red, orange, gold, and burgundy across the mountains. Westgate Smoky Mountain Resort deals from $89/night (prices bump slightly from the $79 off-season rate during peak foliage). Drive the Newfound Gap Road, Clingmans Dome Road, or Cades Cove Loop for jaw-dropping color. Mid-to-late October is prime time.</p>
 
 <h3>2. Branson, Missouri (Ozarks) — From $89/Night</h3>
@@ -1264,7 +1264,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>7. San Antonio, Texas (Hill Country) — From $89/Night</h3>
 <p>Texas Hill Country has fall color? Yes, and it's gorgeous. Lost Maples State Natural Area (90 minutes from San Antonio) has bigtooth maples that turn brilliant red and orange in late October through mid-November. Wyndham deals from $89/night. Combine the foliage with Hill Country wineries and barbecue for a perfect fall getaway.</p>
 
-<h3>8. Orlando/Central Florida — From $79/Night</h3>
+<h3>8. Orlando (more on <a href="/orlando-fall">Orlando Fall vacation deals</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>)/Central Florida — From $79/Night</h3>
 <p>Florida doesn't have traditional foliage, but the fall season brings the best weather (cooler, dry) and lowest prices. Westgate Orlando from $79/night. Bok Tower Gardens and Leu Gardens have seasonal color. The real appeal is enjoying Florida's outdoor activities in perfect weather while northern destinations are transitioning to cold and gray. It's reverse foliage tourism.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> For photography, the best fall foliage shots happen during "golden hour" — the first hour after sunrise and the last hour before sunset. The low-angle light makes the colors glow even more intensely. Overcast days also produce vivid color by eliminating harsh shadows.</div>
@@ -1312,7 +1312,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h2>Why Snowbird Season Has the Best Deals</h2>
 <p>It seems counterintuitive — winter is "peak season" in Florida and Arizona, so shouldn't prices be higher? For standard hotels, yes. But timeshare promotional deals actually get more competitive during snowbird season because every brand is fighting for the same demographic. More competition means better deals, more availability, and frequent bonus incentives like resort credits and free breakfasts.</p>
 
-<div class="protip"><strong>Pro Tip:</strong> Stack multiple vacation deals to create a snowbird-length escape. Book a 4-night deal in Orlando, then a 4-night deal in Myrtle Beach, then a 3-night deal in Cocoa Beach. Eleven nights at three different resorts for around $1,000 total. You attend presentations at each property, but you're seeing new places and saving thousands.</div>
+<div class="protip"><strong>Pro Tip:</strong> Stack multiple vacation deals to create a snowbird-length escape. Book a 4-night deal in Orlando (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (compare <a href="/orlando-christmas">Orlando vacpacks Christmas</a>) (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>), then a 4-night deal in Myrtle Beach (more on <a href="/myrtle-beach-winter">Myrtle Beach Winter vacation deals</a>), then a 3-night deal in Cocoa Beach. Eleven nights at three different resorts for around $1,000 total. You attend presentations at each property, but you're seeing new places and saving thousands.</div>
 
 <h3>Top Snowbird Destinations</h3>
 
@@ -1397,7 +1397,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <h3>Top Spring Flower Destinations</h3>
 
-<h3>1. Gatlinburg (Great Smokies), Tennessee — From $89/Night</h3>
+<h3>1. Gatlinburg (see our <a href="/gatlinburg-shoulder-season">Gatlinburg deals Shoulder Season</a>) (browse <a href="/gatlinburg-winter">Gatlinburg vacation deals Winter</a>) (Great Smokies), Tennessee — From $89/Night</h3>
 <p>The Smokies have the most diverse wildflower display east of the Rockies. Over 1,500 flowering plant species create carpets of color from March through May. Trillium, flame azalea, mountain laurel, and rhododendron cover the mountainsides. Westgate deals from $89/night. The Spring Wildflower Pilgrimage in April is a week-long festival with guided hikes and workshops.</p>
 
 <h3>2. Savannah, Georgia — From $109/Night</h3>
@@ -1409,7 +1409,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>4. San Antonio, Texas — From $89/Night</h3>
 <p>Texas wildflower season is legendary. Bluebonnets, Indian paintbrush, and black-eyed Susans blanket the Hill Country roadsides from late March through mid-April. Wyndham deals from $89/night. The drive from San Antonio to Fredericksburg along Highway 290 during bluebonnet season is one of the most beautiful road trips in America. People literally pull over every half mile for photos.</p>
 
-<h3>5. Orlando, Florida — From $79/Night</h3>
+<h3>5. Orlando (see our <a href="/orlando-shoulder-season">Orlando deals Shoulder Season</a>) (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>), Florida — From $79/Night</h3>
 <p>Bok Tower Gardens, Harry P. Leu Gardens, and the Epcot International Flower & Garden Festival make Orlando a spring flower destination. Westgate deals from $79/night — the cheapest spring flower base. Bok Tower's azalea gardens peak in February-March, and the EPCOT festival runs March through July with stunning topiary and garden displays.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> The Great Smoky Mountains have more native tree and plant species than all of Europe combined. The park is sometimes called the "wildflower national park" because its biodiversity is unmatched in the temperate world. Synchronous fireflies in May-June add bioluminescent magic to the flower season.</div>
@@ -1472,10 +1472,10 @@ export const vacationIdeas3Posts: BlogPost[] = [
 
 <h3>Top National Park Destinations With Resort Deals</h3>
 
-<h3>1. Great Smoky Mountains NP — Gatlinburg, TN from $89/Night</h3>
+<h3>1. Great Smoky Mountains NP — Gatlinburg (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>), TN from $89/Night</h3>
 <p>The most visited national park in America (12+ million visitors annually) and it's FREE to enter — no admission fee at all. Westgate Smoky Mountain Resort is literally at the park entrance, 15 minutes from major trailheads and scenic drives. Deals from $89/night. Clingmans Dome, Cades Cove, Roaring Fork Motor Nature Trail, and 800+ miles of trails await. This is the best national park + resort deal combo that exists.</p>
 
-<h3>2. Everglades NP — Orlando/Miami, FL from $79/Night</h3>
+<h3>2. Everglades NP — Orlando (see our <a href="/orlando-for-families">Orlando deals for Families</a>)/Miami, FL from $79/Night</h3>
 <p>The Everglades are about 3.5 hours south of <a href="/orlando">Orlando resort deals</a> from $79/night, making it a perfect day trip. Or book a Florida Keys deal from $149/night and access the park from the south entrance. The Everglades are genuinly one of the most unique ecosystems on Earth — alligators, manatees, flamingos, and the largest mangrove forest in the Western Hemisphere.</p>
 
 <h3>3. Joshua Tree NP — Palm Springs, CA from $119/Night</h3>
@@ -1501,7 +1501,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>9. Channel Islands NP — Ventura/Santa Barbara, CA from $159/Night</h3>
 <p>Called "North America's Galapagos," the Channel Islands have endemic species found nowhere else on Earth. Accessible by boat from Ventura (about 90 minutes from resort deals). Marriott and Wyndham properties in the area from $159/night. Kayaking through sea caves, hiking on windswept islands, and watching whales are the highlights.</p>
 
-<h3>10. Mammoth Cave NP — Branson, MO from $79/Night</h3>
+<h3>10. Mammoth Cave NP — Branson (see our <a href="/branson-for-families">Branson deals for Families</a>), MO from $79/Night</h3>
 <p>The world's longest known cave system (400+ miles mapped) is about 4 hours from Westgate Branson deals from $79/night. Cave tours range from easy walking to crawling through tight passages. The park is free to enter and cave tour tickets are $6-60 depending on the route. It's an incredible educational experience for families.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Arrive at popular national parks before 8 AM or after 4 PM to avoid the worst crowds and parking issues. Midday is the busiest time. Early mornings also have the best wildlife viewing and photography light. Pack your park gear the night before so you can leave the resort early.</div>
@@ -1573,7 +1573,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>6. Puerto Vallarta, Mexico — From $119/Night All-Inclusive</h3>
 <p>The Sierra Madre mountains behind Puerto Vallarta have natural hot springs accessible by ATV or horseback tour. The most popular are the Rio Caliente hot springs in the Jalisco highlands. BookVIP has El Cid and Pueblo Bonito all-inclusive deals from $119/night. Combining a beach resort with mountain hot springs is the ultimate relaxation combo.</p>
 
-<h3>7. Gatlinburg, Tennessee — From $89/Night</h3>
+<h3>7. Gatlinburg (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>), Tennessee — From $89/Night</h3>
 <p>While the Smokies don't have natural hot springs, the resort scene around Gatlinburg has embraced the hot spring concept with mineral-infused soaking facilities and hot tub suites. Westgate deals from $89/night. Several spa facilities in the area offer mineral bath experiences. The mountain setting adds atmosphere even if the water isn't geothermally heated.</p>
 
 <h3>8. Scottsdale, Arizona — From $149/Night</h3>
@@ -1582,7 +1582,7 @@ export const vacationIdeas3Posts: BlogPost[] = [
 <h3>9. Mazatlan, Mexico — From $109/Night All-Inclusive</h3>
 <p>The Sierra Madre Occidental mountains near Mazatlan have thermal springs accessible through guided eco-tours. El Cid all-inclusive deals from $109/night. Combine beach days at the resort with a mountain hot spring excursion for the ultimate relaxation vacation. The springs are less commercialized than US options, giving a more natural experience.</p>
 
-<h3>10. Orlando, Florida (De Leon Springs) — From $79/Night</h3>
+<h3>10. Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (browse <a href="/orlando-spring">Orlando vacation deals Spring</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>), Florida (De Leon Springs) — From $79/Night</h3>
 <p>De Leon Springs State Park (about an hour north of Orlando) has a natural spring-fed swimming area that maintains 72°F year-round. Not hot springs per se, but the mineral water is refreshing and the Old Spanish Sugar Mill restaurant lets you cook your own pancakes on griddles built into the tables. Westgate Orlando deals from $79/night. Its a fun, quirky day trip that combines nature with a unique dining experience.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Visit hot springs during cooler months (October-March) for the best experience. Soaking in 104°F water when the air is 40°F creates magical steam effects and makes the heat feel incredible. Summer soaking can feel uncomfortably hot. Winter is peak hot spring season for a reason.</div>

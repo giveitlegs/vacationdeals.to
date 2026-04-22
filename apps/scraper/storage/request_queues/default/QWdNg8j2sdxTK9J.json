@@ -1,0 +1,9 @@
+{
+	"id": "QWdNg8j2sdxTK9J",
+	"json": "{\"id\":\"QWdNg8j2sdxTK9J\",\"url\":\"https://www.westgatereservations.com/specials/florida-orlando-holiday-packages/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/florida-orlando-holiday-packages/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/florida-orlando-holiday-packages\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:02.516Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/florida-orlando-holiday-packages",
+	"url": "https://www.westgatereservations.com/specials/florida-orlando-holiday-packages/"
+}

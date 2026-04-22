@@ -131,6 +131,33 @@ type SlugType =
   | { type: "sublander"; data: SublanderData }
   | { type: "rate-recap-brand"; data: RateRecapBrandData };
 
+// Long-form brand slug aliases → canonical short slug.
+// Users and external links often reference the full brand name; resolve
+// transparently to our stored canonical slug rather than 404.
+const BRAND_ALIASES: Record<string, string> = {
+  "hilton-grand-vacations": "hgv",
+  "holiday-inn-club-vacations": "holiday-inn",
+  "club-wyndham": "wyndham",
+  "marriott-vacation-club": "marriott",
+  "hyatt-vacation-club": "hyatt",
+  "hyatt-residence-club": "hyatt",
+  "bluegreen-vacations": "bluegreen",
+  "westgate-resorts": "westgate",
+  "westgate-reservations": "westgate",
+};
+
+// Regional landing aliases — consolidate broad terms onto our best-fit city.
+// `/caribbean` is a common query surface but we don't have a multi-island page;
+// point it at Cancun (our deepest Caribbean-region inventory).
+const REGIONAL_ALIASES: Record<string, string> = {
+  caribbean: "cancun",
+  mexico: "cancun",
+  "south-florida": "miami",
+  "the-strip": "las-vegas",
+  "disney-area": "orlando",
+  "smoky-mountains": "gatlinburg",
+};
+
 async function resolveSlug(slug: string): Promise<SlugType | null> {
   // 0. Check rate-recap-{brand} pattern
   if (slug.startsWith("rate-recap-")) {
@@ -139,6 +166,44 @@ async function resolveSlug(slug: string): Promise<SlugType | null> {
     const brand = dbBrands.find((b) => b.slug === brandSlug);
     if (brand) {
       return { type: "rate-recap-brand", data: { brandSlug: brand.slug, brandName: brand.name } };
+    }
+  }
+
+  // 0b. Brand long-form aliases — transparent resolve to canonical short slug
+  if (BRAND_ALIASES[slug]) {
+    const canonicalBrand = BRAND_ALIASES[slug];
+    const dbBrands = await getAllBrandSlugs();
+    const brand = dbBrands.find((b) => b.slug === canonicalBrand);
+    if (brand) {
+      return {
+        type: "brand",
+        data: {
+          slug: brand.slug,
+          name: brand.name,
+          type: brand.type,
+          description: brand.description || `Vacation deals from ${brand.name}.`,
+          website: brand.website || undefined,
+        },
+      };
+    }
+  }
+
+  // 0c. Regional aliases — resolve to primary destination in that region
+  if (REGIONAL_ALIASES[slug]) {
+    const canonicalDest = REGIONAL_ALIASES[slug];
+    const dbDests = await getAllDestinationSlugs();
+    const dest = dbDests.find((d) => d.slug === canonicalDest);
+    if (dest) {
+      return {
+        type: "destination",
+        data: {
+          slug: dest.slug,
+          name: dest.city,
+          state: dest.state || "",
+          region: dest.region || "",
+          description: `Vacation deals in ${dest.city}, ${dest.state || dest.country}.`,
+        },
+      };
     }
   }
 
@@ -603,13 +668,18 @@ async function DestinationPage({
             makesOffer: {
               "@type": "AggregateOffer",
               lowPrice: cheapest,
+              highPrice: Math.max(...deals.map((d) => d.price)),
               priceCurrency: "USD",
               offerCount: totalDeals,
+              priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
               offers: deals.slice(0, 5).map((d) => ({
                 "@type": "Offer",
                 name: d.title,
                 price: d.price,
                 priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+                priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+                url: `https://vacationdeals.to/deals/${d.slug}`,
                 seller: { "@type": "Organization", name: d.brandName },
               })),
             },

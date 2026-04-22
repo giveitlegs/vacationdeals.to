@@ -1,0 +1,9 @@
+{
+	"id": "JKXpevRASrTGMqa",
+	"json": "{\"id\":\"JKXpevRASrTGMqa\",\"url\":\"https://www.westgatereservations.com/specials/4-days-3-nights-3-hhn-tickets/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/4-days-3-nights-3-hhn-tickets/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/4-days-3-nights-3-hhn-tickets\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.720Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/4-days-3-nights-3-hhn-tickets",
+	"url": "https://www.westgatereservations.com/specials/4-days-3-nights-3-hhn-tickets/"
+}

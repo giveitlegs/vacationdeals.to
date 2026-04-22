@@ -124,6 +124,8 @@ export function SublanderPage({
           "url": `https://vacationdeals.to/deals/${d.slug}`,
           "seller": { "@type": "Organization", "name": d.brandName },
           "availability": "https://schema.org/InStock",
+          // 30-day soft validity unless deal has an explicit expiration
+          "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
         },
       })),
     });

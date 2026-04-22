@@ -1,0 +1,9 @@
+{
+	"id": "MmiEdW1kTenXqhE",
+	"json": "{\"id\":\"MmiEdW1kTenXqhE\",\"url\":\"https://www.westgatereservations.com/specials/cheap-branson-vacation-packages-two/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/cheap-branson-vacation-packages-two/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/cheap-branson-vacation-packages-two\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:01.104Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/cheap-branson-vacation-packages-two",
+	"url": "https://www.westgatereservations.com/specials/cheap-branson-vacation-packages-two/"
+}

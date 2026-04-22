@@ -1,0 +1,9 @@
+{
+	"id": "2V1iAShS8MwevsM",
+	"json": "{\"id\":\"2V1iAShS8MwevsM\",\"url\":\"https://www.westgatereservations.com/specials/4-day-3-night-a9d0/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/4-day-3-night-a9d0/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/4-day-3-night-a9d0\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:05.945Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/4-day-3-night-a9d0",
+	"url": "https://www.westgatereservations.com/specials/4-day-3-night-a9d0/"
+}

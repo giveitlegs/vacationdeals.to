@@ -1,0 +1,9 @@
+{
+	"id": "oG4bwRwyGmNhM26",
+	"json": "{\"id\":\"oG4bwRwyGmNhM26\",\"url\":\"https://www.westgatereservations.com/specials/4days-3nights-myrtle-beach/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/4days-3nights-myrtle-beach/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/4days-3nights-myrtle-beach\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:02.703Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/4days-3nights-myrtle-beach",
+	"url": "https://www.westgatereservations.com/specials/4days-3nights-myrtle-beach/"
+}

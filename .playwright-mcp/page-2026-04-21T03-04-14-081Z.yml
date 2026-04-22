@@ -1,0 +1,1139 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - img [ref=e5]
+      - text: VacPack Rate Ticker
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - link "$49 · Westgate Events · 3N/4D · Three-night stay at …" [ref=e12] [cursor=pointer]:
+          - /url: /deals/westgate-events-branson-3-night-49.00
+          - generic [ref=e13]: $49
+          - generic [ref=e14]: ·
+          - generic [ref=e15]: Westgate Events
+          - generic [ref=e16]: ·
+          - generic [ref=e17]: 3N/4D
+          - generic [ref=e18]: ·
+          - generic [ref=e19]: Three-night stay at …
+        - generic [ref=e20]:
+          - img [ref=e21]
+          - link "$49 · GoVIP · 3N/4D · Three-night stay at …" [ref=e25] [cursor=pointer]:
+            - /url: /deals/govip-various-3-night-149
+            - generic [ref=e26]: $49
+            - generic [ref=e27]: ·
+            - generic [ref=e28]: GoVIP
+            - generic [ref=e29]: ·
+            - generic [ref=e30]: 3N/4D
+            - generic [ref=e31]: ·
+            - generic [ref=e32]: Three-night stay at …
+        - generic [ref=e33]:
+          - img [ref=e34]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e37] [cursor=pointer]:
+            - /url: /deals/vacationvip-myrtle-beach-3-night-59
+            - generic [ref=e38]: $59
+            - generic [ref=e39]: ·
+            - generic [ref=e40]: VacationVIP
+            - generic [ref=e41]: ·
+            - generic [ref=e42]: 3N/4D
+            - generic [ref=e43]: ·
+            - generic [ref=e44]: 4 Days / 3 Nights
+        - generic [ref=e45]:
+          - img [ref=e46]
+          - link "$59 · Westgate · 3N/4D · 30,000+ sq ft Sports…" [ref=e51] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-3-night-59
+            - generic [ref=e52]: $59
+            - generic [ref=e53]: ·
+            - generic [ref=e54]: Westgate
+            - generic [ref=e55]: ·
+            - generic [ref=e56]: 3N/4D
+            - generic [ref=e57]: ·
+            - generic [ref=e58]: 30,000+ sq ft Sports…
+        - generic [ref=e59]:
+          - img [ref=e60]
+          - link "$59 · Westgate · 3N/4D · Bonus! $50 Gift Card" [ref=e66] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-3-night-59
+            - generic [ref=e67]: $59
+            - generic [ref=e68]: ·
+            - generic [ref=e69]: Westgate
+            - generic [ref=e70]: ·
+            - generic [ref=e71]: 3N/4D
+            - generic [ref=e72]: ·
+            - generic [ref=e73]: Bonus! $50 Gift Card
+        - generic [ref=e74]:
+          - img [ref=e75]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e78] [cursor=pointer]:
+            - /url: /deals/vacationvip-orlando-3-night-59
+            - generic [ref=e79]: $59
+            - generic [ref=e80]: ·
+            - generic [ref=e81]: VacationVIP
+            - generic [ref=e82]: ·
+            - generic [ref=e83]: 3N/4D
+            - generic [ref=e84]: ·
+            - generic [ref=e85]: 4 Days / 3 Nights
+        - generic [ref=e86]:
+          - img [ref=e87]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e89] [cursor=pointer]:
+            - /url: /deals/vacationvip-gatlinburg-3-night-59
+            - generic [ref=e90]: $59
+            - generic [ref=e91]: ·
+            - generic [ref=e92]: VacationVIP
+            - generic [ref=e93]: ·
+            - generic [ref=e94]: 3N/4D
+            - generic [ref=e95]: ·
+            - generic [ref=e96]: 4 Days / 3 Nights
+        - generic [ref=e97]:
+          - img [ref=e98]
+          - link "$59 · Westgate · 2N/3D · 2 Wild Bear Falls Ti…" [ref=e102] [cursor=pointer]:
+            - /url: /deals/westgate-gatlinburg-2-night-59
+            - generic [ref=e103]: $59
+            - generic [ref=e104]: ·
+            - generic [ref=e105]: Westgate
+            - generic [ref=e106]: ·
+            - generic [ref=e107]: 2N/3D
+            - generic [ref=e108]: ·
+            - generic [ref=e109]: 2 Wild Bear Falls Ti…
+        - generic [ref=e110]:
+          - img [ref=e111]
+          - link "$59 · Westgate · 3N/4D · Resort close to Silv…" [ref=e114] [cursor=pointer]:
+            - /url: /deals/westgate-branson-3-night-59
+            - generic [ref=e115]: $59
+            - generic [ref=e116]: ·
+            - generic [ref=e117]: Westgate
+            - generic [ref=e118]: ·
+            - generic [ref=e119]: 3N/4D
+            - generic [ref=e120]: ·
+            - generic [ref=e121]: Resort close to Silv…
+        - generic [ref=e122]:
+          - img [ref=e123]
+          - link "$59 · Westgate · 3N/4D · Oceanfront resort cl…" [ref=e128] [cursor=pointer]:
+            - /url: /deals/westgate-myrtle-beach-3-night-59
+            - generic [ref=e129]: $59
+            - generic [ref=e130]: ·
+            - generic [ref=e131]: Westgate
+            - generic [ref=e132]: ·
+            - generic [ref=e133]: 3N/4D
+            - generic [ref=e134]: ·
+            - generic [ref=e135]: Oceanfront resort cl…
+        - generic [ref=e136]:
+          - img [ref=e137]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e143] [cursor=pointer]:
+            - /url: /deals/vacationvip-daytona-beach-3-night-59
+            - generic [ref=e144]: $59
+            - generic [ref=e145]: ·
+            - generic [ref=e146]: VacationVIP
+            - generic [ref=e147]: ·
+            - generic [ref=e148]: 3N/4D
+            - generic [ref=e149]: ·
+            - generic [ref=e150]: 4 Days / 3 Nights
+        - generic [ref=e151]:
+          - img [ref=e152]
+          - link "$59 · Westgate · 2N/3D · Luxury Studio Suite" [ref=e155] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-59
+            - generic [ref=e156]: $59
+            - generic [ref=e157]: ·
+            - generic [ref=e158]: Westgate
+            - generic [ref=e159]: ·
+            - generic [ref=e160]: 2N/3D
+            - generic [ref=e161]: ·
+            - generic [ref=e162]: Luxury Studio Suite
+        - generic [ref=e163]:
+          - img [ref=e164]
+          - link "$59 · Westgate · 3N/4D · Travel between 1/2 -…" [ref=e166] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-59
+            - generic [ref=e167]: $59
+            - generic [ref=e168]: ·
+            - generic [ref=e169]: Westgate
+            - generic [ref=e170]: ·
+            - generic [ref=e171]: 3N/4D
+            - generic [ref=e172]: ·
+            - generic [ref=e173]: Travel between 1/2 -…
+        - generic [ref=e174]:
+          - img [ref=e175]
+          - link "$79 · Westgate · 2N/3D · 30,000+ sq ft Sports…" [ref=e179] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-2-night-79
+            - generic [ref=e180]: $79
+            - generic [ref=e181]: ·
+            - generic [ref=e182]: Westgate
+            - generic [ref=e183]: ·
+            - generic [ref=e184]: 2N/3D
+            - generic [ref=e185]: ·
+            - generic [ref=e186]: 30,000+ sq ft Sports…
+        - generic [ref=e187]:
+          - img [ref=e188]
+          - link "$79 · Westgate · 2N/3D · 3 Days / 2 Nights" [ref=e191] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-2-night-79
+            - generic [ref=e192]: $79
+            - generic [ref=e193]: ·
+            - generic [ref=e194]: Westgate
+            - generic [ref=e195]: ·
+            - generic [ref=e196]: 2N/3D
+            - generic [ref=e197]: ·
+            - generic [ref=e198]: 3 Days / 2 Nights
+        - generic [ref=e199]:
+          - img [ref=e200]
+          - link "$79 · Westgate Events · 3N/4D · 3 nights at Westgate…" [ref=e205] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-3-night-79
+            - generic [ref=e206]: $79
+            - generic [ref=e207]: ·
+            - generic [ref=e208]: Westgate Events
+            - generic [ref=e209]: ·
+            - generic [ref=e210]: 3N/4D
+            - generic [ref=e211]: ·
+            - generic [ref=e212]: 3 nights at Westgate…
+        - generic [ref=e213]:
+          - img [ref=e214]
+          - link "$79 · Westgate · 2N/3D · Top Orlando Deal!" [ref=e220] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-79
+            - generic [ref=e221]: $79
+            - generic [ref=e222]: ·
+            - generic [ref=e223]: Westgate
+            - generic [ref=e224]: ·
+            - generic [ref=e225]: 2N/3D
+            - generic [ref=e226]: ·
+            - generic [ref=e227]: Top Orlando Deal!
+        - generic [ref=e228]:
+          - img [ref=e229]
+          - link "$79 · Westgate Events · 2N/3D · 2 nights at Westgate…" [ref=e232] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-2-night-99.00
+            - generic [ref=e233]: $79
+            - generic [ref=e234]: ·
+            - generic [ref=e235]: Westgate Events
+            - generic [ref=e236]: ·
+            - generic [ref=e237]: 2N/3D
+            - generic [ref=e238]: ·
+            - generic [ref=e239]: 2 nights at Westgate…
+        - generic [ref=e240]:
+          - img [ref=e241]
+          - link "$79 · Westgate · 3N/4D · 4 days / 3 nights" [ref=e243] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-79
+            - generic [ref=e244]: $79
+            - generic [ref=e245]: ·
+            - generic [ref=e246]: Westgate
+            - generic [ref=e247]: ·
+            - generic [ref=e248]: 3N/4D
+            - generic [ref=e249]: ·
+            - generic [ref=e250]: 4 days / 3 nights
+        - generic [ref=e251]:
+          - img [ref=e252]
+          - link "$79 · Westgate · 2N/3D · Spacious Accommodati…" [ref=e256] [cursor=pointer]:
+            - /url: /deals/westgate-williamsburg-2-night-79
+            - generic [ref=e257]: $79
+            - generic [ref=e258]: ·
+            - generic [ref=e259]: Westgate
+            - generic [ref=e260]: ·
+            - generic [ref=e261]: 2N/3D
+            - generic [ref=e262]: ·
+            - generic [ref=e263]: Spacious Accommodati…
+        - img [ref=e264]
+      - generic [ref=e267]:
+        - link [ref=e269] [cursor=pointer]:
+          - /url: /deals/westgate-events-branson-3-night-49.00
+          - generic [ref=e270]: $49
+          - generic [ref=e271]: ·
+          - generic [ref=e272]: Westgate Events
+          - generic [ref=e273]: ·
+          - generic [ref=e274]: 3N/4D
+          - generic [ref=e275]: ·
+          - generic [ref=e276]: Three-night stay at …
+        - generic [ref=e277]:
+          - img [ref=e278]
+          - link [ref=e282] [cursor=pointer]:
+            - /url: /deals/govip-various-3-night-149
+            - generic [ref=e283]: $49
+            - generic [ref=e284]: ·
+            - generic [ref=e285]: GoVIP
+            - generic [ref=e286]: ·
+            - generic [ref=e287]: 3N/4D
+            - generic [ref=e288]: ·
+            - generic [ref=e289]: Three-night stay at …
+        - generic [ref=e290]:
+          - img [ref=e291]
+          - link [ref=e294] [cursor=pointer]:
+            - /url: /deals/vacationvip-myrtle-beach-3-night-59
+            - generic [ref=e295]: $59
+            - generic [ref=e296]: ·
+            - generic [ref=e297]: VacationVIP
+            - generic [ref=e298]: ·
+            - generic [ref=e299]: 3N/4D
+            - generic [ref=e300]: ·
+            - generic [ref=e301]: 4 Days / 3 Nights
+        - generic [ref=e302]:
+          - img [ref=e303]
+          - link [ref=e308] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-3-night-59
+            - generic [ref=e309]: $59
+            - generic [ref=e310]: ·
+            - generic [ref=e311]: Westgate
+            - generic [ref=e312]: ·
+            - generic [ref=e313]: 3N/4D
+            - generic [ref=e314]: ·
+            - generic [ref=e315]: 30,000+ sq ft Sports…
+        - generic [ref=e316]:
+          - img [ref=e317]
+          - link [ref=e323] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-3-night-59
+            - generic [ref=e324]: $59
+            - generic [ref=e325]: ·
+            - generic [ref=e326]: Westgate
+            - generic [ref=e327]: ·
+            - generic [ref=e328]: 3N/4D
+            - generic [ref=e329]: ·
+            - generic [ref=e330]: Bonus! $50 Gift Card
+        - generic [ref=e331]:
+          - img [ref=e332]
+          - link [ref=e335] [cursor=pointer]:
+            - /url: /deals/vacationvip-orlando-3-night-59
+            - generic [ref=e336]: $59
+            - generic [ref=e337]: ·
+            - generic [ref=e338]: VacationVIP
+            - generic [ref=e339]: ·
+            - generic [ref=e340]: 3N/4D
+            - generic [ref=e341]: ·
+            - generic [ref=e342]: 4 Days / 3 Nights
+        - generic [ref=e343]:
+          - img [ref=e344]
+          - link [ref=e346] [cursor=pointer]:
+            - /url: /deals/vacationvip-gatlinburg-3-night-59
+            - generic [ref=e347]: $59
+            - generic [ref=e348]: ·
+            - generic [ref=e349]: VacationVIP
+            - generic [ref=e350]: ·
+            - generic [ref=e351]: 3N/4D
+            - generic [ref=e352]: ·
+            - generic [ref=e353]: 4 Days / 3 Nights
+        - generic [ref=e354]:
+          - img [ref=e355]
+          - link [ref=e359] [cursor=pointer]:
+            - /url: /deals/westgate-gatlinburg-2-night-59
+            - generic [ref=e360]: $59
+            - generic [ref=e361]: ·
+            - generic [ref=e362]: Westgate
+            - generic [ref=e363]: ·
+            - generic [ref=e364]: 2N/3D
+            - generic [ref=e365]: ·
+            - generic [ref=e366]: 2 Wild Bear Falls Ti…
+        - generic [ref=e367]:
+          - img [ref=e368]
+          - link [ref=e371] [cursor=pointer]:
+            - /url: /deals/westgate-branson-3-night-59
+            - generic [ref=e372]: $59
+            - generic [ref=e373]: ·
+            - generic [ref=e374]: Westgate
+            - generic [ref=e375]: ·
+            - generic [ref=e376]: 3N/4D
+            - generic [ref=e377]: ·
+            - generic [ref=e378]: Resort close to Silv…
+        - generic [ref=e379]:
+          - img [ref=e380]
+          - link [ref=e385] [cursor=pointer]:
+            - /url: /deals/westgate-myrtle-beach-3-night-59
+            - generic [ref=e386]: $59
+            - generic [ref=e387]: ·
+            - generic [ref=e388]: Westgate
+            - generic [ref=e389]: ·
+            - generic [ref=e390]: 3N/4D
+            - generic [ref=e391]: ·
+            - generic [ref=e392]: Oceanfront resort cl…
+        - generic [ref=e393]:
+          - img [ref=e394]
+          - link [ref=e400] [cursor=pointer]:
+            - /url: /deals/vacationvip-daytona-beach-3-night-59
+            - generic [ref=e401]: $59
+            - generic [ref=e402]: ·
+            - generic [ref=e403]: VacationVIP
+            - generic [ref=e404]: ·
+            - generic [ref=e405]: 3N/4D
+            - generic [ref=e406]: ·
+            - generic [ref=e407]: 4 Days / 3 Nights
+        - generic [ref=e408]:
+          - img [ref=e409]
+          - link [ref=e412] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-59
+            - generic [ref=e413]: $59
+            - generic [ref=e414]: ·
+            - generic [ref=e415]: Westgate
+            - generic [ref=e416]: ·
+            - generic [ref=e417]: 2N/3D
+            - generic [ref=e418]: ·
+            - generic [ref=e419]: Luxury Studio Suite
+        - generic [ref=e420]:
+          - img [ref=e421]
+          - link [ref=e423] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-59
+            - generic [ref=e424]: $59
+            - generic [ref=e425]: ·
+            - generic [ref=e426]: Westgate
+            - generic [ref=e427]: ·
+            - generic [ref=e428]: 3N/4D
+            - generic [ref=e429]: ·
+            - generic [ref=e430]: Travel between 1/2 -…
+        - generic [ref=e431]:
+          - img [ref=e432]
+          - link [ref=e436] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-2-night-79
+            - generic [ref=e437]: $79
+            - generic [ref=e438]: ·
+            - generic [ref=e439]: Westgate
+            - generic [ref=e440]: ·
+            - generic [ref=e441]: 2N/3D
+            - generic [ref=e442]: ·
+            - generic [ref=e443]: 30,000+ sq ft Sports…
+        - generic [ref=e444]:
+          - img [ref=e445]
+          - link [ref=e448] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-2-night-79
+            - generic [ref=e449]: $79
+            - generic [ref=e450]: ·
+            - generic [ref=e451]: Westgate
+            - generic [ref=e452]: ·
+            - generic [ref=e453]: 2N/3D
+            - generic [ref=e454]: ·
+            - generic [ref=e455]: 3 Days / 2 Nights
+        - generic [ref=e456]:
+          - img [ref=e457]
+          - link [ref=e462] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-3-night-79
+            - generic [ref=e463]: $79
+            - generic [ref=e464]: ·
+            - generic [ref=e465]: Westgate Events
+            - generic [ref=e466]: ·
+            - generic [ref=e467]: 3N/4D
+            - generic [ref=e468]: ·
+            - generic [ref=e469]: 3 nights at Westgate…
+        - generic [ref=e470]:
+          - img [ref=e471]
+          - link [ref=e477] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-79
+            - generic [ref=e478]: $79
+            - generic [ref=e479]: ·
+            - generic [ref=e480]: Westgate
+            - generic [ref=e481]: ·
+            - generic [ref=e482]: 2N/3D
+            - generic [ref=e483]: ·
+            - generic [ref=e484]: Top Orlando Deal!
+        - generic [ref=e485]:
+          - img [ref=e486]
+          - link [ref=e489] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-2-night-99.00
+            - generic [ref=e490]: $79
+            - generic [ref=e491]: ·
+            - generic [ref=e492]: Westgate Events
+            - generic [ref=e493]: ·
+            - generic [ref=e494]: 2N/3D
+            - generic [ref=e495]: ·
+            - generic [ref=e496]: 2 nights at Westgate…
+        - generic [ref=e497]:
+          - img [ref=e498]
+          - link [ref=e500] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-79
+            - generic [ref=e501]: $79
+            - generic [ref=e502]: ·
+            - generic [ref=e503]: Westgate
+            - generic [ref=e504]: ·
+            - generic [ref=e505]: 3N/4D
+            - generic [ref=e506]: ·
+            - generic [ref=e507]: 4 days / 3 nights
+        - generic [ref=e508]:
+          - img [ref=e509]
+          - link [ref=e513] [cursor=pointer]:
+            - /url: /deals/westgate-williamsburg-2-night-79
+            - generic [ref=e514]: $79
+            - generic [ref=e515]: ·
+            - generic [ref=e516]: Westgate
+            - generic [ref=e517]: ·
+            - generic [ref=e518]: 2N/3D
+            - generic [ref=e519]: ·
+            - generic [ref=e520]: Spacious Accommodati…
+        - img [ref=e521]
+  - navigation [ref=e524]:
+    - generic [ref=e525]:
+      - link "Vacation Deals .to" [ref=e526] [cursor=pointer]:
+        - /url: /
+        - img [ref=e527]
+        - generic [ref=e531]:
+          - generic [ref=e532]: Vacation
+          - generic [ref=e533]: Deals
+          - generic [ref=e534]: .to
+      - generic [ref=e535]:
+        - link "All Deals" [ref=e536] [cursor=pointer]:
+          - /url: /deals
+        - link "Destinations" [ref=e537] [cursor=pointer]:
+          - /url: /destinations
+        - link "Brands" [ref=e538] [cursor=pointer]:
+          - /url: /brands
+        - link "Blog" [ref=e539] [cursor=pointer]:
+          - /url: /blog
+        - link "Rate Recap" [ref=e541] [cursor=pointer]:
+          - /url: /rate-recap
+        - link "🎮 Games" [ref=e543] [cursor=pointer]:
+          - /url: /vacpack-games
+          - generic [ref=e544]: 🎮
+          - generic [ref=e545]: Games
+        - link "Roulette" [ref=e547] [cursor=pointer]:
+          - /url: /resort-roulette
+          - img [ref=e548]
+          - text: Roulette
+  - main [ref=e555]:
+    - generic [ref=e556]:
+      - complementary [ref=e557]:
+        - generic [ref=e558]:
+          - generic [ref=e559]: VacationDeals
+          - generic [ref=e560]: ADMIN
+        - navigation [ref=e561]:
+          - link "📊 Dashboard" [ref=e562] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=e563]: 📊
+            - text: Dashboard
+          - link "🏨 Deals" [ref=e564] [cursor=pointer]:
+            - /url: /admin/deals
+            - generic [ref=e565]: 🏨
+            - text: Deals
+          - link "🏷️ Brands" [ref=e566] [cursor=pointer]:
+            - /url: /admin/brands
+            - generic [ref=e567]: 🏷️
+            - text: Brands
+          - link "📢 Ad Banners" [ref=e568] [cursor=pointer]:
+            - /url: /admin/banners
+            - generic [ref=e569]: 📢
+            - text: Ad Banners
+          - link "🎰 Roulette" [ref=e570] [cursor=pointer]:
+            - /url: /admin/roulette
+            - generic [ref=e571]: 🎰
+            - text: Roulette
+          - link "📧 Subscribers" [ref=e572] [cursor=pointer]:
+            - /url: /admin/subscribers
+            - generic [ref=e573]: 📧
+            - text: Subscribers
+          - link "📬 Campaigns" [ref=e574] [cursor=pointer]:
+            - /url: /admin/campaigns
+            - generic [ref=e575]: 📬
+            - text: Campaigns
+          - link "🕷️ Scrapers" [ref=e576] [cursor=pointer]:
+            - /url: /admin/scrapers
+            - generic [ref=e577]: 🕷️
+            - text: Scrapers
+        - generic [ref=e578]:
+          - paragraph [ref=e579]: Admin
+          - paragraph [ref=e580]: super-admin
+          - button "Log out" [ref=e582]
+      - main [ref=e583]:
+        - heading "Brand Management" [level=1] [ref=e584]
+        - table [ref=e586]:
+          - rowgroup [ref=e587]:
+            - row "Brand Type Website Active Deals Actions" [ref=e588]:
+              - columnheader "Brand" [ref=e589]
+              - columnheader "Type" [ref=e590]
+              - columnheader "Website" [ref=e591]
+              - columnheader "Active Deals" [ref=e592]
+              - columnheader "Actions" [ref=e593]
+          - rowgroup [ref=e594]:
+            - row "Westgate Reservations westgate direct westgatereservations.com 106 Run Scraper Suppress" [ref=e595]:
+              - cell "Westgate Reservations westgate" [ref=e596]:
+                - paragraph [ref=e597]: Westgate Reservations
+                - paragraph [ref=e598]: westgate
+              - cell "direct" [ref=e599]
+              - cell "westgatereservations.com" [ref=e600]:
+                - link "westgatereservations.com" [ref=e601] [cursor=pointer]:
+                  - /url: https://westgatereservations.com
+              - cell "106" [ref=e602]
+              - cell "Run Scraper Suppress" [ref=e603]:
+                - generic [ref=e604]:
+                  - button "Run Scraper" [ref=e605]
+                  - button "Suppress" [ref=e606]
+            - row "Monster Reservations Group mrg broker mrgvacationpackages.com 47 Run Scraper Suppress" [ref=e607]:
+              - cell "Monster Reservations Group mrg" [ref=e608]:
+                - paragraph [ref=e609]: Monster Reservations Group
+                - paragraph [ref=e610]: mrg
+              - cell "broker" [ref=e611]
+              - cell "mrgvacationpackages.com" [ref=e612]:
+                - link "mrgvacationpackages.com" [ref=e613] [cursor=pointer]:
+                  - /url: https://mrgvacationpackages.com
+              - cell "47" [ref=e614]
+              - cell "Run Scraper Suppress" [ref=e615]:
+                - generic [ref=e616]:
+                  - button "Run Scraper" [ref=e617]
+                  - button "Suppress" [ref=e618]
+            - row "StayPromo staypromo broker staypromo.com 46 Run Scraper Suppress" [ref=e619]:
+              - cell "StayPromo staypromo" [ref=e620]:
+                - paragraph [ref=e621]: StayPromo
+                - paragraph [ref=e622]: staypromo
+              - cell "broker" [ref=e623]
+              - cell "staypromo.com" [ref=e624]:
+                - link "staypromo.com" [ref=e625] [cursor=pointer]:
+                  - /url: https://staypromo.com
+              - cell "46" [ref=e626]
+              - cell "Run Scraper Suppress" [ref=e627]:
+                - generic [ref=e628]:
+                  - button "Run Scraper" [ref=e629]
+                  - button "Suppress" [ref=e630]
+            - row "Westgate Events westgate-events direct westgateevents.com 38 Run Scraper Suppress" [ref=e631]:
+              - cell "Westgate Events westgate-events" [ref=e632]:
+                - paragraph [ref=e633]: Westgate Events
+                - paragraph [ref=e634]: westgate-events
+              - cell "direct" [ref=e635]
+              - cell "westgateevents.com" [ref=e636]:
+                - link "westgateevents.com" [ref=e637] [cursor=pointer]:
+                  - /url: https://westgateevents.com
+              - cell "38" [ref=e638]
+              - cell "Run Scraper Suppress" [ref=e639]:
+                - generic [ref=e640]:
+                  - button "Run Scraper" [ref=e641]
+                  - button "Suppress" [ref=e642]
+            - row "Departure Depot departure-depot broker departuredepot.com 24 Run Scraper Suppress" [ref=e643]:
+              - cell "Departure Depot departure-depot" [ref=e644]:
+                - paragraph [ref=e645]: Departure Depot
+                - paragraph [ref=e646]: departure-depot
+              - cell "broker" [ref=e647]
+              - cell "departuredepot.com" [ref=e648]:
+                - link "departuredepot.com" [ref=e649] [cursor=pointer]:
+                  - /url: https://departuredepot.com
+              - cell "24" [ref=e650]
+              - cell "Run Scraper Suppress" [ref=e651]:
+                - generic [ref=e652]:
+                  - button "Run Scraper" [ref=e653]
+                  - button "Suppress" [ref=e654]
+            - row "Spinnaker Resorts spinnaker direct spinnakerresorts.com 12 Run Scraper Suppress" [ref=e655]:
+              - cell "Spinnaker Resorts spinnaker" [ref=e656]:
+                - paragraph [ref=e657]: Spinnaker Resorts
+                - paragraph [ref=e658]: spinnaker
+              - cell "direct" [ref=e659]
+              - cell "spinnakerresorts.com" [ref=e660]:
+                - link "spinnakerresorts.com" [ref=e661] [cursor=pointer]:
+                  - /url: https://spinnakerresorts.com
+              - cell "12" [ref=e662]
+              - cell "Run Scraper Suppress" [ref=e663]:
+                - generic [ref=e664]:
+                  - button "Run Scraper" [ref=e665]
+                  - button "Suppress" [ref=e666]
+            - row "Festiva Hospitality Group festiva direct festiva.com 11 Run Scraper Suppress" [ref=e667]:
+              - cell "Festiva Hospitality Group festiva" [ref=e668]:
+                - paragraph [ref=e669]: Festiva Hospitality Group
+                - paragraph [ref=e670]: festiva
+              - cell "direct" [ref=e671]
+              - cell "festiva.com" [ref=e672]:
+                - link "festiva.com" [ref=e673] [cursor=pointer]:
+                  - /url: https://festiva.com
+              - cell "11" [ref=e674]
+              - cell "Run Scraper Suppress" [ref=e675]:
+                - generic [ref=e676]:
+                  - button "Run Scraper" [ref=e677]
+                  - button "Suppress" [ref=e678]
+            - row "Vacation Village Resorts vacation-village direct vacationvillagedeals.com 11 Run Scraper Suppress" [ref=e679]:
+              - cell "Vacation Village Resorts vacation-village" [ref=e680]:
+                - paragraph [ref=e681]: Vacation Village Resorts
+                - paragraph [ref=e682]: vacation-village
+              - cell "direct" [ref=e683]
+              - cell "vacationvillagedeals.com" [ref=e684]:
+                - link "vacationvillagedeals.com" [ref=e685] [cursor=pointer]:
+                  - /url: https://vacationvillagedeals.com
+              - cell "11" [ref=e686]
+              - cell "Run Scraper Suppress" [ref=e687]:
+                - generic [ref=e688]:
+                  - button "Run Scraper" [ref=e689]
+                  - button "Suppress" [ref=e690]
+            - row "Villa Group Resorts villa-group direct villagroupresorts.com 10 Run Scraper Suppress" [ref=e691]:
+              - cell "Villa Group Resorts villa-group" [ref=e692]:
+                - paragraph [ref=e693]: Villa Group Resorts
+                - paragraph [ref=e694]: villa-group
+              - cell "direct" [ref=e695]
+              - cell "villagroupresorts.com" [ref=e696]:
+                - link "villagroupresorts.com" [ref=e697] [cursor=pointer]:
+                  - /url: https://villagroupresorts.com
+              - cell "10" [ref=e698]
+              - cell "Run Scraper Suppress" [ref=e699]:
+                - generic [ref=e700]:
+                  - button "Run Scraper" [ref=e701]
+                  - button "Suppress" [ref=e702]
+            - row "Marriott Vacation Club marriott direct marriottvacationclubs.com 9 Run Scraper Suppress" [ref=e703]:
+              - cell "Marriott Vacation Club marriott" [ref=e704]:
+                - paragraph [ref=e705]: Marriott Vacation Club
+                - paragraph [ref=e706]: marriott
+              - cell "direct" [ref=e707]
+              - cell "marriottvacationclubs.com" [ref=e708]:
+                - link "marriottvacationclubs.com" [ref=e709] [cursor=pointer]:
+                  - /url: https://marriottvacationclubs.com
+              - cell "9" [ref=e710]
+              - cell "Run Scraper Suppress" [ref=e711]:
+                - generic [ref=e712]:
+                  - button "Run Scraper" [ref=e713]
+                  - button "Suppress" [ref=e714]
+            - row "Hyatt Vacation Club hyatt direct hyattvacationclub.com 9 Run Scraper Suppress" [ref=e715]:
+              - cell "Hyatt Vacation Club hyatt" [ref=e716]:
+                - paragraph [ref=e717]: Hyatt Vacation Club
+                - paragraph [ref=e718]: hyatt
+              - cell "direct" [ref=e719]
+              - cell "hyattvacationclub.com" [ref=e720]:
+                - link "hyattvacationclub.com" [ref=e721] [cursor=pointer]:
+                  - /url: https://hyattvacationclub.com
+              - cell "9" [ref=e722]
+              - cell "Run Scraper Suppress" [ref=e723]:
+                - generic [ref=e724]:
+                  - button "Run Scraper" [ref=e725]
+                  - button "Suppress" [ref=e726]
+            - row "Premier Travel Resorts premier-travel broker premiertravelresorts.com 7 Run Scraper Suppress" [ref=e727]:
+              - cell "Premier Travel Resorts premier-travel" [ref=e728]:
+                - paragraph [ref=e729]: Premier Travel Resorts
+                - paragraph [ref=e730]: premier-travel
+              - cell "broker" [ref=e731]
+              - cell "premiertravelresorts.com" [ref=e732]:
+                - link "premiertravelresorts.com" [ref=e733] [cursor=pointer]:
+                  - /url: https://premiertravelresorts.com
+              - cell "7" [ref=e734]
+              - cell "Run Scraper Suppress" [ref=e735]:
+                - generic [ref=e736]:
+                  - button "Run Scraper" [ref=e737]
+                  - button "Suppress" [ref=e738]
+            - row "Holiday Inn Club Vacations holiday-inn direct holidayinnclub.com 7 Run Scraper Suppress" [ref=e739]:
+              - cell "Holiday Inn Club Vacations holiday-inn" [ref=e740]:
+                - paragraph [ref=e741]: Holiday Inn Club Vacations
+                - paragraph [ref=e742]: holiday-inn
+              - cell "direct" [ref=e743]
+              - cell "holidayinnclub.com" [ref=e744]:
+                - link "holidayinnclub.com" [ref=e745] [cursor=pointer]:
+                  - /url: https://holidayinnclub.com
+              - cell "7" [ref=e746]
+              - cell "Run Scraper Suppress" [ref=e747]:
+                - generic [ref=e748]:
+                  - button "Run Scraper" [ref=e749]
+                  - button "Suppress" [ref=e750]
+            - row "Capital Vacations capital-vacations direct capitalvacations.com 7 Run Scraper Suppress" [ref=e751]:
+              - cell "Capital Vacations capital-vacations" [ref=e752]:
+                - paragraph [ref=e753]: Capital Vacations
+                - paragraph [ref=e754]: capital-vacations
+              - cell "direct" [ref=e755]
+              - cell "capitalvacations.com" [ref=e756]:
+                - link "capitalvacations.com" [ref=e757] [cursor=pointer]:
+                  - /url: https://capitalvacations.com
+              - cell "7" [ref=e758]
+              - cell "Run Scraper Suppress" [ref=e759]:
+                - generic [ref=e760]:
+                  - button "Run Scraper" [ref=e761]
+                  - button "Suppress" [ref=e762]
+            - row "VacationVIP vacationvip broker vacationvip.com 6 Run Scraper Suppress" [ref=e763]:
+              - cell "VacationVIP vacationvip" [ref=e764]:
+                - paragraph [ref=e765]: VacationVIP
+                - paragraph [ref=e766]: vacationvip
+              - cell "broker" [ref=e767]
+              - cell "vacationvip.com" [ref=e768]:
+                - link "vacationvip.com" [ref=e769] [cursor=pointer]:
+                  - /url: https://vacationvip.com
+              - cell "6" [ref=e770]
+              - cell "Run Scraper Suppress" [ref=e771]:
+                - generic [ref=e772]:
+                  - button "Run Scraper" [ref=e773]
+                  - button "Suppress" [ref=e774]
+            - row "Divi Resorts divi direct diviresorts.com 5 Run Scraper Suppress" [ref=e775]:
+              - cell "Divi Resorts divi" [ref=e776]:
+                - paragraph [ref=e777]: Divi Resorts
+                - paragraph [ref=e778]: divi
+              - cell "direct" [ref=e779]
+              - cell "diviresorts.com" [ref=e780]:
+                - link "diviresorts.com" [ref=e781] [cursor=pointer]:
+                  - /url: https://diviresorts.com
+              - cell "5" [ref=e782]
+              - cell "Run Scraper Suppress" [ref=e783]:
+                - generic [ref=e784]:
+                  - button "Run Scraper" [ref=e785]
+                  - button "Suppress" [ref=e786]
+            - row "Las Vegas Timeshare vegas-timeshare broker las-vegas-timeshare.com 5 Run Scraper Suppress" [ref=e787]:
+              - cell "Las Vegas Timeshare vegas-timeshare" [ref=e788]:
+                - paragraph [ref=e789]: Las Vegas Timeshare
+                - paragraph [ref=e790]: vegas-timeshare
+              - cell "broker" [ref=e791]
+              - cell "las-vegas-timeshare.com" [ref=e792]:
+                - link "las-vegas-timeshare.com" [ref=e793] [cursor=pointer]:
+                  - /url: https://las-vegas-timeshare.com
+              - cell "5" [ref=e794]
+              - cell "Run Scraper Suppress" [ref=e795]:
+                - generic [ref=e796]:
+                  - button "Run Scraper" [ref=e797]
+                  - button "Suppress" [ref=e798]
+            - row "Exploria Resorts exploria direct exploriavacations.com 3 Run Scraper Suppress" [ref=e799]:
+              - cell "Exploria Resorts exploria" [ref=e800]:
+                - paragraph [ref=e801]: Exploria Resorts
+                - paragraph [ref=e802]: exploria
+              - cell "direct" [ref=e803]
+              - cell "exploriavacations.com" [ref=e804]:
+                - link "exploriavacations.com" [ref=e805] [cursor=pointer]:
+                  - /url: https://exploriavacations.com
+              - cell "3" [ref=e806]
+              - cell "Run Scraper Suppress" [ref=e807]:
+                - generic [ref=e808]:
+                  - button "Run Scraper" [ref=e809]
+                  - button "Suppress" [ref=e810]
+            - row "GoVIP govip broker govip.com 3 Run Scraper Suppress" [ref=e811]:
+              - cell "GoVIP govip" [ref=e812]:
+                - paragraph [ref=e813]: GoVIP
+                - paragraph [ref=e814]: govip
+              - cell "broker" [ref=e815]
+              - cell "govip.com" [ref=e816]:
+                - link "govip.com" [ref=e817] [cursor=pointer]:
+                  - /url: https://govip.com
+              - cell "3" [ref=e818]
+              - cell "Run Scraper Suppress" [ref=e819]:
+                - generic [ref=e820]:
+                  - button "Run Scraper" [ref=e821]
+                  - button "Suppress" [ref=e822]
+            - row "El Cid Vacations Club el-cid direct elcidvacationsclub.com 3 Run Scraper Suppress" [ref=e823]:
+              - cell "El Cid Vacations Club el-cid" [ref=e824]:
+                - paragraph [ref=e825]: El Cid Vacations Club
+                - paragraph [ref=e826]: el-cid
+              - cell "direct" [ref=e827]
+              - cell "elcidvacationsclub.com" [ref=e828]:
+                - link "elcidvacationsclub.com" [ref=e829] [cursor=pointer]:
+                  - /url: https://elcidvacationsclub.com
+              - cell "3" [ref=e830]
+              - cell "Run Scraper Suppress" [ref=e831]:
+                - generic [ref=e832]:
+                  - button "Run Scraper" [ref=e833]
+                  - button "Suppress" [ref=e834]
+            - row "Club Wyndham wyndham direct clubwyndham.wyndhamdestinations.com 2 Run Scraper Suppress" [ref=e835]:
+              - cell "Club Wyndham wyndham" [ref=e836]:
+                - paragraph [ref=e837]: Club Wyndham
+                - paragraph [ref=e838]: wyndham
+              - cell "direct" [ref=e839]
+              - cell "clubwyndham.wyndhamdestinations.com" [ref=e840]:
+                - link "clubwyndham.wyndhamdestinations.com" [ref=e841] [cursor=pointer]:
+                  - /url: https://clubwyndham.wyndhamdestinations.com
+              - cell "2" [ref=e842]
+              - cell "Run Scraper Suppress" [ref=e843]:
+                - generic [ref=e844]:
+                  - button "Run Scraper" [ref=e845]
+                  - button "Suppress" [ref=e846]
+            - row "Massanutten Resort massanutten direct massresort.com 1 Run Scraper Suppress" [ref=e847]:
+              - cell "Massanutten Resort massanutten" [ref=e848]:
+                - paragraph [ref=e849]: Massanutten Resort
+                - paragraph [ref=e850]: massanutten
+              - cell "direct" [ref=e851]
+              - cell "massresort.com" [ref=e852]:
+                - link "massresort.com" [ref=e853] [cursor=pointer]:
+                  - /url: https://massresort.com
+              - cell "1" [ref=e854]
+              - cell "Run Scraper Suppress" [ref=e855]:
+                - generic [ref=e856]:
+                  - button "Run Scraper" [ref=e857]
+                  - button "Suppress" [ref=e858]
+            - row "Hilton Grand Vacations hgv direct hiltongrandvacations.com 1 Run Scraper Suppress" [ref=e859]:
+              - cell "Hilton Grand Vacations hgv" [ref=e860]:
+                - paragraph [ref=e861]: Hilton Grand Vacations
+                - paragraph [ref=e862]: hgv
+              - cell "direct" [ref=e863]
+              - cell "hiltongrandvacations.com" [ref=e864]:
+                - link "hiltongrandvacations.com" [ref=e865] [cursor=pointer]:
+                  - /url: https://hiltongrandvacations.com
+              - cell "1" [ref=e866]
+              - cell "Run Scraper Suppress" [ref=e867]:
+                - generic [ref=e868]:
+                  - button "Run Scraper" [ref=e869]
+                  - button "Suppress" [ref=e870]
+            - row "TAFER Hotels & Resorts tafer direct taferresorts.com 1 Run Scraper Suppress" [ref=e871]:
+              - cell "TAFER Hotels & Resorts tafer" [ref=e872]:
+                - paragraph [ref=e873]: TAFER Hotels & Resorts
+                - paragraph [ref=e874]: tafer
+              - cell "direct" [ref=e875]
+              - cell "taferresorts.com" [ref=e876]:
+                - link "taferresorts.com" [ref=e877] [cursor=pointer]:
+                  - /url: https://taferresorts.com
+              - cell "1" [ref=e878]
+              - cell "Run Scraper Suppress" [ref=e879]:
+                - generic [ref=e880]:
+                  - button "Run Scraper" [ref=e881]
+                  - button "Suppress" [ref=e882]
+            - row "Sheraton Vacation Club sheraton-vc direct sheratonvacationclub.marriott.com 1 Run Scraper Suppress" [ref=e883]:
+              - cell "Sheraton Vacation Club sheraton-vc" [ref=e884]:
+                - paragraph [ref=e885]: Sheraton Vacation Club
+                - paragraph [ref=e886]: sheraton-vc
+              - cell "direct" [ref=e887]
+              - cell "sheratonvacationclub.marriott.com" [ref=e888]:
+                - link "sheratonvacationclub.marriott.com" [ref=e889] [cursor=pointer]:
+                  - /url: https://sheratonvacationclub.marriott.com
+              - cell "1" [ref=e890]
+              - cell "Run Scraper Suppress" [ref=e891]:
+                - generic [ref=e892]:
+                  - button "Run Scraper" [ref=e893]
+                  - button "Suppress" [ref=e894]
+            - row "Westin Vacation Club westin-vc direct westinvacationclub.marriott.com 1 Run Scraper Suppress" [ref=e895]:
+              - cell "Westin Vacation Club westin-vc" [ref=e896]:
+                - paragraph [ref=e897]: Westin Vacation Club
+                - paragraph [ref=e898]: westin-vc
+              - cell "direct" [ref=e899]
+              - cell "westinvacationclub.marriott.com" [ref=e900]:
+                - link "westinvacationclub.marriott.com" [ref=e901] [cursor=pointer]:
+                  - /url: https://westinvacationclub.marriott.com
+              - cell "1" [ref=e902]
+              - cell "Run Scraper Suppress" [ref=e903]:
+                - generic [ref=e904]:
+                  - button "Run Scraper" [ref=e905]
+                  - button "Suppress" [ref=e906]
+            - row "Bahia Principe Privilege Club bahia-principe direct bpprivilegeclub.com 1 Run Scraper Suppress" [ref=e907]:
+              - cell "Bahia Principe Privilege Club bahia-principe" [ref=e908]:
+                - paragraph [ref=e909]: Bahia Principe Privilege Club
+                - paragraph [ref=e910]: bahia-principe
+              - cell "direct" [ref=e911]
+              - cell "bpprivilegeclub.com" [ref=e912]:
+                - link "bpprivilegeclub.com" [ref=e913] [cursor=pointer]:
+                  - /url: https://bpprivilegeclub.com
+              - cell "1" [ref=e914]
+              - cell "Run Scraper Suppress" [ref=e915]:
+                - generic [ref=e916]:
+                  - button "Run Scraper" [ref=e917]
+                  - button "Suppress" [ref=e918]
+            - row "Timeshare Presentation Deals timeshare-presentation-deals broker timesharepresentationdeals.com 1 Run Scraper Suppress" [ref=e919]:
+              - cell "Timeshare Presentation Deals timeshare-presentation-deals" [ref=e920]:
+                - paragraph [ref=e921]: Timeshare Presentation Deals
+                - paragraph [ref=e922]: timeshare-presentation-deals
+              - cell "broker" [ref=e923]
+              - cell "timesharepresentationdeals.com" [ref=e924]:
+                - link "timesharepresentationdeals.com" [ref=e925] [cursor=pointer]:
+                  - /url: https://timesharepresentationdeals.com
+              - cell "1" [ref=e926]
+              - cell "Run Scraper Suppress" [ref=e927]:
+                - generic [ref=e928]:
+                  - button "Run Scraper" [ref=e929]
+                  - button "Suppress" [ref=e930]
+            - row "Bluegreen Vacations bluegreen direct bluegreenvacations.com 1 Run Scraper Suppress" [ref=e931]:
+              - cell "Bluegreen Vacations bluegreen" [ref=e932]:
+                - paragraph [ref=e933]: Bluegreen Vacations
+                - paragraph [ref=e934]: bluegreen
+              - cell "direct" [ref=e935]
+              - cell "bluegreenvacations.com" [ref=e936]:
+                - link "bluegreenvacations.com" [ref=e937] [cursor=pointer]:
+                  - /url: https://bluegreenvacations.com
+              - cell "1" [ref=e938]
+              - cell "Run Scraper Suppress" [ref=e939]:
+                - generic [ref=e940]:
+                  - button "Run Scraper" [ref=e941]
+                  - button "Suppress" [ref=e942]
+            - row "Margaritaville Vacation Club margaritaville direct margaritavillevcrentals.com 1 Run Scraper Suppress" [ref=e943]:
+              - cell "Margaritaville Vacation Club margaritaville" [ref=e944]:
+                - paragraph [ref=e945]: Margaritaville Vacation Club
+                - paragraph [ref=e946]: margaritaville
+              - cell "direct" [ref=e947]
+              - cell "margaritavillevcrentals.com" [ref=e948]:
+                - link "margaritavillevcrentals.com" [ref=e949] [cursor=pointer]:
+                  - /url: https://margaritavillevcrentals.com
+              - cell "1" [ref=e950]
+              - cell "Run Scraper Suppress" [ref=e951]:
+                - generic [ref=e952]:
+                  - button "Run Scraper" [ref=e953]
+                  - button "Suppress" [ref=e954]
+            - row "Discount Vacation Hotels discount-vacation broker discountvacationhotels.com 0 Run Scraper Suppress" [ref=e955]:
+              - cell "Discount Vacation Hotels discount-vacation" [ref=e956]:
+                - paragraph [ref=e957]: Discount Vacation Hotels
+                - paragraph [ref=e958]: discount-vacation
+              - cell "broker" [ref=e959]
+              - cell "discountvacationhotels.com" [ref=e960]:
+                - link "discountvacationhotels.com" [ref=e961] [cursor=pointer]:
+                  - /url: https://discountvacationhotels.com
+              - cell "0" [ref=e962]
+              - cell "Run Scraper Suppress" [ref=e963]:
+                - generic [ref=e964]:
+                  - button "Run Scraper" [ref=e965]
+                  - button "Suppress" [ref=e966]
+            - row "BookVIP bookvip broker bookvip.com 0 Run Scraper Suppress" [ref=e967]:
+              - cell "BookVIP bookvip" [ref=e968]:
+                - paragraph [ref=e969]: BookVIP
+                - paragraph [ref=e970]: bookvip
+              - cell "broker" [ref=e971]
+              - cell "bookvip.com" [ref=e972]:
+                - link "bookvip.com" [ref=e973] [cursor=pointer]:
+                  - /url: https://bookvip.com
+              - cell "0" [ref=e974]
+              - cell "Run Scraper Suppress" [ref=e975]:
+                - generic [ref=e976]:
+                  - button "Run Scraper" [ref=e977]
+                  - button "Suppress" [ref=e978]
+            - row "GetawayDealz getawaydealz broker getawaydealz.com 0 Run Scraper Suppress" [ref=e979]:
+              - cell "GetawayDealz getawaydealz" [ref=e980]:
+                - paragraph [ref=e981]: GetawayDealz
+                - paragraph [ref=e982]: getawaydealz
+              - cell "broker" [ref=e983]
+              - cell "getawaydealz.com" [ref=e984]:
+                - link "getawaydealz.com" [ref=e985] [cursor=pointer]:
+                  - /url: https://getawaydealz.com
+              - cell "0" [ref=e986]
+              - cell "Run Scraper Suppress" [ref=e987]:
+                - generic [ref=e988]:
+                  - button "Run Scraper" [ref=e989]
+                  - button "Suppress" [ref=e990]
+            - row "Pueblo Bonito Resorts pueblo-bonito direct pueblobonito.com 0 Run Scraper Suppress" [ref=e991]:
+              - cell "Pueblo Bonito Resorts pueblo-bonito" [ref=e992]:
+                - paragraph [ref=e993]: Pueblo Bonito Resorts
+                - paragraph [ref=e994]: pueblo-bonito
+              - cell "direct" [ref=e995]
+              - cell "pueblobonito.com" [ref=e996]:
+                - link "pueblobonito.com" [ref=e997] [cursor=pointer]:
+                  - /url: https://pueblobonito.com
+              - cell "0" [ref=e998]
+              - cell "Run Scraper Suppress" [ref=e999]:
+                - generic [ref=e1000]:
+                  - button "Run Scraper" [ref=e1001]
+                  - button "Suppress" [ref=e1002]
+            - row "Legendary Vacation Club legendary direct legendaryvacationclub.com 0 Run Scraper Suppress" [ref=e1003]:
+              - cell "Legendary Vacation Club legendary" [ref=e1004]:
+                - paragraph [ref=e1005]: Legendary Vacation Club
+                - paragraph [ref=e1006]: legendary
+              - cell "direct" [ref=e1007]
+              - cell "legendaryvacationclub.com" [ref=e1008]:
+                - link "legendaryvacationclub.com" [ref=e1009] [cursor=pointer]:
+                  - /url: https://legendaryvacationclub.com
+              - cell "0" [ref=e1010]
+              - cell "Run Scraper Suppress" [ref=e1011]:
+                - generic [ref=e1012]:
+                  - button "Run Scraper" [ref=e1013]
+                  - button "Suppress" [ref=e1014]
+            - row "Monster Vacations monster-vacations broker monstervacations.com 0 Run Scraper Suppress" [ref=e1015]:
+              - cell "Monster Vacations monster-vacations" [ref=e1016]:
+                - paragraph [ref=e1017]: Monster Vacations
+                - paragraph [ref=e1018]: monster-vacations
+              - cell "broker" [ref=e1019]
+              - cell "monstervacations.com" [ref=e1020]:
+                - link "monstervacations.com" [ref=e1021] [cursor=pointer]:
+                  - /url: https://monstervacations.com
+              - cell "0" [ref=e1022]
+              - cell "Run Scraper Suppress" [ref=e1023]:
+                - generic [ref=e1024]:
+                  - button "Run Scraper" [ref=e1025]
+                  - button "Suppress" [ref=e1026]
+            - row "I Want To Travel To iwanttotravelto broker iwanttotravelto.com 0 Run Scraper Suppress" [ref=e1027]:
+              - cell "I Want To Travel To iwanttotravelto" [ref=e1028]:
+                - paragraph [ref=e1029]: I Want To Travel To
+                - paragraph [ref=e1030]: iwanttotravelto
+              - cell "broker" [ref=e1031]
+              - cell "iwanttotravelto.com" [ref=e1032]:
+                - link "iwanttotravelto.com" [ref=e1033] [cursor=pointer]:
+                  - /url: https://iwanttotravelto.com
+              - cell "0" [ref=e1034]
+              - cell "Run Scraper Suppress" [ref=e1035]:
+                - generic [ref=e1036]:
+                  - button "Run Scraper" [ref=e1037]
+                  - button "Suppress" [ref=e1038]
+            - row "Vacation Offer vacation-offer broker vacationoffer.com 0 Run Scraper Suppress" [ref=e1039]:
+              - cell "Vacation Offer vacation-offer" [ref=e1040]:
+                - paragraph [ref=e1041]: Vacation Offer
+                - paragraph [ref=e1042]: vacation-offer
+              - cell "broker" [ref=e1043]
+              - cell "vacationoffer.com" [ref=e1044]:
+                - link "vacationoffer.com" [ref=e1045] [cursor=pointer]:
+                  - /url: https://vacationoffer.com
+              - cell "0" [ref=e1046]
+              - cell "Run Scraper Suppress" [ref=e1047]:
+                - generic [ref=e1048]:
+                  - button "Run Scraper" [ref=e1049]
+                  - button "Suppress" [ref=e1050]
+            - row "All Inclusive Promotions all-inclusive-promotions broker allinclusivepromotions.com 0 Run Scraper Suppress" [ref=e1051]:
+              - cell "All Inclusive Promotions all-inclusive-promotions" [ref=e1052]:
+                - paragraph [ref=e1053]: All Inclusive Promotions
+                - paragraph [ref=e1054]: all-inclusive-promotions
+              - cell "broker" [ref=e1055]
+              - cell "allinclusivepromotions.com" [ref=e1056]:
+                - link "allinclusivepromotions.com" [ref=e1057] [cursor=pointer]:
+                  - /url: https://allinclusivepromotions.com
+              - cell "0" [ref=e1058]
+              - cell "Run Scraper Suppress" [ref=e1059]:
+                - generic [ref=e1060]:
+                  - button "Run Scraper" [ref=e1061]
+                  - button "Suppress" [ref=e1062]
+            - row "BestVacationDealz bestvacationdealz broker bestvacationdealz.com 0 Run Scraper Suppress" [ref=e1063]:
+              - cell "BestVacationDealz bestvacationdealz" [ref=e1064]:
+                - paragraph [ref=e1065]: BestVacationDealz
+                - paragraph [ref=e1066]: bestvacationdealz
+              - cell "broker" [ref=e1067]
+              - cell "bestvacationdealz.com" [ref=e1068]:
+                - link "bestvacationdealz.com" [ref=e1069] [cursor=pointer]:
+                  - /url: https://bestvacationdealz.com
+              - cell "0" [ref=e1070]
+              - cell "Run Scraper Suppress" [ref=e1071]:
+                - generic [ref=e1072]:
+                  - button "Run Scraper" [ref=e1073]
+                  - button "Suppress" [ref=e1074]
+  - contentinfo [ref=e1075]:
+    - generic [ref=e1076]:
+      - generic [ref=e1077]:
+        - generic [ref=e1078]:
+          - paragraph [ref=e1079]: VacationDeals.to
+          - paragraph [ref=e1080]: The best vacation deals from top timeshare resorts, all in one place. Compare resort deals, travel deals, and getaway packages. Book your next vacation for less.
+        - generic [ref=e1081]:
+          - paragraph [ref=e1082]: Browse
+          - list [ref=e1083]:
+            - listitem [ref=e1084]:
+              - link "All Deals" [ref=e1085] [cursor=pointer]:
+                - /url: /deals
+            - listitem [ref=e1086]:
+              - link "Destinations" [ref=e1087] [cursor=pointer]:
+                - /url: /destinations
+            - listitem [ref=e1088]:
+              - link "Brands" [ref=e1089] [cursor=pointer]:
+                - /url: /brands
+            - listitem [ref=e1090]:
+              - link "Blog" [ref=e1091] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e1092]:
+              - link "About" [ref=e1093] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e1094]:
+          - paragraph [ref=e1095]: Popular Destinations
+          - list [ref=e1096]:
+            - listitem [ref=e1097]:
+              - link "Orlando, FL" [ref=e1098] [cursor=pointer]:
+                - /url: /orlando
+            - listitem [ref=e1099]:
+              - link "Las Vegas, NV" [ref=e1100] [cursor=pointer]:
+                - /url: /las-vegas
+            - listitem [ref=e1101]:
+              - link "Cancun, MX" [ref=e1102] [cursor=pointer]:
+                - /url: /cancun
+            - listitem [ref=e1103]:
+              - link "Gatlinburg, TN" [ref=e1104] [cursor=pointer]:
+                - /url: /gatlinburg
+            - listitem [ref=e1105]:
+              - link "Myrtle Beach, SC" [ref=e1106] [cursor=pointer]:
+                - /url: /myrtle-beach
+        - generic [ref=e1107]:
+          - paragraph [ref=e1108]: Popular Brands
+          - list [ref=e1109]:
+            - listitem [ref=e1110]:
+              - link "Westgate Reservations" [ref=e1111] [cursor=pointer]:
+                - /url: /westgate
+            - listitem [ref=e1112]:
+              - link "Hilton Grand Vacations" [ref=e1113] [cursor=pointer]:
+                - /url: /hgv
+            - listitem [ref=e1114]:
+              - link "Marriott Vacation Club" [ref=e1115] [cursor=pointer]:
+                - /url: /marriott
+            - listitem [ref=e1116]:
+              - link "Club Wyndham" [ref=e1117] [cursor=pointer]:
+                - /url: /wyndham
+            - listitem [ref=e1118]:
+              - link "BookVIP" [ref=e1119] [cursor=pointer]:
+                - /url: /bookvip
+      - generic [ref=e1121]:
+        - link "Privacy Policy" [ref=e1122] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms & Conditions" [ref=e1123] [cursor=pointer]:
+          - /url: /terms
+        - link "Timeshare Laws by State" [ref=e1124] [cursor=pointer]:
+          - /url: /timeshare-laws
+        - link "Do Not Sell My Info" [ref=e1125] [cursor=pointer]:
+          - /url: mailto:privacy@vacationdeals.to?subject=Do%20Not%20Sell%20My%20Personal%20Information
+      - paragraph [ref=e1127]:
+        - strong [ref=e1128]: "Disclaimer:"
+        - text: VacationDeals.to is an independent vacation deal comparison and aggregator website. We are
+        - strong [ref=e1129]: NOT
+        - text: a timeshare company, resort developer, real estate broker, or travel agency. We do not sell, book, market, or facilitate the sale of vacation packages, timeshare interests, or any real estate. All deals displayed are sourced from publicly available information on third-party websites. Clicking a deal redirects you to the third-party provider's site. We make no guarantees about pricing, availability, or accuracy of any listing. All trademarks are property of their respective owners. See our
+        - link "Terms & Conditions" [ref=e1130] [cursor=pointer]:
+          - /url: /terms
+        - text: and
+        - link "Privacy Policy" [ref=e1131] [cursor=pointer]:
+          - /url: /privacy
+        - text: for full details.
+      - paragraph [ref=e1133]: © 2026 VacationDeals.to. All rights reserved.
+  - alert [ref=e1134]
+  - generic [ref=e1136]:
+    - generic [ref=e1137]:
+      - generic [ref=e1138]: NEW
+      - paragraph [ref=e1139]: Get our FREE Chrome Extension — See hidden resort rates on Google!
+    - generic [ref=e1140]:
+      - link "Install Free" [ref=e1141] [cursor=pointer]:
+        - /url: "#"
+      - button "Dismiss" [ref=e1142]:
+        - img [ref=e1143]

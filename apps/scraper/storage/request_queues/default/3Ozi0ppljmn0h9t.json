@@ -1,0 +1,9 @@
+{
+	"id": "3Ozi0ppljmn0h9t",
+	"json": "{\"id\":\"3Ozi0ppljmn0h9t\",\"url\":\"https://www.westgatereservations.com/specials/branson-attraction-packages/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/branson-attraction-packages/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/branson-attraction-packages\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:00.877Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/branson-attraction-packages",
+	"url": "https://www.westgatereservations.com/specials/branson-attraction-packages/"
+}

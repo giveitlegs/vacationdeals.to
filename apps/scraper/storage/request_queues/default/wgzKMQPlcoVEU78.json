@@ -1,0 +1,9 @@
+{
+	"id": "wgzKMQPlcoVEU78",
+	"json": "{\"id\":\"wgzKMQPlcoVEU78\",\"url\":\"https://www.westgatereservations.com/specials/westgate-lakes-resort-and-spa/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-lakes-resort-and-spa/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-lakes-resort-and-spa\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:05.756Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-lakes-resort-and-spa",
+	"url": "https://www.westgatereservations.com/specials/westgate-lakes-resort-and-spa/"
+}

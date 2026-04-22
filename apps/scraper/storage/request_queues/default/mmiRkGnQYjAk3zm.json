@@ -1,0 +1,9 @@
+{
+	"id": "mmiRkGnQYjAk3zm",
+	"json": "{\"id\":\"mmiRkGnQYjAk3zm\",\"url\":\"https://www.westgatereservations.com/specials/great-3-day-vacations/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/great-3-day-vacations/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/great-3-day-vacations\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.632Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/great-3-day-vacations",
+	"url": "https://www.westgatereservations.com/specials/great-3-day-vacations/"
+}

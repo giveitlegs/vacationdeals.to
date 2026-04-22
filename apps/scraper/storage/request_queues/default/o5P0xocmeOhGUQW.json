@@ -1,0 +1,9 @@
+{
+	"id": "o5P0xocmeOhGUQW",
+	"json": "{\"id\":\"o5P0xocmeOhGUQW\",\"url\":\"https://www.westgatereservations.com/specials/westgate-las-vegas-resort-casino-3-2-wgr-rtgt/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-las-vegas-resort-casino-3-2-wgr-rtgt/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-las-vegas-resort-casino-3-2-wgr-rtgt\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:01.958Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-las-vegas-resort-casino-3-2-wgr-rtgt",
+	"url": "https://www.westgatereservations.com/specials/westgate-las-vegas-resort-casino-3-2-wgr-rtgt/"
+}

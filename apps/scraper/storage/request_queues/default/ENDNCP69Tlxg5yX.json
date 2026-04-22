@@ -1,0 +1,9 @@
+{
+	"id": "ENDNCP69Tlxg5yX",
+	"json": "{\"id\":\"ENDNCP69Tlxg5yX\",\"url\":\"https://www.westgatereservations.com/specials/westgates-official-disney-vacation/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgates-official-disney-vacation/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgates-official-disney-vacation\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:01.095Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgates-official-disney-vacation",
+	"url": "https://www.westgatereservations.com/specials/westgates-official-disney-vacation/"
+}

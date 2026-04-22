@@ -1,0 +1,9 @@
+{
+	"id": "jGQesKrtn88tqa6",
+	"json": "{\"id\":\"jGQesKrtn88tqa6\",\"url\":\"https://www.westgatereservations.com\",\"loadedUrl\":\"https://www.westgatereservations.com/\",\"uniqueKey\":\"https://www.westgatereservations.com\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:50:58.098Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com",
+	"url": "https://www.westgatereservations.com"
+}

@@ -1,0 +1,9 @@
+{
+	"id": "Ry1WSTA463cy7G7",
+	"json": "{\"id\":\"Ry1WSTA463cy7G7\",\"url\":\"https://www.westgatereservations.com/specials/4-days-3-nights-with-water-park-tickets/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/4-days-3-nights-with-water-park-tickets/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/4-days-3-nights-with-water-park-tickets\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.673Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/4-days-3-nights-with-water-park-tickets",
+	"url": "https://www.westgatereservations.com/specials/4-days-3-nights-with-water-park-tickets/"
+}

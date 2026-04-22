@@ -1,0 +1,9 @@
+{
+	"id": "bYHHGv7iEGHySvo",
+	"json": "{\"id\":\"bYHHGv7iEGHySvo\",\"url\":\"https://www.westgatereservations.com/specials/westgate-cocoa-beach-resort/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-cocoa-beach-resort/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-cocoa-beach-resort\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:02.840Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-cocoa-beach-resort",
+	"url": "https://www.westgatereservations.com/specials/westgate-cocoa-beach-resort/"
+}

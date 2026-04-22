@@ -26,11 +26,11 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>1. Sedona, Arizona — Red Rocks, Zero Small Talk</h3>
 <p>Sedona is introvert paradise. The energy vortexes are either spiritual or just really pretty rocks — either way, you'll be hiking alone through stunning red canyon landscapes without a soul in sight. Most of the trails have maybe 5-10 people on them outside of peak season. The town itself is small and quiet with excellent restaurants that don't require conversation beyond "I'll have the enchiladas, please."</p>
 
-<h3>2. Gatlinburg/Pigeon Forge Area — Cabin Life</h3>
+<h3>2. Gatlinburg (more on <a href="/gatlinburg-labor-day-weekend">Gatlinburg Labor Day Weekend vacation deals</a>) (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>)/Pigeon Forge Area — Cabin Life</h3>
 <p>A cabin in the Smoky Mountains with a hot tub on the deck and nobody around for miles? That's the introvert dream. Wyndham and Westgate both operate resorts in this area with <a href="/deals-under-100">deals starting under $100/night</a>. The key is booking a cabin or villa unit rather than a hotel-style room. You get privacy, space, and the ability to sit on your porch in your pajamas at 2 PM without judgement.</p>
 
 <h3>3. Hilton Head Island, South Carolina</h3>
-<p>Hilton Head is the anti-Myrtle Beach. Where Myrtle Beach is loud and chaotic, Hilton Head is quiet, tree-lined, and deliberately low-key. There are no high-rise buildings allowed on the island. The beaches are wide and uncrowded even in summer. Marriott Vacation Club has a beautiful property here with spacious villas that feel like your own private beach house.</p>
+<p>Hilton Head is the anti-Myrtle Beach (browse <a href="/myrtle-beach-labor-day-weekend">Myrtle Beach vacation deals Labor Day Weekend</a>) (browse <a href="/myrtle-beach-summer">Myrtle Beach vacation deals Summer</a>). Where Myrtle Beach is loud and chaotic, Hilton Head is quiet, tree-lined, and deliberately low-key. There are no high-rise buildings allowed on the island. The beaches are wide and uncrowded even in summer. Marriott Vacation Club has a beautiful property here with spacious villas that feel like your own private beach house.</p>
 
 <h3>4. Big Island, Hawaii — The Quiet Hawaiian Island</h3>
 <p>Everyone goes to Maui and Oahu. The Big Island is where introverts go. It's massive (bigger than all other Hawaiian islands combined), sparsely populated, and has everything from black sand beaches to active volcanoes to coffee farms. HGV has properties on the Big Island with <a href="/deals">vacation deals</a> that include ocean-view suites where you can hermit in luxury.</p>
@@ -112,7 +112,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>2. Westgate Park City, Utah — $129/Night</h3>
 <p>If you're active empty nesters (and honestly, you should be — this is your second act), Park City is incredible. Skiing in winter, hiking and mountain biking in summer, and a charming downtown with excellent restaurants year-round. <a href="/westgate">Westgate's Park City resort</a> has spacious suites and a full spa. The 90-minute presentation is painless, and you'll save hundreds compared to booking the Marriott or Montage up the road.</p>
 
-<h3>3. Wyndham Grand Desert, Las Vegas — $99/Night</h3>
+<h3>3. Wyndham Grand Desert, Las Vegas (compare <a href="/las-vegas-adults-only">Las Vegas vacpacks Adults Only</a>) (more on <a href="/las-vegas-winter">Las Vegas Winter vacation deals</a>) (browse <a href="/las-vegas-summer">Las Vegas vacation deals Summer</a>) (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) — $99/Night</h3>
 <p>Vegas without kids is a completely different city. You can see the shows you actually want to see, eat at restaurants that don't have a kids' menu, and stay out past 9 PM without worrying about babysitters. Wyndham Grand Desert is a block off the Strip with full suites, multiple pools, and a spa. At $99/night, you're paying less than most Strip hotels charge for a basic room.</p>
 
 <h3>4. HGV Ocean Tower, Waikoloa — $169/Night</h3>
@@ -187,7 +187,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 
 <h2>Best Budget Deals for Single Moms</h2>
 
-<h3>1. Westgate Town Center, Orlando — $79/Night</h3>
+<h3>1. Westgate Town Center, Orlando (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — $79/Night</h3>
 <p>Two-bedroom suites with full kitchens, four pool areas, a lazy river, and it's 10 minutes from Disney. At $79/night for a two-bedroom, you're paying less than a Motel 6 for accomodations that are genuinely nice. The on-site activities include mini golf, volleyball, and a game room — all free. Your kids will be so entertained you might actually get to read a chapter of your book.</p>
 
 <h3>2. Wyndham Bonnet Creek, Orlando — $119/Night</h3>
@@ -200,7 +200,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <p>Branson is massively underrated for family vacations. Silver Dollar City is one of the best theme parks in the country (and way cheaper than Disney). The shows are family-friendly and often free for kids. Westgate Branson Woods has lodge-style suites surrounded by Ozark forest. At $69/night, this is one of the most affordable family <a href="/deals-under-100">vacation deals under $100</a> anywhere in the country.</p>
 
 <h3>5. Wyndham Smoky Mountains — $89/Night</h3>
-<p>Pigeon Forge and Gatlinburg are family vacation gold. Dollywood is amazing, there's a free national park (Smoky Mountains), and the tourist strip has enough go-karts, mini golf, and pancake houses to keep kids happy for a week. Wyndham's mountain resort has beautiful suites and an indoor pool — critical for rainy days when kids need to burn energy.</p>
+<p>Pigeon Forge and Gatlinburg (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>) (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>) are family vacation gold. Dollywood is amazing, there's a free national park (Smoky Mountains), and the tourist strip has enough go-karts, mini golf, and pancake houses to keep kids happy for a week. Wyndham's mountain resort has beautiful suites and an indoor pool — critical for rainy days when kids need to burn energy.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> The Great Smoky Mountains National Park is the most visited national park in America with over 12 million visitors annually, and it's completley free to enter. No entrance fee, no parking fee (at most trailheads), nothing. It's the best free attraction in the country, hands down.</div>
 
@@ -260,7 +260,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>1. Westgate Smoky Mountains, Tennessee — $89/Night</h3>
 <p>The Smokies are a single dad goldmine. Free national park with hiking trails for every skill level, Dollywood right down the road, go-karts everywhere, and the resort itself has an indoor water park. Your kids will be so wiped out by bedtime that you might actually get to watch something on TV that isn't animated. The two-bedroom suites mean everyone gets their own space, and the full kitchen saves you a fortune on meals.</p>
 
-<h3>2. Orange Lake Resort, Orlando — $89/Night</h3>
+<h3>2. Orange Lake Resort, Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — $89/Night</h3>
 <p>Four pool complexes, waterslides, a lazy river, an 80-acre lake with fishing, mini golf, and an 18-hole golf course if you can sneak away. <a href="/orlando">Orlando</a> is obviously theme park central, but Orange Lake has so much on-site you could skip the parks entirely and your kids would still have the best week of their lives. At $89/night for a full suite, the math works.</p>
 
 <h3>3. Wyndham Glacier Canyon, Wisconsin Dells — $99/Night</h3>
@@ -334,7 +334,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>1. Las Vegas — The Ultimate IRL Gamer City</h3>
 <p>Vegas is a video game come to life. The lights, the sounds, the endless stimulation — it's basically an open-world RPG with real money stakes (don't gamble your vacation budget, please). But beyond the casinos, Vegas has an exploding esports and gaming scene. HyperX Arena at the Luxor hosts esports events, Omega Mart at Area 15 is an immersive art experience that feels like walking through a glitched simulation, and the Pinball Hall of Fame has hundreds of playable machines. <a href="/las-vegas">Las Vegas vacation deals</a> start at $79/night through Wyndham and Westgate, and the suites have great TVs if you bring your Switch or Steam Deck.</p>
 
-<h3>2. Orlando — Theme Parks Are Just IRL Platformers</h3>
+<h3>2. Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (see our <a href="/orlando-near-universal">Orlando deals Near Universal</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — Theme Parks Are Just IRL Platformers</h3>
 <p>Universal Studios literally has Super Nintendo World. I shouldn't need to say more, but I will because I'm excited. You can ride Mario Kart in augmented reality. You can punch question blocks. You can eat a mushroom-shaped snack thing. And that's just one section of one park. Combine that with the new Epic Universe park, Harry Potter World, and the sheer spectacle of Disney's tech-heavy rides, and <a href="/orlando">Orlando</a> is basically a AAA gaming experience with better graphics than your monitor can render. Westgate and Wyndham both have Orlando deals from $79-$119/night.</p>
 
 <h3>3. Tokyo (Okay, Hear Me Out)</h3>
@@ -483,12 +483,12 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>2. San Antonio, Texas — Tex-Mex Paradise</h3>
 <p>The River Walk is lined with restaurants, and off the beaten path the Tex-Mex and barbecue scene is staggering. Mi Tierra is open 24 hours with mariachi bands and enchiladas the size of your forearm. The Pearl District has upscale farm-to-table options. And the breakfast tacos... oh lord, the breakfast tacos. BookVIP has San Antonio resort deals from $79/night. Budget $50/day for food and you'll eat like royalty.</p>
 
-<h3>3. Orlando, Florida — Way Better Food Than You Think</h3>
+<h3>3. Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>), Florida — Way Better Food Than You Think</h3>
 <p>People assume Orlando is just theme park food — overpriced burgers and turkey legs. Wrong. The city has exploded culinarily in the last decade. Mills 50 is a Vietnamese food corridor that rivals any in the country. Winter Park has excellent fine dining. The Sand Lake Road area (locally called "Restaurant Row") has incredible options from every cuisine. <a href="/orlando">Orlando resort deals</a> from $79/night put you in the middle of it all with a full kitchen for cooking your market finds.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Hit a local farmers market or specialty grocery store on your first day. Stock your suite kitchen with fresh local ingredients — gulf shrimp in New Orleans, Texas beef in San Antonio, tropical fruits in Orlando. Cooking with local ingredients in your suite kitchen is half the foodie experience.</div>
 
-<h3>4. Las Vegas — All-You-Can-Eat Everything</h3>
+<h3>4. Las Vegas (more on <a href="/las-vegas-winter">Las Vegas Winter vacation deals</a>) — All-You-Can-Eat Everything</h3>
 <p>Vegas has restaurants from virtually every celebrity chef on the planet. Gordon Ramsay, Guy Fieri, Bobby Flay, Jose Andres — they're all here. But the real move is the off-Strip ethnic food scene. Chinatown on Spring Mountain Road has some of the best Asian food in America. <a href="/las-vegas">Las Vegas deals</a> start at $79/night, and you should budget more for food here than any other destination on this list because the temptations are endless.</p>
 
 <h3>5. Charleston, South Carolina — Lowcountry Cuisine</h3>
@@ -555,7 +555,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>2. Scottsdale, Arizona — Desert Fitness Culture</h3>
 <p>Scottsdale has more fitness studios per capita than almost anywhere in the US. The hiking is spectacular — Camelback Mountain is a legendary workout with stunning views. The desert climate means outdoor workouts almost year-round. Marriott has vacation club properties in Scottsdale with excellent fitness centers and deals around $119-$149/night.</p>
 
-<h3>3. Orlando, Florida — Active Resort Life</h3>
+<h3>3. Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>), Florida — Active Resort Life</h3>
 <p>Hear me out. Orlando resorts have some of the most active amenity packages anywhere. Multiple pool areas (swimming laps), tennis courts, basketball courts, jogging trails, and full fitness centers. Plus, walking 20,000+ steps at a theme park is cardio whether you admit it or not. <a href="/orlando">Orlando deals</a> from $79/night give you access to resort fitness facilities that would cost you a monthly membership at home.</p>
 
 <h3>4. San Diego, California — Perfect Weather Training</h3>
@@ -696,13 +696,13 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>1. Sedona, Arizona — The Gold Standard</h3>
 <p>Sedona is probably the most photographed small town in America, and for good reason. The red rocks glow different colors depending on the time of day — orange at sunrise, deep crimson at midday, purple-pink at sunset. Cathedral Rock, Bell Rock, Devil's Bridge — every angle is a composition. The light in Sedona is unlike anywhere else in the country. Resort deals start at $119/night, and you'll fill a memory card every single day.</p>
 
-<h3>2. Las Vegas — Night Photography Paradise</h3>
+<h3>2. Las Vegas (more on <a href="/las-vegas-winter">Las Vegas Winter vacation deals</a>) (browse <a href="/las-vegas-fall">Las Vegas vacation deals Fall</a>) — Night Photography Paradise</h3>
 <p>Neon, reflections, long exposures, light trails — <a href="/las-vegas">Las Vegas</a> is a night photographer's dream. The Strip at night offers more photographic variety in a half-mile than most cities offer in their entirety. Then there's Red Rock Canyon 20 minutes away for landscape photography. And Valley of Fire an hour north for some of the most dramatic rock formations in the southwest. Wyndham and Westgate Vegas deals from $79/night put you right in the action.</p>
 
 <h3>3. Smoky Mountains — Landscape Gold</h3>
 <p>Misty mountains, dramatic waterfalls, wildflower meadows, and the most stunning fall foliage east of the Mississippi. The Smokies are a landscape photographer's playground with over 800 miles of trails leading to jaw-dropping vistas. Cades Cove at sunrise (with deer in the mist) is one of the most iconic shots in American nature photography. Westgate deals from $89/night put you 15 minutes from the park.</p>
 
-<h3>4. Orlando — Street Photography + Architecture</h3>
+<h3>4. Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (more on <a href="/orlando-fall">Orlando Fall vacation deals</a>) — Street Photography + Architecture</h3>
 <p>Wait, Orlando? Yes. The theme parks are obvious (Disney's attention to visual detail is photographer heaven), but the real photography in Orlando is in Winter Park's oak-lined streets, the street art in Mills 50, and the dramatic sunsets over the chain of lakes. <a href="/orlando">Orlando resort deals</a> from $79/night are the most affordable option on this list, and the city has way more visual variety then people give it credit for.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Scout your shooting locations on Google Maps satellite view before your trip. Identify where the sun rises and sets relative to your subjects using apps like PhotoPills or The Photographer's Ephemeris. Planning your golden hour shots in advance means less wasted time and more keepers per session.</div>
@@ -839,7 +839,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 
 <h2>Top Historical Destinations With Resort Deals</h2>
 
-<h3>1. Williamsburg, Virginia — America's Living History Capital</h3>
+<h3>1. Williamsburg (browse <a href="/williamsburg-for-families">Williamsburg vacation deals for Families</a>), Virginia — America's Living History Capital</h3>
 <p>Colonial Williamsburg is the largest outdoor living history museum in America. Over 300 acres of restored 18th-century buildings with costumed interpreters who stay in character as colonial craftspeople, merchants, and politicians. It's like time travel, except you can also go to a restaurant afterwards that has air conditioning. Wyndham has a gorgeous property right in Williamsburg with deals starting at $79/night — the best value on this entire list. The historic area is walkable from the resort.</p>
 
 <h3>2. Gettysburg, Pennsylvania — Hallowed Ground</h3>
@@ -913,10 +913,10 @@ export const vacationIdeas1Posts: BlogPost[] = [
 
 <h2>Best Art Cities With Resort Deals</h2>
 
-<h3>1. Las Vegas — Surprizingly Artistic</h3>
+<h3>1. Las Vegas (more on <a href="/las-vegas-winter">Las Vegas Winter vacation deals</a>) — Surprizingly Artistic</h3>
 <p>I know, you wouldn't expect Vegas to be an art destination. But the city has gone all-in on immersive art experiences. Meow Wolf's Omega Mart at Area 15 is one of the most mind-bending art installations on the planet. The Bellagio Gallery of Fine Art rotates world-class exhibitions. The Arts District (18b) downtown has galleries, first-Friday art walks, and street murals everywhere. <a href="/las-vegas">Las Vegas deals</a> start at $79/night, and the art scene adds a layer of cultural depth that most visitors miss entirely.</p>
 
-<h3>2. Orlando, Florida — Street Art Capital</h3>
+<h3>2. Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>), Florida — Street Art Capital</h3>
 <p>Orlando's Mills 50 and Thornton Park districts are covered in incredible street art and murals. The Orlando Museum of Art and Cornell Fine Arts Museum in Winter Park are both excellent. But the real art experience in Orlando is outdoors — the city has embraced street art as cultural infrastructure, and you can spend an entire afternoon on a self-guided mural tour. <a href="/orlando">Orlando resort deals</a> from $79/night make this one of the most affordable art vacations on the list.</p>
 
 <h3>3. San Antonio, Texas — Art + Culture Fusion</h3>
@@ -990,7 +990,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 
 <div class="protip"><strong>Pro Tip:</strong> Check venue schedules before your trip and make a loose plan for each evening. Music cities have so many options that you can waste an hour just walking around trying to decide where to go. Having a shortlist of 2-3 venues per night, ranked by preference, saves time and ensures you see the best acts.</div>
 
-<h3>5. Branson, Missouri — America's Show Capital</h3>
+<h3>5. Branson (see our <a href="/branson-for-families">Branson deals for Families</a>), Missouri — America's Show Capital</h3>
 <p>Branson has over 100 live shows performing simultaneously — more than Broadway. They're family-friendly variety shows, magic acts, and tribute performances. It's earnest, it's campy, and it's genuinely entertaining. <a href="/westgate">Westgate Branson Woods</a> has deals from $69/night, making this the cheapest music vacation on the list. The shows typically cost $30-50 for a full production.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> Nashville's Lower Broadway has over 30 bars with live music, and none of them charge a cover. The musicians work for tips, which means you can bar-hop through some of the most talented performers in the country for the price of a few drinks. It's the best free entertainment deal in America, and it happens every single night.</div>
@@ -1056,7 +1056,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>3. Temecula Valley, California — Budget Napa</h3>
 <p>Temecula is Southern California's wine country, about 90 minutes from San Diego. Over 40 wineries with tasting rooms, many offering picnic areas with vineyard views. The climate produces excellent reds — Syrah, Cab, and Sangiovese — and the tasting fees are $15-25, which is half what Napa charges. Resort deals in the broader Southern California area start around $119/night.</p>
 
-<h3>4. Williamsburg, Virginia — History + Wine</h3>
+<h3>4. Williamsburg (see our <a href="/williamsburg-summer">Williamsburg deals Summer</a>), Virginia — History + Wine</h3>
 <p>Virginia's wine scene has quietly become one of the best on the East Coast, and the Williamsburg area has over a dozen wineries within 30 minutes of town. Williamsburg Winery is particularly excellent. Combine wine tasting with Colonial Williamsburg for a vacation that's both educational and delicious. Wyndham Williamsburg deals start at $79/night — possibly the best value on this list.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Most wine regions have "wine trail" maps or apps that organize wineries into logical touring routes. Get one before your trip and plan to visit 3-4 wineries per day maximum. More than that and your palate (and your sobriety) suffers. Quality over quantity, both in wine and in winery visits.</div>
@@ -1188,7 +1188,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 
 <h2>Best Surf Destinations With Resort Deals</h2>
 
-<h3>1. Cocoa Beach, Florida — The East Coast Classic</h3>
+<h3>1. Cocoa Beach (more on <a href="/cocoa-beach-winter">Cocoa Beach Winter vacation deals</a>) (browse <a href="/cocoa-beach-summer">Cocoa Beach vacation deals Summer</a>), Florida — The East Coast Classic</h3>
 <p>Cocoa Beach is where Kelly Slater grew up, and the waves are beginner-to-intermediate friendly with consistent swell most of the year. Westgate Cocoa Beach Resort is literally on the beach with deals from $89/night. You can walk from your suite to the lineup in flip-flops. The surf shops on the strip rent boards for $20-30/day, and the vibe is pure laid-back surf culture. Ron Jon Surf Shop is there too — the world's largest surf shop. It's a wonderland.</p>
 
 <h3>2. South Padre Island, Texas — Gulf Surf</h3>
@@ -1266,7 +1266,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>3. Park City, Utah — Mountain Trails Galore</h3>
 <p>In summer, Park City's ski slopes transform into hiking and mountain biking trails. The Mid-Mountain Trail connects multiple resort areas over 22 miles of alpine terrain. Bloods Lake, Lake Mary, and the Wasatch Crest Trail offer stunning high-elevation hiking. Westgate Park City has deals from $129/night, and the trail access is practically door-to-door. Altitude starts around 7,000 feet so hydrate aggressively.</p>
 
-<h3>4. Orlando Area / Central Florida — Surprise Trails</h3>
+<h3>4. Orlando (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) Area / Central Florida — Surprise Trails</h3>
 <p>I know what your thinking — Florida is flat. And it is. But Central Florida has beautiful hiking that most tourists never discover. The Florida Trail passes through Ocala National Forest, and closer to Orlando, Tibet-Butler Nature Preserve and Wekiwa Springs State Park offer lovely nature walks through cypress swamps and spring-fed rivers. <a href="/orlando">Orlando deals</a> from $79/night are the cheapest here, and the hiking is genuinely pleasant — just bring bug spray.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Download the AllTrails app and filter by your destination. Read recent reviews — they tell you about current trail conditions, closures, parking, and crowd levels that official sources don't always update quickly. The "recently completed" section shows what's hikeable right now. It's the single most useful hiking app for vacation planning.</div>
@@ -1274,7 +1274,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>5. Big Island, Hawaii — Volcanic Hiking</h3>
 <p>Hiking across a volcanic landscape is a once-in-a-lifetime experience, and Volcanoes National Park on the Big Island delivers it spectacularly. The Kilauea Iki Trail takes you across the floor of a volcanic crater. The Devastation Trail walks through a ghost forest. Chain of Craters Road has pulloffs with short hikes to petroglyphs and lava flows. HGV deals from $149/night at Waikoloa are the base camp. The park is about 2.5 hours from Waikoloa — plan a full day.</p>
 
-<h3>6. Las Vegas Area — Desert Hiking</h3>
+<h3>6. Las Vegas (browse <a href="/las-vegas-summer">Las Vegas vacation deals Summer</a>) Area — Desert Hiking</h3>
 <p>Red Rock Canyon (13-mile scenic loop with multiple trailheads), Valley of Fire (otherworldly sandstone formations), and Mt. Charleston (alpine hiking 45 minutes from the Strip) make <a href="/las-vegas">Las Vegas</a> a seriously underrated hiking destination. Resort deals from $79/night let you do the surreal thing of hiking through desert canyons by day and eating at a Michelin-star restaurant by night.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> The Appalachian Trail, which runs near the Smoky Mountains, stretches 2,190 miles from Georgia to Maine. Only about 25% of people who attempt a thru-hike finish it. The record for the fastest known time is 41 days, 7 hours, and 39 minutes, set by Karel Sabbe in 2018. He averaged over 50 miles per day. That's not hiking — that's jogging with a backpack through the wilderness for six weeks. Respect.</div>
@@ -1334,7 +1334,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h2>Romantic Non-Beach Destinations With Resort Deals</h2>
 
 <h3>1. Smoky Mountains — The Mountain Romance Package</h3>
-<p>A cabin in the mountains, a crackling fire, and nobody around for miles. That's romance. The Smoky Mountains deliver this at price points that beach destinations can't touch. <a href="/westgate">Westgate Smoky Mountain Resort</a> has cabin-style suites from $89/night with hot tubs, fireplaces, and mountain views. The nearby towns of Gatlinburg and Pigeon Forge have excellent restaurants, and the national park is free. This is the anti-beach vacation that couples fall in love with — and fall in love during.</p>
+<p>A cabin in the mountains, a crackling fire, and nobody around for miles. That's romance. The Smoky Mountains deliver this at price points that beach destinations can't touch. <a href="/westgate">Westgate Smoky Mountain Resort</a> has cabin-style suites from $89/night with hot tubs, fireplaces, and mountain views. The nearby towns of Gatlinburg (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>) (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>) (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>) and Pigeon Forge have excellent restaurants, and the national park is free. This is the anti-beach vacation that couples fall in love with — and fall in love during.</p>
 
 <h3>2. Williamsburg, Virginia — History and Wine</h3>
 <p>Walking through Colonial Williamsburg together, wine tasting at Virginia vineyards, dinner at a candlelit tavern. Williamsburg is quietly one of the most romantic destinations on the East Coast. Wyndham's property has deals from $79/night — the cheapest on this list — and the historic atmosphere feels worlds away from the generic beach resort experience.</p>
@@ -1342,7 +1342,7 @@ export const vacationIdeas1Posts: BlogPost[] = [
 <h3>3. Park City, Utah — Active Romance</h3>
 <p>For couples who bond over adventure, Park City is perfect. Skiing in winter, hiking in summer, and year-round dining at restaurants that would be right at home in any major city. Westgate Park City deals from $129/night include access to a spa, and Main Street's boutiques and galleries make for romantic afternoon wandering.</p>
 
-<h3>4. Las Vegas — Unexpected Romance</h3>
+<h3>4. Las Vegas (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) — Unexpected Romance</h3>
 <p>Yes, Vegas. Stay with me. Beyond the casino floors and Bachelorette parties, <a href="/las-vegas">Las Vegas</a> has world-class restaurants, incredible shows, rooftop cocktail bars with strip views, and the kind of over-the-top luxury that makes for memorable date nights. The Bellagio fountains at night? Romantic. A show at The Smith Center? Romantic. A midnight drive to see the stars from the desert? Incredibly romantic. Deals from $79/night make this surprisingly affordable.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> Tell the resort you're celebrating something — an anniversary, birthday, or "just us" getaway. Many properties will upgrade your room, leave a bottle of wine, or add a special touch without charging extra. The worst they can say is no, and they almost never say no to couples who mention they're celebrating.</div>

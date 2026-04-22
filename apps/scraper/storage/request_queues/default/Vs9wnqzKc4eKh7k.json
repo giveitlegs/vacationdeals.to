@@ -1,0 +1,9 @@
+{
+	"id": "Vs9wnqzKc4eKh7k",
+	"json": "{\"id\":\"Vs9wnqzKc4eKh7k\",\"url\":\"https://www.westgatereservations.com/specials/westgate-smoky-mountain-resort-water-park/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-smoky-mountain-resort-water-park/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-smoky-mountain-resort-water-park\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:00.278Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-smoky-mountain-resort-water-park",
+	"url": "https://www.westgatereservations.com/specials/westgate-smoky-mountain-resort-water-park/"
+}

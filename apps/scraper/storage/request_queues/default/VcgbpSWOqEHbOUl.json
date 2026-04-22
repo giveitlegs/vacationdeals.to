@@ -1,0 +1,9 @@
+{
+	"id": "VcgbpSWOqEHbOUl",
+	"json": "{\"id\":\"VcgbpSWOqEHbOUl\",\"url\":\"https://www.westgatereservations.com/specials/westgate-lakes-water-park-vacation/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-lakes-water-park-vacation/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-lakes-water-park-vacation\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.667Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-lakes-water-park-vacation",
+	"url": "https://www.westgatereservations.com/specials/westgate-lakes-water-park-vacation/"
+}

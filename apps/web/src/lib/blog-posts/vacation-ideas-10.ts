@@ -40,7 +40,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 <p>People sleep on Alabama's Gulf Coast for everything, including dolphins. The warm waters of Perdido Bay and the Intracoastal Waterway are packed with dolphins, and the tours here are half the price of Florida equivalents. A 2-hour dolphin cruise runs about $20-30 per person.</p>
 <p>Resort packages in Gulf Shores start at $89/night for waterfront properties. The dolphins here are also famously curious — they'll swim right up to your boat and check you out, which is terrifying and amazing in equal measure.</p>
 
-<h2>6. Cancun, Mexico — Swim-With-Dolphins Programs</h2>
+<h2>6. Cancun (see our <a href="/cancun-oceanfront">Cancun deals Oceanfront</a>) (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) (compare <a href="/cancun-winter">Cancun vacpacks Winter</a>), Mexico — Swim-With-Dolphins Programs</h2>
 <p>If you want the full "swim alongside a dolphin" experience, Cancun has some of the most developed programs in the world. Dolphin Discovery and Delphinus both operate large facilities where you can do everything from a quick encounter ($89) to a full swim experience ($159) to the royal swim where dolphins push you through the water by your feet ($199).</p>
 <p>All-inclusive resort deals in Cancun through BookVIP start at $149/night, and some packages include dolphin swim credits. That's your hotel, food, drinks, AND dolphins. I literally cannot think of a better deal.</p>
 
@@ -117,7 +117,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 <p>Summer means kayaking, paddleboarding, and hiking. Winter means world-class skiing. Resort deals at properties like the Marriott Grand Residence and Hyatt Regency Lake Tahoe start around $149/night during shoulder seasons.</p>
 
 <h2>3. Branson, Missouri — The Underrated Gem</h2>
-<p>Branson is like Las Vegas got lost in the Ozarks and decided to stay. Live shows, theme parks, and more buffets than any human should have access to — all surrounded by beautiful mountain and lake scenery. Wyndham Branson resort deals start at just $69/night, making this one of the most affordable sand-free vacations in America.</p>
+<p>Branson is like Las Vegas (more on <a href="/las-vegas-winter">Las Vegas Winter vacation deals</a>) (browse <a href="/las-vegas-fall">Las Vegas vacation deals Fall</a>) (browse <a href="/las-vegas-summer">Las Vegas vacation deals Summer</a>) (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) got lost in the Ozarks and decided to stay. Live shows, theme parks, and more buffets than any human should have access to — all surrounded by beautiful mountain and lake scenery. Wyndham Branson resort deals start at just $69/night, making this one of the most affordable sand-free vacations in America.</p>
 <p>Table Rock Lake is the outdoor centerpiece, with crystal-clear water and rocky shorelines (no sand!). Rent a pontoon boat, go fishing, or just sit on the dock and watch the sun set over the Ozark hills while feeling very smug about your dry, sand-free feet.</p>
 
 <h2>4. Park City, Utah — Year-Round Mountain Luxury</h2>
@@ -202,7 +202,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 <p>Branson's Tanger Outlet Center has over 90 stores with crazy discounts, and the best part? No sales tax on clothing in Missouri. Let that sink in. You're already saving 5-10% before the outlet discounts even kick in.</p>
 <p>Wyndham Branson resort deals start at $69/night, making this possibly the most affordable shopping vacation in America. The entire strip along Highway 76 is lined with shops, and the Branson Landing outdoor mall on the lakefront is beautiful for evening shopping.</p>
 
-<h2>3. Myrtle Beach, South Carolina — Beach + Bargains</h2>
+<h2>3. Myrtle Beach (browse <a href="/myrtle-beach-oceanfront">Myrtle Beach vacation deals Oceanfront</a>), South Carolina — Beach + Bargains</h2>
 <p>Tanger Outlets Myrtle Beach has two locations (Hwy 501 and Hwy 17) with combined 200+ stores. Barefoot Landing and Broadway at the Beach add even more shopping with a resort-town vibe. If you happen to not hate sand, you can shop AND beach in the same day.</p>
 <p>Westgate Myrtle Beach Oceanfront Resort offers deals from $79/night. South Carolina sales tax is lower than most states at 6%, and many stores offer tourist discounts on top of outlet pricing. Our <a href="/destinations">destination page</a> has current Myrtle Beach packages.</p>
 
@@ -356,7 +356,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 
 <p>If you're the same way — and I suspect you are since you clicked on this — here are vacation deals near the best science destinations in America. We're talking space centers, world-class museums, actual working labs you can tour, and resort deals that won't requir you to solve differential equations to afford. Check our <a href="/deals">latest vacation deals</a> near these brainy destinations.</p>
 
-<h2>1. Cape Canaveral / Orlando, Florida — The Space Coast</h2>
+<h2>1. Cape Canaveral / Orlando (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Florida — The Space Coast</h2>
 <p>Kennedy Space Center is the crown jewel of science tourism. You can see actual Space Shuttles, touch a moon rock, meet real astronauts, and if your timing is right, watch a live rocket launch from SpaceX or NASA. The new Gateway: The Deep Space Launch Complex exhibit is mind-blowing.</p>
 <p>Westgate Resort properties near Orlando offer vacation deals from $79/night, and KSC is about an hour east on the Beeline Expressway. Combine it with a day at the Orlando Science Center for the full nerd experience. The museum has a massive observatory you can use on clear nights.</p>
 
@@ -604,7 +604,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 <div class="pro-tip"><strong>Pro Tip:</strong> For your first RV trip, rent a Class C motorhome (the medium-sized ones built on a truck chassis). They're the easiest to drive, fit in most campsite spots, and have everything you need. Avoid Class A (bus-sized) for your first outing — trust me on this one.</div>
 
 <h2>2. The Great Smoky Mountains Loop</h2>
-<p>A loop from Gatlinburg through the Great Smoky Mountains is RV gold for beginners. The campgrounds are plentiful, the scenery is spectacular, and you're never far from civilization if you need help. Westgate Smoky Mountain Resort also has RV-friendly parking if you want to mix in a resort night.</p>
+<p>A loop from Gatlinburg (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>) (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>) through the Great Smoky Mountains is RV gold for beginners. The campgrounds are plentiful, the scenery is spectacular, and you're never far from civilization if you need help. Westgate Smoky Mountain Resort also has RV-friendly parking if you want to mix in a resort night.</p>
 <p>Campgrounds inside the national park run $25-35/night and are first-come, first-served. Private campgrounds like the Pigeon Forge / Gatlinburg KOA offer full hookups for $45-65/night with amenities like pools and laundry. The roads through the park are well-maintained but curvy, so take it slow and enjoy the views.</p>
 
 <h2>3. The Pacific Coast Highway (Partial)</h2>
@@ -680,11 +680,11 @@ export const vacationIdeas10Posts: BlogPost[] = [
 
 <div class="pro-tip"><strong>Pro Tip:</strong> Contact the offices of your state's Senators and Representatives to arrange free Capitol Building tours. They also sometimes provide gallery passes to watch Congress in session, which is an incredible civics lesson (or a lesson in how slowly government moves, depending on the day).</div>
 
-<h2>2. Orlando, Florida — Science + Nature + Theme Parks</h2>
+<h2>2. Orlando (see our <a href="/orlando-shoulder-season">Orlando deals Shoulder Season</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Florida — Science + Nature + Theme Parks</h2>
 <p>Beyond the theme parks (which ARE educational — don't let anyone tell you otherwise), Orlando has Kennedy Space Center (space science), Gatorland (wildlife biology), and the Orlando Science Center (everything else). EPCOT's World Showcase is basically a geography lesson you can eat your way through.</p>
 <p>Westgate Resort properties offer vacation deals from $79/night with full kitchen suites (essential for families). Off-peak months like January, February, and September mean shorter lines and lower prices everywhere. Browse our <a href="/destinations">destination deals</a> for Orlando packages.</p>
 
-<h2>3. Branson, Missouri — Budget-Friendly Educational Fun</h2>
+<h2>3. Branson (see our <a href="/branson-shoulder-season">Branson deals Shoulder Season</a>) (see our <a href="/branson-for-families">Branson deals for Families</a>), Missouri — Budget-Friendly Educational Fun</h2>
 <p>Branson punches way above its weight for educational content. The Titanic Museum has artifacts from the actual ship, the World's Largest Toy Museum covers American pop culture history, and Silver Dollar City theme park recreates 1880s Ozark Mountain life with working craftspeople demonstrating period trades.</p>
 <p>Wyndham Branson resort deals start at $69/night — literally the cheapest educational vacation destination in America. Table Rock Lake offers marine biology and ecology lessons in real-time if you take a nature cruise.</p>
 
@@ -766,7 +766,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 <p>Great Wolf Lodge is a hotel with a massive indoor water park built in, and kids go absolutely insane for it. The MagiQuest interactive game turns the whole lodge into an adventure. No transportation needed, no park tickets to buy separately — everything is right there in the building.</p>
 <p>Rates start around $199/night but that INCLUDES the water park for your entire stay and all indoor activities. When you add up Disney's hotel + park tickets + food, Great Wolf is literally half the price. Locations in 19 states mean there's probably one near you.</p>
 
-<h2>3. Branson, Missouri — Family Fun at Ozark Prices</h2>
+<h2>3. Branson (see our <a href="/branson-with-waterpark">Branson deals with Waterpark</a>) (compare <a href="/branson-christmas">Branson vacpacks Christmas</a>) (more on <a href="/branson-summer">Branson Summer vacation deals</a>) (see our <a href="/branson-for-families">Branson deals for Families</a>), Missouri — Family Fun at Ozark Prices</h2>
 <p>Silver Dollar City is an incredible theme park that most people outside the Midwest haven't heard of. World-class coasters, live craftspeople demonstrating 1880s trades, and an atmosphere that's charming without being corporate. Tickets run $79 for adults.</p>
 <p>Wyndham Branson resort deals start at $69/night. Between Silver Dollar City, the Titanic Museum, Table Rock Lake, and dozens of live shows, Branson delivers a week of family entertainment for what Disney charges for two days. It's not even close.</p>
 
@@ -1069,7 +1069,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 
 <p>If you're nodding along, I see you. And I found vacation deals at destinations where you can stay firmly on the ground and have an incredible time. No mountain passes, no canyon rim trails, no glass-bottomed anything. Just solid, beautiful, sea-level fun. Check our <a href="/deals">latest vacation deals</a> for height-free happiness.</p>
 
-<h2>1. Myrtle Beach, South Carolina — Flat, Fun, and Fabulous</h2>
+<h2>1. Myrtle Beach (browse <a href="/myrtle-beach-oceanfront">Myrtle Beach vacation deals Oceanfront</a>), South Carolina — Flat, Fun, and Fabulous</h2>
 <p>Myrtle Beach is basically at sea level everywhere. The beach is flat, the boardwalk is flat, and the highest thing you'll encounter is a Ferris wheel you can easily ignore. The Grand Strand offers 60 miles of beautiful coastline with zero altitude anxiety.</p>
 <p>Westgate Myrtle Beach Oceanfront Resort offers vacation deals from $79/night. Everything from the restaurants to the mini golf courses to the shopping is ground-level or single-story. It's like the whole city was designed for people who appriciate staying close to the earth.</p>
 
@@ -1149,13 +1149,13 @@ export const vacationIdeas10Posts: BlogPost[] = [
 
 <p>I found destinations that combine amazing vacation deals with genuine gaming culture — places where your hobby isn't just tolerated, it's celebrated. Check our <a href="/deals">latest vacation deals</a> for gamer-friendly destinations.</p>
 
-<h2>1. Las Vegas, Nevada — The Arcade Capital of the West</h2>
+<h2>1. Las Vegas (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>), Nevada — The Arcade Capital of the West</h2>
 <p>Las Vegas has quietly become a gaming mecca (and I don't mean slot machines). The Insert Coin(s) bar has console gaming stations and cocktails. Omega Mart by Meow Wolf is an immersive art experience that feels like walking into a video game. HyperX Arena is a professional esports venue where you can watch live tournaments.</p>
 <p>Hilton Grand Vacations on the Strip offers vacation deals from $109/night. The Pinball Hall of Fame has over 200 playable machines for just $0.25-$0.50 per game. And every hotel room has solid WiFi for late-night gaming sessions after exploring the strip.</p>
 
 <div class="pro-tip"><strong>Pro Tip:</strong> Visit the Neon Museum and the Mob Museum during the day, then hit the gaming venues at night. Vegas is perfect for gamer couples because it's a nightlife city — the best gaming bars and arcades don't get going until after 8 PM.</div>
 
-<h2>2. Orlando, Florida — Theme Parks Meet Gaming</h2>
+<h2>2. Orlando (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>), Florida — Theme Parks Meet Gaming</h2>
 <p>Universal Orlando's Super Nintendo World is literally a video game you walk through. It's real, it's interactive, and it will make any Nintendo fan weep with joy. Player 1 Video Game Bar in Orlando has over 100 playable arcade and console games with a full bar. Andretti Indoor Karting has a massive arcade section with modern and retro games.</p>
 <p>Westgate Resort properties offer vacation deals from $79/night. Orlando also hosts multiple gaming conventions throught the year, including MegaCon and various esports tournaments. Browse our <a href="/destinations">destination page</a> for Orlando deals.</p>
 
@@ -1304,7 +1304,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 <p>The great thing about zip lining is that it's available near tons of popular vacation destinations, so you can combine an incredible course with resort deals that keep the total trip affordable. Check our <a href="/deals">latest vacation deals</a> near these adrenaline-pumping destinations.</p>
 
 <h2>1. Smoky Mountains, Tennessee — Zip Line Heaven</h2>
-<p>The Smoky Mountains have more zip line operations per mile than anywhere in the US. CLIMB Works has a course that sends you over the treetops with views of the Smokies that'll make your heart stop (in a good way). Anakeesta in Gatlinburg combines zip lining with a mountaintop village. Prices range from $59-119 per person depending on the course length.</p>
+<p>The Smoky Mountains have more zip line operations per mile than anywhere in the US. CLIMB Works has a course that sends you over the treetops with views of the Smokies that'll make your heart stop (in a good way). Anakeesta in Gatlinburg (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>) (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>) combines zip lining with a mountaintop village. Prices range from $59-119 per person depending on the course length.</p>
 <p>Westgate Smoky Mountain Resort offers vacation deals from $79/night, putting you within 15 minutes of multiple world-class zip line courses. The area also has canopy tours that combine zip lines with sky bridges and rappelling for the full adventure experience. Browse our <a href="/destinations">destination page</a> for Pigeon Forge deals.</p>
 
 <div class="pro-tip"><strong>Pro Tip:</strong> Book morning zip line tours. The air is cooler, the lines are shorter, and the morning light through the mountain mist creates absolutely magical scenery. Plus, you'll have the rest of the day for other activities without that "I still have to go zip lining today" anticipation hanging over you.</div>
@@ -1321,7 +1321,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 <p>Toro Verde Adventure Park in Orocovis, Puerto Rico has "The Monster" — one of the longest zip lines in the world at over 2.5 kilometers. You fly for nearly two minutes at up to 95 mph over a stunning mountain valley. It costs about $65 for the single zip or $165 for the full course. It is absolutely terrfying and absolutely incredible.</p>
 <p>San Juan resort deals through Marriott and Wyndham start at $119/night. Toro Verde is about 90 minutes from San Juan. Puerto Rico requires no passport for US citizens, making it an easy international-feeling adventure.</p>
 
-<h2>5. Branson, Missouri — Affordable Adventure</h2>
+<h2>5. Branson (more on <a href="/branson-summer">Branson Summer vacation deals</a>) (browse <a href="/branson-for-couples">Branson vacation deals for Couples</a>), Missouri — Affordable Adventure</h2>
 <p>Branson Zipline has courses built on the ridgelines of the Ozark Mountains with several different experience levels. The prices are notably lower than other destinations — starting at $49 for a basic course and $89 for the premium experience. Shepherd of the Hills has a canopy tour with zip lines and sky bridges.</p>
 <p>Wyndham Branson resort deals start at $69/night, making Branson possibly the most affordable zip line vacation in America. Total cost for a couple: 2 nights at $138 + 2 zip tickets at $178 = about $316. That's hard to beat.</p>
 
@@ -1398,7 +1398,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 <p>Savannah's 22 public squares are all dog-friendly, and the city's outdoor dining scene means your pup can join you at most restaurants. The Forsyth Park fountain area is a popular dog-socializing spot. River Street is dog-friendly, and several ghost tour operators welcome well-behaved dogs.</p>
 <p>Marriott properties in Savannah's historic district start at $119/night with pet-friendly rooms. Pet fees vary by property but are typically $50-100 for the entire stay. The walkable nature of Savannah means you and your dog can explore together on foot all day.</p>
 
-<h2>5. Gatlinburg, Tennessee — Mountain Trails with Your Pup</h2>
+<h2>5. Gatlinburg (browse <a href="/gatlinburg-pet-friendly">Gatlinburg vacation deals Pet-Friendly</a>) (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>), Tennessee — Mountain Trails with Your Pup</h2>
 <p>While dogs aren't allowed on most trails inside Great Smoky Mountains National Park (a bummer), the Gatlinburg Trail and Oconaluftee River Trail both welcome leashed dogs. Outside the park, dozens of dog-friendly trails wind through the Smokies. Many Gatlinburg shops and restaurants have dog-friendly patios.</p>
 <p>Westgate Smoky Mountain Resort offers pet-friendly vacation deals from $79/night. Several cabin rental companies in the area also welcome dogs with fenced yards — a great option for small dogs who like to run around off-leash in a safe environment.</p>
 
@@ -1475,7 +1475,7 @@ export const vacationIdeas10Posts: BlogPost[] = [
 <p>The emerald-green waters along Florida's 30A corridor are stunning from a paddleboard. The coastal dune lakes along 30A are rare geological features that create perfect flat-water paddling conditions. Choctawhatchee Bay behind Destin offers protected waters ideal for longer paddles.</p>
 <p>Resort deals in the Destin area start at $89/night. SUP rentals are widely availble starting at $25/hour. The white sand beaches and clear green water create a backdrop that makes every paddle feel like a tropical vacation, even though you're technically in the Florida Panhandle.</p>
 
-<h2>5. Myrtle Beach, South Carolina — Affordable SUP</h2>
+<h2>5. Myrtle Beach (browse <a href="/myrtle-beach-oceanfront">Myrtle Beach vacation deals Oceanfront</a>) (browse <a href="/myrtle-beach-summer">Myrtle Beach vacation deals Summer</a>), South Carolina — Affordable SUP</h2>
 <p>The Intracoastal Waterway behind Myrtle Beach offers calm paddling conditions that are perfect for beginners and experienced paddlers alike. Guided SUP tours through the saltwater marshes start at just $40 per person, and rentals run $20-25 per hour. It's some of the most affordable SUP in the country.</p>
 <p>Westgate Myrtle Beach Oceanfront Resort offers deals from $79/night. The ocean side works for SUP on calm days, but the marshes and creeks are where the real magic happens — dolphins, herons, and peaceful waterways surrounded by sea grass.</p>
 

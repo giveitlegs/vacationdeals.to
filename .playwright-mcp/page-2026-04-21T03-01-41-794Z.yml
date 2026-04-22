@@ -1,0 +1,1336 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - img [ref=e5]
+      - text: VacPack Rate Ticker
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - link "$49 · Westgate Events · 3N/4D · Three-night stay at …" [ref=e12] [cursor=pointer]:
+          - /url: /deals/westgate-events-branson-3-night-49.00
+          - generic [ref=e13]: $49
+          - generic [ref=e14]: ·
+          - generic [ref=e15]: Westgate Events
+          - generic [ref=e16]: ·
+          - generic [ref=e17]: 3N/4D
+          - generic [ref=e18]: ·
+          - generic [ref=e19]: Three-night stay at …
+        - generic [ref=e20]:
+          - img [ref=e21]
+          - link "$49 · GoVIP · 3N/4D · Three-night stay at …" [ref=e25] [cursor=pointer]:
+            - /url: /deals/govip-various-3-night-149
+            - generic [ref=e26]: $49
+            - generic [ref=e27]: ·
+            - generic [ref=e28]: GoVIP
+            - generic [ref=e29]: ·
+            - generic [ref=e30]: 3N/4D
+            - generic [ref=e31]: ·
+            - generic [ref=e32]: Three-night stay at …
+        - generic [ref=e33]:
+          - img [ref=e34]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e37] [cursor=pointer]:
+            - /url: /deals/vacationvip-myrtle-beach-3-night-59
+            - generic [ref=e38]: $59
+            - generic [ref=e39]: ·
+            - generic [ref=e40]: VacationVIP
+            - generic [ref=e41]: ·
+            - generic [ref=e42]: 3N/4D
+            - generic [ref=e43]: ·
+            - generic [ref=e44]: 4 Days / 3 Nights
+        - generic [ref=e45]:
+          - img [ref=e46]
+          - link "$59 · Westgate · 3N/4D · 30,000+ sq ft Sports…" [ref=e51] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-3-night-59
+            - generic [ref=e52]: $59
+            - generic [ref=e53]: ·
+            - generic [ref=e54]: Westgate
+            - generic [ref=e55]: ·
+            - generic [ref=e56]: 3N/4D
+            - generic [ref=e57]: ·
+            - generic [ref=e58]: 30,000+ sq ft Sports…
+        - generic [ref=e59]:
+          - img [ref=e60]
+          - link "$59 · Westgate · 3N/4D · Bonus! $50 Gift Card" [ref=e66] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-3-night-59
+            - generic [ref=e67]: $59
+            - generic [ref=e68]: ·
+            - generic [ref=e69]: Westgate
+            - generic [ref=e70]: ·
+            - generic [ref=e71]: 3N/4D
+            - generic [ref=e72]: ·
+            - generic [ref=e73]: Bonus! $50 Gift Card
+        - generic [ref=e74]:
+          - img [ref=e75]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e78] [cursor=pointer]:
+            - /url: /deals/vacationvip-orlando-3-night-59
+            - generic [ref=e79]: $59
+            - generic [ref=e80]: ·
+            - generic [ref=e81]: VacationVIP
+            - generic [ref=e82]: ·
+            - generic [ref=e83]: 3N/4D
+            - generic [ref=e84]: ·
+            - generic [ref=e85]: 4 Days / 3 Nights
+        - generic [ref=e86]:
+          - img [ref=e87]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e89] [cursor=pointer]:
+            - /url: /deals/vacationvip-gatlinburg-3-night-59
+            - generic [ref=e90]: $59
+            - generic [ref=e91]: ·
+            - generic [ref=e92]: VacationVIP
+            - generic [ref=e93]: ·
+            - generic [ref=e94]: 3N/4D
+            - generic [ref=e95]: ·
+            - generic [ref=e96]: 4 Days / 3 Nights
+        - generic [ref=e97]:
+          - img [ref=e98]
+          - link "$59 · Westgate · 2N/3D · 2 Wild Bear Falls Ti…" [ref=e102] [cursor=pointer]:
+            - /url: /deals/westgate-gatlinburg-2-night-59
+            - generic [ref=e103]: $59
+            - generic [ref=e104]: ·
+            - generic [ref=e105]: Westgate
+            - generic [ref=e106]: ·
+            - generic [ref=e107]: 2N/3D
+            - generic [ref=e108]: ·
+            - generic [ref=e109]: 2 Wild Bear Falls Ti…
+        - generic [ref=e110]:
+          - img [ref=e111]
+          - link "$59 · Westgate · 3N/4D · Resort close to Silv…" [ref=e114] [cursor=pointer]:
+            - /url: /deals/westgate-branson-3-night-59
+            - generic [ref=e115]: $59
+            - generic [ref=e116]: ·
+            - generic [ref=e117]: Westgate
+            - generic [ref=e118]: ·
+            - generic [ref=e119]: 3N/4D
+            - generic [ref=e120]: ·
+            - generic [ref=e121]: Resort close to Silv…
+        - generic [ref=e122]:
+          - img [ref=e123]
+          - link "$59 · Westgate · 3N/4D · Oceanfront resort cl…" [ref=e128] [cursor=pointer]:
+            - /url: /deals/westgate-myrtle-beach-3-night-59
+            - generic [ref=e129]: $59
+            - generic [ref=e130]: ·
+            - generic [ref=e131]: Westgate
+            - generic [ref=e132]: ·
+            - generic [ref=e133]: 3N/4D
+            - generic [ref=e134]: ·
+            - generic [ref=e135]: Oceanfront resort cl…
+        - generic [ref=e136]:
+          - img [ref=e137]
+          - link "$59 · VacationVIP · 3N/4D · 4 Days / 3 Nights" [ref=e143] [cursor=pointer]:
+            - /url: /deals/vacationvip-daytona-beach-3-night-59
+            - generic [ref=e144]: $59
+            - generic [ref=e145]: ·
+            - generic [ref=e146]: VacationVIP
+            - generic [ref=e147]: ·
+            - generic [ref=e148]: 3N/4D
+            - generic [ref=e149]: ·
+            - generic [ref=e150]: 4 Days / 3 Nights
+        - generic [ref=e151]:
+          - img [ref=e152]
+          - link "$59 · Westgate · 2N/3D · Luxury Studio Suite" [ref=e155] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-59
+            - generic [ref=e156]: $59
+            - generic [ref=e157]: ·
+            - generic [ref=e158]: Westgate
+            - generic [ref=e159]: ·
+            - generic [ref=e160]: 2N/3D
+            - generic [ref=e161]: ·
+            - generic [ref=e162]: Luxury Studio Suite
+        - generic [ref=e163]:
+          - img [ref=e164]
+          - link "$59 · Westgate · 3N/4D · Travel between 1/2 -…" [ref=e166] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-59
+            - generic [ref=e167]: $59
+            - generic [ref=e168]: ·
+            - generic [ref=e169]: Westgate
+            - generic [ref=e170]: ·
+            - generic [ref=e171]: 3N/4D
+            - generic [ref=e172]: ·
+            - generic [ref=e173]: Travel between 1/2 -…
+        - generic [ref=e174]:
+          - img [ref=e175]
+          - link "$79 · Westgate · 2N/3D · 30,000+ sq ft Sports…" [ref=e179] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-2-night-79
+            - generic [ref=e180]: $79
+            - generic [ref=e181]: ·
+            - generic [ref=e182]: Westgate
+            - generic [ref=e183]: ·
+            - generic [ref=e184]: 2N/3D
+            - generic [ref=e185]: ·
+            - generic [ref=e186]: 30,000+ sq ft Sports…
+        - generic [ref=e187]:
+          - img [ref=e188]
+          - link "$79 · Westgate · 2N/3D · 3 Days / 2 Nights" [ref=e191] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-2-night-79
+            - generic [ref=e192]: $79
+            - generic [ref=e193]: ·
+            - generic [ref=e194]: Westgate
+            - generic [ref=e195]: ·
+            - generic [ref=e196]: 2N/3D
+            - generic [ref=e197]: ·
+            - generic [ref=e198]: 3 Days / 2 Nights
+        - generic [ref=e199]:
+          - img [ref=e200]
+          - link "$79 · Westgate Events · 3N/4D · 3 nights at Westgate…" [ref=e205] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-3-night-79
+            - generic [ref=e206]: $79
+            - generic [ref=e207]: ·
+            - generic [ref=e208]: Westgate Events
+            - generic [ref=e209]: ·
+            - generic [ref=e210]: 3N/4D
+            - generic [ref=e211]: ·
+            - generic [ref=e212]: 3 nights at Westgate…
+        - generic [ref=e213]:
+          - img [ref=e214]
+          - link "$79 · Westgate · 2N/3D · Top Orlando Deal!" [ref=e220] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-79
+            - generic [ref=e221]: $79
+            - generic [ref=e222]: ·
+            - generic [ref=e223]: Westgate
+            - generic [ref=e224]: ·
+            - generic [ref=e225]: 2N/3D
+            - generic [ref=e226]: ·
+            - generic [ref=e227]: Top Orlando Deal!
+        - generic [ref=e228]:
+          - img [ref=e229]
+          - link "$79 · Westgate Events · 2N/3D · 2 nights at Westgate…" [ref=e232] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-2-night-99.00
+            - generic [ref=e233]: $79
+            - generic [ref=e234]: ·
+            - generic [ref=e235]: Westgate Events
+            - generic [ref=e236]: ·
+            - generic [ref=e237]: 2N/3D
+            - generic [ref=e238]: ·
+            - generic [ref=e239]: 2 nights at Westgate…
+        - generic [ref=e240]:
+          - img [ref=e241]
+          - link "$79 · Westgate · 3N/4D · 4 days / 3 nights" [ref=e243] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-79
+            - generic [ref=e244]: $79
+            - generic [ref=e245]: ·
+            - generic [ref=e246]: Westgate
+            - generic [ref=e247]: ·
+            - generic [ref=e248]: 3N/4D
+            - generic [ref=e249]: ·
+            - generic [ref=e250]: 4 days / 3 nights
+        - generic [ref=e251]:
+          - img [ref=e252]
+          - link "$79 · Westgate · 2N/3D · Spacious Accommodati…" [ref=e256] [cursor=pointer]:
+            - /url: /deals/westgate-williamsburg-2-night-79
+            - generic [ref=e257]: $79
+            - generic [ref=e258]: ·
+            - generic [ref=e259]: Westgate
+            - generic [ref=e260]: ·
+            - generic [ref=e261]: 2N/3D
+            - generic [ref=e262]: ·
+            - generic [ref=e263]: Spacious Accommodati…
+        - img [ref=e264]
+      - generic [ref=e267]:
+        - link [ref=e269] [cursor=pointer]:
+          - /url: /deals/westgate-events-branson-3-night-49.00
+          - generic [ref=e270]: $49
+          - generic [ref=e271]: ·
+          - generic [ref=e272]: Westgate Events
+          - generic [ref=e273]: ·
+          - generic [ref=e274]: 3N/4D
+          - generic [ref=e275]: ·
+          - generic [ref=e276]: Three-night stay at …
+        - generic [ref=e277]:
+          - img [ref=e278]
+          - link [ref=e282] [cursor=pointer]:
+            - /url: /deals/govip-various-3-night-149
+            - generic [ref=e283]: $49
+            - generic [ref=e284]: ·
+            - generic [ref=e285]: GoVIP
+            - generic [ref=e286]: ·
+            - generic [ref=e287]: 3N/4D
+            - generic [ref=e288]: ·
+            - generic [ref=e289]: Three-night stay at …
+        - generic [ref=e290]:
+          - img [ref=e291]
+          - link [ref=e294] [cursor=pointer]:
+            - /url: /deals/vacationvip-myrtle-beach-3-night-59
+            - generic [ref=e295]: $59
+            - generic [ref=e296]: ·
+            - generic [ref=e297]: VacationVIP
+            - generic [ref=e298]: ·
+            - generic [ref=e299]: 3N/4D
+            - generic [ref=e300]: ·
+            - generic [ref=e301]: 4 Days / 3 Nights
+        - generic [ref=e302]:
+          - img [ref=e303]
+          - link [ref=e308] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-3-night-59
+            - generic [ref=e309]: $59
+            - generic [ref=e310]: ·
+            - generic [ref=e311]: Westgate
+            - generic [ref=e312]: ·
+            - generic [ref=e313]: 3N/4D
+            - generic [ref=e314]: ·
+            - generic [ref=e315]: 30,000+ sq ft Sports…
+        - generic [ref=e316]:
+          - img [ref=e317]
+          - link [ref=e323] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-3-night-59
+            - generic [ref=e324]: $59
+            - generic [ref=e325]: ·
+            - generic [ref=e326]: Westgate
+            - generic [ref=e327]: ·
+            - generic [ref=e328]: 3N/4D
+            - generic [ref=e329]: ·
+            - generic [ref=e330]: Bonus! $50 Gift Card
+        - generic [ref=e331]:
+          - img [ref=e332]
+          - link [ref=e335] [cursor=pointer]:
+            - /url: /deals/vacationvip-orlando-3-night-59
+            - generic [ref=e336]: $59
+            - generic [ref=e337]: ·
+            - generic [ref=e338]: VacationVIP
+            - generic [ref=e339]: ·
+            - generic [ref=e340]: 3N/4D
+            - generic [ref=e341]: ·
+            - generic [ref=e342]: 4 Days / 3 Nights
+        - generic [ref=e343]:
+          - img [ref=e344]
+          - link [ref=e346] [cursor=pointer]:
+            - /url: /deals/vacationvip-gatlinburg-3-night-59
+            - generic [ref=e347]: $59
+            - generic [ref=e348]: ·
+            - generic [ref=e349]: VacationVIP
+            - generic [ref=e350]: ·
+            - generic [ref=e351]: 3N/4D
+            - generic [ref=e352]: ·
+            - generic [ref=e353]: 4 Days / 3 Nights
+        - generic [ref=e354]:
+          - img [ref=e355]
+          - link [ref=e359] [cursor=pointer]:
+            - /url: /deals/westgate-gatlinburg-2-night-59
+            - generic [ref=e360]: $59
+            - generic [ref=e361]: ·
+            - generic [ref=e362]: Westgate
+            - generic [ref=e363]: ·
+            - generic [ref=e364]: 2N/3D
+            - generic [ref=e365]: ·
+            - generic [ref=e366]: 2 Wild Bear Falls Ti…
+        - generic [ref=e367]:
+          - img [ref=e368]
+          - link [ref=e371] [cursor=pointer]:
+            - /url: /deals/westgate-branson-3-night-59
+            - generic [ref=e372]: $59
+            - generic [ref=e373]: ·
+            - generic [ref=e374]: Westgate
+            - generic [ref=e375]: ·
+            - generic [ref=e376]: 3N/4D
+            - generic [ref=e377]: ·
+            - generic [ref=e378]: Resort close to Silv…
+        - generic [ref=e379]:
+          - img [ref=e380]
+          - link [ref=e385] [cursor=pointer]:
+            - /url: /deals/westgate-myrtle-beach-3-night-59
+            - generic [ref=e386]: $59
+            - generic [ref=e387]: ·
+            - generic [ref=e388]: Westgate
+            - generic [ref=e389]: ·
+            - generic [ref=e390]: 3N/4D
+            - generic [ref=e391]: ·
+            - generic [ref=e392]: Oceanfront resort cl…
+        - generic [ref=e393]:
+          - img [ref=e394]
+          - link [ref=e400] [cursor=pointer]:
+            - /url: /deals/vacationvip-daytona-beach-3-night-59
+            - generic [ref=e401]: $59
+            - generic [ref=e402]: ·
+            - generic [ref=e403]: VacationVIP
+            - generic [ref=e404]: ·
+            - generic [ref=e405]: 3N/4D
+            - generic [ref=e406]: ·
+            - generic [ref=e407]: 4 Days / 3 Nights
+        - generic [ref=e408]:
+          - img [ref=e409]
+          - link [ref=e412] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-59
+            - generic [ref=e413]: $59
+            - generic [ref=e414]: ·
+            - generic [ref=e415]: Westgate
+            - generic [ref=e416]: ·
+            - generic [ref=e417]: 2N/3D
+            - generic [ref=e418]: ·
+            - generic [ref=e419]: Luxury Studio Suite
+        - generic [ref=e420]:
+          - img [ref=e421]
+          - link [ref=e423] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-59
+            - generic [ref=e424]: $59
+            - generic [ref=e425]: ·
+            - generic [ref=e426]: Westgate
+            - generic [ref=e427]: ·
+            - generic [ref=e428]: 3N/4D
+            - generic [ref=e429]: ·
+            - generic [ref=e430]: Travel between 1/2 -…
+        - generic [ref=e431]:
+          - img [ref=e432]
+          - link [ref=e436] [cursor=pointer]:
+            - /url: /deals/westgate-las-vegas-2-night-79
+            - generic [ref=e437]: $79
+            - generic [ref=e438]: ·
+            - generic [ref=e439]: Westgate
+            - generic [ref=e440]: ·
+            - generic [ref=e441]: 2N/3D
+            - generic [ref=e442]: ·
+            - generic [ref=e443]: 30,000+ sq ft Sports…
+        - generic [ref=e444]:
+          - img [ref=e445]
+          - link [ref=e448] [cursor=pointer]:
+            - /url: /deals/westgate-multiple-destinations-2-night-79
+            - generic [ref=e449]: $79
+            - generic [ref=e450]: ·
+            - generic [ref=e451]: Westgate
+            - generic [ref=e452]: ·
+            - generic [ref=e453]: 2N/3D
+            - generic [ref=e454]: ·
+            - generic [ref=e455]: 3 Days / 2 Nights
+        - generic [ref=e456]:
+          - img [ref=e457]
+          - link [ref=e462] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-3-night-79
+            - generic [ref=e463]: $79
+            - generic [ref=e464]: ·
+            - generic [ref=e465]: Westgate Events
+            - generic [ref=e466]: ·
+            - generic [ref=e467]: 3N/4D
+            - generic [ref=e468]: ·
+            - generic [ref=e469]: 3 nights at Westgate…
+        - generic [ref=e470]:
+          - img [ref=e471]
+          - link [ref=e477] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-2-night-79
+            - generic [ref=e478]: $79
+            - generic [ref=e479]: ·
+            - generic [ref=e480]: Westgate
+            - generic [ref=e481]: ·
+            - generic [ref=e482]: 2N/3D
+            - generic [ref=e483]: ·
+            - generic [ref=e484]: Top Orlando Deal!
+        - generic [ref=e485]:
+          - img [ref=e486]
+          - link [ref=e489] [cursor=pointer]:
+            - /url: /deals/westgate-events-orlando-2-night-99.00
+            - generic [ref=e490]: $79
+            - generic [ref=e491]: ·
+            - generic [ref=e492]: Westgate Events
+            - generic [ref=e493]: ·
+            - generic [ref=e494]: 2N/3D
+            - generic [ref=e495]: ·
+            - generic [ref=e496]: 2 nights at Westgate…
+        - generic [ref=e497]:
+          - img [ref=e498]
+          - link [ref=e500] [cursor=pointer]:
+            - /url: /deals/westgate-orlando-3-night-79
+            - generic [ref=e501]: $79
+            - generic [ref=e502]: ·
+            - generic [ref=e503]: Westgate
+            - generic [ref=e504]: ·
+            - generic [ref=e505]: 3N/4D
+            - generic [ref=e506]: ·
+            - generic [ref=e507]: 4 days / 3 nights
+        - generic [ref=e508]:
+          - img [ref=e509]
+          - link [ref=e513] [cursor=pointer]:
+            - /url: /deals/westgate-williamsburg-2-night-79
+            - generic [ref=e514]: $79
+            - generic [ref=e515]: ·
+            - generic [ref=e516]: Westgate
+            - generic [ref=e517]: ·
+            - generic [ref=e518]: 2N/3D
+            - generic [ref=e519]: ·
+            - generic [ref=e520]: Spacious Accommodati…
+        - img [ref=e521]
+  - navigation [ref=e524]:
+    - generic [ref=e525]:
+      - link "Vacation Deals .to" [ref=e526] [cursor=pointer]:
+        - /url: /
+        - img [ref=e527]
+        - generic [ref=e531]:
+          - generic [ref=e532]: Vacation
+          - generic [ref=e533]: Deals
+          - generic [ref=e534]: .to
+      - generic [ref=e535]:
+        - link "All Deals" [ref=e536] [cursor=pointer]:
+          - /url: /deals
+        - link "Destinations" [ref=e537] [cursor=pointer]:
+          - /url: /destinations
+        - link "Brands" [ref=e538] [cursor=pointer]:
+          - /url: /brands
+        - link "Blog" [ref=e539] [cursor=pointer]:
+          - /url: /blog
+        - link "Rate Recap" [ref=e541] [cursor=pointer]:
+          - /url: /rate-recap
+        - link "🎮 Games" [ref=e543] [cursor=pointer]:
+          - /url: /vacpack-games
+          - generic [ref=e544]: 🎮
+          - generic [ref=e545]: Games
+        - link "Roulette" [ref=e547] [cursor=pointer]:
+          - /url: /resort-roulette
+          - img [ref=e548]
+          - text: Roulette
+  - main [ref=e555]:
+    - generic [ref=e716]:
+      - complementary [ref=e717]:
+        - generic [ref=e718]:
+          - generic [ref=e719]: VacationDeals
+          - generic [ref=e720]: ADMIN
+        - navigation [ref=e721]:
+          - link "📊 Dashboard" [ref=e722] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=e723]: 📊
+            - text: Dashboard
+          - link "🏨 Deals" [ref=e724] [cursor=pointer]:
+            - /url: /admin/deals
+            - generic [ref=e725]: 🏨
+            - text: Deals
+          - link "🏷️ Brands" [ref=e726] [cursor=pointer]:
+            - /url: /admin/brands
+            - generic [ref=e727]: 🏷️
+            - text: Brands
+          - link "📢 Ad Banners" [ref=e728] [cursor=pointer]:
+            - /url: /admin/banners
+            - generic [ref=e729]: 📢
+            - text: Ad Banners
+          - link "🎰 Roulette" [ref=e730] [cursor=pointer]:
+            - /url: /admin/roulette
+            - generic [ref=e731]: 🎰
+            - text: Roulette
+          - link "📧 Subscribers" [ref=e732] [cursor=pointer]:
+            - /url: /admin/subscribers
+            - generic [ref=e733]: 📧
+            - text: Subscribers
+          - link "📬 Campaigns" [ref=e734] [cursor=pointer]:
+            - /url: /admin/campaigns
+            - generic [ref=e735]: 📬
+            - text: Campaigns
+          - link "🕷️ Scrapers" [ref=e736] [cursor=pointer]:
+            - /url: /admin/scrapers
+            - generic [ref=e737]: 🕷️
+            - text: Scrapers
+        - generic [ref=e738]:
+          - paragraph [ref=e739]: Admin
+          - paragraph [ref=e740]: super-admin
+          - button "Log out" [ref=e742]
+      - main [ref=e743]:
+        - heading "Deal Management" [level=1] [ref=e744]
+        - generic [ref=e745]:
+          - textbox "Search title, slug, resort..." [ref=e746]
+          - generic [ref=e747]:
+            - link "All" [ref=e748] [cursor=pointer]:
+              - /url: /admin/deals?filter=all
+            - link "Active" [ref=e749] [cursor=pointer]:
+              - /url: /admin/deals?filter=active
+            - link "Expired" [ref=e750] [cursor=pointer]:
+              - /url: /admin/deals?filter=expired
+          - button "Search" [ref=e751]
+        - table [ref=e753]:
+          - rowgroup [ref=e754]:
+            - row "Title Brand Destination Nights Price Status Scraped Actions" [ref=e755]:
+              - columnheader "Title" [ref=e756]
+              - columnheader "Brand" [ref=e757]
+              - columnheader "Destination" [ref=e758]
+              - columnheader "Nights" [ref=e759]
+              - columnheader "Price" [ref=e760]
+              - columnheader "Status" [ref=e761]
+              - columnheader "Scraped" [ref=e762]
+              - columnheader "Actions" [ref=e763]
+          - rowgroup [ref=e764]:
+            - row "Westin Los Cabos Resort Villas & Spa - Cabo San Lu... Westin Vacation Club Maui 5N $499 Active 4/21/2026 Expire Edit $" [ref=e765]:
+              - cell "Westin Los Cabos Resort Villas & Spa - Cabo San Lu..." [ref=e766]:
+                - link "Westin Los Cabos Resort Villas & Spa - Cabo San Lu..." [ref=e767] [cursor=pointer]:
+                  - /url: /deals/westin-vc-maui-5-night-949
+              - cell "Westin Vacation Club" [ref=e768]
+              - cell "Maui" [ref=e769]
+              - cell "5N" [ref=e770]
+              - cell "$499" [ref=e771]
+              - cell "Active" [ref=e772]
+              - cell "4/21/2026" [ref=e773]
+              - cell "Expire Edit $" [ref=e774]:
+                - generic [ref=e775]:
+                  - button "Expire" [ref=e776]
+                  - button "Edit $" [ref=e777]
+            - row "Sheraton Maui Resort & Spa - Maui, HI Vacation Pac... Sheraton Vacation Club Orlando 4N $549 Active 4/21/2026 Expire Edit $" [ref=e778]:
+              - cell "Sheraton Maui Resort & Spa - Maui, HI Vacation Pac..." [ref=e779]:
+                - link "Sheraton Maui Resort & Spa - Maui, HI Vacation Pac..." [ref=e780] [cursor=pointer]:
+                  - /url: /deals/sheraton-vc-orlando-4-night-249
+              - cell "Sheraton Vacation Club" [ref=e781]
+              - cell "Orlando" [ref=e782]
+              - cell "4N" [ref=e783]
+              - cell "$549" [ref=e784]
+              - cell "Active" [ref=e785]
+              - cell "4/21/2026" [ref=e786]
+              - cell "Expire Edit $" [ref=e787]:
+                - generic [ref=e788]:
+                  - button "Expire" [ref=e789]
+                  - button "Edit $" [ref=e790]
+            - row "Villa del Palmar at the Islands of Loreto - Loreto Villa Group Resorts Loreto 5N $695 Active 4/21/2026 Expire Edit $" [ref=e791]:
+              - cell "Villa del Palmar at the Islands of Loreto - Loreto" [ref=e792]:
+                - link "Villa del Palmar at the Islands of Loreto - Loreto" [ref=e793] [cursor=pointer]:
+                  - /url: /deals/villa-group-loreto-5-night-695
+              - cell "Villa Group Resorts" [ref=e794]
+              - cell "Loreto" [ref=e795]
+              - cell "5N" [ref=e796]
+              - cell "$695" [ref=e797]
+              - cell "Active" [ref=e798]
+              - cell "4/21/2026" [ref=e799]
+              - cell "Expire Edit $" [ref=e800]:
+                - generic [ref=e801]:
+                  - button "Expire" [ref=e802]
+                  - button "Edit $" [ref=e803]
+            - row "Villa del Palmar Cancun Luxury Beach Resort & Spa ... Villa Group Resorts Cancun 5N $845 Active 4/21/2026 Expire Edit $" [ref=e804]:
+              - cell "Villa del Palmar Cancun Luxury Beach Resort & Spa ..." [ref=e805]:
+                - link "Villa del Palmar Cancun Luxury Beach Resort & Spa ..." [ref=e806] [cursor=pointer]:
+                  - /url: /deals/villa-group-cancun-5-night-845
+              - cell "Villa Group Resorts" [ref=e807]
+              - cell "Cancun" [ref=e808]
+              - cell "5N" [ref=e809]
+              - cell "$845" [ref=e810]
+              - cell "Active" [ref=e811]
+              - cell "4/21/2026" [ref=e812]
+              - cell "Expire Edit $" [ref=e813]:
+                - generic [ref=e814]:
+                  - button "Expire" [ref=e815]
+                  - button "Edit $" [ref=e816]
+            - row "Villa La Estancia Riviera Nayarit - Puerto Vallart... Villa Group Resorts Puerto Vallarta 5N $895 Active 4/21/2026 Expire Edit $" [ref=e817]:
+              - cell "Villa La Estancia Riviera Nayarit - Puerto Vallart..." [ref=e818]:
+                - link "Villa La Estancia Riviera Nayarit - Puerto Vallart..." [ref=e819] [cursor=pointer]:
+                  - /url: /deals/villa-group-puerto-vallarta-5-night-895
+              - cell "Villa Group Resorts" [ref=e820]
+              - cell "Puerto Vallarta" [ref=e821]
+              - cell "5N" [ref=e822]
+              - cell "$895" [ref=e823]
+              - cell "Active" [ref=e824]
+              - cell "4/21/2026" [ref=e825]
+              - cell "Expire Edit $" [ref=e826]:
+                - generic [ref=e827]:
+                  - button "Expire" [ref=e828]
+                  - button "Edit $" [ref=e829]
+            - row "Villa del Palmar Flamingos Beach Resort & Spa - Pu... Villa Group Resorts Puerto Vallarta 5N $745 Active 4/21/2026 Expire Edit $" [ref=e830]:
+              - cell "Villa del Palmar Flamingos Beach Resort & Spa - Pu..." [ref=e831]:
+                - link "Villa del Palmar Flamingos Beach Resort & Spa - Pu..." [ref=e832] [cursor=pointer]:
+                  - /url: /deals/villa-group-puerto-vallarta-5-night-745
+              - cell "Villa Group Resorts" [ref=e833]
+              - cell "Puerto Vallarta" [ref=e834]
+              - cell "5N" [ref=e835]
+              - cell "$745" [ref=e836]
+              - cell "Active" [ref=e837]
+              - cell "4/21/2026" [ref=e838]
+              - cell "Expire Edit $" [ref=e839]:
+                - generic [ref=e840]:
+                  - button "Expire" [ref=e841]
+                  - button "Edit $" [ref=e842]
+            - row "Villa del Palmar Beach Resort & Spa Puerto Vallart... Villa Group Resorts Puerto Vallarta 5N $695 Active 4/21/2026 Expire Edit $" [ref=e843]:
+              - cell "Villa del Palmar Beach Resort & Spa Puerto Vallart..." [ref=e844]:
+                - link "Villa del Palmar Beach Resort & Spa Puerto Vallart..." [ref=e845] [cursor=pointer]:
+                  - /url: /deals/villa-group-puerto-vallarta-5-night-695
+              - cell "Villa Group Resorts" [ref=e846]
+              - cell "Puerto Vallarta" [ref=e847]
+              - cell "5N" [ref=e848]
+              - cell "$695" [ref=e849]
+              - cell "Active" [ref=e850]
+              - cell "4/21/2026" [ref=e851]
+              - cell "Expire Edit $" [ref=e852]:
+                - generic [ref=e853]:
+                  - button "Expire" [ref=e854]
+                  - button "Edit $" [ref=e855]
+            - row "Villa La Valencia Beach Resort & Spa Los Cabos - C... Villa Group Resorts Cabo San Lucas 5N $925 Active 4/21/2026 Expire Edit $" [ref=e856]:
+              - cell "Villa La Valencia Beach Resort & Spa Los Cabos - C..." [ref=e857]:
+                - link "Villa La Valencia Beach Resort & Spa Los Cabos - C..." [ref=e858] [cursor=pointer]:
+                  - /url: /deals/villa-group-cabo-san-lucas-5-night-925
+              - cell "Villa Group Resorts" [ref=e859]
+              - cell "Cabo San Lucas" [ref=e860]
+              - cell "5N" [ref=e861]
+              - cell "$925" [ref=e862]
+              - cell "Active" [ref=e863]
+              - cell "4/21/2026" [ref=e864]
+              - cell "Expire Edit $" [ref=e865]:
+                - generic [ref=e866]:
+                  - button "Expire" [ref=e867]
+                  - button "Edit $" [ref=e868]
+            - row "Villa La Estancia Beach Resort & Spa Los Cabos - C... Villa Group Resorts Cabo San Lucas 5N $995 Active 4/21/2026 Expire Edit $" [ref=e869]:
+              - cell "Villa La Estancia Beach Resort & Spa Los Cabos - C..." [ref=e870]:
+                - link "Villa La Estancia Beach Resort & Spa Los Cabos - C..." [ref=e871] [cursor=pointer]:
+                  - /url: /deals/villa-group-cabo-san-lucas-5-night-995
+              - cell "Villa Group Resorts" [ref=e872]
+              - cell "Cabo San Lucas" [ref=e873]
+              - cell "5N" [ref=e874]
+              - cell "$995" [ref=e875]
+              - cell "Active" [ref=e876]
+              - cell "4/21/2026" [ref=e877]
+              - cell "Expire Edit $" [ref=e878]:
+                - generic [ref=e879]:
+                  - button "Expire" [ref=e880]
+                  - button "Edit $" [ref=e881]
+            - row "Villa del Arco Beach Resort & Spa - Cabo San Lucas Villa Group Resorts Cabo San Lucas 5N $860 Active 4/21/2026 Expire Edit $" [ref=e882]:
+              - cell "Villa del Arco Beach Resort & Spa - Cabo San Lucas" [ref=e883]:
+                - link "Villa del Arco Beach Resort & Spa - Cabo San Lucas" [ref=e884] [cursor=pointer]:
+                  - /url: /deals/villa-group-cabo-san-lucas-5-night-860
+              - cell "Villa Group Resorts" [ref=e885]
+              - cell "Cabo San Lucas" [ref=e886]
+              - cell "5N" [ref=e887]
+              - cell "$860" [ref=e888]
+              - cell "Active" [ref=e889]
+              - cell "4/21/2026" [ref=e890]
+              - cell "Expire Edit $" [ref=e891]:
+                - generic [ref=e892]:
+                  - button "Expire" [ref=e893]
+                  - button "Edit $" [ref=e894]
+            - row "Villa del Palmar Beach Resort & Spa Cabo San Lucas... Villa Group Resorts Cabo San Lucas 5N $795 Active 4/21/2026 Expire Edit $" [ref=e895]:
+              - cell "Villa del Palmar Beach Resort & Spa Cabo San Lucas..." [ref=e896]:
+                - link "Villa del Palmar Beach Resort & Spa Cabo San Lucas..." [ref=e897] [cursor=pointer]:
+                  - /url: /deals/villa-group-cabo-san-lucas-5-night-795
+              - cell "Villa Group Resorts" [ref=e898]
+              - cell "Cabo San Lucas" [ref=e899]
+              - cell "5N" [ref=e900]
+              - cell "$795" [ref=e901]
+              - cell "Active" [ref=e902]
+              - cell "4/21/2026" [ref=e903]
+              - cell "Expire Edit $" [ref=e904]:
+                - generic [ref=e905]:
+                  - button "Expire" [ref=e906]
+                  - button "Edit $" [ref=e907]
+            - row "Hotel Mousai Cancun - Cancun Vacation Package TAFER Hotels & Resorts Puerto Vallarta 5N $599 Active 4/21/2026 Expire Edit $" [ref=e908]:
+              - cell "Hotel Mousai Cancun - Cancun Vacation Package" [ref=e909]:
+                - link "Hotel Mousai Cancun - Cancun Vacation Package" [ref=e910] [cursor=pointer]:
+                  - /url: /deals/tafer-puerto-vallarta-5-night-449
+              - cell "TAFER Hotels & Resorts" [ref=e911]
+              - cell "Puerto Vallarta" [ref=e912]
+              - cell "5N" [ref=e913]
+              - cell "$599" [ref=e914]
+              - cell "Active" [ref=e915]
+              - cell "4/21/2026" [ref=e916]
+              - cell "Expire Edit $" [ref=e917]:
+                - generic [ref=e918]:
+                  - button "Expire" [ref=e919]
+                  - button "Edit $" [ref=e920]
+            - row "Bahia Principe Luxury Runaway Bay - Runaway Bay Al... Bahia Principe Privilege Club Punta Cana 5N $549 Active 4/21/2026 Expire Edit $" [ref=e921]:
+              - cell "Bahia Principe Luxury Runaway Bay - Runaway Bay Al..." [ref=e922]:
+                - link "Bahia Principe Luxury Runaway Bay - Runaway Bay Al..." [ref=e923] [cursor=pointer]:
+                  - /url: /deals/bahia-principe-punta-cana-5-night-399
+              - cell "Bahia Principe Privilege Club" [ref=e924]
+              - cell "Punta Cana" [ref=e925]
+              - cell "5N" [ref=e926]
+              - cell "$549" [ref=e927]
+              - cell "Active" [ref=e928]
+              - cell "4/21/2026" [ref=e929]
+              - cell "Expire Edit $" [ref=e930]:
+                - generic [ref=e931]:
+                  - button "Expire" [ref=e932]
+                  - button "Edit $" [ref=e933]
+            - row "Divi Little Bay Beach Resort - St Maarten Vacation... Divi Resorts Philipsburg 4N $349 Active 4/21/2026 Expire Edit $" [ref=e934]:
+              - cell "Divi Little Bay Beach Resort - St Maarten Vacation..." [ref=e935]:
+                - link "Divi Little Bay Beach Resort - St Maarten Vacation..." [ref=e936] [cursor=pointer]:
+                  - /url: /deals/divi-philipsburg-4-night-349
+              - cell "Divi Resorts" [ref=e937]
+              - cell "Philipsburg" [ref=e938]
+              - cell "4N" [ref=e939]
+              - cell "$349" [ref=e940]
+              - cell "Active" [ref=e941]
+              - cell "4/21/2026" [ref=e942]
+              - cell "Expire Edit $" [ref=e943]:
+                - generic [ref=e944]:
+                  - button "Expire" [ref=e945]
+                  - button "Edit $" [ref=e946]
+            - row "Divi Carina Bay All Inclusive Beach Resort - USVI ... Divi Resorts Christiansted 4N $349 Active 4/21/2026 Expire Edit $" [ref=e947]:
+              - cell "Divi Carina Bay All Inclusive Beach Resort - USVI ..." [ref=e948]:
+                - link "Divi Carina Bay All Inclusive Beach Resort - USVI ..." [ref=e949] [cursor=pointer]:
+                  - /url: /deals/divi-christiansted-4-night-349
+              - cell "Divi Resorts" [ref=e950]
+              - cell "Christiansted" [ref=e951]
+              - cell "4N" [ref=e952]
+              - cell "$349" [ref=e953]
+              - cell "Active" [ref=e954]
+              - cell "4/21/2026" [ref=e955]
+              - cell "Expire Edit $" [ref=e956]:
+                - generic [ref=e957]:
+                  - button "Expire" [ref=e958]
+                  - button "Edit $" [ref=e959]
+            - row "Divi Flamingo Beach Resort & Casino - Bonaire Vaca... Divi Resorts Kralendijk 4N $299 Active 4/21/2026 Expire Edit $" [ref=e960]:
+              - cell "Divi Flamingo Beach Resort & Casino - Bonaire Vaca..." [ref=e961]:
+                - link "Divi Flamingo Beach Resort & Casino - Bonaire Vaca..." [ref=e962] [cursor=pointer]:
+                  - /url: /deals/divi-kralendijk-4-night-299
+              - cell "Divi Resorts" [ref=e963]
+              - cell "Kralendijk" [ref=e964]
+              - cell "4N" [ref=e965]
+              - cell "$299" [ref=e966]
+              - cell "Active" [ref=e967]
+              - cell "4/21/2026" [ref=e968]
+              - cell "Expire Edit $" [ref=e969]:
+                - generic [ref=e970]:
+                  - button "Expire" [ref=e971]
+                  - button "Edit $" [ref=e972]
+            - row "Divi Southwinds Beach Resort - Barbados Vacation P... Divi Resorts Christ Church 4N $349 Active 4/21/2026 Expire Edit $" [ref=e973]:
+              - cell "Divi Southwinds Beach Resort - Barbados Vacation P..." [ref=e974]:
+                - link "Divi Southwinds Beach Resort - Barbados Vacation P..." [ref=e975] [cursor=pointer]:
+                  - /url: /deals/divi-christ-church-4-night-349
+              - cell "Divi Resorts" [ref=e976]
+              - cell "Christ Church" [ref=e977]
+              - cell "4N" [ref=e978]
+              - cell "$349" [ref=e979]
+              - cell "Active" [ref=e980]
+              - cell "4/21/2026" [ref=e981]
+              - cell "Expire Edit $" [ref=e982]:
+                - generic [ref=e983]:
+                  - button "Expire" [ref=e984]
+                  - button "Edit $" [ref=e985]
+            - row "Divi Village Golf & Beach Resort - Aruba Vacation ... Divi Resorts Oranjestad 4N $349 Active 4/21/2026 Expire Edit $" [ref=e986]:
+              - cell "Divi Village Golf & Beach Resort - Aruba Vacation ..." [ref=e987]:
+                - link "Divi Village Golf & Beach Resort - Aruba Vacation ..." [ref=e988] [cursor=pointer]:
+                  - /url: /deals/divi-oranjestad-4-night-399
+              - cell "Divi Resorts" [ref=e989]
+              - cell "Oranjestad" [ref=e990]
+              - cell "4N" [ref=e991]
+              - cell "$349" [ref=e992]
+              - cell "Active" [ref=e993]
+              - cell "4/21/2026" [ref=e994]
+              - cell "Expire Edit $" [ref=e995]:
+                - generic [ref=e996]:
+                  - button "Expire" [ref=e997]
+                  - button "Edit $" [ref=e998]
+            - row "El Cid La Ceiba Beach Hotel - Cozumel Vacation Pac... El Cid Vacations Club Cozumel 4N $299 Active 4/21/2026 Expire Edit $" [ref=e999]:
+              - cell "El Cid La Ceiba Beach Hotel - Cozumel Vacation Pac..." [ref=e1000]:
+                - link "El Cid La Ceiba Beach Hotel - Cozumel Vacation Pac..." [ref=e1001] [cursor=pointer]:
+                  - /url: /deals/el-cid-cozumel-4-night-299
+              - cell "El Cid Vacations Club" [ref=e1002]
+              - cell "Cozumel" [ref=e1003]
+              - cell "4N" [ref=e1004]
+              - cell "$299" [ref=e1005]
+              - cell "Active" [ref=e1006]
+              - cell "4/21/2026" [ref=e1007]
+              - cell "Expire Edit $" [ref=e1008]:
+                - generic [ref=e1009]:
+                  - button "Expire" [ref=e1010]
+                  - button "Edit $" [ref=e1011]
+            - row "Hotel Marina El Cid Spa & Beach Resort - Riviera M... El Cid Vacations Club Riviera Maya 5N $349 Active 4/21/2026 Expire Edit $" [ref=e1012]:
+              - cell "Hotel Marina El Cid Spa & Beach Resort - Riviera M..." [ref=e1013]:
+                - link "Hotel Marina El Cid Spa & Beach Resort - Riviera M..." [ref=e1014] [cursor=pointer]:
+                  - /url: /deals/el-cid-riviera-maya-5-night-399
+              - cell "El Cid Vacations Club" [ref=e1015]
+              - cell "Riviera Maya" [ref=e1016]
+              - cell "5N" [ref=e1017]
+              - cell "$349" [ref=e1018]
+              - cell "Active" [ref=e1019]
+              - cell "4/21/2026" [ref=e1020]
+              - cell "Expire Edit $" [ref=e1021]:
+                - generic [ref=e1022]:
+                  - button "Expire" [ref=e1023]
+                  - button "Edit $" [ref=e1024]
+            - row "El Cid Granada Hotel - Mazatlan Vacation Package El Cid Vacations Club Mazatlan 4N $249 Active 4/21/2026 Expire Edit $" [ref=e1025]:
+              - cell "El Cid Granada Hotel - Mazatlan Vacation Package" [ref=e1026]:
+                - link "El Cid Granada Hotel - Mazatlan Vacation Package" [ref=e1027] [cursor=pointer]:
+                  - /url: /deals/el-cid-mazatlan-4-night-299
+              - cell "El Cid Vacations Club" [ref=e1028]
+              - cell "Mazatlan" [ref=e1029]
+              - cell "4N" [ref=e1030]
+              - cell "$249" [ref=e1031]
+              - cell "Active" [ref=e1032]
+              - cell "4/21/2026" [ref=e1033]
+              - cell "Expire Edit $" [ref=e1034]:
+                - generic [ref=e1035]:
+                  - button "Expire" [ref=e1036]
+                  - button "Edit $" [ref=e1037]
+            - row "Discount Zac Brown Band Tickets Gatlinburg at Zac ... Westgate Events Gatlinburg 2N $299 Active 4/21/2026 Expire Edit $" [ref=e1038]:
+              - cell "Discount Zac Brown Band Tickets Gatlinburg at Zac ..." [ref=e1039]:
+                - link "Discount Zac Brown Band Tickets Gatlinburg at Zac ..." [ref=e1040] [cursor=pointer]:
+                  - /url: /deals/westgate-events-gatlinburg-2-night-299
+              - cell "Westgate Events" [ref=e1041]
+              - cell "Gatlinburg" [ref=e1042]
+              - cell "2N" [ref=e1043]
+              - cell "$299" [ref=e1044]
+              - cell "Active" [ref=e1045]
+              - cell "4/21/2026" [ref=e1046]
+              - cell "Expire Edit $" [ref=e1047]:
+                - generic [ref=e1048]:
+                  - button "Expire" [ref=e1049]
+                  - button "Edit $" [ref=e1050]
+            - row "Discount NASCAR South Point 400 Tickets Las Vegas ... Westgate Events Las Vegas 3N $449 Active 4/21/2026 Expire Edit $" [ref=e1051]:
+              - cell "Discount NASCAR South Point 400 Tickets Las Vegas ..." [ref=e1052]:
+                - link "Discount NASCAR South Point 400 Tickets Las Vegas ..." [ref=e1053] [cursor=pointer]:
+                  - /url: /deals/westgate-events-las-vegas-3-night-449
+              - cell "Westgate Events" [ref=e1054]
+              - cell "Las Vegas" [ref=e1055]
+              - cell "3N" [ref=e1056]
+              - cell "$449" [ref=e1057]
+              - cell "Active" [ref=e1058]
+              - cell "4/21/2026" [ref=e1059]
+              - cell "Expire Edit $" [ref=e1060]:
+                - generic [ref=e1061]:
+                  - button "Expire" [ref=e1062]
+                  - button "Edit $" [ref=e1063]
+            - row "Discount Metallica at The Sphere Tickets Las Vegas... Westgate Events Las Vegas 2N $999 Active 4/21/2026 Expire Edit $" [ref=e1064]:
+              - cell "Discount Metallica at The Sphere Tickets Las Vegas..." [ref=e1065]:
+                - link "Discount Metallica at The Sphere Tickets Las Vegas..." [ref=e1066] [cursor=pointer]:
+                  - /url: /deals/westgate-events-las-vegas-2-night-999
+              - cell "Westgate Events" [ref=e1067]
+              - cell "Las Vegas" [ref=e1068]
+              - cell "2N" [ref=e1069]
+              - cell "$999" [ref=e1070]
+              - cell "Active" [ref=e1071]
+              - cell "4/21/2026" [ref=e1072]
+              - cell "Expire Edit $" [ref=e1073]:
+                - generic [ref=e1074]:
+                  - button "Expire" [ref=e1075]
+                  - button "Edit $" [ref=e1076]
+            - row "Discount Tim McGraw in Orlando Tickets Orlando at ... Westgate Events Orlando 2N $249 Active 4/21/2026 Expire Edit $" [ref=e1077]:
+              - cell "Discount Tim McGraw in Orlando Tickets Orlando at ..." [ref=e1078]:
+                - link "Discount Tim McGraw in Orlando Tickets Orlando at ..." [ref=e1079] [cursor=pointer]:
+                  - /url: /deals/westgate-events-orlando-2-night-249
+              - cell "Westgate Events" [ref=e1080]
+              - cell "Orlando" [ref=e1081]
+              - cell "2N" [ref=e1082]
+              - cell "$249" [ref=e1083]
+              - cell "Active" [ref=e1084]
+              - cell "4/21/2026" [ref=e1085]
+              - cell "Expire Edit $" [ref=e1086]:
+                - generic [ref=e1087]:
+                  - button "Expire" [ref=e1088]
+                  - button "Edit $" [ref=e1089]
+            - row "Discount Ne-Yo & AKON Tickets 2026 Westgate Town C... Westgate Events Orlando 2N $199 Active 4/21/2026 Expire Edit $" [ref=e1090]:
+              - cell "Discount Ne-Yo & AKON Tickets 2026 Westgate Town C..." [ref=e1091]:
+                - link "Discount Ne-Yo & AKON Tickets 2026 Westgate Town C..." [ref=e1092] [cursor=pointer]:
+                  - /url: /deals/westgate-events-orlando-2-night-199.00
+              - cell "Westgate Events" [ref=e1093]
+              - cell "Orlando" [ref=e1094]
+              - cell "2N" [ref=e1095]
+              - cell "$199" [ref=e1096]
+              - cell "Active" [ref=e1097]
+              - cell "4/21/2026" [ref=e1098]
+              - cell "Expire Edit $" [ref=e1099]:
+                - generic [ref=e1100]:
+                  - button "Expire" [ref=e1101]
+                  - button "Edit $" [ref=e1102]
+            - row "Discount J. Cole Tickets Orlando at J. Cole Westgate Events Orlando 2N $299 Active 4/21/2026 Expire Edit $" [ref=e1103]:
+              - cell "Discount J. Cole Tickets Orlando at J. Cole" [ref=e1104]:
+                - link "Discount J. Cole Tickets Orlando at J. Cole" [ref=e1105] [cursor=pointer]:
+                  - /url: /deals/westgate-events-orlando-2-night-299
+              - cell "Westgate Events" [ref=e1106]
+              - cell "Orlando" [ref=e1107]
+              - cell "2N" [ref=e1108]
+              - cell "$299" [ref=e1109]
+              - cell "Active" [ref=e1110]
+              - cell "4/21/2026" [ref=e1111]
+              - cell "Expire Edit $" [ref=e1112]:
+                - generic [ref=e1113]:
+                  - button "Expire" [ref=e1114]
+                  - button "Edit $" [ref=e1115]
+            - row "Discount Chris Stapleton in Orlando Tickets 2026 W... Westgate Events Orlando 3N $499 Active 4/21/2026 Expire Edit $" [ref=e1116]:
+              - cell "Discount Chris Stapleton in Orlando Tickets 2026 W..." [ref=e1117]:
+                - link "Discount Chris Stapleton in Orlando Tickets 2026 W..." [ref=e1118] [cursor=pointer]:
+                  - /url: /deals/westgate-events-orlando-3-night-499.00
+              - cell "Westgate Events" [ref=e1119]
+              - cell "Orlando" [ref=e1120]
+              - cell "3N" [ref=e1121]
+              - cell "$499" [ref=e1122]
+              - cell "Active" [ref=e1123]
+              - cell "4/21/2026" [ref=e1124]
+              - cell "Expire Edit $" [ref=e1125]:
+                - generic [ref=e1126]:
+                  - button "Expire" [ref=e1127]
+                  - button "Edit $" [ref=e1128]
+            - row "Discount 2026 Westgate Branson Woods Resort Branso... Westgate Events Branson 3N $49 Active 4/21/2026 Expire Edit $" [ref=e1129]:
+              - cell "Discount 2026 Westgate Branson Woods Resort Branso..." [ref=e1130]:
+                - link "Discount 2026 Westgate Branson Woods Resort Branso..." [ref=e1131] [cursor=pointer]:
+                  - /url: /deals/westgate-events-branson-3-night-49.00
+              - cell "Westgate Events" [ref=e1132]
+              - cell "Branson" [ref=e1133]
+              - cell "3N" [ref=e1134]
+              - cell "$49" [ref=e1135]
+              - cell "Active" [ref=e1136]
+              - cell "4/21/2026" [ref=e1137]
+              - cell "Expire Edit $" [ref=e1138]:
+                - generic [ref=e1139]:
+                  - button "Expire" [ref=e1140]
+                  - button "Edit $" [ref=e1141]
+            - row "Discount ZZ Top Tickets Gatlinburg at ZZ Top Westgate Events Gatlinburg 2N $149 Active 4/21/2026 Expire Edit $" [ref=e1142]:
+              - cell "Discount ZZ Top Tickets Gatlinburg at ZZ Top" [ref=e1143]:
+                - link "Discount ZZ Top Tickets Gatlinburg at ZZ Top" [ref=e1144] [cursor=pointer]:
+                  - /url: /deals/westgate-events-gatlinburg-2-night-149
+              - cell "Westgate Events" [ref=e1145]
+              - cell "Gatlinburg" [ref=e1146]
+              - cell "2N" [ref=e1147]
+              - cell "$149" [ref=e1148]
+              - cell "Active" [ref=e1149]
+              - cell "4/21/2026" [ref=e1150]
+              - cell "Expire Edit $" [ref=e1151]:
+                - generic [ref=e1152]:
+                  - button "Expire" [ref=e1153]
+                  - button "Edit $" [ref=e1154]
+            - row "Discount Las Vegas Vacation Package — A Weekend in... Westgate Events Las Vegas 3N $399 Active 4/21/2026 Expire Edit $" [ref=e1155]:
+              - cell "Discount Las Vegas Vacation Package — A Weekend in..." [ref=e1156]:
+                - link "Discount Las Vegas Vacation Package — A Weekend in..." [ref=e1157] [cursor=pointer]:
+                  - /url: /deals/westgate-events-las-vegas-3-night-249
+              - cell "Westgate Events" [ref=e1158]
+              - cell "Las Vegas" [ref=e1159]
+              - cell "3N" [ref=e1160]
+              - cell "$399" [ref=e1161]
+              - cell "Active" [ref=e1162]
+              - cell "4/21/2026" [ref=e1163]
+              - cell "Expire Edit $" [ref=e1164]:
+                - generic [ref=e1165]:
+                  - button "Expire" [ref=e1166]
+                  - button "Edit $" [ref=e1167]
+            - row "Discount Universal Horror Unleashed Tickets Las Ve... Westgate Events Las Vegas 3N $449 Active 4/21/2026 Expire Edit $" [ref=e1168]:
+              - cell "Discount Universal Horror Unleashed Tickets Las Ve..." [ref=e1169]:
+                - link "Discount Universal Horror Unleashed Tickets Las Ve..." [ref=e1170] [cursor=pointer]:
+                  - /url: /deals/westgate-events-las-vegas-3-night-299
+              - cell "Westgate Events" [ref=e1171]
+              - cell "Las Vegas" [ref=e1172]
+              - cell "3N" [ref=e1173]
+              - cell "$449" [ref=e1174]
+              - cell "Active" [ref=e1175]
+              - cell "4/21/2026" [ref=e1176]
+              - cell "Expire Edit $" [ref=e1177]:
+                - generic [ref=e1178]:
+                  - button "Expire" [ref=e1179]
+                  - button "Edit $" [ref=e1180]
+            - row "Discount A Royal Weekend in Vegas Tickets Las Vega... Westgate Events Las Vegas 3N $399 Active 4/21/2026 Expire Edit $" [ref=e1181]:
+              - cell "Discount A Royal Weekend in Vegas Tickets Las Vega..." [ref=e1182]:
+                - link "Discount A Royal Weekend in Vegas Tickets Las Vega..." [ref=e1183] [cursor=pointer]:
+                  - /url: /deals/westgate-events-las-vegas-3-night-199
+              - cell "Westgate Events" [ref=e1184]
+              - cell "Las Vegas" [ref=e1185]
+              - cell "3N" [ref=e1186]
+              - cell "$399" [ref=e1187]
+              - cell "Active" [ref=e1188]
+              - cell "4/21/2026" [ref=e1189]
+              - cell "Expire Edit $" [ref=e1190]:
+                - generic [ref=e1191]:
+                  - button "Expire" [ref=e1192]
+                  - button "Edit $" [ref=e1193]
+            - row "Discount Wizard of Oz Movie Experience at The Sphe... Westgate Events Las Vegas 3N $649 Active 4/21/2026 Expire Edit $" [ref=e1194]:
+              - cell "Discount Wizard of Oz Movie Experience at The Sphe..." [ref=e1195]:
+                - link "Discount Wizard of Oz Movie Experience at The Sphe..." [ref=e1196] [cursor=pointer]:
+                  - /url: /deals/westgate-events-las-vegas-3-night-499
+              - cell "Westgate Events" [ref=e1197]
+              - cell "Las Vegas" [ref=e1198]
+              - cell "3N" [ref=e1199]
+              - cell "$649" [ref=e1200]
+              - cell "Active" [ref=e1201]
+              - cell "4/21/2026" [ref=e1202]
+              - cell "Expire Edit $" [ref=e1203]:
+                - generic [ref=e1204]:
+                  - button "Expire" [ref=e1205]
+                  - button "Edit $" [ref=e1206]
+            - row "Discount Avenged Sevenfold & Good Charlotte Ticket... Westgate Events Branson 2N $199 Active 4/21/2026 Expire Edit $" [ref=e1207]:
+              - cell "Discount Avenged Sevenfold & Good Charlotte Ticket..." [ref=e1208]:
+                - link "Discount Avenged Sevenfold & Good Charlotte Ticket..." [ref=e1209] [cursor=pointer]:
+                  - /url: /deals/westgate-events-branson-2-night-199.00
+              - cell "Westgate Events" [ref=e1210]
+              - cell "Branson" [ref=e1211]
+              - cell "2N" [ref=e1212]
+              - cell "$199" [ref=e1213]
+              - cell "Active" [ref=e1214]
+              - cell "4/21/2026" [ref=e1215]
+              - cell "Expire Edit $" [ref=e1216]:
+                - generic [ref=e1217]:
+                  - button "Expire" [ref=e1218]
+                  - button "Edit $" [ref=e1219]
+            - row "Discount Cook Out Southern 500 Tickets 2026 Westga... Westgate Events Myrtle Beach 3N $549 Active 4/21/2026 Expire Edit $" [ref=e1220]:
+              - cell "Discount Cook Out Southern 500 Tickets 2026 Westga..." [ref=e1221]:
+                - link "Discount Cook Out Southern 500 Tickets 2026 Westga..." [ref=e1222] [cursor=pointer]:
+                  - /url: /deals/westgate-events-myrtle-beach-3-night-549.00
+              - cell "Westgate Events" [ref=e1223]
+              - cell "Myrtle Beach" [ref=e1224]
+              - cell "3N" [ref=e1225]
+              - cell "$549" [ref=e1226]
+              - cell "Active" [ref=e1227]
+              - cell "4/21/2026" [ref=e1228]
+              - cell "Expire Edit $" [ref=e1229]:
+                - generic [ref=e1230]:
+                  - button "Expire" [ref=e1231]
+                  - button "Edit $" [ref=e1232]
+            - row "Discount AC/DC Tickets Las Vegas at AC/DC Westgate Events Las Vegas 2N $499 Active 4/21/2026 Expire Edit $" [ref=e1233]:
+              - cell "Discount AC/DC Tickets Las Vegas at AC/DC" [ref=e1234]:
+                - link "Discount AC/DC Tickets Las Vegas at AC/DC" [ref=e1235] [cursor=pointer]:
+                  - /url: /deals/westgate-events-las-vegas-2-night-499
+              - cell "Westgate Events" [ref=e1236]
+              - cell "Las Vegas" [ref=e1237]
+              - cell "2N" [ref=e1238]
+              - cell "$499" [ref=e1239]
+              - cell "Active" [ref=e1240]
+              - cell "4/21/2026" [ref=e1241]
+              - cell "Expire Edit $" [ref=e1242]:
+                - generic [ref=e1243]:
+                  - button "Expire" [ref=e1244]
+                  - button "Edit $" [ref=e1245]
+            - row "Discount Smoky Mountain Scenic Helicopter Tour Tic... Westgate Events Gatlinburg 3N $199 Active 4/21/2026 Expire Edit $" [ref=e1246]:
+              - cell "Discount Smoky Mountain Scenic Helicopter Tour Tic..." [ref=e1247]:
+                - link "Discount Smoky Mountain Scenic Helicopter Tour Tic..." [ref=e1248] [cursor=pointer]:
+                  - /url: /deals/westgate-events-gatlinburg-3-night-299
+              - cell "Westgate Events" [ref=e1249]
+              - cell "Gatlinburg" [ref=e1250]
+              - cell "3N" [ref=e1251]
+              - cell "$199" [ref=e1252]
+              - cell "Active" [ref=e1253]
+              - cell "4/21/2026" [ref=e1254]
+              - cell "Expire Edit $" [ref=e1255]:
+                - generic [ref=e1256]:
+                  - button "Expire" [ref=e1257]
+                  - button "Edit $" [ref=e1258]
+            - row "Discount A Day at Aquatica Tickets 2026 Westgate T... Westgate Events Orlando 3N $79 Active 4/21/2026 Expire Edit $" [ref=e1259]:
+              - cell "Discount A Day at Aquatica Tickets 2026 Westgate T..." [ref=e1260]:
+                - link "Discount A Day at Aquatica Tickets 2026 Westgate T..." [ref=e1261] [cursor=pointer]:
+                  - /url: /deals/westgate-events-orlando-3-night-79
+              - cell "Westgate Events" [ref=e1262]
+              - cell "Orlando" [ref=e1263]
+              - cell "3N" [ref=e1264]
+              - cell "$79" [ref=e1265]
+              - cell "Active" [ref=e1266]
+              - cell "4/21/2026" [ref=e1267]
+              - cell "Expire Edit $" [ref=e1268]:
+                - generic [ref=e1269]:
+                  - button "Expire" [ref=e1270]
+                  - button "Edit $" [ref=e1271]
+            - 'row "Discount Drawn to Life: Cirque du Soleil & Disney ... Westgate Events Orlando 2N $79 Active 4/21/2026 Expire Edit $" [ref=e1272]':
+              - 'cell "Discount Drawn to Life: Cirque du Soleil & Disney ..." [ref=e1273]':
+                - 'link "Discount Drawn to Life: Cirque du Soleil & Disney ..." [ref=e1274] [cursor=pointer]':
+                  - /url: /deals/westgate-events-orlando-2-night-99.00
+              - cell "Westgate Events" [ref=e1275]
+              - cell "Orlando" [ref=e1276]
+              - cell "2N" [ref=e1277]
+              - cell "$79" [ref=e1278]
+              - cell "Active" [ref=e1279]
+              - cell "4/21/2026" [ref=e1280]
+              - cell "Expire Edit $" [ref=e1281]:
+                - generic [ref=e1282]:
+                  - button "Expire" [ref=e1283]
+                  - button "Edit $" [ref=e1284]
+            - row "Discount Wild Florida Drive-Thru Safari Park Ticke... Westgate Events Orlando 3N $79 Active 4/21/2026 Expire Edit $" [ref=e1285]:
+              - cell "Discount Wild Florida Drive-Thru Safari Park Ticke..." [ref=e1286]:
+                - link "Discount Wild Florida Drive-Thru Safari Park Ticke..." [ref=e1287] [cursor=pointer]:
+                  - /url: /deals/westgate-events-orlando-3-night-79.00
+              - cell "Westgate Events" [ref=e1288]
+              - cell "Orlando" [ref=e1289]
+              - cell "3N" [ref=e1290]
+              - cell "$79" [ref=e1291]
+              - cell "Active" [ref=e1292]
+              - cell "4/21/2026" [ref=e1293]
+              - cell "Expire Edit $" [ref=e1294]:
+                - generic [ref=e1295]:
+                  - button "Expire" [ref=e1296]
+                  - button "Edit $" [ref=e1297]
+            - row "Discount Dolly Parton’s Stampede Dinner Show Ticke... Westgate Events Branson 3N $99 Active 4/21/2026 Expire Edit $" [ref=e1298]:
+              - cell "Discount Dolly Parton’s Stampede Dinner Show Ticke..." [ref=e1299]:
+                - link "Discount Dolly Parton’s Stampede Dinner Show Ticke..." [ref=e1300] [cursor=pointer]:
+                  - /url: /deals/westgate-events-branson-3-night-99.00
+              - cell "Westgate Events" [ref=e1301]
+              - cell "Branson" [ref=e1302]
+              - cell "3N" [ref=e1303]
+              - cell "$99" [ref=e1304]
+              - cell "Active" [ref=e1305]
+              - cell "4/21/2026" [ref=e1306]
+              - cell "Expire Edit $" [ref=e1307]:
+                - generic [ref=e1308]:
+                  - button "Expire" [ref=e1309]
+                  - button "Edit $" [ref=e1310]
+            - row "Discount 2026 Westgate Myrtle Beach Oceanfront Res... Westgate Events Myrtle Beach 3N $99 Active 4/21/2026 Expire Edit $" [ref=e1311]:
+              - cell "Discount 2026 Westgate Myrtle Beach Oceanfront Res..." [ref=e1312]:
+                - link "Discount 2026 Westgate Myrtle Beach Oceanfront Res..." [ref=e1313] [cursor=pointer]:
+                  - /url: /deals/westgate-events-myrtle-beach-3-night-99.00
+              - cell "Westgate Events" [ref=e1314]
+              - cell "Myrtle Beach" [ref=e1315]
+              - cell "3N" [ref=e1316]
+              - cell "$99" [ref=e1317]
+              - cell "Active" [ref=e1318]
+              - cell "4/21/2026" [ref=e1319]
+              - cell "Expire Edit $" [ref=e1320]:
+                - generic [ref=e1321]:
+                  - button "Expire" [ref=e1322]
+                  - button "Edit $" [ref=e1323]
+            - row "Discount Post Malone & Jelly Roll Tickets Orlando ... Westgate Events Orlando 2N $249 Active 4/21/2026 Expire Edit $" [ref=e1324]:
+              - cell "Discount Post Malone & Jelly Roll Tickets Orlando ..." [ref=e1325]:
+                - link "Discount Post Malone & Jelly Roll Tickets Orlando ..." [ref=e1326] [cursor=pointer]:
+                  - /url: /deals/westgate-events-orlando-2-night-249.00
+              - cell "Westgate Events" [ref=e1327]
+              - cell "Orlando" [ref=e1328]
+              - cell "2N" [ref=e1329]
+              - cell "$249" [ref=e1330]
+              - cell "Active" [ref=e1331]
+              - cell "4/21/2026" [ref=e1332]
+              - cell "Expire Edit $" [ref=e1333]:
+                - generic [ref=e1334]:
+                  - button "Expire" [ref=e1335]
+                  - button "Edit $" [ref=e1336]
+            - row "Discount Las Vegas Vacation Package — Jeff Dunham ... Westgate Events Las Vegas 2N $199 Active 4/21/2026 Expire Edit $" [ref=e1337]:
+              - cell "Discount Las Vegas Vacation Package — Jeff Dunham ..." [ref=e1338]:
+                - link "Discount Las Vegas Vacation Package — Jeff Dunham ..." [ref=e1339] [cursor=pointer]:
+                  - /url: /deals/westgate-events-las-vegas-2-night-199
+              - cell "Westgate Events" [ref=e1340]
+              - cell "Las Vegas" [ref=e1341]
+              - cell "2N" [ref=e1342]
+              - cell "$199" [ref=e1343]
+              - cell "Active" [ref=e1344]
+              - cell "4/21/2026" [ref=e1345]
+              - cell "Expire Edit $" [ref=e1346]:
+                - generic [ref=e1347]:
+                  - button "Expire" [ref=e1348]
+                  - button "Edit $" [ref=e1349]
+            - row "Discount Weird Al Yankovic Tickets 2026 Westgate T... Westgate Events Orlando 2N $99 Active 4/21/2026 Expire Edit $" [ref=e1350]:
+              - cell "Discount Weird Al Yankovic Tickets 2026 Westgate T..." [ref=e1351]:
+                - link "Discount Weird Al Yankovic Tickets 2026 Westgate T..." [ref=e1352] [cursor=pointer]:
+                  - /url: /deals/westgate-events-orlando-2-night-99
+              - cell "Westgate Events" [ref=e1353]
+              - cell "Orlando" [ref=e1354]
+              - cell "2N" [ref=e1355]
+              - cell "$99" [ref=e1356]
+              - cell "Active" [ref=e1357]
+              - cell "4/21/2026" [ref=e1358]
+              - cell "Expire Edit $" [ref=e1359]:
+                - generic [ref=e1360]:
+                  - button "Expire" [ref=e1361]
+                  - button "Edit $" [ref=e1362]
+            - row "Discount Mary J Blige Vegas Residency Tickets Las ... Westgate Events Las Vegas 2N $749 Active 4/21/2026 Expire Edit $" [ref=e1363]:
+              - cell "Discount Mary J Blige Vegas Residency Tickets Las ..." [ref=e1364]:
+                - link "Discount Mary J Blige Vegas Residency Tickets Las ..." [ref=e1365] [cursor=pointer]:
+                  - /url: /deals/westgate-events-las-vegas-2-night-749
+              - cell "Westgate Events" [ref=e1366]
+              - cell "Las Vegas" [ref=e1367]
+              - cell "2N" [ref=e1368]
+              - cell "$749" [ref=e1369]
+              - cell "Active" [ref=e1370]
+              - cell "4/21/2026" [ref=e1371]
+              - cell "Expire Edit $" [ref=e1372]:
+                - generic [ref=e1373]:
+                  - button "Expire" [ref=e1374]
+                  - button "Edit $" [ref=e1375]
+            - row "Discount A Day at SeaWorld Tickets 2026 Westgate T... Westgate Events Orlando 3N $149 Active 4/21/2026 Expire Edit $" [ref=e1376]:
+              - cell "Discount A Day at SeaWorld Tickets 2026 Westgate T..." [ref=e1377]:
+                - link "Discount A Day at SeaWorld Tickets 2026 Westgate T..." [ref=e1378] [cursor=pointer]:
+                  - /url: /deals/westgate-events-orlando-3-night-199.00
+              - cell "Westgate Events" [ref=e1379]
+              - cell "Orlando" [ref=e1380]
+              - cell "3N" [ref=e1381]
+              - cell "$149" [ref=e1382]
+              - cell "Active" [ref=e1383]
+              - cell "4/21/2026" [ref=e1384]
+              - cell "Expire Edit $" [ref=e1385]:
+                - generic [ref=e1386]:
+                  - button "Expire" [ref=e1387]
+                  - button "Edit $" [ref=e1388]
+            - row "Discount Gatlinburg Vacation Package — A Weekend i... Westgate Events Gatlinburg 3N $99 Active 4/21/2026 Expire Edit $" [ref=e1389]:
+              - cell "Discount Gatlinburg Vacation Package — A Weekend i..." [ref=e1390]:
+                - link "Discount Gatlinburg Vacation Package — A Weekend i..." [ref=e1391] [cursor=pointer]:
+                  - /url: /deals/westgate-events-gatlinburg-3-night-99
+              - cell "Westgate Events" [ref=e1392]
+              - cell "Gatlinburg" [ref=e1393]
+              - cell "3N" [ref=e1394]
+              - cell "$99" [ref=e1395]
+              - cell "Active" [ref=e1396]
+              - cell "4/21/2026" [ref=e1397]
+              - cell "Expire Edit $" [ref=e1398]:
+                - generic [ref=e1399]:
+                  - button "Expire" [ref=e1400]
+                  - button "Edit $" [ref=e1401]
+            - row "Discount A Day at Dollywood Tickets Gatlinburg at ... Westgate Events Gatlinburg 3N $249 Active 4/21/2026 Expire Edit $" [ref=e1402]:
+              - cell "Discount A Day at Dollywood Tickets Gatlinburg at ..." [ref=e1403]:
+                - link "Discount A Day at Dollywood Tickets Gatlinburg at ..." [ref=e1404] [cursor=pointer]:
+                  - /url: /deals/westgate-events-gatlinburg-3-night-249
+              - cell "Westgate Events" [ref=e1405]
+              - cell "Gatlinburg" [ref=e1406]
+              - cell "3N" [ref=e1407]
+              - cell "$249" [ref=e1408]
+              - cell "Active" [ref=e1409]
+              - cell "4/21/2026" [ref=e1410]
+              - cell "Expire Edit $" [ref=e1411]:
+                - generic [ref=e1412]:
+                  - button "Expire" [ref=e1413]
+                  - button "Edit $" [ref=e1414]
+        - generic [ref=e1415]:
+          - generic [ref=e1416]: Page 1
+          - link "Next" [ref=e1417] [cursor=pointer]:
+            - /url: /admin/deals?filter=all&q=&page=2
+  - contentinfo [ref=e642]:
+    - generic [ref=e643]:
+      - generic [ref=e644]:
+        - generic [ref=e645]:
+          - paragraph [ref=e646]: VacationDeals.to
+          - paragraph [ref=e647]: The best vacation deals from top timeshare resorts, all in one place. Compare resort deals, travel deals, and getaway packages. Book your next vacation for less.
+        - generic [ref=e648]:
+          - paragraph [ref=e649]: Browse
+          - list [ref=e650]:
+            - listitem [ref=e651]:
+              - link "All Deals" [ref=e652] [cursor=pointer]:
+                - /url: /deals
+            - listitem [ref=e653]:
+              - link "Destinations" [ref=e654] [cursor=pointer]:
+                - /url: /destinations
+            - listitem [ref=e655]:
+              - link "Brands" [ref=e656] [cursor=pointer]:
+                - /url: /brands
+            - listitem [ref=e657]:
+              - link "Blog" [ref=e658] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e659]:
+              - link "About" [ref=e660] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e661]:
+          - paragraph [ref=e662]: Popular Destinations
+          - list [ref=e663]:
+            - listitem [ref=e664]:
+              - link "Orlando, FL" [ref=e665] [cursor=pointer]:
+                - /url: /orlando
+            - listitem [ref=e666]:
+              - link "Las Vegas, NV" [ref=e667] [cursor=pointer]:
+                - /url: /las-vegas
+            - listitem [ref=e668]:
+              - link "Cancun, MX" [ref=e669] [cursor=pointer]:
+                - /url: /cancun
+            - listitem [ref=e670]:
+              - link "Gatlinburg, TN" [ref=e671] [cursor=pointer]:
+                - /url: /gatlinburg
+            - listitem [ref=e672]:
+              - link "Myrtle Beach, SC" [ref=e673] [cursor=pointer]:
+                - /url: /myrtle-beach
+        - generic [ref=e674]:
+          - paragraph [ref=e675]: Popular Brands
+          - list [ref=e676]:
+            - listitem [ref=e677]:
+              - link "Westgate Reservations" [ref=e678] [cursor=pointer]:
+                - /url: /westgate
+            - listitem [ref=e679]:
+              - link "Hilton Grand Vacations" [ref=e680] [cursor=pointer]:
+                - /url: /hgv
+            - listitem [ref=e681]:
+              - link "Marriott Vacation Club" [ref=e682] [cursor=pointer]:
+                - /url: /marriott
+            - listitem [ref=e683]:
+              - link "Club Wyndham" [ref=e684] [cursor=pointer]:
+                - /url: /wyndham
+            - listitem [ref=e685]:
+              - link "BookVIP" [ref=e686] [cursor=pointer]:
+                - /url: /bookvip
+      - generic [ref=e688]:
+        - link "Privacy Policy" [ref=e689] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms & Conditions" [ref=e690] [cursor=pointer]:
+          - /url: /terms
+        - link "Timeshare Laws by State" [ref=e691] [cursor=pointer]:
+          - /url: /timeshare-laws
+        - link "Do Not Sell My Info" [ref=e692] [cursor=pointer]:
+          - /url: mailto:privacy@vacationdeals.to?subject=Do%20Not%20Sell%20My%20Personal%20Information
+      - paragraph [ref=e694]:
+        - strong [ref=e695]: "Disclaimer:"
+        - text: VacationDeals.to is an independent vacation deal comparison and aggregator website. We are
+        - strong [ref=e696]: NOT
+        - text: a timeshare company, resort developer, real estate broker, or travel agency. We do not sell, book, market, or facilitate the sale of vacation packages, timeshare interests, or any real estate. All deals displayed are sourced from publicly available information on third-party websites. Clicking a deal redirects you to the third-party provider's site. We make no guarantees about pricing, availability, or accuracy of any listing. All trademarks are property of their respective owners. See our
+        - link "Terms & Conditions" [ref=e697] [cursor=pointer]:
+          - /url: /terms
+        - text: and
+        - link "Privacy Policy" [ref=e698] [cursor=pointer]:
+          - /url: /privacy
+        - text: for full details.
+      - paragraph [ref=e700]: © 2026 VacationDeals.to. All rights reserved.
+  - alert [ref=e705]
+  - generic [ref=e707]:
+    - generic [ref=e708]:
+      - generic [ref=e709]: NEW
+      - paragraph [ref=e710]: Get our FREE Chrome Extension — See hidden resort rates on Google!
+    - generic [ref=e711]:
+      - link "Install Free" [ref=e712] [cursor=pointer]:
+        - /url: "#"
+      - button "Dismiss" [ref=e713]:
+        - img [ref=e714]

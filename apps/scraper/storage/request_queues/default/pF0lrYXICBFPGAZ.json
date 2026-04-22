@@ -1,0 +1,9 @@
+{
+	"id": "pF0lrYXICBFPGAZ",
+	"json": "{\"id\":\"pF0lrYXICBFPGAZ\",\"url\":\"https://www.westgatereservations.com/specials/gatlinburg-memorial-day-getaway/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/gatlinburg-memorial-day-getaway/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/gatlinburg-memorial-day-getaway\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:05.478Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/gatlinburg-memorial-day-getaway",
+	"url": "https://www.westgatereservations.com/specials/gatlinburg-memorial-day-getaway/"
+}

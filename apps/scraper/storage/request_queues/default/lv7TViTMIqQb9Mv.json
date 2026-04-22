@@ -1,0 +1,9 @@
+{
+	"id": "lv7TViTMIqQb9Mv",
+	"json": "{\"id\":\"lv7TViTMIqQb9Mv\",\"url\":\"https://www.westgatereservations.com/specials/budget-kid-friendly-vacation-packages-orlando/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/budget-kid-friendly-vacation-packages-orlando/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/budget-kid-friendly-vacation-packages-orlando\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:01.837Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/budget-kid-friendly-vacation-packages-orlando",
+	"url": "https://www.westgatereservations.com/specials/budget-kid-friendly-vacation-packages-orlando/"
+}

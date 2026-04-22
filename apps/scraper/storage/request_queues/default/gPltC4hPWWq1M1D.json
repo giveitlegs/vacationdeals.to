@@ -1,0 +1,9 @@
+{
+	"id": "gPltC4hPWWq1M1D",
+	"json": "{\"id\":\"gPltC4hPWWq1M1D\",\"url\":\"https://www.westgatereservations.com/specials/experience-colonial-williamsburg-busch-garden-tickets/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/experience-colonial-williamsburg-busch-garden-tickets/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/experience-colonial-williamsburg-busch-garden-tickets\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:03.379Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/experience-colonial-williamsburg-busch-garden-tickets",
+	"url": "https://www.westgatereservations.com/specials/experience-colonial-williamsburg-busch-garden-tickets/"
+}

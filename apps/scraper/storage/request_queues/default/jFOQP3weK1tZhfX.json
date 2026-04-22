@@ -1,0 +1,9 @@
+{
+	"id": "jFOQP3weK1tZhfX",
+	"json": "{\"id\":\"jFOQP3weK1tZhfX\",\"url\":\"https://www.westgatereservations.com/specials/family-kingdom-hotel-package/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/family-kingdom-hotel-package/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/family-kingdom-hotel-package\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.398Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/family-kingdom-hotel-package",
+	"url": "https://www.westgatereservations.com/specials/family-kingdom-hotel-package/"
+}

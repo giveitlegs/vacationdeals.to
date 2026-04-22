@@ -1,0 +1,20 @@
+[ 2703783ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[ 5405061ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[ 8106338ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[10807716ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[13509092ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[16210404ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[18911645ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[21612826ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[24313984ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[26145843ms] [ERROR] Failed to load resource: net::ERR_HTTP2_PROTOCOL_ERROR @ https://api.x.com/live_pipeline/events?topic=%2Flive_content%2F1698726496859254784,%2Ftweet_engagement%2F2035149375048216669,%2Ftweet_engagement%2F2007527457138819076,%2Ftweet_engagement%2F2034956608825159828,%2Ftweet_engagement%2F2034773787749884177,%2Ftweet_engagement%2F2035083961265975682,%2Ftweet_engagement%2F2035188027849326668,%2Ftweet_engagement%2F2035188313779290153:0
+[26215185ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[28916433ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[31617641ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[34318814ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[37020002ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[39721217ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[42422415ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[45123729ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[47824927ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0
+[50526124ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://api.x.com/1.1/live_pipeline/update_subscriptions:0

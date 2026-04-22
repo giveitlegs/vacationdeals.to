@@ -1,0 +1,9 @@
+{
+	"id": "cUWAfdFhV4mNLKq",
+	"json": "{\"id\":\"cUWAfdFhV4mNLKq\",\"url\":\"https://www.westgatereservations.com/specials/westgate-myrtle-beach-oceanfront-resort-4-3/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-myrtle-beach-oceanfront-resort-4-3/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-myrtle-beach-oceanfront-resort-4-3\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.733Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-myrtle-beach-oceanfront-resort-4-3",
+	"url": "https://www.westgatereservations.com/specials/westgate-myrtle-beach-oceanfront-resort-4-3/"
+}

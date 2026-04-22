@@ -1,0 +1,9 @@
+{
+	"id": "FlUd4gK9UHmbVhm",
+	"json": "{\"id\":\"FlUd4gK9UHmbVhm\",\"url\":\"https://www.westgatereservations.com/specials/4day-3night-orlando-vacation/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/4day-3night-orlando-vacation/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/4day-3night-orlando-vacation\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:00.313Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/4day-3night-orlando-vacation",
+	"url": "https://www.westgatereservations.com/specials/4day-3night-orlando-vacation/"
+}

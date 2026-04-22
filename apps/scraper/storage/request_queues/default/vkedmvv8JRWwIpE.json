@@ -1,0 +1,9 @@
+{
+	"id": "vkedmvv8JRWwIpE",
+	"json": "{\"id\":\"vkedmvv8JRWwIpE\",\"url\":\"https://www.westgatereservations.com/specials/westgate-vacation-villas-resort/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-vacation-villas-resort/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-vacation-villas-resort\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:00.272Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-vacation-villas-resort",
+	"url": "https://www.westgatereservations.com/specials/westgate-vacation-villas-resort/"
+}

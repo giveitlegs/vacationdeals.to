@@ -1,0 +1,9 @@
+{
+	"id": "D7YStn7aBYoLJnH",
+	"json": "{\"id\":\"D7YStn7aBYoLJnH\",\"url\":\"https://www.westgatereservations.com/specials/river-ranch-2night-vip/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/river-ranch-2night-vip/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/river-ranch-2night-vip\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:06.185Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/river-ranch-2night-vip",
+	"url": "https://www.westgatereservations.com/specials/river-ranch-2night-vip/"
+}

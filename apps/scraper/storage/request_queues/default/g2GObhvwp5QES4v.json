@@ -1,0 +1,9 @@
+{
+	"id": "g2GObhvwp5QES4v",
+	"json": "{\"id\":\"g2GObhvwp5QES4v\",\"url\":\"https://www.westgatereservations.com/specials/3-night-viva-las-vegas-getaway/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/3-night-viva-las-vegas-getaway/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/3-night-viva-las-vegas-getaway\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.426Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/3-night-viva-las-vegas-getaway",
+	"url": "https://www.westgatereservations.com/specials/3-night-viva-las-vegas-getaway/"
+}

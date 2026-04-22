@@ -1,0 +1,9 @@
+{
+	"id": "0lzg4K15AJPthEE",
+	"json": "{\"id\":\"0lzg4K15AJPthEE\",\"url\":\"https://www.westgatereservations.com/specials/4days-3nights-gatlinburg-vacation/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/4days-3nights-gatlinburg-vacation/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/4days-3nights-gatlinburg-vacation\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.616Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/4days-3nights-gatlinburg-vacation",
+	"url": "https://www.westgatereservations.com/specials/4days-3nights-gatlinburg-vacation/"
+}

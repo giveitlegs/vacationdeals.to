@@ -1,0 +1,9 @@
+{
+	"id": "tFcJaXqUv7cq5df",
+	"json": "{\"id\":\"tFcJaXqUv7cq5df\",\"url\":\"https://www.westgatereservations.com/specials/3-day-stay-plus-2-aquatica-tickets/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/3-day-stay-plus-2-aquatica-tickets/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/3-day-stay-plus-2-aquatica-tickets\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:03.884Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/3-day-stay-plus-2-aquatica-tickets",
+	"url": "https://www.westgatereservations.com/specials/3-day-stay-plus-2-aquatica-tickets/"
+}

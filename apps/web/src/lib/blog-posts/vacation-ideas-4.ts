@@ -78,7 +78,7 @@ export const vacationIdeas4Posts: BlogPost[] = [
 
 <div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-6">
 <p class="font-bold">Pro Tip:</p>
-<p>Childfree couples can do back-to-back timeshare preview stays with different brands. Do a Westgate Orlando package one weekend ($99), then a Marriott Myrtle Beach package the next ($149). That's two luxury vacations for under $250 total. Try doing that with three kids in tow.</p>
+<p>Childfree couples can do back-to-back timeshare preview stays with different brands. Do a Westgate Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) package one weekend ($99), then a Marriott Myrtle Beach package the next ($149). That's two luxury vacations for under $250 total. Try doing that with three kids in tow.</p>
 </div>
 
 <h2>Best Brands for Couples-Only Vacation Deals</h2>
@@ -153,7 +153,7 @@ export const vacationIdeas4Posts: BlogPost[] = [
 <h2>Atlanta: The Black Mecca of the South</h2>
 <p>Atlanta isn't just a great vacation destination — it's a cultural capital. The city is home to the largest concentration of historically Black colleges and universities in the country, a thriving Black business community, and neighborhoods where Black excellence isn't the exception — it's the standard.</p>
 <p>For families, the Martin Luther King Jr. National Historical Park is a must-visit. Walking through the neighborhood where Dr. King grew up, seeing Ebenezer Baptist Church, and visiting the King Center gives kids a tangible connection to the Civil Rights Movement that no textbook can match.</p>
-<p>Wyndham has multiple properties in the Atlanta metro area with family vacation deals starting at $99 for 3 nights. The Westgate property in nearby Williamsburg offers another affordable option with easy driving distance to the city.</p>
+<p>Wyndham has multiple properties in the Atlanta metro area with family vacation deals starting at $99 for 3 nights. The Westgate property in nearby Williamsburg (more on <a href="/williamsburg-shoulder-season">Williamsburg Shoulder Season vacation deals</a>) (see our <a href="/williamsburg-summer">Williamsburg deals Summer</a>) (browse <a href="/williamsburg-for-families">Williamsburg vacation deals for Families</a>) offers another affordable option with easy driving distance to the city.</p>
 
 <div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-6">
 <p class="font-bold">Pro Tip:</p>
@@ -808,7 +808,7 @@ export const vacationIdeas4Posts: BlogPost[] = [
 <p><strong>Marriott Vacation Club:</strong> Premium properties with excellent spa facilities and quiet environments. Many locations offer prenatal massage packages. Babymoon deals from $149.</p>
 <p><strong>Westgate Resorts:</strong> Most affordable option with suite-style rooms that have full kitchens — essential for pregnancy cravings. Deals from $59 in Williamsburg, $79 in Myrtle Beach.</p>
 <p><strong>Wyndham:</strong> Good mid-range option with properties in scenic, relaxing locations like Sedona and Gatlinburg. Deals from $79.</p>
-<p><strong>HGV:</strong> Strong in Orlando and Las Vegas with modern amenities and comfortable room layouts. Deals from $99.</p>
+<p><strong>HGV:</strong> Strong in Orlando and Las Vegas (see our <a href="/las-vegas-3-night">Las Vegas deals 3-Night</a>) (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) with modern amenities and comfortable room layouts. Deals from $99.</p>
 <p>Visit our <a href="/brands">brand comparison page</a> to find the best babymoon resort for your budget and location.</p>
 
 <h2>Partner's Guide to the Perfect Babymoon</h2>
@@ -1282,7 +1282,7 @@ export const vacationIdeas4Posts: BlogPost[] = [
     heroGradient: "from-amber-600 via-orange-500 to-red-500",
     content: `<p>If your Spotify Wrapped is 98% country music and the remaining 2% is that one pop song you accidentally let play, this vacation guide is for you. Country music isn't just a genre — it's a lifestyle, a community, and apparently a valid reason to plan an entire vacation. And honestly? Country music destinations are some of the most fun, most affordable, and most welcoming places to visit in America.</p>
 
-<p>From the neon-lit honky-tonks of Nashville to the family-friendly shows of Branson, country music fans have incredible vacation options — all with resort deals that keep your wallet happy enough to buy another pair of boots. Check our <a href="/deals">latest vacation deals</a> at country music destinations.</p>
+<p>From the neon-lit honky-tonks of Nashville to the family-friendly shows of Branson (compare <a href="/branson-christmas">Branson vacpacks Christmas</a>) (see our <a href="/branson-shoulder-season">Branson deals Shoulder Season</a>) (see our <a href="/branson-for-families">Branson deals for Families</a>), country music fans have incredible vacation options — all with resort deals that keep your wallet happy enough to buy another pair of boots. Check our <a href="/deals">latest vacation deals</a> at country music destinations.</p>
 
 <h2>Top Destinations for Country Music Fans</h2>
 

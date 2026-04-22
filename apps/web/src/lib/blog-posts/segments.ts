@@ -290,7 +290,7 @@ export const segmentPosts: BlogPost[] = [
 
 <div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-6">
 <p class="font-bold">Pro Tip:</p>
-<p>For your first deal, pick a destination you can drive to. This keeps your total trip cost low and eliminates the stress of flight bookings. Orlando, Myrtle Beach, Williamsburg, and Branson are all popular first-timer destinations with lots of options.</p>
+<p>For your first deal, pick a destination you can drive to. This keeps your total trip cost low and eliminates the stress of flight bookings. Orlando (see our <a href="/orlando-shoulder-season">Orlando deals Shoulder Season</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Myrtle Beach (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>), Williamsburg, and Branson are all popular first-timer destinations with lots of options.</p>
 </div>
 
 <h2>4. Qualification Requirements (Don't Panic)</h2>
@@ -457,7 +457,7 @@ export const segmentPosts: BlogPost[] = [
 <h2>5. Health and Accessibility Considerations</h2>
 <p>I want to be real about this because it matters. When booking a vacation deal as a retiree, consider:</p>
 <p><strong>Accessibility:</strong> Most modern timeshare resorts are ADA compliant with accessible rooms available. Request one when booking — don't wait until check-in. Accessible rooms have roll-in showers, grab bars, wider doorways, and ground-floor locations.</p>
-<p><strong>Medical facilities:</strong> Choose destinations near good medical facilities. Orlando, Myrtle Beach, and Las Vegas all have excellent hospitals nearby. More remote resort locations might be gorgeous but could be 45+ minutes from an ER.</p>
+<p><strong>Medical facilities:</strong> Choose destinations near good medical facilities. Orlando, Myrtle Beach, and Las Vegas (browse <a href="/las-vegas-summer">Las Vegas vacation deals Summer</a>) (more on <a href="/las-vegas-for-seniors">Las Vegas for Seniors vacation deals</a>) (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) all have excellent hospitals nearby. More remote resort locations might be gorgeous but could be 45+ minutes from an ER.</p>
 <p><strong>Resort layout:</strong> Some resorts are sprawling campuses that require significant walking. If mobility is a concern, ask about golf cart transportation or choose a resort with a more compact layout.</p>
 
 <h2>6. Presentation Tips Specifically for Retirees</h2>
@@ -490,7 +490,7 @@ export const segmentPosts: BlogPost[] = [
 <ul>
 <li><strong>January:</strong> Wyndham in Orlando — $79 (escape the winter)</li>
 <li><strong>April:</strong> Hilton Grand Vacations in Myrtle Beach — $129 (spring at the beach)</li>
-<li><strong>September:</strong> Westgate in Gatlinburg — $89 (fall foliage in the Smokies)</li>
+<li><strong>September:</strong> Westgate in Gatlinburg (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>) — $89 (fall foliage in the Smokies)</li>
 <li><strong>November:</strong> Marriott Vacation Club in Hilton Head — $149 (pre-holiday relaxation)</li>
 </ul>
 <p>Total annual cost: $446 for approximately 12-16 nights of resort vacations. Try getting that deal from a travel agent. I dare you. Check our <a href="/brands">brand comparison page</a> to start building your rotation.</p>
@@ -560,7 +560,7 @@ export const segmentPosts: BlogPost[] = [
 </ul>
 
 <h2>2. The Real Math: Hotels vs. Vacation Deals for Families</h2>
-<p>Let's crunch numbers for a family of 5 doing a 3-night stay in Orlando:</p>
+<p>Let's crunch numbers for a family of 5 doing a 3-night stay in Orlando (see our <a href="/orlando-shoulder-season">Orlando deals Shoulder Season</a>) (see our <a href="/orlando-honeymoon">Orlando deals Honeymoon</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>):</p>
 
 <table class="w-full border-collapse my-6">
 <thead><tr class="bg-gray-100"><th class="border p-3 text-left">Expense</th><th class="border p-3 text-left">Hotel Route</th><th class="border p-3 text-left">Vacation Deal Route</th></tr></thead>
@@ -832,7 +832,7 @@ export const segmentPosts: BlogPost[] = [
 <ul>
 <li><strong>Wyndham:</strong> Offers solo traveler packages in select destinations, typically $129-$199 for 3 nights</li>
 <li><strong>Bluegreen Vacations:</strong> Has a "single traveler" option at many properties, $99-$179</li>
-<li><strong>Holiday Inn Club Vacations:</strong> Occasionally runs solo promotions, especially in Orlando</li>
+<li><strong>Holiday Inn Club Vacations:</strong> Occasionally runs solo promotions, especially in Orlando (see our <a href="/orlando-solo-travelers">Orlando deals for Solo Travelers</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>)</li>
 <li><strong>Westgate:</strong> Less common but available during off-peak seasons</li>
 </ul>
 <p>The premium you pay for solo deals (versus couples deals) is usually $30-$100 more. It makes sense from the company's perspective — they're filling a 2-bedroom suite with one person instead of two, and they only get one potential buyer instead of two.</p>
@@ -987,7 +987,7 @@ export const segmentPosts: BlogPost[] = [
 </div>
 
 <h2>2. Most Romantic Destinations for Anniversary Deals</h2>
-<p>Not all vacation deal destinations scream "romance." Orlando is amazing but it's hard to feel romantic when you're surrounded by sunburned families with screaming toddlers. Here are the destinations that deliver actual romance:</p>
+<p>Not all vacation deal destinations scream "romance." Orlando (see our <a href="/orlando-shoulder-season">Orlando deals Shoulder Season</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) is amazing but it's hard to feel romantic when you're surrounded by sunburned families with screaming toddlers. Here are the destinations that deliver actual romance:</p>
 
 <table class="w-full border-collapse my-6">
 <thead><tr class="bg-gray-100"><th class="border p-3 text-left">Destination</th><th class="border p-3 text-left">Romance Factor</th><th class="border p-3 text-left">Deal Price</th><th class="border p-3 text-left">Best For</th></tr></thead>
@@ -1152,8 +1152,8 @@ export const segmentPosts: BlogPost[] = [
 <p>Every friend group has a different vibe. Here's what to do based on your squad's personality:</p>
 <p><strong>The Party Girls:</strong> Las Vegas or Cancun. Pool parties during the day, clubs at night, recovery brunches in between. Your Instagram stories will be legendary (and slightly blurry).</p>
 <p><strong>The Relaxation Crew:</strong> Hilton Head or Sedona. Spa day, wine tasting, sunset yoga, early bedtimes. No judgment — this is the most underrated type of girls' trip.</p>
-<p><strong>The Adventure Squad:</strong> Gatlinburg or a mountain destination. Hiking, zip-lining, white-water rafting, then collapsing in the hot tub. Bond through shared near-death experiences on the rapids.</p>
-<p><strong>The Culture Vultures:</strong> Williamsburg or San Antonio. Museums, historical tours, local restaurants, artisan shopping. Return home feeling both relaxed and intellectually stimulated.</p>
+<p><strong>The Adventure Squad:</strong> Gatlinburg (browse <a href="/gatlinburg-last-minute">Gatlinburg vacation deals Last Minute</a>) (compare <a href="/gatlinburg-for-groups">Gatlinburg vacpacks for Groups</a>) (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>) or a mountain destination. Hiking, zip-lining, white-water rafting, then collapsing in the hot tub. Bond through shared near-death experiences on the rapids.</p>
+<p><strong>The Culture Vultures:</strong> Williamsburg (see our <a href="/williamsburg-for-couples">Williamsburg deals for Couples</a>) or San Antonio. Museums, historical tours, local restaurants, artisan shopping. Return home feeling both relaxed and intellectually stimulated.</p>
 <p><strong>The Theme Park Fanatics:</strong> Orlando, obviously. Magic Kingdom in matching mouse ears. Universal for the Harry Potter ride. Disney Springs for the shopping. Bring comfortable shoes and a tolerance for standing in lines.</p>
 
 <h2>7. What to Bring for a Girls' Deal Trip</h2>
@@ -1393,7 +1393,7 @@ export const segmentPosts: BlogPost[] = [
 </div>
 
 <h2>3. The "Mini-Moon Now, Big Trip Later" Strategy</h2>
-<p>Here's the smartest honeymoon strategy for budget-conscious newlyweds: take a vacation deal "mini-moon" now and save for a bigger trip for your first anniversary. A $99 deal to Myrtle Beach gives you an immediate honeymoon experience. Then spend the next year saving for that Bali/Italy/Greece dream trip for your one-year anniversary.</p>
+<p>Here's the smartest honeymoon strategy for budget-conscious newlyweds: take a vacation deal "mini-moon" now and save for a bigger trip for your first anniversary. A $99 deal to Myrtle Beach (browse <a href="/myrtle-beach-oceanfront">Myrtle Beach vacation deals Oceanfront</a>) (more on <a href="/myrtle-beach-for-couples">Myrtle Beach for Couples vacation deals</a>) (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) gives you an immediate honeymoon experience. Then spend the next year saving for that Bali/Italy/Greece dream trip for your one-year anniversary.</p>
 <p>This way, you get TWO trips instead of one, spread the cost over 12 months, and start your marriage with a healthy savings habit instead of honeymoon debt. Plus, having something to look forward to together — planning the big trip — is actually great for your new marriage. Shared goals are relationship glue.</p>
 
 <h2>4. Making a Budget Honeymoon Feel Luxurious</h2>
@@ -1527,7 +1527,7 @@ export const segmentPosts: BlogPost[] = [
 <h2>4. Destinations Near Military Bases</h2>
 <p>One smart strategy for military families: book deals near your duty station or near bases where friends and family are stationed. This lets you combine a vacation with visiting people you miss. Here are popular military-adjacent deal destinations:</p>
 <ul>
-<li><strong>Virginia Beach/Williamsburg, VA:</strong> Near Naval Station Norfolk, Fort Eustis, Langley AFB. Deals from $59-$99.</li>
+<li><strong>Virginia Beach/Williamsburg (browse <a href="/williamsburg-for-families">Williamsburg vacation deals for Families</a>), VA:</strong> Near Naval Station Norfolk, Fort Eustis, Langley AFB. Deals from $59-$99.</li>
 <li><strong>Orlando, FL:</strong> Near Patrick SFB, MacDill AFB. Deals from $79-$149.</li>
 <li><strong>San Antonio, TX:</strong> Home of Joint Base San Antonio (Lackland, Randolph, Fort Sam Houston). Deals from $79-$129.</li>
 <li><strong>Myrtle Beach, SC:</strong> Near Shaw AFB, Fort Jackson. Deals from $79-$129.</li>
@@ -1638,7 +1638,7 @@ export const segmentPosts: BlogPost[] = [
 <thead><tr class="bg-gray-100"><th class="border p-3 text-left">Strategy</th><th class="border p-3 text-left">Savings</th><th class="border p-3 text-left">Details</th></tr></thead>
 <tbody>
 <tr><td class="border p-3">Book early June or late August</td><td class="border p-3">20-30%</td><td class="border p-3">Shoulder dates within summer break</td></tr>
-<tr><td class="border p-3">Choose less popular destinations</td><td class="border p-3">15-25%</td><td class="border p-3">Branson, Williamsburg vs. Orlando</td></tr>
+<tr><td class="border p-3">Choose less popular destinations</td><td class="border p-3">15-25%</td><td class="border p-3">Branson, Williamsburg vs. Orlando (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (compare <a href="/orlando-for-groups">Orlando vacpacks for Groups</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>)</td></tr>
 <tr><td class="border p-3">Book midweek (Tue-Thu)</td><td class="border p-3">10-20%</td><td class="border p-3">Lower demand = lower prices</td></tr>
 <tr><td class="border p-3">Watch for teacher appreciation sales</td><td class="border p-3">15-25%</td><td class="border p-3">May/June promotions for educators</td></tr>
 <tr><td class="border p-3">Book 3-4 months ahead</td><td class="border p-3">10-15%</td><td class="border p-3">Better pricing with advance booking</td></tr>
@@ -2035,7 +2035,7 @@ export const segmentPosts: BlogPost[] = [
     bluf: "Some vacation deals include discounted or free theme park tickets alongside resort stays. Orlando deals are the sweet spot — bundle packages can save families $200-$600 on combined accommodations and tickets versus booking everything separately.",
     heroImageAlt: "Family walking toward a theme park entrance with roller coaster in background",
     heroGradient: "from-purple-600 to-indigo-400",
-    content: `<p>Let's talk about the single most expensive family vacation in America: the Orlando theme park trip. Between hotel rooms ($200-$400/night), park tickets ($109-$189/person/day), food ($50-$100/person/day), and that mandatory giant turkey leg, a family of four can easily spend $4,000-$6,000 on a 4-day trip. Your bank account just screamed. I heard it from here.</p>
+    content: `<p>Let's talk about the single most expensive family vacation in America: the Orlando (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) theme park trip. Between hotel rooms ($200-$400/night), park tickets ($109-$189/person/day), food ($50-$100/person/day), and that mandatory giant turkey leg, a family of four can easily spend $4,000-$6,000 on a 4-day trip. Your bank account just screamed. I heard it from here.</p>
 
 <p>But what if you could slash the accommodations cost by 80% AND get discounted park tickets on top of it? That's exactly what theme park vacation deals offer. <a href="/deals">Browse theme park bundle deals here</a> and watch your trip cost plummet like a roller coaster drop — except this drop feels amazing.</p>
 
@@ -2109,7 +2109,7 @@ export const segmentPosts: BlogPost[] = [
 <ul>
 <li><strong>VacationDeals.to:</strong> We flag deals that include attraction tickets so you don't have to dig. <a href="/deals">Check our listings</a>.</li>
 <li><strong>Westgate Resorts:</strong> Most aggressive with Orlando ticket bundles. Their website often has packages combining resort stays with discounted tickets to multiple parks.</li>
-<li><strong>Wyndham Destinations:</strong> Occasionally bundles attraction tickets, especially for Myrtle Beach and Williamsburg properties.</li>
+<li><strong>Wyndham Destinations:</strong> Occasionally bundles attraction tickets, especially for Myrtle Beach (browse <a href="/myrtle-beach-summer">Myrtle Beach vacation deals Summer</a>) (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) and Williamsburg properties.</li>
 <li><strong>Resort check-in desk:</strong> Even if your deal didn't include tickets, ask at check-in about discounted ticket purchases. Resorts often have partnerships with nearby attractions for guest-exclusive pricing.</li>
 <li><strong>Third-party ticket sites:</strong> After booking your deal, check sites like Undercover Tourist or Park Savers for additional ticket discounts. Stack the accommodation savings with independent ticket discounts for maximum value.</li>
 </ul>
@@ -2220,8 +2220,8 @@ export const segmentPosts: BlogPost[] = [
 <p>Beyond the advertised extras that come with the deal, there are also "exit gifts" — bonuses you receive for attending (and declining) the timeshare presentation. These are technically seperate from the deal perks, but they stack on top of them.</p>
 <p>Exit gifts vary by brand and by how the presentation goes. Here's what I've personally received across various presentations:</p>
 <ul>
-<li>$100 restaurant gift card (Wyndham, Orlando)</li>
-<li>$50 Visa gift card (Hilton, Las Vegas)</li>
+<li>$100 restaurant gift card (Wyndham, Orlando (browse <a href="/orlando-memorial-day-weekend">Orlando vacation deals Memorial Day Weekend</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>))</li>
+<li>$50 Visa gift card (Hilton, Las Vegas (more on <a href="/las-vegas-memorial-day-weekend">Las Vegas Memorial Day Weekend vacation deals</a>) (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>))</li>
 <li>2 SeaWorld tickets worth $160 (Westgate, Orlando)</li>
 <li>$75 resort dining credit (Marriott, Hilton Head)</li>
 <li>$200 off a future stay (Bluegreen, Myrtle Beach)</li>
@@ -2383,7 +2383,7 @@ export const segmentPosts: BlogPost[] = [
 <h2>5. Trying New Things on Vacation Deals</h2>
 <p>With kids, vacations were about them. Now they're about YOU. Use vacation deals to try activities you never would have attempted with children in tow:</p>
 <p><strong>Wine tasting tours:</strong> Available near resorts in Sedona, Napa, Virginia wine country, and surprisingly good wineries near Myrtle Beach and Branson.</p>
-<p><strong>Couples cooking classes:</strong> Many resort towns offer 2-3 hour classes where you learn to make local cuisine. Orlando has great ones for Italian and Southern cooking.</p>
+<p><strong>Couples cooking classes:</strong> Many resort towns offer 2-3 hour classes where you learn to make local cuisine. Orlando (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (see our <a href="/orlando-honeymoon">Orlando deals Honeymoon</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) has great ones for Italian and Southern cooking.</p>
 <p><strong>Kayaking and paddleboarding:</strong> Most coastal and lake resorts offer these. Hard to do with small kids, easy and fun as a couple.</p>
 <p><strong>Scenic hikes:</strong> Sedona, Gatlinburg, and even some Florida nature preserves have gorgeous trails. No more "my legs are tired" after 10 minutes.</p>
 <p><strong>Spa days:</strong> Finally. A full spa day without feeling guilty about leaving the kids at the hotel. You've earned this more than anyone.</p>
@@ -2492,10 +2492,10 @@ export const segmentPosts: BlogPost[] = [
 
 <h2>3. Milestone Birthday Destinations</h2>
 <p>Different birthdays call for different energy:</p>
-<p><strong>30th Birthday:</strong> Las Vegas ($99-$199). You're officially too old for the club scene but too young to admit it. Vegas lets you pretend for one more weekend. Go big.</p>
+<p><strong>30th Birthday:</strong> Las Vegas (more on <a href="/las-vegas-luxury">Las Vegas Luxury vacation deals</a>) (see our <a href="/las-vegas-for-groups">Las Vegas deals for Groups</a>) ($99-$199). You're officially too old for the club scene but too young to admit it. Vegas lets you pretend for one more weekend. Go big.</p>
 <p><strong>40th Birthday:</strong> Hilton Head or Sedona ($129-$249). You've matured. You want wine, golf, and conversations that don't happen at 2 AM. Embrace it.</p>
-<p><strong>50th Birthday:</strong> Cancun ($199-$299). Half a century deserves an international celebration. Beach, tequila, and zero responsibilities. You've earned the upgrade.</p>
-<p><strong>60th Birthday:</strong> Williamsburg ($59-$99). Culture, history, and colonial charm. Plus, you can brag about how cheap the deal was. At 60, bragging about savings IS the flex.</p>
+<p><strong>50th Birthday:</strong> Cancun (more on <a href="/cancun-for-groups">Cancun for Groups vacation deals</a>) ($199-$299). Half a century deserves an international celebration. Beach, tequila, and zero responsibilities. You've earned the upgrade.</p>
+<p><strong>60th Birthday:</strong> Williamsburg (more on <a href="/williamsburg-for-groups">Williamsburg for Groups vacation deals</a>) ($59-$99). Culture, history, and colonial charm. Plus, you can brag about how cheap the deal was. At 60, bragging about savings IS the flex.</p>
 <p><strong>Any Birthday:</strong> Wherever makes you happy. There's no wrong answer. Except staying home. Staying home is the wrong answer.</p>
 
 <h2>4. Birthday Freebies at Resorts and Nearby</h2>
@@ -2946,7 +2946,7 @@ export const segmentPosts: BlogPost[] = [
 </ul>
 
 <h2>10. "Is It Worth It? Like, REALLY?"</h2>
-<p>Let me answer with math. A 3-night stay at a Marriott resort in Orlando normally costs $1,050 ($350/night). A vacation deal at that same resort costs $149. You save $901 in exchange for 90 minutes of your time. That's an effective hourly rate of $601/hour for sitting in a chair and saying "no thank you."</p>
+<p>Let me answer with math. A 3-night stay at a Marriott resort in Orlando (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (see our <a href="/orlando-solo-travelers">Orlando deals for Solo Travelers</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) normally costs $1,050 ($350/night). A vacation deal at that same resort costs $149. You save $901 in exchange for 90 minutes of your time. That's an effective hourly rate of $601/hour for sitting in a chair and saying "no thank you."</p>
 <p>Name one other activity that pays $601/hour. Brain surgery? Maybe. But brain surgeons don't get a pool and a complimentary breakfast while they work.</p>
 <p>Yes. It is worth it. It is REALLY worth it. The only people who say it's not worth it are people who've never done it. Once you experience your first vacation deal, you'll wonder why you ever paid full price for anything. It's like discovering coupons for the first time, except instead of saving $0.50 on laundry detergent, you're saving $1,000 on a vacation.</p>
 <p>Now stop reading and go book one. <a href="/deals">VacationDeals.to has your next deal waiting</a>.</p>

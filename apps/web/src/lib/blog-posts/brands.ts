@@ -13,13 +13,13 @@ export const brandPosts: BlogPost[] = [
     bluf: "Westgate Resorts offers some of the cheapest timeshare presentation deals in the industry, regularly going as low as $49 for 3-night stays. The catch? You'll sit through a 90-120 minute sales pitch. But if you can handle that, these deals are genuinely unbeatable.",
     heroImageAlt: "Westgate Resorts pool area with palm trees and resort buildings",
     heroGradient: "from-amber-600 to-orange-500",
-    content: `<p>Look, I'm gonna be honest with you — I've sat through more timeshare presentations then I care to admit. And Westgate Resorts? They're the ones that started it all for me. One random Tuesday I saw a Facebook ad for a 3-night Orlando stay at $49 and thought "there's absolutley no way this is real." Spoiler alert: it was real. Very real. And now I'm basically addicted to these deals like they're some kind of vacation crack.</p>
+    content: `<p>Look, I'm gonna be honest with you — I've sat through more timeshare presentations then I care to admit. And Westgate Resorts? They're the ones that started it all for me. One random Tuesday I saw a Facebook ad for a 3-night Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) stay at $49 and thought "there's absolutley no way this is real." Spoiler alert: it was real. Very real. And now I'm basically addicted to these deals like they're some kind of vacation crack.</p>
 
 <p>If your reading this, you probably saw a similar ad and your BS detector went off. Good — that means your smart. But let me walk you through everything Westgate offers, what the catch is, and how to squeeze every last drop of value out of these deals. <a href="/westgate">Check out current Westgate deals on our site</a> before they disappear.</p>
 
 <h2>1. Who Is Westgate Resorts, Anyway?</h2>
 <p>Westgate Resorts is one of the largest privately held timeshare companies in the U.S., founded by David Siegel back in 1982. You might know David from that documentary "The Queen of Versailles" where he was building the biggest house in America. Yeah, that guy. Love him or hate him, the man knows how to run a resort empire.</p>
-<p>They own over 25 resorts across the country, with heavy concentrations in Orlando, Las Vegas, Gatlinburg, Myrtle Beach, and Park City. Their properties range from "hey, this is actually pretty nice" to "wait, this is a timeshare?" levels of quality. The Orlando Town Center property in particular is genuinely impressive — it's got a waterpark, multiple pools, and rooms bigger than my first apartment.</p>
+<p>They own over 25 resorts across the country, with heavy concentrations in Orlando, Las Vegas (see our <a href="/las-vegas-3-night">Las Vegas deals 3-Night</a>), Gatlinburg, Myrtle Beach, and Park City. Their properties range from "hey, this is actually pretty nice" to "wait, this is a timeshare?" levels of quality. The Orlando Town Center property in particular is genuinely impressive — it's got a waterpark, multiple pools, and rooms bigger than my first apartment.</p>
 
 <h2>2. The Deal Structure: What You Actually Get</h2>
 <p>Here's the basic breakdown of how Westgate deals typically work:</p>
@@ -134,7 +134,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>1. The HGV Brand: What Makes Them Different</h2>
 <p>Hilton Grand Vacations is the timeshare arm of Hilton Hotels — yes, THAT Hilton. And they lean into that brand recognition hard. Everything about HGV screams "we're not like those other timeshare companies." The lobbies are nicer, the rooms are more modern, the amenities are more polished. It's like the difference between flying economy on Spirit versus JetBlue. You're still going to the same place, but one experience makes you feel like a human being.</p>
-<p>In 2021, HGV acquired Diamond Resorts International, which basically doubled their portfolio overnight. This means there a LOT more HGV properties now than there were a few years ago, and the quality varies more than it used to. A legacy HGV property in Hawaii is a very different experience from a former Diamond property in Branson, Missouri. Just saying.</p>
+<p>In 2021, HGV acquired Diamond Resorts International, which basically doubled their portfolio overnight. This means there a LOT more HGV properties now than there were a few years ago, and the quality varies more than it used to. A legacy HGV property in Hawaii is a very different experience from a former Diamond property in Branson (browse <a href="/branson-for-couples">Branson vacation deals for Couples</a>) (see our <a href="/branson-for-families">Branson deals for Families</a>), Missouri. Just saying.</p>
 
 <h2>2. Deal Pricing: What You'll Actually Pay</h2>
 <p>Let's talk money, because that's why you're here. HGV deals are consistently more expensive than brands like Westgate or Bluegreen, but you genuinely get what you pay for:</p>
@@ -268,7 +268,7 @@ export const brandPosts: BlogPost[] = [
 <tr><td>International</td><td>$599-$999</td><td>4-7 nights</td><td>Varies by location</td><td>Caribbean/Europe seekers</td></tr>
 </tbody>
 </table>
-<p>Yeah, these prices are higher. Significantly higher than the $49 Westgate specials. But let me put it in perspective: the Marriott Grande Vista in Orlando has a rack rate of $350-$600/night. A $399 deal for 4 nights is roughly $100/night. That's 70-80% off. The discount is just as deep as the budget brands — the starting point is higher.</p>
+<p>Yeah, these prices are higher. Significantly higher than the $49 Westgate specials. But let me put it in perspective: the Marriott Grande Vista in Orlando (browse <a href="/orlando-luxury">Orlando vacation deals Luxury</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) has a rack rate of $350-$600/night. A $399 deal for 4 nights is roughly $100/night. That's 70-80% off. The discount is just as deep as the budget brands — the starting point is higher.</p>
 
 <h2>3. Property Quality: Where MVC Really Shines</h2>
 <p>I've stayed at MVC properties in Orlando, Hilton Head, and Marco Island, and the quality is genuinely impressive. These places have granite countertops, stainless steel appliances, washer/dryers in the unit, and bathrooms that look like they belong in an interior design magazine. It's the kind of place where you feel guilty eating Doritos on the couch because everthing is so nice.</p>
@@ -369,7 +369,7 @@ export const brandPosts: BlogPost[] = [
     heroGradient: "from-cyan-600 to-teal-500",
     content: `<p>If Westgate is the Honda Civic and Marriott is the Lexus, then Club Wyndham is the Toyota Camry of vacation deals. Not flashy, not the cheapest, but relentlessly reliable and available literally everywhere. You can't throw a rock in a tourist town without hitting a Wyndham property, and that's actully their biggest selling point.</p>
 
-<p>I've done Wyndham deals in Orlando, Myrtle Beach, and Branson (don't judge me — Branson is weirdly fun), and they've all been solid. Not life-changing, but solid. Here's everthing you need to know about <a href="/wyndham">Club Wyndham vacation deals</a> in 2026.</p>
+<p>I've done Wyndham deals in Orlando (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (more on <a href="/orlando-fall">Orlando Fall vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Myrtle Beach, and Branson (don't judge me — Branson is weirdly fun), and they've all been solid. Not life-changing, but solid. Here's everthing you need to know about <a href="/wyndham">Club Wyndham vacation deals</a> in 2026.</p>
 
 <h2>1. The Wyndham Empire: Biggest ≠ Best (But It Helps)</h2>
 <p>Club Wyndham (owned by Travel + Leisure Co., which used to be Wyndham Destinations) operates over 230 resort properties worldwide. That's more than Marriott, Hilton, and Hyatt's timeshare divisions COMBINED. They're literally everywhere — from Orlando to the Ozarks, from San Francisco to South Beach, from Bali to Bonnet Creek.</p>
@@ -484,7 +484,7 @@ export const brandPosts: BlogPost[] = [
     bluf: "BookVIP is a legitimate vacation deal broker offering deeply discounted resort stays in exchange for attending timeshare presentations. They're one of the largest in the industry and generally reliable, but read the fine print carefully — hidden fees and strict cancellation policies have caught many travelers off guard.",
     heroImageAlt: "Tropical resort pool at sunset representing BookVIP vacation deals",
     heroGradient: "from-purple-600 to-violet-500",
-    content: `<p>If you've ever Googled "cheap vacation deals" at 2am while eating cold pizza in your underwear (no judgment, we've all been there), you've probably stumbled across BookVIP. Their deals look almost too good to be true — $49 for 5 nights in Cancun? $99 for a week in Orlando? What's the catch?</p>
+    content: `<p>If you've ever Googled "cheap vacation deals" at 2am while eating cold pizza in your underwear (no judgment, we've all been there), you've probably stumbled across BookVIP. Their deals look almost too good to be true — $49 for 5 nights in Cancun (see our <a href="/cancun-oceanfront">Cancun deals Oceanfront</a>) (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>)? $99 for a week in Orlando (browse <a href="/orlando-cheap">Orlando vacation deals Cheap</a>)? What's the catch?</p>
 
 <p>Well, I've booked through <a href="/bookvip">BookVIP</a> four times now, and I'm going to give you the full, unfiltered truth about what it's like. Spoiler: they're legit, but "legit" and "perfect" are two very different things. Buckle up.</p>
 
@@ -635,7 +635,7 @@ export const brandPosts: BlogPost[] = [
 <tr><td>Branson (3 nights)</td><td>$59-$99</td><td>$69-$129</td><td>$99-$199</td></tr>
 </tbody>
 </table>
-<p>As you can see, GetawayDealz is competitive with — and sometimes cheaper than — BookVIP for domestic deals. Where they fall short is international destinations. BookVIP dominates the Cancun/Caribbean market, while GetawayDealz has minimal international inventory.</p>
+<p>As you can see, GetawayDealz is competitive with — and sometimes cheaper than — BookVIP for domestic deals. Where they fall short is international destinations. BookVIP dominates the Cancun (more on <a href="/cancun-5-night">Cancun 5-Night vacation deals</a>) (see our <a href="/cancun-last-minute">Cancun deals Last Minute</a>) (see our <a href="/cancun-spring-break">Cancun deals Spring Break</a>)/Caribbean market, while GetawayDealz has minimal international inventory.</p>
 
 <h2>3. My Personal GetawayDealz Experiences</h2>
 <p><strong>Trip 1 — Orlando, $59 for 4 nights:</strong> Booked through their website, got a confirmation call within 24 hours. The agent was friendly, answered all my questions, and even suggested better dates for availability. Stayed at a Westgate property (decent room, standard presentation). Total cost after fees was $129. Solid experience overall.</p>
@@ -860,8 +860,8 @@ export const brandPosts: BlogPost[] = [
 <p>HICV (their abbreviation, not mine — I would have gone with something catchier) is <a href="/holiday-inn">IHG's timeshare resort brand</a>, and it's genuinly one of the best-kept secrets in the vacation deal world. These properties have waterparks, spacious villas, activity programs for kids, and resort-quality pools. It's like someone took a Holiday Inn and gave it a Red Bull and a makeover.</p>
 
 <h2>1. What Is Holiday Inn Club Vacations?</h2>
-<p>HICV is a timeshare resort brand owned by a partnership between IHG (InterContinental Hotels Group) and Orange Lake Resorts. They operate about 30 resort properties across the U.S., concentrated in Florida, the Carolinas, Las Vegas, and the Smoky Mountains. The brand is positioned as family-friendly and mid-range — nicer than Westgate, more affordable than Marriott.</p>
-<p>Their signature property is Orange Lake Resort in Orlando, which is basically a small city with four pool complexes, an 80-acre lake, an 18-hole golf course, and a shopping village. It's the kind of place where you check in and don't leave the property for three days because why would you?</p>
+<p>HICV is a timeshare resort brand owned by a partnership between IHG (InterContinental Hotels Group) and Orange Lake Resorts. They operate about 30 resort properties across the U.S., concentrated in Florida, the Carolinas, Las Vegas (browse <a href="/las-vegas-fall">Las Vegas vacation deals Fall</a>), and the Smoky Mountains. The brand is positioned as family-friendly and mid-range — nicer than Westgate, more affordable than Marriott.</p>
+<p>Their signature property is Orange Lake Resort in Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (more on <a href="/orlando-fall">Orlando Fall vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), which is basically a small city with four pool complexes, an 80-acre lake, an 18-hole golf course, and a shopping village. It's the kind of place where you check in and don't leave the property for three days because why would you?</p>
 
 <h2>2. HICV Deal Pricing</h2>
 <table>
@@ -991,8 +991,8 @@ export const brandPosts: BlogPost[] = [
 <p>Here's where I need to be real with you: Bluegreen properties are not the Ritz-Carlton. They're not even the Hilton. They're more like... a really nice extended-stay hotel with better amenities. Rooms are clean and functional but not luxurious. Furnishings are comfortable but not designer. Pools are nice but not resort-showpiece level.</p>
 <p>That said, for what you're paying, they're totally fine. You get a full kitchen (or at least a kitchenette), more space than a regular hotel room, and access to pools and sometimes lazy rivers or hot tubs. If your expectations are calibrated to "budget resort" rather than "luxury escape," you won't be disappointed.</p>
 <p><strong>Best Bluegreen Properties:</strong></p>
-<p><strong>Fountains, Orlando:</strong> Their Orlando flagship. Multiple pools, close to I-Drive attractions, and rooms that are surprisingly spacious. This is the property most deals are for, and it's the best representation of the brand.</p>
-<p><strong>MountainLoft, Gatlinburg:</strong> Mountain views, indoor/outdoor pools, and a location that's close to downtown Gatlinburg and the national park entrance. Cozy and well-maintained.</p>
+<p><strong>Fountains, Orlando (browse <a href="/orlando-cheap">Orlando vacation deals Cheap</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>):</strong> Their Orlando flagship. Multiple pools, close to I-Drive attractions, and rooms that are surprisingly spacious. This is the property most deals are for, and it's the best representation of the brand.</p>
+<p><strong>MountainLoft, Gatlinburg (browse <a href="/gatlinburg-cheap">Gatlinburg vacation deals Cheap</a>) (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>):</strong> Mountain views, indoor/outdoor pools, and a location that's close to downtown Gatlinburg and the national park entrance. Cozy and well-maintained.</p>
 <p><strong>SeaGlass Tower, Myrtle Beach:</strong> One of their newer builds and it shows. Oceanfront, modern rooms, and a rooftop pool. This property punches above its weight for the Bluegreen brand.</p>
 <p><strong>Wilderness Club at Big Cedar:</strong> Located at Big Cedar Lodge in Branson (owned by — you guessed it — Bass Pro's Johnny Morris). It's their most upscale property and feels completely different from the rest of the portfolio. If you can get a deal here, take it.</p>
 
@@ -1217,7 +1217,7 @@ export const brandPosts: BlogPost[] = [
 <h2>2. Pricing: The Bottom Line</h2>
 <p>When you compare advertised prices side by side for the same destinations, they're remarkably similar. Both start at $49 for budget deals and top out around $199-$299 for premium packages. The difference is in the hidden fees.</p>
 <p>BookVIP tends to add more in taxes, processing fees, and resort charges — sometimes $100-$150 on top of the advertised price. GetawayDealz fees are typically $50-$100 extra. So that "$49 deal" might be $149 at BookVIP versus $119 at GetawayDealz. Not a massive difference, but $30 is $30.</p>
-<p>Here's the thing tho — BookVIP occasionally has flash sales and promotional deals that blow GetawayDealz out of the water. I've seen BookVIP Cancun deals where the total cost (including all fees) was under $100 for 5 nights. GetawayDealz simply can't match that because they don't have the Mexican resort partnerships.</p>
+<p>Here's the thing tho — BookVIP occasionally has flash sales and promotional deals that blow GetawayDealz out of the water. I've seen BookVIP Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) deals where the total cost (including all fees) was under $100 for 5 nights. GetawayDealz simply can't match that because they don't have the Mexican resort partnerships.</p>
 
 <h2>3. Destination Coverage</h2>
 <p>This is where the comparison gets lopsided. BookVIP covers:</p>
@@ -1368,7 +1368,7 @@ export const brandPosts: BlogPost[] = [
 </div>
 
 <h2>5. Locations and Destinations</h2>
-<p><strong>Westgate's best locations:</strong> Orlando (Town Center — their crown jewel), Gatlinburg, Las Vegas, Myrtle Beach. Their properties are concentrated in traditional tourist destinations and tend to be large, full-service resorts.</p>
+<p><strong>Westgate's best locations:</strong> Orlando (Town Center — their crown jewel), Gatlinburg (see our <a href="/gatlinburg-with-waterpark">Gatlinburg deals with Waterpark</a>) (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>) (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>), Las Vegas, Myrtle Beach (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>). Their properties are concentrated in traditional tourist destinations and tend to be large, full-service resorts.</p>
 <p><strong>HGV's best locations:</strong> Las Vegas (Elara — arguably the best timeshare property in Vegas), Orlando, Hawaii, New York City, Myrtle Beach. HGV has the edge in premium urban and island locations.</p>
 <p>For Orlando specifically, both brands have strong properties. Westgate Town Center has the better waterpark; HGV Parc Soleil has the better rooms. For Vegas, HGV's Elara on the Strip is superior to Westgate's off-Strip location. For beach destinations, it's a toss-up.</p>
 
@@ -1480,10 +1480,10 @@ export const brandPosts: BlogPost[] = [
 
 <h2>3. Property Quality: Consistency vs. Volume</h2>
 <p>Marriott's biggest advantage is quality consistency. Every MVC property I've visited has been excellent — modern rooms, upscale amenities, well-maintained grounds. There's a higher floor that you can count on.</p>
-<p>Wyndham's biggest advantage is sheer volume — 230+ properties means you can find a deal almost anywhere. But the quality range is WIDE. Wyndham Bonnet Creek in Orlando? Fantastic. Random Wyndham property in Branson? Might be a coin flip. You need to research the specific property before booking, not just trust the Wyndham name.</p>
+<p>Wyndham's biggest advantage is sheer volume — 230+ properties means you can find a deal almost anywhere. But the quality range is WIDE. Wyndham Bonnet Creek in Orlando (browse <a href="/orlando-cheap">Orlando vacation deals Cheap</a>)? Fantastic. Random Wyndham property in Branson (browse <a href="/branson-cheap">Branson vacation deals Cheap</a>)? Might be a coin flip. You need to research the specific property before booking, not just trust the Wyndham name.</p>
 
 <h2>4. Location Coverage</h2>
-<p>Wyndham covers more domestic U.S. destinations simply because they have 3x more properties. Want a deal in Panama City Beach? Wyndham's got you. Williamsburg? Wyndham. San Francisco? Wyndham. Random lake town in the Ozarks? Probably Wyndham.</p>
+<p>Wyndham covers more domestic U.S. destinations simply because they have 3x more properties. Want a deal in Panama City Beach? Wyndham's got you. Williamsburg (see our <a href="/williamsburg-cheap">Williamsburg deals Cheap</a>)? Wyndham. San Francisco? Wyndham. Random lake town in the Ozarks? Probably Wyndham.</p>
 <p>Marriott covers fewer locations but has stronger international presence — Caribbean, Hawaii, Europe, and Asia. If your vacation dreams involve white sand beaches outside the continental U.S., Marriott has more options.</p>
 
 <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;">
@@ -1584,10 +1584,10 @@ export const brandPosts: BlogPost[] = [
 <table>
 <thead><tr><th>Brand/Destination</th><th>Direct Price</th><th>Broker Price</th><th>Savings w/ Broker</th></tr></thead>
 <tbody>
-<tr><td>Westgate Orlando (3 nights)</td><td>$79-$149</td><td>$49-$99</td><td>$30-$50 (20-35%)</td></tr>
+<tr><td>Westgate Orlando (browse <a href="/orlando-cheap">Orlando vacation deals Cheap</a>) (browse <a href="/orlando-last-minute">Orlando vacation deals Last Minute</a>) (3 nights)</td><td>$79-$149</td><td>$49-$99</td><td>$30-$50 (20-35%)</td></tr>
 <tr><td>Wyndham Myrtle Beach (4 nights)</td><td>$149-$249</td><td>$99-$169</td><td>$50-$80 (25-35%)</td></tr>
 <tr><td>Marriott Orlando (4 nights)</td><td>$399-$549</td><td>$349-$499</td><td>$50-$100 (10-15%)</td></tr>
-<tr><td>HGV Las Vegas (3 nights)</td><td>$249-$399</td><td>$199-$349</td><td>$50 (10-20%)</td></tr>
+<tr><td>HGV Las Vegas (more on <a href="/las-vegas-cheap">Las Vegas Cheap vacation deals</a>) (more on <a href="/las-vegas-last-minute">Las Vegas Last Minute vacation deals</a>) (3 nights)</td><td>$249-$399</td><td>$199-$349</td><td>$50 (10-20%)</td></tr>
 <tr><td>Bluegreen Orlando (3 nights)</td><td>$79-$129</td><td>$49-$99</td><td>$30-$40 (25-35%)</td></tr>
 </tbody>
 </table>
@@ -1725,7 +1725,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>5. Where StayPromo Falls Short</h2>
 <p><strong>Limited Selection:</strong> StayPromo has a smaller deal inventory than BookVIP. If you're looking for a specific resort or destination, they might not have it. Their coverage is focused on the big tourist destinations (Orlando, Vegas, beaches, mountains) and thats about it.</p>
-<p><strong>No International Deals:</strong> Like GetawayDealz, StayPromo is domestic U.S. only. No Cancun, no Caribbean, no Mexico. For international deals, BookVIP is still your best bet.</p>
+<p><strong>No International Deals:</strong> Like GetawayDealz, StayPromo is domestic U.S. only. No Cancun (browse <a href="/cancun-3-night">Cancun vacation deals 3-Night</a>), no Caribbean, no Mexico. For international deals, BookVIP is still your best bet.</p>
 <p><strong>Less Established:</strong> They're newer and smaller than BookVIP and GetawayDealz. Less track record means less data to evaluate. They've been solid in my experience, but the sample size is smaller.</p>
 <p><strong>Limited Reviews Online:</strong> Finding independent reviews of StayPromo is harder than for BookVIP. They're growing their online presence but aren't as well-documented yet.</p>
 
@@ -1813,7 +1813,7 @@ export const brandPosts: BlogPost[] = [
 <p>Vacation Village Resorts is one of those brands that flies completely under the radar unless you're deep in the vacation deal trenches. They don't have the name recognition of Westgate or the prestige of Marriott, but they've been quietly offering some of the cheapest legitimate resort deals in Florida for years. Let me tell you what I've learned about <a href="/deals">these unbelieveably cheap deals</a>.</p>
 
 <h2>1. Who Is Vacation Village Resorts?</h2>
-<p>Vacation Village Resorts is a smaller timeshare company that operates several resort properties primarily in the Kissimmee/Orlando area of Florida. They're not a household name like Westgate or Wyndham, but they've been around for over 20 years and have a decent (if modest) reputation.</p>
+<p>Vacation Village Resorts is a smaller timeshare company that operates several resort properties primarily in the Kissimmee/Orlando (more on <a href="/orlando-near-disney">Orlando Near Disney vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) area of Florida. They're not a household name like Westgate or Wyndham, but they've been around for over 20 years and have a decent (if modest) reputation.</p>
 <p>Their properties are concentrated in the tourist corridor south of Orlando, near Walt Disney World. Think of them as the neighborhood timeshare company that competes with the big boys on price because they can't compete on brand recognition. And honestly? That strategy works pretty well for deal-seekers.</p>
 
 <h2>2. The $49 Deal: What You Actually Get</h2>
@@ -1956,8 +1956,8 @@ export const brandPosts: BlogPost[] = [
 </div>
 
 <h2>5. Branson: The Surprise Contender</h2>
-<p>I know what your thinking: "Branson? Really?" And yeah, I was skeptical too. But Branson is this weird, wonderful place that's basically Las Vegas for people who think Las Vegas is too sinful. Live shows, go-karts, dinner theaters, Silver Dollar City theme park — it's cheesy in the most endearing way possible.</p>
-<p>Spinnaker's Branson property is solidly nice with mountain views and a relaxed atmosphere. At $79-$129 for 3-4 nights, it's a great value for families who want entertainment without the Orlando price tag.</p>
+<p>I know what your thinking: "Branson? Really?" And yeah, I was skeptical too. But Branson is this weird, wonderful place that's basically Las Vegas (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) for people who think Las Vegas is too sinful. Live shows, go-karts, dinner theaters, Silver Dollar City theme park — it's cheesy in the most endearing way possible.</p>
+<p>Spinnaker's Branson property is solidly nice with mountain views and a relaxed atmosphere. At $79-$129 for 3-4 nights, it's a great value for families who want entertainment without the Orlando (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) price tag.</p>
 
 <h2>6. Pros and Cons</h2>
 <p><strong>Pros:</strong></p>
@@ -2043,7 +2043,7 @@ export const brandPosts: BlogPost[] = [
 
 <p>After years of deal-hunting and more presentations than I can count, I've identified the deals that offer the best return on your time investment. These are the ones where the value is so good, you'd be silly NOT to sit through the pitch. Let's rank them. <a href="/deals">Browse all current deals on our deals page</a>.</p>
 
-<h2>1. Westgate Orlando: The OG Budget Deal</h2>
+<h2>1. Westgate Orlando (more on <a href="/orlando-near-disney">Orlando Near Disney vacation deals</a>) (more on <a href="/orlando-2-night">Orlando 2-Night vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>): The OG Budget Deal</h2>
 <p><strong>Price:</strong> $49-$99 for 3-5 nights</p>
 <p><strong>Value per hour of presentation:</strong> $150-$300 in savings per hour</p>
 <p>This is the deal that started the whole timeshare deal-seeking movement. Westgate's Orlando properties (Town Center, Lakes Resort) offer resort stays that would normally cost $150-$250/night for essentially pocket change. At $49 for 3 nights, you're saving roughly $400-$700 compared to booking through a regular travel site.</p>
@@ -2055,7 +2055,7 @@ export const brandPosts: BlogPost[] = [
 <p>This is objectively the best value in the entire timeshare deal universe. Five nights at an all-inclusive Mexican resort for under $150? The normal cost for this would be $1,500-$3,000+. You're saving over $1,000 in exchange for a presentation that lasts about 2-3 hours.</p>
 <p>The presentation in Mexico tends to be longer (2-3 hours vs. 90 minutes domestic), and the resorts are operated by brands like Vidanta and Palace that most Americans haven't heard of. But the resort quality is often INSANE — infinity pools, ocean views, gourmet dining. Read our <a href="/blog/bookvip-review">BookVIP review</a> for the full breakdown.</p>
 
-<h2>3. HGV Las Vegas Elara: The Premium Play</h2>
+<h2>3. HGV Las Vegas (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>) Elara: The Premium Play</h2>
 <p><strong>Price:</strong> $199-$299 for 3-4 nights</p>
 <p><strong>Value per hour of presentation:</strong> $200-$400 in savings per hour</p>
 <p>The Elara is hands down the best timeshare property in Las Vegas. Connected to Planet Hollywood, center Strip, floor-to-ceiling windows with Strip views, full kitchens, jacuzzi tubs. Normal rack rate: $350-$600/night. At $199 for 3 nights, you're getting an upscale Vegas experience for the price of a mid-tier hotel room.</p>
@@ -2186,7 +2186,7 @@ export const brandPosts: BlogPost[] = [
 <h2>4. The Sales Pitch: Your Battle Plan</h2>
 <p>After the tour, you sit down and the actual sales pitch begins. Here's the typical structure and how to handle each phase:</p>
 <p><strong>Phase 1: Rapport Building (15-20 min)</strong></p>
-<p>The salesperson will ask about your life, your family, your travel habits. This feels like friendly conversation, and it IS — but it's also data collection. Every answer you give becomes ammunition for later. "You said you travel to Orlando every year — imagine having your own place here!" Keep answers vague and brief.</p>
+<p>The salesperson will ask about your life, your family, your travel habits. This feels like friendly conversation, and it IS — but it's also data collection. Every answer you give becomes ammunition for later. "You said you travel to Orlando (browse <a href="/orlando-cheap">Orlando vacation deals Cheap</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) every year — imagine having your own place here!" Keep answers vague and brief.</p>
 <p><strong>Phase 2: The Dream (15-20 min)</strong></p>
 <p>They'll paint a picture of ideal vacation ownership. Beautiful properties, family memories, never worrying about hotel bookings again. It sounds amazing because it IS amazing — in theory. The reality of timeshare ownership involves maintenance fees, availability issues, and depreciation. But they won't mention that part.</p>
 <p><strong>Phase 3: The Numbers (20-30 min)</strong></p>
@@ -2227,7 +2227,7 @@ export const brandPosts: BlogPost[] = [
 <li>$50-$100 Visa/Mastercard gift card</li>
 <li>Theme park tickets or discounts</li>
 <li>Dining vouchers for resort restaurants</li>
-<li>Show tickets (especially in Vegas or Branson)</li>
+<li>Show tickets (especially in Vegas or Branson (see our <a href="/branson-for-families">Branson deals for Families</a>))</li>
 <li>Spa credits or activity vouchers</li>
 </ul>
 
@@ -2391,7 +2391,7 @@ export const brandPosts: BlogPost[] = [
 
 <h2>3. #3 — Westgate Resorts (Best Budget Domestic)</h2>
 <p><strong>Score: 8.5/10</strong></p>
-<p>The undisputed budget champion. Westgate's $49 Orlando deals have introduced more people to timeshare deal-seeking than any other offer in the industry. Their properties are solid (especially Town Center with its waterpark), and the deal pricing can't be beat. The only thing keeping them from a higher ranking is the aggressive presentation experience — it's the price you pay for paying less.</p>
+<p>The undisputed budget champion. Westgate's $49 Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (browse <a href="/orlando-luxury">Orlando vacation deals Luxury</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) deals have introduced more people to timeshare deal-seeking than any other offer in the industry. Their properties are solid (especially Town Center with its waterpark), and the deal pricing can't be beat. The only thing keeping them from a higher ranking is the aggressive presentation experience — it's the price you pay for paying less.</p>
 <p><strong>Best For:</strong> Budget travelers, families, Orlando visitors, deal-seeking beginners who don't mind a firm presentation</p>
 
 <h2>4. #4 — Club Wyndham (Most Versatile)</h2>
@@ -2519,11 +2519,11 @@ export const brandPosts: BlogPost[] = [
 <p><strong>Runner-up:</strong> Club Wyndham (more locations, slightly lower quality)</p>
 
 <h2>4. Best for Families: Holiday Inn Club Vacations</h2>
-<p>HICV's waterparks, kids' activity programs, and spacious villas make them the best choice for traveling families. Orange Lake Resort in Orlando is essentially a family vacation theme park with attached hotel rooms. The mid-range pricing ($99-$299) makes it accessible for most family budgets.</p>
+<p>HICV's waterparks, kids' activity programs, and spacious villas make them the best choice for traveling families. Orange Lake Resort in Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (more on <a href="/orlando-thanksgiving">Orlando Thanksgiving vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) is essentially a family vacation theme park with attached hotel rooms. The mid-range pricing ($99-$299) makes it accessible for most family budgets.</p>
 <p><strong>Runner-up:</strong> Westgate Resorts (Town Center waterpark is excellent)</p>
 
 <h2>5. Best for International: BookVIP</h2>
-<p>For deals outside the U.S. — especially Cancun, Cabo, and the Caribbean — BookVIP is the only serious option. Their partnerships with Mexican resort brands like Vidanta and Palace yield all-inclusive deals that are genuinely hard to believe. $49-$149 for 5 nights of all-inclusive resort? Madness.</p>
+<p>For deals outside the U.S. — especially Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>), Cabo, and the Caribbean — BookVIP is the only serious option. Their partnerships with Mexican resort brands like Vidanta and Palace yield all-inclusive deals that are genuinely hard to believe. $49-$149 for 5 nights of all-inclusive resort? Madness.</p>
 <p><strong>Runner-up:</strong> There honestly isn't one. BookVIP dominates international deals.</p>
 
 <h2>6. The Comparison Matrix</h2>
@@ -2725,7 +2725,7 @@ export const brandPosts: BlogPost[] = [
     bluf: "Brokers buy resort room blocks at wholesale ($15-$30/night) and resell them to deal-seekers at a markup that's still below direct booking prices. Understanding this business model helps you negotiate better prices and avoid overpaying.",
     heroImageAlt: "Behind the scenes look at vacation deal broker operations",
     heroGradient: "from-gray-700 to-slate-600",
-    content: `<p>Ever wonder how <a href="/blog/bookvip-review">BookVIP</a> can offer you a 5-night Cancun resort stay for $49 and still make money? Or why <a href="/blog/getawaydealz-review">GetawayDealz</a> can sell the same Westgate room for $30 less than Westgate itself? The answer lies in a business model that's equal parts genius and absurd — a three-way transaction where everyone wins, sort of, as long as nobody actually buys the timeshare.</p>
+    content: `<p>Ever wonder how <a href="/blog/bookvip-review">BookVIP</a> can offer you a 5-night Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) (more on <a href="/cancun-5-night">Cancun 5-Night vacation deals</a>) resort stay for $49 and still make money? Or why <a href="/blog/getawaydealz-review">GetawayDealz</a> can sell the same Westgate room for $30 less than Westgate itself? The answer lies in a business model that's equal parts genius and absurd — a three-way transaction where everyone wins, sort of, as long as nobody actually buys the timeshare.</p>
 
 <p>I've spent considerable time understanding how this industry works behind the scenes, and knowing the mechanics gives you a massive advantage as a deal-seeker. Let's pull back the curtain and look at how the sausage gets made. Then I'll show you how to use this knowledge to get even better prices on our <a href="/deals">deals page</a>.</p>
 
@@ -2861,7 +2861,7 @@ export const brandPosts: BlogPost[] = [
 <tr><td>Budget</td><td>$49-$99</td><td>3 nights, basic room</td><td>Westgate, Bluegreen, Vacation Village</td></tr>
 <tr><td>Mid-Range</td><td>$99-$249</td><td>3-5 nights, suite</td><td>Wyndham, HICV, Spinnaker</td></tr>
 <tr><td>Premium</td><td>$249-$599</td><td>4-7 nights, villa</td><td>HGV, Marriott, Hyatt</td></tr>
-<tr><td>International</td><td>$49-$299</td><td>4-7 nights, resort</td><td>BookVIP (Cancun, Caribbean)</td></tr>
+<tr><td>International</td><td>$49-$299</td><td>4-7 nights, resort</td><td>BookVIP (Cancun (see our <a href="/cancun-for-couples">Cancun deals for Couples</a>), Caribbean)</td></tr>
 </tbody>
 </table>
 <p>Remember: advertised prices don't include taxes and fees ($30-$150 extra). Budget accordingly by adding 50-100% to the advertised price for your real total cost.</p>
@@ -2948,7 +2948,7 @@ export const brandPosts: BlogPost[] = [
 <tr><td>April-May</td><td>Mountain, Hilton Head</td><td>Shoulder season gold</td></tr>
 <tr><td>June-August</td><td>Limited discounts</td><td>Peak season — prices highest</td></tr>
 <tr><td>September-October</td><td>Everything</td><td>Sweet spot — great weather, great prices</td></tr>
-<tr><td>November</td><td>Orlando, Vegas, Branson</td><td>Pre-holiday deals</td></tr>
+<tr><td>November</td><td>Orlando, Vegas, Branson (see our <a href="/branson-shoulder-season">Branson deals Shoulder Season</a>) (browse <a href="/branson-for-couples">Branson vacation deals for Couples</a>) (see our <a href="/branson-for-families">Branson deals for Families</a>)</td><td>Pre-holiday deals</td></tr>
 <tr><td>December</td><td>Very limited</td><td>Holiday blackouts on most deals</td></tr>
 </tbody>
 </table>

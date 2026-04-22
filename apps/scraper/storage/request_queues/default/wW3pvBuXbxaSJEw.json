@@ -1,0 +1,9 @@
+{
+	"id": "wW3pvBuXbxaSJEw",
+	"json": "{\"id\":\"wW3pvBuXbxaSJEw\",\"url\":\"https://www.westgatereservations.com/specials/after-christmas-travel-deals-orlando-vacation/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/after-christmas-travel-deals-orlando-vacation/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/after-christmas-travel-deals-orlando-vacation\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:07.683Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/after-christmas-travel-deals-orlando-vacation",
+	"url": "https://www.westgatereservations.com/specials/after-christmas-travel-deals-orlando-vacation/"
+}

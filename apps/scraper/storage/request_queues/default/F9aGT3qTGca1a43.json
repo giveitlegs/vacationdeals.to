@@ -1,0 +1,9 @@
+{
+	"id": "F9aGT3qTGca1a43",
+	"json": "{\"id\":\"F9aGT3qTGca1a43\",\"url\":\"https://www.westgatereservations.com/specials/gatlinburg-vacation-packages-couples/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/gatlinburg-vacation-packages-couples/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/gatlinburg-vacation-packages-couples\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:02.293Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/gatlinburg-vacation-packages-couples",
+	"url": "https://www.westgatereservations.com/specials/gatlinburg-vacation-packages-couples/"
+}

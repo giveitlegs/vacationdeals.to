@@ -1,0 +1,9 @@
+{
+	"id": "CsxLLA0M8s0ec4N",
+	"json": "{\"id\":\"CsxLLA0M8s0ec4N\",\"url\":\"https://www.westgatereservations.com/specials/sunshine-day-summer-sale/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/sunshine-day-summer-sale/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/sunshine-day-summer-sale\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:03.597Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/sunshine-day-summer-sale",
+	"url": "https://www.westgatereservations.com/specials/sunshine-day-summer-sale/"
+}

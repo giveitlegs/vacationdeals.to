@@ -37,7 +37,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "We did Orlando for $487 total over 4 nights on a $199 Westgate vacpack last summer. Here's the receipts breakdown.",
     heroImageAlt: "Orlando family vacpack summer trip under $200",
     heroGradient: "from-blue-400 to-cyan-300",
-    content: `<p>So last July we did our annual Orlando trip and I'm still a little in disbelief about the numbers. My wife and me plus two kids (7 and 10), four nights at a 2-bedroom suite with a full kitchen, and the total came in at $487 — gas, food, vacpack, Universal CityWalk, everything. Your probably thinking something is missing. I checked the receipts three times. Nothing is missing. This is just what happens when you actually use a Orlando family vacpack the way its meant to be used.</p>
+    content: `<p>So last July we did our annual Orlando (more on <a href="/orlando-2-night">Orlando 2-Night vacation deals</a>) trip and I'm still a little in disbelief about the numbers. My wife and me plus two kids (7 and 10), four nights at a 2-bedroom suite with a full kitchen, and the total came in at $487 — gas, food, vacpack, Universal CityWalk, everything. Your probably thinking something is missing. I checked the receipts three times. Nothing is missing. This is just what happens when you actually use a Orlando family vacpack the way its meant to be used.</p>
 
 <h2>The Vacpack Itself — $199</h2>
 <p>We booked a <a href="/orlando-for-families">Westgate Lakes family vacpack</a> because the 2-bedroom suite sleeps 6 and has a kitchen, which basicly eliminates the "we need to eat out three times a day" math. $199 total for 4 nights. I paid a $149 deposit at booking which I got back the day we checked out, so the effective cash outlay was $50 by the time we left.</p>
@@ -55,7 +55,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <p>This is where most families blow there budget and this is where having a kitchen saves you. We did Publix once on arrival day, spent $87 on breakfast groceries, lunch stuff, and snacks. One nice dinner out at a local spot for $40. Kitchen coffee and cereal every morning meant no $80 resort breakfasts for four people.</p>
 
 <h2>Activities — $98</h2>
-<p>Universal CityWalk is free to walk around and theres a great AMC theater for $16 per ticket. Pool days were free. The resort has a lazy river which kept the kids happy for approx 6 hours total. One day we drove to Cocoa Beach which is about an hour — beach is free, parking was $5.</p>
+<p>Universal CityWalk is free to walk around and theres a great AMC theater for $16 per ticket. Pool days were free. The resort has a lazy river which kept the kids happy for approx 6 hours total. One day we drove to Cocoa Beach (more on <a href="/cocoa-beach-under-99">Cocoa Beach Under $99 vacation deals</a>) (browse <a href="/cocoa-beach-summer">Cocoa Beach vacation deals Summer</a>) (compare <a href="/cocoa-beach-for-families">Cocoa Beach vacpacks for Families</a>) which is about an hour — beach is free, parking was $5.</p>
 
 <h2>Gas + Transport — $62</h2>
 <p>We drove from Atlanta. $62 in gas round-trip. Your mileage literally varies here but if you're within 8 hours driving, skip the flights and drive.</p>
@@ -287,7 +287,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "A 5-night all-inclusive Cancun honeymoon runs $599-$799 on vacpack pricing — food and drinks included. Here's the three resorts that do it right.",
     heroImageAlt: "Cancun honeymoon vacpack all-inclusive beach",
     heroGradient: "from-teal-400 to-emerald-400",
-    content: `<p>We got married in February and did a <a href="/cancun-honeymoon">Cancun honeymoon vacpack</a> for the trip. Five nights all-inclusive at Bahia Principe Riviera Maya. Total for the vacpack: $699. I kept waiting for the catch. There wasn't one, other than the 90-minute preview tour the morning of day 4.</p>
+    content: `<p>We got married in February and did a <a href="/cancun (more on <a href="/cancun-5-night">Cancun 5-Night vacation deals</a>)-honeymoon">Cancun honeymoon vacpack</a> for the trip. Five nights all-inclusive at Bahia Principe Riviera Maya. Total for the vacpack: $699. I kept waiting for the catch. There wasn't one, other than the 90-minute preview tour the morning of day 4.</p>
 
 <h2>What "All-Inclusive" Actually Includes</h2>
 <p>At legit AI resorts, all-inclusive means all meals (breakfast, lunch, dinner, snacks), unlimited drinks (beer, wine, cocktails, premium liquor, soft drinks, bottled water), and on-property activities (pools, non-motorized water sports, fitness, nightly entertainment).</p>
@@ -348,7 +348,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "Branson in December goes full Ozark Christmas mode. A 3-night vacpack at Westgate Branson Lakes runs $129-$149 most weeks. Here's when to book.",
     heroImageAlt: "Branson Christmas vacpack Ozark lights season",
     heroGradient: "from-red-500 to-green-500",
-    content: `<p>My grandmother loved Branson at Christmas. She talked about Silver Dollar City's Old Time Christmas like it was the eighth wonder of the Ozarks. I always thought she was being dramatic until we finally did it last December on a <a href="/branson-christmas">Branson Christmas vacpack</a>. Turns out grandma was right.</p>
+    content: `<p>My grandmother loved Branson (compare <a href="/branson-3-night">Branson vacpacks 3-Night</a>) (see our <a href="/branson-for-families">Branson deals for Families</a>) at Christmas. She talked about Silver Dollar City's Old Time Christmas like it was the eighth wonder of the Ozarks. I always thought she was being dramatic until we finally did it last December on a <a href="/branson-christmas">Branson Christmas vacpack</a>. Turns out grandma was right.</p>
 
 <h2>The Christmas Light Economy</h2>
 <p>Branson runs Old Time Christmas at Silver Dollar City from early November through December 30. Over 6.5 million lights. It's legitimately impressive. Tickets run $69-$89 per person (under 4 free).</p>
@@ -411,7 +411,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "Westgate's $59 Orlando 2-night is the real floor of the vacpack market. Here's the specific room category and how to not get upsold during booking.",
     heroImageAlt: "Orlando vacpack under $99 2-night deal",
     heroGradient: "from-blue-300 to-cyan-200",
-    content: `<p>The $59 Orlando vacpack is a kind of urban legend in the travel hacker community. People swear it exists, others swear it's always sold out or a bait-and-switch. Here's the actual truth after booking one in March: its real, its available, and you can absolutely book it if you know what your looking for.</p>
+    content: `<p>The $59 Orlando (see our <a href="/orlando-near-universal">Orlando deals Near Universal</a>) (more on <a href="/orlando-2-night">Orlando 2-Night vacation deals</a>) vacpack is a kind of urban legend in the travel hacker community. People swear it exists, others swear it's always sold out or a bait-and-switch. Here's the actual truth after booking one in March: its real, its available, and you can absolutely book it if you know what your looking for.</p>
 
 <p>This is specifically a guide to the <a href="/orlando-under-99">Orlando under $99 tier</a>. If you want longer stays or premium brands, this isnt the right sublander.</p>
 
@@ -711,7 +711,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     content: `<p>I've done both Westgate and Wyndham vacpacks three times each over the last four years. Here's the honest head-to-head.</p>
 
 <h2>Destination Coverage</h2>
-<p>Westgate wins by volume. Orlando, Las Vegas, Gatlinburg, Branson, Myrtle Beach, Park City, Williamsburg, River Ranch, Cocoa Beach — major markets covered with big flagship properties in each.</p>
+<p>Westgate wins by volume. Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (more on <a href="/orlando-2-night">Orlando 2-Night vacation deals</a>) (browse <a href="/orlando-cheap">Orlando vacation deals Cheap</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>), Las Vegas, Gatlinburg, Branson, Myrtle Beach, Park City, Williamsburg, River Ranch, Cocoa Beach — major markets covered with big flagship properties in each.</p>
 
 <p>Wyndham's coverage is solid but narrower. Strong in Orlando (Bonnet Creek, Star Island, Reunion) and Las Vegas (Grand Desert). Decent in Myrtle Beach and Atlantic City. Less coverage in the Smokies and Ozarks.</p>
 
@@ -780,7 +780,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     content: `<p>When you outgrow the Westgate/Wyndham price floor and start looking at mid-tier brands, you land on Holiday Inn Club Vacations and Bluegreen. Both run family-focused preview programs in the $99-$199 range. Here's the real comparison after doing a trip with each.</p>
 
 <h2>Portfolio</h2>
-<p>Holiday Inn Club Vacations is owned by IHG. Properties include Orange Lake Orlando (the 1,500+ acre flagship), Desert Club Las Vegas, Smoky Mountain Resort, Cape Canaveral Beach Resort. Strong coverage of Florida and drive-to markets.</p>
+<p>Holiday Inn Club Vacations is owned by IHG. Properties include Orange Lake Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) (the 1,500+ acre flagship), Desert Club Las Vegas, Smoky Mountain Resort, Cape Canaveral Beach Resort. Strong coverage of Florida and drive-to markets.</p>
 
 <p>Bluegreen Vacations has Shore Crest (Myrtle Beach), The Fountains (Orlando), Mountain Run at Boyne (Michigan), Hershey (PA), and maintains partnership with Bass Pro Shops Big Cedar Lodge in Missouri. More diverse portfolio including mountain and lake resorts.</p>
 
@@ -844,7 +844,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 
 <h2>Portfolio Coverage</h2>
 <p>MVC has strong coverage in Orlando (Grande Vista), Hawaii (Ocean Pointe, Waiohai), Aruba, Mexico (Marriott Vacation Club Palm Desert). Florida-heavy.</p>
-<p>HGV has broader international reach — Orlando (Tuscany Village), Vegas (Elara, Grand Islander), Hawaii (Grand Islander Honolulu), Mexico (Grand Solmar Cabo), European partners in Italy and Scotland.</p>
+<p>HGV has broader international reach — Orlando (Tuscany Village), Vegas (Elara, Grand Islander), Hawaii (Grand Islander Honolulu), Mexico (Grand Solmar Cabo (browse <a href="/cabo-san-lucas-oceanfront">Cabo vacation deals Oceanfront</a>)), European partners in Italy and Scotland.</p>
 
 <p>If Hawaii is your focus → HGV has more options. If Orlando or Aruba → MVC competes well.</p>
 
@@ -919,7 +919,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <p><strong>Group 6+ people</strong> → Airbnb wins. Large houses on Airbnb accommodate 8-12 at a per-person cost lower than any vacpack. Vacpacks max at 2-3 BR units sleeping 6-8.</p>
 
 <h2>Destination</h2>
-<p><strong>Big markets (Orlando, Vegas, Myrtle Beach)</strong> → Vacpack wins. Preview pricing is most aggressive where timeshare inventory is densest.</p>
+<p><strong>Big markets (Orlando (see our <a href="/orlando-honeymoon">Orlando deals Honeymoon</a>) (compare <a href="/orlando-for-groups">Orlando vacpacks for Groups</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Vegas, Myrtle Beach)</strong> → Vacpack wins. Preview pricing is most aggressive where timeshare inventory is densest.</p>
 <p><strong>Small markets (Asheville, Charleston, Santa Fe)</strong> → Airbnb wins. Limited or no vacpack inventory.</p>
 <p><strong>International (Cancun, Cabo, PV)</strong> → Vacpack with all-inclusive bundle wins. All-inclusive vacpacks bundle meals and drinks Airbnb can't match.</p>
 
@@ -991,7 +991,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <li><strong>Broker packages</strong> — BookVIP, Monster Reservations, and similar brokers sometimes run flash sales 7-21 days before check-in. Different category from direct-resort vacpacks.</li>
 </ul>
 
-<div class="funfact"><strong>Fun Fact:</strong> Westgate's $59 Orlando vacpack has been available on our scrape at least 300+ days a year for the last 3 years. The floor price doesn't move.</div>
+<div class="funfact"><strong>Fun Fact:</strong> Westgate's $59 Orlando (browse <a href="/orlando-last-minute">Orlando vacation deals Last Minute</a>) (more on <a href="/orlando-spring-break">Orlando Spring Break vacation deals</a>) (see our <a href="/orlando-honeymoon">Orlando deals Honeymoon</a>) vacpack has been available on our scrape at least 300+ days a year for the last 3 years. The floor price doesn't move.</div>
 
 <h2>When Booking Earlier Wins</h2>
 <p>Every time except the specific edge cases above:</p>
@@ -1032,7 +1032,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "Family of 4, 4 nights Orlando, $487 total. Here's every receipt in a single table so you can replicate the math yourself.",
     heroImageAlt: "Orlando vacation receipt breakdown family budget",
     heroGradient: "from-emerald-500 to-green-600",
-    content: `<p>This is the receipt-level breakdown of our Orlando trip last summer. I kept the Venmo receipts, the restaurant printouts, everything. The total after four nights was $487 for a family of four. Here's how every dollar spent.</p>
+    content: `<p>This is the receipt-level breakdown of our Orlando (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) trip last summer. I kept the Venmo receipts, the restaurant printouts, everything. The total after four nights was $487 for a family of four. Here's how every dollar spent.</p>
 
 <h2>Booking Costs</h2>
 <table><thead><tr><th>Line</th><th>Cost</th></tr></thead><tbody>
@@ -1111,7 +1111,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <h2>The Annual Stack</h2>
 <p>A reasonable annual vacpack stack:</p>
 <ol>
-<li>February: Westgate Orlando 3-night, $99 — family warm-weather break</li>
+<li>February: Westgate Orlando (more on <a href="/orlando-2-night">Orlando 2-Night vacation deals</a>) (more on <a href="/orlando-fall">Orlando Fall vacation deals</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) 3-night, $99 — family warm-weather break</li>
 <li>July: Wyndham Myrtle Beach 3-night, $149 — summer beach trip</li>
 <li>October: Holiday Inn Club Gatlinburg 3-night, $129 — fall foliage</li>
 <li>December: Spinnaker Hilton Head 2-night, $89 — off-season beach weekend</li>
@@ -1192,7 +1192,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <p>Westgate Williamsburg, Holiday Inn Club Williamsburg, Bluegreen Patrick Henry Square. Busch Gardens nearby. <a href="/williamsburg-summer">Summer Williamsburg</a> fits the under-$200 bar.</p>
 
 <h2>Cocoa Beach — $89-$149 for 3 Nights</h2>
-<p>Westgate Cocoa Beach Resort. Direct beach access, oceanfront balconies. Under-the-radar alternative to Daytona. Space Coast for rocket launches. <a href="/cocoa-beach-summer">Cocoa Beach summer</a> available most weeks.</p>
+<p>Westgate Cocoa Beach Resort. Direct beach access, oceanfront balconies. Under-the-radar alternative to Daytona (compare <a href="/daytona-beach-july-4th">Daytona vacpacks July 4th</a>) (compare <a href="/daytona-beach-summer">Daytona vacpacks Summer</a>). Space Coast for rocket launches. <a href="/cocoa-beach-summer">Cocoa Beach summer</a> available most weeks.</p>
 
 <h2>Timing Tips</h2>
 <ul>
@@ -1230,7 +1230,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     heroGradient: "from-orange-500 to-red-500",
     content: `<p>Fall is shoulder season at most beach destinations and peak season at most mountain destinations. Here's the ranked list for 2026.</p>
 
-<h2>Rank #1 — Gatlinburg</h2>
+<h2>Rank #1 — Gatlinburg (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>)</h2>
 <p>Fall foliage in the Smokies is legitimate. Peak color October 15-22. Westgate Smoky Mountain vacpacks $99-$149 for 3 nights. Premium during leaf season but still cheap. Wild Bear Falls indoor waterpark keeps kids busy when outside is cold. <a href="/gatlinburg-fall">Gatlinburg fall deals</a>.</p>
 
 <h2>Rank #2 — Williamsburg</h2>
@@ -1245,7 +1245,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <h2>Rank #5 — Myrtle Beach</h2>
 <p>Shoulder season. Crowds gone, water still warm in September-October. Prices drop 30% from summer peak. Good for retirees and couples. <a href="/myrtle-beach-fall">Myrtle Beach fall</a>.</p>
 
-<h2>Rank #6 — Las Vegas</h2>
+<h2>Rank #6 — Las Vegas (browse <a href="/las-vegas-summer">Las Vegas vacation deals Summer</a>) (more on <a href="/las-vegas-for-seniors">Las Vegas for Seniors vacation deals</a>) (more on <a href="/las-vegas-for-couples">Las Vegas for Couples vacation deals</a>)</h2>
 <p>Fall weather is basically perfect (75-85°F, low humidity). Casino atmosphere is year-round. $79-$129 vacpacks. Less kid-friendly but adults love it.</p>
 
 <h2>Rank #7 — Cancun/Caribbean</h2>
@@ -1286,7 +1286,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "The two weeks around Easter see spring break markups of 200-400%. Book the week before or after for 60-70% cheaper at same properties.",
     heroImageAlt: "Spring break vacpack pricing strategy",
     heroGradient: "from-pink-500 to-purple-500",
-    content: `<p>Spring break is when Orlando, Cancun, Puerto Vallarta, and Destin become battlegrounds for college kids and families alike. Prices triple. Availability evaporates. And you start seeing Westgate Orlando vacpacks at $349 that normally list at $99.</p>
+    content: `<p>Spring break is when Orlando (see our <a href="/orlando-5-night">Orlando deals 5-Night</a>) (see our <a href="/orlando-shoulder-season">Orlando deals Shoulder Season</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>), Cancun, Puerto Vallarta, and Destin become battlegrounds for college kids and families alike. Prices triple. Availability evaporates. And you start seeing Westgate Orlando vacpacks at $349 that normally list at $99.</p>
 
 <p>If your stuck with spring break dates (because kids' school is locked in), here's how to handle it.</p>
 
@@ -1361,7 +1361,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     content: `<p>Vacpack prices don't really move — $59 is $59 whether you book in July or January. What changes is inventory volume and bonus inclusions. These four windows consistently have the biggest selection and best extras.</p>
 
 <h2>January (2nd-3rd Week)</h2>
-<p>The first week after New Year is still premium. But January 8-22 is absolutely dead for travel demand, which means resorts are desperate to fill rooms. $59 Orlando, $79 Vegas, $99 Gatlinburg — all available, all with frequent upgrade bonuses. <a href="/deals">Current January deals</a>.</p>
+<p>The first week after New Year is still premium. But January 8-22 is absolutely dead for travel demand, which means resorts are desperate to fill rooms. $59 Orlando (browse <a href="/orlando-memorial-day-weekend">Orlando vacation deals Memorial Day Weekend</a>) (more on <a href="/orlando-spring-break">Orlando Spring Break vacation deals</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>), $79 Vegas, $99 Gatlinburg (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>) — all available, all with frequent upgrade bonuses. <a href="/deals">Current January deals</a>.</p>
 
 <h2>Early February</h2>
 <p>February 1-14 before Valentine's traffic picks up. Similar dynamics to January. Ski destinations premium; beach and theme-park destinations cheap.</p>
@@ -1568,7 +1568,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <h2>Which Brands Enforce Sunday-Only</h2>
 <p>For the absolute floor pricing:</p>
 <ul>
-<li>Westgate $59 Orlando — Sunday check-in required</li>
+<li>Westgate $59 Orlando (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — Sunday check-in required</li>
 <li>Westgate $59 Vegas — Sunday check-in required</li>
 <li>Wyndham $99 Vegas — Sunday-Wednesday check-ins</li>
 <li>Holiday Inn Club $99 Orlando — Sunday-Thursday</li>
@@ -1631,9 +1631,9 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 
 <h2>The Math</h2>
 <table><thead><tr><th>Property</th><th>Vacpack 3N</th><th>Hotel 3N</th><th>Discount</th></tr></thead><tbody>
-<tr><td>Westgate Lakes Orlando</td><td>$99</td><td>$1,050</td><td>91%</td></tr>
+<tr><td>Westgate Lakes Orlando (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>)</td><td>$99</td><td>$1,050</td><td>91%</td></tr>
 <tr><td>Wyndham Bonnet Creek</td><td>$149</td><td>$900</td><td>83%</td></tr>
-<tr><td>HGV Elara Las Vegas</td><td>$299</td><td>$1,200</td><td>75%</td></tr>
+<tr><td>HGV Elara Las Vegas (see our <a href="/las-vegas-3-night">Las Vegas deals 3-Night</a>)</td><td>$299</td><td>$1,200</td><td>75%</td></tr>
 <tr><td>Marriott Grande Vista</td><td>$399</td><td>$1,350</td><td>70%</td></tr>
 </tbody></table>
 
@@ -1804,7 +1804,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     content: `<p>People say "90 minutes is a long time to sit through a sales pitch." Ok but — let's do the real math.</p>
 
 <h2>What 90 Minutes Buys You</h2>
-<p>A typical 3-night Orlando vacpack costs $99. The same room at the hotel website: $349-$459/night. Three nights retail: $1,047-$1,377. Savings: $948-$1,278.</p>
+<p>A typical 3-night Orlando (browse <a href="/orlando-for-seniors">Orlando vacation deals for Seniors</a>) vacpack costs $99. The same room at the hotel website: $349-$459/night. Three nights retail: $1,047-$1,377. Savings: $948-$1,278.</p>
 
 <p>90 minutes to earn $948-$1,278. That's $632-$852 per hour. Higher than most senior executives' billable rate.</p>
 
@@ -2075,7 +2075,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <p>Daytona's main tourist engine is Daytona 500 (February) and Bike Week (March). Outside those two weeks, the beach is half as crowded as Myrtle. Summer family weeks are 60-70% as busy.</p>
 
 <h2>Reason 3 — Cheaper Vacpacks</h2>
-<p>Westgate Cocoa Beach and Daytona-area properties regularly run 3-night packages at $89-$129. Myrtle equivalents are $99-$149. Not a big difference but it adds up over a family trip.</p>
+<p>Westgate Cocoa Beach (see our <a href="/cocoa-beach-3-night">Cocoa Beach deals 3-Night</a>) (browse <a href="/cocoa-beach-summer">Cocoa Beach vacation deals Summer</a>) (compare <a href="/cocoa-beach-for-families">Cocoa Beach vacpacks for Families</a>) and Daytona-area properties regularly run 3-night packages at $89-$129. Myrtle equivalents are $99-$149. Not a big difference but it adds up over a family trip.</p>
 
 <h2>What to Do With Kids</h2>
 <ul>
@@ -2182,7 +2182,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "Cocoa Beach vacpacks run $89-$129. Oceanfront balconies overlooking the Space Coast. Watch rocket launches from your room. Perfect couples escape.",
     heroImageAlt: "Cocoa Beach couples vacpack Space Coast",
     heroGradient: "from-indigo-500 to-purple-500",
-    content: `<p>Cocoa Beach sits 45 minutes east of Orlando on Florida's Space Coast. Its quieter than Daytona or Fort Lauderdale, less crowded than Miami, and has a specific selling point: rocket launches visible from the beach and your hotel room.</p>
+    content: `<p>Cocoa Beach sits 45 minutes east of Orlando (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) on Florida's Space Coast. Its quieter than Daytona (more on <a href="/daytona-beach-3-night">Daytona 3-Night vacation deals</a>) (compare <a href="/daytona-beach-for-couples">Daytona vacpacks for Couples</a>) or Fort Lauderdale, less crowded than Miami, and has a specific selling point: rocket launches visible from the beach and your hotel room.</p>
 
 <h2>Why Couples</h2>
 <p>Cocoa Beach is fundamentally a couples destination — cheaper, quieter, and more atmospheric than the bigger Florida beach towns. Vacpack pricing follows: $89-$129 for 3-night stays, often oceanfront with balcony. Browse <a href="/cocoa-beach-for-couples">Cocoa Beach couples vacpacks</a>.</p>
@@ -2240,7 +2240,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "Punta Cana's Bahia Principe runs all-inclusive vacpacks at $499 for 4-5 nights. Great first-time Caribbean trip.",
     heroImageAlt: "Punta Cana all-inclusive vacpack first time",
     heroGradient: "from-cyan-500 to-blue-400",
-    content: `<p>For first-time Caribbean all-inclusive travelers, Punta Cana is the easy answer. Cheaper than Cancun, safer than some Jamaican resorts, and infrastructure built entirely for AI resort travel.</p>
+    content: `<p>For first-time Caribbean all-inclusive travelers, Punta Cana is the easy answer. Cheaper than Cancun (more on <a href="/cancun-honeymoon">Cancun Honeymoon vacation deals</a>) (see our <a href="/cancun-for-couples">Cancun deals for Couples</a>), safer than some Jamaican resorts, and infrastructure built entirely for AI resort travel.</p>
 
 <h2>What's Included in the Vacpack</h2>
 <p>A typical $499 Punta Cana vacpack:</p>
@@ -2309,7 +2309,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     content: `<p>Nassau is the closest Caribbean destination to the US, a 45-minute flight from Miami. For a quick tropical break without a full week's commitment, a <a href="/nassau">Nassau vacpack</a> at $399-$599 for 4-5 nights is ideal.</p>
 
 <h2>The Resorts</h2>
-<p>Nassau vacpack inventory is smaller than Cancun. The two primary options:</p>
+<p>Nassau vacpack inventory is smaller than Cancun (more on <a href="/cancun-5-night">Cancun 5-Night vacation deals</a>) (see our <a href="/cancun-for-couples">Cancun deals for Couples</a>). The two primary options:</p>
 <ul>
 <li><strong>Atlantis Paradise Island</strong> — iconic, large waterpark, 4-5 night packages $499-$699</li>
 <li><strong>British Colonial Hilton</strong> — historic downtown property, 3-4 night packages $399-$549</li>
@@ -2493,7 +2493,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "Orlando without Disney/Universal is actually great. Pools, Cocoa Beach day trip, CityWalk, Icon Park. Full 3-night itinerary under $300.",
     heroImageAlt: "Orlando vacpack without Disney Universal",
     heroGradient: "from-cyan-400 to-blue-300",
-    content: `<p>Not every Orlando trip needs theme parks. If you're doing a quick 3-night vacpack and want to skip the $120-$180 per-person theme park tickets, here's a full non-Disney Orlando itinerary.</p>
+    content: `<p>Not every Orlando (see our <a href="/orlando-for-families">Orlando deals for Families</a>) trip needs theme parks. If you're doing a quick 3-night vacpack and want to skip the $120-$180 per-person theme park tickets, here's a full non-Disney Orlando itinerary.</p>
 
 <h2>Day 1 — Arrive + Resort Time</h2>
 <p>Check in. Grocery run at Publix. Pool time at the resort (Westgate Lakes, Wyndham Bonnet Creek, or Holiday Inn Orange Lake all have extensive pool complexes). Dinner in-unit. Early night.</p>
@@ -2501,7 +2501,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <h2>Day 2 — Universal CityWalk + Icon Park</h2>
 <p>Morning pool. Lunch. Afternoon: Universal CityWalk (free entry, parking $25). Dinner at one of CityWalk's 20+ restaurants. Evening: Drive to Icon Park (International Drive) — The Wheel ($30/adult), free dancing fountains, free shopping, bars and restaurants.</p>
 
-<h2>Day 3 — Cocoa Beach or Kennedy Space Center</h2>
+<h2>Day 3 — Cocoa Beach (see our <a href="/cocoa-beach-3-night">Cocoa Beach deals 3-Night</a>) (compare <a href="/cocoa-beach-for-families">Cocoa Beach vacpacks for Families</a>) or Kennedy Space Center</h2>
 <p>Drive to Cocoa Beach (45 min). Beach day. Pier walk. Lunch at the pier. Afternoon return via Kennedy Space Center (if time) for 2-3 hours of exhibits. Back to resort for dinner.</p>
 
 <h2>Day 4 — Depart</h2>
@@ -2556,7 +2556,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "Holiday Inn Club Vacations' Orange Lake is the biggest family resort in Orlando. Vacpack pricing $149-$199 for 3 nights. Honest 4/5 review.",
     heroImageAlt: "Holiday Inn Club Vacations Orange Lake review",
     heroGradient: "from-lime-500 to-green-600",
-    content: `<p>I spent 3 nights at Holiday Inn Club Vacations' Orange Lake Resort in Orlando last month. Here's the honest review.</p>
+    content: `<p>I spent 3 nights at Holiday Inn Club Vacations' Orange Lake Resort in Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) last month. Here's the honest review.</p>
 
 <h2>The Property</h2>
 <p>Orange Lake Resort is 1,500 acres, one of the largest timeshare complexes in the world. 5 pools, 4 golf courses, waterpark, multiple restaurants, shops, activities. It's basically a small town.</p>
@@ -2824,7 +2824,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     heroGradient: "from-violet-500 to-purple-500",
     content: `<p>If you've never done a vacpack, the question is "which one should I start with?" Here's the decision matrix.</p>
 
-<h2>Default Recommendation: Westgate Orlando $99</h2>
+<h2>Default Recommendation: Westgate Orlando (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) $99</h2>
 <p>Why Westgate Orlando:</p>
 <ul>
 <li>Lowest price in the market ($99 for 3 nights)</li>
@@ -2843,7 +2843,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 <p>HGV at Tuscany Village Orlando. $299-$399 for 4 nights. Luxury property, gentler pitch. <a href="/hgv">HGV vacpacks</a>.</p>
 
 <h2>If You're Worried About Pressure</h2>
-<p>Bluegreen at Shore Crest Myrtle Beach. $149-$249 for 3 nights. Reportedly the gentlest presentation in the industry. Ocean view included.</p>
+<p>Bluegreen at Shore Crest Myrtle Beach (browse <a href="/myrtle-beach-oceanfront">Myrtle Beach vacation deals Oceanfront</a>) (more on <a href="/myrtle-beach-for-couples">Myrtle Beach for Couples vacation deals</a>) (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>). $149-$249 for 3 nights. Reportedly the gentlest presentation in the industry. Ocean view included.</p>
 
 <h2>If You're Going International</h2>
 <p>Bahia Principe Cancun. $499-$699 for 5 nights all-inclusive. Gentle Mexican-style pitch, legitimate AI bundling.</p>
@@ -3056,7 +3056,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 
 <h2>How Much Does a Vacpack Cost?</h2>
 <table><thead><tr><th>Tier</th><th>Price</th><th>Nights</th><th>Example</th></tr></thead><tbody>
-<tr><td>Floor</td><td>$59-$99</td><td>2-3</td><td>Westgate Orlando 2-night</td></tr>
+<tr><td>Floor</td><td>$59-$99</td><td>2-3</td><td>Westgate Orlando (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (more on <a href="/orlando-2-night">Orlando 2-Night vacation deals</a>) (more on <a href="/orlando-fall">Orlando Fall vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) 2-night</td></tr>
 <tr><td>Standard</td><td>$99-$199</td><td>3</td><td>Westgate/Wyndham 3-night Orlando</td></tr>
 <tr><td>Premium</td><td>$199-$399</td><td>3-4</td><td>HGV Orlando 4-night</td></tr>
 <tr><td>Luxury</td><td>$399-$799</td><td>4-5</td><td>Marriott Vacation Club Hawaii 4-night</td></tr>
@@ -3227,7 +3227,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
 
 <h2>The Per-Night Math</h2>
 <table><thead><tr><th>Option</th><th>Price</th><th>Nights</th><th>Per Night</th></tr></thead><tbody>
-<tr><td>Westgate Orlando 2-night</td><td>$59</td><td>2</td><td>$29.50</td></tr>
+<tr><td>Westgate Orlando (see our <a href="/orlando-5-night">Orlando deals 5-Night</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) 2-night</td><td>$59</td><td>2</td><td>$29.50</td></tr>
 <tr><td>Westgate Orlando 3-night</td><td>$99</td><td>3</td><td>$33.00</td></tr>
 <tr><td>Westgate Orlando 4-night</td><td>$149</td><td>4</td><td>$37.25</td></tr>
 </tbody></table>
@@ -3359,7 +3359,7 @@ const _rawPosts: Omit<BlogPost, "internalLinks" | "relatedSlugs" | "tags">[] = [
     bluf: "Orlando in January is 72°F daytime. $99 vacpacks abundant. Perfect snowbird escape from Northeast/Midwest winter.",
     heroImageAlt: "Orlando winter vacpack snowbird escape",
     heroGradient: "from-blue-400 to-cyan-300",
-    content: `<p>Winter in Orlando is one of the best-kept snowbird secrets. 72°F average daytime in January. Pool weather most weeks. $99 vacpacks available. If your from the Northeast or Midwest, this is the math:</p>
+    content: `<p>Winter in Orlando (compare <a href="/orlando-christmas">Orlando vacpacks Christmas</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) is one of the best-kept snowbird secrets. 72°F average daytime in January. Pool weather most weeks. $99 vacpacks available. If your from the Northeast or Midwest, this is the math:</p>
 
 <h2>The Temperature Advantage</h2>
 <table><thead><tr><th>Month</th><th>Orlando Avg High</th><th>Northeast Avg</th></tr></thead><tbody>

@@ -1,0 +1,9 @@
+{
+	"id": "l9rgkLSC9NiZEeQ",
+	"json": "{\"id\":\"l9rgkLSC9NiZEeQ\",\"url\":\"https://www.westgatereservations.com/specials/christmas-vacation-in-williamsburg/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/christmas-vacation-in-williamsburg/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/christmas-vacation-in-williamsburg\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:05.719Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/christmas-vacation-in-williamsburg",
+	"url": "https://www.westgatereservations.com/specials/christmas-vacation-in-williamsburg/"
+}

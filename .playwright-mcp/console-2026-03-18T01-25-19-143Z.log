@@ -1,0 +1,8 @@
+[     281ms] Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at rD (https://vacationdeals.to/_next/static/chunks/bbcba086-a51d5b87339d8621.js:1:35056)
+    at oq (https://vacationdeals.to/_next/static/chunks/bbcba086-a51d5b87339d8621.js:1:84560)
+    at iw (https://vacationdeals.to/_next/static/chunks/bbcba086-a51d5b87339d8621.js:1:114955)
+    at https://vacationdeals.to/_next/static/chunks/bbcba086-a51d5b87339d8621.js:1:110316
+    at iu (https://vacationdeals.to/_next/static/chunks/bbcba086-a51d5b87339d8621.js:1:110825)
+    at iX (https://vacationdeals.to/_next/static/chunks/bbcba086-a51d5b87339d8621.js:1:132928)
+    at MessagePort.w (https://vacationdeals.to/_next/static/chunks/813-15381ccc6c484cbe.js:1:104883)

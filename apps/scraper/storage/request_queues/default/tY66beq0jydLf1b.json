@@ -1,0 +1,9 @@
+{
+	"id": "tY66beq0jydLf1b",
+	"json": "{\"id\":\"tY66beq0jydLf1b\",\"url\":\"https://www.westgatereservations.com/specials/branson-3night-getaway/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/branson-3night-getaway/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/branson-3night-getaway\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:01.997Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/branson-3night-getaway",
+	"url": "https://www.westgatereservations.com/specials/branson-3night-getaway/"
+}

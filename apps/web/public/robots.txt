@@ -1,52 +1,72 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /api/admin
+Disallow: /api/admin/*
 
 Sitemap: https://vacationdeals.to/sitemap.xml
-
-# RSS Feed
-# https://vacationdeals.to/feed.xml
 
 # AI-readable site summary
 # https://vacationdeals.to/llms.txt
 # https://vacationdeals.to/llms-full.txt (with live deal data)
 
-# Block admin panel from search engines
-Disallow: /admin
-
-# Allow AI crawlers
+# ─── AI answer / retrieval bots (allow) ─────
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin
+Disallow: /api/admin
 
 User-agent: GPTBot
 Allow: /
+Disallow: /admin
+Disallow: /api/admin
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /admin
+Disallow: /api/admin
 
 User-agent: Claude-Web
 Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
+Disallow: /admin
+Disallow: /api/admin
 
 User-agent: anthropic-ai
 Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-User-agent: BingPreview
-Allow: /
-
-# AI Search crawlers (separate from training bots)
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: Claude-SearchBot
-Allow: /
+Disallow: /admin
+Disallow: /api/admin
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /admin
+Disallow: /api/admin
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin
+Disallow: /api/admin
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin
+Disallow: /api/admin
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /admin
+
+User-agent: Bytespider
+Allow: /
+Disallow: /admin
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /admin
 
 User-agent: GoogleOther
 Allow: /
@@ -54,8 +74,22 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-User-agent: Bytespider
+User-agent: BingPreview
 Allow: /
 
-User-agent: meta-externalagent
+User-agent: CCBot
 Allow: /
+Disallow: /admin
+
+# ─── Scraper throttling ─────
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

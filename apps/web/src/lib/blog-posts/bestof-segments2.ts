@@ -56,7 +56,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h3>4. Hilton Grand Vacations, Sedona — $129/Night for 3 Nights</h3>
 <p>Red rock views from your private balcony, a kitchen so you never have to eat in a crowded restaurant, and a resort atmosphere that's more spa than circus. Sedona attracts a quieter demographic naturally.</p>
 
-<h3>5. Bluegreen Vacations, Gatlinburg — $89/Night for 4 Nights</h3>
+<h3>5. Bluegreen Vacations, Gatlinburg (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>) (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>) — $89/Night for 4 Nights</h3>
 <p>Gatlinburg's main strip is touristy, but the resort itself is set back in the mountains. The suites have fireplaces and mountain views. Stock up on groceries, close the curtains, and recharge.</p>
 
 <div class="protip"><strong>Pro Tip:</strong> When booking through BookVIP or similar brokers, ask specifically for units on higher floors or in quieter building sections. Most resorts will accommodate this request, and it makes a huge difference in noise levels.</div>
@@ -124,7 +124,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 
 <h2>Top 8 Empty Nester Vacation Deals</h2>
 
-<h3>1. Marriott's Harbour Lake, Orlando — $119/Night for 4 Nights</h3>
+<h3>1. Marriott's Harbour Lake, Orlando (browse <a href="/orlando-for-seniors">Orlando vacation deals for Seniors</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — $119/Night for 4 Nights</h3>
 <p>Yes, Orlando without kids. It's actually incredible. The resort itself is beautiful, the pools are peaceful during weekdays, and you can hit Disney's EPCOT for the food and wine festival without pushing a stroller. The two-bedroom villa means you have a living room, kitchen, and way more space than you need. Enjoy the emptiness — you've earned it.</p>
 
 <h3>2. Wyndham Bonnet Creek, Orlando — $149/Night for 5 Nights</h3>
@@ -133,7 +133,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h3>3. Westgate Smoky Mountains — $89/Night for 4 Nights</h3>
 <p>The Smokies are pure magic for empty nesters. Gorgeous mountain scenery, no crowds (outside of October leaf season), and a resort with indoor and outdoor pools, a spa, and full kitchen suites. At $89/night, you're spending less on four nights than you used to spend on one family dinner at Applebee's with four kids.</p>
 
-<h3>4. Hilton Grand Vacations, Myrtle Beach — $109/Night for 4 Nights</h3>
+<h3>4. Hilton Grand Vacations, Myrtle Beach (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) — $109/Night for 4 Nights</h3>
 <p>Myrtle Beach in the off-season is an empty nester paradise. The beaches are quiet, the seafood is still fresh, and the resort deals are incredible. HGV's property has oceanfront suites with balconies, multiple pools, and a location that's close to restaurants without being in the tourist chaos zone.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> The average empty nester household saves approximately $12,000 per year in child-related expenses. That's enough for 6-8 luxury resort vacations using timeshare preview deals. Your kids literally funded your travel budget by leaving.</div>
@@ -232,10 +232,10 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h3>2. Orange Lake Resort, Kissimmee — $89/Night for 4 Nights</h3>
 <p>Four pool areas, a lazy river, water slides, mini-golf, and an 18-hole golf course. Your kids will be so entertained you won't even need theme park tickets. The two-bedroom units sleep six and have full kitchens. At $89/night for all of this, it's one of the best <a href="/orlando">Orlando vacation deals</a> available.</p>
 
-<h3>3. Westgate Branson Lakes — $79/Night for 4 Nights</h3>
+<h3>3. Westgate Branson (see our <a href="/branson-for-families">Branson deals for Families</a>) Lakes — $79/Night for 4 Nights</h3>
 <p>Branson is incredibly affordable beyond just the resort deal. Shows, restaurants, and activities are all budget-friendly. The Westgate property has lakefront suites with kitchens, pools, and a boat dock. Silver Dollar City theme park nearby has some of the lowest ticket prices in the country.</p>
 
-<h3>4. Holiday Inn Club Vacations, Myrtle Beach — $89/Night for 3 Nights</h3>
+<h3>4. Holiday Inn Club Vacations, Myrtle Beach (browse <a href="/myrtle-beach-oceanfront">Myrtle Beach vacation deals Oceanfront</a>) (more on <a href="/myrtle-beach-for-couples">Myrtle Beach for Couples vacation deals</a>) (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) — $89/Night for 3 Nights</h3>
 <p>Beach vacations don't have to be expensive. This Holiday Inn property has oceanfront suites, a lazy river, and a kids' activity program. Myrtle Beach itself is one of the most affordable beach destinations in the US — you can feed a family of four for $30 at local seafood spots.</p>
 
 <div class="funfact"><strong>Fun Fact:</strong> There are approximately 10 million single mothers in the United States. If each one took advantage of just one timeshare preview deal per year, they'd collectively save over $5 billion compared to booking standard hotel rooms. That's a lot of mac and cheese money.</div>
@@ -430,7 +430,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h2>Best Sober-Friendly Destinations</h2>
 
 <h3>Great Smoky Mountains — Nature's Rehab Center</h3>
-<p>The Smokies are perfect for sober travel. The main activities are hiking, scenic drives, wildlife watching, and sitting on a cabin porch listening to absolutely nothing. Gatlinburg and Pigeon Forge have entertainment districts, but the focus is on shows, attractions, and food — not nightlife. Wyndham and Westgate both have excellent resort deals in the area.</p>
+<p>The Smokies are perfect for sober travel. The main activities are hiking, scenic drives, wildlife watching, and sitting on a cabin porch listening to absolutely nothing. Gatlinburg (see our <a href="/gatlinburg-for-families">Gatlinburg deals for Families</a>) and Pigeon Forge have entertainment districts, but the focus is on shows, attractions, and food — not nightlife. Wyndham and Westgate both have excellent resort deals in the area.</p>
 
 <h3>Orlando — Theme Parks Over Tap Rooms</h3>
 <p>Orlando's main attractions are theme parks, and you don't need a drink to ride a roller coaster. The resort deals here are abundant and affordable, and the activities available — parks, mini-golf, go-karts, escape rooms, dinner shows — are all perfectly enjoyable sober. Check out our <a href="/orlando">Orlando vacation deals</a> for options.</p>
@@ -443,10 +443,10 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h3>1. Wyndham Smoky Mountains — $89/Night for 5 Nights</h3>
 <p>Five nights in a mountain suite with a fireplace, full kitchen, and balcony overlooking the Smokies. The national park has over 800 miles of trails, 80+ historic structures, and wildlife including black bears and elk. You could spend a month here and never run out of sober activities.</p>
 
-<h3>2. Westgate Branson Woods — $79/Night for 4 Nights</h3>
+<h3>2. Westgate Branson (see our <a href="/branson-for-families">Branson deals for Families</a>) Woods — $79/Night for 4 Nights</h3>
 <p>Private cabins in the Ozark forest. Fishing, hiking, pool time, and Branson's entertainment scene — which is almost entirely family-friendly and alcohol-free. Silver Dollar City is one of the best theme parks in the country and it doesn't serve alcohol.</p>
 
-<h3>3. Marriott's Manor Club, Williamsburg — $99/Night for 4 Nights</h3>
+<h3>3. Marriott's Manor Club, Williamsburg (browse <a href="/williamsburg-for-families">Williamsburg vacation deals for Families</a>) — $99/Night for 4 Nights</h3>
 <p>Colonial Williamsburg is educational, fascinating, and completely sober-friendly. Walk through 300 years of American history, visit artisan workshops, and explore Busch Gardens theme park nearby. The Marriott suites are quiet and spacious with full kitchens.</p>
 
 <h3>4. Westgate Lakes, Orlando — $99/Night for 4 Nights</h3>
@@ -466,7 +466,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h2>Sober Activities at Resort Destinations</h2>
 <table><thead><tr><th>Destination</th><th>Top Sober Activities</th><th>Deal From</th></tr></thead><tbody><tr><td>Smoky Mountains</td><td>Hiking, wildlife, scenic drives, dinner shows</td><td>$89/nt</td></tr><tr><td>Branson</td><td>Silver Dollar City, fishing, live music shows</td><td>$79/nt</td></tr><tr><td>Orlando</td><td>Theme parks, mini-golf, escape rooms, nature</td><td>$79/nt</td></tr><tr><td>Williamsburg</td><td>Colonial history, Busch Gardens, nature trails</td><td>$99/nt</td></tr><tr><td>Sedona</td><td>Vortex hikes, spa, stargazing, art galleries</td><td>$129/nt</td></tr><tr><td>Cape Canaveral</td><td>Rocket launches, beach, space center, surfing</td><td>$99/nt</td></tr></tbody></table>
 
-<div class="protip"><strong>Pro Tip:</strong> If you're in recovery and concerned about temptation, choose mountain or nature destinations over beach party towns. Resorts in the Smokies, Sedona, and Williamsburg have a completely different energy than those in Las Vegas, Myrtle Beach, or South Beach.</div>
+<div class="protip"><strong>Pro Tip:</strong> If you're in recovery and concerned about temptation, choose mountain or nature destinations over beach party towns. Resorts in the Smokies, Sedona, and Williamsburg have a completely different energy than those in Las Vegas, Myrtle Beach (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>), or South Beach.</div>
 
 <h2>Having the Conversation with Travel Companions</h2>
 <p>If you're traveling with people who do drink, it helps to set expectations upfront. Most friends and family will be supportive. Choose a resort with enough activities that everyone can find their own fun — the drinkers can hit the resort bar while you're at the pool, on a hike, or enjoying a spa treatment.</p>
@@ -526,7 +526,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h3>2. Westgate Lakes, Orlando — $99/Night for 4 Nights</h3>
 <p>Full suites with kitchens, a lazy river, multiple pools, and washer/dryers in every unit (essential for large families — you will do laundry). Location puts you 10 minutes from Disney and Universal. The two-bedroom suites comfortably sleep six, and they have pull-out sofas for kids.</p>
 
-<h3>3. Westgate Branson Woods — $79/Night for 4 Nights</h3>
+<h3>3. Westgate Branson (see our <a href="/branson-with-waterpark">Branson deals with Waterpark</a>) (see our <a href="/branson-for-families">Branson deals for Families</a>) Woods — $79/Night for 4 Nights</h3>
 <p>Branson is ridiculously family-friendly and affordable. The resort cabins have space for the whole crew, and Silver Dollar City offers family passes that are a fraction of Disney prices. The Ozark scenery is beautiful, and most Branson attractions cost under $30/person. Check more <a href="/westgate">Westgate vacation deals</a> across all locations.</p>
 
 <h3>4. Wyndham Smoky Mountains — $89/Night for 5 Nights</h3>
@@ -537,7 +537,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 
 <div class="funfact"><strong>Fun Fact:</strong> The average American family of four spends $4,580 on a single vacation. A family of six would normally spend even more. With timeshare preview deals, large families regularly vacation for under $600 total — that's an 87% savings. Someone call the Math Police, because these numbers are criminal.</div>
 
-<h3>6. Holiday Inn Club Vacations, Myrtle Beach — $89/Night for 3 Nights</h3>
+<h3>6. Holiday Inn Club Vacations, Myrtle Beach (browse <a href="/myrtle-beach-oceanfront">Myrtle Beach vacation deals Oceanfront</a>) (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) — $89/Night for 3 Nights</h3>
 <p>Beach vacations for large families are normally insanely expensive. This Holiday Inn property has oceanfront suites with kitchens, a lazy river, and a kids' activity program. Myrtle Beach has free beach access and affordable family restaurants. Three nights for $267 total is a steal.</p>
 
 <h3>7. Liki Tiki Village, Orlando — $69/Night for 3 Nights</h3>
@@ -622,7 +622,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h3>1. Wyndham Palm-Aire, Pompano Beach — $99/Night for 4 Nights</h3>
 <p>This is snowbird central. Palm-Aire has on-site golf courses, tennis courts, a spa, and spacious one-bedroom suites perfect for couples. Pompano Beach is quieter than Miami or Fort Lauderdale but close enough to enjoy both. The winter weather here is what you've been dreaming about since November. Explore more <a href="/deals">vacation deals</a> in sunny destinations.</p>
 
-<h3>2. Westgate Lakes, Orlando — $99/Night for 4 Nights</h3>
+<h3>2. Westgate Lakes, Orlando (browse <a href="/orlando-for-seniors">Orlando vacation deals for Seniors</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — $99/Night for 4 Nights</h3>
 <p>Orlando isn't just for families with kids. The resort itself is a relaxation paradise — lazy river, multiple pools, landscaped grounds, and spacious suites. EPCOT's Food & Wine Festival is a must for retirees, and the lack of school-age time constraints means you can visit parks on the quietest days (Tuesday through Thursday).</p>
 
 <h3>3. Marriott's Crystal Shores, Marco Island — $159/Night for 4 Nights</h3>
@@ -642,7 +642,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h3>7. Wyndham Bonnet Creek, Orlando — $149/Night for 5 Nights</h3>
 <p>Five nights surrounded by Disney property. Watch fireworks from your balcony, spend lazy days at the pool, and enjoy the resort's restaurants and spa. The two-bedroom suites give you room to invite family or friends to join for a night or two.</p>
 
-<h3>8. Westgate Myrtle Beach — $89/Night for 4 Nights</h3>
+<h3>8. Westgate Myrtle Beach (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) — $89/Night for 4 Nights</h3>
 <p>Myrtle Beach in the off-season is perfect for retirees. The beaches are empty, the weather is mild (October-November and March-April), and the resort has oceanview suites with kitchens. The Grand Strand has over 80 golf courses for the golf enthusiasts.</p>
 
 <h2>Snowbird Extended Stay Strategy</h2>
@@ -726,7 +726,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h2>Top 7 Teacher-Friendly Vacation Deals</h2>
 
 <h3>1. Westgate Town Center, Kissimmee — $79/Night for 4 Nights</h3>
-<p>The budget king of Orlando deals. Full two-bedroom suites with kitchens, multiple pools, and a location near Disney and Universal. At $79/night during peak summer, you're paying less than half what the standard hotel rate would be. Cook meals in your suite and spend the savings on park tickets.</p>
+<p>The budget king of Orlando (browse <a href="/orlando-luxury">Orlando vacation deals Luxury</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) deals. Full two-bedroom suites with kitchens, multiple pools, and a location near Disney and Universal. At $79/night during peak summer, you're paying less than half what the standard hotel rate would be. Cook meals in your suite and spend the savings on park tickets.</p>
 
 <h3>2. Orange Lake Resort, Kissimmee — $89/Night for 4 Nights</h3>
 <p>Four pool areas with water slides, a lazy river, mini-golf, and full kitchen suites. Teachers with families will love this place — the kids are entertained by the resort while you finally get to read that book. Browse all <a href="/orlando">Orlando vacation deals</a> for more options.</p>
@@ -819,7 +819,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h3>1. Marriott's Crystal Shores, Marco Island — $159/Night for 4 Nights</h3>
 <p>This is the honeymoon pick. Oceanfront two-bedroom suites on Marco Island, one of Florida's most beautiful and exclusive barrier islands. Gorgeous sunsets, world-class shelling, upscale restaurants, and a resort that feels like a private beach house. Four nights for $636 total is a fraction of what a traditional honeymoon costs.</p>
 
-<h3>2. Wyndham Bonnet Creek, Orlando — $149/Night for 5 Nights</h3>
+<h3>2. Wyndham Bonnet Creek, Orlando (browse <a href="/orlando-luxury">Orlando vacation deals Luxury</a>) (see our <a href="/orlando-honeymoon">Orlando deals Honeymoon</a>) (browse <a href="/orlando-for-couples">Orlando vacation deals for Couples</a>) — $149/Night for 5 Nights</h3>
 <p>Surrounded by Disney property with fireworks visible from your balcony. The two-bedroom suites are over 1,000 square feet with full kitchens. Spend a day at Magic Kingdom, then retreat to your private suite for a romantic dinner you cooked together. Five nights at $745 total. Check all <a href="/orlando">Orlando vacation deals</a>.</p>
 
 <h3>3. Hilton Grand Vacations, Sedona — $129/Night for 3 Nights</h3>
@@ -923,7 +923,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 <h3>1. Marriott's Harbour Lake, Orlando — $119/Night for 4 Nights</h3>
 <p>Marriott properties consistently have the best WiFi in the timeshare industry. Enterprise-grade infrastructure, reliable speeds, and the modern two-bedroom villas have dedicated desk areas. Work in the morning, pool in the afternoon, parks in the evening. This is the gold standard workcation.</p>
 
-<h3>2. Hilton Grand Vacations, Las Vegas — $109/Night for 3 Nights</h3>
+<h3>2. Hilton Grand Vacations, Las Vegas (more on <a href="/las-vegas-luxury">Las Vegas Luxury vacation deals</a>) — $109/Night for 3 Nights</h3>
 <p>Hilton's WiFi is excellent, and Vegas is surprisingly great for remote work. Pacific Time Zone gives you late-start mornings if your company is East Coast. The suites have separate living areas perfect for work setups, and the pool is your reward for a productive day.</p>
 
 <h3>3. Wyndham Bonnet Creek, Orlando — $149/Night for 5 Nights</h3>
@@ -1004,7 +1004,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 
 <h2>Top 7 Vacation Deals for Military Families</h2>
 
-<h3>1. Westgate Lakes, Orlando — $79/Night for 4 Nights (Military Rate)</h3>
+<h3>1. Westgate Lakes, Orlando (see our <a href="/orlando-with-waterpark">Orlando deals with Waterpark</a>) (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>) (browse <a href="/orlando-luxury">Orlando vacation deals Luxury</a>) (see our <a href="/orlando-for-families">Orlando deals for Families</a>) — $79/Night for 4 Nights (Military Rate)</h3>
 <p>Westgate is one of the most military-friendly timeshare brands. Their Orlando flagship property offers full suites with kitchens, a lazy river, and multiple pools. Military members often receive reduced rates, and the 90-minute presentation is straightforward. Nearby military attractions include the Veterans Memorial at ICON Park.</p>
 
 <h3>2. Liki Tiki Village, Orlando — $69/Night for 3 Nights</h3>
@@ -1103,7 +1103,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 
 <h2>Top 6 College Student Vacation Deals</h2>
 
-<h3>1. Liki Tiki Village, Orlando — $69/Night for 3 Nights</h3>
+<h3>1. Liki Tiki Village, Orlando (more on <a href="/orlando-spring-break">Orlando Spring Break vacation deals</a>) (browse <a href="/orlando-winter">Orlando vacation deals Winter</a>) (more on <a href="/orlando-summer">Orlando Summer vacation deals</a>) (browse <a href="/orlando-for-seniors">Orlando vacation deals for Seniors</a>) — $69/Night for 3 Nights</h3>
 <p>The cheapest deal on the market. Two-bedroom suites that sleep six, a water park, mini-golf, and a pool. Split four ways, that's $17.25 per person per night. SEVENTEEN DOLLARS. For a resort suite in Orlando. Your dining hall lunch costs more than that. Check out all <a href="/orlando">Orlando vacation deals</a>.</p>
 
 <h3>2. Westgate Town Center, Kissimmee — $79/Night for 4 Nights</h3>
@@ -1326,7 +1326,7 @@ export const bestofSegments2Posts: BlogPost[] = [
 
 <div class="funfact"><strong>Fun Fact:</strong> The Great Smoky Mountains National Park receives over 12 million visitors per year — more than twice the Grand Canyon. Yet the park is free to enter (no entrance fee required), making it one of the best adventure values in the country. Pair that with an $89/night resort deal and your total adventure vacation costs less than a single day at Disney.</div>
 
-<h3>5. Westgate Branson Woods — $79/Night for 4 Nights</h3>
+<h3>5. Westgate Branson (see our <a href="/branson-with-waterpark">Branson deals with Waterpark</a>) Woods — $79/Night for 4 Nights</h3>
 <p>The Ozarks are an underrated adventure destination. Kayaking on Table Rock Lake, hiking trails through Ozark forests, zip-lining at Branson Zipline Canopy Tours, and the legendary roller coasters at Silver Dollar City. The Westgate cabins sit in the middle of the forest — your adventure starts at your front door.</p>
 
 <h3>6. Holiday Inn Club Vacations, Galveston — $89/Night for 3 Nights</h3>

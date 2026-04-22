@@ -72,20 +72,39 @@ export async function BlogPostRenderer({ post }: BlogPostPageProps) {
     ],
   };
 
+  // Upgrade to BlogPosting (more specific than Article for blog content).
+  // Google + AI engines give richer results to BlogPosting than generic Article.
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `https://vacationdeals.to/${post.slug}#article`,
     headline: post.title,
     description: post.metaDescription,
     datePublished: post.publishDate,
     dateModified: new Date().toISOString(),
+    wordCount: post.content ? post.content.replace(/<[^>]+>/g, " ").trim().split(/\s+/).length : undefined,
+    articleSection: post.category,
+    keywords: post.tags && post.tags.length > 0 ? post.tags.join(", ") : undefined,
     author: {
       "@type": "Person",
+      "@id": "https://vacationdeals.to/about#team",
       name: post.author,
+      url: "https://vacationdeals.to/about",
+      jobTitle: "Travel Deals Analyst",
+      worksFor: {
+        "@type": "Organization",
+        name: "VacationDeals.to",
+      },
     },
-    image: "https://vacationdeals.to/og/default.jpg",
+    image: {
+      "@type": "ImageObject",
+      url: "https://vacationdeals.to/og/default.jpg",
+      width: 1200,
+      height: 630,
+    },
     publisher: {
       "@type": "Organization",
+      "@id": "https://vacationdeals.to#organization",
       name: "VacationDeals.to",
       url: "https://vacationdeals.to",
       logo: {

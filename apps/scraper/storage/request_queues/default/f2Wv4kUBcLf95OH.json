@@ -1,0 +1,9 @@
+{
+	"id": "f2Wv4kUBcLf95OH",
+	"json": "{\"id\":\"f2Wv4kUBcLf95OH\",\"url\":\"https://www.westgatereservations.com/specials/black-friday-special/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/black-friday-special/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/black-friday-special\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:06.885Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/black-friday-special",
+	"url": "https://www.westgatereservations.com/specials/black-friday-special/"
+}

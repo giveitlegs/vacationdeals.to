@@ -1,0 +1,9 @@
+{
+	"id": "RWFPggk5qODbTcJ",
+	"json": "{\"id\":\"RWFPggk5qODbTcJ\",\"url\":\"https://www.westgatereservations.com/specials/3days-2nights-orlando-getaway/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/3days-2nights-orlando-getaway/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/3days-2nights-orlando-getaway\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:05.973Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/3days-2nights-orlando-getaway",
+	"url": "https://www.westgatereservations.com/specials/3days-2nights-orlando-getaway/"
+}

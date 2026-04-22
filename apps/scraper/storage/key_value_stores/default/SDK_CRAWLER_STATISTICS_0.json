@@ -1,0 +1,106 @@
+{
+  "requestsFinished": 144,
+  "requestsFailed": 6,
+  "requestsRetries": 39,
+  "requestsFailedPerMinute": 1,
+  "requestsFinishedPerMinute": 29,
+  "requestMinDurationMillis": 207,
+  "requestMaxDurationMillis": 19689,
+  "requestTotalFailedDurationMillis": 301948,
+  "requestTotalFinishedDurationMillis": 60305,
+  "crawlerStartedAt": "2026-03-21T01:50:37.221Z",
+  "crawlerFinishedAt": "2026-03-21T01:55:39.930Z",
+  "statsPersistedAt": "2026-03-21T01:55:39.930Z",
+  "crawlerRuntimeMillis": 302761,
+  "crawlerLastStartTimestamp": 1774057837169,
+  "requestRetryHistogram": [
+    111,
+    8,
+    18,
+    13
+  ],
+  "statsId": 0,
+  "requestAvgFailedDurationMillis": 50325,
+  "requestAvgFinishedDurationMillis": 419,
+  "requestTotalDurationMillis": 362253,
+  "requestsTotal": 150,
+  "requestsWithStatusCode": {
+    "404": 2
+  },
+  "errors": {
+    "file:///C:/Users/givei/Dropbox/PERS/CLAUDECODE/VACATIONDEALS.TO/node_modules/.pnpm/got@14.6.6/node_modules/got/dist/source/core/index.js:649:39": {
+      "ERR_TOO_MANY_REDIRECTS": {
+        "MaxRedirectsError": {
+          "Redirected 10 times. Aborting.": {
+            "count": 1
+          }
+        }
+      }
+    },
+    "missing stack trace": {
+      "missing error code": {
+        "undefined": {
+          "Unknown error message. Received non-error object: {}": {
+            "count": 1
+          }
+        }
+      }
+    },
+    "C:\\Users\\givei\\Dropbox\\PERS\\CLAUDECODE\\VACATIONDEALS.TO\\node_modules\\.pnpm\\@apify+timeout@0.3.2\\node_modules\\@apify\\src\\index.ts:88:74": {
+      "missing error code": {
+        "Error": {
+          "requestHandler timed out after 60 seconds.": {
+            "count": 5
+          }
+        }
+      }
+    }
+  },
+  "retryErrors": {
+    "file:///C:/Users/givei/Dropbox/PERS/CLAUDECODE/VACATIONDEALS.TO/node_modules/.pnpm/got@14.6.6/node_modules/got/dist/source/core/index.js:649:39": {
+      "ERR_TOO_MANY_REDIRECTS": {
+        "MaxRedirectsError": {
+          "Redirected 10 times. Aborting.": {
+            "count": 3
+          }
+        }
+      }
+    },
+    "missing stack trace": {
+      "missing error code": {
+        "undefined": {
+          "Unknown error message. Received non-error object: {}": {
+            "count": 3
+          }
+        }
+      }
+    },
+    "C:\\Users\\givei\\Dropbox\\PERS\\CLAUDECODE\\VACATIONDEALS.TO\\node_modules\\.pnpm\\@apify+timeout@0.3.2\\node_modules\\@apify\\src\\index.ts:88:74": {
+      "missing error code": {
+        "Error": {
+          "requestHandler timed out after 60 seconds.": {
+            "count": 78
+          }
+        }
+      }
+    },
+    "file:///C:/Users/givei/Dropbox/PERS/CLAUDECODE/VACATIONDEALS.TO/node_modules/.pnpm/got@14.6.6/node_modules/got/dist/source/core/index.js:868:107": {
+      "ERR_HTTP2_STREAM_ERROR": {
+        "RequestError": {
+          "Stream closed with error code NGHTTP2_REFUSED_STREAM": {
+            "count": 2
+          }
+        }
+      }
+    },
+    "node:internal/http2/core:2463:13": {
+      "ERR_HTTP2_STREAM_ERROR": {
+        "Error": {
+          "Stream closed with error code NGHTTP2_REFUSED_STREAM": {
+            "count": 2
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+	"id": "LvjV5yCMlvBKs4a",
+	"json": "{\"id\":\"LvjV5yCMlvBKs4a\",\"url\":\"https://www.westgatereservations.com/specials/wild-bear-inn/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/wild-bear-inn/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/wild-bear-inn\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:05.706Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/wild-bear-inn",
+	"url": "https://www.westgatereservations.com/specials/wild-bear-inn/"
+}

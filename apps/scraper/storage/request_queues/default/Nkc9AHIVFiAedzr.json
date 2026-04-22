@@ -1,0 +1,9 @@
+{
+	"id": "Nkc9AHIVFiAedzr",
+	"json": "{\"id\":\"Nkc9AHIVFiAedzr\",\"url\":\"https://www.westgatereservations.com/specials/westgate-historic-williamsburg-resort/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/westgate-historic-williamsburg-resort/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/westgate-historic-williamsburg-resort\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:02.618Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/westgate-historic-williamsburg-resort",
+	"url": "https://www.westgatereservations.com/specials/westgate-historic-williamsburg-resort/"
+}

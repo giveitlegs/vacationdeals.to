@@ -1,0 +1,9 @@
+{
+	"id": "4CuchFm8iylq4nX",
+	"json": "{\"id\":\"4CuchFm8iylq4nX\",\"url\":\"https://www.westgatereservations.com/specials/gatlinburg-anakeesta-package-for-2/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/gatlinburg-anakeesta-package-for-2/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/gatlinburg-anakeesta-package-for-2\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:04.119Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/gatlinburg-anakeesta-package-for-2",
+	"url": "https://www.westgatereservations.com/specials/gatlinburg-anakeesta-package-for-2/"
+}

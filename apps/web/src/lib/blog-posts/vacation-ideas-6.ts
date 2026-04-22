@@ -23,7 +23,7 @@ export const vacationIdeas6Posts: BlogPost[] = [
 
 <div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-6">
 <p class="font-bold">Pro Tip:</p>
-<p>Book your timeshare preview package for midweek arrival (Tuesday or Wednesday). Many resorts upgrade couples to better rooms when occupancy is lower, and you'll have smaller crowds at the pool and restaurants. We got bumped to an ocean-view suite at Westgate Myrtle Beach just by showing up on a Wednesday.</p>
+<p>Book your timeshare preview package for midweek arrival (Tuesday or Wednesday). Many resorts upgrade couples to better rooms when occupancy is lower, and you'll have smaller crowds at the pool and restaurants. We got bumped to an ocean-view suite at Westgate Myrtle Beach (browse <a href="/myrtle-beach-fall">Myrtle Beach vacation deals Fall</a>) (more on <a href="/myrtle-beach-for-couples">Myrtle Beach for Couples vacation deals</a>) (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) just by showing up on a Wednesday.</p>
 </div>
 
 <h2>Top Budget Destinations for Couples in 2026</h2>
@@ -79,7 +79,7 @@ export const vacationIdeas6Posts: BlogPost[] = [
 
 <h2>International Budget Options for Couples</h2>
 <p>Cancun through BookVIP starts at $199 for 4 nights all-inclusive. That means your food, drinks, and resort activities are all included in that price. When you do the math, it's actually cheaper than a domestic trip where you're paying for meals separately.</p>
-<p>Other international budget options include Puerto Vallarta ($179 through BookVIP), Dominican Republic ($199 for 5 nights), and Jamaica ($249 for 4 nights). All-inclusive international deals are genuinley the best value in travel right now.</p>
+<p>Other international budget options include Puerto Vallarta (browse <a href="/puerto-vallarta-for-couples">Puerto Vallarta vacation deals for Couples</a>) ($179 through BookVIP), Dominican Republic ($199 for 5 nights), and Jamaica ($249 for 4 nights). All-inclusive international deals are genuinley the best value in travel right now.</p>
 
 <h2>What to Expect From the Timeshare Presentation</h2>
 <p>I know some couples are nervous about the presentation part, so let me demystify it. You show up at the scheduled time (usually the morning after check-in), get a free breakfast, then a sales agent walks you through their timeshare program. They'll show you the property, explain how points work, and eventually give you pricing.</p>
@@ -451,7 +451,7 @@ export const vacationIdeas6Posts: BlogPost[] = [
 <p>Turns out, being a picky eater on vacation is way more manageable than I thought — you just have to pick the right type of vacation. And honestly, some vacation setups are actually better for picky eaters than eating at home. Let me explain.</p>
 
 <h2>Why All-Inclusive Resorts Are Perfect for Picky Eaters</h2>
-<p>All-inclusive resorts are the secret weapon for selective eaters. Here's why: they have multiple restaurants with completely different menus. A typical all-inclusive in Cancun has 5-8 restaurants — Italian, Mexican, Asian, American grill, seafood, a buffet, and usually a pizza/burger spot. You're guarenteed to find something you like at every meal.</p>
+<p>All-inclusive resorts are the secret weapon for selective eaters. Here's why: they have multiple restaurants with completely different menus. A typical all-inclusive in Cancun (more on <a href="/cancun-all-inclusive">Cancun All-Inclusive vacation deals</a>) has 5-8 restaurants — Italian, Mexican, Asian, American grill, seafood, a buffet, and usually a pizza/burger spot. You're guarenteed to find something you like at every meal.</p>
 <p>And because it's all included in the price, you can try things without wasting money. Don't like the pasta at the Italian place? Walk over to the grill and get a burger. No financial penalty for changing your mind.</p>
 
 <table class="w-full border-collapse my-6">
@@ -676,7 +676,7 @@ export const vacationIdeas6Posts: BlogPost[] = [
 </div>
 
 <h2>Spring Break Alternative</h2>
-<p>Forget dropping $1,000+ on a spring break package to Panama City or Cabo. Get a group of 4 friends (two pairs booking separate rooms), grab a Westgate Orlando deal at $59 each, and you've got 4 nights in a resort suite for less than the price of a textbook. Pool parties, Disney Springs nightlife, and International Drive restaurants are right there.</p>
+<p>Forget dropping $1,000+ on a spring break package to Panama City or Cabo (browse <a href="/cabo-san-lucas-oceanfront">Cabo vacation deals Oceanfront</a>). Get a group of 4 friends (two pairs booking separate rooms), grab a Westgate Orlando deal at $59 each, and you've got 4 nights in a resort suite for less than the price of a textbook. Pool parties, Disney Springs nightlife, and International Drive restaurants are right there.</p>
 <p>Seriously, <a href="/orlando">Orlando</a> is the ultimate spring break hack. The resort has everything you need, the nightlife is 15 minutes away, and your total cost is probably under $150 per person for the entire trip.</p>
 
 <h2>Las Vegas on a Student Budget</h2>
@@ -872,7 +872,7 @@ export const vacationIdeas6Posts: BlogPost[] = [
 <li><strong>Resort spa:</strong> Perfect rainy afternoon activity. Massages and facials at most Westgate and Wyndham properties.</li>
 <li><strong>Cooking in the suite:</strong> Your full kitchen becomes entertainment — make a big meal together, bake cookies, try a local recipe.</li>
 <li><strong>Indoor pools and hot tubs:</strong> Most timeshare resorts have heated indoor pools alongside outdoor ones.</li>
-<li><strong>Local museums and aquariums:</strong> Orlando has SEA LIFE, Gatlinburg has Ripley's Aquarium, Myrtle Beach has Wonderworks.</li>
+<li><strong>Local museums and aquariums:</strong> Orlando has SEA LIFE, Gatlinburg (more on <a href="/gatlinburg-summer">Gatlinburg Summer vacation deals</a>) (browse <a href="/gatlinburg-for-couples">Gatlinburg vacation deals for Couples</a>) has Ripley's Aquarium, Myrtle Beach has Wonderworks.</li>
 <li><strong>Shopping and dining:</strong> Rain is nature's way of saying "go explore the local restaurants."</li>
 </ul>
 
@@ -985,7 +985,7 @@ export const vacationIdeas6Posts: BlogPost[] = [
 </ul>
 
 <h2>Traveling With Ocean-Loving Friends or Family</h2>
-<p>If your travel companions want the beach but you don't, here's the compromise: book a beach destination resort but stick to the pool. Westgate Myrtle Beach from $89 has an incredible pool complex right next to the ocean. Your friends can beach, you can pool, and everyone meets up for dinner. Nobody compromises and nobody has to explain their phobia to strangers on the sand.</p>
+<p>If your travel companions want the beach but you don't, here's the compromise: book a beach destination resort but stick to the pool. Westgate Myrtle Beach (compare <a href="/myrtle-beach-for-families">Myrtle Beach vacpacks for Families</a>) from $89 has an incredible pool complex right next to the ocean. Your friends can beach, you can pool, and everyone meets up for dinner. Nobody compromises and nobody has to explain their phobia to strangers on the sand.</p>
 <p>Browse all our <a href="/deals">vacation deals</a> including both ocean and inland destinations, and check <a href="/deals-under-100">deals under $100</a> for budget-friendly non-ocean options.</p>`,
     faqs: [
       { question: "What are the best vacations that don't involve the ocean?", answer: "Gatlinburg/Smoky Mountains ($79), Las Vegas ($79), Branson ($69), Orlando theme parks ($59), and Williamsburg ($79) are all excellent ocean-free destinations with resort vacation deals. All feature resort pools for water enjoyment without the ocean." },
@@ -1443,16 +1443,16 @@ export const vacationIdeas6Posts: BlogPost[] = [
 <h2>Best Short-Trip Destinations for Plant Parents</h2>
 <p>The ideal plant parent vacation is close to home (short drive, no flights) and 2-3 nights max. Here are the best options by region:</p>
 
-<h3>Southeast: Orlando, FL ($59, 4 nights available)</h3>
+<h3>Southeast: Orlando (compare <a href="/orlando-3-night">Orlando vacpacks 3-Night</a>), FL ($59, 4 nights available)</h3>
 <p>Even though Westgate offers 4-night deals, you can check in for just 2-3 nights if that's your comfort zone. The resort suite has its own tropical plants in the landscaping that'll make you feel right at home. And <a href="/orlando">Orlando's</a> botanical gardens are surprisingly impressive if you want some plant inspiration for your collection.</p>
 
-<h3>East Coast: Myrtle Beach, SC ($89, 4 nights)</h3>
+<h3>East Coast: Myrtle Beach (see our <a href="/myrtle-beach-3-night">Myrtle Beach deals 3-Night</a>), SC ($89, 4 nights)</h3>
 <p>A quick beach escape where the salt air will make you appreciate your humidity-loving plants at home even more. <a href="/myrtle-beach">Myrtle Beach</a> resort suites from $89 are a short drive from most East Coast cities.</p>
 
-<h3>Midwest/South: Gatlinburg, TN ($79, 3 nights)</h3>
+<h3>Midwest/South: Gatlinburg (compare <a href="/gatlinburg-3-night">Gatlinburg vacpacks 3-Night</a>), TN ($79, 3 nights)</h3>
 <p>The Smoky Mountains have more plant biodiversity per square mile than almost anywhere in North America. Wildflower hikes, old-growth forests, and over 100 native tree species. It's a plant nerd pilgrimage. Westgate resort from $79.</p>
 
-<h3>West Coast: Las Vegas, NV ($79, 3 nights)</h3>
+<h3>West Coast: Las Vegas (see our <a href="/las-vegas-3-night">Las Vegas deals 3-Night</a>), NV ($79, 3 nights)</h3>
 <p>Yes, it's a desert, but the Bellagio Conservatory has some of the most impressive botanical displays in the country — and it's free. Plus the resort pools are surrounded by impeccably maintained tropical landscaping. <a href="/las-vegas">Wyndham deals</a> from $79.</p>
 
 <h2>Pre-Trip Plant Prep Checklist</h2>
@@ -1518,7 +1518,7 @@ export const vacationIdeas6Posts: BlogPost[] = [
     bluf: "Not everyone wants a tropical beach vacation — some of us melt at 85 degrees and consider anything above 75 a personal attack. Mountain resorts, fall shoulder season trips, and northern destinations offer amazing vacation deals from $79 for people who prefer sweaters to swimsuits.",
     heroImageAlt: "Mountain resort with cool misty morning air and fall foliage surrounding a cozy cabin lodge",
     heroGradient: "from-blue-500 via-slate-400 to-gray-500",
-    content: `<p>I sweat in the shade. I get heat rashes. I once nearly passed out at a water park in July because apparently 97 degrees and 90% humidity is "not ideal" for someone of my complexion and internal thermostat. So when people say "let's go to Cancun!" or "beach vacation!" my body physically recoils. I don't want a tan. I want a comfortable temprature and maybe a light jacket.</p>
+    content: `<p>I sweat in the shade. I get heat rashes. I once nearly passed out at a water park in July because apparently 97 degrees and 90% humidity is "not ideal" for someone of my complexion and internal thermostat. So when people say "let's go to Cancun (compare <a href="/cancun-winter">Cancun vacpacks Winter</a>) (see our <a href="/cancun-fall">Cancun deals Fall</a>) (see our <a href="/cancun-summer">Cancun deals Summer</a>)!" or "beach vacation!" my body physically recoils. I don't want a tan. I want a comfortable temprature and maybe a light jacket.</p>
 
 <p>If you're like me — and based on search data, a LOT of you are — this guide is for us. The heat-averse. The shade-seekers. The people who think 65 degrees is perfect vacation weather. Turns out there are amazing vacation deals in places where you won't feel like you're being slow-cooked.</p>
 

@@ -1,0 +1,9 @@
+{
+	"id": "GWBN5zfbC6Lu3BF",
+	"json": "{\"id\":\"GWBN5zfbC6Lu3BF\",\"url\":\"https://www.westgatereservations.com/specials/exclusive-cyber-monday-discount/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/exclusive-cyber-monday-discount/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/exclusive-cyber-monday-discount\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:59.680Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/exclusive-cyber-monday-discount",
+	"url": "https://www.westgatereservations.com/specials/exclusive-cyber-monday-discount/"
+}

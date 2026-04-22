@@ -1,0 +1,9 @@
+{
+	"id": "y72TGifycNA4LoU",
+	"json": "{\"id\":\"y72TGifycNA4LoU\",\"url\":\"https://www.westgatereservations.com/specials/branson-family-vacation-packages/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/branson-family-vacation-packages/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/branson-family-vacation-packages\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:52:00.409Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/branson-family-vacation-packages",
+	"url": "https://www.westgatereservations.com/specials/branson-family-vacation-packages/"
+}

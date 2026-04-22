@@ -1,0 +1,9 @@
+{
+	"id": "9VKL8i4NRfCoOAQ",
+	"json": "{\"id\":\"9VKL8i4NRfCoOAQ\",\"url\":\"https://www.westgatereservations.com/specials/hogs-breath-saloon-special-offer/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/hogs-breath-saloon-special-offer\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:54:07.601Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/hogs-breath-saloon-special-offer",
+	"url": "https://www.westgatereservations.com/specials/hogs-breath-saloon-special-offer/"
+}

@@ -1,0 +1,9 @@
+{
+	"id": "iZDSnQvpihpYRw0",
+	"json": "{\"id\":\"iZDSnQvpihpYRw0\",\"url\":\"https://www.westgatereservations.com/specials/home-on-the-ranch-lodge/\",\"loadedUrl\":\"https://www.westgatereservations.com/specials/home-on-the-ranch-lodge/\",\"uniqueKey\":\"https://www.westgatereservations.com/specials/home-on-the-ranch-lodge\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-03-21T01:53:02.914Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.westgatereservations.com/specials/home-on-the-ranch-lodge",
+	"url": "https://www.westgatereservations.com/specials/home-on-the-ranch-lodge/"
+}

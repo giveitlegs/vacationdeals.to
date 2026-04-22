@@ -1,0 +1,419 @@
+- generic [ref=e12]:
+  - generic [ref=e15]:
+    - link "Meta Ad Library" [ref=e18] [cursor=pointer]:
+      - /url: /ads/library/?source=fb-logo
+      - generic [ref=e20]: Meta Ad Library
+    - generic [ref=e22]: Ad Library
+    - menuitem "Ad Library Report" [ref=e24] [cursor=pointer]:
+      - generic [ref=e25]: Ad Library Report
+    - menuitem "Ad Library API" [ref=e27] [cursor=pointer]:
+      - generic [ref=e28]: Ad Library API
+    - menuitem "Branded Content" [ref=e30] [cursor=pointer]:
+      - generic [ref=e31]: Branded Content
+    - menuitem "Open navigation panel" [ref=e33] [cursor=pointer]
+  - generic [ref=e40]:
+    - combobox "United States" [ref=e44] [cursor=pointer]:
+      - generic [ref=e51]: United States
+    - combobox "All ads" [ref=e57] [cursor=pointer]:
+      - generic [ref=e67]: All ads
+    - generic [ref=e77]:
+      - generic [ref=e83]: Search by keyword or advertiser
+      - generic [ref=e89]:
+        - searchbox "Search by keyword or advertiser" [ref=e95]: TAFER Hotels
+        - button "Clear" [ref=e97] [cursor=pointer]
+  - dialog [ref=e99]:
+    - generic [ref=e100]:
+      - link [ref=e101] [cursor=pointer]:
+        - /url: /
+        - heading [level=4] [ref=e102]: Log in
+      - menuitem [ref=e103] [cursor=pointer]
+    - generic [ref=e105]:
+      - generic [ref=e106]:
+        - heading [level=4] [ref=e108]: Ad Library
+        - menuitem [ref=e110] [cursor=pointer]:
+          - heading [level=4] [ref=e112]: Ad Library Report
+        - menuitem [ref=e114] [cursor=pointer]:
+          - heading [level=4] [ref=e116]: Ad Library API
+        - menuitem [ref=e118] [cursor=pointer]:
+          - heading [level=4] [ref=e120]: Branded Content
+      - separator [ref=e121]
+      - generic [ref=e122]:
+        - menuitem [ref=e124] [cursor=pointer]:
+          - heading [level=4] [ref=e126]: System status
+        - menuitem [ref=e128] [cursor=pointer]:
+          - heading [level=4] [ref=e130]: Subscribe to email updates
+        - menuitem [ref=e132] [cursor=pointer]:
+          - heading [level=4] [ref=e134]: FAQ
+        - menuitem [ref=e136] [cursor=pointer]:
+          - heading [level=4] [ref=e138]: About ads and data use
+        - menuitem [ref=e140] [cursor=pointer]:
+          - heading [level=4] [ref=e142]: Privacy
+        - menuitem [ref=e144] [cursor=pointer]:
+          - heading [level=4] [ref=e146]: Terms
+        - menuitem [ref=e148] [cursor=pointer]:
+          - heading [level=4] [ref=e150]: Cookies
+  - generic [ref=e151]:
+    - generic [ref=e152]:
+      - generic [ref=e158]:
+        - heading "~7 results" [level=3] [ref=e160]
+        - generic [ref=e162]:
+          - text: These results include ads that match your
+          - strong [ref=e163]: keyword search.
+      - generic [ref=e164]:
+        - generic [ref=e173]:
+          - button "Filters" [ref=e174] [cursor=pointer]:
+            - generic [ref=e179]: Filters
+          - generic [ref=e181]:
+            - generic [ref=e187]: Sort
+            - combobox "Sort" [ref=e192] [cursor=pointer]:
+              - generic [ref=e199]: Sort by
+        - generic [ref=e202]:
+          - generic [ref=e204]:
+            - generic [ref=e206]:
+              - generic [ref=e207]:
+                - generic [ref=e214]: Active
+                - generic [ref=e217]: "Library ID: 2945329172326604"
+                - generic [ref=e219]: Started running on Nov 25, 2025
+                - generic [ref=e221]: Platforms
+                - generic [ref=e245]: This ad has multiple versions
+              - button "Open Dropdown" [ref=e251] [cursor=pointer]:
+                - generic [ref=e254]: Open Dropdown
+            - button "See ad details" [ref=e257] [cursor=pointer]:
+              - generic [ref=e261]: See ad details
+            - separator [ref=e262]
+            - generic [ref=e267]:
+              - generic [ref=e270]:
+                - img "Hotel Mousai" [ref=e271]
+                - generic [ref=e273]:
+                  - link "Hotel Mousai" [ref=e274] [cursor=pointer]:
+                    - /url: https://www.facebook.com/HotelMousai/
+                  - generic [ref=e278]:
+                    - strong [ref=e280]: Sponsored
+                    - generic:
+                      - strong
+              - generic [ref=e282]:
+                - button "Go from perfect to exquisite. Plan your wedding day at Hotel Mousai, where sublime oceanfront wedding venues, outstanding dining options, and chic suites will delight even the most discerning guest. Start planning." [ref=e285]:
+                  - generic [ref=e287]: Go from perfect to exquisite. Plan your wedding day at Hotel Mousai, where sublime oceanfront wedding venues, outstanding dining options, and chic suites will delight even the most discerning guest. Start planning.
+                - link "WEDDINGS.TAFERRESORTS.COM Contact us Plan your wedding day at Hotel Mousai in Puerto Vallarta. Get Quote" [ref=e288] [cursor=pointer]:
+                  - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fweddings.taferresorts.com%2Fresorts%2Fhotel-mousai-puerto-vallarta%3Futm_source%3DFacebook%26utm_medium%3Dcpc%26utm_campaign%3DWeddings%25202023%26utm_content%3Drmkt_conv&h=AT6hos-Gkc0Bv2jA1ZqIYDmN-tHeP-bUpp0Yas8waltzr3Sk12LMHYxyrWOz84Rh4HW_WCYttjTJCZ9BnxYj83Sh-o2VHmOGgNETxCii_GQUHwxH5n2LF3QwT3xck5B5BcWm6UsTApG_0Y81s3LNJw
+                  - generic [ref=e290]:
+                    - generic [ref=e291]:
+                      - button "WEDDINGS.TAFERRESORTS.COM" [ref=e293]:
+                        - generic [ref=e294]: WEDDINGS.TAFERRESORTS.COM
+                      - button "Contact us" [ref=e296]:
+                        - generic [ref=e297]: Contact us
+                      - button "Plan your wedding day at Hotel Mousai in Puerto Vallarta." [ref=e299]:
+                        - generic [ref=e300]: Plan your wedding day at Hotel Mousai in Puerto Vallarta.
+                      - generic:
+                        - button
+                    - button "Get Quote" [ref=e302]:
+                      - generic [ref=e306]: Get Quote
+          - generic [ref=e308]:
+            - generic [ref=e310]:
+              - generic [ref=e311]:
+                - generic [ref=e318]: Active
+                - generic [ref=e321]: "Library ID: 1360586492494669"
+                - generic [ref=e323]: Started running on Mar 24, 2026
+                - generic [ref=e325]: Platforms
+                - generic [ref=e354]: This ad has multiple versions
+              - button "Open Dropdown" [ref=e360] [cursor=pointer]:
+                - generic [ref=e363]: Open Dropdown
+            - button "See ad details" [ref=e366] [cursor=pointer]:
+              - generic [ref=e370]: See ad details
+            - separator [ref=e371]
+            - generic [ref=e376]:
+              - generic [ref=e379]:
+                - img "Hotel Mousai Cancun" [ref=e380]
+                - generic [ref=e382]:
+                  - link "Hotel Mousai Cancun" [ref=e383] [cursor=pointer]:
+                    - /url: https://www.facebook.com/hotelmousaicancun/
+                  - generic [ref=e387]:
+                    - strong [ref=e389]: Sponsored
+                    - generic:
+                      - strong
+              - generic [ref=e391]:
+                - button "Turn your wedding into a sensory experience. Secure your celebration and elevate it with a Mexican Night of tacos and margaritas." [ref=e394]:
+                  - generic [ref=e396]: Turn your wedding into a sensory experience. Secure your celebration and elevate it with a Mexican Night of tacos and margaritas.
+                - link "WEDDINGS.TAFERRESORTS.COM Plan Your Mousai Wedding Celebrate with ocean views and modern luxury. Learn More" [ref=e397] [cursor=pointer]:
+                  - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fweddings.taferresorts.com%2Fresorts%2Fhotel-mousai-cancun&h=AT6hos-Gkc0Bv2jA1ZqIYDmN-tHeP-bUpp0Yas8waltzr3Sk12LMHYxyrWOz84Rh4HW_WCYttjTJCZ9BnxYj83Sh-o2VHmOGgNETxCii_GQUHwxH5n2LF3QwT3xck5B5BcWm6UsTApG_0Y81s3LNJw
+                  - generic [ref=e399]:
+                    - generic [ref=e400]:
+                      - button "WEDDINGS.TAFERRESORTS.COM" [ref=e402]:
+                        - generic [ref=e403]: WEDDINGS.TAFERRESORTS.COM
+                      - button "Plan Your Mousai Wedding" [ref=e405]:
+                        - generic [ref=e406]: Plan Your Mousai Wedding
+                      - button "Celebrate with ocean views and modern luxury." [ref=e408]:
+                        - generic [ref=e409]: Celebrate with ocean views and modern luxury.
+                      - generic:
+                        - button
+                    - button "Learn More" [ref=e411]:
+                      - generic [ref=e415]: Learn More
+          - generic [ref=e417]:
+            - generic [ref=e419]:
+              - generic [ref=e420]:
+                - generic [ref=e427]: Active
+                - generic [ref=e430]: "Library ID: 826967596567206"
+                - generic [ref=e432]: Started running on Mar 16, 2026
+                - generic [ref=e434]: Platforms
+                - generic [ref=e458]: This ad has multiple versions
+              - button "Open Dropdown" [ref=e464] [cursor=pointer]:
+                - generic [ref=e467]: Open Dropdown
+            - button "See ad details" [ref=e470] [cursor=pointer]:
+              - generic [ref=e474]: See ad details
+            - separator [ref=e475]
+            - generic [ref=e480]:
+              - generic [ref=e483]:
+                - img "Garza Blanca Los Cabos" [ref=e484]
+                - generic [ref=e486]:
+                  - link "Garza Blanca Los Cabos" [ref=e487] [cursor=pointer]:
+                    - /url: https://www.facebook.com/GarzaBlancaLosCabos/
+                  - generic [ref=e491]:
+                    - strong [ref=e493]: Sponsored
+                    - generic:
+                      - strong
+              - generic [ref=e495]:
+                - button "Secure your Los Cabos wedding with exclusive savings and expert planning." [ref=e498]:
+                  - generic [ref=e500]: Secure your Los Cabos wedding with exclusive savings and expert planning.
+                - link "WEDDINGS.TAFERRESORTS.COM Up to 70% Off Wedding Packages Special offers for 2026 and 2027 weddings. Get Quote" [ref=e501] [cursor=pointer]:
+                  - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fweddings.taferresorts.com%2Fresorts%2Fgarza-blanca-los-cabos%3Futm_source%3DFacebook%26utm_medium%3Dcpc%26utm_campaign%3DWeddings%25202023%26utm_content%3Drmkt_conv&h=AT6hos-Gkc0Bv2jA1ZqIYDmN-tHeP-bUpp0Yas8waltzr3Sk12LMHYxyrWOz84Rh4HW_WCYttjTJCZ9BnxYj83Sh-o2VHmOGgNETxCii_GQUHwxH5n2LF3QwT3xck5B5BcWm6UsTApG_0Y81s3LNJw
+                  - generic [ref=e503]:
+                    - generic [ref=e504]:
+                      - button "WEDDINGS.TAFERRESORTS.COM" [ref=e506]:
+                        - generic [ref=e507]: WEDDINGS.TAFERRESORTS.COM
+                      - button "Up to 70% Off Wedding Packages" [ref=e509]:
+                        - generic [ref=e510]: Up to 70% Off Wedding Packages
+                      - button "Special offers for 2026 and 2027 weddings." [ref=e512]:
+                        - generic [ref=e513]: Special offers for 2026 and 2027 weddings.
+                      - generic:
+                        - button
+                    - button "Get Quote" [ref=e515]:
+                      - generic [ref=e519]: Get Quote
+          - generic [ref=e521]:
+            - generic [ref=e523]:
+              - generic [ref=e524]:
+                - generic [ref=e531]: Active
+                - generic [ref=e534]: "Library ID: 930646203083756"
+                - generic [ref=e536]: Started running on Mar 16, 2026
+                - generic [ref=e538]: Platforms
+                - generic [ref=e562]: This ad has multiple versions
+              - button "Open Dropdown" [ref=e568] [cursor=pointer]:
+                - generic [ref=e571]: Open Dropdown
+            - button "See ad details" [ref=e574] [cursor=pointer]:
+              - generic [ref=e578]: See ad details
+            - separator [ref=e579]
+            - generic [ref=e584]:
+              - generic [ref=e587]:
+                - img "Garza Blanca Cancun" [ref=e588]
+                - generic [ref=e590]:
+                  - link "Garza Blanca Cancun" [ref=e591] [cursor=pointer]:
+                    - /url: https://www.facebook.com/GarzaBlancaCancun/
+                  - generic [ref=e595]:
+                    - strong [ref=e597]: Sponsored
+                    - generic:
+                      - strong
+              - generic [ref=e599]:
+                - button "Begin your wedding weekend in Cancun with exclusive outlet savings and experiences designed to make every celebration feel complete." [ref=e602]:
+                  - generic [ref=e604]: Begin your wedding weekend in Cancun with exclusive outlet savings and experiences designed to make every celebration feel complete.
+                - group "Video player" [ref=e614]:
+                  - button "Play video" [ref=e616] [cursor=pointer]
+                  - generic [ref=e618]:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - button "Play"
+                      - generic: 0:00 / 0:00
+                    - generic:
+                      - generic:
+                        - slider "Change Position"
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - button "Settings"
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - button "Enter fullscreen"
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - slider "Change volume"
+                        - generic:
+                          - generic:
+                            - generic:
+                              - button "Unmute"
+                - link "Say “I Do” in Unforgettable Luxury Exclusive savings and perks for your Cancun wedding weekend. Get Quote" [ref=e620] [cursor=pointer]:
+                  - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fweddings.taferresorts.com%2Fresorts%2Fgarza-blanca-cancun&h=AT6hos-Gkc0Bv2jA1ZqIYDmN-tHeP-bUpp0Yas8waltzr3Sk12LMHYxyrWOz84Rh4HW_WCYttjTJCZ9BnxYj83Sh-o2VHmOGgNETxCii_GQUHwxH5n2LF3QwT3xck5B5BcWm6UsTApG_0Y81s3LNJw
+                  - generic [ref=e621]:
+                    - generic [ref=e622]:
+                      - generic:
+                        - button
+                      - button "Say “I Do” in Unforgettable Luxury" [ref=e624]:
+                        - generic [ref=e625]: Say “I Do” in Unforgettable Luxury
+                      - button "Exclusive savings and perks for your Cancun wedding weekend." [ref=e627]:
+                        - generic [ref=e628]: Exclusive savings and perks for your Cancun wedding weekend.
+                      - generic:
+                        - button
+                    - button "Get Quote" [ref=e630]:
+                      - generic [ref=e634]: Get Quote
+          - generic [ref=e636]:
+            - generic [ref=e638]:
+              - generic [ref=e639]:
+                - generic [ref=e646]: Active
+                - generic [ref=e649]: "Library ID: 1928388827796248"
+                - generic [ref=e651]: Started running on Mar 16, 2026
+                - generic [ref=e653]: Platforms
+                - generic [ref=e677]: This ad has multiple versions
+              - button "Open Dropdown" [ref=e683] [cursor=pointer]:
+                - generic [ref=e686]: Open Dropdown
+            - button "See ad details" [ref=e689] [cursor=pointer]:
+              - generic [ref=e693]: See ad details
+            - separator [ref=e694]
+            - generic [ref=e699]:
+              - generic [ref=e702]:
+                - img "Garza Blanca Los Cabos" [ref=e703]
+                - generic [ref=e705]:
+                  - link "Garza Blanca Los Cabos" [ref=e706] [cursor=pointer]:
+                    - /url: https://www.facebook.com/GarzaBlancaLosCabos/
+                  - generic [ref=e710]:
+                    - strong [ref=e712]: Sponsored
+                    - generic:
+                      - strong
+              - generic [ref=e714]:
+                - button "Discover exclusive wedding offers at Garza Blanca and reserve your Los Cabos celebration with our planning team." [ref=e717]:
+                  - generic [ref=e719]: Discover exclusive wedding offers at Garza Blanca and reserve your Los Cabos celebration with our planning team.
+                - link "WEDDINGS.TAFERRESORTS.COM Up to 70% Off Wedding Packages Special offers for 2026 and 2027 weddings. Get Quote" [ref=e720] [cursor=pointer]:
+                  - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fweddings.taferresorts.com%2Fresorts%2Fgarza-blanca-los-cabos%3Futm_source%3DFacebook%26utm_medium%3Dcpc%26utm_campaign%3DWeddings%25202023%26utm_content%3Drmkt_conv&h=AT6hos-Gkc0Bv2jA1ZqIYDmN-tHeP-bUpp0Yas8waltzr3Sk12LMHYxyrWOz84Rh4HW_WCYttjTJCZ9BnxYj83Sh-o2VHmOGgNETxCii_GQUHwxH5n2LF3QwT3xck5B5BcWm6UsTApG_0Y81s3LNJw
+                  - generic [ref=e722]:
+                    - generic [ref=e723]:
+                      - button "WEDDINGS.TAFERRESORTS.COM" [ref=e725]:
+                        - generic [ref=e726]: WEDDINGS.TAFERRESORTS.COM
+                      - button "Up to 70% Off Wedding Packages" [ref=e728]:
+                        - generic [ref=e729]: Up to 70% Off Wedding Packages
+                      - button "Special offers for 2026 and 2027 weddings." [ref=e731]:
+                        - generic [ref=e732]: Special offers for 2026 and 2027 weddings.
+                      - generic:
+                        - button
+                    - button "Get Quote" [ref=e734]:
+                      - generic [ref=e738]: Get Quote
+          - generic [ref=e740]:
+            - generic [ref=e742]:
+              - generic [ref=e743]:
+                - generic [ref=e750]: Active
+                - generic [ref=e753]: "Library ID: 1586428902645603"
+                - generic [ref=e755]: Started running on Mar 12, 2026
+                - generic [ref=e757]: Platforms
+                - generic [ref=e781]: This ad has multiple versions
+              - button "Open Dropdown" [ref=e787] [cursor=pointer]:
+                - generic [ref=e790]: Open Dropdown
+            - button "See ad details" [ref=e793] [cursor=pointer]:
+              - generic [ref=e797]: See ad details
+            - separator [ref=e798]
+            - generic [ref=e803]:
+              - generic [ref=e806]:
+                - img "Garza Blanca Preserve" [ref=e807]
+                - generic [ref=e809]:
+                  - link "Garza Blanca Preserve" [ref=e810] [cursor=pointer]:
+                    - /url: https://www.facebook.com/garzablancapvr/
+                  - generic [ref=e814]:
+                    - strong [ref=e816]: Sponsored
+                    - generic:
+                      - strong
+              - generic [ref=e818]:
+                - button "If you want your wedding memorable, plan it at Garza Blanca. Where stunning wedding venues above the ocean will be the scenario for the next chapter of your love story. Contact our Wedding Planners." [ref=e821]:
+                  - generic [ref=e823]: If you want your wedding memorable, plan it at Garza Blanca. Where stunning wedding venues above the ocean will be the scenario for the next chapter of your love story. Contact our Wedding Planners.
+                - link "WEDDINGS.TAFERRESORTS.COM Contact us Plan your wedding day at Garza Blanca Preserve in Puerto Vallarta. Get Quote" [ref=e824] [cursor=pointer]:
+                  - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fweddings.taferresorts.com%2Fresorts%2Fgarza-blanca-puerto-vallarta%3Futm_source%3DFacebook%26utm_medium%3Dcpc%26utm_campaign%3DWeddings%25202023%26utm_content%3Drmkt_conv&h=AT6hos-Gkc0Bv2jA1ZqIYDmN-tHeP-bUpp0Yas8waltzr3Sk12LMHYxyrWOz84Rh4HW_WCYttjTJCZ9BnxYj83Sh-o2VHmOGgNETxCii_GQUHwxH5n2LF3QwT3xck5B5BcWm6UsTApG_0Y81s3LNJw
+                  - generic [ref=e826]:
+                    - generic [ref=e827]:
+                      - button "WEDDINGS.TAFERRESORTS.COM" [ref=e829]:
+                        - generic [ref=e830]: WEDDINGS.TAFERRESORTS.COM
+                      - button "Contact us" [ref=e832]:
+                        - generic [ref=e833]: Contact us
+                      - button "Plan your wedding day at Garza Blanca Preserve in Puerto Vallarta." [ref=e835]:
+                        - generic [ref=e836]: Plan your wedding day at Garza Blanca Preserve in Puerto Vallarta.
+                      - generic:
+                        - button
+                    - button "Get Quote" [ref=e838]:
+                      - generic [ref=e842]: Get Quote
+          - generic [ref=e844]:
+            - generic [ref=e846]:
+              - generic [ref=e847]:
+                - generic [ref=e849]:
+                  - generic [ref=e854]: Active
+                  - generic [ref=e856]: Low impression count
+                - generic [ref=e863]: "Library ID: 1537799360649431"
+                - generic [ref=e865]: Started running on Apr 3, 2026
+                - generic [ref=e867]: Platforms
+                - generic [ref=e895]:
+                  - text: "Impressions:"
+                  - strong [ref=e896]: <100
+                - generic [ref=e902]: This ad has multiple versions
+              - button "Open Dropdown" [ref=e908] [cursor=pointer]:
+                - generic [ref=e911]: Open Dropdown
+            - button "See ad details" [ref=e914] [cursor=pointer]:
+              - generic [ref=e918]: See ad details
+            - separator [ref=e919]
+            - generic [ref=e924]:
+              - generic [ref=e927]:
+                - img "Garza Blanca Preserve" [ref=e928]
+                - generic [ref=e930]:
+                  - link "Garza Blanca Preserve" [ref=e931] [cursor=pointer]:
+                    - /url: https://www.facebook.com/garzablancapvr/
+                  - generic [ref=e935]:
+                    - strong [ref=e937]: Sponsored
+                    - generic:
+                      - strong
+              - generic [ref=e939]:
+                - button "magine saying “I do” with the ocean as your backdrop and tropical jungle all around you. At Garza Blanca Preserve Resort & Spa, every detail is designed to turn your wedding into a magical and memorable experience in Puerto Vallarta. Discover the perfect place to begin your next chapter together." [ref=e942]:
+                  - generic [ref=e945]:
+                    - text: magine saying “I do” with the ocean as your backdrop and tropical jungle all around you.
+                    - text: At Garza Blanca Preserve Resort & Spa, every detail is designed to turn your wedding into a magical and memorable experience in Puerto Vallarta.
+                    - text: Discover the perfect place to begin your next chapter together.
+                - generic [ref=e947]: Low impression count
+                - link "The Perfect Wedding Venue Romance, luxury, and nature in one destination. Get Quote" [ref=e948] [cursor=pointer]:
+                  - /url: https://l.facebook.com/l.php?u=https%3A%2F%2Fweddings.taferresorts.com%2Fresorts%2Fgarza-blanca-puerto-vallarta&h=AT6hos-Gkc0Bv2jA1ZqIYDmN-tHeP-bUpp0Yas8waltzr3Sk12LMHYxyrWOz84Rh4HW_WCYttjTJCZ9BnxYj83Sh-o2VHmOGgNETxCii_GQUHwxH5n2LF3QwT3xck5B5BcWm6UsTApG_0Y81s3LNJw
+                  - generic [ref=e950]:
+                    - generic [ref=e951]:
+                      - generic:
+                        - button
+                      - button "The Perfect Wedding Venue" [ref=e953]:
+                        - generic [ref=e954]: The Perfect Wedding Venue
+                      - button "Romance, luxury, and nature in one destination." [ref=e956]:
+                        - generic [ref=e957]: Romance, luxury, and nature in one destination.
+                      - generic:
+                        - button
+                    - button "Get Quote" [ref=e959]:
+                      - generic [ref=e963]: Get Quote
+    - generic [ref=e965]:
+      - generic [ref=e973]: System status
+      - generic [ref=e977]:
+        - list [ref=e978]:
+          - listitem [ref=e979]:
+            - heading "Ad Library API" [level=3] [ref=e980]:
+              - link "Ad Library API" [ref=e981] [cursor=pointer]:
+                - /url: /ads/library/api/?source=archive-landing-page
+          - listitem [ref=e982]:
+            - heading "About ads and data use" [level=3] [ref=e983]:
+              - link "About ads and data use" [ref=e984] [cursor=pointer]:
+                - /url: /ads/about/?entry_product=ad_library
+          - listitem [ref=e985]:
+            - heading "Privacy" [level=3] [ref=e986]:
+              - link "Privacy" [ref=e987] [cursor=pointer]:
+                - /url: /privacy/center/?entry_point=privacy_basics_redirect
+          - listitem [ref=e988]:
+            - heading "Terms" [level=3] [ref=e989]:
+              - link "Terms" [ref=e990] [cursor=pointer]:
+                - /url: /policies/
+          - listitem [ref=e991]:
+            - heading "Cookies" [level=3] [ref=e992]:
+              - link "Cookies" [ref=e993] [cursor=pointer]:
+                - /url: /policies/cookies/
+        - heading "Meta © 2026 | English (US)" [level=3] [ref=e995]:
+          - text: Meta © 2026 |
+          - link "English (US)" [ref=e996] [cursor=pointer]:
+            - /url: /language/
