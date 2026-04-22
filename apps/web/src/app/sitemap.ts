@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllBlogPosts } from "@/lib/blog-types";
 import { getAllBrandSlugs, getAllDestinationSlugs } from "@/lib/queries";
+import { CITY_SUBLANDERS } from "@vacationdeals/shared";
 
 async function getDealSlugs(): Promise<string[]> {
   try {
@@ -133,5 +134,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages];
+  // Sublander pages — flat {citySlug}-{modifierSlug} children of each top city
+  const sublanderPages = Object.entries(CITY_SUBLANDERS).flatMap(([citySlug, mods]) =>
+    mods.map((modSlug) => ({
+      url: `${baseUrl}/${citySlug}-${modSlug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
+  );
+
+  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...sublanderPages];
 }

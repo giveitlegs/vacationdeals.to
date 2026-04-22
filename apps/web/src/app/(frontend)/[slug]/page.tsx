@@ -17,6 +17,11 @@ import { getFAQsForSlug } from "@/lib/faqs";
 import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog-types";
 import type { BlogPost } from "@/lib/blog-types";
 import { BlogPostRenderer } from "@/components/BlogPost";
+import { SublanderPage } from "@/components/SublanderPage";
+import { CityModifierSubnav } from "@/components/CityModifierSubnav";
+import { MODIFIERS, CITY_SUBLANDERS, PRIORITY_CITIES, getModifiersForCity, parseSublanderSlug } from "@vacationdeals/shared";
+import type { Modifier } from "@vacationdeals/shared";
+import { getSublanderOverride } from "@/lib/sublander-overrides";
 
 export const dynamic = "force-dynamic"; // Always server-render with fresh DB data
 export const revalidate = 0;
@@ -115,12 +120,15 @@ type BrandData = { slug: string; name: string; type: string; description: string
 
 type RateRecapBrandData = { brandSlug: string; brandName: string };
 
+type SublanderData = { citySlug: string; modifierSlug: string; modifier: Modifier };
+
 type SlugType =
   | { type: "destination"; data: DestinationData }
   | { type: "brand"; data: BrandData }
   | { type: "price"; data: (typeof priceRanges)[number] }
   | { type: "duration"; data: (typeof durations)[number] }
   | { type: "blog"; data: BlogPost }
+  | { type: "sublander"; data: SublanderData }
   | { type: "rate-recap-brand"; data: RateRecapBrandData };
 
 async function resolveSlug(slug: string): Promise<SlugType | null> {
@@ -141,6 +149,20 @@ async function resolveSlug(slug: string): Promise<SlugType | null> {
   // 2. Check static durations (these never change)
   const durationMatch = durations.find((d) => d.slug === slug);
   if (durationMatch) return { type: "duration", data: durationMatch };
+
+  // 2.5. Check sublander pattern `{citySlug}-{modifierSlug}` (must come
+  // before blog check so sublander slugs don't collide with blog posts).
+  const sub = parseSublanderSlug(slug);
+  if (sub) {
+    return {
+      type: "sublander",
+      data: {
+        citySlug: sub.citySlug,
+        modifierSlug: sub.modifierSlug,
+        modifier: MODIFIERS[sub.modifierSlug],
+      },
+    };
+  }
 
   // 3. Check blog posts (DB first, static fallback)
   const blogPost = await getBlogPostBySlug(slug);
@@ -231,6 +253,19 @@ async function getDealsForSlug(
     }
     case "duration":
       return getDeals({ durationNights: resolved.data.nights });
+    case "sublander": {
+      const { citySlug, modifier } = resolved.data;
+      return getDeals({
+        destinationSlug: citySlug,
+        maxPrice: modifier.filter.maxPrice,
+        minPrice: modifier.filter.minPrice,
+        durationNights: modifier.filter.durationNights as number | number[] | undefined,
+        brandSlugsInclude: modifier.filter.brandSlugsInclude,
+        brandSlugsExclude: modifier.filter.brandSlugsExclude,
+        inclusionsIncludeAny: modifier.filter.inclusionsIncludeAny,
+        sortBy: modifier.filter.sort ?? "price-asc",
+      });
+    }
     default:
       return null;
   }
@@ -257,6 +292,13 @@ export async function generateStaticParams() {
 
   // Brand rate recap pages
   for (const b of dbBrands) params.push({ slug: `rate-recap-${b.slug}` });
+
+  // Sublanders ({citySlug}-{modifierSlug}) — all ~240 allowed combos
+  for (const [city, mods] of Object.entries(CITY_SUBLANDERS)) {
+    for (const mod of mods) {
+      params.push({ slug: `${city}-${mod}` });
+    }
+  }
 
   // Blog posts
   const blogPosts = await getAllBlogPosts();
@@ -388,6 +430,35 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
         },
       };
     }
+    case "sublander": {
+      const { citySlug, modifier } = resolved.data;
+      const destDetail = await getDestinationBySlug(citySlug);
+      const cityName = destDetail?.name ?? citySlug.split("-").map((p) => p[0].toUpperCase() + p.slice(1)).join(" ");
+      const state = destDetail?.state ?? "";
+      const override = await getSublanderOverride(citySlug, modifier.slug);
+      const result = await getDealsForSlug(resolved);
+      const dealCount = result?.total || 0;
+      const cheapest = result?.deals?.length ? Math.min(...result.deals.map((d) => d.price)) : null;
+
+      const defaultTitle = dealCount > 0
+        ? `${cityName} Vacation Deals ${modifier.h1Fragment} from $${cheapest ?? 59}`
+        : `${cityName} Vacation Deals ${modifier.h1Fragment}`;
+      const defaultDesc = dealCount > 0
+        ? `${dealCount} ${modifier.metaBlurb} vacation deals in ${cityName}${state ? ", " + state : ""} from $${cheapest ?? 59}. Compare resort deals, book the lowest rate.`.slice(0, 160)
+        : `${modifier.metaBlurb.charAt(0).toUpperCase() + modifier.metaBlurb.slice(1)} vacation deals in ${cityName}${state ? ", " + state : ""}. Compare resort deals from top timeshare brands.`.slice(0, 160);
+
+      return {
+        title: override.customMetaTitle || defaultTitle,
+        description: override.customMetaDescription || defaultDesc,
+        alternates: { canonical: `${baseUrl}/${slug}` },
+        openGraph: {
+          title: override.customMetaTitle || defaultTitle,
+          description: override.customMetaDescription || defaultDesc,
+          url: `${baseUrl}/${slug}`,
+          type: "website",
+        },
+      };
+    }
     case "blog": {
       const post = resolved.data;
       return {
@@ -472,6 +543,25 @@ export default async function SlugPage({ params }: SlugPageProps) {
       return <PricePage data={resolved.data} deals={deals} totalDeals={totalDeals} slug={slug} />;
     case "duration":
       return <DurationPage data={resolved.data} deals={deals} totalDeals={totalDeals} slug={slug} />;
+    case "sublander": {
+      const { citySlug, modifier } = resolved.data;
+      const destDetail = await getDestinationBySlug(citySlug);
+      const cityName = destDetail?.name ?? citySlug.split("-").map((p) => p[0].toUpperCase() + p.slice(1)).join(" ");
+      const cityState = destDetail?.state ?? "";
+      const override = await getSublanderOverride(citySlug, modifier.slug);
+      if (!override.isEnabled) notFound();
+      return (
+        <SublanderPage
+          citySlug={citySlug}
+          cityName={cityName}
+          cityState={cityState}
+          modifier={modifier}
+          deals={deals}
+          totalDeals={totalDeals}
+          override={override}
+        />
+      );
+    }
   }
 }
 
@@ -495,35 +585,62 @@ async function DestinationPage({
   const cheapest = destDetail?.cheapestPrice ?? (deals.length > 0 ? Math.min(...deals.map((d) => d.price)) : null);
   const brandNames = destDetail?.brands ?? [...new Set(deals.map((d) => d.brandName))];
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TouristDestination",
-    name: data.name,
-    description: data.description,
-    url: `https://vacationdeals.to/${data.slug}`,
-    dateModified: new Date().toISOString(),
-    containedInPlace: {
-      "@type": "AdministrativeArea",
-      name: data.state,
-    },
-    ...(cheapest != null
-      ? {
-          makesOffer: {
-            "@type": "AggregateOffer",
-            lowPrice: cheapest,
-            priceCurrency: "USD",
-            offerCount: totalDeals,
-            offers: deals.slice(0, 5).map((d) => ({
-              "@type": "Offer",
-              name: d.title,
-              price: d.price,
+  // Sublander children list for @graph ItemList
+  const childSublanderSlugs = CITY_SUBLANDERS[data.slug] || [];
+  const sublanderMods = childSublanderSlugs.map((s) => MODIFIERS[s]).filter(Boolean);
+
+  const jsonLdGraph: unknown[] = [
+    {
+      "@type": "TouristDestination",
+      "@id": `https://vacationdeals.to/${data.slug}#destination`,
+      name: data.name,
+      description: data.description,
+      url: `https://vacationdeals.to/${data.slug}`,
+      dateModified: new Date().toISOString(),
+      containedInPlace: { "@type": "AdministrativeArea", name: data.state },
+      ...(cheapest != null
+        ? {
+            makesOffer: {
+              "@type": "AggregateOffer",
+              lowPrice: cheapest,
               priceCurrency: "USD",
-              seller: { "@type": "Organization", name: d.brandName },
-            })),
-          },
-        }
-      : {}),
-  };
+              offerCount: totalDeals,
+              offers: deals.slice(0, 5).map((d) => ({
+                "@type": "Offer",
+                name: d.title,
+                price: d.price,
+                priceCurrency: "USD",
+                seller: { "@type": "Organization", name: d.brandName },
+              })),
+            },
+          }
+        : {}),
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `https://vacationdeals.to/${data.slug}#page`,
+      url: `https://vacationdeals.to/${data.slug}`,
+      name: `${data.name} Vacation Deals`,
+      about: { "@id": `https://vacationdeals.to/${data.slug}#destination` },
+    },
+  ];
+
+  if (sublanderMods.length > 0) {
+    jsonLdGraph.push({
+      "@type": "ItemList",
+      "@id": `https://vacationdeals.to/${data.slug}#categories`,
+      name: `${data.name} Vacation Deal Categories`,
+      numberOfItems: sublanderMods.length,
+      itemListElement: sublanderMods.map((m, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `https://vacationdeals.to/${data.slug}-${m.slug}`,
+        name: `${data.name} Vacation Deals ${m.h1Fragment}`,
+      })),
+    });
+  }
+
+  const jsonLd = { "@context": "https://schema.org", "@graph": jsonLdGraph };
 
   return (
     <div>
@@ -575,6 +692,25 @@ async function DestinationPage({
         Showing {deals.length} deal{deals.length !== 1 ? "s" : ""} in{" "}
         {data.name}
       </div>
+
+      {/* Sub-nav: scrollable chips for this city's modifier sublanders */}
+      {(() => {
+        const mods = getModifiersForCity(data.slug);
+        if (mods.length === 0) return null;
+        const items = mods.map((m) => ({
+          label: m.chipLabel || m.label,
+          href: `/${data.slug}-${m.slug}`,
+          isActive: false,
+        }));
+        return (
+          <CityModifierSubnav
+            cityName={data.name}
+            citySlug={data.slug}
+            items={items}
+            showParentChip
+          />
+        );
+      })()}
 
       <DealGrid deals={deals} />
 

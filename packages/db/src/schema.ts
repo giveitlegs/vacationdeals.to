@@ -379,6 +379,27 @@ export const rouletteSpins = pgTable("roulette_spins", {
   spunAt: timestamp("spun_at").defaultNow().notNull(),
 });
 
+// ── Sublanders (admin overrides for city×modifier pages) ──
+// Pairs live in code (packages/shared/sublanders.ts) for SEO stability. This
+// table lets admin toggle visibility and override copy without redeploying.
+export const sublanders = pgTable(
+  "sublanders",
+  {
+    id: serial("id").primaryKey(),
+    citySlug: varchar("city_slug", { length: 100 }).notNull(),
+    modifierSlug: varchar("modifier_slug", { length: 100 }).notNull(),
+    isEnabled: boolean("is_enabled").notNull().default(true),
+    customIntroHtml: text("custom_intro_html"),
+    customMetaTitle: varchar("custom_meta_title", { length: 200 }),
+    customMetaDescription: varchar("custom_meta_description", { length: 300 }),
+    sortOrder: integer("sort_order").notNull().default(0),
+    viewCount: integer("view_count").notNull().default(0),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (t) => [uniqueIndex("sublanders_city_modifier_idx").on(t.citySlug, t.modifierSlug)],
+);
+
 // ── Ad Banners ──────────────────────────────────────────
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),

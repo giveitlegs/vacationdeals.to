@@ -3,10 +3,26 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+const TOP_CITIES: { slug: string; label: string; state: string }[] = [
+  { slug: "orlando", label: "Orlando", state: "FL" },
+  { slug: "las-vegas", label: "Las Vegas", state: "NV" },
+  { slug: "gatlinburg", label: "Gatlinburg", state: "TN" },
+  { slug: "myrtle-beach", label: "Myrtle Beach", state: "SC" },
+  { slug: "branson", label: "Branson", state: "MO" },
+  { slug: "williamsburg", label: "Williamsburg", state: "VA" },
+  { slug: "cocoa-beach", label: "Cocoa Beach", state: "FL" },
+  { slug: "daytona-beach", label: "Daytona Beach", state: "FL" },
+  { slug: "cancun", label: "Cancun", state: "MX" },
+  { slug: "cabo-san-lucas", label: "Cabo San Lucas", state: "MX" },
+  { slug: "puerto-vallarta", label: "Puerto Vallarta", state: "MX" },
+  { slug: "punta-cana", label: "Punta Cana", state: "DO" },
+];
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [rateRecapOpen, setRateRecapOpen] = useState(false);
   const [gamesOpen, setGamesOpen] = useState(false);
+  const [destinationsOpen, setDestinationsOpen] = useState(false);
   const [showPlayNow, setShowPlayNow] = useState(false);
 
   // Flutter "PLAY NOW!" label every 8 seconds
@@ -61,7 +77,36 @@ export function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden items-center gap-6 md:flex">
             <Link href="/deals" className="text-sm font-medium text-gray-600 hover:text-blue-600">All Deals</Link>
-            <Link href="/destinations" className="text-sm font-medium text-gray-600 hover:text-blue-600">Destinations</Link>
+
+            {/* Destinations with top-city dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setDestinationsOpen(true)}
+              onMouseLeave={() => setDestinationsOpen(false)}
+            >
+              <Link href="/destinations" className="text-sm font-medium text-gray-600 hover:text-blue-600">
+                Destinations
+              </Link>
+              {destinationsOpen && (
+                <div className="absolute left-0 top-full z-50 mt-1 grid w-[520px] grid-cols-2 gap-1 rounded-lg border border-gray-200 bg-white p-3 shadow-lg">
+                  {TOP_CITIES.map((c) => (
+                    <Link
+                      key={c.slug}
+                      href={`/${c.slug}`}
+                      className="flex items-baseline gap-1.5 rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                    >
+                      <span className="font-medium">{c.label}</span>
+                      <span className="text-xs text-gray-400">{c.state}</span>
+                    </Link>
+                  ))}
+                  <div className="col-span-2 my-1 border-t border-gray-100" />
+                  <Link href="/destinations" className="col-span-2 rounded-md bg-gray-50 px-3 py-2 text-center text-sm font-semibold text-blue-600 hover:bg-gray-100">
+                    View all destinations →
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link href="/brands" className="text-sm font-medium text-gray-600 hover:text-blue-600">Brands</Link>
             <Link href="/blog" className="text-sm font-medium text-gray-600 hover:text-blue-600">Blog</Link>
 
@@ -184,6 +229,7 @@ export function Navbar() {
               {[
                 { href: "/deals", label: "All Deals" },
                 { href: "/destinations", label: "Destinations" },
+                ...TOP_CITIES.map((c) => ({ href: `/${c.slug}`, label: `  → ${c.label}` })),
                 { href: "/brands", label: "Brands" },
                 { href: "/blog", label: "Blog" },
                 { href: "/rate-recap", label: "Rate Recap" },

@@ -57,6 +57,8 @@ import { vacationIdeas10Posts } from "./blog-posts/vacation-ideas-10";
 // Batch 4: 100 humanized posts (2026-04-09)
 import { humanized100Posts } from "./blog-posts/humanized-100";
 import { guideBatch2Posts } from "./blog-posts/guides-batch2";
+// Batch 6: 50 humanized posts for sublander expansion (2026-04-21)
+import { humanizedBatch300Posts } from "./blog-posts/humanized-batch-300";
 
 const _allPosts: BlogPost[] = [
   ...destinationPosts,
@@ -83,6 +85,8 @@ const _allPosts: BlogPost[] = [
   ...humanized100Posts,
   // Batch 5
   ...guideBatch2Posts,
+  // Batch 6 (2026-04-21) — sublander expansion content
+  ...humanizedBatch300Posts,
 ].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
 // ---------------------------------------------------------------------------

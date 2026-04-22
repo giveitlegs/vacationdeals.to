@@ -27,7 +27,10 @@ export async function getDeals(filters?: {
   brandSlug?: string;
   maxPrice?: number;
   minPrice?: number;
-  durationNights?: number;
+  durationNights?: number | number[];
+  brandSlugsInclude?: string[];
+  brandSlugsExclude?: string[];
+  inclusionsIncludeAny?: string[];
   sortBy?: string;
   page?: number;
   limit?: number;
@@ -90,10 +93,41 @@ export async function getDeals(filters?: {
       );
     }
 
-    if (filters?.durationNights) {
+    if (filters?.durationNights != null) {
+      if (Array.isArray(filters.durationNights)) {
+        if (filters.durationNights.length > 0) {
+          const list = filters.durationNights.map((n) => String(Number(n))).join(",");
+          conditions.push(sql`${schema.deals.durationNights} IN (${sql.raw(list)})`);
+        }
+      } else {
+        conditions.push(eq(schema.deals.durationNights, filters.durationNights));
+      }
+    }
+
+    if (filters?.brandSlugsInclude && filters.brandSlugsInclude.length > 0) {
+      const slugs = filters.brandSlugsInclude.map((s) => `'${s.replace(/'/g, "''")}'`).join(",");
       conditions.push(
-        eq(schema.deals.durationNights, filters.durationNights),
+        sql`${schema.deals.brandId} IN (SELECT id FROM brands WHERE slug IN (${sql.raw(slugs)}))`,
       );
+    }
+
+    if (filters?.brandSlugsExclude && filters.brandSlugsExclude.length > 0) {
+      const slugs = filters.brandSlugsExclude.map((s) => `'${s.replace(/'/g, "''")}'`).join(",");
+      conditions.push(
+        sql`(${schema.deals.brandId} IS NULL OR ${schema.deals.brandId} NOT IN (SELECT id FROM brands WHERE slug IN (${sql.raw(slugs)})))`,
+      );
+    }
+
+    if (filters?.inclusionsIncludeAny && filters.inclusionsIncludeAny.length > 0) {
+      // inclusions is stored as JSON-encoded string; do case-insensitive substring
+      // matches. Any of the provided keywords suffices.
+      const clauses = filters.inclusionsIncludeAny.map(
+        (kw) => sql`LOWER(COALESCE(${schema.deals.inclusions}, '') || ' ' || COALESCE(${schema.deals.title}, '')) LIKE ${`%${kw.toLowerCase().replace(/%/g, "").replace(/_/g, "")}%`}`,
+      );
+      // OR together
+      let combined = clauses[0];
+      for (let i = 1; i < clauses.length; i++) combined = sql`${combined} OR ${clauses[i]}`;
+      conditions.push(sql`(${combined})`);
     }
 
     const whereClause = and(...conditions);
