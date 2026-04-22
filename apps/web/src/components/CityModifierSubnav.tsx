@@ -64,43 +64,43 @@ export function CityModifierSubnav({ cityName, citySlug, items, showParentChip =
   if (items.length === 0) return null;
 
   return (
-    <div className="relative mb-6 -mx-1 sm:mx-0">
-      {/* Left fade + arrow */}
+    <div className="relative mb-6 -mx-3 sm:-mx-4 md:mx-0 px-9 sm:px-10 md:px-12">
+      {/* Left arrow — sits fully outside the chip scroll area */}
       <button
         type="button"
         onClick={() => scrollBy(-280)}
         aria-label="Scroll left"
         aria-hidden={!showLeft}
         tabIndex={showLeft ? 0 : -1}
-        className={`pointer-events-${showLeft ? "auto" : "none"} absolute left-0 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white shadow-md transition-opacity hover:bg-gray-50 ${showLeft ? "opacity-100" : "opacity-0"}`}
+        className={`pointer-events-${showLeft ? "auto" : "none"} absolute left-0 top-1/2 z-20 flex h-8 w-8 sm:h-9 sm:w-9 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white shadow-md transition-opacity hover:bg-gray-50 ${showLeft ? "opacity-100" : "opacity-0"}`}
       >
-        <svg className="h-5 w-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
 
-      {/* Right fade + arrow */}
+      {/* Right arrow — sits fully outside the chip scroll area */}
       <button
         type="button"
         onClick={() => scrollBy(280)}
         aria-label="Scroll right"
         aria-hidden={!showRight}
         tabIndex={showRight ? 0 : -1}
-        className={`pointer-events-${showRight ? "auto" : "none"} absolute right-0 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white shadow-md transition-opacity hover:bg-gray-50 ${showRight ? "opacity-100" : "opacity-0"}`}
+        className={`pointer-events-${showRight ? "auto" : "none"} absolute right-0 top-1/2 z-20 flex h-8 w-8 sm:h-9 sm:w-9 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white shadow-md transition-opacity hover:bg-gray-50 ${showRight ? "opacity-100" : "opacity-0"}`}
       >
-        <svg className="h-5 w-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
 
-      {/* Edge gradients */}
-      <div className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white via-white/80 to-transparent transition-opacity ${showLeft ? "opacity-100" : "opacity-0"}`} />
-      <div className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white via-white/80 to-transparent transition-opacity ${showRight ? "opacity-100" : "opacity-0"}`} />
+      {/* Edge gradients — only over the scroll area, not the arrow gutters */}
+      <div className={`pointer-events-none absolute inset-y-0 left-9 sm:left-10 md:left-12 z-10 w-6 bg-gradient-to-r from-white via-white/90 to-transparent transition-opacity ${showLeft ? "opacity-100" : "opacity-0"}`} />
+      <div className={`pointer-events-none absolute inset-y-0 right-9 sm:right-10 md:right-12 z-10 w-6 bg-gradient-to-l from-white via-white/90 to-transparent transition-opacity ${showRight ? "opacity-100" : "opacity-0"}`} />
 
-      {/* Scrollable chip row */}
+      {/* Scrollable chip row — arrows are now in the gutter, not overlapping */}
       <div
         ref={scrollerRef}
-        className="scrollbar-hide flex gap-2 overflow-x-auto overflow-y-hidden scroll-smooth px-10 py-2"
+        className="scrollbar-hide flex gap-2 overflow-x-auto overflow-y-hidden scroll-smooth py-2"
         style={{
           scrollSnapType: "x proximity",
           WebkitOverflowScrolling: "touch",
