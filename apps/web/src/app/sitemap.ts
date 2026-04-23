@@ -3,6 +3,7 @@ import { getAllBlogPosts } from "@/lib/blog-types";
 import { getAllBrandSlugs, getAllDestinationSlugs } from "@/lib/queries";
 import { CITY_SUBLANDERS } from "@vacationdeals/shared";
 import { ES_DESTINATIONS } from "@/lib/i18n/es-destinations";
+import { LISTICLES } from "@/lib/listicles";
 
 async function getDealSlugs(): Promise<string[]> {
   try {
@@ -177,5 +178,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
-  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...sublanderPages, ...spanishPages, ...carnivalPages];
+  // City listicles ("Best Vacation Deals in City 2026")
+  const listiclePages = LISTICLES.map((l) => ({
+    url: `${baseUrl}/best-vacation-deals-${l.citySlug}-${l.year}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...sublanderPages, ...spanishPages, ...carnivalPages, ...listiclePages];
 }

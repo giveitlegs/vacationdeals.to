@@ -195,7 +195,7 @@ export async function SublanderPage({
           <li><span className="mx-1">/</span></li>
           <li><Link href="/destinations" className="hover:text-blue-600">Vacation Destinations</Link></li>
           <li><span className="mx-1">/</span></li>
-          <li><Link href={`/${citySlug}`} className="hover:text-blue-600">{cityName}</Link></li>
+          <li><Link href={`/${citySlug}`} className="hover:text-blue-600">{cityName} Vacation Deals</Link></li>
           <li><span className="mx-1">/</span></li>
           <li className="font-medium text-gray-900">{modifier.label}</li>
         </ol>
