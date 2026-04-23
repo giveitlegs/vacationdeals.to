@@ -23,9 +23,14 @@ const FORCE = process.argv.includes("--force");
 const LIMIT_ARG = process.argv.find((a) => a.startsWith("--limit="));
 const LIMIT = LIMIT_ARG ? parseInt(LIMIT_ARG.split("=")[1], 10) : 999;
 
-const apiKey = process.env.ANTHROPIC_API_KEY;
+// Accept any of the common variable-name variants the user might have in .env
+const apiKey =
+  process.env.ANTHROPIC_API_KEY ||
+  process.env.ANTHROPIC_API ||
+  process.env.anthropic_API ||
+  process.env.anthropic_api_key;
 if (!apiKey) {
-  console.error("ANTHROPIC_API_KEY required");
+  console.error("ANTHROPIC_API_KEY (or anthropic_API / ANTHROPIC_API) required in env");
   process.exit(1);
 }
 
