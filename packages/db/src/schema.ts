@@ -402,6 +402,28 @@ export const sublanders = pgTable(
   (t) => [uniqueIndex("sublanders_city_modifier_idx").on(t.citySlug, t.modifierSlug)],
 );
 
+// ── Core Web Vitals ──────────────────────────────────────
+// Stores PageSpeed Insights results per URL+device. Each run adds a new row
+// (history) so trends can be charted. Admin at /admin/cwv shows latest.
+export const cwvResults = pgTable("cwv_results", {
+  id: serial("id").primaryKey(),
+  url: text("url").notNull(),
+  strategy: varchar("strategy", { length: 20 }).notNull(), // "mobile" | "desktop"
+  // Core Web Vitals (milliseconds for timing, unitless for CLS)
+  lcp: decimal("lcp", { precision: 10, scale: 2 }),  // largest contentful paint (ms)
+  cls: decimal("cls", { precision: 6, scale: 4 }),    // cumulative layout shift (unitless)
+  inp: decimal("inp", { precision: 10, scale: 2 }),   // interaction to next paint (ms)
+  fcp: decimal("fcp", { precision: 10, scale: 2 }),   // first contentful paint (ms)
+  ttfb: decimal("ttfb", { precision: 10, scale: 2 }), // time to first byte (ms)
+  // Lighthouse category scores (0-100 integer, from PSI's 0-1 float * 100)
+  performanceScore: integer("performance_score"),
+  accessibilityScore: integer("accessibility_score"),
+  bestPracticesScore: integer("best_practices_score"),
+  seoScore: integer("seo_score"),
+  errorMessage: text("error_message"),
+  checkedAt: timestamp("checked_at").defaultNow().notNull(),
+});
+
 // ── Ad Banners ──────────────────────────────────────────
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),
