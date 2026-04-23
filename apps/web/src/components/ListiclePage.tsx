@@ -1,65 +1,19 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { DealCard } from "@/components/DealCard";
+import type { Deal } from "@/components/DealCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FAQSchema } from "@/components/FAQSchema";
-import { getDeals } from "@/lib/queries";
-import { LISTICLES } from "@/lib/listicles";
 import type { ListicleConfig } from "@/lib/listicles";
 
-export const revalidate = 3600; // 1h
-
 interface Props {
-  params: Promise<{ city: string; year: string }>;
+  cfg: ListicleConfig;
+  deals: Deal[];
 }
 
-export async function generateStaticParams() {
-  return LISTICLES.map((l) => ({ city: l.citySlug, year: String(l.year) }));
-}
-
-function findConfig(city: string, year: string): ListicleConfig | undefined {
-  return LISTICLES.find((l) => l.citySlug === city && String(l.year) === year);
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { city, year } = await params;
-  const cfg = findConfig(city, year);
-  if (!cfg) return { title: "Not Found" };
-
-  const title = `10 Best Vacation Deals in ${cfg.cityName} ${year} — Live Rankings`;
-  const description = `Top 10 vacation deals in ${cfg.cityName}, ${cfg.stateOrCountry} for ${year}. Ranked by price, quality, and inclusions. Live data — refreshed every 6 hours.`;
-
-  return {
-    title,
-    description,
-    alternates: { canonical: `https://vacationdeals.to/best-vacation-deals-${city}-${year}` },
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      url: `https://vacationdeals.to/best-vacation-deals-${city}-${year}`,
-    },
-  };
-}
-
-export default async function ListiclePage({ params }: Props) {
-  const { city, year } = await params;
-  const cfg = findConfig(city, year);
-  if (!cfg) notFound();
-
-  const result = await getDeals({
-    destinationSlug: cfg.citySlug,
-    limit: 10,
-    sortBy: "price-asc",
-  });
-  const deals = result?.deals ?? [];
-
-  const canonical = `https://vacationdeals.to/best-vacation-deals-${city}-${year}`;
+export function ListiclePage({ cfg, deals }: Props) {
+  const canonical = `https://vacationdeals.to/best-vacation-deals-${cfg.citySlug}-${cfg.year}`;
   const introParagraphs = cfg.intro.split(/\n{2,}/).filter(Boolean);
 
-  // Schema emission: JSON-LD is generated from our own config + DB, never user input.
-  // dangerouslySetInnerHTML is the Next.js standard pattern for <script type="application/ld+json">.
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [

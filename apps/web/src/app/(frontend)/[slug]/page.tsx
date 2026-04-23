@@ -18,11 +18,14 @@ import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog-types";
 import type { BlogPost } from "@/lib/blog-types";
 import { BlogPostRenderer } from "@/components/BlogPost";
 import { SublanderPage } from "@/components/SublanderPage";
+import { ListiclePage } from "@/components/ListiclePage";
 import { CityModifierSubnav } from "@/components/CityModifierSubnav";
 import { MODIFIERS, CITY_SUBLANDERS, PRIORITY_CITIES, getModifiersForCity, parseSublanderSlug } from "@vacationdeals/shared";
 import type { Modifier } from "@vacationdeals/shared";
 import { getSublanderOverride } from "@/lib/sublander-overrides";
 import { EN_TO_ES } from "@/lib/i18n/es-destinations";
+import { LISTICLES } from "@/lib/listicles";
+import type { ListicleConfig } from "@/lib/listicles";
 
 export const dynamic = "force-dynamic"; // Always server-render with fresh DB data
 export const revalidate = 0;
@@ -130,7 +133,8 @@ type SlugType =
   | { type: "duration"; data: (typeof durations)[number] }
   | { type: "blog"; data: BlogPost }
   | { type: "sublander"; data: SublanderData }
-  | { type: "rate-recap-brand"; data: RateRecapBrandData };
+  | { type: "rate-recap-brand"; data: RateRecapBrandData }
+  | { type: "listicle"; data: ListicleConfig };
 
 // Long-form brand slug aliases → canonical short slug.
 // Users and external links often reference the full brand name; resolve
@@ -160,6 +164,13 @@ const REGIONAL_ALIASES: Record<string, string> = {
 };
 
 async function resolveSlug(slug: string): Promise<SlugType | null> {
+  // 0a. Check listicle pattern `best-vacation-deals-{city}-{year}` FIRST
+  // (before sublander parser which could eat parts of this slug).
+  if (slug.startsWith("best-vacation-deals-")) {
+    const cfg = LISTICLES.find((l) => slug === `best-vacation-deals-${l.citySlug}-${l.year}`);
+    if (cfg) return { type: "listicle", data: cfg };
+  }
+
   // 0. Check rate-recap-{brand} pattern
   if (slug.startsWith("rate-recap-")) {
     const brandSlug = slug.replace("rate-recap-", "");
@@ -332,6 +343,12 @@ async function getDealsForSlug(
         sortBy: modifier.filter.sort ?? "price-asc",
       });
     }
+    case "listicle":
+      return getDeals({
+        destinationSlug: resolved.data.citySlug,
+        limit: 10,
+        sortBy: "price-asc",
+      });
     default:
       return null;
   }
@@ -364,6 +381,11 @@ export async function generateStaticParams() {
     for (const mod of mods) {
       params.push({ slug: `${city}-${mod}` });
     }
+  }
+
+  // City listicles (best-vacation-deals-{city}-{year})
+  for (const l of LISTICLES) {
+    params.push({ slug: `best-vacation-deals-${l.citySlug}-${l.year}` });
   }
 
   // Blog posts
@@ -576,6 +598,18 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
         openGraph: { title, description, type: "website", url: `${baseUrl}/rate-recap-${brandSlug}` },
       };
     }
+    case "listicle": {
+      const cfg = resolved.data;
+      const canonical = `${baseUrl}/best-vacation-deals-${cfg.citySlug}-${cfg.year}`;
+      const title = `10 Best Vacation Deals in ${cfg.cityName} ${cfg.year} — Live Rankings`;
+      const description = `Top 10 vacation deals in ${cfg.cityName}, ${cfg.stateOrCountry} for ${cfg.year}. Ranked by price, quality, and inclusions. Live data — refreshed every 6 hours.`;
+      return {
+        title,
+        description,
+        alternates: { canonical },
+        openGraph: { title, description, type: "article", url: canonical },
+      };
+    }
   }
 }
 
@@ -650,6 +684,8 @@ export default async function SlugPage({ params }: SlugPageProps) {
         />
       );
     }
+    case "listicle":
+      return <ListiclePage cfg={resolved.data} deals={deals} />;
   }
 }
 
