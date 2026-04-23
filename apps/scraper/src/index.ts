@@ -38,6 +38,7 @@ import { runMassannutenCrawler } from "./crawlers/massanutten";
 import { runIWantToTravelToCrawler } from "./crawlers/iwanttotravelto";
 import { runVacationOfferCrawler } from "./crawlers/vacation-offer";
 import { runMargaritavilleCrawler } from "./crawlers/margaritaville";
+import { runPayvibeCrawler } from "./crawlers/payvibe";
 import { deactivateExpiredDeals, getRunStats } from "./storage/deal-store";
 import { db } from "@vacationdeals/db";
 import { scrapeRuns, sources } from "@vacationdeals/db";
@@ -130,6 +131,7 @@ const crawlers: Record<string, () => Promise<void>> = {
   iwanttotravelto: runIWantToTravelToCrawler,
   "vacation-offer": runVacationOfferCrawler,
   margaritaville: runMargaritavilleCrawler,
+  payvibe: runPayvibeCrawler,
 };
 
 async function main() {
