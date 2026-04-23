@@ -83,7 +83,17 @@ export $(cat .env | xargs)
 pm2 delete vacationdeals-web; pm2 start "pnpm start" --name vacationdeals-web --cwd /var/www/vacationdeals/apps/web
 pm2 save
 ```
-- Cron: `0 */6 * * *` runs all scrapers every 6 hours
+- Cron schedule (via `crontab -e` on VPS):
+  - `0 */6 * * *` — Wave 1 scrapers + verify-prices
+  - `15 */6 * * *` — Wave 2 scrapers
+  - `30 */12 * * *` — Wave 3 scrapers
+  - `45 6,18 * * *` — Wave 4 scrapers
+  - `0 2 * * *` — Wave 5 scrapers (nightly)
+  - `0 3 * * *` — Deal health check
+  - `30 8,20 * * *` — AI deal review generation (50 deals/run, twice daily after Wave 4)
+  - `0 4 */2 * *` — SEO audit
+  - `0 5 */2 * *` — RSS submission
+- AI review log at `/var/log/vacdeals-reviews.log` rotated weekly (keeps 4 weeks)
 - SSL: Let's Encrypt via Certbot, auto-renewing
 - Nginx: Reverse proxy on port 80/443 → localhost:3000
 
