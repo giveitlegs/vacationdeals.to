@@ -45,7 +45,7 @@ const ATTRACTIONS: Attraction[] = [
     barker: "Wish you weren't here. Personalized for maximum dread.",
     gradient: "from-purple-800 via-violet-900 to-indigo-900",
     emoji: "🎭",
-    live: false,
+    live: true,
   },
   {
     slug: "blood-oath",
@@ -53,7 +53,7 @@ const ATTRACTIONS: Attraction[] = [
     barker: "One spin alone. Take the oath with a friend, get another.",
     gradient: "from-red-900 via-black to-red-950",
     emoji: "🗡️",
-    live: false,
+    live: true,
   },
   {
     slug: "court",
@@ -61,7 +61,7 @@ const ATTRACTIONS: Attraction[] = [
     barker: "You stand accused of Willful Overwork. The jury decides.",
     gradient: "from-amber-700 via-yellow-800 to-amber-900",
     emoji: "⚖️",
-    live: false,
+    live: true,
   },
   {
     slug: "lost-resort",
@@ -69,7 +69,7 @@ const ATTRACTIONS: Attraction[] = [
     barker: "A resort that doesn't officially exist. Sign the NDA.",
     gradient: "from-stone-700 via-neutral-800 to-zinc-900",
     emoji: "🗂️",
-    live: false,
+    live: true,
   },
   {
     slug: "cult",
@@ -77,7 +77,7 @@ const ATTRACTIONS: Attraction[] = [
     barker: "Renounce your calendar. Take your sacred vacation.",
     gradient: "from-orange-200 via-amber-300 to-yellow-400",
     emoji: "🕯️",
-    live: false,
+    live: true,
   },
   {
     slug: "confessional",
@@ -85,7 +85,7 @@ const ATTRACTIONS: Attraction[] = [
     barker: "The booth must know who you are to grant absolution.",
     gradient: "from-indigo-900 via-purple-900 to-indigo-950",
     emoji: "⛪",
-    live: false,
+    live: true,
   },
 ];
 

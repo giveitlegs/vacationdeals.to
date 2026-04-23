@@ -156,11 +156,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
-  // Vacation Carnival attractions (live only)
+  // Vacation Carnival attractions
+  const carnivalAttractions = [
+    "pto-debt",
+    "severance",
+    "cursed-trip",
+    "blood-oath",
+    "court",
+    "lost-resort",
+    "cult",
+    "confessional",
+  ];
   const carnivalPages = [
     { url: `${baseUrl}/vacation-carnival`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
-    { url: `${baseUrl}/vacation-carnival/pto-debt`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.6 },
-    { url: `${baseUrl}/vacation-carnival/severance`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.6 },
+    ...carnivalAttractions.map((slug) => ({
+      url: `${baseUrl}/vacation-carnival/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    })),
   ];
 
   return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...sublanderPages, ...spanishPages, ...carnivalPages];

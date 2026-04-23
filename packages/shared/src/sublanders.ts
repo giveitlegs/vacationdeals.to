@@ -63,61 +63,89 @@ export const CITY_BLURB_POOLS: Record<string, string[]> = {
     "Every major timeshare brand operates an Orlando flagship, which means the supply of preview packages here is deeper than anywhere else in the country. On a typical week we track 80 to 100 active Orlando deals, from Kissimmee to Lake Buena Vista to International Drive.",
     "Orlando runs on preview inventory. Disney's close enough to justify the stay, Universal's closer, and the weather cooperates roughly eight months a year — which is why $59 and $79 Orlando vacpacks never quite run out.",
     "Nothing else moves vacation packages like Orlando does. With Walt Disney World, Universal Epic Universe, and a half-dozen springs within driving distance, the resorts here have no trouble filling preview rooms at 80%+ off rack.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   "las-vegas": [
     "Vegas is the other great vacpack market. Westgate Las Vegas Resort & Casino, Club Wyndham Grand Desert, and HGV on the Boulevard all run presentations off the Strip, and the deals follow a predictable cycle — weekend prices climb, mid-week stays collapse to $79-$99.",
     "Las Vegas vacpacks are engineered for the mid-week traveler. Most Vegas previews are 2- or 3-night Sunday-through-Wednesday stays, which lets the resorts fill rooms that would otherwise sit empty. That's why the Strip-adjacent deal floor here is $59.",
     "Vegas vacpacks include a twist most cities don't: gambling credit. Many Club Wyndham and Westgate packages add $50-$200 in table play or resort credit when you finish the presentation, which softens the 90-minute tradeoff considerably.",
     "The Las Vegas timeshare complex is bigger than most visitors realize — Westgate, Wyndham, HGV, Marriott, Hilton, and Worldmark all pitch off the Strip. That competition keeps preview prices permanently low and the inclusions generous.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   gatlinburg: [
     "Gatlinburg's timeshare market is dominated by Westgate Smoky Mountain Resort and Wild Bear Inn, both running preview rates that include their in-house waterpark. It's one of the few cabin-style vacpack markets in the country.",
     "Great Smoky Mountains National Park runs right up to Gatlinburg, and the preview resorts here lean into the cabin aesthetic — fireplace suites, wraparound decks, and indoor/outdoor pools are standard. Deals run $59-$99 off-season.",
     "Gatlinburg vacpacks peak in fall during leaf season — and that's when the price premium hits. Summer and winter weeks usually deliver $59 Westgate deals plus Wild Bear Falls waterpark access.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   "myrtle-beach": [
     "Myrtle Beach's Grand Strand has oceanfront vacpack inventory year-round. Westgate, Bluegreen, Hilton Grand Vacations, and Spinnaker all run preview rates here, and the off-season prices are some of the lowest beach deals in the country.",
     "If you want a cheap beach week, Myrtle Beach is usually the answer. The 60-mile Grand Strand is dense with timeshare resorts, and the preview packages rotate through $59, $79, and $99 price points depending on travel dates.",
     "Most Myrtle Beach vacpacks are 3 or 4 nights from Sunday to Thursday, which dodges the peak weekend pricing. Pair that with the oceanfront room category most brands offer and you're at a full beach vacation for under $200.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   branson: [
     "Branson has a surprisingly deep vacpack market for its size — Westgate Branson Lakes Resort runs year-round previews with entertainment-hub bonuses (free show tickets bundled into some packages). Most deals here are $59 to $99 for 2-3 nights.",
     "The Ozarks draw timeshare traffic because Branson's live-entertainment economy is built for short stays. That's why the preview resorts here — primarily Westgate — keep 2- and 3-night vacpack rates low and steady.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   williamsburg: [
     "Williamsburg's colonial character pulls history travelers, and the timeshare resorts lean into it. Westgate, Bluegreen, and Holiday Inn Club all run preview rates here, often bundling Busch Gardens or Colonial Williamsburg tickets into the package.",
     "Between Busch Gardens, Water Country USA, and Colonial Williamsburg, there's easily a week of activities in greater Williamsburg. Vacpacks here tend to be 3- to 5-night stays priced from $79.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   "cocoa-beach": [
     "Cocoa Beach is Florida's Space Coast — oceanfront surfing, Kennedy Space Center, and a steady stream of timeshare previews, especially from Westgate and Vacation Village. Prices start at $59 for 3-night stays.",
     "If you want Florida beach access without Orlando traffic, Cocoa Beach is the move. The oceanfront resorts here run vacation previews that sit around $59-$99 for 3 nights, with direct beach access in most units.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   cancun: [
     "Cancun vacpacks are all-inclusive territory. Most Cancun preview packages bundle meals, drinks, and airport transfers into the base price, which is why the headline rate climbs to $399-$699 but still undercuts anything you'd book direct.",
     "The Cancun market is split between direct-booked resort previews and broker packages (BookVIP, Monster Reservations, StayPromo). Either way, you're getting all-inclusive 4-5 night stays at 70%+ off retail.",
+  
+    "bundles", "specials", "timeshare-promotions", "flight-and-hotel",
   ],
   "puerto-vallarta": [
     "Puerto Vallarta's preview market is dominated by Villa Group and Pueblo Bonito — both running all-inclusive vacpacks that bundle meals and beach-club access. Deals hit $499-$699 for 4 nights, which is less than a single night at most oceanfront Mexican resorts.",
     "Pacific-coast Mexico vacpacks in Puerto Vallarta trend toward luxury: private beach clubs, sunset cruises, and concierge service are standard inclusions, which is why the entry price is higher than Cancun.",
+  
+    "bundles", "specials", "timeshare-promotions", "flight-and-hotel",
   ],
   "cabo-san-lucas": [
     "Cabo's preview market is smaller and pricier than Cancun's, but the properties are top-tier. Pueblo Bonito, Villa Group, and TAFER all run 4-night all-inclusive vacpacks from $699 — still well under typical Cabo nightly rates.",
     "Cabo vacpacks are engineered for sport-fishing and beach-club travelers. Most 4-night packages include airport transfers, unlimited meals and premium drinks, and access to golf, pools, and excursions.",
+  
+    "bundles", "specials", "timeshare-promotions", "flight-and-hotel",
   ],
   "punta-cana": [
     "Punta Cana's Bahia Principe and broker packages (BookVIP, StayPromo) deliver 4-5 night all-inclusive vacpacks from $499. The Caribbean beach, pool complexes, and unlimited meals get included on the base price.",
+  
+    "bundles", "specials", "timeshare-promotions", "flight-and-hotel",
   ],
   "daytona-beach": [
     "Daytona's beach is a 23-mile hard-packed expanse, and the timeshare resorts here run $59-$99 vacpacks that include oceanfront room categories. Preview inventory stays consistent through the year.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   nashville: [
     "Nashville's preview market is growing but still small compared to Orlando or Vegas. Most deals here start at $99 for 2-3 night stays, with Holiday Inn Club and Wyndham running the bulk of the inventory.",
   ],
   charleston: [
     "Charleston's historic downtown plus Wild Dunes and Kiawah Island means the preview market here is a mix of in-town boutique and beach resorts. Deals run $79-$199 for 3 nights.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   "park-city": [
     "Park City's ski preview market runs peak-season pricing ($199-$399 for 3 nights), but shoulder-season vacpacks drop to $99. Westgate Park City is the anchor, with ski-in/ski-out units included in most packages.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   "lake-tahoe": [
     "Lake Tahoe preview inventory splits between winter ski vacpacks and summer lake-access packages. Off-peak weeks from Sunday-Thursday routinely hit $99 for 3 nights.",
@@ -128,24 +156,38 @@ export const CITY_BLURB_POOLS: Record<string, string[]> = {
   maui: [
     "Maui preview inventory is dominated by Hilton Grand Vacations' Ocean Tower on Ka'anapali Beach. 4-night vacpacks from $599-$899 — a fraction of the $549+ public nightly rate. Premium brand, gentle presentation.",
     "Hawaii's Maui market is small but high-value. HGV and Marriott Vacation Club both operate preview programs on Ka'anapali, with beachfront suites, whale-watching seasons, and 50,000+ Hilton Honors point bonuses bundled in.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   "hilton-head": [
     "Hilton Head's upscale beach vacpacks come from Marriott's Monarch at Sea Pines and a handful of Westgate/Bluegreen oceanfront properties. $199-$349 for 3-4 nights with golf + beach access.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   "ormond-beach": [
     "Ormond Beach sits just north of Daytona with calmer beaches and lower vacpack prices. Westgate and Vacation Village both run $99-$149 3-night stays year-round.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   "new-smyrna-beach": [
     "New Smyrna Beach is Florida's secret surf town with preview inventory from Vacation Village at Weston Beach Resort. 3-night stays from $99-$179.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   cozumel: [
     "Cozumel all-inclusive vacpacks leverage the island's snorkel and dive scene. Bahia Principe Grand Cozumel and Occidental Cozumel both run preview packages from $599-$899 for 4-5 nights.",
+  
+    "bundles", "specials", "timeshare-promotions", "flight-and-hotel",
   ],
   atlanta: [
     "Atlanta has a small but growing preview market anchored by Club Wyndham Atlanta. Most vacpacks here are 2-3 night urban packages from $149-$249 — ideal for events and short getaways.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
   "river-ranch": [
     "Westgate River Ranch is a unique dude-ranch-style Florida preview resort. 3-night vacpacks from $99 include horseback riding, archery, and a working-ranch experience not found at other timeshare properties.",
+  
+    "bundles", "specials", "timeshare-promotions",
   ],
 };
 
@@ -829,6 +871,74 @@ export const MODIFIERS: Record<string, Modifier> = {
       "Adults-only vacpacks in {{city}} lean into the couples and group-trip market. {{dealCount}} adults-only or adult-leaning packages are live from \\${{lowPrice}}.\n\n{{cityBlurb}}\n\nVillas-section properties within all-inclusive resorts frequently operate adults-only with separate pool and bar access. Las Vegas off-Strip vacpacks are inherently adult-focused.",
     faqs: [
       { q: "Are kids allowed at adults-only resorts?", a: "No — these properties enforce 18+ or 21+ minimums. If booking for a group, confirm all travelers meet the age minimum." },
+      faqDeposit,
+    ],
+  },
+
+  // ===================== DataForSEO-discovered modifiers (high commercial volume) =====================
+  "bundles": {
+    slug: "bundles",
+    label: "Vacation Bundles",
+    h1Fragment: "Vacation Bundles",
+    metaBlurb: "vacation bundles",
+    type: "interest",
+    chipLabel: "Bundles",
+    filter: { sort: "price-asc" },
+    introTemplate:
+      "{{city}} vacation bundles combine resort stays with add-ons — car rental, dining credits, event tickets, or spa. {{dealCount}} bundled packages are live from \\${{lowPrice}}.\n\n{{cityBlurb}}\n\nThe bundle math usually beats booking each piece separately by 15-30%, and the resort handles the coordination so you're not juggling 3 confirmation numbers.",
+    faqs: [
+      { q: "What's typically bundled?", a: "Resort stay + one or more of: car rental, dining credit, spa credit, event ticket, airport transfer. Every bundle is different — confirm inclusions at booking." },
+      { q: "Can I unbundle?", a: "Not usually. Bundles are priced as a unit; separating pieces loses the discount." },
+      { q: "Is the bundle cheaper than booking separately?", a: "Usually 15-30% less. Always run the math — check each item's retail price before assuming." },
+      faqDeposit,
+    ],
+  },
+  "specials": {
+    slug: "specials",
+    label: "Current Specials",
+    h1Fragment: "Current Specials",
+    metaBlurb: "current vacation specials",
+    type: "occasion",
+    chipLabel: "Specials",
+    filter: { sort: "price-asc" },
+    introTemplate:
+      "{{city}} vacation specials are time-bound promotional packages — flash sales, seasonal drops, or just-announced deals. {{dealCount}} current specials are live from \\${{lowPrice}}.\n\n{{cityBlurb}}",
+    faqs: [
+      { q: "How long do specials last?", a: "Most specials run 7-30 days. Some are week-of-booking only. Confirm expiration at booking." },
+      { q: "Can I combine specials?", a: "Rarely. Most resorts limit to one promotional rate per booking." },
+      faqDeposit,
+    ],
+  },
+  "timeshare-promotions": {
+    slug: "timeshare-promotions",
+    label: "Timeshare Promotions",
+    h1Fragment: "Timeshare Promotions",
+    metaBlurb: "timeshare promotion",
+    type: "interest",
+    chipLabel: "Promotions",
+    filter: { sort: "price-asc" },
+    introTemplate:
+      "{{city}} timeshare promotions are the industry term for vacpack preview stays. {{dealCount}} promotional packages from \\${{lowPrice}} — you attend a 90-minute sales presentation, they cover the lion's share of the resort rate.\n\n{{cityBlurb}}",
+    faqs: [
+      { q: "Are 'timeshare promotions' the same as 'vacpacks'?", a: "Yes — different words for the same product. The industry calls them preview stays, promotions, or sampler packages." },
+      { q: "Is there any obligation to buy?", a: "No. The presentation is the only tradeoff; purchase is entirely optional." },
+      faqDeposit,
+    ],
+  },
+  "flight-and-hotel": {
+    slug: "flight-and-hotel",
+    label: "Flight + Hotel",
+    h1Fragment: "(Flight + Hotel)",
+    metaBlurb: "flight and hotel bundle",
+    type: "interest",
+    chipLabel: "Flight+Hotel",
+    filter: { sort: "price-asc" },
+    applicableCities: ["cancun", "cabo-san-lucas", "puerto-vallarta", "punta-cana", "cozumel", "maui", "nassau"],
+    introTemplate:
+      "Flight + hotel bundles for {{city}} combine airfare with resort preview pricing. {{dealCount}} packages from \\${{lowPrice}} — often bundled via broker partners (BookVIP, Apple Vacations).\n\n{{cityBlurb}}",
+    faqs: [
+      { q: "Are flights from my airport included?", a: "Most bundles originate from major US hubs (ATL, DFW, MIA, ORD, LAX, JFK). Feeder markets may require separate connector fare." },
+      { q: "Can I choose my own flight times?", a: "Limited. Bundle fares are usually on the operator's preferred carrier and time window." },
       faqDeposit,
     ],
   },
