@@ -5,80 +5,99 @@ import type { ScrapedDeal } from "@vacationdeals/shared";
 /**
  * PayVibe Travel crawler (travel.payvibe.com).
  *
- * PayVibe is a promotional vacation package site — React SPA backed by a
- * POST API with a dynamic secret key. Rather than fight the API auth layer,
- * we render the page in Playwright and scrape the DOM after hydration.
+ * PayVibe is a React SPA backed by a POST API with a dynamic secret key.
+ * We render the page in Playwright and scrape `.deal-container` cards
+ * after hydration — avoids the API auth layer entirely.
  *
- * Listing URL: https://travel.payvibe.com/
- * Detail URL:  https://travel.payvibe.com/deals-detail/{id}-global-solutions/{hash?}
+ * Card text format (empirical, from inspection):
+ *   CITY NAME, STATE/COUNTRY VACATION/HOTEL/GETAWAY\n
+ *   DURATION CITY NAME ...\n
+ *   -DISCOUNT%\n
+ *   $ORIGINAL\n
+ *   $DISCOUNTED\n
+ *   DESCRIPTION\n
+ *   View
  */
 
 const BASE_URL = "https://travel.payvibe.com";
 const LISTING_URL = `${BASE_URL}/`;
 
-function parsePrice(text: string): number | null {
-  const match = text.match(/\$\s*([\d,]+(?:\.\d{2})?)/);
-  if (!match) return null;
-  const n = parseFloat(match[1].replace(/,/g, ""));
-  return Number.isFinite(n) && n > 0 ? n : null;
-}
-
-function parseNights(text: string): { nights: number; days: number } | null {
-  const nightsMatch = text.match(/(\d+)\s*nights?/i);
-  const daysMatch = text.match(/(\d+)\s*days?/i);
-  if (!nightsMatch && !daysMatch) return null;
-  const nights = nightsMatch ? parseInt(nightsMatch[1], 10) : (daysMatch ? parseInt(daysMatch[1], 10) - 1 : 0);
-  const days = daysMatch ? parseInt(daysMatch[1], 10) : nights + 1;
-  if (nights < 1 || nights > 14) return null;
-  return { nights, days };
-}
-
-const CITY_LOOKUP: Record<string, { state?: string; country: string }> = {
-  "orlando": { state: "FL", country: "US" },
-  "las vegas": { state: "NV", country: "US" },
-  "gatlinburg": { state: "TN", country: "US" },
-  "myrtle beach": { state: "SC", country: "US" },
-  "branson": { state: "MO", country: "US" },
-  "daytona beach": { state: "FL", country: "US" },
-  "williamsburg": { state: "VA", country: "US" },
-  "cocoa beach": { state: "FL", country: "US" },
-  "hilton head": { state: "SC", country: "US" },
-  "miami": { state: "FL", country: "US" },
-  "nashville": { state: "TN", country: "US" },
-  "fort lauderdale": { state: "FL", country: "US" },
-  "virginia beach": { state: "VA", country: "US" },
-  "san diego": { state: "CA", country: "US" },
-  "san antonio": { state: "TX", country: "US" },
-  "galveston": { state: "TX", country: "US" },
-  "key west": { state: "FL", country: "US" },
-  "cancun": { country: "MX" },
-  "cabo san lucas": { country: "MX" },
-  "puerto vallarta": { country: "MX" },
-  "cozumel": { country: "MX" },
-  "punta cana": { country: "DR" },
+const CITY_LOOKUP: Record<string, { canonical: string; state?: string; country: string }> = {
+  "orlando": { canonical: "Orlando", state: "FL", country: "US" },
+  "las vegas": { canonical: "Las Vegas", state: "NV", country: "US" },
+  "gatlinburg": { canonical: "Gatlinburg", state: "TN", country: "US" },
+  "myrtle beach": { canonical: "Myrtle Beach", state: "SC", country: "US" },
+  "branson": { canonical: "Branson", state: "MO", country: "US" },
+  "daytona beach": { canonical: "Daytona Beach", state: "FL", country: "US" },
+  "williamsburg": { canonical: "Williamsburg", state: "VA", country: "US" },
+  "cocoa beach": { canonical: "Cocoa Beach", state: "FL", country: "US" },
+  "hilton head": { canonical: "Hilton Head", state: "SC", country: "US" },
+  "hilton head island": { canonical: "Hilton Head", state: "SC", country: "US" },
+  "miami": { canonical: "Miami", state: "FL", country: "US" },
+  "nashville": { canonical: "Nashville", state: "TN", country: "US" },
+  "fort lauderdale": { canonical: "Fort Lauderdale", state: "FL", country: "US" },
+  "virginia beach": { canonical: "Virginia Beach", state: "VA", country: "US" },
+  "san diego": { canonical: "San Diego", state: "CA", country: "US" },
+  "san antonio": { canonical: "San Antonio", state: "TX", country: "US" },
+  "galveston": { canonical: "Galveston", state: "TX", country: "US" },
+  "key west": { canonical: "Key West", state: "FL", country: "US" },
+  "new orleans": { canonical: "New Orleans", state: "LA", country: "US" },
+  "panama city beach": { canonical: "Panama City Beach", state: "FL", country: "US" },
+  "pigeon forge": { canonical: "Pigeon Forge", state: "TN", country: "US" },
+  "cancun": { canonical: "Cancun", country: "MX" },
+  "cabo san lucas": { canonical: "Cabo San Lucas", country: "MX" },
+  "cabo": { canonical: "Cabo San Lucas", country: "MX" },
+  "puerto vallarta": { canonical: "Puerto Vallarta", country: "MX" },
+  "cozumel": { canonical: "Cozumel", country: "MX" },
+  "punta cana": { canonical: "Punta Cana", country: "DR" },
 };
 
-function resolveLocation(city: string): { city: string; state?: string; country: string } {
-  const key = city.toLowerCase().trim();
-  const meta = CITY_LOOKUP[key] ?? { country: "US" };
-  const titleCase = city
-    .split(/\s+/)
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-    .join(" ");
-  return { city: titleCase, ...meta };
+function detectCity(text: string): { city: string; state?: string; country: string } | null {
+  const hay = text.toLowerCase();
+  // Longest-match wins (so "hilton head island" beats "hilton head")
+  const sortedKeys = Object.keys(CITY_LOOKUP).sort((a, b) => b.length - a.length);
+  for (const key of sortedKeys) {
+    if (hay.includes(key)) {
+      const { canonical, state, country } = CITY_LOOKUP[key];
+      return { city: canonical, state, country };
+    }
+  }
+  return null;
 }
 
-interface CardInfo {
-  href: string;
+function extractPrices(text: string): { original: number | null; discounted: number | null } {
+  // Collect all $NNN or $NNN.NN values in order
+  const matches = [...text.matchAll(/\$\s*([\d,]+(?:\.\d{2})?)/g)].map((m) =>
+    parseFloat(m[1].replace(/,/g, "")),
+  ).filter((n) => Number.isFinite(n) && n > 0);
+  if (matches.length === 0) return { original: null, discounted: null };
+  if (matches.length === 1) return { original: null, discounted: matches[0] };
+  // PayVibe always shows the original first, discounted second
+  return { original: matches[0], discounted: matches[1] };
+}
+
+function extractNights(text: string): { nights: number; days: number } {
+  // "5 DAYS, 4 NIGHTS" | "2-3-OR 4-NIGHT" | "3 nights"
+  const nightsMatch = text.match(/(\d+)\s*(?:night|nights|NIGHT|NIGHTS)/);
+  const daysMatch = text.match(/(\d+)\s*(?:day|days|DAY|DAYS)/);
+  const nights = nightsMatch ? parseInt(nightsMatch[1], 10) : 0;
+  const days = daysMatch ? parseInt(daysMatch[1], 10) : nights + 1;
+  if (nights >= 1 && nights <= 14) return { nights, days };
+  // Fallback: 3n/4d
+  return { nights: 3, days: 4 };
+}
+
+interface RawCard {
   text: string;
-  imageUrl: string;
+  href: string;
+  imgSrc: string;
 }
 
 export async function runPayvibeCrawler(): Promise<void> {
   const seen = new Set<string>();
 
   const crawler = new PlaywrightCrawler({
-    maxRequestsPerCrawl: 50,
+    maxRequestsPerCrawl: 5,
     maxConcurrency: 1,
     requestHandlerTimeoutSecs: 60,
     navigationTimeoutSecs: 45,
@@ -93,49 +112,53 @@ export async function runPayvibeCrawler(): Promise<void> {
       log.info(`PayVibe: ${request.url}`);
 
       await page.waitForLoadState("networkidle", { timeout: 30000 }).catch(() => {});
-      await page.waitForSelector('a[href*="/deals-detail/"]', { timeout: 20000 }).catch(() => {});
+      await page.waitForSelector(".deal-container", { timeout: 20000 }).catch(() => {});
 
-      const cards: CardInfo[] = await page.evaluate(() => {
-        const links = Array.from(document.querySelectorAll('a[href*="/deals-detail/"]'));
-        return links.map((a) => {
-          const anchor = a as HTMLAnchorElement;
-          const href = anchor.getAttribute("href") || "";
-          const card = (anchor.closest("article") || anchor.closest("div[class*=card]") || anchor.closest("div")) as HTMLElement | null;
-          const text = card?.innerText || anchor.innerText || "";
-          const img = card?.querySelector("img");
-          const imageUrl = img?.getAttribute("src") || img?.getAttribute("data-src") || "";
-          return { href, text, imageUrl };
+      const cards: RawCard[] = await page.evaluate(() => {
+        return Array.from(document.querySelectorAll(".deal-container")).map((el) => {
+          const card = el as HTMLElement;
+          const link = card.querySelector('a[href*="/deals-detail/"]') as HTMLAnchorElement | null;
+          const img = card.querySelector("img") as HTMLImageElement | null;
+          return {
+            text: card.innerText || "",
+            href: link?.href || "",
+            imgSrc: img?.src || "",
+          };
         });
       });
 
-      log.info(`PayVibe: ${cards.length} card links found`);
+      log.info(`PayVibe: ${cards.length} deal cards found`);
 
+      let stored = 0;
       for (const card of cards) {
-        const fullUrl = card.href.startsWith("http") ? card.href : `${BASE_URL}${card.href}`;
-        if (seen.has(fullUrl)) continue;
+        if (!card.href || seen.has(card.href)) continue;
 
-        const price = parsePrice(card.text);
-        const duration = parseNights(card.text);
-
-        // Site uses uppercase titles: "FORT LAUDERDALE VACATION FOR 4" → "Fort Lauderdale"
-        const titleMatch = card.text.match(/^([A-Z][A-Z\s,]+?)(?:\s+VACATION|\s+GETAWAY|\s+RESORT|\n|$)/m);
-        const rawCity = titleMatch?.[1]?.trim().replace(/,.*$/, "") || null;
-        if (!rawCity || !price) {
-          log.debug(`PayVibe: skipping card (city=${rawCity}, price=${price})`);
+        const loc = detectCity(card.text);
+        if (!loc) {
+          log.debug(`PayVibe: skipped (no known city) — ${card.text.split("\n")[0]}`);
           continue;
         }
 
-        seen.add(fullUrl);
-        const loc = resolveLocation(rawCity);
+        const { original, discounted } = extractPrices(card.text);
+        if (!discounted) {
+          log.debug(`PayVibe: skipped (no price) — ${loc.city}`);
+          continue;
+        }
+
+        const { nights, days } = extractNights(card.text);
+        const title = card.text.split("\n")[0].trim().slice(0, 200);
+
+        seen.add(card.href);
 
         const deal: ScrapedDeal = {
-          title: `${loc.city} Vacation Package`,
-          price,
-          durationNights: duration?.nights ?? 3,
-          durationDays: duration?.days ?? 4,
-          description: `Promotional vacation package in ${loc.city} via PayVibe.`,
-          url: fullUrl,
-          imageUrl: card.imageUrl.startsWith("http") ? card.imageUrl : undefined,
+          title: title || `${loc.city} Vacation Package`,
+          price: discounted,
+          originalPrice: original ?? undefined,
+          durationNights: nights,
+          durationDays: days,
+          description: card.text.split("\n").slice(0, 5).join(" ").slice(0, 400),
+          url: card.href,
+          imageUrl: card.imgSrc.startsWith("http") ? card.imgSrc : undefined,
           city: loc.city,
           state: loc.state,
           country: loc.country,
@@ -143,8 +166,11 @@ export async function runPayvibeCrawler(): Promise<void> {
         };
 
         await storeDeal(deal, "payvibe");
-        log.info(`PayVibe: stored ${deal.title} ($${deal.price}, ${deal.durationNights}n)`);
+        stored++;
+        log.info(`PayVibe: stored ${deal.title.slice(0, 50)} ($${deal.price}, ${deal.durationNights}n, ${deal.city})`);
       }
+
+      log.info(`PayVibe: ${stored}/${cards.length} cards stored`);
     },
 
     failedRequestHandler({ request, log }) {
