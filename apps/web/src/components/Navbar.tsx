@@ -22,6 +22,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [rateRecapOpen, setRateRecapOpen] = useState(false);
   const [gamesOpen, setGamesOpen] = useState(false);
+  const [carnivalOpen, setCarnivalOpen] = useState(false);
   const [destinationsOpen, setDestinationsOpen] = useState(false);
   const [showPlayNow, setShowPlayNow] = useState(false);
 
@@ -176,6 +177,52 @@ export function Navbar() {
               )}
             </div>
 
+            {/* Vacation Carnival dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setCarnivalOpen(true)}
+              onMouseLeave={() => setCarnivalOpen(false)}
+            >
+              <Link href="/vacation-carnival" className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-purple-600">
+                <span className="text-base">🎪</span>
+                <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent font-semibold">Carnival</span>
+              </Link>
+              {carnivalOpen && (
+                <div className="absolute left-0 top-full z-50 w-60 pt-2">
+                  <div className="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
+                    <Link href="/vacation-carnival" className="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50 hover:text-purple-600">
+                      All Attractions
+                    </Link>
+                    <div className="my-1 border-t border-gray-100" />
+                    <Link href="/vacation-carnival/pto-debt" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
+                      💸 PTO Debt Calculator
+                    </Link>
+                    <Link href="/vacation-carnival/severance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
+                      📄 Severance Packet
+                    </Link>
+                    <Link href="/vacation-carnival/cursed-trip" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
+                      🔮 Cursed Trip Quiz
+                    </Link>
+                    <Link href="/vacation-carnival/blood-oath" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
+                      🩸 Blood Oath
+                    </Link>
+                    <Link href="/vacation-carnival/court" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
+                      ⚖️ Vacation Court
+                    </Link>
+                    <Link href="/vacation-carnival/lost-resort" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
+                      🗺️ The Lost Resort
+                    </Link>
+                    <Link href="/vacation-carnival/cult" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
+                      🕯️ The Cult
+                    </Link>
+                    <Link href="/vacation-carnival/confessional" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
+                      🙏 The Confessional
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Resort Roulette with spinning wheel + PLAY NOW */}
             <div className="relative">
               <Link
@@ -247,6 +294,15 @@ export function Navbar() {
                 { href: "/vacpack-games/59-challenge", label: "  → $59 Challenge" },
                 { href: "/vacpack-games/time-machine", label: "  → Time Machine" },
                 { href: "/vacpack-games/scratch-off", label: "  → Scratch-Off" },
+                { href: "/vacation-carnival", label: "\u{1F3AA} Vacation Carnival" },
+                { href: "/vacation-carnival/pto-debt", label: "  → PTO Debt Calculator" },
+                { href: "/vacation-carnival/severance", label: "  → Severance Packet" },
+                { href: "/vacation-carnival/cursed-trip", label: "  → Cursed Trip Quiz" },
+                { href: "/vacation-carnival/blood-oath", label: "  → Blood Oath" },
+                { href: "/vacation-carnival/court", label: "  → Vacation Court" },
+                { href: "/vacation-carnival/lost-resort", label: "  → The Lost Resort" },
+                { href: "/vacation-carnival/cult", label: "  → The Cult" },
+                { href: "/vacation-carnival/confessional", label: "  → The Confessional" },
               ].map((link) => (
                 <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
                   className="rounded-lg px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600">
