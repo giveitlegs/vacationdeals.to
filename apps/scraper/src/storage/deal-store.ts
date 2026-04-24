@@ -449,16 +449,20 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pag
       break;
     } catch (e) {
       const msg = (e as Error).message || "";
-      // Unique-constraint collision on slug (or url). Bump suffix and retry.
-      if (msg.includes("deals_slug_unique") || msg.includes("deals_url_unique")) {
-        retries++;
-        const nextSuffix = (dealSlug.match(/-v(\d+)$/)?.[1] ?? "1");
-        dealSlug = `${baseSlug}-v${parseInt(nextSuffix, 10) + retries + 1}`;
+      // Unique-constraint collision on slug or url. Constraint names can be
+      // either `deals_slug_unique`/`deals_url_unique` (explicit unique) or
+      // `deals_slug_idx`/`deals_url_idx` (implicit unique via index).
+      const slugConflict = msg.includes("deals_slug_unique") || msg.includes("deals_slug_idx");
+      const urlConflict = msg.includes("deals_url_unique") || msg.includes("deals_url_idx");
+      if (slugConflict || urlConflict) {
         // If URL already exists, the other promise won the race — just return its id.
-        if (msg.includes("deals_url_unique")) {
+        if (urlConflict) {
           const winner = await db.query.deals.findFirst({ where: eq(deals.url, scrapedDeal.url) });
           if (winner) return winner.id;
         }
+        retries++;
+        const nextSuffix = (dealSlug.match(/-v(\d+)$/)?.[1] ?? "1");
+        dealSlug = `${baseSlug}-v${parseInt(nextSuffix, 10) + retries + 1}`;
         continue;
       }
       throw e;
