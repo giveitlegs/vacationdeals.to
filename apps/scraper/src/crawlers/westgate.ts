@@ -531,6 +531,9 @@ export async function runWestgateCrawler() {
         if (href.startsWith("/")) {
           href = `https://www.westgatereservations.com${href}`;
         }
+        // Skip /es/ Spanish URL variants — they duplicate the English
+        // specials and would store ~180 redundant rows.
+        if (href.includes("/es/")) return;
         // Only enqueue individual deal pages, not destination pages
         if (
           href.includes("/specials/") &&
