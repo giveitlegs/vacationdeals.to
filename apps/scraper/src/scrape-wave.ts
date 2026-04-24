@@ -31,6 +31,7 @@
  */
 
 import { deactivateExpiredDeals } from "./storage/deal-store";
+import { purgeDefaultStorages } from "crawlee";
 
 // ── Crawler imports ─────────────────────────────────────────────────────────
 
@@ -153,6 +154,16 @@ async function runWave(waveNumber: number) {
 
     console.log(`\n--- ${source} ---`);
     const crawlerStart = Date.now();
+
+    // Purge Crawlee's shared request queue between crawlers in the same
+    // wave. Without this, the second crawler inherits the first crawler's
+    // "seen URL" state and skips everything, completing in 0.2s with 0
+    // requests processed (observed on BookVIP/HGV after 2026-04-09).
+    try {
+      await purgeDefaultStorages();
+    } catch (e) {
+      console.warn(`[wave${waveNumber}] storage purge failed (continuing): ${(e as Error).message}`);
+    }
 
     try {
       await crawler();
