@@ -407,38 +407,64 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pag
     }
   }
 
-  // Insert new deal
-  const [newDeal] = await db
-    .insert(deals)
-    .values({
-      brandId: brand?.id || null,
-      destinationId: destination?.id || null,
-      sourceId: source?.id || null,
-      title: scrapedDeal.title,
-      slug: dealSlug,
-      price: String(scrapedDeal.price),
-      originalPrice: scrapedDeal.originalPrice
-        ? String(scrapedDeal.originalPrice)
-        : null,
-      durationNights: scrapedDeal.durationNights,
-      durationDays: scrapedDeal.durationDays,
-      description: scrapedDeal.description || null,
-      resortName: scrapedDeal.resortName || null,
-      url: scrapedDeal.url,
-      imageUrl: scrapedDeal.imageUrl || null,
-      inclusions: scrapedDeal.inclusions
-        ? JSON.stringify(scrapedDeal.inclusions)
-        : null,
-      requirements: scrapedDeal.requirements
-        ? JSON.stringify(scrapedDeal.requirements)
-        : null,
-      presentationMinutes: scrapedDeal.presentationMinutes || null,
-      travelWindow: scrapedDeal.travelWindow || null,
-      savingsPercent: scrapedDeal.savingsPercent || null,
-      isActive: !expired,
-      expiresAt: expiresAt ?? null,
-    })
-    .returning();
+  // Insert new deal — retry with incremented -vN suffix if a concurrent
+  // storeDeal (e.g., StayPromo fires storeDeal promises without awaiting)
+  // raced us to the same slug between our lookup and our insert.
+  let newDeal: { id: number } | undefined;
+  let retries = 0;
+  while (retries < 10) {
+    try {
+      const inserted = await db
+        .insert(deals)
+        .values({
+          brandId: brand?.id || null,
+          destinationId: destination?.id || null,
+          sourceId: source?.id || null,
+          title: scrapedDeal.title,
+          slug: dealSlug,
+          price: String(scrapedDeal.price),
+          originalPrice: scrapedDeal.originalPrice
+            ? String(scrapedDeal.originalPrice)
+            : null,
+          durationNights: scrapedDeal.durationNights,
+          durationDays: scrapedDeal.durationDays,
+          description: scrapedDeal.description || null,
+          resortName: scrapedDeal.resortName || null,
+          url: scrapedDeal.url,
+          imageUrl: scrapedDeal.imageUrl || null,
+          inclusions: scrapedDeal.inclusions
+            ? JSON.stringify(scrapedDeal.inclusions)
+            : null,
+          requirements: scrapedDeal.requirements
+            ? JSON.stringify(scrapedDeal.requirements)
+            : null,
+          presentationMinutes: scrapedDeal.presentationMinutes || null,
+          travelWindow: scrapedDeal.travelWindow || null,
+          savingsPercent: scrapedDeal.savingsPercent || null,
+          isActive: !expired,
+          expiresAt: expiresAt ?? null,
+        })
+        .returning();
+      newDeal = inserted[0];
+      break;
+    } catch (e) {
+      const msg = (e as Error).message || "";
+      // Unique-constraint collision on slug (or url). Bump suffix and retry.
+      if (msg.includes("deals_slug_unique") || msg.includes("deals_url_unique")) {
+        retries++;
+        const nextSuffix = (dealSlug.match(/-v(\d+)$/)?.[1] ?? "1");
+        dealSlug = `${baseSlug}-v${parseInt(nextSuffix, 10) + retries + 1}`;
+        // If URL already exists, the other promise won the race — just return its id.
+        if (msg.includes("deals_url_unique")) {
+          const winner = await db.query.deals.findFirst({ where: eq(deals.url, scrapedDeal.url) });
+          if (winner) return winner.id;
+        }
+        continue;
+      }
+      throw e;
+    }
+  }
+  if (!newDeal) throw new Error(`storeDeal: exceeded retry limit for ${scrapedDeal.title}`);
 
   // Record initial price (only for active deals to keep chart clean)
   if (!expired) {
