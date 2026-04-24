@@ -108,18 +108,20 @@ async function main() {
   console.log(`\nReport: ${OUT}`);
   console.log(`\nDead URLs (4xx/5xx/timeout): ${dead.length}`);
 
-  if (FIX && dead.length > 0) {
-    console.log(`\n--fix: deactivating ${dead.length} deals with dead URLs...`);
-    const ids = dead.map((d) => d.id);
-    // Chunked updates
-    const chunkSize = 100;
-    for (let i = 0; i < ids.length; i += chunkSize) {
-      const chunk = ids.slice(i, i + chunkSize);
-      for (const id of chunk) {
-        await db.update(deals).set({ isActive: false, updatedAt: new Date() }).where(eq(deals.id, id));
-      }
-      console.log(`  Deactivated ${Math.min(i + chunkSize, ids.length)}/${ids.length}`);
+  if (FIX) {
+    // Only deactivate definitive 404s. Skip 403 (likely bot-block, real
+    // users see the page) and 0/timeout (transient). Skip 5xx (often
+    // transient server errors).
+    const toDeactivate = (byStatus.get(404) || []).concat(
+      (byStatus.get(410) || []), // 410 Gone = intentionally removed
+    );
+    console.log(`\n--fix: deactivating ${toDeactivate.length} deals with 404/410 URLs...`);
+    for (let i = 0; i < toDeactivate.length; i++) {
+      await db.update(deals).set({ isActive: false, updatedAt: new Date() }).where(eq(deals.id, toDeactivate[i].id));
+      if ((i + 1) % 20 === 0) console.log(`  ${i + 1}/${toDeactivate.length}`);
     }
+    console.log(`  Deactivated ${toDeactivate.length}.`);
+    console.log(`\nKept active (not deactivated): 403 (${(byStatus.get(403) || []).length}), timeout (${(byStatus.get(0) || []).length}), other (${dead.length - toDeactivate.length - (byStatus.get(403) || []).length - (byStatus.get(0) || []).length})`);
   }
 
   process.exit(0);
