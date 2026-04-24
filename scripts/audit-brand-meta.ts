@@ -47,20 +47,35 @@ interface MetaFacts {
 }
 
 function extractMeta(html: string): string | null {
+  // Merge content from all known meta sources — some brands only have
+  // og:title (Departure Depot), some only og:description (Westgate/MRG),
+  // some have both. Concatenating gives parsers the best chance.
   const patterns = [
     /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
     /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i,
+    /<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i,
+    /<meta\s+name=["']twitter:title["']\s+content=["']([^"']+)["']/i,
+    /<meta\s+name=["']twitter:description["']\s+content=["']([^"']+)["']/i,
+    /<title[^>]*>([^<]+)<\/title>/i,
   ];
+  const fragments: string[] = [];
+  const seen = new Set<string>();
   for (const p of patterns) {
     const m = html.match(p);
-    if (m) return m[1]
-      .replace(/&amp;/g, "&")
-      .replace(/&#039;/g, "'")
-      .replace(/&quot;/g, '"')
-      .replace(/&#8209;/g, "-")
-      .replace(/‑/g, "-"); // non-breaking hyphen
+    if (m) {
+      const cleaned = m[1]
+        .replace(/&amp;/g, "&")
+        .replace(/&#039;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&#8209;/g, "-")
+        .replace(/‑/g, "-");
+      if (!seen.has(cleaned)) {
+        seen.add(cleaned);
+        fragments.push(cleaned);
+      }
+    }
   }
-  return null;
+  return fragments.length > 0 ? fragments.join(" • ") : null;
 }
 
 function priceFromMeta(text: string): number | null {
