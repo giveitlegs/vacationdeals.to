@@ -245,16 +245,31 @@ function nightsFromMeta(text: string): { nights: number; days: number } | null {
 function isRotatingOrGenericUrl(url: string): boolean {
   const lower = url.toLowerCase();
   const patterns = [
-    /\/travel-deal-tuesday\//,
-    /\/cyber-monday/,
-    /\/black-friday/,
-    /\/summer-sale/,
-    /\/memorial-day/,
-    /\/labor-day/,
+    // Rotating / seasonal promo pages (match anywhere in the slug, not just
+    // after /, because many URLs are "/specials/orlando-memorial-day/" etc)
+    /travel-deal-tuesday/,
+    /cyber-monday/,
+    /black-friday/,
+    /summer-sale/,
+    /memorial-day/,
+    /labor-day/,
+    /veterans-day/,
+    /easter-vacation/,
+    /easter-getaway/,
+    /easter-deal/,
+    /valentines-day-getaway/,
+    /halloween-getaway/,
     // Generic city-price patterns like /specials/orlando-189/, /specials/orlando-59/
-    // (these are rotating/aggregate landers, not specific packages)
     /\/specials\/(orlando|branson|vegas|gatlinburg|myrtle-beach)-\d+\//,
     /\/view-exclusive-offer/,
+    // Category / audience / theme pages that advertise "from $99" but aren't
+    // a specific package (Westgate APP_DATA includes them as "specials").
+    // Detected by keyword groups in the URL slug.
+    /\/specials\/[^/]*\b(?:cheap|budget|last-minute|kid-friendly|family-friendly|honeymoon-packages|military-vacation|holiday-packages|for-couples|for-every-traveler)\b[^/]*\//,
+    /\/specials\/[^/]*-packages-[^/]*\//,       // e.g. "budget-kid-friendly-vacation-packages-orlando"
+    /\/specials\/[^/]*-packages\/?$/,            // e.g. "florida-honeymoon-packages"
+    /\/specials\/[^/]*-trips\/?$/,               // e.g. "cheap-florida-trips"
+    /\/specials\/florida-[^/]+\//,               // catch-all "florida-*" category pages
   ];
   return patterns.some((p) => p.test(lower));
 }
