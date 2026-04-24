@@ -301,6 +301,12 @@ export async function runWestgateCrawler() {
               matching.nights = metaNights!.nights;
               matching.days = metaNights!.days;
             }
+            // Important: remove from processed set so the specials loop
+            // re-stores with the corrected numbers. The homepage pass
+            // already marked it processed with stale APP_DATA values.
+            if (stalePrice || staleNights) {
+              processedSpecialIds.delete(matching.special_id);
+            }
           }
         }
       }
