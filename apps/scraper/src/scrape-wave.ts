@@ -31,7 +31,8 @@
  */
 
 import { deactivateExpiredDeals } from "./storage/deal-store";
-import { purgeDefaultStorages } from "crawlee";
+import { spawn } from "node:child_process";
+import path from "node:path";
 
 // ── Crawler imports ─────────────────────────────────────────────────────────
 
@@ -131,6 +132,30 @@ const WAVES: Record<number, string[]> = {
 
 // ── Runner ──────────────────────────────────────────────────────────────────
 
+/**
+ * Run one crawler as a child process via index.ts --source=<slug>. Process
+ * isolation guarantees each crawler starts with a fresh Crawlee in-memory
+ * state (request queue, session pool, key-value store). Without this, the
+ * second crawler in a wave sees the first's "seen-URL" state and does 0
+ * work.
+ */
+function runInChildProcess(source: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const scraperDir = path.resolve(__dirname, "..");
+    const proc = spawn("npx", ["tsx", "src/index.ts", `--source=${source}`], {
+      cwd: scraperDir,
+      stdio: "inherit",
+      env: process.env,
+      shell: process.platform === "win32",
+    });
+    proc.on("error", reject);
+    proc.on("exit", (code) => {
+      if (code === 0) resolve();
+      else reject(new Error(`child exited with code ${code}`));
+    });
+  });
+}
+
 async function runWave(waveNumber: number) {
   const sources = WAVES[waveNumber];
   if (!sources) {
@@ -140,14 +165,17 @@ async function runWave(waveNumber: number) {
   }
 
   console.log(`\n=== Wave ${waveNumber}: ${sources.join(", ")} ===\n`);
+
+  // no-op reference to keep CRAWLERS map exported for type/registry checks
+  void CRAWLERS;
+
   const startTime = Date.now();
   let succeeded = 0;
   let failed = 0;
 
   for (const source of sources) {
-    const crawler = CRAWLERS[source];
-    if (!crawler) {
-      console.error(`[wave${waveNumber}] No crawler found for: ${source}`);
+    if (!CRAWLERS[source]) {
+      console.error(`[wave${waveNumber}] No crawler registered for: ${source}`);
       failed++;
       continue;
     }
@@ -155,18 +183,13 @@ async function runWave(waveNumber: number) {
     console.log(`\n--- ${source} ---`);
     const crawlerStart = Date.now();
 
-    // Purge Crawlee's shared request queue between crawlers in the same
-    // wave. Without this, the second crawler inherits the first crawler's
-    // "seen URL" state and skips everything, completing in 0.2s with 0
-    // requests processed (observed on BookVIP/HGV after 2026-04-09).
+    // Run each crawler as its own child process. Crawlee's default request
+    // queue + session pool are in-memory singletons — sharing them across
+    // crawlers caused BookVIP/HGV to observe "already-seen" URLs from the
+    // prior crawler and finish with 0 requests. Child-process isolation
+    // gives each crawler a fresh Crawlee state.
     try {
-      await purgeDefaultStorages();
-    } catch (e) {
-      console.warn(`[wave${waveNumber}] storage purge failed (continuing): ${(e as Error).message}`);
-    }
-
-    try {
-      await crawler();
+      await runInChildProcess(source);
       const elapsed = ((Date.now() - crawlerStart) / 1000).toFixed(1);
       console.log(`[${source}] Completed in ${elapsed}s`);
       succeeded++;
