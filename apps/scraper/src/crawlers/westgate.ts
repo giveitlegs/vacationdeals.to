@@ -176,9 +176,13 @@ function specialToAbsoluteUrl(urlField: string): string {
  *   "4-Day Resort stay plus $200 VISA Gift Card ... From $519."
  */
 function extractMetaDescription(html: string): string | null {
+  // Prefer <meta name="description"> — that's the canonical SEO tag with the
+  // headline price ("4-Day stay from $199"). <meta og:description> is often
+  // longer marketing copy that may mention different bundled prices
+  // (e.g. "package + $100 gift card for only $99") leading to false matches.
   const patterns = [
-    /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
     /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i,
+    /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
   ];
   for (const p of patterns) {
     const m = html.match(p);
@@ -254,7 +258,11 @@ export async function runWestgateCrawler() {
   const processedResortIds = new Set<number>();
   const processedSpecialIds = new Set<number>();
   const crawler = new CheerioCrawler({
-    maxRequestsPerCrawl: 150,
+    // Raised from 150 — Westgate has ~85 specials + ~15 resorts + category
+    // pages + destination pages. 150 was hitting the cap before every
+    // detail page got visited, so DOM-corrections missed deals like
+    // /specials/4-days-3-nights-6-disney-tickets/.
+    maxRequestsPerCrawl: 250,
     async requestHandler({ request, $, body, log }) {
       log.info(`Scraping ${request.url}`);
 
