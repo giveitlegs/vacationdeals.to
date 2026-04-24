@@ -38,8 +38,15 @@ async function headUrl(url: string): Promise<number> {
     });
     clearTimeout(timer);
     return res.status;
-  } catch {
-    return 0;
+  } catch (e) {
+    // Distinguish DNS failures (host truly dead) from transient timeouts.
+    // Node's fetch surfaces DNS as "ENOTFOUND" or cause.code === "ENOTFOUND".
+    const err = e as { cause?: { code?: string }; message?: string };
+    const msg = `${err.message ?? ""} ${err.cause?.code ?? ""}`;
+    if (msg.includes("ENOTFOUND") || msg.includes("EAI_AGAIN")) {
+      return -1; // DNS-dead
+    }
+    return 0; // connection error or timeout
   }
 }
 
@@ -114,8 +121,9 @@ async function main() {
     // transient server errors).
     const toDeactivate = (byStatus.get(404) || []).concat(
       (byStatus.get(410) || []), // 410 Gone = intentionally removed
+      (byStatus.get(-1) || []),  // DNS failure (ENOTFOUND) — host no longer exists
     );
-    console.log(`\n--fix: deactivating ${toDeactivate.length} deals with 404/410 URLs...`);
+    console.log(`\n--fix: deactivating ${toDeactivate.length} deals with 404/410/DNS-dead URLs...`);
     for (let i = 0; i < toDeactivate.length; i++) {
       await db.update(deals).set({ isActive: false, updatedAt: new Date() }).where(eq(deals.id, toDeactivate[i].id));
       if ((i + 1) % 20 === 0) console.log(`  ${i + 1}/${toDeactivate.length}`);
