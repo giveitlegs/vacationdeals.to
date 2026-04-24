@@ -155,22 +155,57 @@ function extractDestinationDeal(
   const bodyText = $.text();
   const location = parseDestinationSlug(slug);
 
-  // --- Extract price ---
-  // Patterns: "$199/Room", "$99/Room", "Package Price: $199", "$199 Per Room"
+  // --- Prefer the server-rendered <meta description> as source of truth ---
+  // MRG's meta tags carry canonical "from $XXX ... X days, Y nights" copy
+  // that reliably reflects the current package. Body-text parsing has been
+  // drifty (picking up the wrong dollar amount or night count).
+  const metaDesc =
+    $('meta[property="og:description"]').attr("content") ||
+    $('meta[name="description"]').attr("content") ||
+    "";
   let price: number | null = null;
+  let durationDays = 5;
+  let durationNights = 4;
 
-  const pricePatterns = [
-    /\$(\d{1,4})(?:\s*\/\s*Room|\s*Per\s*Room)/i,
-    /Package\s*Price[:\s]*\$(\d{1,4})/i,
-    /Starting\s*(?:At|From)\s*\$(\d{1,4})/i,
-    /\$(\d{1,4})\s*(?:per\s+(?:room|person|package))/i,
-  ];
+  const metaPriceMatch = metaDesc.match(
+    /(?:from|for(?:\s+just)?|only|starting\s+(?:at|from))\s+\$\s*([\d,]+)/i,
+  );
+  if (metaPriceMatch) {
+    const n = parseInt(metaPriceMatch[1].replace(/,/g, ""), 10);
+    if (n >= 50 && n <= 5000) price = n;
+  }
+  const metaNightsMatch = metaDesc.match(/(\d+)\s*days?[\s,&\/-]+\s*(\d+)\s*nights?/i);
+  if (metaNightsMatch) {
+    durationDays = parseInt(metaNightsMatch[1], 10);
+    durationNights = parseInt(metaNightsMatch[2], 10);
+  } else {
+    const onlyNights = metaDesc.match(/(\d+)[\s-]?nights?/i);
+    if (onlyNights) {
+      durationNights = parseInt(onlyNights[1], 10);
+      durationDays = durationNights + 1;
+    } else {
+      const onlyDays = metaDesc.match(/(\d+)[\s-]?days?/i);
+      if (onlyDays) {
+        durationDays = parseInt(onlyDays[1], 10);
+        durationNights = durationDays - 1;
+      }
+    }
+  }
 
-  for (const pat of pricePatterns) {
-    const m = bodyText.match(pat);
-    if (m) {
-      price = parseInt(m[1]);
-      break;
+  // --- Fall back to body-text scraping for price if meta didn't give us one
+  if (!price) {
+    const pricePatterns = [
+      /\$(\d{1,4})(?:\s*\/\s*Room|\s*Per\s*Room)/i,
+      /Package\s*Price[:\s]*\$(\d{1,4})/i,
+      /Starting\s*(?:At|From)\s*\$(\d{1,4})/i,
+      /\$(\d{1,4})\s*(?:per\s+(?:room|person|package))/i,
+    ];
+    for (const pat of pricePatterns) {
+      const m = bodyText.match(pat);
+      if (m) {
+        price = parseInt(m[1]);
+        break;
+      }
     }
   }
 
@@ -188,17 +223,17 @@ function extractDestinationDeal(
     return null;
   }
 
-  // --- Extract duration ---
-  // Pattern: "6 Days, 5 Nights" or "5 Days & 4 Nights" or "5 days, 4 nights"
-  let durationDays = 5;
-  let durationNights = 4;
-
-  const durationMatch = bodyText.match(
-    /(\d+)\s*Days?\s*[,&/]\s*(\d+)\s*Nights?/i
-  );
-  if (durationMatch) {
-    durationDays = parseInt(durationMatch[1]);
-    durationNights = parseInt(durationMatch[2]);
+  // --- Extract duration (body text fallback — only if meta didn't set it) ---
+  // Note: durationDays / durationNights were already set from meta above.
+  // This block only runs if the meta lookup above kept the default (5/4).
+  if (durationDays === 5 && durationNights === 4 && !metaDesc) {
+    const durationMatch = bodyText.match(
+      /(\d+)\s*Days?\s*[,&/]\s*(\d+)\s*Nights?/i,
+    );
+    if (durationMatch) {
+      durationDays = parseInt(durationMatch[1]);
+      durationNights = parseInt(durationMatch[2]);
+    }
   }
 
   // --- Extract resort names ---
@@ -638,12 +673,12 @@ export async function runMrgCrawler() {
       }
 
       // --- Bundle pages ---
+      // MRG bundles are multi-vacation collections (3-4 separate trips sold
+      // as one package). Storing them as single deals with summed nights
+      // (31-37 nights!) is misleading. Skip entirely — users should browse
+      // individual destination deals instead.
       if (url.includes("/bundles/") && !url.endsWith("/bundles/")) {
-        const deal = extractBundleDeal($, url, log);
-        if (deal) {
-          log.info(`Storing bundle deal: ${deal.title} @ $${deal.price}`);
-          await storeDeal(deal, "mrg", $.html());
-        }
+        log.info(`Skip bundle URL (multi-vacation package, not a single deal): ${url}`);
         return;
       }
 
