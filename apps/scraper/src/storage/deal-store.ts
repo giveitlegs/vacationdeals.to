@@ -307,9 +307,13 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pag
     where: eq(sources.scraperKey, sourceKey),
   });
 
-  const dealSlug = slugify(
-    `${scrapedDeal.brandSlug}-${scrapedDeal.city}-${scrapedDeal.durationNights}-night-${scrapedDeal.price}`,
+  // Build slug. On insert, a previously-inactive deal may still own the
+  // base slug — resolve by appending -v2, -v3, ... until a fresh slot exists.
+  // (The existing-deal update path later uses its own collision handling.)
+  const baseSlug = slugify(
+    `${scrapedDeal.brandSlug}-${scrapedDeal.city}-${scrapedDeal.durationNights}-night-${Math.trunc(scrapedDeal.price)}`,
   );
+  let dealSlug = baseSlug;
 
   // --- Expiration detection ---
   const { expired, expiresAt } = detectExpiration(scrapedDeal, pageText);
@@ -388,6 +392,19 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pag
       .where(eq(deals.id, existingDeal.id));
 
     return existingDeal.id;
+  }
+
+  // Fresh insert — resolve any slug collision with inactive-but-existing deals
+  // by appending -v2, -v3, ... up to 20 attempts before giving up.
+  {
+    let suffix = 1;
+    while (true) {
+      const holder = await db.query.deals.findFirst({ where: eq(deals.slug, dealSlug) });
+      if (!holder) break;
+      suffix++;
+      dealSlug = `${baseSlug}-v${suffix}`;
+      if (suffix > 20) break;
+    }
   }
 
   // Insert new deal
