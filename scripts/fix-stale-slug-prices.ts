@@ -38,36 +38,49 @@ async function main() {
 
   console.log(`Found ${data.length} deals with stale slug prices\n`);
 
-  const fixes: Array<{ id: number; oldSlug: string; newSlug: string }> = [];
+  // For dry-run, use a Set of already-assigned new slugs to detect in-batch
+  // collisions. For --apply, re-check DB each loop so we catch any collision
+  // caused by this run's own prior updates.
+  const assigned = new Set<string>();
+  let applied = 0;
+  let skipped = 0;
 
-  // Check for collisions in DB before applying
   for (const r of data) {
     const truncPrice = Math.trunc(Number(r.price));
-    let newSlug = r.slug.replace(/-\d+$/, `-${truncPrice}`);
+    const base = r.slug.replace(/-\d+$/, `-${truncPrice}`);
 
-    // Collision check
-    let suffix = 0;
+    // Collision check: try base, then -v2, -v3...
+    let newSlug = base;
+    let suffix = 1;
     while (true) {
-      const candidate = suffix === 0 ? newSlug : `${newSlug}-v${suffix + 1}`;
-      const exists = await db.select({ id: deals.id }).from(deals).where(eq(deals.slug, candidate)).limit(1);
-      if (exists.length === 0 || exists[0].id === r.id) {
-        newSlug = candidate;
-        break;
+      if (APPLY) {
+        const exists = await db.select({ id: deals.id }).from(deals).where(eq(deals.slug, newSlug)).limit(1);
+        if (exists.length === 0 || exists[0].id === r.id) break;
+      } else {
+        if (!assigned.has(newSlug)) break;
       }
       suffix++;
-      if (suffix > 5) { newSlug = `${newSlug}-v${r.id}`; break; } // bail
+      newSlug = `${base}-v${suffix}`;
+      if (suffix > 20) { newSlug = `${base}-v${r.id}`; break; }
     }
 
-    fixes.push({ id: r.id, oldSlug: r.slug, newSlug });
     console.log(`  [${r.id}] ${r.slug}  →  ${newSlug}`);
+
+    if (APPLY) {
+      try {
+        await db.update(deals).set({ slug: newSlug, updatedAt: new Date() }).where(eq(deals.id, r.id));
+        applied++;
+      } catch (e) {
+        console.log(`    SKIP (${(e as Error).message.split("\n")[0]})`);
+        skipped++;
+      }
+    } else {
+      assigned.add(newSlug);
+    }
   }
 
-  if (APPLY && fixes.length > 0) {
-    console.log(`\n--apply: updating ${fixes.length} slugs...`);
-    for (const f of fixes) {
-      await db.update(deals).set({ slug: f.newSlug, updatedAt: new Date() }).where(eq(deals.id, f.id));
-    }
-    console.log(`Applied ${fixes.length} updates.`);
+  if (APPLY) {
+    console.log(`\nDone. Applied=${applied} Skipped=${skipped}`);
   } else {
     console.log(`\nDry run complete. Pass --apply to execute.`);
   }
