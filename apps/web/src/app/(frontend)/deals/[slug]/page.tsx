@@ -745,15 +745,24 @@ export default async function DealPage({ params }: DealPageProps) {
               )}
             </div>
 
-            {/* CTA */}
-            <a
-              href={deal.url}
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className={`block w-full rounded-xl px-6 py-3.5 text-center text-base font-semibold text-white transition-colors ${deal.isActive ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 hover:bg-gray-500"}`}
-            >
-              {deal.isActive ? `View Deal on ${deal.brandName || "Provider Site"}` : "Check If Still Available"}
-            </a>
+            {/* CTA — inactive deals route to our brand page, not to a stale outbound link */}
+            {deal.isActive ? (
+              <a
+                href={deal.url}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="block w-full rounded-xl px-6 py-3.5 text-center text-base font-semibold text-white transition-colors bg-blue-600 hover:bg-blue-700"
+              >
+                View Deal on {deal.brandName || "Provider Site"}
+              </a>
+            ) : (
+              <a
+                href={deal.brandSlug ? `/${deal.brandSlug}` : "/deals"}
+                className="block w-full rounded-xl px-6 py-3.5 text-center text-base font-semibold text-white transition-colors bg-gray-500 hover:bg-gray-600"
+              >
+                See Current {deal.brandName || "Brand"} Deals
+              </a>
+            )}
 
             <p className="mt-3 text-center text-xs text-gray-400">
               {deal.isActive
