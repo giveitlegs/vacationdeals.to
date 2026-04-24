@@ -168,6 +168,68 @@ function specialToAbsoluteUrl(urlField: string): string {
  *   - /specials/exclusive-cyber-monday-discount/  — seasonal
  *   - /specials/sunshine-day-summer-sale/          — seasonal
  */
+/**
+ * Westgate detail pages have an H1 filled in by Angular (`{{data.special.title}}`)
+ * that isn't in the raw HTML. The reliable source of truth for price + nights
+ * is the server-rendered <meta description> / <meta og:description> tag, e.g.
+ *   "3-day/2-night Orlando Resort stay at Westgate Lakes ... From $329."
+ *   "4-Day Resort stay plus $200 VISA Gift Card ... From $519."
+ */
+function extractMetaDescription(html: string): string | null {
+  const patterns = [
+    /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
+    /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i,
+  ];
+  for (const p of patterns) {
+    const m = html.match(p);
+    if (m) return m[1].replace(/&amp;/g, "&").replace(/&#039;/g, "'").replace(/&quot;/g, '"');
+  }
+  return null;
+}
+
+function priceFromMeta(text: string): number | null {
+  const patterns = [
+    /(?:from|for(?:\s+just)?|only|starting\s+at)\s+\$\s*([\d,]+(?:\.\d{2})?)/i,
+    /\$\s*([\d,]+(?:\.\d{2})?)\s*(?:per\s+package|package)/i,
+  ];
+  for (const p of patterns) {
+    const m = text.match(p);
+    if (m) {
+      const n = parseFloat(m[1].replace(/,/g, ""));
+      if (Number.isFinite(n) && n >= 29 && n <= 5000) return n;
+    }
+  }
+  return null;
+}
+
+function nightsFromMeta(text: string): { nights: number; days: number } | null {
+  // "3-day/2-night", "4-Day/3-Night", "5-Day/4-Night"
+  const p1 = text.match(/(\d+)[-\s]?day\s*[\/,\-\s]+\s*(\d+)[-\s]?night/i);
+  if (p1) {
+    const days = parseInt(p1[1], 10);
+    const nights = parseInt(p1[2], 10);
+    if (days >= 2 && days <= 10 && nights >= 1 && nights <= 9) return { days, nights };
+  }
+  const p2 = text.match(/(\d+)[-\s]?night\s*[\/,\-\s]+\s*(\d+)[-\s]?day/i);
+  if (p2) {
+    const nights = parseInt(p2[1], 10);
+    const days = parseInt(p2[2], 10);
+    if (days >= 2 && days <= 10 && nights >= 1 && nights <= 9) return { days, nights };
+  }
+  const p3 = text.match(/(\d+)\s+days?\s+(\d+)\s+nights?/i);
+  if (p3) {
+    const days = parseInt(p3[1], 10);
+    const nights = parseInt(p3[2], 10);
+    if (days >= 2 && days <= 10 && nights >= 1 && nights <= 9) return { days, nights };
+  }
+  const p4 = text.match(/(\d+)[-\s]?nights?/i);
+  if (p4) {
+    const n = parseInt(p4[1], 10);
+    if (n >= 1 && n <= 9) return { nights: n, days: n + 1 };
+  }
+  return null;
+}
+
 function isRotatingOrGenericUrl(url: string): boolean {
   const lower = url.toLowerCase();
   const patterns = [
@@ -209,6 +271,53 @@ export async function runWestgateCrawler() {
       }
 
       const { destinations, resorts, specials } = appData;
+
+      // ── Detail-page DOM correction pass ─────────────────────────────────
+      // When we're on a specific deal's detail page, parse the server-rendered
+      // meta description and use its price + nights as truth. If APP_DATA
+      // said something different, the corrected ScrapedDeal from this pass
+      // overrides it (storeDeal upserts by URL). This handles cases where
+      // APP_DATA has drifted from the marketer's current hero copy.
+      if (isDetailPage) {
+        const meta = extractMetaDescription(html);
+        if (meta && specials) {
+          const matching = specials.find((s) => specialToAbsoluteUrl(s.url) === request.url);
+          if (matching) {
+            const metaPrice = priceFromMeta(meta);
+            const metaNights = nightsFromMeta(meta);
+            const stalePrice = metaPrice != null && Math.abs(metaPrice - matching.prices.discounted) > 1;
+            const staleNights = metaNights != null && metaNights.nights !== matching.nights;
+            if (stalePrice || staleNights) {
+              log.info(`DOM correction for ${request.url}: ${stalePrice ? `price ${matching.prices.discounted}→${metaPrice}` : ""} ${staleNights ? `nights ${matching.nights}→${metaNights!.nights}` : ""}`);
+              const destInfo = matching.destinations.length > 0
+                ? destIdToInfo(destinations, matching.destinations[0])
+                : null;
+              const corrected: ScrapedDeal = {
+                title: matching.title,
+                price: metaPrice ?? matching.prices.discounted,
+                originalPrice: matching.prices.retail,
+                durationNights: metaNights?.nights ?? matching.nights,
+                durationDays: metaNights?.days ?? matching.days,
+                description: matching.excerpt || meta,
+                url: request.url,
+                imageUrl: matching.thumbnails?.s || matching.thumbnails?.full,
+                inclusions: matching.package_includes?.map((p) => p.item),
+                savingsPercent: savingsPercent(matching.prices.retail, metaPrice ?? matching.prices.discounted),
+                travelWindow: "Book within 6 months",
+                city: destInfo?.city || "Multiple Destinations",
+                state: destInfo?.state,
+                country: "US",
+                brandSlug: "westgate",
+              };
+              try {
+                await storeDeal(corrected, "westgate", html);
+              } catch (err) {
+                log.error(`DOM correction store failed for ${request.url}: ${err}`);
+              }
+            }
+          }
+        }
+      }
 
       // ── Process specials (vacation packages) ────────────────────────────
       // NOTE: We process ALL specials regardless of `show` flag.

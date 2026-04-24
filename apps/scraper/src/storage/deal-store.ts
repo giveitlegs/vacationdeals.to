@@ -335,14 +335,40 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pag
     // signals, re-activate it (it may have been renewed).
     const isActive = !expired;
 
+    // Keep the slug accurate: if price or nights have drifted from the
+    // slug-embedded values, regenerate. Slug is part of our canonical URL,
+    // so drift causes "$180 in the slug but $165 on the page" confusion.
+    let updatedSlug: string | undefined;
+    const priceChanged = Math.trunc(Number(existingDeal.price)) !== Math.trunc(scrapedDeal.price);
+    const nightsChanged = existingDeal.durationNights !== scrapedDeal.durationNights;
+    if (priceChanged || nightsChanged) {
+      const base = slugify(
+        `${scrapedDeal.brandSlug}-${scrapedDeal.city}-${scrapedDeal.durationNights}-night-${Math.trunc(scrapedDeal.price)}`,
+      );
+      // Collision-safe
+      let candidate = base;
+      let suffix = 1;
+      while (true) {
+        const existing = await db.query.deals.findFirst({ where: eq(deals.slug, candidate) });
+        if (!existing || existing.id === existingDeal.id) break;
+        suffix++;
+        candidate = `${base}-v${suffix}`;
+        if (suffix > 20) { candidate = `${base}-id${existingDeal.id}`; break; }
+      }
+      if (candidate !== existingDeal.slug) updatedSlug = candidate;
+    }
+
     await db
       .update(deals)
       .set({
         title: scrapedDeal.title,
+        ...(updatedSlug ? { slug: updatedSlug } : {}),
         price: String(scrapedDeal.price),
         originalPrice: scrapedDeal.originalPrice
           ? String(scrapedDeal.originalPrice)
           : null,
+        durationNights: scrapedDeal.durationNights,
+        durationDays: scrapedDeal.durationDays,
         description: scrapedDeal.description || null,
         imageUrl: scrapedDeal.imageUrl || null,
         inclusions: scrapedDeal.inclusions

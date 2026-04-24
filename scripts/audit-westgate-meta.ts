@@ -229,7 +229,11 @@ async function main() {
   }
 
   if (FIX) {
-    const toFix = report.filter((r) => r.severity === "major" && r.metaText);
+    // Skip /resorts/ URLs — those meta descs contain nightly rates, not
+    // package prices, so "meta price" is apples-to-oranges.
+    const toFix = report.filter((r) =>
+      r.severity === "major" && r.metaText && !r.url.includes("/resorts/"),
+    );
     console.log(`\n--fix: correcting ${toFix.length} deals from meta data...`);
     for (const r of toFix) {
       const updates: Partial<{ price: string; durationNights: number; durationDays: number; slug: string; updatedAt: Date }> = { updatedAt: new Date() };
