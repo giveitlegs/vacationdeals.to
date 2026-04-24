@@ -62,3 +62,8 @@ next-env.d.ts
 admin-creds.txt
 .admin-creds
 *.creds
+
+# Target-site SF crawls contain competitor lander data — exclude from the
+# PUBLIC main repo. Private backup script mirrors them explicitly.
+reports/sf-crawls/*/
+!reports/sf-crawls/README.md

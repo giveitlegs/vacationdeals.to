@@ -64,6 +64,20 @@ git ls-files --modified --others --exclude-standard -z 2>/dev/null | while IFS= 
   cp -p "$f" "${BACKUP_DIR}/$f"
 done
 
+# Explicitly include gitignored but backup-worthy directories (competitor
+# intel, crawl snapshots) that must NEVER land in the public main repo.
+if [ -d "reports/sf-crawls" ]; then
+  echo "Including reports/sf-crawls/ (gitignored, private-only)..."
+  mkdir -p "${BACKUP_DIR}/reports"
+  # Mirror CSVs + README, skip large binaries and logs.
+  rsync -a --include='*/' \
+    --include='*.csv' --include='*.md' --include='*.json' \
+    --exclude='*' \
+    "reports/sf-crawls/" "${BACKUP_DIR}/reports/sf-crawls/" 2>/dev/null || \
+  (cd reports/sf-crawls && tar --exclude='*.seospider' --exclude='sf.log' -cf - .) | \
+    (cd "${BACKUP_DIR}/reports/sf-crawls" && tar -xf -)
+fi
+
 # ── 4. Defensive secret scan on the mirror ──
 cd "${BACKUP_DIR}"
 
