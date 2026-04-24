@@ -158,6 +158,33 @@ function specialToAbsoluteUrl(urlField: string): string {
   return `https://www.westgatereservations.com/specials/${slug}/`;
 }
 
+/**
+ * URLs whose content rotates or doesn't match a specific deal.
+ * Storing deals against these URLs is misleading because a user clicking
+ * through may see something completely different from what we advertised.
+ * Examples:
+ *   - /specials/travel-deal-tuesday/  — weekly rotating promo
+ *   - /specials/orlando-189/           — generic Orlando landing, no specific deal
+ *   - /specials/exclusive-cyber-monday-discount/  — seasonal
+ *   - /specials/sunshine-day-summer-sale/          — seasonal
+ */
+function isRotatingOrGenericUrl(url: string): boolean {
+  const lower = url.toLowerCase();
+  const patterns = [
+    /\/travel-deal-tuesday\//,
+    /\/cyber-monday/,
+    /\/black-friday/,
+    /\/summer-sale/,
+    /\/memorial-day/,
+    /\/labor-day/,
+    // Generic city-price patterns like /specials/orlando-189/, /specials/orlando-59/
+    // (these are rotating/aggregate landers, not specific packages)
+    /\/specials\/(orlando|branson|vegas|gatlinburg|myrtle-beach)-\d+\//,
+    /\/view-exclusive-offer/,
+  ];
+  return patterns.some((p) => p.test(lower));
+}
+
 // ── Main crawler ─────────────────────────────────────────────────────────────
 
 export async function runWestgateCrawler() {
@@ -196,6 +223,12 @@ export async function runWestgateCrawler() {
 
           // Enqueue the individual deal page for richer data
           const dealUrl = specialToAbsoluteUrl(special.url);
+
+          // Skip rotating-promo URLs: their content doesn't match APP_DATA
+          if (isRotatingOrGenericUrl(dealUrl)) {
+            log.info(`Skip rotating/generic URL: ${dealUrl}`);
+            continue;
+          }
           if (!enqueuedUrls.has(dealUrl)) {
             enqueuedUrls.add(dealUrl);
             await crawler.addRequests([{ url: dealUrl }]);
@@ -386,6 +419,7 @@ export async function runWestgateCrawler() {
           href.includes("/specials/") &&
           !isDestinationPage(href) &&
           href !== "https://www.westgatereservations.com/specials/" &&
+          !isRotatingOrGenericUrl(href) &&
           !enqueuedUrls.has(href)
         ) {
           enqueuedUrls.add(href);
