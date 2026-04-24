@@ -273,47 +273,33 @@ export async function runWestgateCrawler() {
       const { destinations, resorts, specials } = appData;
 
       // ── Detail-page DOM correction pass ─────────────────────────────────
-      // When we're on a specific deal's detail page, parse the server-rendered
-      // meta description and use its price + nights as truth. If APP_DATA
-      // said something different, the corrected ScrapedDeal from this pass
-      // overrides it (storeDeal upserts by URL). This handles cases where
-      // APP_DATA has drifted from the marketer's current hero copy.
-      if (isDetailPage) {
+      // When we're on a specific deal's detail page, the <meta og:description>
+      // carries the canonical price/nights that the marketer wants to show.
+      // APP_DATA (the Angular JSON blob) sometimes has stale numbers.
+      //
+      // Strategy: when we find a drift, FIX the `special` record in memory
+      // with the meta values. The specials loop below then stores the
+      // corrected numbers (APP_DATA-pathway and detail-pathway converge
+      // on the meta truth). This avoids a prior bug where we'd storeDeal()
+      // with corrected values here, then the specials loop would overwrite
+      // with APP_DATA values a few lines later.
+      if (isDetailPage && specials) {
         const meta = extractMetaDescription(html);
-        if (meta && specials) {
+        if (meta) {
           const matching = specials.find((s) => specialToAbsoluteUrl(s.url) === request.url);
           if (matching) {
             const metaPrice = priceFromMeta(meta);
             const metaNights = nightsFromMeta(meta);
             const stalePrice = metaPrice != null && Math.abs(metaPrice - matching.prices.discounted) > 1;
             const staleNights = metaNights != null && metaNights.nights !== matching.nights;
-            if (stalePrice || staleNights) {
-              log.info(`DOM correction for ${request.url}: ${stalePrice ? `price ${matching.prices.discounted}→${metaPrice}` : ""} ${staleNights ? `nights ${matching.nights}→${metaNights!.nights}` : ""}`);
-              const destInfo = matching.destinations.length > 0
-                ? destIdToInfo(destinations, matching.destinations[0])
-                : null;
-              const corrected: ScrapedDeal = {
-                title: matching.title,
-                price: metaPrice ?? matching.prices.discounted,
-                originalPrice: matching.prices.retail,
-                durationNights: metaNights?.nights ?? matching.nights,
-                durationDays: metaNights?.days ?? matching.days,
-                description: matching.excerpt || meta,
-                url: request.url,
-                imageUrl: matching.thumbnails?.s || matching.thumbnails?.full,
-                inclusions: matching.package_includes?.map((p) => p.item),
-                savingsPercent: savingsPercent(matching.prices.retail, metaPrice ?? matching.prices.discounted),
-                travelWindow: "Book within 6 months",
-                city: destInfo?.city || "Multiple Destinations",
-                state: destInfo?.state,
-                country: "US",
-                brandSlug: "westgate",
-              };
-              try {
-                await storeDeal(corrected, "westgate", html);
-              } catch (err) {
-                log.error(`DOM correction store failed for ${request.url}: ${err}`);
-              }
+            if (stalePrice) {
+              log.info(`DOM correction ${request.url}: price ${matching.prices.discounted}→${metaPrice}`);
+              matching.prices.discounted = metaPrice!;
+            }
+            if (staleNights) {
+              log.info(`DOM correction ${request.url}: nights ${matching.nights}→${metaNights!.nights}`);
+              matching.nights = metaNights!.nights;
+              matching.days = metaNights!.days;
             }
           }
         }
