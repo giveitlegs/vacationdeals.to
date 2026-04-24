@@ -51,8 +51,11 @@ function extractMeta(html: string): string | null {
   // og:title (Departure Depot), some only og:description (Westgate/MRG),
   // some have both. Concatenating gives parsers the best chance.
   const patterns = [
-    /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
+    // description first — canonical SEO tag, usually contains the headline
+    // price. og:description is longer marketing copy and often matches
+    // bundled/bonus prices that are not the actual package price.
     /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i,
+    /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
     /<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i,
     /<meta\s+name=["']twitter:title["']\s+content=["']([^"']+)["']/i,
     /<meta\s+name=["']twitter:description["']\s+content=["']([^"']+)["']/i,

@@ -44,8 +44,9 @@ interface MetaFacts {
 function extractMeta(html: string): string | null {
   // Prefer og:description (Westgate's hero blurb), fall back to description
   const patterns = [
-    /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
+    // description first — see audit-brand-meta.ts for rationale.
     /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i,
+    /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
   ];
   for (const p of patterns) {
     const m = html.match(p);
