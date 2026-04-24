@@ -88,7 +88,7 @@ while IFS= read -r line; do
   echo "  status=$status urls=$URLCOUNT elapsed=${ELAPSED}s"
 
   # Log to DB (don't let this block the next crawl if it fails)
-  ssh -o StrictHostKeyChecking=no root@72.60.126.82 \
+  ssh -n -o StrictHostKeyChecking=no root@72.60.126.82 \
     "set -a && source /var/www/vacationdeals/.env && set +a && psql \"\$DATABASE_URL\" -q -c \"INSERT INTO target_crawl_runs (source_slug, finished_at, status, urls_found) VALUES ('$slug', NOW(), '$status', $URLCOUNT);\"" 2>/dev/null || true
 done <<< "$TARGETS"
 
