@@ -176,19 +176,27 @@ function specialToAbsoluteUrl(urlField: string): string {
  *   "4-Day Resort stay plus $200 VISA Gift Card ... From $519."
  */
 function extractMetaDescription(html: string): string | null {
-  // Prefer <meta name="description"> — that's the canonical SEO tag with the
-  // headline price ("4-Day stay from $199"). <meta og:description> is often
-  // longer marketing copy that may mention different bundled prices
-  // (e.g. "package + $100 gift card for only $99") leading to false matches.
+  // Concatenate meta sources in priority order: og:title (canonical
+  // headline with the ACTUAL price for Westgate — "Choose Your 4-Day,
+  // 3-Night Getaway for $149"), then description, then og:description.
+  // The price parser takes the FIRST match in this joined text, so the
+  // title's price wins over marketing-copy teasers like
+  // "as little as $99" that appear in og:description.
   const patterns = [
+    /<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i,
     /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i,
     /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
   ];
+  const fragments: string[] = [];
   for (const p of patterns) {
     const m = html.match(p);
-    if (m) return m[1].replace(/&amp;/g, "&").replace(/&#039;/g, "'").replace(/&quot;/g, '"');
+    if (m) {
+      fragments.push(
+        m[1].replace(/&amp;/g, "&").replace(/&#039;/g, "'").replace(/&quot;/g, '"'),
+      );
+    }
   }
-  return null;
+  return fragments.length > 0 ? fragments.join(" • ") : null;
 }
 
 function priceFromMeta(text: string): number | null {
