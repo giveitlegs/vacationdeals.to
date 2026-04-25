@@ -116,8 +116,8 @@ export async function getRealityIndex(): Promise<BrandRealityScore[]> {
       JOIN deal_price_history h1 ON h1.deal_id = d.id
       JOIN deal_price_history h2 ON h2.deal_id = d.id
       WHERE d.is_active
-        AND h1.recorded_at >= NOW() - INTERVAL '30 days'
-        AND h2.recorded_at >= NOW() - INTERVAL '30 days'
+        AND h1.scraped_at >= NOW() - INTERVAL '30 days'
+        AND h2.scraped_at >= NOW() - INTERVAL '30 days'
         AND h1.price <> h2.price
       GROUP BY d.brand_id
     )
