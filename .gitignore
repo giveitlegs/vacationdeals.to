@@ -67,3 +67,6 @@ admin-creds.txt
 # PUBLIC main repo. Private backup script mirrors them explicitly.
 reports/sf-crawls/*/
 !reports/sf-crawls/README.md
+
+# Allow committed prospect banner PNGs even though *.png is gitignored
+!apps/web/public/banners/*.png
