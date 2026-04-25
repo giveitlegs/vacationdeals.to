@@ -18,9 +18,25 @@ const TOP_CITIES: { slug: string; label: string; state: string }[] = [
   { slug: "punta-cana", label: "Punta Cana", state: "DO" },
 ];
 
+const BEST_OF_CITIES: { slug: string; label: string }[] = [
+  { slug: "orlando", label: "Orlando" },
+  { slug: "las-vegas", label: "Las Vegas" },
+  { slug: "cancun", label: "Cancun" },
+  { slug: "gatlinburg", label: "Gatlinburg" },
+  { slug: "myrtle-beach", label: "Myrtle Beach" },
+  { slug: "branson", label: "Branson" },
+  { slug: "williamsburg", label: "Williamsburg" },
+  { slug: "cocoa-beach", label: "Cocoa Beach" },
+  { slug: "daytona-beach", label: "Daytona Beach" },
+  { slug: "cabo-san-lucas", label: "Cabo San Lucas" },
+  { slug: "puerto-vallarta", label: "Puerto Vallarta" },
+  { slug: "punta-cana", label: "Punta Cana" },
+];
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [rateRecapOpen, setRateRecapOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
+  const [bestOfOpen, setBestOfOpen] = useState(false);
   const [gamesOpen, setGamesOpen] = useState(false);
   const [carnivalOpen, setCarnivalOpen] = useState(false);
   const [destinationsOpen, setDestinationsOpen] = useState(false);
@@ -32,7 +48,6 @@ export function Navbar() {
       setShowPlayNow(true);
       setTimeout(() => setShowPlayNow(false), 2500);
     }, 8000);
-    // Show once on mount after 2s
     const initial = setTimeout(() => {
       setShowPlayNow(true);
       setTimeout(() => setShowPlayNow(false), 2500);
@@ -76,10 +91,10 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="hidden items-center gap-5 md:flex">
             <Link href="/deals" className="text-sm font-medium text-gray-600 hover:text-blue-600">All Deals</Link>
 
-            {/* Destinations with top-city dropdown */}
+            {/* Destinations dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setDestinationsOpen(true)}
@@ -91,58 +106,104 @@ export function Navbar() {
               {destinationsOpen && (
                 <div className="absolute left-0 top-full z-50 w-[520px] pt-2">
                   <div className="grid grid-cols-2 gap-1 rounded-lg border border-gray-200 bg-white p-3 shadow-lg">
-                  {TOP_CITIES.map((c) => (
-                    <Link
-                      key={c.slug}
-                      href={`/${c.slug}`}
-                      className="flex items-baseline gap-1.5 rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600"
-                    >
-                      <span className="font-medium">{c.label}</span>
-                      <span className="text-xs text-gray-400">{c.state}</span>
+                    {TOP_CITIES.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/${c.slug}`}
+                        className="flex items-baseline gap-1.5 rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                      >
+                        <span className="font-medium">{c.label}</span>
+                        <span className="text-xs text-gray-400">{c.state}</span>
+                      </Link>
+                    ))}
+                    <div className="col-span-2 my-1 border-t border-gray-100" />
+                    <Link href="/destinations" className="col-span-2 rounded-md bg-gray-50 px-3 py-2 text-center text-sm font-semibold text-blue-600 hover:bg-gray-100">
+                      View all destinations →
                     </Link>
-                  ))}
-                  <div className="col-span-2 my-1 border-t border-gray-100" />
-                  <Link href="/destinations" className="col-span-2 rounded-md bg-gray-50 px-3 py-2 text-center text-sm font-semibold text-blue-600 hover:bg-gray-100">
-                    View all destinations →
-                  </Link>
+                    <Link href="/vacation-deals-map" className="col-span-2 rounded-md px-3 py-2 text-center text-xs font-medium text-gray-600 hover:bg-gray-50 hover:text-blue-600">
+                      🗺️ Interactive deals map
+                    </Link>
                   </div>
                 </div>
               )}
             </div>
 
             <Link href="/brands" className="text-sm font-medium text-gray-600 hover:text-blue-600">Brands</Link>
-            <Link href="/reality-index" className="text-sm font-medium text-gray-600 hover:text-blue-600" title="Independent brand-by-brand scoring">Reality Index</Link>
-            <Link href="/will-it-hold-up" className="text-sm font-medium text-orange-600 hover:text-orange-700" title="Paste any vacation-deal URL — we'll grade it">Will It Hold Up?</Link>
-            <Link href="/blog" className="text-sm font-medium text-gray-600 hover:text-blue-600">Blog</Link>
 
-            {/* Rate Recap with dropdown */}
+            {/* Tools dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setRateRecapOpen(true)}
-              onMouseLeave={() => setRateRecapOpen(false)}
+              onMouseEnter={() => setToolsOpen(true)}
+              onMouseLeave={() => setToolsOpen(false)}
             >
-              <Link href="/rate-recap" className="text-sm font-medium text-gray-600 hover:text-blue-600">
-                Rate Recap
-              </Link>
-              {rateRecapOpen && (
-                <div className="absolute left-0 top-full z-50 w-56 pt-2">
+              <button type="button" className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-blue-600">
+                Tools
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              {toolsOpen && (
+                <div className="absolute left-0 top-full z-50 w-72 pt-2">
                   <div className="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
-                    <Link href="/rate-recap" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">
-                      Rate Recap Overview
+                    <Link href="/will-it-hold-up" className="block px-4 py-2 hover:bg-orange-50">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-base">🔍</span>
+                        <span className="text-sm font-semibold text-orange-600">Will It Hold Up?</span>
+                      </div>
+                      <span className="ml-6 text-xs text-gray-500">Paste any vacpack URL → verdict</span>
                     </Link>
-                    <Link href="/vacpack-rate-showdown" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">
-                      Rate Showdown (Compare)
+                    <Link href="/reality-index" className="block px-4 py-2 hover:bg-gray-50">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-base">📊</span>
+                        <span className="text-sm font-semibold text-gray-900">Reality Index</span>
+                      </div>
+                      <span className="ml-6 text-xs text-gray-500">Score every brand 0–100</span>
                     </Link>
                     <div className="my-1 border-t border-gray-100" />
-                    <Link href="/data-report" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">
-                      Data Report (B2B)
-                    </Link>
+                    <Link href="/rate-recap" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Rate Recap</Link>
+                    <Link href="/vacpack-rate-showdown" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Rate Showdown</Link>
+                    <Link href="/data-report" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Data Report (B2B)</Link>
+                    <Link href="/vacpack-ad-spy" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">VacPack Ad Spy (B2B)</Link>
+                    <div className="my-1 border-t border-gray-100" />
+                    <Link href="/timeshare-laws" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">⚖️ Timeshare Laws by State</Link>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* VacPack Games dropdown */}
+            {/* Best Of 2026 dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setBestOfOpen(true)}
+              onMouseLeave={() => setBestOfOpen(false)}
+            >
+              <button type="button" className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-blue-600">
+                Best Of 2026
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              {bestOfOpen && (
+                <div className="absolute left-0 top-full z-50 w-72 pt-2">
+                  <div className="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
+                    <p className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gray-500">Best Vacation Deals — Live Rankings</p>
+                    {BEST_OF_CITIES.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/best-vacation-deals-${c.slug}-2026`}
+                        className="block px-4 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                      >
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Link href="/blog" className="text-sm font-medium text-gray-600 hover:text-blue-600">Blog</Link>
+
+            {/* Games dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setGamesOpen(true)}
@@ -159,27 +220,17 @@ export function Navbar() {
                       All Games
                     </Link>
                     <div className="my-1 border-t border-gray-100" />
-                    <Link href="/vacpack-games/survival-kit" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600">
-                      🎯 Survival Kit
-                    </Link>
-                    <Link href="/vacpack-games/bingo" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-fuchsia-600">
-                      🎱 VacPack Bingo
-                    </Link>
-                    <Link href="/vacpack-games/59-challenge" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-600">
-                      💰 $59 Challenge
-                    </Link>
-                    <Link href="/vacpack-games/time-machine" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
-                      🕰️ Time Machine
-                    </Link>
-                    <Link href="/vacpack-games/scratch-off" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">
-                      🎟️ Scratch-Off
-                    </Link>
+                    <Link href="/vacpack-games/survival-kit" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600">🎯 Survival Kit</Link>
+                    <Link href="/vacpack-games/bingo" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-fuchsia-600">🎱 VacPack Bingo</Link>
+                    <Link href="/vacpack-games/59-challenge" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-600">💰 $59 Challenge</Link>
+                    <Link href="/vacpack-games/time-machine" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600">🕰️ Time Machine</Link>
+                    <Link href="/vacpack-games/scratch-off" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">🎟️ Scratch-Off</Link>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Vacation Carnival dropdown */}
+            {/* Carnival dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setCarnivalOpen(true)}
@@ -196,42 +247,25 @@ export function Navbar() {
                       All Attractions
                     </Link>
                     <div className="my-1 border-t border-gray-100" />
-                    <Link href="/vacation-carnival/pto-debt" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
-                      💸 PTO Debt Calculator
-                    </Link>
-                    <Link href="/vacation-carnival/severance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
-                      📄 Severance Packet
-                    </Link>
-                    <Link href="/vacation-carnival/cursed-trip" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
-                      🔮 Cursed Trip Quiz
-                    </Link>
-                    <Link href="/vacation-carnival/blood-oath" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
-                      🩸 Blood Oath
-                    </Link>
-                    <Link href="/vacation-carnival/court" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
-                      ⚖️ Vacation Court
-                    </Link>
-                    <Link href="/vacation-carnival/lost-resort" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
-                      🗺️ The Lost Resort
-                    </Link>
-                    <Link href="/vacation-carnival/cult" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
-                      🕯️ The Cult
-                    </Link>
-                    <Link href="/vacation-carnival/confessional" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">
-                      🙏 The Confessional
-                    </Link>
+                    <Link href="/vacation-carnival/pto-debt" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">💸 PTO Debt Calculator</Link>
+                    <Link href="/vacation-carnival/severance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">📄 Severance Packet</Link>
+                    <Link href="/vacation-carnival/cursed-trip" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🔮 Cursed Trip Quiz</Link>
+                    <Link href="/vacation-carnival/blood-oath" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🩸 Blood Oath</Link>
+                    <Link href="/vacation-carnival/court" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">⚖️ Vacation Court</Link>
+                    <Link href="/vacation-carnival/lost-resort" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🗺️ The Lost Resort</Link>
+                    <Link href="/vacation-carnival/cult" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🕯️ The Cult</Link>
+                    <Link href="/vacation-carnival/confessional" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🙏 The Confessional</Link>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Resort Roulette with spinning wheel + PLAY NOW */}
+            {/* Resort Roulette CTA */}
             <div className="relative">
               <Link
                 href="/resort-roulette"
                 className="flex items-center gap-1.5 rounded-full border-2 border-red-400 bg-red-50 px-3 py-1.5 text-sm font-bold text-red-600 transition-all hover:bg-red-100 hover:border-red-500 pulse-glow"
               >
-                {/* Tiny spinning roulette wheel */}
                 <svg className="h-4 w-4 spin-wheel" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="10" fill="#EF4444" stroke="#B91C1C" strokeWidth="1.5" />
                   <circle cx="12" cy="12" r="3" fill="#FBBF24" />
@@ -246,7 +280,6 @@ export function Navbar() {
                 </svg>
                 Roulette
               </Link>
-              {/* Flutter-down PLAY NOW label */}
               {showPlayNow && (
                 <span className="flutter-label pointer-events-none absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-red-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
                   Play Now!
@@ -271,8 +304,8 @@ export function Navbar() {
       {/* Mobile Drawer */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-black/30 md:hidden" onClick={() => setMobileOpen(false)}>
-          <div className="absolute right-0 top-0 h-full w-64 bg-white shadow-xl" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
+          <div className="absolute right-0 top-0 h-full w-72 overflow-y-auto bg-white shadow-xl" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 flex items-center justify-between border-b border-gray-200 bg-white px-4 py-3">
               <span className="text-sm font-semibold text-gray-900">Menu</span>
               <button onClick={() => setMobileOpen(false)} className="rounded-lg p-2 text-gray-600 hover:bg-gray-100" aria-label="Close menu">
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
@@ -280,42 +313,58 @@ export function Navbar() {
                 </svg>
               </button>
             </div>
-            <div className="flex flex-col px-4 py-4">
-              {[
-                { href: "/deals", label: "All Deals" },
-                { href: "/destinations", label: "Destinations" },
-                ...TOP_CITIES.map((c) => ({ href: `/${c.slug}`, label: `  → ${c.label}` })),
-                { href: "/brands", label: "Brands" },
-                { href: "/reality-index", label: "Reality Index" },
-                { href: "/will-it-hold-up", label: "\u{1F50D} Will It Hold Up?" },
-                { href: "/blog", label: "Blog" },
-                { href: "/rate-recap", label: "Rate Recap" },
-                { href: "/vacpack-rate-showdown", label: "\u00A0\u00A0\u2192 Rate Showdown" },
-                { href: "/data-report", label: "\u00A0\u00A0\u2192 Data Report" },
-                { href: "/vacpack-games", label: "\u{1F3AE} VacPack Games" },
-                { href: "/vacpack-games/survival-kit", label: "  → Survival Kit" },
-                { href: "/vacpack-games/bingo", label: "  → VacPack Bingo" },
-                { href: "/vacpack-games/59-challenge", label: "  → $59 Challenge" },
-                { href: "/vacpack-games/time-machine", label: "  → Time Machine" },
-                { href: "/vacpack-games/scratch-off", label: "  → Scratch-Off" },
-                { href: "/vacation-carnival", label: "\u{1F3AA} Vacation Carnival" },
-                { href: "/vacation-carnival/pto-debt", label: "  → PTO Debt Calculator" },
-                { href: "/vacation-carnival/severance", label: "  → Severance Packet" },
-                { href: "/vacation-carnival/cursed-trip", label: "  → Cursed Trip Quiz" },
-                { href: "/vacation-carnival/blood-oath", label: "  → Blood Oath" },
-                { href: "/vacation-carnival/court", label: "  → Vacation Court" },
-                { href: "/vacation-carnival/lost-resort", label: "  → The Lost Resort" },
-                { href: "/vacation-carnival/cult", label: "  → The Cult" },
-                { href: "/vacation-carnival/confessional", label: "  → The Confessional" },
-              ].map((link) => (
-                <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
-                  className="rounded-lg px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600">
-                  {link.label}
-                </Link>
+            <div className="flex flex-col px-4 py-4 text-sm">
+              <MobileLink href="/deals" onClose={() => setMobileOpen(false)}>All Deals</MobileLink>
+
+              <MobileSectionHeader>Destinations</MobileSectionHeader>
+              <MobileLink href="/destinations" onClose={() => setMobileOpen(false)}>All Destinations</MobileLink>
+              {TOP_CITIES.map((c) => (
+                <MobileSubLink key={c.slug} href={`/${c.slug}`} onClose={() => setMobileOpen(false)}>{c.label}, {c.state}</MobileSubLink>
               ))}
-              {/* Roulette CTA in mobile */}
+              <MobileSubLink href="/vacation-deals-map" onClose={() => setMobileOpen(false)}>🗺️ Interactive Map</MobileSubLink>
+
+              <MobileLink href="/brands" onClose={() => setMobileOpen(false)}>Brands</MobileLink>
+
+              <MobileSectionHeader>🔧 Tools</MobileSectionHeader>
+              <MobileSubLink href="/will-it-hold-up" onClose={() => setMobileOpen(false)} highlight>🔍 Will It Hold Up?</MobileSubLink>
+              <MobileSubLink href="/reality-index" onClose={() => setMobileOpen(false)}>📊 Reality Index</MobileSubLink>
+              <MobileSubLink href="/rate-recap" onClose={() => setMobileOpen(false)}>Rate Recap</MobileSubLink>
+              <MobileSubLink href="/vacpack-rate-showdown" onClose={() => setMobileOpen(false)}>Rate Showdown</MobileSubLink>
+              <MobileSubLink href="/data-report" onClose={() => setMobileOpen(false)}>Data Report (B2B)</MobileSubLink>
+              <MobileSubLink href="/vacpack-ad-spy" onClose={() => setMobileOpen(false)}>VacPack Ad Spy (B2B)</MobileSubLink>
+              <MobileSubLink href="/timeshare-laws" onClose={() => setMobileOpen(false)}>⚖️ Timeshare Laws by State</MobileSubLink>
+
+              <MobileSectionHeader>🏆 Best Of 2026</MobileSectionHeader>
+              {BEST_OF_CITIES.map((c) => (
+                <MobileSubLink key={c.slug} href={`/best-vacation-deals-${c.slug}-2026`} onClose={() => setMobileOpen(false)}>
+                  {c.label}
+                </MobileSubLink>
+              ))}
+
+              <MobileLink href="/blog" onClose={() => setMobileOpen(false)}>Blog</MobileLink>
+
+              <MobileSectionHeader>🎮 VacPack Games</MobileSectionHeader>
+              <MobileSubLink href="/vacpack-games" onClose={() => setMobileOpen(false)}>All Games</MobileSubLink>
+              <MobileSubLink href="/vacpack-games/survival-kit" onClose={() => setMobileOpen(false)}>🎯 Survival Kit</MobileSubLink>
+              <MobileSubLink href="/vacpack-games/bingo" onClose={() => setMobileOpen(false)}>🎱 VacPack Bingo</MobileSubLink>
+              <MobileSubLink href="/vacpack-games/59-challenge" onClose={() => setMobileOpen(false)}>💰 $59 Challenge</MobileSubLink>
+              <MobileSubLink href="/vacpack-games/time-machine" onClose={() => setMobileOpen(false)}>🕰️ Time Machine</MobileSubLink>
+              <MobileSubLink href="/vacpack-games/scratch-off" onClose={() => setMobileOpen(false)}>🎟️ Scratch-Off</MobileSubLink>
+
+              <MobileSectionHeader>🎪 Vacation Carnival</MobileSectionHeader>
+              <MobileSubLink href="/vacation-carnival" onClose={() => setMobileOpen(false)}>All Attractions</MobileSubLink>
+              <MobileSubLink href="/vacation-carnival/pto-debt" onClose={() => setMobileOpen(false)}>💸 PTO Debt Calculator</MobileSubLink>
+              <MobileSubLink href="/vacation-carnival/severance" onClose={() => setMobileOpen(false)}>📄 Severance Packet</MobileSubLink>
+              <MobileSubLink href="/vacation-carnival/cursed-trip" onClose={() => setMobileOpen(false)}>🔮 Cursed Trip Quiz</MobileSubLink>
+              <MobileSubLink href="/vacation-carnival/blood-oath" onClose={() => setMobileOpen(false)}>🩸 Blood Oath</MobileSubLink>
+              <MobileSubLink href="/vacation-carnival/court" onClose={() => setMobileOpen(false)}>⚖️ Vacation Court</MobileSubLink>
+              <MobileSubLink href="/vacation-carnival/lost-resort" onClose={() => setMobileOpen(false)}>🗺️ The Lost Resort</MobileSubLink>
+              <MobileSubLink href="/vacation-carnival/cult" onClose={() => setMobileOpen(false)}>🕯️ The Cult</MobileSubLink>
+              <MobileSubLink href="/vacation-carnival/confessional" onClose={() => setMobileOpen(false)}>🙏 The Confessional</MobileSubLink>
+
+              {/* Roulette CTA */}
               <Link href="/resort-roulette" onClick={() => setMobileOpen(false)}
-                className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-3 text-sm font-bold text-white">
+                className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-3 text-sm font-bold text-white">
                 <svg className="h-4 w-4 spin-wheel" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="10" fill="#FFF" stroke="#FFF" strokeWidth="1" opacity="0.3" />
                   <circle cx="12" cy="12" r="3" fill="#FBBF24" />
@@ -331,5 +380,33 @@ export function Navbar() {
         </div>
       )}
     </>
+  );
+}
+
+function MobileSectionHeader({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mt-3 border-t border-gray-100 px-3 pt-3 pb-1 text-[11px] font-bold uppercase tracking-wider text-gray-500">
+      {children}
+    </div>
+  );
+}
+
+function MobileLink({ href, onClose, children }: { href: string; onClose: () => void; children: React.ReactNode }) {
+  return (
+    <Link href={href} onClick={onClose} className="rounded-lg px-3 py-2.5 font-medium text-gray-800 hover:bg-gray-50 hover:text-blue-600">
+      {children}
+    </Link>
+  );
+}
+
+function MobileSubLink({ href, onClose, children, highlight }: { href: string; onClose: () => void; children: React.ReactNode; highlight?: boolean }) {
+  return (
+    <Link
+      href={href}
+      onClick={onClose}
+      className={`rounded-lg px-5 py-2 ${highlight ? "font-semibold text-orange-600 hover:bg-orange-50" : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"}`}
+    >
+      {children}
+    </Link>
   );
 }
