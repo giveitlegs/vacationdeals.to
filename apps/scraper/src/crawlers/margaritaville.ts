@@ -25,11 +25,14 @@ export async function runMargaritavilleCrawler() {
         const card = $(el);
         const title = card.find("h2, h3, h4, .title").first().text().trim();
         const bodyText = card.text();
-        const priceMatch = bodyText.match(/\$(\d+)/);
+        // Comma-aware: old /\$(\d+)/ stopped at "," in "$1,408" → captured "1"
+        const priceCandidates = Array.from(bodyText.matchAll(/\$([\d,]+)/g))
+          .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
+          .filter((n) => Number.isFinite(n) && n >= 50);
+        const price = priceCandidates.length ? Math.max(...priceCandidates) : NaN;
 
-        if (title && priceMatch && title.length > 5) {
-          const price = parseInt(priceMatch[1]);
-          if (price < 50 || price > 2000) return;
+        if (title && Number.isFinite(price) && title.length > 5) {
+          if (price < 50 || price > 5000) return;
           const nightsMatch = bodyText.match(/(\d+)\s*(?:night|nite)/i);
           const nights = nightsMatch ? parseInt(nightsMatch[1]) : 3;
           const link = card.find("a").first().attr("href");

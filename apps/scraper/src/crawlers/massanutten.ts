@@ -24,9 +24,12 @@ export async function runMassannutenCrawler() {
       // Look for deal/package cards on the page
       $("a[href*='package'], a[href*='offer'], a[href*='special'], a[href*='deal']").each((_, el) => {
         const text = $(el).text().trim();
-        const priceMatch = text.match(/\$(\d+)/);
-        if (priceMatch && text.length > 10) {
-          const price = parseInt(priceMatch[1]);
+        // Comma-aware: old /\$(\d+)/ stopped at "," in "$1,408" → captured "1"
+        const priceCandidates = Array.from(text.matchAll(/\$([\d,]+)/g))
+          .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
+          .filter((n) => Number.isFinite(n) && n >= 50);
+        const price = priceCandidates.length ? Math.max(...priceCandidates) : NaN;
+        if (Number.isFinite(price) && text.length > 10) {
           const nightsMatch = text.match(/(\d+)\s*night/i);
           const nights = nightsMatch ? parseInt(nightsMatch[1]) : 2;
           const href = $(el).attr("href") || "";

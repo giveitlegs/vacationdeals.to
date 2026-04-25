@@ -24,11 +24,14 @@ export async function runExploriaCrawler() {
       $(".et_pb_section").each((_, section) => {
         const text = $(section).text();
         const h3 = $(section).find("h3, h2").first().text().trim();
-        const priceMatch = text.match(/\$(\d+)/);
+        // Comma-aware: old /\$(\d+)/ stopped at "," in "$1,408" → captured "1"
+        const priceCandidates = Array.from(text.matchAll(/\$([\d,]+)/g))
+          .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
+          .filter((n) => Number.isFinite(n) && n >= 50);
+        const price = priceCandidates.length ? Math.max(...priceCandidates) : NaN;
         const nightsMatch = text.match(/(\d+)[- ]day/i);
 
-        if (h3 && priceMatch && h3.length > 5) {
-          const price = parseInt(priceMatch[1]);
+        if (h3 && Number.isFinite(price) && h3.length > 5) {
           const nights = nightsMatch ? parseInt(nightsMatch[1]) - 1 : 2;
           const link = $(section).find("a[href*='book']").attr("href");
           const url = link ? `${BASE_URL}${link}` : request.url;

@@ -273,6 +273,16 @@ export async function deactivateExpiredDeals(): Promise<number> {
 }
 
 export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pageText?: string) {
+  // Defense-in-depth price floor: no real vacpack costs less than $39.
+  // Catches comma-truncated regex captures (e.g. "$1,408" → 1) and other
+  // scraper precision bugs before they reach the public site.
+  if (!Number.isFinite(scrapedDeal.price) || scrapedDeal.price < 39 || scrapedDeal.price > 9999) {
+    console.warn(
+      `[${sourceKey}] Rejecting implausible price $${scrapedDeal.price} for "${scrapedDeal.title}" (${scrapedDeal.url})`,
+    );
+    return;
+  }
+
   // Sanitize title to remove address fragments, whitespace artifacts, etc.
   scrapedDeal.title = sanitizeTitle(scrapedDeal.title);
 

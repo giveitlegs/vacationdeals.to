@@ -18,11 +18,15 @@ export async function runAllInclusivePromotionsCrawler() {
         const card = $(el);
         const title = card.find("h3, h2, .uk-card-title").first().text().trim();
         const bodyText = card.text();
-        const priceMatch = bodyText.match(/\$(\d+)/);
+        // Match the LARGEST $N or $N,NNN figure on the card.
+        // Old regex /\$(\d+)/ stopped at the comma in "$1,408" → captured "1".
+        const priceCandidates = Array.from(bodyText.matchAll(/\$([\d,]+)/g))
+          .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
+          .filter((n) => Number.isFinite(n) && n >= 50); // Sanity floor; no real vacpack is < $50
+        const price = priceCandidates.length ? Math.max(...priceCandidates) : NaN;
         const nightsMatch = bodyText.match(/(\d+)\s*night/i) || bodyText.match(/(\d+)\s*days?\s*\/?\s*(\d+)\s*night/i);
 
-        if (title && priceMatch) {
-          const price = parseInt(priceMatch[1]);
+        if (title && Number.isFinite(price)) {
           const nights = nightsMatch ? parseInt(nightsMatch[1]) - 1 || 4 : 4;
           const imageUrl = card.find("img").attr("src") || card.find("[data-src]").attr("data-src");
           const link = card.find("a").attr("href");
