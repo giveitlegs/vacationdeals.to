@@ -13,6 +13,7 @@ const NAV = [
   { href: "/admin/scrapers", label: "Scrapers", icon: "\u{1F577}️" },
   { href: "/admin/sublanders", label: "Sublanders", icon: "\u{1F3D9}️" },
   { href: "/admin/cwv", label: "Core Web Vitals", icon: "\u{1F4C8}" },
+  { href: "/admin/prospects", label: "Prospect Banners", icon: "\u{1F4B0}" },
 ];
 
 export async function AdminShell({ children, title }: { children: React.ReactNode; title: string }) {

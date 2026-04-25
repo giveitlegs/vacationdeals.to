@@ -54,15 +54,10 @@ export function AdSlot({ position, width, height, className }: Props) {
       .catch(() => setLoaded(true));
   }, [position]);
 
-  if (!loaded) {
-    return (
-      <div
-        className={className}
-        style={{ minHeight: height ?? undefined, width: width ?? "100%" }}
-        aria-hidden="true"
-      />
-    );
-  }
+  // While loading, render nothing — no reserved space. The banner area
+  // grows in only when a banner is actually present, so empty pages don't
+  // pay for blank ad real estate.
+  if (!loaded) return null;
   if (!banner) return null;
 
   const w = banner.width ?? width;
@@ -71,6 +66,9 @@ export function AdSlot({ position, width, height, className }: Props) {
 
   if (!banner.imageUrl) return null;
 
+  // Hard-clamp the rendered banner to its declared dimensions. Image gen
+  // sometimes produces taller-than-spec images; without an explicit height
+  // box + object-fit they expand and create huge dead space.
   const img = (
     <img
       src={banner.imageUrl}
@@ -78,7 +76,7 @@ export function AdSlot({ position, width, height, className }: Props) {
       width={w ?? undefined}
       height={h ?? undefined}
       loading="lazy"
-      className="block max-w-full h-auto"
+      style={{ width: w ? `${w}px` : "100%", height: h ? `${h}px` : "auto", objectFit: "cover", display: "block" }}
     />
   );
 

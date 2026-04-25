@@ -13,21 +13,18 @@ export default function FrontendLayout({
     <>
       <DealTicker />
       <Navbar />
-      {/* Top leaderboard slot — 970x90 standard. Renders nothing if no
-          banner is active, so doesn't reserve space when empty. */}
-      <div className="mx-auto flex max-w-7xl justify-center px-4 pt-2 sm:px-6 lg:px-8">
+      {/* Top leaderboard — only one banner above-the-fold. Container has no
+          extra padding so when empty it collapses to zero. AdSlot is
+          self-sizing — when no banner is active, renders nothing. */}
+      <div className="flex justify-center">
         <AdSlot position="header" width={970} height={90} />
       </div>
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* Hero slot — 728x90 above-the-fold leaderboard, separate from
-            the very-top header slot for two-tier monetization. */}
-        <div className="mb-6 flex justify-center">
-          <AdSlot position="hero" width={728} height={90} />
-        </div>
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         {children}
-        {/* Footer slot — 728x90 below content */}
-        <div className="mt-12 flex justify-center">
-          <AdSlot position="footer" width={728} height={90} />
+        {/* Mid-content slot — 728x90 below the main content but above the
+            footer. Two-tier monetization without crowding above-the-fold. */}
+        <div className="mt-10 flex justify-center">
+          <AdSlot position="hero" width={728} height={90} />
         </div>
       </main>
       <Footer />
