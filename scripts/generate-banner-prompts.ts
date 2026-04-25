@@ -135,7 +135,12 @@ function generateSeedSql(): string {
   lines.push("-- The utm_content_match column gates these to ?utm_content=<slug>-prospect URLs only.");
   lines.push("");
   for (const brand of BRANDS) {
-    for (const s of [{ pos: "header", w: 970, h: 90 }, { pos: "hero", w: 728, h: 90 }]) {
+    for (const s of [
+      { pos: "header", w: 970, h: 90 },
+      { pos: "hero", w: 728, h: 90 },
+      { pos: "inline", w: 300, h: 250 },
+      { pos: "sidebar", w: 300, h: 600 },
+    ]) {
       lines.push(`INSERT INTO ad_banners (name, position, image_url, link_url, utm_content_match, prospect_brand_slug, width, height, is_active, sort_order)`);
       lines.push(`VALUES ('${brand.name.replace(/'/g, "''")} prospect ${s.w}x${s.h}', '${s.pos}', '/banners/${brand.slug}-${s.w}x${s.h}.png', NULL, '${brand.slug}-prospect', '${brand.slug}', ${s.w}, ${s.h}, true, 0)`);
       lines.push(`ON CONFLICT DO NOTHING;`);
