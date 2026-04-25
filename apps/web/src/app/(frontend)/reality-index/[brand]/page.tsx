@@ -3,15 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBrandRealityScore, getRealityIndex } from "@/lib/reality-index";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 3600;
 
 interface Props {
   params: Promise<{ brand: string }>;
-}
-
-export async function generateStaticParams() {
-  const all = await getRealityIndex();
-  return all.map((b) => ({ brand: b.brandSlug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
