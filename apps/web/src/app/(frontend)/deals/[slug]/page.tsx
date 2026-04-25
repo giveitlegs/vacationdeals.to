@@ -38,6 +38,7 @@ import { FAQAccordion } from "@/components/FAQAccordion";
 import { FAQSchema } from "@/components/FAQSchema";
 import { TrustedHtmlBlock } from "@/components/TrustedHtmlBlock";
 import { StickyDealBar } from "@/components/StickyDealBar";
+import { AdSlot } from "@/components/AdSlot";
 
 export const revalidate = 3600;
 
@@ -770,6 +771,11 @@ export default async function DealPage({ params }: DealPageProps) {
                 : "This deal has expired. The provider\u2019s page may no longer be available."}
             </p>
           </div>
+
+          {/* Sidebar 300x600 prospect banner — under booking card on desktop */}
+          <div className="mt-6 hidden justify-center lg:flex">
+            <AdSlot position="sidebar" width={300} height={600} />
+          </div>
         </div>
       </div>
 
@@ -785,6 +791,11 @@ export default async function DealPage({ params }: DealPageProps) {
           <TrustedHtmlBlock html={deal.reviewHtml} />
         </section>
       )}
+
+      {/* Inline 300x250 prospect-banner slot — between review and FAQs */}
+      <div className="mt-10 flex justify-center">
+        <AdSlot position="inline" width={300} height={250} />
+      </div>
 
       {/* Deal FAQs */}
       <FAQSchema faqs={faqs} />

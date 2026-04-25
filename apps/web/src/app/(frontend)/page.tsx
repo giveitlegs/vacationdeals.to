@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SearchBar } from "@/components/SearchBar";
 import { DealGrid } from "@/components/DealGrid";
+import { AdSlot } from "@/components/AdSlot";
 import type { Deal } from "@/components/DealCard";
 import {
   getFeaturedDeals,
@@ -215,6 +216,13 @@ export default async function HomePage() {
           </Link>
         </div>
         <DealGrid deals={dealsToShow} />
+
+        {/* Inline 300x250 prospect banner — appears between Featured Deals
+            and Popular Destinations. Renders nothing for default visitors;
+            shows the brand-tagged banner when ?utm_content=<brand>-prospect. */}
+        <div className="mt-10 flex justify-center">
+          <AdSlot position="inline" width={300} height={250} />
+        </div>
       </section>
 
       {/* Popular Destinations */}
