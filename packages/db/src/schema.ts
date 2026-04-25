@@ -424,6 +424,20 @@ export const cwvResults = pgTable("cwv_results", {
   checkedAt: timestamp("checked_at").defaultNow().notNull(),
 });
 
+// ── Prospect tracking ────────────────────────────────────
+// Logged each time a UTM-matched prospect banner renders. Gives sales
+// a "this prospect clicked my outreach link X times, last seen Y" signal.
+export const prospectClicks = pgTable("prospect_clicks", {
+  id: serial("id").primaryKey(),
+  prospectBrandSlug: varchar("prospect_brand_slug", { length: 100 }).notNull(),
+  ipHash: varchar("ip_hash", { length: 64 }),
+  userAgent: text("user_agent"),
+  referer: text("referer"),
+  pagePath: text("page_path"),
+  bannerPosition: varchar("banner_position", { length: 50 }),
+  viewedAt: timestamp("viewed_at").defaultNow().notNull(),
+});
+
 // ── Ad Banners ──────────────────────────────────────────
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),

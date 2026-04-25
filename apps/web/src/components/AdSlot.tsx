@@ -48,7 +48,24 @@ export function AdSlot({ position, width, height, className }: Props) {
     fetch(url)
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
-        if (data && data.banner) setBanner(data.banner);
+        if (data && data.banner) {
+          setBanner(data.banner);
+          // Fire-and-forget tracking ping for prospect-tagged banners only.
+          // Default banners aren't tracked — we only care about who clicked
+          // their outreach link.
+          if (data.banner.utmContentMatch && data.banner.prospectBrandSlug) {
+            fetch("/api/ads/track", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                brand: data.banner.prospectBrandSlug,
+                position,
+                path: window.location.pathname,
+              }),
+              keepalive: true,
+            }).catch(() => {});
+          }
+        }
         setLoaded(true);
       })
       .catch(() => setLoaded(true));
