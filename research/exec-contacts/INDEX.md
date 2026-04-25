@@ -1,0 +1,45 @@
+# Executive contact research index
+
+Generated 2026-04-25T03:10:36.470Z. Open each brand file for LinkedIn search URLs, email guesses, and outreach sequence.
+
+- [Westgate Reservations](./brands/westgate.md) — *Westgate Resorts (CFI Resorts Management)*
+- [Hilton Grand Vacations](./brands/hgv.md) — *Hilton Grand Vacations Inc. (NYSE: HGV)*
+- [Bluegreen Vacations](./brands/bluegreen.md) — *Hilton Grand Vacations (acquired Bluegreen 2024)*
+- [Club Wyndham](./brands/wyndham.md) — *Travel + Leisure Co. (NYSE: TNL)*
+- [Holiday Inn Club Vacations](./brands/holiday-inn.md) — *Orange Lake Resorts (Holiday Inn Club brand license from IHG)*
+- [Hyatt Vacation Ownership](./brands/hyatt.md) — *Marriott Vacations Worldwide (acquired Hyatt VO from ILG 2018)*
+- [Marriott Vacation Club](./brands/marriott.md) — *Marriott Vacations Worldwide (NYSE: VAC)*
+- [Capital Vacations](./brands/capital-vacations.md)
+- [BookVIP](./brands/bookvip.md)
+- [GetawayDealz](./brands/getawaydealz.md)
+- [VacationVIP](./brands/vacationvip.md)
+- [BestVacationDealz](./brands/bestvacationdealz.md)
+- [Monster Reservations Group](./brands/mrg.md)
+- [Westgate Events](./brands/westgate-events.md) — *Westgate Resorts*
+- [StayPromo](./brands/staypromo.md)
+- [Vacation Village Resorts](./brands/vacation-village.md) — *Berkley Group / Daily Management Inc.*
+- [Spinnaker Resorts](./brands/spinnaker.md)
+- [GoVIP](./brands/govip.md)
+- [Departure Depot](./brands/departure-depot.md)
+- [Las Vegas Timeshare](./brands/vegas-timeshare.md)
+- [Premier Travel Resorts](./brands/premier-travel.md)
+- [Discount Vacation Hotels (Villa Group)](./brands/discount-vacation.md) — *Villa Group Resorts*
+- [Legendary Vacation Club](./brands/legendary.md) — *Hard Rock Hotels / Palace Resorts affiliate*
+- [Festiva Hospitality Group](./brands/festiva.md)
+- [El Cid Vacations Club](./brands/el-cid.md)
+- [Pueblo Bonito Resorts](./brands/pueblo-bonito.md)
+- [Divi Resorts](./brands/divi.md)
+- [Bahia Principe Privilege Club](./brands/bahia-principe.md)
+- [TAFER Hotels & Resorts](./brands/tafer.md)
+- [Villa Group Resorts](./brands/villa-group.md)
+- [Sheraton Vacation Club](./brands/sheraton-vc.md) — *Marriott Vacations Worldwide*
+- [Westin Vacation Club](./brands/westin-vc.md) — *Marriott Vacations Worldwide*
+- [Exploria Resorts](./brands/exploria.md)
+- [Massanutten Resort](./brands/massanutten.md)
+- [Margaritaville Vacation Club](./brands/margaritaville.md) — *Wyndham Destinations / Margaritaville Holdings*
+- [I Want To Travel To](./brands/iwanttotravelto.md)
+- [Vacation Offer](./brands/vacation-offer.md)
+- [Monster Vacations](./brands/monster-vacations.md)
+- [All Inclusive Promotions](./brands/all-inclusive-promotions.md)
+- [PayVibe Travel](./brands/payvibe.md)
+- [Timeshare Presentation Deals](./brands/timeshare-presentation-deals.md)
