@@ -4,6 +4,7 @@ import { getBlogPostBySlug } from "@/lib/blog-types";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FAQSchema } from "@/components/FAQSchema";
 import { SEOPreFooter } from "@/components/SEOPreFooter";
+import { BlogPostActions } from "@/components/BlogPostActions";
 import { addBlogIllustrations } from "@/lib/blog-images";
 
 interface BlogPostPageProps {
@@ -188,6 +189,14 @@ export async function BlogPostRenderer({ post }: BlogPostPageProps) {
           <span className="hidden sm:inline">&middot;</span>
           <span>{post.readTime}</span>
         </div>
+      </div>
+
+      {/* AI summarize + Google preferred-source actions */}
+      <div className="mx-auto max-w-3xl px-4 pt-6 sm:px-0">
+        <BlogPostActions
+          title={post.title}
+          url={`https://vacationdeals.to/${post.slug}`}
+        />
       </div>
 
       {/* Content Area */}

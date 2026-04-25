@@ -428,10 +428,20 @@ export const cwvResults = pgTable("cwv_results", {
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 255 }).notNull(),
-  position: varchar("position", { length: 100 }).notNull(), // "header" | "sidebar" | "inline" | "footer"
+  position: varchar("position", { length: 100 }).notNull(), // "header" | "hero" | "sidebar" | "inline" | "footer"
   htmlContent: text("html_content"),
   imageUrl: text("image_url"),
   linkUrl: text("link_url"),
+  // Sales-prospecting: when set, this banner only renders for visitors whose
+  // ?utm_content=<value> matches. Lets us send a brand-specific link to a
+  // prospect ("see what your branded banner would look like") without
+  // changing the default banner everyone else sees.
+  utmContentMatch: varchar("utm_content_match", { length: 100 }),
+  // Standard ad sizes (px). Set to enforce display dimensions.
+  width: integer("width"),
+  height: integer("height"),
+  // Optional brand association (so reports group by prospect)
+  prospectBrandSlug: varchar("prospect_brand_slug", { length: 100 }),
   isActive: boolean("is_active").notNull().default(true),
   sortOrder: integer("sort_order").default(0),
   createdAt: timestamp("created_at").defaultNow().notNull(),
