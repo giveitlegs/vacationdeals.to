@@ -60,6 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/brands`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.5 },
     { url: `${baseUrl}/rate-recap`, lastModified: new Date(), changeFrequency: "daily" as const, priority: 0.7 },
+    { url: `${baseUrl}/reality-index`, lastModified: new Date(), changeFrequency: "hourly" as const, priority: 0.9 },
     { url: `${baseUrl}/vacpack-rate-showdown`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${baseUrl}/vacpack-ad-spy`, lastModified: new Date(), changeFrequency: "daily" as const, priority: 0.7 },
     { url: `${baseUrl}/data-report`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
@@ -128,6 +129,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Per-brand Reality Index pages
+  const realityIndexPages = brands.map((slug) => ({
+    url: `${baseUrl}/reality-index/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "hourly" as const,
+    priority: 0.7,
+  }));
+
   // Brand rate recap pages
   const brandRateRecapPages = brands.map((slug) => ({
     url: `${baseUrl}/rate-recap-${slug}`,
@@ -186,5 +195,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...sublanderPages, ...spanishPages, ...carnivalPages, ...listiclePages];
+  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...realityIndexPages, ...sublanderPages, ...spanishPages, ...carnivalPages, ...listiclePages];
 }

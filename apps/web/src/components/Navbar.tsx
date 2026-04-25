@@ -111,6 +111,7 @@ export function Navbar() {
             </div>
 
             <Link href="/brands" className="text-sm font-medium text-gray-600 hover:text-blue-600">Brands</Link>
+            <Link href="/reality-index" className="text-sm font-medium text-gray-600 hover:text-blue-600" title="Independent brand-by-brand scoring">Reality Index</Link>
             <Link href="/blog" className="text-sm font-medium text-gray-600 hover:text-blue-600">Blog</Link>
 
             {/* Rate Recap with dropdown */}
@@ -284,6 +285,7 @@ export function Navbar() {
                 { href: "/destinations", label: "Destinations" },
                 ...TOP_CITIES.map((c) => ({ href: `/${c.slug}`, label: `  → ${c.label}` })),
                 { href: "/brands", label: "Brands" },
+                { href: "/reality-index", label: "Reality Index" },
                 { href: "/blog", label: "Blog" },
                 { href: "/rate-recap", label: "Rate Recap" },
                 { href: "/vacpack-rate-showdown", label: "\u00A0\u00A0\u2192 Rate Showdown" },
