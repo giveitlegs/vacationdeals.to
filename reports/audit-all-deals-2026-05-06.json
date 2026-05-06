@@ -1,7 +1,7 @@
 {
   "summary": {
-    "runAt": "2026-05-06T00:52:36.470Z",
-    "totalAudited": 450,
+    "runAt": "2026-05-06T01:03:51.436Z",
+    "totalAudited": 432,
     "bySource": {
       "all-inclusive-promotions": {
         "total": 2,
@@ -235,11 +235,11 @@
         "skippedJs": 0
       },
       "westgate": {
-        "total": 159,
+        "total": 141,
         "ok": 65,
-        "priceMismatch": 16,
-        "nightsMismatch": 0,
-        "both": 3,
+        "priceMismatch": 0,
+        "nightsMismatch": 1,
+        "both": 0,
         "noPrice": 75,
         "unreachable": 0,
         "loginWall": 0,
@@ -6087,27 +6087,6 @@
     },
     {
       "scraperKey": "westgate",
-      "dealId": 452,
-      "dbTitle": "Valentine's Day Getaway - $100 Spa or Dinner Credit",
-      "dbPrice": 159,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/valentines-getaway/",
-      "pageStatus": 200,
-      "pageTitle": "Valentine&#039;s Day Vacation Package | 4-Day Resort Vacation | Spa Credit",
-      "pricesOnPage": [
-        100
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Valentine&#039;s Day Vacation Package | 4-Day Resort Vacation | Spa Credit",
-        "priceContext": "db=159  page candidates=100  closest=100"
-      }
-    },
-    {
-      "scraperKey": "westgate",
       "dealId": 453,
       "dbTitle": "Orlando Resort Stay + 4 SeaWorld Orlando Tickets",
       "dbPrice": 329,
@@ -6394,7 +6373,7 @@
       "scraperKey": "westgate",
       "dealId": 485,
       "dbTitle": "Disney Package for 3: 3-Day Stay + $300 VISA Gift Card",
-      "dbPrice": 279,
+      "dbPrice": 369,
       "dbNights": 3,
       "url": "https://www.westgatereservations.com/specials/3-days-2-nights-3-disney-tickets/",
       "pageStatus": 200,
@@ -6406,180 +6385,10 @@
       "nightsOnPage": [
         2
       ],
-      "verdict": "price_and_nights_mismatch",
+      "verdict": "nights_mismatch",
       "evidence": {
         "titleSnippet": "Disney Vacation Package &amp; Gift - 3 Days Starting at $369",
-        "priceContext": "db=279  page candidates=369, 300  closest=300",
         "nightsContext": "db=3  page candidates=2"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 486,
-      "dbTitle": "4 Days 3 Nights + $400 VISA Gift Card",
-      "dbPrice": 769,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/4-days-3-nights-4-disney-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "4-Day / 3-Night Disney Vacation Package - Includes Disney Credit",
-      "pricesOnPage": [
-        400
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "4-Day / 3-Night Disney Vacation Package - Includes Disney Credit",
-        "priceContext": "db=769  page candidates=400  closest=400"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 487,
-      "dbTitle": "4-Day Orlando Dream Vacation includes a $200 VISA Gift Card & Water Park Tickets",
-      "dbPrice": 519,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/4-day-orlando-dream-vacation/",
-      "pageStatus": 200,
-      "pageTitle": "Orlando Dream Vacation - $200 Gift Card + 2 Water Park Tickets",
-      "pricesOnPage": [
-        200
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Orlando Dream Vacation - $200 Gift Card + 2 Water Park Tickets",
-        "priceContext": "db=519  page candidates=200  closest=200"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 489,
-      "dbTitle": "Disney Dreaming! 3 Days & 2 Nights + $400 VISA Gift Card",
-      "dbPrice": 689,
-      "dbNights": 2,
-      "url": "https://www.westgatereservations.com/specials/specials-3-days-2-nights-4-disney-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "3-Day Disney Package plus $400 VISA Gift Card for Disney World",
-      "pricesOnPage": [
-        400
-      ],
-      "nightsOnPage": [
-        2
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "3-Day Disney Package plus $400 VISA Gift Card for Disney World",
-        "priceContext": "db=689  page candidates=400  closest=400"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 490,
-      "dbTitle": "5 Days / 4 Nights plus $400 VISA Gift Card for Disney Tickets",
-      "dbPrice": 849,
-      "dbNights": 4,
-      "url": "https://www.westgatereservations.com/specials/5-day-4-nights-plus-4-disney-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "Disney World Family Vacation Packages: 5-Day Stay + Disney Gift",
-      "pricesOnPage": [
-        400
-      ],
-      "nightsOnPage": [
-        4
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Disney World Family Vacation Packages: 5-Day Stay + Disney Gift",
-        "priceContext": "db=849  page candidates=400  closest=400"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 491,
-      "dbTitle": "3 Days 2 Nights + $500 VISA Gift Card for Disney Tickets",
-      "dbPrice": 889,
-      "dbNights": 2,
-      "url": "https://www.westgatereservations.com/specials/3-days-2-nights-5-disney-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "3 Days 2 Nights + $500 VISA Gift Card for Disney Tickets",
-      "pricesOnPage": [
-        500
-      ],
-      "nightsOnPage": [
-        2
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "3 Days 2 Nights + $500 VISA Gift Card for Disney Tickets",
-        "priceContext": "db=889  page candidates=500  closest=500"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 492,
-      "dbTitle": "4 Days 3 Nights + $500 VISA Gift Card for Disney Tickets",
-      "dbPrice": 989,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/4-days-3-nights-5-disney-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "4-Day Resort Stay plus 5 Disney World Tickets - Book Today!",
-      "pricesOnPage": [
-        500
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "4-Day Resort Stay plus 5 Disney World Tickets - Book Today!",
-        "priceContext": "db=989  page candidates=500  closest=500"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 493,
-      "dbTitle": "5 Days 4 Nights + $500 VISA Gift Card for Disney Tickets",
-      "dbPrice": 1109,
-      "dbNights": 4,
-      "url": "https://www.westgatereservations.com/specials/5-days-4-nights-5-disney-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "5-Day Stay at Resort near Disney World - Includes 5 Disney tickets!",
-      "pricesOnPage": [
-        500
-      ],
-      "nightsOnPage": [
-        4
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "5-Day Stay at Resort near Disney World - Includes 5 Disney tickets!",
-        "priceContext": "db=1109  page candidates=500  closest=500"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 494,
-      "dbTitle": "3-Night Disney Package plus $600 VISA Gift Card for Disney Tickets",
-      "dbPrice": 1119,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/4-days-3-nights-6-disney-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "3-Night Disney Package plus 6 Disney Tickets starting from $1119",
-      "pricesOnPage": [
-        111,
-        600
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "3-Night Disney Package plus 6 Disney Tickets starting from $1119",
-        "priceContext": "db=1119  page candidates=111, 600  closest=600"
       }
     },
     {
@@ -6599,48 +6408,6 @@
       "evidence": {
         "titleSnippet": "5 Days / 4 Nights Universal Orlando Vacation Package",
         "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 496,
-      "dbTitle": "Orlando Resort Stay with Universal Orlando 3-Park Offer",
-      "dbPrice": 499,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/resort-stay-plus-3-day-universal-volcano-bay-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "3-Night Getaway + $300 VISA Gift Card toward Universal Studios Orlando",
-      "pricesOnPage": [
-        300
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "3-Night Getaway + $300 VISA Gift Card toward Universal Studios Orlando",
-        "priceContext": "db=499  page candidates=300  closest=300"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 497,
-      "dbTitle": "4 Days 3 Nights + $400 VISA Gift Card towards Universal Orlando Tickets",
-      "dbPrice": 589,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/4-days-3-nights-4-universal-orlando-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "Universal Orlando Package: 4 Day Resort Stay &amp; Gift - View Details",
-      "pricesOnPage": [
-        400
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Universal Orlando Package: 4 Day Resort Stay &amp; Gift - View Details",
-        "priceContext": "db=589  page candidates=400  closest=400"
       }
     },
     {
@@ -6729,27 +6496,6 @@
     },
     {
       "scraperKey": "westgate",
-      "dealId": 510,
-      "dbTitle": "3 Nights in Williamsburg plus Busch Gardens and $50 Dining",
-      "dbPrice": 159,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/3-nights-williamsburg-plus-busch-gardens-50-dining/",
-      "pageStatus": 200,
-      "pageTitle": "Busch Gardens Williamsburg Vacation Deals - Stay, Tickets, Dining",
-      "pricesOnPage": [
-        50
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Busch Gardens Williamsburg Vacation Deals - Stay, Tickets, Dining",
-        "priceContext": "db=159  page candidates=50  closest=50"
-      }
-    },
-    {
-      "scraperKey": "westgate",
       "dealId": 511,
       "dbTitle": "Book a 4-Day Stay Today & Sail Away",
       "dbPrice": 149,
@@ -6765,48 +6511,6 @@
       ],
       "verdict": "ok",
       "evidence": {}
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 512,
-      "dbTitle": "Universal Orlando Bundle! 4 Days 3 Nights + $200 VISA Gift Card",
-      "dbPrice": 239,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/4-days-3-nights-200-visa-gift-card/",
-      "pageStatus": 200,
-      "pageTitle": "Universal Bundle Vacation Package | 4 Days + $200 VISA Gift Card",
-      "pricesOnPage": [
-        200
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Universal Bundle Vacation Package | 4 Days + $200 VISA Gift Card",
-        "priceContext": "db=239  page candidates=200  closest=200"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 516,
-      "dbTitle": "4-Night Universal Orlando + $300 VISA Gift Card",
-      "dbPrice": 499,
-      "dbNights": 4,
-      "url": "https://www.westgatereservations.com/specials/4-night-universal-orlando-3-park-adventure/",
-      "pageStatus": 200,
-      "pageTitle": "Universal Studios Orlando Family Packages | 5 Days | Westgate Resorts",
-      "pricesOnPage": [
-        300
-      ],
-      "nightsOnPage": [
-        4
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Universal Studios Orlando Family Packages | 5 Days | Westgate Resorts",
-        "priceContext": "db=499  page candidates=300  closest=300"
-      }
     },
     {
       "scraperKey": "westgate",
@@ -7578,28 +7282,6 @@
     },
     {
       "scraperKey": "westgate",
-      "dealId": 22631,
-      "dbTitle": "Water Park Adventure - Enjoy 3 Days/2 Nights and 4 Shipwreck Island tickets from $129",
-      "dbPrice": 129,
-      "dbNights": 2,
-      "url": "https://www.westgatereservations.com/specials/westgate-water-park-adventure-4-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "$99 4 Day Orlando Trip at Water Park Florida Resort",
-      "pricesOnPage": [
-        99
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_and_nights_mismatch",
-      "evidence": {
-        "titleSnippet": "$99 4 Day Orlando Trip at Water Park Florida Resort",
-        "priceContext": "db=129  page candidates=99  closest=99",
-        "nightsContext": "db=2  page candidates=3"
-      }
-    },
-    {
-      "scraperKey": "westgate",
       "dealId": 22632,
       "dbTitle": "Vacation Like Royalty at Westgate Palace!",
       "dbPrice": 149,
@@ -7734,28 +7416,6 @@
       "evidence": {
         "titleSnippet": "3-Day Stay + 2 Orlando Tree Trek Adventure Park tickets",
         "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 22640,
-      "dbTitle": "3-Day Las Vegas resort stay plus 2 Barry Manilow tickets",
-      "dbPrice": 149,
-      "dbNights": 2,
-      "url": "https://www.westgatereservations.com/specials/3-day-las-vegas-resort-stay-plus-2-barry-manilow-tickets/",
-      "pageStatus": 200,
-      "pageTitle": "Viva Las Vegas Getaway! Book a $99 Resort Getaway for 3 Nights",
-      "pricesOnPage": [
-        99
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_and_nights_mismatch",
-      "evidence": {
-        "titleSnippet": "Viva Las Vegas Getaway! Book a $99 Resort Getaway for 3 Nights",
-        "priceContext": "db=149  page candidates=99  closest=99",
-        "nightsContext": "db=2  page candidates=3"
       }
     },
     {
@@ -7953,27 +7613,6 @@
     },
     {
       "scraperKey": "westgate",
-      "dealId": 22652,
-      "dbTitle": "3-Night Orlando Theme Park Getaway includes 2-Bedroom Resort Suite",
-      "dbPrice": 299,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/3-night-orlando-theme-park-getaway-2-bedroom-suite/",
-      "pageStatus": 200,
-      "pageTitle": "3-night Orlando 2-BR resort getaway plus $200 toward theme park tickets",
-      "pricesOnPage": [
-        200
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "3-night Orlando 2-BR resort getaway plus $200 toward theme park tickets",
-        "priceContext": "db=299  page candidates=200  closest=200"
-      }
-    },
-    {
-      "scraperKey": "westgate",
       "dealId": 22653,
       "dbTitle": "4-Day/3-Night Gatlinburg Getaway + 2 Dolly's Stampede Tickets",
       "dbPrice": 179,
@@ -8129,27 +7768,6 @@
       ],
       "verdict": "ok",
       "evidence": {}
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 22663,
-      "dbTitle": "It's Christmas at Universal! Orlando Vacation + $200 for Tickets",
-      "dbPrice": 399,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/specials/christmas-at-universal/",
-      "pageStatus": 200,
-      "pageTitle": "4-Day Orlando Christmas Vacation + $200 Towards Universal Orlando",
-      "pricesOnPage": [
-        200
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "4-Day Orlando Christmas Vacation + $200 Towards Universal Orlando",
-        "priceContext": "db=399  page candidates=200  closest=200"
-      }
     },
     {
       "scraperKey": "westgate",
