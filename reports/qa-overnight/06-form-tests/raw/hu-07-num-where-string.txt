@@ -1,0 +1,7 @@
+=== hu-07-num-where-string ===
+Method: POST
+URL: /api/hold-up
+Data: {"url":12345}
+Result: STATUS=400|TIME=0.200854|SIZE=27
+Body: {"error":"Invalid request"}
+

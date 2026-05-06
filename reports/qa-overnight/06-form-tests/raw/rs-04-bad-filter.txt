@@ -1,0 +1,7 @@
+=== rs-04-bad-filter ===
+Method: POST
+URL: /api/roulette/spin
+Data: {"sessionId":"qa-test","filter":"invalid-filter-zzz"}
+Result: STATUS=200|TIME=0.461470|SIZE=2854
+Body: {"wheelSlices":[{"dealId":14529,"price":50,"city":"Branson","state":"MO","brandName":"VacationVIP","brandSlug":"vacationvip","slug":"vacationvip-branson-3-night-50","resortName":"Branson, MO","rarity":"legendary"},{"dealId":15230,"price":499,"city":"Various","state":"","brandName":"Departure Depot","brandSlug":"departure-depot","slug":"departure-depot-various-3-night-499","resortName":"Departure Depot","rarity":"common"},{"dealId":330,"price":199,"city":"Gatlinburg","state":"TN","brandName":"Clu
+

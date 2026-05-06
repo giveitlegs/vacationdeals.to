@@ -1,0 +1,7 @@
+=== sa-03-missing-email ===
+Method: POST
+URL: /api/scout/apply
+Data: {"name":"Test User"}
+Result: STATUS=400|TIME=0.278142|SIZE=40
+Body: {"error":"Enter a valid email address."}
+

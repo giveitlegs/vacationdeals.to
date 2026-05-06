@@ -1,0 +1,7 @@
+=== rs-06-sql-inj ===
+Method: POST
+URL: /api/roulette/spin
+Data: {"sessionId":"abc'; DROP TABLE deals;--","filter":"all"}
+Result: STATUS=200|TIME=0.179208|SIZE=3286
+Body: {"wheelSlices":[{"dealId":94,"price":309,"city":"Huatulco","state":"","brandName":"Monster Reservations Group","brandSlug":"mrg","slug":"mrg-huatulco-5-night-309","resortName":"Resorts At this destination, Dreams Huatulco Resort & Spa","rarity":"common"},{"dealId":617,"price":299,"city":"Williamsburg","state":"VA","brandName":"Spinnaker Resorts","brandSlug":"spinnaker","slug":"spinnaker-williamsburg-3-night-299","resortName":"Kings Creek Plantation","rarity":"common"},{"dealId":521,"price":99,"c
+

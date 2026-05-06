@@ -1,0 +1,7 @@
+=== us-01-no-token ===
+Method: GET
+URL: /api/email/unsubscribe
+Data: 
+Result: STATUS=400|TIME=0.331062|SIZE=24
+Body: Invalid unsubscribe link
+

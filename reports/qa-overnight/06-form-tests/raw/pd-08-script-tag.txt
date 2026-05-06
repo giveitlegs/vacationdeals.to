@@ -1,0 +1,7 @@
+=== pd-08-script-tag ===
+Method: POST
+URL: /api/pitch-diaries/submit
+Data: {"story":"Test story with <script>alert(1)</script> embedded HTML for XSS check. Do not contact. Filler text."}
+Result: STATUS=200|TIME=0.170742|SIZE=18
+Body: {"ok":true,"id":5}
+

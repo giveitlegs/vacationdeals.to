@@ -1,0 +1,7 @@
+=== pd-03-missing-story ===
+Method: POST
+URL: /api/pitch-diaries/submit
+Data: {"brandSlug":"westgate"}
+Result: STATUS=400|TIME=0.171318|SIZE=82
+Body: {"error":"Tell us at least a few sentences about what happened (80+ characters)."}
+

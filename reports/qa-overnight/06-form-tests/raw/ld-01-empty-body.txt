@@ -1,0 +1,7 @@
+=== ld-01-empty-body ===
+Method: POST
+URL: /api/leads
+Data: 
+Result: STATUS=500|TIME=0.185163|SIZE=26
+Body: {"error":"Failed to save"}
+

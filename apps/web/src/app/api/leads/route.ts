@@ -6,17 +6,28 @@ import { NextRequest, NextResponse } from "next/server";
  * Body: { email, phone?, source, tcpaConsent, termsConsent, consentText }
  */
 export async function POST(request: NextRequest) {
+  let body: Record<string, unknown>;
   try {
-    const body = await request.json();
-    const { email, phone, source, tcpaConsent, termsConsent, consentText } = body;
+    body = (await request.json()) as Record<string, unknown>;
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
+  const email = typeof body.email === "string" ? body.email.trim() : "";
+  const phone = typeof body.phone === "string" ? body.phone : null;
+  const source = typeof body.source === "string" ? body.source : null;
+  const tcpaConsent = body.tcpaConsent === true || body.tcpaConsent === "true";
+  const termsConsent = body.termsConsent === true || body.termsConsent === "true";
+  const consentText = typeof body.consentText === "string" ? body.consentText : null;
 
-    if (!email || !email.includes("@")) {
-      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
-    }
+  if (!email || !email.includes("@")) {
+    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+  }
 
-    if (!tcpaConsent || !termsConsent) {
-      return NextResponse.json({ error: "Consent checkboxes required" }, { status: 400 });
-    }
+  if (!tcpaConsent || !termsConsent) {
+    return NextResponse.json({ error: "Consent checkboxes required" }, { status: 400 });
+  }
+
+  try {
 
     // Get IP address from headers
     const forwarded = request.headers.get("x-forwarded-for");
@@ -30,7 +41,7 @@ export async function POST(request: NextRequest) {
 
     // Store the lead
     await db.insert(schema.dataInquiries).values({
-      name: body.name || "Opt-In Lead",
+      name: typeof body.name === "string" ? body.name : "Opt-In Lead",
       email,
       company: phone || null, // repurpose company field for phone temporarily
       inquiryType: source || "roulette_optin",

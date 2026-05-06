@@ -1,0 +1,7 @@
+=== sa-02-empty-json ===
+Method: POST
+URL: /api/scout/apply
+Data: {}
+Result: STATUS=400|TIME=0.165720|SIZE=35
+Body: {"error":"Please enter your name."}
+

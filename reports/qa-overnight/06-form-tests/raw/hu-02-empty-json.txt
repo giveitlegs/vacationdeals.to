@@ -1,0 +1,7 @@
+=== hu-02-empty-json ===
+Method: POST
+URL: /api/hold-up
+Data: {}
+Result: STATUS=400|TIME=0.189685|SIZE=23
+Body: {"error":"Missing url"}
+

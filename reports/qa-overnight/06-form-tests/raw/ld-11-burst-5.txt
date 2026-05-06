@@ -1,0 +1,7 @@
+=== ld-11-burst-5 ===
+Method: POST
+URL: /api/leads
+Data: {"email":"qaburst5@example.invalid","tcpaConsent":true,"termsConsent":true,"source":"qa-test"}
+Result: STATUS=200|TIME=0.315856|SIZE=11
+Body: {"ok":true}
+

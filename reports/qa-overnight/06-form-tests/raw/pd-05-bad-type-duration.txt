@@ -1,0 +1,7 @@
+=== pd-05-bad-type-duration ===
+Method: POST
+URL: /api/pitch-diaries/submit
+Data: {"story":"This is a perfectly valid test story for QA testing purposes about a fake pitch we attended at a fake resort. Do not contact.","durationMinutes":"not-a-number"}
+Result: STATUS=200|TIME=0.180180|SIZE=18
+Body: {"ok":true,"id":3}
+

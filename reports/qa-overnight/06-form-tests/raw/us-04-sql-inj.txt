@@ -1,0 +1,11 @@
+=== us-04-sql-inj ===
+Method: GET
+URL: /api/email/unsubscribe?email=qa%40test.invalid%27%3B%20DROP%20TABLE%20deals%3B--
+Data: 
+Result: STATUS=200|TIME=0.463232|SIZE=303
+Body: <!DOCTYPE html><html><body style="font-family:sans-serif;padding:40px;text-align:center;">
+      <h1>Unsubscribed</h1>
+      <p>qa@test.invalid'; DROP TABLE deals;-- has been removed from our email list.</p>
+      <p><a href="https://vacationdeals.to">Back to VacationDeals.to</a></p>
+    </body></html>
+

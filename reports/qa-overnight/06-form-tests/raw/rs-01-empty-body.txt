@@ -1,0 +1,7 @@
+=== rs-01-empty-body ===
+Method: POST
+URL: /api/roulette/spin
+Data: 
+Result: STATUS=200|TIME=0.189664|SIZE=3037
+Body: {"wheelSlices":[{"dealId":190,"price":499,"city":"Tulum","state":"","brandName":"GetawayDealz","brandSlug":"getawaydealz","slug":"getawaydealz-tulum-3-night-499","resortName":"Diamond Luxury Tulum Resort","rarity":"common"},{"dealId":550,"price":149,"city":"Las Vegas","state":"NV","brandName":"StayPromo","brandSlug":"staypromo","slug":"staypromo-las-vegas-3-night-149","resortName":"Stratosphere Casino, Hotel & Tower","rarity":"rare"},{"dealId":558,"price":149,"city":"Myrtle Beach","state":"SC","
+

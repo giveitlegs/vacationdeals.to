@@ -1,0 +1,7 @@
+=== sa-08-valid-min ===
+Method: POST
+URL: /api/scout/apply
+Data: {"name":"Test User (DNC)","email":"qatest@example.invalid"}
+Result: STATUS=200|TIME=0.189943|SIZE=11
+Body: {"ok":true}
+

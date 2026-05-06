@@ -1,0 +1,7 @@
+=== rs-07-bad-type ===
+Method: POST
+URL: /api/roulette/spin
+Data: {"sessionId":12345,"filter":99}
+Result: STATUS=200|TIME=0.274352|SIZE=3031
+Body: {"wheelSlices":[{"dealId":22607,"price":199,"city":"Branson","state":"MO","brandName":"Westgate Reservations","brandSlug":"westgate","slug":"westgate-branson-3-night-199-christmas","resortName":"Westgate Reservations","rarity":"rare"},{"dealId":22499,"price":99,"city":"Orlando","state":"FL","brandName":"StayPromo","brandSlug":"staypromo","slug":"staypromo-orlando-3-night-99-v2","resortName":"Festiva Orlando Resort Kissimmee","rarity":"legendary"},{"dealId":982,"price":449,"city":"Las Vegas","sta
+

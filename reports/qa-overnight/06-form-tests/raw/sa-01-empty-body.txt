@@ -1,0 +1,7 @@
+=== sa-01-empty-body ===
+Method: POST
+URL: /api/scout/apply
+Data: 
+Result: STATUS=400|TIME=0.178251|SIZE=24
+Body: {"error":"Invalid JSON"}
+

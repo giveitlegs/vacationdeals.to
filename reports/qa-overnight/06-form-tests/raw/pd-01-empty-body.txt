@@ -1,0 +1,7 @@
+=== pd-01-empty-body ===
+Method: POST
+URL: /api/pitch-diaries/submit
+Data: 
+Result: STATUS=400|TIME=0.220582|SIZE=24
+Body: {"error":"Invalid JSON"}
+

@@ -1,0 +1,7 @@
+=== sa-04-bad-email ===
+Method: POST
+URL: /api/scout/apply
+Data: {"name":"Test User","email":"not-an-email"}
+Result: STATUS=400|TIME=0.174468|SIZE=40
+Body: {"error":"Enter a valid email address."}
+

@@ -1,0 +1,7 @@
+=== ld-02-empty-json ===
+Method: POST
+URL: /api/leads
+Data: {}
+Result: STATUS=400|TIME=0.190395|SIZE=25
+Body: {"error":"Invalid email"}
+

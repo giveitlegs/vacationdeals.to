@@ -1,0 +1,7 @@
+=== us-06-post-not-allowed ===
+Method: POST
+URL: /api/email/unsubscribe
+Data: {"email":"qatest@example.invalid"}
+Result: STATUS=405|TIME=0.253806|SIZE=0
+Body: 
+

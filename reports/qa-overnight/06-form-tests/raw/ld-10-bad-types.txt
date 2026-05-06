@@ -1,0 +1,7 @@
+=== ld-10-bad-types ===
+Method: POST
+URL: /api/leads
+Data: {"email":12345,"tcpaConsent":"yes","termsConsent":1}
+Result: STATUS=500|TIME=0.183038|SIZE=26
+Body: {"error":"Failed to save"}
+

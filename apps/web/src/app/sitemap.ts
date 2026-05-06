@@ -130,8 +130,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // Per-brand Reality Index pages
-  const realityIndexPages = brands.map((slug) => ({
+  // Per-brand Reality Index pages — only include brands that actually
+  // have a score (brands with 0 active deals 404 the detail page, and
+  // listing 404s in the sitemap is a Google ranking penalty).
+  const { getRealityIndex } = await import("@/lib/reality-index").catch(() => ({ getRealityIndex: null }));
+  const scoredBrandSlugs: string[] = getRealityIndex
+    ? await getRealityIndex().then((rows) => rows.map((r) => r.brandSlug)).catch(() => [])
+    : [];
+  const realityIndexPages = scoredBrandSlugs.map((slug) => ({
     url: `${baseUrl}/reality-index/${slug}`,
     lastModified: new Date(),
     changeFrequency: "hourly" as const,

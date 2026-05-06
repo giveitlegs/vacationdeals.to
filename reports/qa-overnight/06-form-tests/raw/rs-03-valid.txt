@@ -1,0 +1,7 @@
+=== rs-03-valid ===
+Method: POST
+URL: /api/roulette/spin
+Data: {"sessionId":"qa-test-session","filter":"all"}
+Result: STATUS=200|TIME=0.340108|SIZE=2907
+Body: {"wheelSlices":[{"dealId":565,"price":239,"city":"Orlando","state":"FL","brandName":"StayPromo","brandSlug":"staypromo","slug":"staypromo-orlando-3-night-239","resortName":"The Point Hotel & Suites Orlando Florida","rarity":"common"},{"dealId":82,"price":98,"city":"Orlando","state":"FL","brandName":"Monster Reservations Group","brandSlug":"mrg","slug":"mrg-orlando-4-night-98","resortName":"Resorts At this destination, Barefoot Suites, Calypso Cay Resort, LaQuinta Inn & Suites by Wyndham Orlando 
+

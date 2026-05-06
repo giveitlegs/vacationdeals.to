@@ -1,0 +1,7 @@
+=== ld-05-no-consent ===
+Method: POST
+URL: /api/leads
+Data: {"email":"qatest@example.invalid"}
+Result: STATUS=400|TIME=0.286850|SIZE=39
+Body: {"error":"Consent checkboxes required"}
+

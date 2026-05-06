@@ -1,0 +1,63 @@
+2026-05-05 23:02:55,503 [33248] [main] INFO  - User Locale: en_US
+2026-05-05 23:02:59,124 [33248] [main] INFO  - Creating Lock File: C:\Users\givei\.ScreamingFrogSEOSpider\instance_locks\e9dbf734-34ef-4872-80b7-c6aa5edb3411.lck
+2026-05-05 23:03:00,392 [33248] [main] INFO  - Application Started
+2026-05-05 23:03:00,971 [33248] [main] INFO  - Setting proxy: ProxySettings [mEnabled=false, mHost=, mPort=3128, mUseCredentials=false, userPresent=false, passwordPresent=false]
+2026-05-05 23:03:01,063 [33248] [main] INFO  - Signature verification complete in 0 hrs 0 mins 0 secs (22): status=true
+2026-05-05 23:03:01,063 [33248] [main] INFO  - License Lease Signature: valid=true
+2026-05-05 23:03:01,080 [33248] [main] INFO  - Signature verification complete in 0 hrs 0 mins 0 secs (17): status=true
+2026-05-05 23:03:01,080 [33248] [main] INFO  - License Lease Signature: valid=true
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Running: Screaming Frog SEO Spider 23.3
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Build: f56c35cda6f7b686bee1f7c301e2d10d1a1193e3
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Platform Info: Name 'Windows 11' Version '10.0' Arch 'amd64'
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Java Info: Vendor 'Eclipse Adoptium' URL 'https://adoptium.net/' Version '21.0.10' Home 'C:\Program Files (x86)\Screaming Frog SEO Spider\jre'
+2026-05-05 23:03:01,190 [33248] [main] INFO  - VM args: -enableassertions, -XX:+UseG1GC, -XX:+UseStringDeduplication, -Djava.net.preferIPv4Stack=true, -Xmx2g, -XX:ErrorFile=C:\Users\givei\.ScreamingFrogSEOSpider\hs_err_pid%p.log
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Log File: C:\Users\givei\.ScreamingFrogSEOSpider\trace.txt
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Fatal Log File: C:\Users\givei\.ScreamingFrogSEOSpider\crash.txt
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Logging Status: OK
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Memory: Physical=31.5GB, Used=79MB, Free=27MB, Total=107MB, Max=2048MB, Using 3%
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Licence File: C:\Users\givei\.ScreamingFrogSEOSpider\licence.txt
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Licence Status: Active, expires on 31 Mar 2027 GMT. (Username: westgateresorts)
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Locale: en_US
+2026-05-05 23:03:01,190 [33248] [main] INFO  - Time Zone: Eastern Standard Time, offset=-14400000
+2026-05-05 23:03:01,207 [33248] [main] INFO  - Checking Licence
+2026-05-05 23:03:01,223 [33248] [LicenseRevocationChecker 1] INFO  - Signature verification complete in 0 hrs 0 mins 0 secs (4): status=true
+2026-05-05 23:03:01,223 [33248] [LicenseRevocationChecker 1] INFO  - License Lease Signature: valid=true
+2026-05-05 23:03:01,223 [33248] [LicenseRevocationChecker 1] INFO  - Checking Licence Lease
+2026-05-05 23:03:01,327 [33248] [AutomaticCrashReporter 1] INFO  - Taken ACR lock
+2026-05-05 23:03:01,332 [33248] [main] INFO  - Raw arguments:
+2026-05-05 23:03:01,332 [33248] [main] INFO  - argument 0 = '--crawl'
+2026-05-05 23:03:01,332 [33248] [main] INFO  - argument 1 = 'https://vacationdeals.to/'
+2026-05-05 23:03:01,332 [33248] [main] INFO  - argument 2 = '--headless'
+2026-05-05 23:03:01,338 [33248] [main] INFO  - argument 3 = '--output-folder'
+2026-05-05 23:03:01,338 [33248] [main] INFO  - argument 4 = './reports/qa-overnight/04-crawl/sf-output'
+2026-05-05 23:03:01,338 [33248] [main] INFO  - argument 5 = '--overwrite'
+2026-05-05 23:03:01,338 [33248] [main] INFO  - argument 6 = '--export-format'
+2026-05-05 23:03:01,338 [33248] [main] INFO  - argument 7 = 'csv'
+2026-05-05 23:03:01,338 [33248] [main] INFO  - argument 8 = '--save-crawl'
+2026-05-05 23:03:01,338 [33248] [main] INFO  - argument 9 = '--export-tabs'
+2026-05-05 23:03:01,338 [33248] [main] INFO  - argument 10 = 'Internal:All,Internal:HTML,Response Codes:All,Response Codes:Client Error (4xx),Response Codes:Server Error (5xx),Response Codes:Redirection (3xx),Page Titles:All,Page Titles:Missing,Page Titles:Duplicate,Meta Description:All,Meta Description:Missing,Meta Description:Duplicate,H1:All,H1:Missing,H1:Duplicate,Canonicals:All,Canonicals:Missing,Images:Missing Alt Text,Structured Data:All,Structured Data:Validation Errors,Structured Data:Validation Warnings,Hreflang:All'
+2026-05-05 23:03:01,341 [33248] [AutomaticCrashReporter 1] INFO  - Crash files found: 0
+2026-05-05 23:03:01,341 [33248] [AutomaticCrashReporter 1] INFO  - Releasing ACR lock
+2026-05-05 23:03:01,341 [33248] [main] INFO  - argument 11 = '--bulk-export'
+2026-05-05 23:03:01,341 [33248] [main] INFO  - argument 12 = 'Links:All Inlinks,Links:All Outlinks,Response Codes:Client Error (4xx) Inlinks,Response Codes:Server Error (5xx) Inlinks'
+2026-05-05 23:03:01,344 [33248] [main] INFO  - argument 13 = '--save-report'
+2026-05-05 23:03:01,344 [33248] [main] INFO  - argument 14 = 'Crawl Overview,Redirects:Redirect Chains,Redirects:Redirect & Canonical Chains,Canonicals:Canonical Chains,Structured Data:Validation Errors & Warnings Summary'
+2026-05-05 23:03:01,344 [33248] [main] INFO  - Parsed arguments:
+2026-05-05 23:03:01,357 [33248] [main] INFO  - --crawl https://vacationdeals.to/
+2026-05-05 23:03:01,357 [33248] [main] INFO  - --headless 
+2026-05-05 23:03:01,357 [33248] [main] INFO  - --output-folder ./reports/qa-overnight/04-crawl/sf-output
+2026-05-05 23:03:01,357 [33248] [main] INFO  - --overwrite 
+2026-05-05 23:03:01,361 [33248] [main] INFO  - --export-format csv
+2026-05-05 23:03:01,363 [33248] [main] INFO  - --save-crawl 
+2026-05-05 23:03:01,363 [33248] [main] INFO  - --export-tabs Internal:All,Internal:HTML,Response Codes:All,Response Codes:Client Error (4xx),Response Codes:Server Error (5xx),Response Codes:Redirection (3xx),Page Titles:All,Page Titles:Missing,Page Titles:Duplicate,Meta Description:All,Meta Description:Missing,Meta Description:Duplicate,H1:All,H1:Missing,H1:Duplicate,Canonicals:All,Canonicals:Missing,Images:Missing Alt Text,Structured Data:All,Structured Data:Validation Errors,Structured Data:Validation Warnings,Hreflang:All
+2026-05-05 23:03:01,363 [33248] [main] INFO  - --bulk-export Links:All Inlinks,Links:All Outlinks,Response Codes:Client Error (4xx) Inlinks,Response Codes:Server Error (5xx) Inlinks
+2026-05-05 23:03:01,363 [33248] [main] INFO  - --save-report Crawl Overview,Redirects:Redirect Chains,Redirects:Redirect & Canonical Chains,Canonicals:Canonical Chains,Structured Data:Validation Errors & Warnings Summary
+2026-05-05 23:03:01,410 [33248] [main] INFO  - User configured database path as C:\Users\givei\.ScreamingFrogSEOSpider
+2026-05-05 23:03:02,085 [33248] [main] INFO  - Auditing C:\Users\givei\.ScreamingFrogSEOSpider\instance_locks Lock Files (1):
+2026-05-05 23:03:02,085 [33248] [main] INFO  - C:\Users\givei\.ScreamingFrogSEOSpider\instance_locks\e9dbf734-34ef-4872-80b7-c6aa5edb3411.lck [this]
+2026-05-05 23:03:02,095 [33248] [LicenseRevocationChecker 1] INFO  - Sending to Licence Server, requestId=65b9ebb8-fa3b-4e54-8567-b6d252f6dcb5
+2026-05-05 23:03:02,142 [33248] [main] INFO  - User has accepted the current version of the EULA
+2026-05-05 23:03:02,151 [33248] [main] INFO  - Creating WindowsMemoryManager
+2026-05-05 23:03:04,753 [33248] [LicenseRevocationChecker 1] INFO  - Licence Server response received, requestId=65b9ebb8-fa3b-4e54-8567-b6d252f6dcb5: {"msg_type":"licence_response","version":2,"credentials":{"username":"westgateresorts","licence_key":"B49936FA7B-1806451200-00BEAFD98F"},"licence_type":"subscription","machine_id":"9634ea3b-0754-4bf9-b408-c77dc86d279e","timestamp":1778036584,"signature":"epjPJEwqaHR02gnnqokD3Qud+BVhpNtZl3PRnvEPVOGFj0IJHnBG1vYclx6vPpPlmStXSRfGhd3ew6iCkE\/iQHSD8L8tLQZRGgU1e9I7XHQrnXxEBLjJ5aTckIe9YTDue91fm7YKFHt82qq4+VgRILfspvQH6kfn4JBCqgGYtqovnzH6Ca5DH+vJ9JOgJnQp+Yysw93recMsfN7tTvZx4ekMUNT4nK8G7guueMiIxAYI0oT8HcKbmRO6ZOC\/HESdtB2RgEKyP\/pzavs\/DdpZoDnqhLOW1nDqZotBAlYGBJZPskGcz4ZEodY+c3QgRegoypefl8uhRNuocRr3KWzkDzVqhog3rnI+0emEaqjgGOlOrnrblke+7Dn\/d\/y9ZuIm2SnmcQIVlrMvY3DJVpq2VeRdP5swZslzMt6aOTPHk1VL7zDaEfKUWRGz2q4IyIL6onY19EdjYJ7xufbr7PAdeeeNivK7ncPiBNeMWBfz3mb58r\/gHYog\/TDNwEevpG\/6"}
+2026-05-05 23:03:04,769 [33248] [LicenseRevocationChecker 1] INFO  - Signature verification complete in 0 hrs 0 mins 0 secs (4): status=true
+2026-05-05 23:03:04,771 [33248] [LicenseRevocationChecker 1] INFO  - License Lease Signature: valid=true

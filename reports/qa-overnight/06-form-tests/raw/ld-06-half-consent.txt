@@ -1,0 +1,7 @@
+=== ld-06-half-consent ===
+Method: POST
+URL: /api/leads
+Data: {"email":"qatest@example.invalid","tcpaConsent":true}
+Result: STATUS=400|TIME=0.223955|SIZE=39
+Body: {"error":"Consent checkboxes required"}
+

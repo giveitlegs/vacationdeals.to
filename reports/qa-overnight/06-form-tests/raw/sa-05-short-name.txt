@@ -1,0 +1,7 @@
+=== sa-05-short-name ===
+Method: POST
+URL: /api/scout/apply
+Data: {"name":"X","email":"test@example.invalid"}
+Result: STATUS=400|TIME=0.170724|SIZE=35
+Body: {"error":"Please enter your name."}
+

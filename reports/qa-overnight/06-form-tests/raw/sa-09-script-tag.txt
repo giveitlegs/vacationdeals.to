@@ -1,0 +1,7 @@
+=== sa-09-script-tag ===
+Method: POST
+URL: /api/scout/apply
+Data: {"name":"Test <script>alert(1)</script>","email":"qatest@example.invalid","whyInterested":"<script>alert(2)</script>"}
+Result: STATUS=200|TIME=0.179782|SIZE=11
+Body: {"ok":true}
+

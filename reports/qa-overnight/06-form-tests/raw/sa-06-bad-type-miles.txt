@@ -1,0 +1,7 @@
+=== sa-06-bad-type-miles ===
+Method: POST
+URL: /api/scout/apply
+Data: {"name":"Test User","email":"test@example.invalid","willingToTravelMiles":"abc"}
+Result: STATUS=200|TIME=0.194560|SIZE=11
+Body: {"ok":true}
+

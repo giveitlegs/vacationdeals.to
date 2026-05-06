@@ -1,0 +1,7 @@
+=== hu-05-script-tag ===
+Method: POST
+URL: /api/hold-up
+Data: {"url":"<script>alert(1)</script>"}
+Result: STATUS=200|TIME=0.332944|SIZE=474
+Body: {"inputUrl":"<script>alert(1)</script>","normalizedUrl":"https://<script>alert(1)</script>","hostname":"","brand":null,"matchType":"unknown-brand","verdict":"Unknown","verdictColor":"#6b7280","scoreOverall":null,"flags":[],"recommendations":["We don't have data on this brand. Check BBB rating + state-AG complaint history before paying anything.","Search Reddit r/timeshare for recent reports.","Never pay more than $49 deposit to a brand you can't independently verify."]}
+

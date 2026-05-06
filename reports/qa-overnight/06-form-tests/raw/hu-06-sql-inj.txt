@@ -1,0 +1,7 @@
+=== hu-06-sql-inj ===
+Method: POST
+URL: /api/hold-up
+Data: {"url":"https://example.com/?q='; DROP TABLE deals;--"}
+Result: STATUS=200|TIME=0.215442|SIZE=492
+Body: {"inputUrl":"https://example.com/?q='; DROP TABLE deals;--","normalizedUrl":"https://example.com/","hostname":"example.com","brand":null,"matchType":"unknown-brand","verdict":"Unknown","verdictColor":"#6b7280","scoreOverall":null,"flags":[],"recommendations":["We don't have data on this brand. Check BBB rating + state-AG complaint history before paying anything.","Search Reddit r/timeshare for recent reports.","Never pay more than $49 deposit to a brand you can't independently verify."]}
+

@@ -1,0 +1,7 @@
+=== pd-02-empty-json ===
+Method: POST
+URL: /api/pitch-diaries/submit
+Data: {}
+Result: STATUS=400|TIME=0.168457|SIZE=82
+Body: {"error":"Tell us at least a few sentences about what happened (80+ characters)."}
+

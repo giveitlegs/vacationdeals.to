@@ -1,0 +1,7 @@
+=== rs-05-script-tag ===
+Method: POST
+URL: /api/roulette/spin
+Data: {"sessionId":"<script>alert(1)</script>","filter":"all"}
+Result: STATUS=200|TIME=0.189698|SIZE=3124
+Body: {"wheelSlices":[{"dealId":589,"price":129,"city":"Gatlinburg","state":"TN","brandName":"StayPromo","brandSlug":"staypromo","slug":"staypromo-gatlinburg-3-night-129","resortName":"Westgate River Terrace Resort and Convention Center Gatlinburg TN","rarity":"rare"},{"dealId":552,"price":749,"city":"Juan Dolio","state":"","brandName":"StayPromo","brandSlug":"staypromo","slug":"staypromo-juan-dolio-4-night-749","resortName":"Emotions By Hodelpa Juan Dolio","rarity":"common"},{"dealId":561,"price":249
+

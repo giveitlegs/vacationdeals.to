@@ -1,0 +1,7 @@
+=== hu-04-bad-url ===
+Method: POST
+URL: /api/hold-up
+Data: {"url":"not-a-real-url"}
+Result: STATUS=200|TIME=0.321876|SIZE=467
+Body: {"inputUrl":"not-a-real-url","normalizedUrl":"https://not-a-real-url/","hostname":"not-a-real-url","brand":null,"matchType":"unknown-brand","verdict":"Unknown","verdictColor":"#6b7280","scoreOverall":null,"flags":[],"recommendations":["We don't have data on this brand. Check BBB rating + state-AG complaint history before paying anything.","Search Reddit r/timeshare for recent reports.","Never pay more than $49 deposit to a brand you can't independently verify."]}
+

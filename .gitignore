@@ -75,3 +75,4 @@ backups/
 
 # Allow committed prospect banner PNGs even though *.png is gitignored
 !apps/web/public/banners/*.png
+reports/qa-overnight/04-crawl/raw.json

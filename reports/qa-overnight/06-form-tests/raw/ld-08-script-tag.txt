@@ -1,0 +1,7 @@
+=== ld-08-script-tag ===
+Method: POST
+URL: /api/leads
+Data: {"email":"qatest@example.invalid","name":"<script>alert(1)</script>","tcpaConsent":true,"termsConsent":true,"source":"qa-test"}
+Result: STATUS=200|TIME=0.206496|SIZE=11
+Body: {"ok":true}
+

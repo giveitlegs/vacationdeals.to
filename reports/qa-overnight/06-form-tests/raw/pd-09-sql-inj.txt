@@ -1,0 +1,7 @@
+=== pd-09-sql-inj ===
+Method: POST
+URL: /api/pitch-diaries/submit
+Data: {"story":"Test story with SQL injection attempt: '; DROP TABLE deals;-- inside the body. Do not contact. Filler text."}
+Result: STATUS=200|TIME=0.177524|SIZE=18
+Body: {"ok":true,"id":6}
+

@@ -1,0 +1,7 @@
+=== pd-07-valid-min ===
+Method: POST
+URL: /api/pitch-diaries/submit
+Data: {"story":"Test pitch story for QA. Attended a fake 90-min preview, do not contact. Filler text to exceed 80 chars."}
+Result: STATUS=200|TIME=0.175418|SIZE=18
+Body: {"ok":true,"id":4}
+

@@ -1,0 +1,7 @@
+=== pd-11-burst-1 ===
+Method: POST
+URL: /api/pitch-diaries/submit
+Data: {"story":"Burst test 1 for rate-limit check. Test story. Do not contact. Filler text to exceed 80 char minimum."}
+Result: STATUS=200|TIME=0.171727|SIZE=18
+Body: {"ok":true,"id":8}
+

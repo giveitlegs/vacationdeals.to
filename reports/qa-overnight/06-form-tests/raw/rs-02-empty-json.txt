@@ -1,0 +1,7 @@
+=== rs-02-empty-json ===
+Method: POST
+URL: /api/roulette/spin
+Data: {}
+Result: STATUS=200|TIME=0.302676|SIZE=2897
+Body: {"wheelSlices":[{"dealId":605,"price":100,"city":"Orlando","state":"FL","brandName":"Vacation Village Resorts","brandSlug":"vacation-village","slug":"vacation-village-orlando-3-night-100","resortName":"South floridaVacation Offers:","rarity":"rare"},{"dealId":604,"price":129,"city":"Williamsburg","state":"VA","brandName":"Vacation Village Resorts","brandSlug":"vacation-village","slug":"vacation-village-williamsburg-2-night-129","resortName":"Williamsburg, virginiaVacation Offers:","rarity":"rare
+

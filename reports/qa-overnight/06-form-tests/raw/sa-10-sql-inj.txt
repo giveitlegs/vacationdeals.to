@@ -1,0 +1,7 @@
+=== sa-10-sql-inj ===
+Method: POST
+URL: /api/scout/apply
+Data: {"name":"Test'; DROP TABLE deals;--","email":"qatest@example.invalid"}
+Result: STATUS=200|TIME=0.194626|SIZE=11
+Body: {"ok":true}
+

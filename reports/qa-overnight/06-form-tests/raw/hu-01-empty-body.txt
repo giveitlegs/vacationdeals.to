@@ -1,0 +1,7 @@
+=== hu-01-empty-body ===
+Method: POST
+URL: /api/hold-up
+Data: 
+Result: STATUS=400|TIME=0.223578|SIZE=27
+Body: {"error":"Invalid request"}
+

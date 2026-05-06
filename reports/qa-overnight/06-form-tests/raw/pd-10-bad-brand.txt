@@ -1,0 +1,7 @@
+=== pd-10-bad-brand ===
+Method: POST
+URL: /api/pitch-diaries/submit
+Data: {"brandSlug":"this-brand-does-not-exist-zzz","story":"Test story with bad brand slug. Should still succeed since brand is optional. Do not contact. Filler."}
+Result: STATUS=200|TIME=0.173653|SIZE=18
+Body: {"ok":true,"id":7}
+

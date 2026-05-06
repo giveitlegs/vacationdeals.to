@@ -1,0 +1,7 @@
+=== ld-09-sql-inj ===
+Method: POST
+URL: /api/leads
+Data: {"email":"qatest@example.invalid","name":"Test'; DROP TABLE deals;--","tcpaConsent":true,"termsConsent":true,"source":"qa-test"}
+Result: STATUS=200|TIME=0.204946|SIZE=11
+Body: {"ok":true}
+

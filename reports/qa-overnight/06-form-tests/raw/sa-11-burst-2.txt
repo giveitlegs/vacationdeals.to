@@ -1,0 +1,7 @@
+=== sa-11-burst-2 ===
+Method: POST
+URL: /api/scout/apply
+Data: {"name":"Burst Test 2","email":"qatest2@example.invalid"}
+Result: STATUS=200|TIME=0.174422|SIZE=11
+Body: {"ok":true}
+

@@ -1,0 +1,7 @@
+=== ld-04-bad-email ===
+Method: POST
+URL: /api/leads
+Data: {"email":"no-at-sign","tcpaConsent":true,"termsConsent":true}
+Result: STATUS=400|TIME=0.269833|SIZE=25
+Body: {"error":"Invalid email"}
+

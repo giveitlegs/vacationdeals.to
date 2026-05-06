@@ -1,0 +1,7 @@
+=== hu-03-missing-url ===
+Method: POST
+URL: /api/hold-up
+Data: {"foo":"bar"}
+Result: STATUS=400|TIME=0.210779|SIZE=23
+Body: {"error":"Missing url"}
+

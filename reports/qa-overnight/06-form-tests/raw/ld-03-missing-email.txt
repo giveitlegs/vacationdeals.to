@@ -1,0 +1,7 @@
+=== ld-03-missing-email ===
+Method: POST
+URL: /api/leads
+Data: {"tcpaConsent":true,"termsConsent":true}
+Result: STATUS=400|TIME=0.177907|SIZE=25
+Body: {"error":"Invalid email"}
+
