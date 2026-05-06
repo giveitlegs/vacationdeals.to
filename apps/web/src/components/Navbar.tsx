@@ -159,6 +159,27 @@ export function Navbar() {
                       </div>
                       <span className="ml-6 text-xs text-gray-500">Score every brand 0–100</span>
                     </Link>
+                    <Link href="/forfeit" className="block px-4 py-2 hover:bg-rose-50">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-base">⏱️</span>
+                        <span className="text-sm font-semibold text-rose-700">Forfeit Clock</span>
+                      </div>
+                      <span className="ml-6 text-xs text-gray-500">Live: deposits being lost right now</span>
+                    </Link>
+                    <Link href="/pitch-diaries" className="block px-4 py-2 hover:bg-indigo-50">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-base">📓</span>
+                        <span className="text-sm font-semibold text-indigo-700">Pitch Diaries</span>
+                      </div>
+                      <span className="ml-6 text-xs text-gray-500">What people heard at the pitch</span>
+                    </Link>
+                    <Link href="/scout" className="block px-4 py-2 hover:bg-emerald-50">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-base">🎟️</span>
+                        <span className="text-sm font-semibold text-emerald-700">Scout Network</span>
+                      </div>
+                      <span className="ml-6 text-xs text-gray-500">Get paid to attend a pitch</span>
+                    </Link>
                     <div className="my-1 border-t border-gray-100" />
                     <Link href="/rate-recap" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Rate Recap</Link>
                     <Link href="/vacpack-rate-showdown" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Rate Showdown</Link>
@@ -328,6 +349,9 @@ export function Navbar() {
               <MobileSectionHeader>🔧 Tools</MobileSectionHeader>
               <MobileSubLink href="/will-it-hold-up" onClose={() => setMobileOpen(false)} highlight>🔍 Will It Hold Up?</MobileSubLink>
               <MobileSubLink href="/reality-index" onClose={() => setMobileOpen(false)}>📊 Reality Index</MobileSubLink>
+              <MobileSubLink href="/forfeit" onClose={() => setMobileOpen(false)} highlight>⏱️ Forfeit Clock</MobileSubLink>
+              <MobileSubLink href="/pitch-diaries" onClose={() => setMobileOpen(false)}>📓 Pitch Diaries</MobileSubLink>
+              <MobileSubLink href="/scout" onClose={() => setMobileOpen(false)}>🎟️ Scout Network</MobileSubLink>
               <MobileSubLink href="/rate-recap" onClose={() => setMobileOpen(false)}>Rate Recap</MobileSubLink>
               <MobileSubLink href="/vacpack-rate-showdown" onClose={() => setMobileOpen(false)}>Rate Showdown</MobileSubLink>
               <MobileSubLink href="/data-report" onClose={() => setMobileOpen(false)}>Data Report (B2B)</MobileSubLink>

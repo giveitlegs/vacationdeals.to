@@ -438,6 +438,55 @@ export const prospectClicks = pgTable("prospect_clicks", {
   viewedAt: timestamp("viewed_at").defaultNow().notNull(),
 });
 
+// ── Pitch Diaries (crowdsourced presentation transcripts) ──
+// Anonymous submissions from people who attended a timeshare pitch.
+// We moderate (status=pending → approved) before exposing publicly.
+// The corpus becomes a searchable record of presenter tactics by brand.
+export const pitchDiaries = pgTable("pitch_diaries", {
+  id: serial("id").primaryKey(),
+  brandId: integer("brand_id").references(() => brands.id),
+  brandSlug: varchar("brand_slug", { length: 100 }), // denormalized for filtering speed
+  // Where + when
+  locationCity: varchar("location_city", { length: 100 }),
+  resortName: varchar("resort_name", { length: 255 }),
+  attendedAt: timestamp("attended_at"),
+  durationMinutes: integer("duration_minutes"),
+  // What happened
+  pressureLevel: integer("pressure_level"), // 1-10 self-rating
+  presenterCount: integer("presenter_count"), // # of salespeople rotated through
+  managersBroughtIn: integer("managers_brought_in"),
+  closingOffer: text("closing_offer"), // final pitch number
+  pricesQuoted: text("prices_quoted"), // JSON array, every price they mentioned
+  notableQuotes: text("notable_quotes"), // JSON array of memorable lines
+  story: text("story").notNull(), // the narrative recap
+  didTheyBuy: boolean("did_they_buy").default(false),
+  // Submission metadata
+  submitterEmail: varchar("submitter_email", { length: 255 }),
+  submitterIpHash: varchar("submitter_ip_hash", { length: 64 }),
+  status: varchar("status", { length: 20 }).notNull().default("pending"), // pending, approved, rejected
+  rejectionReason: text("rejection_reason"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  approvedAt: timestamp("approved_at"),
+});
+
+// ── Scout Network applications (interest only — payment TBD) ──
+export const scoutApplications = pgTable("scout_applications", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 255 }).notNull(),
+  phone: varchar("phone", { length: 50 }),
+  cityState: varchar("city_state", { length: 100 }),
+  willingToTravelMiles: integer("willing_to_travel_miles"),
+  brandsExperienced: text("brands_experienced"), // JSON array of brand slugs
+  whyInterested: text("why_interested"),
+  ipHash: varchar("ip_hash", { length: 64 }),
+  userAgent: text("user_agent"),
+  status: varchar("status", { length: 20 }).notNull().default("new"), // new, contacted, approved, rejected
+  contactedAt: timestamp("contacted_at"),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 // ── Ad Banners ──────────────────────────────────────────
 export const adBanners = pgTable("ad_banners", {
   id: serial("id").primaryKey(),

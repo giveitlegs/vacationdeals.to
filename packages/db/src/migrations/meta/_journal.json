@@ -15,6 +15,13 @@
       "when": 1776986849015,
       "tag": "0001_confused_changeling",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1778032545889,
+      "tag": "0002_striped_vargas",
+      "breakpoints": true
     }
   ]
 }
