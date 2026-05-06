@@ -1,0 +1,2132 @@
+{
+  "westgate": {
+    "issue": "Storing /resorts/ URLs as deals (no real package price); some /specials/ price drift",
+    "samples": [
+      {
+        "dealId": 1,
+        "dbTitle": "Westgate Branson Lakes Resort - Branson",
+        "dbPrice": 120,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-branson-lakes-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Branson Lakes Resort | Near Branson&#039;s Top Attractions",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2,
+        "dbTitle": "Westgate Branson Woods Hotel - Branson",
+        "dbPrice": 120,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-branson-woods-hotel/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Branson Woods Hotel | An Ozarks Vacation",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 4,
+        "dbTitle": "Westgate Cocoa Beach Resort - Cocoa Beach",
+        "dbPrice": 300,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-cocoa-beach-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Experience Beach Bliss at Westgate Cocoa Beach Resort",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 5,
+        "dbTitle": "River Terrace Resort and Convention Center - Gatlinburg",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-river-terrace/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "River Terrace Resort - Family Friendly Stay in Gatlinburg",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 6,
+        "dbTitle": "Westgate Smoky Mountain Resort & Water Park - Gatlinburg",
+        "dbPrice": 135,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-smoky-mountain-resort-and-water-park/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Experience Fun at Westgate Smoky Mountain Resort &amp; Water Park",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 7,
+        "dbTitle": "Wild Bear Inn - Gatlinburg",
+        "dbPrice": 84,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/wild-bear-inn/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Wild Bear Inn | Near Popular Pigeon Forge Attractions",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 8,
+        "dbTitle": "Westgate Flamingo Bay Resort - Las Vegas",
+        "dbPrice": 165,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-flamingo-bay/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Experience Tropical Relaxation at Westgate Flamingo Bay Resort",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 9,
+        "dbTitle": "Westgate Las Vegas Resort & Casino - Las Vegas",
+        "dbPrice": 105,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-las-vegas-hotel-casino/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Experience Luxury at Westgate Las Vegas Resort &amp; Casino",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 10,
+        "dbTitle": "Westgate Myrtle Beach Oceanfront Resort - Myrtle Beach",
+        "dbPrice": 225,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-myrtle-beach/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Book Your Dream Vacation at Westgate Myrtle Beach Resort",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 11,
+        "dbTitle": "Westgate Lakes Resort & Spa - Orlando",
+        "dbPrice": 180,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-lakes-resort-and-spa/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Book Your Stay at Westgate Lakes Resort &amp; Spa in Orlando, FL",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 12,
+        "dbTitle": "Westgate Palace Resort - Orlando",
+        "dbPrice": 285,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-palace/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Palace Resort - Book Your Orlando Vacation",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 13,
+        "dbTitle": "Westgate Towers Resort - Orlando",
+        "dbPrice": 165,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-towers/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Experience Family Fun at Westgate Towers Resort Near Disney",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 14,
+        "dbTitle": "Westgate Town Center Resort - Orlando",
+        "dbPrice": 180,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-town-center/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Town Center Resort with Water Park - Overview",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 16,
+        "dbTitle": "Westgate Park City Resort & Spa - Park City",
+        "dbPrice": 180,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-park-city-resort-spa/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Experience Luxury at Westgate Park City Resort &amp; Spa",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 17,
+        "dbTitle": "Westgate River Ranch Resort - River Ranch",
+        "dbPrice": 165,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-river-ranch-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Experience the Adventure at Westgate River Ranch Resort",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 18,
+        "dbTitle": "Westgate Historic Williamsburg Resort - Williamsburg",
+        "dbPrice": 120,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-historic-williamsburg-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Experience History at Westgate Historic Williamsburg Resort",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 21,
+        "dbTitle": "Westgate Lakes & Treasure Cove Water Park Vacation",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-lakes-water-park-vacation/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Treasure Cove Water Park Tickets - Westgate Lakes Resort Vacation",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 24,
+        "dbTitle": "Unlock the Magic of Disney! 82% Off",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgates-official-disney-vacation/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Disney World 4-Day Package - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 28,
+        "dbTitle": "Orlando Couples Retreat & Anniversary Getaway",
+        "dbPrice": 179,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/orlando-couples-vacation/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Couples Retreat Orlando Vacation - Westgate Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 33,
+        "dbTitle": "Oceanfront Myrtle Beach Getaway",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4days-3nights-myrtle-beach/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Myrtle Beach Vacation Package - 4 Days &amp; 3 Nights Getaway",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 34,
+        "dbTitle": "Howdy, Partner! Ready to Ditch the Daily Grind?",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/home-on-the-ranch-lodge/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate River Ranch Florida Vacation - View Exclusive Offer",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 35,
+        "dbTitle": "Silver Dollar City Branson Vacation",
+        "dbPrice": 199,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3days-2nights-branson-plus-silver-dollar-city-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Silver Dollar City Vacation Packages &amp; Tickets - 3 Days in Branson",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          2
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 36,
+        "dbTitle": "Surf's Up! Cocoa Beach Getaway",
+        "dbPrice": 149,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/cocoa-beach-3days-2nights/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Cocoa Beach Getaway - 3 Days at Westgate Cocoa Beach Resort",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          2
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 38,
+        "dbTitle": "3-Day Orlando Getaway + 2 Aquatica Water Park Tickets",
+        "dbPrice": 129,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3-day-stay-plus-2-aquatica-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Aquatica Orlando Tickets Package - Family Resort Stay &amp; More",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          2
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 39,
+        "dbTitle": "Cocoa Beach Resort Stay",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/cocoa-beach-resort-vacation-westgate-resorts/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Cocoa Beach Resort Stay at a Family-Friendly Discounted Price",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 398,
+        "dbTitle": "Westgate Myrtle Beach Oceanfront Resort",
+        "dbPrice": 59,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-myrtle-beach-oceanfront-resort-4-3/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Myrtle Beach Oceanfront Resort - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 399,
+        "dbTitle": "4 Days and 3 Nights at Westgate Las Vegas Resort & Casino",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-las-vegas-resort-and-casino-4-3/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "4 Days and 3 Nights at Westgate Las Vegas Resort &amp; Casino - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 404,
+        "dbTitle": "4 Days 3 Nights at Westgate Branson Woods Resort",
+        "dbPrice": 59,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-branson-woods-resort-4-3/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "4 Days 3 Nights at Westgate Branson Woods Resort - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 411,
+        "dbTitle": "Make SeaWorld Spooktacular Memories! Orlando Getaway + 4 SeaWorld Tickets",
+        "dbPrice": 259,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4days-3nights-plus-3seaworld/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Make SeaWorld Spooktacular Orlando Memories! Florida Vacation",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 419,
+        "dbTitle": "Christmas in Gatlinburg Vacation",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/christmas-vacation-gatlinburg/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Smoky Mountain Christmas in Gatlinburg Vacation",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 430,
+        "dbTitle": "Westgate Branson Woods Resort",
+        "dbPrice": 79,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/westgate-branson-woods-resort-3-2-wgr-rtgt/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Branson Woods Resort - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 431,
+        "dbTitle": "Westgate Smoky Mountain Resort & Water Park",
+        "dbPrice": 79,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/westgate-smoky-mountain-resort-water-park-3-2-wgr-rtgt/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Smoky Mountain Resort &amp; Water Park - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 432,
+        "dbTitle": "Westgate Myrtle Beach Oceanfront Resort",
+        "dbPrice": 79,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/westgate-myrtle-beach-oceanfront-resort-3-2-wgr-rtgt/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Myrtle Beach Oceanfront Resort - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 433,
+        "dbTitle": "Westgate Las Vegas Resort & Casino Vacation Deal",
+        "dbPrice": 99,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/westgate-las-vegas-resort-casino-3-2-wgr-rtgt/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Las Vegas Resort &amp; Casino Vacation Deal - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 434,
+        "dbTitle": "Westgate Historic Williamsburg Resort",
+        "dbPrice": 79,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/westgate-historic-williamsburg-resort-3-2-wgr-rtgt/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Historic Williamsburg Resort - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 435,
+        "dbTitle": "Westgate Historic Williamsburg Resort",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-historic-williamsburg-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Vacation to Williamsburg with Westgate Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 439,
+        "dbTitle": "Sunshine Day Summer Sale",
+        "dbPrice": 169,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/sunshine-day-summer-sale/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Summer Vacation Sale - Sunshine Day - Save Over 65%!",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 441,
+        "dbTitle": "Get your Glamping on at Westgate River Ranch Resort & Rodeo",
+        "dbPrice": 149,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/home-on-the-ranch-glamping/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 452,
+        "dbTitle": "Valentine's Day Getaway - $100 Spa or Dinner Credit",
+        "dbPrice": 159,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/valentines-getaway/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Valentine&#039;s Day Vacation Package | 4-Day Resort Vacation | Spa Credit",
+        "pricesOnPage": [
+          100
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 459,
+        "dbTitle": "Family fun in Williamsburg - Busch Gardens",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/family-fun-williamsburg-busch-gardens-water-country-usa/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Colonial Williamsburg Busch Gardens Tickets with Resort Stay",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 464,
+        "dbTitle": "Orlando Resort Vacation",
+        "dbPrice": 79,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/orlando-resort-getaway-plus-100-toward-gas/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Orlando Resort Vacation | Travel Season Savings",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 468,
+        "dbTitle": "Disney's Blizzard Beach Getaway",
+        "dbPrice": 229,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3-day-stay-2-blizzard-beach-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Beat the Heat with Blizzard Beach Tickets - Westgate Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 469,
+        "dbTitle": "3-Day Las Vegas Stay + 2 Blue Man Group Tickets",
+        "dbPrice": 149,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3-day-stay-plus-blue-man-group-vegas-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 471,
+        "dbTitle": "3-Day Cocoa Beach Resort Stay + Jet Ski Rental",
+        "dbPrice": 287,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3-day-stay-plus-jet-ski-rental/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Cocoa Beach Resort Stay at a Family-Friendly Discounted Price",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 480,
+        "dbTitle": "Happy Birthday to the one and only, Mickey Mouse!",
+        "dbPrice": 239,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/orlando-disney-179/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Disney World 4-Day Package - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 482,
+        "dbTitle": "Fun for Everyone with a 7 Day Stay + Universal Orlando",
+        "dbPrice": 499,
+        "dbNights": 6,
+        "url": "https://www.westgatereservations.com/specials/fun-for-everyone-with-7-day-stay-universal-studios/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Universal Studios Florida Vacation - 7 Day Resort Stay &amp; Gift",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          6
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 485,
+        "dbTitle": "Disney Package for 3: 3-Day Stay + $300 VISA Gift Card",
+        "dbPrice": 279,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/3-days-2-nights-3-disney-tickets/",
+        "verdict": "price_and_nights_mismatch",
+        "pageTitle": "Disney Vacation Package &amp; Gift - 3 Days Starting at $369",
+        "pricesOnPage": [
+          369,
+          300
+        ],
+        "nightsOnPage": [
+          2
+        ]
+      },
+      {
+        "dealId": 486,
+        "dbTitle": "4 Days 3 Nights + $400 VISA Gift Card",
+        "dbPrice": 769,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-days-3-nights-4-disney-tickets/",
+        "verdict": "price_mismatch",
+        "pageTitle": "4-Day / 3-Night Disney Vacation Package - Includes Disney Credit",
+        "pricesOnPage": [
+          400
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 487,
+        "dbTitle": "4-Day Orlando Dream Vacation includes a $200 VISA Gift Card & Water Park Tickets",
+        "dbPrice": 519,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-day-orlando-dream-vacation/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Orlando Dream Vacation - $200 Gift Card + 2 Water Park Tickets",
+        "pricesOnPage": [
+          200
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 489,
+        "dbTitle": "Disney Dreaming! 3 Days & 2 Nights + $400 VISA Gift Card",
+        "dbPrice": 689,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/specials-3-days-2-nights-4-disney-tickets/",
+        "verdict": "price_mismatch",
+        "pageTitle": "3-Day Disney Package plus $400 VISA Gift Card for Disney World",
+        "pricesOnPage": [
+          400
+        ],
+        "nightsOnPage": [
+          2
+        ]
+      },
+      {
+        "dealId": 490,
+        "dbTitle": "5 Days / 4 Nights plus $400 VISA Gift Card for Disney Tickets",
+        "dbPrice": 849,
+        "dbNights": 4,
+        "url": "https://www.westgatereservations.com/specials/5-day-4-nights-plus-4-disney-tickets/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Disney World Family Vacation Packages: 5-Day Stay + Disney Gift",
+        "pricesOnPage": [
+          400
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 491,
+        "dbTitle": "3 Days 2 Nights + $500 VISA Gift Card for Disney Tickets",
+        "dbPrice": 889,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3-days-2-nights-5-disney-tickets/",
+        "verdict": "price_mismatch",
+        "pageTitle": "3 Days 2 Nights + $500 VISA Gift Card for Disney Tickets",
+        "pricesOnPage": [
+          500
+        ],
+        "nightsOnPage": [
+          2
+        ]
+      },
+      {
+        "dealId": 492,
+        "dbTitle": "4 Days 3 Nights + $500 VISA Gift Card for Disney Tickets",
+        "dbPrice": 989,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-days-3-nights-5-disney-tickets/",
+        "verdict": "price_mismatch",
+        "pageTitle": "4-Day Resort Stay plus 5 Disney World Tickets - Book Today!",
+        "pricesOnPage": [
+          500
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 493,
+        "dbTitle": "5 Days 4 Nights + $500 VISA Gift Card for Disney Tickets",
+        "dbPrice": 1109,
+        "dbNights": 4,
+        "url": "https://www.westgatereservations.com/specials/5-days-4-nights-5-disney-tickets/",
+        "verdict": "price_mismatch",
+        "pageTitle": "5-Day Stay at Resort near Disney World - Includes 5 Disney tickets!",
+        "pricesOnPage": [
+          500
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 494,
+        "dbTitle": "3-Night Disney Package plus $600 VISA Gift Card for Disney Tickets",
+        "dbPrice": 1119,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-days-3-nights-6-disney-tickets/",
+        "verdict": "price_mismatch",
+        "pageTitle": "3-Night Disney Package plus 6 Disney Tickets starting from $1119",
+        "pricesOnPage": [
+          111,
+          600
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 495,
+        "dbTitle": "5 Days / 4 Nights Universal Studios Vacation Package",
+        "dbPrice": 399,
+        "dbNights": 4,
+        "url": "https://www.westgatereservations.com/specials/5days-4nights-universal-studios-vacation-package/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "5 Days / 4 Nights Universal Orlando Vacation Package",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          4
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 496,
+        "dbTitle": "Orlando Resort Stay with Universal Orlando 3-Park Offer",
+        "dbPrice": 499,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/resort-stay-plus-3-day-universal-volcano-bay-tickets/",
+        "verdict": "price_mismatch",
+        "pageTitle": "3-Night Getaway + $300 VISA Gift Card toward Universal Studios Orlando",
+        "pricesOnPage": [
+          300
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 497,
+        "dbTitle": "4 Days 3 Nights + $400 VISA Gift Card towards Universal Orlando Tickets",
+        "dbPrice": 589,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-days-3-nights-4-universal-orlando-tickets/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Universal Orlando Package: 4 Day Resort Stay &amp; Gift - View Details",
+        "pricesOnPage": [
+          400
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 500,
+        "dbTitle": "3-Day Orlando Resort Getaway + 2-Night Bahamas Cruise",
+        "dbPrice": 259,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/orlando-plus-2night-cruise/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 506,
+        "dbTitle": "Celebrate the Holidays in Williamsburg with 4 Busch Gardens Tickets",
+        "dbPrice": 589,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/williamsburg-4-busch-gardens-christmas-town/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 510,
+        "dbTitle": "3 Nights in Williamsburg plus Busch Gardens and $50 Dining",
+        "dbPrice": 159,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/3-nights-williamsburg-plus-busch-gardens-50-dining/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Busch Gardens Williamsburg Vacation Deals - Stay, Tickets, Dining",
+        "pricesOnPage": [
+          50
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 512,
+        "dbTitle": "Universal Orlando Bundle! 4 Days 3 Nights + $200 VISA Gift Card",
+        "dbPrice": 239,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-days-3-nights-200-visa-gift-card/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Universal Bundle Vacation Package | 4 Days + $200 VISA Gift Card",
+        "pricesOnPage": [
+          200
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 516,
+        "dbTitle": "4-Night Universal Orlando + $300 VISA Gift Card",
+        "dbPrice": 499,
+        "dbNights": 4,
+        "url": "https://www.westgatereservations.com/specials/4-night-universal-orlando-3-park-adventure/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Universal Studios Orlando Family Packages | 5 Days | Westgate Resorts",
+        "pricesOnPage": [
+          300
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 519,
+        "dbTitle": "3-Night Orlando Getaway in a Spacious 2 Bedroom",
+        "dbPrice": 299,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-day-3-night-orlando-getaway-deal/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "3-Night Orlando getaway in a 2-BR villa &amp; more",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 534,
+        "dbTitle": "Christmas Vacation in Williamsburg, VA + 2 Busch Gardens Tickets",
+        "dbPrice": 299,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/christmas-vacation-in-williamsburg-virginia-2-busch-garden-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2689,
+        "dbTitle": "Westgate Branson Woods Resort - Branson",
+        "dbPrice": 120,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-branson-woods-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Branson Woods | Branson Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 3971,
+        "dbTitle": "Westgate Vacation Villas Resort - Orlando",
+        "dbPrice": 180,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/resorts/westgate-vacation-villas-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Villas Resort - Perfect Family Resort Near Disney",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22245,
+        "dbTitle": "Saddle Up for a River Ranch & Rodeo Adventure",
+        "dbPrice": 99,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/river-ranch-2night-vip/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Saddle Up for a Westgate River Ranch Vacation - Book Today",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22585,
+        "dbTitle": "Experience the glory of the Great Smoky Mountains!",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4days-3nights-gatlinburg-getaway/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Experience the glory of the Great Smoky Mountains! - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22587,
+        "dbTitle": "3-Night Viva Las Vegas Getaway!",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/3-night-viva-las-vegas-getaway/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "3-Night Viva Las Vegas Getaway! - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22588,
+        "dbTitle": "Legoland Florida & SEA LIFE Orlando Vacation Package",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/legoland-sealife-vacation-package/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Legoland Florida &amp; SEA LIFE Orlando Vacation Package - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22591,
+        "dbTitle": "Family Kingdom Hotel Package in Myrtle Beach, SC",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/family-kingdom-hotel-package/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "4-Day/3-Night Family Kingdom Hotel Package + Tickets | Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22594,
+        "dbTitle": "Westgate Smoky Mountain Resort & Water Park",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-smoky-mountain-resort-water-park-4-3/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Smoky Mountain Resort &amp; Water Park - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22596,
+        "dbTitle": "3-Night Gatlinburg Vacation + Indoor Water Park",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-days-3-nights-with-water-park-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Gatlinburg Indoor Water Park Resort Vacation - Westgate Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22603,
+        "dbTitle": "Enjoy an Orlando Christmas Vacation",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/christmas-vacation-orlando/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Orlando Christmas Vacation - Book your magical stay today!",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22606,
+        "dbTitle": "Westgate Cocoa Beach Resort",
+        "dbPrice": 149,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/westgate-cocoa-beach-resort-3-2-wgr-rtgt/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Cocoa Beach Resort - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22608,
+        "dbTitle": "Westgate Branson Lakes Resort Vacation",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-branson-lakes-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Branson Lakes Resort Vacation - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22610,
+        "dbTitle": "Westgate Vacation Villas Resort Vacation",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-vacation-villas-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Villas Resort Vacation - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22611,
+        "dbTitle": "Westgate Cocoa Beach Resort",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-cocoa-beach-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Cocoa Beach Getaway - Book For Less!",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22612,
+        "dbTitle": "Westgate Smoky Mountain Resort & Water Park",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-smoky-mountain-resort-water-park/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Gatlinburg Indoor Water Park Getaway - Vacation for Less!",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22613,
+        "dbTitle": "Westgate Las Vegas Resort & Casino Vacation Deal",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-las-vegas-resort-casino/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Vacation to Las Vegas Package with Westgate Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22614,
+        "dbTitle": "Westgate Myrtle Beach Oceanfront Resort",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-myrtle-beach-oceanfront-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Vacation Package to Myrtle Beach with Westgate Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22615,
+        "dbTitle": "Westgate Branson Woods Resort",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-branson-woods-resort/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Branson Resort Getaway - Vacation in the Ozark Mountains",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22616,
+        "dbTitle": "Choose your destination",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/choose-your-destination-invm3/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Choose your destination - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22617,
+        "dbTitle": "Live the resort life with an Orlando getaway!",
+        "dbPrice": 79,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3days-2nights-orlando-getaway/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Orlando Getaway - 3 Days &amp; 2 Nights at Westgate Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          2
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22622,
+        "dbTitle": "3 Nights at Westgate Lakes Resort & Spa",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-lakes-resort-and-spa/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Lakes Resort &amp; Spa in Orlando, FL Vacation - Westgate Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22627,
+        "dbTitle": "Enjoy the Sun with an Orlando Getaway",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-day-3-night-a9d0/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Enjoy the Sun with an Orlando Getaway - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22630,
+        "dbTitle": "Special Thank You Offer for Cocoa Beach Pier Customers",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/orlando-vacation-offer/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Special Thank You Vacation for Westgate Cocoa Beach Pier Customers!",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22631,
+        "dbTitle": "Water Park Adventure - Enjoy 3 Days/2 Nights and 4 Shipwreck Island tickets from $129",
+        "dbPrice": 129,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/westgate-water-park-adventure-4-tickets/",
+        "verdict": "price_and_nights_mismatch",
+        "pageTitle": "$99 4 Day Orlando Trip at Water Park Florida Resort",
+        "pricesOnPage": [
+          99
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 22634,
+        "dbTitle": "Las Vegas New Years Special Offer",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/vegas-new-year-149/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Las Vegas New Year Deals | Book Today &amp; Save with Westgate",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22635,
+        "dbTitle": "Presidents' Day SALE! Choose Your Destination",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/multidestination-presidents-day/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Presidents Day Getaways | Choose Your Destination | Westgate Resorts",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22636,
+        "dbTitle": "Special Thank You Offer for Hog's Breath Saloon Customers",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/hogs-breath-saloon-special-offer/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22637,
+        "dbTitle": "Event SPECIAL: 4-Day Stay plus 2 Dollywood Theme Park Tickets",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/event-4-day-stay-plus-2-dollywood-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Event SPECIAL: 4-Day Stay plus 2 Dollywood Theme Park Tickets - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22638,
+        "dbTitle": "3-Day Las Vegas Getaway plus 2 George Wallace Tickets",
+        "dbPrice": 99,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3-day-stay-plus-2-george-wallace-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22639,
+        "dbTitle": "3-Day Stay + 2 Orlando Tree Trek Adventure Park Tickets",
+        "dbPrice": 99,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3-day-stay-plus-2-orlando-tree-trek-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "3-Day Stay + 2 Orlando Tree Trek Adventure Park tickets",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          2
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22640,
+        "dbTitle": "3-Day Las Vegas resort stay plus 2 Barry Manilow tickets",
+        "dbPrice": 149,
+        "dbNights": 2,
+        "url": "https://www.westgatereservations.com/specials/3-day-las-vegas-resort-stay-plus-2-barry-manilow-tickets/",
+        "verdict": "price_and_nights_mismatch",
+        "pageTitle": "Viva Las Vegas Getaway! Book a $99 Resort Getaway for 3 Nights",
+        "pricesOnPage": [
+          99
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 22642,
+        "dbTitle": "Westgate Orlando Vacation + 2 Kennedy Space Center Tickets",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/westgate-orlando-vacation-2-kennedy-space-center-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Kennedy Space Center Vacation Package - Orlando Getaway",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22645,
+        "dbTitle": "Shop til you drop with an Orlando shopping getaway",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/orlando-shopping-getaway/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22647,
+        "dbTitle": "Enjoy the Sun with a 3-night Orlando Getaway",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/4-day-3-night-b/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Enjoy the Sun with a 3-night Orlando Getaway - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22651,
+        "dbTitle": "Orlando Resort Getaway + Dining/Spa Voucher",
+        "dbPrice": 99,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/lakes-getawaybmg-or-spa/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Orlando Resort Getaway + Dining/Spa Voucher - Westgate Reservations",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22652,
+        "dbTitle": "3-Night Orlando Theme Park Getaway includes 2-Bedroom Resort Suite",
+        "dbPrice": 299,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/3-night-orlando-theme-park-getaway-2-bedroom-suite/",
+        "verdict": "price_mismatch",
+        "pageTitle": "3-night Orlando 2-BR resort getaway plus $200 toward theme park tickets",
+        "pricesOnPage": [
+          200
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 22653,
+        "dbTitle": "4-Day/3-Night Gatlinburg Getaway + 2 Dolly's Stampede Tickets",
+        "dbPrice": 179,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/gatlinburg-getaway-plus-stampede-tickets/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "4-Day/3-Night Gatlinburg Getaway + 2 Dolly Parton&#039;s Stampede Tickets",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22655,
+        "dbTitle": "Let Us Pay for Your Next Vacation!",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/let-us-pay-for-your-next-vacation/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22659,
+        "dbTitle": "Kick off the holidays with Thanksgiving in Orlando",
+        "dbPrice": 299,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/thanksgiving-special-orlando/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Thanksgiving in Orlando - 4-Day Discounted Holiday Getaway",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          3
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22661,
+        "dbTitle": "Williamsburg Getaway + 2 Busch Gardens Christmas Town Tickets",
+        "dbPrice": 179,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/williamsburg-2-busch-gardens-christmas-town/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Westgate Vacation Packages | Westgate Reservations Deals | Browse All",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 22663,
+        "dbTitle": "It's Christmas at Universal! Orlando Vacation + $200 for Tickets",
+        "dbPrice": 399,
+        "dbNights": 3,
+        "url": "https://www.westgatereservations.com/specials/christmas-at-universal/",
+        "verdict": "price_mismatch",
+        "pageTitle": "4-Day Orlando Christmas Vacation + $200 Towards Universal Orlando",
+        "pricesOnPage": [
+          200
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      }
+    ]
+  },
+  "bookvip": {
+    "issue": "All deals stored with price=$1499; pages show $149-$317. Wrong price field extracted.",
+    "samples": [
+      {
+        "dealId": 43,
+        "dbTitle": "Breathless Montego Bay - Montego Bay",
+        "dbPrice": 1499,
+        "dbNights": 5,
+        "url": "https://www.bookvip.com/hotel_details/breathless-montego-bay?id=737",
+        "verdict": "price_and_nights_mismatch",
+        "pageTitle": "Breathless Montego Bay - BookVip.com",
+        "pricesOnPage": [
+          200,
+          260,
+          149
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 55,
+        "dbTitle": "Ultra Luxury Curacao Resort - Willimestad",
+        "dbPrice": 699,
+        "dbNights": 5,
+        "url": "https://www.bookvip.com/hotel_details/ultra-luxury-curacao-resort?id=54",
+        "verdict": "nights_mismatch",
+        "pageTitle": "Ultra Luxury Curacao Resort - BookVip.com",
+        "pricesOnPage": [
+          200,
+          205,
+          699
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 22489,
+        "dbTitle": "Ultra Luxury Montego Bay Resort - Montego Bay",
+        "dbPrice": 1499,
+        "dbNights": 5,
+        "url": "https://www.bookvip.com/hotel_details/ultra-luxury-montego-bay-resort?id=51",
+        "verdict": "price_and_nights_mismatch",
+        "pageTitle": "Ultra Luxury Montego Bay Resort - BookVip.com",
+        "pricesOnPage": [
+          317,
+          149
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 22490,
+        "dbTitle": "Ultra Adult Luxury Jamaica Resort - Montego Bay",
+        "dbPrice": 1499,
+        "dbNights": 5,
+        "url": "https://www.bookvip.com/hotel_details/ultra-adult-luxury-jamaica-resort?id=109",
+        "verdict": "price_and_nights_mismatch",
+        "pageTitle": "Ultra Adult Luxury Jamaica Resort - BookVip.com",
+        "pricesOnPage": [
+          200,
+          260,
+          149,
+          150,
+          60
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      }
+    ]
+  },
+  "westgate-events": {
+    "issue": "DB prices don't match any visible page price; possibly computed wrong package total",
+    "samples": [
+      {
+        "dealId": 968,
+        "dbTitle": "Discount Las Vegas Vacation Package — A Weekend in Vegas",
+        "dbPrice": 399,
+        "dbNights": 3,
+        "url": "https://westgateevents.com/events/a-weekend-in-vegas/",
+        "verdict": "price_mismatch",
+        "pageTitle": "3-nights At Westgate Las Vegas Resort + $100 Resort Credit - Westgate Events",
+        "pricesOnPage": [
+          100,
+          249,
+          699,
+          50,
+          99,
+          49,
+          149
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 974,
+        "dbTitle": "Discount Universal Horror Unleashed Tickets Las Vegas at Universal Horror Unleashed",
+        "dbPrice": 449,
+        "dbNights": 3,
+        "url": "https://westgateevents.com/events/universal-horror-unleashed/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Universal Horror Unleashed - Westgate Events",
+        "pricesOnPage": [
+          299,
+          799,
+          75,
+          99,
+          49,
+          149
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 976,
+        "dbTitle": "Discount Wizard of Oz Movie Experience at The Sphere Tickets Las Vegas at Wizard of Oz Movie Experience at The Sphere",
+        "dbPrice": 649,
+        "dbNights": 3,
+        "url": "https://westgateevents.com/events/wizard-of-oz-at-the-sphere/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Wizard Of Oz At The Sphere - Westgate Events - Westgate Events",
+        "pricesOnPage": [
+          499,
+          999,
+          50,
+          99,
+          49,
+          149
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 1001,
+        "dbTitle": "Discount Mary J Blige Vegas Residency Tickets Las Vegas at Mary J Blige Vegas Residency",
+        "dbPrice": 749,
+        "dbNights": 2,
+        "url": "https://westgateevents.com/events/mary-j-blige-vegas-residency/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Mary J Blige Vegas Residency - Westgate Events",
+        "pricesOnPage": [
+          449,
+          949,
+          549,
+          99,
+          249,
+          199
+        ],
+        "nightsOnPage": [
+          2
+        ]
+      }
+    ]
+  },
+  "mrg": {
+    "issue": "Pages have multiple package options; scraper picks wrong nights/price variant",
+    "samples": [
+      {
+        "dealId": 76,
+        "dbTitle": "Las Vegas - 4 Days / 3 Nights (All-Inclusive)",
+        "dbPrice": 237,
+        "dbNights": 3,
+        "url": "https://mrgvacationpackages.com/destinations/las-vegas-nv/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "Las Vegas, NV - Monster Reservations Group Vacation Packages",
+        "pricesOnPage": [
+          237,
+          150,
+          300,
+          169,
+          317.03,
+          1800
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 81,
+        "dbTitle": "Myrtle Beach - 5 Days / 4 Nights (All-Inclusive)",
+        "dbPrice": 225,
+        "dbNights": 4,
+        "url": "https://mrgvacationpackages.com/destinations/myrtle-beach-sc/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Myrtle Beach, SC - Monster Reservations Group Vacation Packages",
+        "pricesOnPage": [
+          99,
+          150,
+          300,
+          169,
+          317.03,
+          1800
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 82,
+        "dbTitle": "Orlando - 5 Days / 4 Nights (All-Inclusive)",
+        "dbPrice": 197,
+        "dbNights": 4,
+        "url": "https://mrgvacationpackages.com/destinations/orlando-fl/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Orlando, FL - Monster Reservations Group Vacation Packages",
+        "pricesOnPage": [
+          98,
+          150,
+          300,
+          169,
+          317.03,
+          1800
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 87,
+        "dbTitle": "Puerto Vallarta - 5 Days / 4 Nights (All-Inclusive)",
+        "dbPrice": 315,
+        "dbNights": 4,
+        "url": "https://mrgvacationpackages.com/destinations/puerto-vallarta-mx/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "Puerto Vallarta, MX - Monster Reservations Group Vacation Packages",
+        "pricesOnPage": [
+          315,
+          317.03,
+          300,
+          169,
+          150,
+          1800
+        ],
+        "nightsOnPage": [
+          5
+        ]
+      },
+      {
+        "dealId": 89,
+        "dbTitle": "Punta Cana - 5 Days / 4 Nights (All-Inclusive)",
+        "dbPrice": 347,
+        "dbNights": 4,
+        "url": "https://mrgvacationpackages.com/destinations/punta-cana-dominican-republic/",
+        "verdict": "price_and_nights_mismatch",
+        "pageTitle": "Punta Cana, DR - Monster Reservations Group Vacation Packages",
+        "pricesOnPage": [
+          199,
+          317.03,
+          300,
+          169,
+          150,
+          1800
+        ],
+        "nightsOnPage": [
+          5
+        ]
+      },
+      {
+        "dealId": 91,
+        "dbTitle": "Willemstad - 6 Days / 5 Nights (All-Inclusive)",
+        "dbPrice": 349,
+        "dbNights": 5,
+        "url": "https://mrgvacationpackages.com/destinations/willemstad-curacao/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "Willemstad, Curaçao - Monster Reservations Group Vacation Packages",
+        "pricesOnPage": [
+          349,
+          150,
+          300,
+          169,
+          317.03,
+          1800
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      }
+    ]
+  },
+  "staypromo": {
+    "issue": "One deal has title 'Author - Unknown' (title selector bug); price drift on another",
+    "samples": [
+      {
+        "dealId": 600,
+        "dbTitle": "Tuscana Resort Orlando by Aston - Orlando",
+        "dbPrice": 248,
+        "dbNights": 3,
+        "url": "https://www.staypromo.com/accommodation/tuscana-mediterranean-resort/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Tuscana Mediterranean Resort Orlando | StayPromo | Cheap Vacation Packages And Hotel Deals",
+        "pricesOnPage": [
+          659,
+          219,
+          899,
+          348,
+          55,
+          65,
+          300,
+          39,
+          100
+        ],
+        "nightsOnPage": [
+          3,
+          13,
+          6
+        ]
+      },
+      {
+        "dealId": 601,
+        "dbTitle": "Author - Unknown",
+        "dbPrice": 120,
+        "dbNights": 3,
+        "url": "https://www.staypromo.com/accommodation/lake-buena-vista-resort-village-spa/",
+        "verdict": "price_mismatch",
+        "pageTitle": "Lake Buena Vista Resort Village And Spa By StaySky Orlando, FL | StayPromo",
+        "pricesOnPage": [
+          798,
+          259,
+          100
+        ],
+        "nightsOnPage": [
+          3,
+          13,
+          6
+        ]
+      }
+    ]
+  },
+  "festiva": {
+    "issue": "All 13 deals are anchor-only variants of /adventure-club#X; should not be 13 separate deals",
+    "samples": [
+      {
+        "dealId": 858,
+        "dbTitle": "Atlantic Beach - Various",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://festiva.com/adventure-club#Atlantic-Beach",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 859,
+        "dbTitle": "Coconut Malorie Resort - Ocean City",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://festiva.com/adventure-club#Coconut-Malorie-Resort-Ocean-City,-Ascend-Collection-Hotel",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 860,
+        "dbTitle": "Park Plaza Resort - Park City",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://festiva.com/adventure-club#Park-Plaza-Resort---Park-City,-Ascend-Collection-Hotel",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 861,
+        "dbTitle": "Coconut Palms Beach Resort II - New Smyrna Beach",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://festiva.com/adventure-club#Coconut-Palms-Beach-Resort-II,-an-Ascend-Collection-Hotel",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 862,
+        "dbTitle": "Sea Mystique - Garden City",
+        "dbPrice": 199,
+        "dbNights": 3,
+        "url": "https://festiva.com/adventure-club#Sea-Mystique",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      }
+    ]
+  },
+  "el-cid": {
+    "issue": "Scraping /destinations/destination-X/ pages as deals — these are destination pages, not deals",
+    "samples": [
+      {
+        "dealId": 2261,
+        "dbTitle": "El Cid Granada Hotel - Mazatlan Vacation Package",
+        "dbPrice": 249,
+        "dbNights": 4,
+        "url": "https://elcidvacationsclub.com/destinations/destination-mazatlan/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Mazatlán - El Cid Vacations Club",
+        "pricesOnPage": [],
+        "nightsOnPage": [
+          1
+        ],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2262,
+        "dbTitle": "Hotel Marina El Cid Spa & Beach Resort - Riviera Maya Vacation Package",
+        "dbPrice": 349,
+        "dbNights": 5,
+        "url": "https://elcidvacationsclub.com/destinations/destination-riviera-maya/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Riviera Maya - El Cid Vacations Club",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2263,
+        "dbTitle": "El Cid La Ceiba Beach Hotel - Cozumel Vacation Package",
+        "dbPrice": 299,
+        "dbNights": 4,
+        "url": "https://elcidvacationsclub.com/destinations/destination-cozumel/",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Cozumel - El Cid Vacations Club",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      }
+    ]
+  },
+  "pueblo-bonito": {
+    "issue": "Scraping /resorts/ property pages as deals — no package pricing on these",
+    "samples": [
+      {
+        "dealId": 2264,
+        "dbTitle": "Pueblo Bonito Pacifica Golf & Spa Resort - Cabo San Lucas Vacation Package",
+        "dbPrice": 499,
+        "dbNights": 5,
+        "url": "https://www.pueblobonito.com/resorts/pacifica/the-towers-at-pacifica",
+        "verdict": "no_price_on_page",
+        "pageTitle": "The Towers | Pueblo Bonito Pacifica Golf & Spa Resort",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2265,
+        "dbTitle": "Pueblo Bonito Sunset Beach Golf & Spa Resort - Cabo San Lucas Vacation Package",
+        "dbPrice": 449,
+        "dbNights": 5,
+        "url": "https://www.pueblobonito.com/resorts/sunset-beach",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Pueblo Bonito Sunset Beach Golf & Spa Resort | Official Site",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2266,
+        "dbTitle": "Pueblo Bonito Rosé Resort & Spa - Cabo San Lucas Vacation Package",
+        "dbPrice": 399,
+        "dbNights": 5,
+        "url": "https://www.pueblobonito.com/resorts/rose",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Pueblo Bonito Rosé Resort & Spa | Official Site",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2267,
+        "dbTitle": "Pueblo Bonito Montecristo Estates - Cabo San Lucas Vacation Package",
+        "dbPrice": 599,
+        "dbNights": 5,
+        "url": "https://www.pueblobonito.com/resorts/montecristo-estates",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Pueblo Bonito Montecristo Estates | Official Site",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2268,
+        "dbTitle": "Pueblo Bonito Mazatlan - Mazatlan Vacation Package",
+        "dbPrice": 299,
+        "dbNights": 4,
+        "url": "https://www.pueblobonito.com/resorts/mazatlan",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Pueblo Bonito Mazatlán | Official Site",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2269,
+        "dbTitle": "Pueblo Bonito Emerald Bay Resort & Spa - Mazatlan Vacation Package",
+        "dbPrice": 349,
+        "dbNights": 4,
+        "url": "https://www.pueblobonito.com/resorts/emerald-bay",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Pueblo Bonito Emerald Bay | Official Site",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      },
+      {
+        "dealId": 2270,
+        "dbTitle": "Pueblo Bonito Los Cabos - Cabo San Lucas Vacation Package",
+        "dbPrice": 349,
+        "dbNights": 5,
+        "url": "https://www.pueblobonito.com/resorts/los-cabos",
+        "verdict": "no_price_on_page",
+        "pageTitle": "Pueblo Bonito Los Cabos | Official Site",
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "no $ amount in $39-$9999 window found on page"
+      }
+    ]
+  },
+  "departure-depot": {
+    "issue": "Nights count mismatches for event-based packages (e.g. May 1-3 = 2n not 3n)",
+    "samples": [
+      {
+        "dealId": 822,
+        "dbTitle": "🎸 Bruce Springsteen & The E Street Band A VIP All-Inclusive Concert Suite Getaway May 1–3, 2026",
+        "dbPrice": 899,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%8e%b8-bruce-springsteen-the-e-street-band-a-vip-all-inclusive-concert-suite-getaway-may-1-3-2026/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "🎸 Bruce Springsteen &amp; The E Street Band A VIP All-Inclusive Concert Suite Getaway May 1–3, 2026 - Departure Depot",
+        "pricesOnPage": [
+          899,
+          1599,
+          300
+        ],
+        "nightsOnPage": [
+          2
+        ]
+      },
+      {
+        "dealId": 824,
+        "dbTitle": "🎶 Vince Gill Live in Orlando — Dinner, Concert & Transportation | June 18 | Dr. Phillips Center | Premium Balcony Seating",
+        "dbPrice": 399,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%8e%b6-vince-gill-live-in-orlando-dinner-concert-transportation-june-18-dr-phillips-center-premium-balcony-seating/",
+        "verdict": "price_mismatch",
+        "pageTitle": "🎶 Vince Gill Live in Orlando — Dinner, Concert &amp; Transportation | June 18 | Dr. Phillips Center | Premium Balcony Seating - Departure Depot",
+        "pricesOnPage": [
+          200
+        ],
+        "nightsOnPage": []
+      },
+      {
+        "dealId": 828,
+        "dbTitle": "🎸 STING Live in Atlanta: A Premium Amphitheater Getaway May 14–16, 2026",
+        "dbPrice": 399,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%8e%b8-sting-live-in-atlanta-a-premium-amphitheater-getaway-may-14-16-2026/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "🎸 STING Live in Atlanta: A Premium Amphitheater Getaway May 14–16, 2026 - Departure Depot",
+        "pricesOnPage": [
+          399,
+          899,
+          1499,
+          599,
+          300
+        ],
+        "nightsOnPage": [
+          2
+        ]
+      },
+      {
+        "dealId": 830,
+        "dbTitle": "🎸 Rush Live in Concert: Atlanta Condo Escape with Loft Suite VIP Concert Access November 24–26, 2026",
+        "dbPrice": 799,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%8e%b8-rush-live-in-concert-atlanta-condo-escape-with-loft-suite-vip-concert-access-november-24-26-2026/",
+        "verdict": "unreachable",
+        "pageTitle": null,
+        "pricesOnPage": [],
+        "nightsOnPage": [],
+        "reason": "HTTP 404"
+      },
+      {
+        "dealId": 837,
+        "dbTitle": "🆕🌴 NEW SHIP: Margaritaville at Sea Beachcomber — All-Inclusive 4-Night Key West & Bahamas | Feb 9–13, 2027",
+        "dbPrice": 1449,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%86%95%f0%9f%8c%b4-new-ship-margaritaville-at-sea-beachcomber-all-inclusive-4-night-key-west-bahamas-feb-9-13-2027/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "🆕🌴 NEW SHIP: Margaritaville at Sea Beachcomber — All-Inclusive 4-Night Key West &amp; Bahamas | Feb 9–13, 2027 - Departure Depot",
+        "pricesOnPage": [
+          1449,
+          1849,
+          200
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 838,
+        "dbTitle": "🌴 All Inclusive Tropical Thanksgiving Cruise: A Margaritaville State of Mind – November 25–30, 2026",
+        "dbPrice": 1899,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%8c%b4-all-inclusive-tropical-thanksgiving-cruise-a-margaritaville-state-of-mind-november-25-30-2026/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "🌴 All Inclusive Tropical Thanksgiving Cruise: A Margaritaville State of Mind – November 25–30, 2026 - Departure Depot",
+        "pricesOnPage": [
+          1899,
+          200,
+          400
+        ],
+        "nightsOnPage": [
+          5
+        ]
+      },
+      {
+        "dealId": 4693,
+        "dbTitle": "🌴 Keep the Party Going — VIP Margaritaville Atlanta Escape Featuring Jimmy Buffett’s Coral Reefer Band July 17–20, 2026",
+        "dbPrice": 899,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%8c%b4-keep-the-party-going-vip-margaritaville-atlanta-escape-featuring-jimmy-buffetts-coral-reefer-band-july-17-20-2026/",
+        "verdict": "price_mismatch",
+        "pageTitle": "🌴 Keep the Party Going — VIP Margaritaville Atlanta Escape Featuring Jimmy Buffett’s Coral Reefer Band July 17–20, 2026 - Departure Depot",
+        "pricesOnPage": [
+          599,
+          1199,
+          400
+        ],
+        "nightsOnPage": [
+          3
+        ]
+      },
+      {
+        "dealId": 15231,
+        "dbTitle": "🌴 Two Sunsets at Ocean Cay — Bahamas Private Island Escape • December 6–10, 2026 • MSC Seashore",
+        "dbPrice": 899,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%8c%b4-two-sunsets-at-ocean-cay-bahamas-private-island-escape-december-6-10-2026-msc-seashore/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "🌴 Two Sunsets at Ocean Cay — Bahamas Private Island Escape • December 6–10, 2026 • MSC Seashore - Departure Depot",
+        "pricesOnPage": [
+          300,
+          600,
+          80,
+          150,
+          100,
+          200,
+          500,
+          800,
+          899,
+          139,
+          219,
+          380
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 21557,
+        "dbTitle": "🌴 Two Sunsets at Ocean Cay — Bahamas Private Island Escape • October 25–29, 2026 • MSC Seashore",
+        "dbPrice": 899,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%8c%b4-two-sunsets-at-ocean-cay-bahamas-private-island-escape-october-25-29-2026-msc-seashore/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "🌴 Two Sunsets at Ocean Cay — Bahamas Private Island Escape • October 25–29, 2026 • MSC Seashore - Departure Depot",
+        "pricesOnPage": [
+          300,
+          600,
+          80,
+          150,
+          100,
+          200,
+          500,
+          800,
+          899,
+          139,
+          219,
+          380
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 22518,
+        "dbTitle": "🌴 Two Sunsets at Ocean Cay — Bahamas Private Island Escape • January 3–7, 2027 • MSC Seashore",
+        "dbPrice": 899,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%8c%b4-two-sunsets-at-ocean-cay-bahamas-private-island-escape-january-3-7-2027-msc-seashore/",
+        "verdict": "nights_mismatch",
+        "pageTitle": "🌴 Two Sunsets at Ocean Cay — Bahamas Private Island Escape • January 3–7, 2027 • MSC Seashore - Departure Depot",
+        "pricesOnPage": [
+          300,
+          600,
+          80,
+          150,
+          100,
+          200,
+          500,
+          800,
+          899,
+          139,
+          219,
+          380
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      },
+      {
+        "dealId": 22520,
+        "dbTitle": "💕 Two Sunsets at Ocean Cay — Valentine’s at Sea • February 14–18, 2027 • MSC Seashore",
+        "dbPrice": 899,
+        "dbNights": 3,
+        "url": "https://departuredepot.com/product/%f0%9f%92%95-two-sunsets-at-ocean-cay-valentines-at-sea-february-14-18-2027-msc-seashore/",
+        "verdict": "price_and_nights_mismatch",
+        "pageTitle": "💕 Two Sunsets at Ocean Cay — Valentine’s at Sea • February 14–18, 2027 • MSC Seashore - Departure Depot",
+        "pricesOnPage": [
+          999,
+          139,
+          239,
+          390,
+          300,
+          600,
+          80,
+          150,
+          100,
+          200,
+          500,
+          800
+        ],
+        "nightsOnPage": [
+          4
+        ]
+      }
+    ]
+  }
+}

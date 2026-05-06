@@ -5,105 +5,45 @@ import type { ScrapedDeal } from "@vacationdeals/shared";
 /**
  * Pueblo Bonito Resorts crawler.
  *
- * Pueblo Bonito runs luxury all-inclusive resorts in Cabo, Mazatlan,
- * and San Miguel de Allende. The /save-big-2025 page features a single
- * promo with up to 55% off + spa credits, promo code BOOKEARLY25.
+ * Pueblo Bonito's /save-big-2025 page advertises a percentage-off promo
+ * ("up to 55% off" + spa credits) but does NOT publish per-resort fixed
+ * vacpack prices. /resorts and /resorts/<slug> are property overview pages.
  *
- * Strategy:
- *   1. Crawl /save-big-2025 for the current promo (discount %, spa credits, travel window)
- *   2. Crawl /resorts to discover individual resort pages and build per-resort deals
- *   3. Build deals from known resort catalog with discovered promo pricing
+ * Strategy: only emit a deal when the rendered DOM contains BOTH a $ price
+ * (sane range) AND an "X night(s)" / "X-day/Y-night" pattern in the same
+ * card/section. If those don't exist, emit ZERO deals (correct behavior).
+ *
+ * Fixed 2026-05-05: previously fabricated 7 deals from a hardcoded
+ * RESORT_CATALOG with made-up defaultPrice values, attached to property
+ * landing URLs that have no real package. See:
+ * memory/feedback_scraper_accuracy.md (DOM is truth, not slugs/catalogs).
  */
 
 const BASE_URL = "https://www.pueblobonito.com";
 
 const SEED_URLS = [
   `${BASE_URL}/save-big-2025`,
-  `${BASE_URL}/resorts`,
+  `${BASE_URL}/specials`,
+  `${BASE_URL}/offers`,
   `${BASE_URL}/`,
 ];
 
-// Known resort catalog
-const RESORT_CATALOG: Array<{
+// Reference data used ONLY to enrich (city/state) when DOM evidence exists.
+// Never used to fabricate deals on its own.
+const RESORT_LOOKUP: Array<{
+  matchKeywords: string[];
   name: string;
   city: string;
   state: string;
   country: string;
-  slug: string;
-  defaultPrice: number;
-  nights: number;
-  tier: "luxury" | "premium" | "standard";
 }> = [
-  {
-    name: "Pueblo Bonito Pacifica Golf & Spa Resort",
-    city: "Cabo San Lucas",
-    state: "BCS",
-    country: "MX",
-    slug: "pacifica",
-    defaultPrice: 499,
-    nights: 5,
-    tier: "luxury",
-  },
-  {
-    name: "Pueblo Bonito Sunset Beach Golf & Spa Resort",
-    city: "Cabo San Lucas",
-    state: "BCS",
-    country: "MX",
-    slug: "sunset-beach",
-    defaultPrice: 449,
-    nights: 5,
-    tier: "luxury",
-  },
-  {
-    name: "Pueblo Bonito Los Cabos",
-    city: "Cabo San Lucas",
-    state: "BCS",
-    country: "MX",
-    slug: "los-cabos",
-    defaultPrice: 349,
-    nights: 5,
-    tier: "premium",
-  },
-  {
-    name: "Pueblo Bonito Rosé Resort & Spa",
-    city: "Cabo San Lucas",
-    state: "BCS",
-    country: "MX",
-    slug: "rose",
-    defaultPrice: 399,
-    nights: 5,
-    tier: "premium",
-  },
-  {
-    name: "Pueblo Bonito Montecristo Estates",
-    city: "Cabo San Lucas",
-    state: "BCS",
-    country: "MX",
-    slug: "montecristo",
-    defaultPrice: 599,
-    nights: 5,
-    tier: "luxury",
-  },
-  {
-    name: "Pueblo Bonito Mazatlan",
-    city: "Mazatlan",
-    state: "Sinaloa",
-    country: "MX",
-    slug: "mazatlan",
-    defaultPrice: 299,
-    nights: 4,
-    tier: "standard",
-  },
-  {
-    name: "Pueblo Bonito Emerald Bay Resort & Spa",
-    city: "Mazatlan",
-    state: "Sinaloa",
-    country: "MX",
-    slug: "emerald-bay",
-    defaultPrice: 349,
-    nights: 4,
-    tier: "premium",
-  },
+  { matchKeywords: ["pacifica"], name: "Pueblo Bonito Pacifica Golf & Spa Resort", city: "Cabo San Lucas", state: "BCS", country: "MX" },
+  { matchKeywords: ["sunset beach"], name: "Pueblo Bonito Sunset Beach Golf & Spa Resort", city: "Cabo San Lucas", state: "BCS", country: "MX" },
+  { matchKeywords: ["los cabos"], name: "Pueblo Bonito Los Cabos", city: "Cabo San Lucas", state: "BCS", country: "MX" },
+  { matchKeywords: ["rose ", "rosé"], name: "Pueblo Bonito Rosé Resort & Spa", city: "Cabo San Lucas", state: "BCS", country: "MX" },
+  { matchKeywords: ["montecristo"], name: "Pueblo Bonito Montecristo Estates", city: "Cabo San Lucas", state: "BCS", country: "MX" },
+  { matchKeywords: ["mazatlan"], name: "Pueblo Bonito Mazatlan", city: "Mazatlan", state: "Sinaloa", country: "MX" },
+  { matchKeywords: ["emerald bay"], name: "Pueblo Bonito Emerald Bay Resort & Spa", city: "Mazatlan", state: "Sinaloa", country: "MX" },
 ];
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -118,20 +58,36 @@ function parsePercent(text: string): number | null {
   return match ? parseInt(match[1], 10) : null;
 }
 
+function parseNights(text: string): number | null {
+  const m1 = text.match(/(\d+)\s*[-\s]*nights?\b/i);
+  if (m1) return parseInt(m1[1], 10);
+  const m2 = text.match(/\d+\s*days?\s*\/\s*(\d+)\s*nights?/i);
+  if (m2) return parseInt(m2[1], 10);
+  return null;
+}
+
 function resolveUrl(href: string): string {
   if (!href) return "";
   if (href.startsWith("http")) return href;
   return `${BASE_URL}${href.startsWith("/") ? "" : "/"}${href}`;
 }
 
+function findResort(text: string): typeof RESORT_LOOKUP[number] | null {
+  const lc = text.toLowerCase();
+  for (const r of RESORT_LOOKUP) {
+    if (r.matchKeywords.some((kw) => lc.includes(kw))) return r;
+  }
+  return null;
+}
+
 // ── Main crawler ─────────────────────────────────────────────────────────────
 
 export async function runPuebloBtonitoCrawler() {
   const processedKeys = new Set<string>();
-  let promoDiscount = 55; // "up to 55%" from save-big page
-  let promoSpaCredit = 150;
-  let promoCode = "BOOKEARLY25";
-  let travelWindow = "October 15, 2025 – December 20, 2026";
+  let promoDiscount: number | null = null;
+  let promoSpaCredit: number | null = null;
+  let promoCode: string | null = null;
+  let travelWindow: string | null = null;
 
   const crawler = new CheerioCrawler({
     maxRequestsPerCrawl: 20,
@@ -140,79 +96,79 @@ export async function runPuebloBtonitoCrawler() {
 
     async requestHandler({ request, $, body, log }) {
       log.info(`Scraping ${request.url}`);
-
       const html = typeof body === "string" ? body : body.toString();
       const pageText = $("body").text();
 
-      // ── Extract promo details from /save-big pages ─────────────────
-      if (request.url.includes("save-big")) {
+      // ── Extract promo metadata (do NOT fabricate deals from this) ──
+      if (request.url.includes("save-big") || request.url.includes("special") || request.url.includes("offer")) {
         const discountMatch = parsePercent(pageText);
         if (discountMatch) promoDiscount = discountMatch;
 
-        const spaMatch = pageText.match(/\$(\d+)\s*(?:in\s+)?spa\s+credit/i);
+        const spaMatch = pageText.match(/\$(\d+)\s*(?:in\s+)?(?:USD\s+(?:in\s+)?)?spa\s+credit/i);
         if (spaMatch) promoSpaCredit = parseInt(spaMatch[1], 10);
 
-        const codeMatch = pageText.match(/(?:promo\s*code|code)\s*:?\s*(\w+)/i);
+        const codeMatch = pageText.match(/(?:promo\s*code|code)\s*:?\s*([A-Z0-9]{4,})/i);
         if (codeMatch) promoCode = codeMatch[1];
 
         const windowMatch = pageText.match(/((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\s*[–-]\s*(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4})/i);
         if (windowMatch) travelWindow = windowMatch[1];
 
-        log.info(`Promo: ${promoDiscount}% off, $${promoSpaCredit} spa credit, code: ${promoCode}`);
+        log.info(`Promo metadata: ${promoDiscount}% off, $${promoSpaCredit} spa credit, code: ${promoCode}`);
       }
 
-      // ── Try to extract resort cards/links ──────────────────────────
-      $('a[href*="/resorts/"], a[href*="pueblobonito.com"]').each((_i, el) => {
-        const href = $(el).attr("href") || "";
-        const text = $(el).text().trim();
+      // ── Hard requirement: emit a deal ONLY when a card has BOTH a $ price AND nights ──
+      const candidates = $(
+        "article, section, .card, .resort-card, .promo, .promotion, .package, .deal, .offer-card, .special-card"
+      );
 
-        // Match to known resort
-        const resort = RESORT_CATALOG.find(
-          (r) => href.toLowerCase().includes(r.slug) ||
-                 text.toLowerCase().includes(r.slug.replace(/-/g, " "))
-        );
+      candidates.each((_i, el) => {
+        const node = $(el);
+        const text = node.text();
+
+        const price = parsePrice(text);
+        const nights = parseNights(text);
+
+        if (!price || price < 99 || price > 999) return;
+        if (!nights || nights < 1 || nights > 14) return;
+
+        const resort = findResort(text);
         if (!resort) return;
 
-        const key = resort.name;
+        const key = `${resort.name}|${price}|${nights}`;
         if (processedKeys.has(key)) return;
         processedKeys.add(key);
 
-        // Check for inline pricing
-        const nearbyText = $(el).closest("div, section").text();
-        const inlinePrice = parsePrice(nearbyText);
-        const price = (inlinePrice && inlinePrice >= 99 && inlinePrice <= 999)
-          ? inlinePrice
-          : resort.defaultPrice;
-
-        const imgSrc = $(el).closest("div, section").find("img").first().attr("src") || "";
+        const imgSrc = node.find("img").first().attr("src") || "";
         const imageUrl = imgSrc ? resolveUrl(imgSrc) : undefined;
+
+        const inclusions = [
+          `${nights + 1} Days / ${nights} Nights accommodation`,
+          "All-inclusive meals & drinks",
+          "Resort amenities & pool access",
+        ];
+        if (promoSpaCredit) inclusions.push(`Up to $${promoSpaCredit} in spa credits`);
+        if (promoCode) inclusions.push(`Promo code: ${promoCode}`);
 
         const deal: ScrapedDeal = {
           title: `${resort.name} - ${resort.city} Vacation Package`,
           price,
-          originalPrice: Math.round(price / (1 - promoDiscount / 100)),
-          durationNights: resort.nights,
-          durationDays: resort.nights + 1,
-          description: `${resort.nights + 1} Days / ${resort.nights} Nights at ${resort.name} in ${resort.city}, Mexico. Save up to ${promoDiscount}% with promo code ${promoCode}.`,
+          ...(promoDiscount ? { originalPrice: Math.round(price / (1 - promoDiscount / 100)) } : {}),
+          durationNights: nights,
+          durationDays: nights + 1,
+          description: `${nights + 1} Days / ${nights} Nights at ${resort.name} in ${resort.city}, Mexico.${promoDiscount ? ` Save up to ${promoDiscount}%${promoCode ? ` with promo code ${promoCode}` : ""}.` : ""}`,
           resortName: resort.name,
-          url: resolveUrl(href) || `${BASE_URL}/save-big-2025`,
+          url: request.url,
           imageUrl,
-          inclusions: [
-            `${resort.nights + 1} Days / ${resort.nights} Nights accommodation`,
-            "All-inclusive meals & drinks",
-            `Up to $${promoSpaCredit} in spa credits`,
-            `Promo code: ${promoCode}`,
-            "Resort amenities & pool access",
-          ],
+          inclusions,
           requirements: [
             "Must be 25+ years old",
             "Married/cohabiting couples must both attend",
             "Valid ID and credit card required",
             "Attend timeshare presentation (~90-120 min)",
           ],
-          savingsPercent: promoDiscount,
+          ...(promoDiscount ? { savingsPercent: promoDiscount } : {}),
           presentationMinutes: 120,
-          travelWindow,
+          ...(travelWindow ? { travelWindow } : {}),
           city: resort.city,
           state: resort.state,
           country: resort.country,
@@ -220,63 +176,24 @@ export async function runPuebloBtonitoCrawler() {
         };
 
         storeDeal(deal, "pueblo-bonito", html)
-          .then(() => log.info(`Stored: ${deal.title} ($${deal.price})`))
+          .then(() => log.info(`Stored: ${deal.title} ($${deal.price}, ${deal.durationNights}n)`))
           .catch((err) => log.error(`Failed to store ${deal.title}: ${err}`));
       });
 
-      // ── Discover additional pages ──────────────────────────────────
-      $('a[href*="/resorts"]').each((_i, el) => {
+      // Only follow promo/special/offer links — never property landing pages.
+      $('a[href*="save-big"], a[href*="/special"], a[href*="/offer"], a[href*="/promo"], a[href*="/deal"]').each((_i, el) => {
         const href = $(el).attr("href");
-        if (href) {
-          crawler.addRequests([{ url: resolveUrl(href) }]).catch(() => {});
-        }
+        if (href) crawler.addRequests([{ url: resolveUrl(href) }]).catch(() => {});
       });
     },
   });
 
   await crawler.run(SEED_URLS.map((url) => ({ url })));
 
-  // Fallback: seed resorts not found via crawling
-  for (const resort of RESORT_CATALOG) {
-    if (processedKeys.has(resort.name)) continue;
-    processedKeys.add(resort.name);
-
-    const deal: ScrapedDeal = {
-      title: `${resort.name} - ${resort.city} Vacation Package`,
-      price: resort.defaultPrice,
-      originalPrice: Math.round(resort.defaultPrice / (1 - promoDiscount / 100)),
-      durationNights: resort.nights,
-      durationDays: resort.nights + 1,
-      description: `${resort.nights + 1} Days / ${resort.nights} Nights at ${resort.name} in ${resort.city}, Mexico. Save up to ${promoDiscount}% with promo code ${promoCode}.`,
-      resortName: resort.name,
-      url: `${BASE_URL}/save-big-2025`,
-      inclusions: [
-        `${resort.nights + 1} Days / ${resort.nights} Nights accommodation`,
-        "All-inclusive meals & drinks",
-        `Up to $${promoSpaCredit} in spa credits`,
-        `Promo code: ${promoCode}`,
-        "Resort amenities & pool access",
-      ],
-      requirements: [
-        "Must be 25+ years old",
-        "Married/cohabiting couples must both attend",
-        "Valid ID and credit card required",
-        "Attend timeshare presentation (~90-120 min)",
-      ],
-      savingsPercent: promoDiscount,
-      presentationMinutes: 120,
-      travelWindow,
-      city: resort.city,
-      state: resort.state,
-      country: resort.country,
-      brandSlug: "pueblo-bonito",
-    };
-
-    try {
-      await storeDeal(deal, "pueblo-bonito", "");
-      console.log(`Stored fallback: ${deal.title} ($${deal.price})`);
-    } catch (err) {
-      console.error(`Failed to store fallback ${deal.title}: ${err}`);
-    }
+  // NOTE: No catalog fallback. % off is not a vacpack — without a fixed price
+  // and nights pattern in the DOM, we emit nothing. The 7 fabricated deals
+  // currently in the DB should be deactivated separately.
+  if (processedKeys.size === 0) {
+    console.log("[pueblo-bonito] No DOM-verified vacpacks (price+nights) found. Emitting 0 deals.");
   }
 }

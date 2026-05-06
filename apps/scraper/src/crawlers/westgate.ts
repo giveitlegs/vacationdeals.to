@@ -443,56 +443,14 @@ export async function runWestgateCrawler() {
         }
       }
 
-      // ── Process resort listings (nightly rate deals) ────────────────────
-      if (resorts && resorts.length > 0) {
-        for (const resort of resorts) {
-          if (processedResortIds.has(resort.resort_id)) continue;
-          processedResortIds.add(resort.resort_id);
-
-          const priceFrom = resort.prices?.price_from;
-          const standardPrice = resort.prices?.standard_price;
-          if (!priceFrom || priceFrom <= 0) continue;
-
-          // Create a 3-night package deal from the nightly rate
-          const nights = 3;
-          const days = nights + 1;
-          const totalPrice = priceFrom * nights;
-          const originalTotal = standardPrice
-            ? standardPrice * nights
-            : undefined;
-
-          const deal: ScrapedDeal = {
-            title: `${resort.title} - ${resort.destination}`,
-            price: totalPrice,
-            originalPrice: originalTotal,
-            durationNights: nights,
-            durationDays: days,
-            description: resort.excerpt || undefined,
-            resortName: resort.title,
-            url: resort.url,
-            imageUrl: resort.thumbnails?.s || resort.thumbnails?.full,
-            savingsPercent: originalTotal
-              ? savingsPercent(originalTotal, totalPrice)
-              : undefined,
-            city: resort.city || resort.destination,
-            state:
-              resort.state ||
-              DEST_STATE[resort.destination.toLowerCase()] ||
-              undefined,
-            country: "US",
-            brandSlug: "westgate",
-          };
-
-          try {
-            await storeDeal(deal, "westgate", html);
-            log.info(
-              `Stored resort: ${deal.title} ($${deal.price}/3 nights)`,
-            );
-          } catch (err) {
-            log.error(`Failed to store resort ${deal.title}: ${err}`);
-          }
-        }
-      }
+      // ── Resorts: NOT stored as deals ────────────────────────────────────
+      // Resorts in APP_DATA are property/info pages (e.g. /resorts/westgate-
+      // cocoa-beach-resort), not vacation packages. They have nightly rates
+      // (price_from), not real package prices. Storing them produced 18
+      // misleading "deals" with synthetic 3-night totals from price_from*3.
+      // Only `specials` (/specials/...) are real vacpacks and become deals.
+      // The `resorts` array is still parsed from APP_DATA and could be used
+      // later for resort metadata enrichment, but never as a standalone deal.
 
       // ── Enqueue pages from the homepage / main specials page ───────────
       if (!isDetailPage) {

@@ -47,15 +47,33 @@ function parseNights(text: string): { nights: number; days: number } | null {
   if (m) return { days: parseInt(m[1], 10), nights: parseInt(m[2], 10) };
   m = text.match(/(\d+)\s*Nights?\s*[\/&,]\s*(\d+)\s*Days?/i);
   if (m) return { nights: parseInt(m[1], 10), days: parseInt(m[2], 10) };
-  m = text.match(/(\d+)\s*Nights?/i);
+  // Allow hyphen between number and "Night" (e.g. "4-Night Feb 9-13")
+  m = text.match(/(\d+)[\s-]*Nights?/i);
   if (m) {
     const nights = parseInt(m[1], 10);
     return { nights, days: nights + 1 };
   }
-  m = text.match(/(\d+)\s*Days?/i);
+  m = text.match(/(\d+)[\s-]*Days?/i);
   if (m) {
     const days = parseInt(m[1], 10);
     return { days, nights: days - 1 };
+  }
+  // Date-range fallback: titles like "May 1-3, 2026" or "December 14–16, 2026"
+  // (handles ASCII hyphen, en dash, em dash). Same-month range only.
+  const months =
+    "Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?";
+  const dateRange = new RegExp(
+    `(?:${months})\\s+(\\d{1,2})\\s*[-–—]\\s*(\\d{1,2})`,
+    "i"
+  );
+  m = text.match(dateRange);
+  if (m) {
+    const start = parseInt(m[1], 10);
+    const end = parseInt(m[2], 10);
+    if (end > start) {
+      const nights = end - start;
+      return { nights, days: nights + 1 };
+    }
   }
   return null;
 }

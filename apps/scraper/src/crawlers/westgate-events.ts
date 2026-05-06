@@ -518,16 +518,56 @@ export async function runWestgateEventsCrawler() {
         log.info(`Event name from page: "${eventName}"`);
 
         // ── 2. Price extraction ──────────────────────────────────────────
-        let price: number | null = null;
-        const priceEl = $(".price").first().text().trim();
-        if (priceEl) price = parsePrice(priceEl);
-        if (!price) {
-          const priceMatch = pageText.match(
-            /(?:from\s*)?\$(\d[\d,]*)\s*(?:per\s*couple)?/i,
-          );
-          if (priceMatch)
-            price = parseInt(priceMatch[1].replace(/,/g, ""), 10);
+        // Westgate event pages have THREE prices in play:
+        //   (1) the headline ".single-price .price" badge ("From $499 Per Couple"),
+        //   (2) per-date premium tiers in data-price="$Y" on each .event-dates .slide,
+        //   (3) unrelated event recommendations in the sidebar/footer with their own
+        //       .price elements (e.g. "$49 Branson", "$99 Orlando") — these belong
+        //       to OTHER events and must NOT be considered.
+        // The previous implementation used $(".price").first().text(), which usually
+        // hit the headline correctly, but on some templates a tier or sidebar match
+        // landed first. Result: DB prices that don't match anything the shopper sees.
+        // Strict fix: only consider prices scoped to THIS event's headline +
+        // event-dates section, and pick the MINIMUM (the canonical "From" tier).
+        const priceCandidates: number[] = [];
+
+        // (1) Headline price badge — restricted to the event's own .single-price
+        $(".single-price .price, .single-content .price").each((_, el) => {
+          const p = parsePrice($(el).text().trim());
+          if (p && p >= 39 && p <= 9999) priceCandidates.push(p);
+        });
+
+        // (2) Per-date tier prices, scoped to this event's calendar block only
+        $(".event-dates [data-price], .dates-slider [data-price]").each((_, el) => {
+          const raw = $(el).attr("data-price") || "";
+          const p = parsePrice(raw);
+          if (p && p >= 39 && p <= 9999) priceCandidates.push(p);
+        });
+
+        // JSON-LD Offer price (one per page, belongs to this event)
+        const jsonLdPrice = pageText.match(
+          /"@type"\s*:\s*"Offer"[\s\S]{0,400}?"price"\s*:\s*"?(\d{2,4})"?/i,
+        );
+        if (jsonLdPrice) {
+          const p = parseInt(jsonLdPrice[1], 10);
+          if (p >= 39 && p <= 9999) priceCandidates.push(p);
         }
+
+        let price: number | null =
+          priceCandidates.length > 0 ? Math.min(...priceCandidates) : null;
+
+        // Body-text "From $X" fallback (only if scoped extraction found nothing)
+        if (!price) {
+          const fromMatch = pageText.match(
+            /from\s*\$(\d[\d,]*)\s*(?:per\s*couple)?/i,
+          );
+          if (fromMatch) {
+            const p = parseInt(fromMatch[1].replace(/,/g, ""), 10);
+            if (p >= 39 && p <= 9999) price = p;
+          }
+        }
+
+        // Listing-card fallback only if the detail page yielded nothing
         if (!price && userData.listingPrice) {
           price = userData.listingPrice;
         }
@@ -535,6 +575,9 @@ export async function runWestgateEventsCrawler() {
           log.info(`No price found for "${eventName}", skipping`);
           return;
         }
+        log.info(
+          `Price candidates [${priceCandidates.join(", ")}] -> picked $${price}`,
+        );
 
         // Original price & savings
         const originalPrice = parseOriginalPrice(pageText);

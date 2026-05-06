@@ -168,12 +168,23 @@ export async function runStayPromoCrawler() {
         dealCards.each((_i, el) => {
           const card = $(el);
           try {
-            // Resort name from h4 > a or h3 > a
+            // Resort name: prefer h4/h3/h2 (heading text), then anchored heading,
+            // then plain heading text. NEVER fall back to author/meta tags —
+            // those produce garbage titles like "Author - Unknown".
             const titleEl = card.find("h4 a, h3 a, h2 a, .title a").first();
             const resortName =
               titleEl.text().trim() ||
               card.find("h4, h3, h2").first().text().trim();
             if (!resortName) return;
+            // Reject obviously broken titles (author meta-tag fallback artifacts,
+            // or anything too short to be a real resort name).
+            if (
+              resortName.length < 5 ||
+              /^author\s*[-:]/i.test(resortName) ||
+              /unknown/i.test(resortName)
+            ) {
+              return;
+            }
 
             // Deal URL from the title link or view-button
             const dealHref =
@@ -262,6 +273,14 @@ export async function runStayPromoCrawler() {
           const resortName = link.find("h4, h3, h2").text().trim() || link.text().trim();
           if (!resortName || resortName === "View Package" || resortName === "SEE HOTEL PROMOS")
             return;
+          // Reject author-meta artifacts and stub titles
+          if (
+            resortName.length < 5 ||
+            /^author\s*[-:]/i.test(resortName) ||
+            /unknown/i.test(resortName)
+          ) {
+            return;
+          }
 
           // Look for price in parent or siblings
           const contextText = parent.parent().text();

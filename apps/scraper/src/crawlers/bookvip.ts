@@ -172,11 +172,21 @@ export async function runBookvipCrawler() {
             if (!dealUrl || processedUrls.has(dealUrl)) return;
 
             // Prices
+            // BookVIP listings render the actual sale price in `.ourDollar`
+            // or `.price-mobile` (mobile listing). Avoid grabbing the first
+            // <strong> on the card since that is often a "Save $X,XXX" label.
             const salePriceText =
               card.find(".salePrice, .sale-price, [class*='salePrice']").first().text().trim() ||
+              card.find(".ourDollar, .price-mobile").first().text().trim() ||
               card.find("strong").first().text().trim();
             const originalPriceText =
-              card.find(".originalPrice, .retail, [class*='originalPrice']").first().text().trim();
+              card
+                .find(
+                  ".originalPrice, .retail, [class*='originalPrice'], .price-retail-mobile-value, .brandHeader",
+                )
+                .first()
+                .text()
+                .trim();
 
             const price = parsePrice(salePriceText);
             const originalPrice = parsePrice(originalPriceText);
@@ -259,20 +269,48 @@ export async function runBookvipCrawler() {
       // ── Strategy 3: If no DOM cards found, build deals from productObjs
       if (dealCards.length === 0 && productObjs.length > 0) {
         for (const prod of productObjs) {
-          const dealUrl = `${BASE_URL}/hotel_details/${prod.name
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, "-")}?id=${prod.id}`;
+          // Try to find the canonical detail URL for this product by matching
+          // its id against an `hotel_details/...?id={prod.id}` link on the page.
+          // Falls back to a slug derived from the product name.
+          const idLink = $(`a[href*="/hotel_details/"][href*="id=${prod.id}"]`).first();
+          const idHref = idLink.attr("href") || "";
+          const dealUrl = idHref
+            ? resolveUrl(idHref.split("&")[0]) // strip pid/arrivedate query bits
+            : `${BASE_URL}/hotel_details/${prod.name
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")}?id=${prod.id}`;
 
           if (processedUrls.has(dealUrl)) continue;
           processedUrls.add(dealUrl);
+
+          // Try to extract nights from the row containing the matching id link.
+          // Listings expose `<h4 class="ttlnightTttl">5 Days / 4 Nights ...</h4>`
+          // (or `ttlnightTttlListing` in mobile blocks) within the same hotel
+          // block as the id link. Walk up to find a shared ancestor.
+          let duration: { nights: number; days: number } | null = null;
+          if (idLink.length) {
+            const ancestor = idLink.closest(
+              ".HotelDescription, .mobileListingNew, [class*='hotelpriceDescription'], .row",
+            );
+            const nightsText =
+              ancestor.find(".ttlnightTttl, .ttlnightTttlListing").first().text().trim() ||
+              idLink
+                .parents()
+                .slice(0, 8)
+                .find(".ttlnightTttl, .ttlnightTttlListing")
+                .first()
+                .text()
+                .trim();
+            if (nightsText) duration = parseNights(nightsText);
+          }
 
           const location = parseCityCountry(prod.category);
 
           const deal: ScrapedDeal = {
             title: `${prod.name} - ${location.city}`,
             price: prod.price,
-            durationNights: 5,
-            durationDays: 6,
+            durationNights: duration?.nights ?? 4,
+            durationDays: duration?.days ?? 5,
             resortName: prod.name,
             url: dealUrl,
             city: location.city,

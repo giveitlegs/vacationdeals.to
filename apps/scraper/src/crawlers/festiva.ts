@@ -85,6 +85,17 @@ function resolveUrl(href: string): string {
   return `${BASE_URL}${href.startsWith("/") ? "" : "/"}${href}`;
 }
 
+/**
+ * Strip URL fragments (#anchor) so we don't store multiple "deals" that
+ * all point to the same landing page with different anchors.
+ * The Festiva /adventure-club page is a single club-membership landing
+ * page; its in-page anchors are not separate deal URLs.
+ */
+function stripFragment(url: string): string {
+  const i = url.indexOf("#");
+  return i >= 0 ? url.slice(0, i) : url;
+}
+
 function findKnownResort(url: string, text: string) {
   for (const resort of KNOWN_RESORTS) {
     if (url.includes(resort.slug) || text.includes(resort.name)) {
@@ -108,115 +119,37 @@ export async function runFestivaCrawler() {
 
       if (isAdventureClub) {
         // ── Adventure Club listing page ─────────────────────────────────
-        // Resort cards: <img> + <h5> resort name + description + address + [View Resort] link
+        // The /adventure-club page is a single club-membership landing
+        // page with in-page anchors and "View Resort" links to per-resort
+        // pages. It does NOT itself contain per-deal pricing.
+        //
+        // We do NOT emit deals from this page. We only enqueue real
+        // per-resort URLs (fragment-stripped, deduped) so the resort
+        // handler can decide if a real price exists.
 
-        // Strategy 1: Find resort card containers
-        const resortSections = $("section, article, .resort, .property, .card, div").filter(
-          (_i, el) => {
-            const text = $(el).text();
-            const hasResortName = $(el).find("h3, h4, h5, h6").length > 0;
-            const hasViewResort = text.includes("View Resort");
-            return hasResortName && hasViewResort;
-          }
-        );
+        const enqueued = new Set<string>();
+        $("a[href]").each((_i, el) => {
+          const href = ($(el).attr("href") || "").trim();
+          if (!href) return;
+          // Skip pure same-page fragments — these are NOT separate deals.
+          if (href.startsWith("#")) return;
 
-        if (resortSections.length > 0) {
-          log.info(`Found ${resortSections.length} resort sections`);
+          const abs = stripFragment(resolveUrl(href));
+          // Only follow festiva.com links into resort pages, not back to
+          // the same /adventure-club landing page.
+          if (!abs.startsWith(BASE_URL)) return;
+          if (abs === `${BASE_URL}/adventure-club`) return;
+          if (enqueued.has(abs)) return;
 
-          resortSections.each((_i, el) => {
-            const section = $(el);
-            try {
-              const resortName = section.find("h3, h4, h5, h6").first().text().trim();
-              if (!resortName) return;
+          // Restrict to known resort slugs to avoid crawling marketing pages.
+          const matchesKnown = KNOWN_RESORTS.some((r) => abs.includes(r.slug));
+          if (!matchesKnown) return;
 
-              const linkEl = section.find('a[href*="/"]').filter((_i, el) => {
-                const text = $(el).text().trim();
-                return text.includes("View Resort") || text.includes("Learn More");
-              }).first();
-              const href = linkEl.attr("href") || "";
-              const resortUrl = href ? resolveUrl(href) : "";
+          enqueued.add(abs);
+          crawler.addRequests([{ url: abs }]).catch(() => {});
+        });
 
-              if (resortUrl && !processedUrls.has(resortUrl)) {
-                // Enqueue resort page for detailed scraping
-                crawler.addRequests([{ url: resortUrl }]).catch(() => {});
-              }
-
-              const imgEl = section.find("img").first();
-              const imgSrc = imgEl.attr("src") || imgEl.attr("data-src") || "";
-              const imageUrl = imgSrc || undefined;
-
-              // Match to known resort data
-              const knownResort = findKnownResort(href, resortName);
-
-              // Create a listing entry for this resort
-              const dealUrl = resortUrl || `${BASE_URL}/adventure-club#${resortName.replace(/\s+/g, "-")}`;
-              if (processedUrls.has(dealUrl)) return;
-              processedUrls.add(dealUrl);
-
-              const deal: ScrapedDeal = {
-                title: `${knownResort?.name || resortName} - ${knownResort?.city || "Various"}`,
-                price: 199, // Festiva typical promo rate placeholder
-                durationNights: 3,
-                durationDays: 4,
-                description: `Resort preview stay at ${knownResort?.name || resortName} in ${knownResort?.city || "Various"}, ${knownResort?.state || "US"}`,
-                resortName: knownResort?.name || resortName,
-                url: dealUrl,
-                imageUrl,
-                city: knownResort?.city || "Various",
-                state: knownResort?.state,
-                country: knownResort?.country || "US",
-                brandSlug: "festiva",
-              };
-
-              storeDeal(deal, "festiva")
-                .then(() => log.info(`Stored resort listing: ${deal.title}`))
-                .catch((err) => log.error(`Failed to store resort: ${err}`));
-            } catch (err) {
-              log.error(`Error parsing resort section: ${err}`);
-            }
-          });
-        }
-
-        // Strategy 2: Fallback — find resort links by known slugs
-        if (resortSections.length === 0) {
-          log.info("Falling back to known resort slug matching");
-
-          for (const resort of KNOWN_RESORTS) {
-            const resortUrl = `${BASE_URL}/${resort.slug}`;
-
-            // Check if page has a link to this resort
-            const linkEl = $(`a[href*="${resort.slug}"]`).first();
-            const imgEl = linkEl.length
-              ? linkEl.closest("div, section").find("img").first()
-              : $(`img[alt*="${resort.name}"]`).first();
-            const imgSrc = imgEl.attr("src") || imgEl.attr("data-src") || "";
-
-            if (processedUrls.has(resortUrl)) continue;
-            processedUrls.add(resortUrl);
-
-            // Enqueue for detailed scraping
-            crawler.addRequests([{ url: resortUrl }]).catch(() => {});
-
-            const deal: ScrapedDeal = {
-              title: `${resort.name} - ${resort.city}`,
-              price: 199,
-              durationNights: 3,
-              durationDays: 4,
-              description: `Resort preview stay at ${resort.name} in ${resort.city}, ${resort.state}`,
-              resortName: resort.name,
-              url: resortUrl,
-              imageUrl: imgSrc || undefined,
-              city: resort.city,
-              state: resort.state,
-              country: resort.country,
-              brandSlug: "festiva",
-            };
-
-            storeDeal(deal, "festiva")
-              .then(() => log.info(`Stored known resort: ${deal.title}`))
-              .catch((err) => log.error(`Failed to store resort: ${err}`));
-          }
-        }
+        log.info(`Enqueued ${enqueued.size} Festiva resort pages from /adventure-club`);
       } else {
         // ── Individual resort page ──────────────────────────────────────
         const pageText = $("body").text();
@@ -247,15 +180,25 @@ export async function runFestivaCrawler() {
           }
         });
 
-        const dealUrl = request.url;
+        // Canonicalize: never store anchored variants of the same page.
+        const dealUrl = stripFragment(request.url);
         if (processedUrls.has(dealUrl)) return;
         processedUrls.add(dealUrl);
+
+        // Only emit a deal if we actually parsed a real price from the
+        // page DOM. Festiva resort pages typically don't list vacpack
+        // pricing (the Adventure Club is a points membership), so most
+        // pages should produce zero deals — that's correct.
+        if (!price) {
+          log.info(`Skipping ${dealUrl} — no price found on page (Festiva club page, not a vacpack)`);
+          return;
+        }
 
         const deal: ScrapedDeal = {
           title: knownResort
             ? `${knownResort.name} - ${knownResort.city}`
             : $("h1").first().text().trim() || "Festiva Resort",
-          price: price || 199,
+          price,
           durationNights: duration?.nights || 3,
           durationDays: duration?.days || 4,
           description:

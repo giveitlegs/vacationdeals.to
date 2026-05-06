@@ -1,0 +1,670 @@
+{
+  "A": [
+    {
+      "id": 2261,
+      "why": "elcid-dest-page"
+    },
+    {
+      "id": 2262,
+      "why": "elcid-dest-page"
+    },
+    {
+      "id": 2263,
+      "why": "elcid-dest-page"
+    },
+    {
+      "id": 858,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 859,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 860,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 861,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 862,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 864,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 867,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 868,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 869,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 870,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 871,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 22533,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 22534,
+      "why": "festiva-anchor-dupe"
+    },
+    {
+      "id": 2264,
+      "why": "pb-resort-page"
+    },
+    {
+      "id": 2265,
+      "why": "pb-resort-page"
+    },
+    {
+      "id": 2266,
+      "why": "pb-resort-page"
+    },
+    {
+      "id": 2267,
+      "why": "pb-resort-page"
+    },
+    {
+      "id": 2268,
+      "why": "pb-resort-page"
+    },
+    {
+      "id": 2269,
+      "why": "pb-resort-page"
+    },
+    {
+      "id": 2270,
+      "why": "pb-resort-page"
+    },
+    {
+      "id": 2277,
+      "why": "login-url"
+    },
+    {
+      "id": 1,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 2,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 4,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 5,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 6,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 7,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 8,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 9,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 10,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 11,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 12,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 13,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 14,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 16,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 17,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 18,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 2689,
+      "why": "westgate-resort-page"
+    },
+    {
+      "id": 3971,
+      "why": "westgate-resort-page"
+    }
+  ],
+  "B": [
+    {
+      "id": 830,
+      "why": "unreachable",
+      "src": "departure-depot"
+    },
+    {
+      "id": 2271,
+      "why": "unreachable",
+      "src": "divi"
+    },
+    {
+      "id": 2272,
+      "why": "unreachable",
+      "src": "divi"
+    },
+    {
+      "id": 2273,
+      "why": "unreachable",
+      "src": "divi"
+    },
+    {
+      "id": 2274,
+      "why": "unreachable",
+      "src": "divi"
+    },
+    {
+      "id": 2275,
+      "why": "unreachable",
+      "src": "divi"
+    },
+    {
+      "id": 14438,
+      "why": "unreachable",
+      "src": "exploria"
+    },
+    {
+      "id": 14439,
+      "why": "unreachable",
+      "src": "exploria"
+    },
+    {
+      "id": 14440,
+      "why": "unreachable",
+      "src": "exploria"
+    },
+    {
+      "id": 2286,
+      "why": "unreachable",
+      "src": "sheraton-vc"
+    },
+    {
+      "id": 2835,
+      "why": "unreachable",
+      "src": "tafer"
+    },
+    {
+      "id": 14437,
+      "why": "unreachable",
+      "src": "timeshare-presentation-deals"
+    },
+    {
+      "id": 839,
+      "why": "unreachable",
+      "src": "vegas-timeshare"
+    },
+    {
+      "id": 840,
+      "why": "unreachable",
+      "src": "vegas-timeshare"
+    },
+    {
+      "id": 841,
+      "why": "unreachable",
+      "src": "vegas-timeshare"
+    },
+    {
+      "id": 842,
+      "why": "unreachable",
+      "src": "vegas-timeshare"
+    },
+    {
+      "id": 843,
+      "why": "unreachable",
+      "src": "vegas-timeshare"
+    },
+    {
+      "id": 2278,
+      "why": "unreachable",
+      "src": "villa-group"
+    },
+    {
+      "id": 2280,
+      "why": "unreachable",
+      "src": "villa-group"
+    },
+    {
+      "id": 2281,
+      "why": "unreachable",
+      "src": "villa-group"
+    },
+    {
+      "id": 2283,
+      "why": "unreachable",
+      "src": "villa-group"
+    },
+    {
+      "id": 2284,
+      "why": "unreachable",
+      "src": "villa-group"
+    },
+    {
+      "id": 2285,
+      "why": "unreachable",
+      "src": "villa-group"
+    },
+    {
+      "id": 2287,
+      "why": "unreachable",
+      "src": "westin-vc"
+    }
+  ],
+  "C": [
+    {
+      "id": 14533,
+      "why": "price-mismatch",
+      "src": "bestvacationdealz",
+      "db": 49,
+      "page": [
+        99,
+        100,
+        449,
+        350,
+        199
+      ]
+    },
+    {
+      "id": 824,
+      "why": "price-mismatch",
+      "src": "departure-depot",
+      "db": 399,
+      "page": [
+        200
+      ]
+    },
+    {
+      "id": 4693,
+      "why": "price-mismatch",
+      "src": "departure-depot",
+      "db": 899,
+      "page": [
+        599,
+        1199,
+        400
+      ]
+    },
+    {
+      "id": 22520,
+      "why": "price-mismatch",
+      "src": "departure-depot",
+      "db": 899,
+      "page": [
+        999,
+        139,
+        239,
+        390,
+        300
+      ]
+    },
+    {
+      "id": 81,
+      "why": "price-mismatch",
+      "src": "mrg",
+      "db": 225,
+      "page": [
+        99,
+        150,
+        300,
+        169,
+        317.03
+      ]
+    },
+    {
+      "id": 82,
+      "why": "price-mismatch",
+      "src": "mrg",
+      "db": 197,
+      "page": [
+        98,
+        150,
+        300,
+        169,
+        317.03
+      ]
+    },
+    {
+      "id": 89,
+      "why": "price-mismatch",
+      "src": "mrg",
+      "db": 347,
+      "page": [
+        199,
+        317.03,
+        300,
+        169,
+        150
+      ]
+    },
+    {
+      "id": 22144,
+      "why": "price-mismatch",
+      "src": "payvibe",
+      "db": 299,
+      "page": [
+        49
+      ]
+    },
+    {
+      "id": 600,
+      "why": "price-mismatch",
+      "src": "staypromo",
+      "db": 248,
+      "page": [
+        659,
+        219,
+        899,
+        348,
+        55
+      ]
+    },
+    {
+      "id": 601,
+      "why": "price-mismatch",
+      "src": "staypromo",
+      "db": 120,
+      "page": [
+        798,
+        259,
+        100
+      ]
+    },
+    {
+      "id": 2282,
+      "why": "price-mismatch",
+      "src": "villa-group",
+      "db": 745,
+      "page": [
+        800,
+        200,
+        317,
+        341,
+        540
+      ]
+    },
+    {
+      "id": 452,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 159,
+      "page": [
+        100
+      ]
+    },
+    {
+      "id": 485,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 279,
+      "page": [
+        369,
+        300
+      ]
+    },
+    {
+      "id": 486,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 769,
+      "page": [
+        400
+      ]
+    },
+    {
+      "id": 487,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 519,
+      "page": [
+        200
+      ]
+    },
+    {
+      "id": 489,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 689,
+      "page": [
+        400
+      ]
+    },
+    {
+      "id": 490,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 849,
+      "page": [
+        400
+      ]
+    },
+    {
+      "id": 491,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 889,
+      "page": [
+        500
+      ]
+    },
+    {
+      "id": 492,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 989,
+      "page": [
+        500
+      ]
+    },
+    {
+      "id": 493,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 1109,
+      "page": [
+        500
+      ]
+    },
+    {
+      "id": 494,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 1119,
+      "page": [
+        111,
+        600
+      ]
+    },
+    {
+      "id": 496,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 499,
+      "page": [
+        300
+      ]
+    },
+    {
+      "id": 497,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 589,
+      "page": [
+        400
+      ]
+    },
+    {
+      "id": 510,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 159,
+      "page": [
+        50
+      ]
+    },
+    {
+      "id": 512,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 239,
+      "page": [
+        200
+      ]
+    },
+    {
+      "id": 516,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 499,
+      "page": [
+        300
+      ]
+    },
+    {
+      "id": 22631,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 129,
+      "page": [
+        99
+      ]
+    },
+    {
+      "id": 22640,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 149,
+      "page": [
+        99
+      ]
+    },
+    {
+      "id": 22652,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 299,
+      "page": [
+        200
+      ]
+    },
+    {
+      "id": 22663,
+      "why": "price-mismatch",
+      "src": "westgate",
+      "db": 399,
+      "page": [
+        200
+      ]
+    },
+    {
+      "id": 968,
+      "why": "price-mismatch",
+      "src": "westgate-events",
+      "db": 399,
+      "page": [
+        100,
+        249,
+        699,
+        50,
+        99
+      ]
+    },
+    {
+      "id": 974,
+      "why": "price-mismatch",
+      "src": "westgate-events",
+      "db": 449,
+      "page": [
+        299,
+        799,
+        75,
+        99,
+        49
+      ]
+    },
+    {
+      "id": 976,
+      "why": "price-mismatch",
+      "src": "westgate-events",
+      "db": 649,
+      "page": [
+        499,
+        999,
+        50,
+        99,
+        49
+      ]
+    },
+    {
+      "id": 1001,
+      "why": "price-mismatch",
+      "src": "westgate-events",
+      "db": 749,
+      "page": [
+        449,
+        949,
+        549,
+        99,
+        249
+      ]
+    },
+    {
+      "id": 341,
+      "why": "price-mismatch",
+      "src": "wyndham",
+      "db": 249,
+      "page": [
+        299
+      ]
+    },
+    {
+      "id": 345,
+      "why": "price-mismatch",
+      "src": "wyndham",
+      "db": 199,
+      "page": [
+        300
+      ]
+    }
+  ]
+}

@@ -155,44 +155,74 @@ function extractDestinationDeal(
   const bodyText = $.text();
   const location = parseDestinationSlug(slug);
 
-  // --- Prefer the server-rendered <meta description> as source of truth ---
-  // MRG's meta tags carry canonical "from $XXX ... X days, Y nights" copy
-  // that reliably reflects the current package. Body-text parsing has been
-  // drifty (picking up the wrong dollar amount or night count).
-  const metaDesc =
-    $('meta[property="og:description"]').attr("content") ||
-    $('meta[name="description"]').attr("content") ||
-    "";
+  // --- Prefer the rendered DOM (Elementor h2 headings) as source of truth ---
+  // MRG's <meta> description tags drift from the live page (e.g. meta says
+  // "from $197 ... 5 days" but the page actually shows "$98/Room" + "5 Days,
+  // 4 Nights"). Per project principle: rendered page is truth, meta blobs
+  // drift. Read price/duration from the Elementor headings first; fall back
+  // to meta and broad body-text scans only if the DOM extraction fails.
   let price: number | null = null;
-  let durationDays = 5;
-  let durationNights = 4;
+  let durationDays: number | null = null;
+  let durationNights: number | null = null;
 
-  const metaPriceMatch = metaDesc.match(
-    /(?:from|for(?:\s+just)?|only|starting\s+(?:at|from))\s+\$\s*([\d,]+)/i,
-  );
-  if (metaPriceMatch) {
-    const n = parseInt(metaPriceMatch[1].replace(/,/g, ""), 10);
-    if (n >= 50 && n <= 5000) price = n;
+  // 1. Price from Elementor headline: <h2 class="elementor-heading-title">$98<span>/Room</span></h2>
+  //    Pick the LOWEST price among all such headings (the headline package
+  //    rate, not upgrade add-ons). Cheerio's .text() collapses the inner
+  //    <span> so we get "$98/Room" cleanly.
+  const headingPrices: number[] = [];
+  $("h1.elementor-heading-title, h2.elementor-heading-title, h3.elementor-heading-title").each((_i, el) => {
+    const text = $(el).text().trim();
+    const m = text.match(/^\$\s*(\d{2,4})\s*\/?\s*Room/i);
+    if (m) {
+      const n = parseInt(m[1], 10);
+      if (n >= 50 && n <= 5000) headingPrices.push(n);
+    }
+  });
+  if (headingPrices.length > 0) {
+    price = Math.min(...headingPrices);
   }
-  const metaNightsMatch = metaDesc.match(/(\d+)\s*days?[\s,&\/-]+\s*(\d+)\s*nights?/i);
-  if (metaNightsMatch) {
-    durationDays = parseInt(metaNightsMatch[1], 10);
-    durationNights = parseInt(metaNightsMatch[2], 10);
-  } else {
-    const onlyNights = metaDesc.match(/(\d+)[\s-]?nights?/i);
-    if (onlyNights) {
-      durationNights = parseInt(onlyNights[1], 10);
-      durationDays = durationNights + 1;
-    } else {
-      const onlyDays = metaDesc.match(/(\d+)[\s-]?days?/i);
-      if (onlyDays) {
-        durationDays = parseInt(onlyDays[1], 10);
-        durationNights = durationDays - 1;
+
+  // 2. Duration from Elementor headline: <h2>5 Days, 4 Nights</h2>
+  //    Take the most-frequent (mode) Days/Nights pair across all headings to
+  //    ignore stray "8 Day / 7 Night Monster Week" bonus mentions.
+  const durationCounts = new Map<string, { days: number; nights: number; count: number }>();
+  $("h1.elementor-heading-title, h2.elementor-heading-title, h3.elementor-heading-title").each((_i, el) => {
+    const text = $(el).text().trim();
+    const m = text.match(/^(\d+)\s*Days?\s*[,&/-]\s*(\d+)\s*Nights?$/i);
+    if (m) {
+      const d = parseInt(m[1], 10);
+      const n = parseInt(m[2], 10);
+      if (d >= 1 && d <= 30 && n >= 1 && n <= 30) {
+        const key = `${d}/${n}`;
+        const cur = durationCounts.get(key);
+        if (cur) cur.count += 1;
+        else durationCounts.set(key, { days: d, nights: n, count: 1 });
       }
+    }
+  });
+  if (durationCounts.size > 0) {
+    let best: { days: number; nights: number; count: number } | null = null;
+    for (const v of durationCounts.values()) {
+      if (!best || v.count > best.count) best = v;
+    }
+    if (best) {
+      durationDays = best.days;
+      durationNights = best.nights;
     }
   }
 
-  // --- Fall back to body-text scraping for price if meta didn't give us one
+  // 3. Fallback: body-text scan for "X Days, Y Nights" anywhere on the page.
+  if (durationDays === null || durationNights === null) {
+    const durationMatch = bodyText.match(
+      /(\d+)\s*Days?\s*[,&/-]\s*(\d+)\s*Nights?/i,
+    );
+    if (durationMatch) {
+      durationDays = parseInt(durationMatch[1], 10);
+      durationNights = parseInt(durationMatch[2], 10);
+    }
+  }
+
+  // 4. Fallback: body-text scan for "$XX/Room" (handles non-Elementor markup).
   if (!price) {
     const pricePatterns = [
       /\$(\d{1,4})(?:\s*\/\s*Room|\s*Per\s*Room)/i,
@@ -203,17 +233,62 @@ function extractDestinationDeal(
     for (const pat of pricePatterns) {
       const m = bodyText.match(pat);
       if (m) {
-        price = parseInt(m[1]);
+        price = parseInt(m[1], 10);
         break;
       }
     }
   }
 
+  // 5. Last-resort fallback: meta description (known to drift, but better
+  //    than nothing if both DOM and body-text scans fail).
+  const metaDesc =
+    $('meta[property="og:description"]').attr("content") ||
+    $('meta[name="description"]').attr("content") ||
+    "";
+  if (!price && metaDesc) {
+    const metaPriceMatch = metaDesc.match(
+      /(?:from|for(?:\s+just)?|only|starting\s+(?:at|from))\s+\$\s*([\d,]+)/i,
+    );
+    if (metaPriceMatch) {
+      const n = parseInt(metaPriceMatch[1].replace(/,/g, ""), 10);
+      if (n >= 50 && n <= 5000) price = n;
+    }
+  }
+  if ((durationDays === null || durationNights === null) && metaDesc) {
+    // Note the [\s\-‐-―] charclass: MRG meta uses U+2011
+    // NON-BREAKING HYPHEN ("5‑night") that plain ASCII "-" misses.
+    const metaNightsMatch = metaDesc.match(
+      /(\d+)\s*days?[\s,&\/\-‐-―]+\s*(\d+)\s*nights?/i,
+    );
+    if (metaNightsMatch) {
+      durationDays = parseInt(metaNightsMatch[1], 10);
+      durationNights = parseInt(metaNightsMatch[2], 10);
+    } else {
+      const onlyNights = metaDesc.match(/(\d+)[\s\-‐-―]?nights?/i);
+      if (onlyNights) {
+        durationNights = parseInt(onlyNights[1], 10);
+        durationDays = durationNights + 1;
+      } else {
+        const onlyDays = metaDesc.match(/(\d+)[\s\-‐-―]?days?/i);
+        if (onlyDays) {
+          durationDays = parseInt(onlyDays[1], 10);
+          durationNights = durationDays - 1;
+        }
+      }
+    }
+  }
+
+  // 6. Final default if absolutely nothing matched.
+  if (durationDays === null || durationNights === null) {
+    durationDays = 5;
+    durationNights = 4;
+  }
+
   if (!price) {
-    // Broader fallback - find first reasonable dollar amount
+    // Broader fallback - find first reasonable dollar amount in body text
     const fallback = bodyText.match(/\$(\d{2,4})/);
     if (fallback) {
-      const val = parseInt(fallback[1]);
+      const val = parseInt(fallback[1], 10);
       if (val >= 50 && val <= 1000) price = val;
     }
   }
@@ -221,19 +296,6 @@ function extractDestinationDeal(
   if (!price) {
     log.warning(`No price found on destination page: ${url}`);
     return null;
-  }
-
-  // --- Extract duration (body text fallback — only if meta didn't set it) ---
-  // Note: durationDays / durationNights were already set from meta above.
-  // This block only runs if the meta lookup above kept the default (5/4).
-  if (durationDays === 5 && durationNights === 4 && !metaDesc) {
-    const durationMatch = bodyText.match(
-      /(\d+)\s*Days?\s*[,&/]\s*(\d+)\s*Nights?/i,
-    );
-    if (durationMatch) {
-      durationDays = parseInt(durationMatch[1]);
-      durationNights = parseInt(durationMatch[2]);
-    }
   }
 
   // --- Extract resort names ---
