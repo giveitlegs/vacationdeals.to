@@ -175,40 +175,83 @@ function specialToAbsoluteUrl(urlField: string): string {
  *   "3-day/2-night Orlando Resort stay at Westgate Lakes ... From $329."
  *   "4-Day Resort stay plus $200 VISA Gift Card ... From $519."
  */
+function decodeEntities(s: string): string {
+  return s
+    .replace(/&amp;/g, "&")
+    .replace(/&#039;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&nbsp;/g, " ");
+}
+
 function extractMetaDescription(html: string): string | null {
-  // Concatenate meta sources in priority order: og:title (canonical
-  // headline with the ACTUAL price for Westgate — "Choose Your 4-Day,
-  // 3-Night Getaway for $149"), then description, then og:description.
-  // The price parser takes the FIRST match in this joined text, so the
-  // title's price wins over marketing-copy teasers like
-  // "as little as $99" that appear in og:description.
-  const patterns = [
-    /<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i,
-    /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i,
-    /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i,
-  ];
+  // Concatenate meta sources in priority order, HIGHEST AUTHORITY FIRST:
+  //   1. <title>          — frequently carries "Starting at $X" / "From $X"
+  //                         (more reliable than og:description, which can
+  //                         drift behind APP_DATA when marketers update the
+  //                         title but forget the og tags).
+  //   2. og:title          — canonical headline (e.g. "...for $149")
+  //   3. <meta description>— often "from just $X. Book and save!"
+  //   4. og:description    — marketing copy; can be stale
+  //   5. <h1>              — last resort (Angular sometimes server-renders it)
+  // The price parser takes the FIRST starting/from match in this joined
+  // text, so the title's price wins over stale og:description copy.
+  const titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+  const ogTitleMatch = html.match(/<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i);
+  const descMatch = html.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i);
+  const ogDescMatch = html.match(/<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i);
+  // <h1> may have nested tags; strip them.
+  const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const h1Text = h1Match ? h1Match[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : null;
+
   const fragments: string[] = [];
-  for (const p of patterns) {
-    const m = html.match(p);
-    if (m) {
-      fragments.push(
-        m[1].replace(/&amp;/g, "&").replace(/&#039;/g, "'").replace(/&quot;/g, '"'),
-      );
-    }
-  }
+  if (titleMatch) fragments.push(decodeEntities(titleMatch[1]));
+  if (ogTitleMatch) fragments.push(decodeEntities(ogTitleMatch[1]));
+  if (descMatch) fragments.push(decodeEntities(descMatch[1]));
+  if (ogDescMatch) fragments.push(decodeEntities(ogDescMatch[1]));
+  if (h1Text) fragments.push(decodeEntities(h1Text));
   return fragments.length > 0 ? fragments.join(" • ") : null;
 }
 
+/**
+ * Extract a price from joined meta text.
+ *
+ * Strategy (in priority order):
+ *   1. "Starting at $X" / "Starting from $X"  — strongest signal; this is
+ *      the marketer's explicit headline price and overrides everything.
+ *   2. "From $X" / "from just $X" / "from only $X" — same intent.
+ *   3. "for $X" / "for just $X" / "only $X"   — slightly weaker but still
+ *      indicates a package price, not a gift card or rebate.
+ *   4. "$X per package" / "$X package"        — explicit package pricing.
+ *
+ * IMPORTANT: We do NOT match bare "$X" amounts. Pages like
+ * /orlando-200-gift-card-water-park-tickets/ contain "$200 Gift Card"
+ * which is NOT the package price. Requiring a "starting/from/for/only"
+ * lead-in eliminates that false positive.
+ *
+ * Plausibility: $39 floor (matches the $39 storage floor in deal-store)
+ * and $9999 ceiling.
+ */
 function priceFromMeta(text: string): number | null {
-  const patterns = [
-    /(?:from|for(?:\s+just)?|only|starting\s+at)\s+\$\s*([\d,]+(?:\.\d{2})?)/i,
-    /\$\s*([\d,]+(?:\.\d{2})?)\s*(?:per\s+package|package)/i,
+  // Priority-ordered patterns. The first one that matches a plausible
+  // amount wins. Note: \b is used after the keywords to avoid matching
+  // partial words.
+  const patterns: RegExp[] = [
+    // Tier 1: starting at/from — strongest headline signal
+    /\bstarting\s+(?:at|from)\s+\$\s*([\d,]+(?:\.\d{2})?)/i,
+    // Tier 2: from + optional "just"/"only" — common in <meta description>
+    /\bfrom(?:\s+(?:just|only))?\s+\$\s*([\d,]+(?:\.\d{2})?)/i,
+    // Tier 3: for + optional "just" — og:title style "...Getaway for $149"
+    /\bfor(?:\s+just)?\s+\$\s*([\d,]+(?:\.\d{2})?)/i,
+    // Tier 4: bare "only $X"
+    /\bonly\s+\$\s*([\d,]+(?:\.\d{2})?)/i,
+    // Tier 5: explicit "$X per package" / "$X package"
+    /\$\s*([\d,]+(?:\.\d{2})?)\s*(?:per\s+package|package)\b/i,
   ];
   for (const p of patterns) {
     const m = text.match(p);
     if (m) {
       const n = parseFloat(m[1].replace(/,/g, ""));
-      if (Number.isFinite(n) && n >= 29 && n <= 5000) return n;
+      if (Number.isFinite(n) && n >= 39 && n <= 9999) return n;
     }
   }
   return null;

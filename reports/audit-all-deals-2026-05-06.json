@@ -1,7 +1,7 @@
 {
   "summary": {
-    "runAt": "2026-05-06T00:28:53.090Z",
-    "totalAudited": 512,
+    "runAt": "2026-05-06T00:52:36.470Z",
+    "totalAudited": 450,
     "bySource": {
       "all-inclusive-promotions": {
         "total": 2,
@@ -26,9 +26,9 @@
         "skippedJs": 0
       },
       "bestvacationdealz": {
-        "total": 2,
+        "total": 1,
         "ok": 1,
-        "priceMismatch": 1,
+        "priceMismatch": 0,
         "nightsMismatch": 0,
         "both": 0,
         "noPrice": 0,
@@ -49,66 +49,22 @@
       },
       "bookvip": {
         "total": 4,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 1,
-        "both": 3,
+        "ok": 1,
+        "priceMismatch": 3,
+        "nightsMismatch": 0,
+        "both": 0,
         "noPrice": 0,
         "unreachable": 0,
         "loginWall": 0,
         "skippedJs": 0
       },
       "departure-depot": {
-        "total": 23,
-        "ok": 12,
-        "priceMismatch": 2,
-        "nightsMismatch": 7,
-        "both": 1,
-        "noPrice": 0,
-        "unreachable": 1,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
-      "divi": {
-        "total": 5,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 0,
+        "total": 24,
+        "ok": 21,
+        "priceMismatch": 1,
+        "nightsMismatch": 2,
         "both": 0,
         "noPrice": 0,
-        "unreachable": 5,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
-      "el-cid": {
-        "total": 3,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 0,
-        "both": 0,
-        "noPrice": 3,
-        "unreachable": 0,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
-      "exploria": {
-        "total": 3,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 0,
-        "both": 0,
-        "noPrice": 0,
-        "unreachable": 3,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
-      "festiva": {
-        "total": 13,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 0,
-        "both": 0,
-        "noPrice": 13,
         "unreachable": 0,
         "loginWall": 0,
         "skippedJs": 0
@@ -181,19 +137,19 @@
       },
       "mrg": {
         "total": 29,
-        "ok": 23,
-        "priceMismatch": 2,
-        "nightsMismatch": 3,
-        "both": 1,
+        "ok": 29,
+        "priceMismatch": 0,
+        "nightsMismatch": 0,
+        "both": 0,
         "noPrice": 0,
         "unreachable": 0,
         "loginWall": 0,
         "skippedJs": 0
       },
       "payvibe": {
-        "total": 15,
+        "total": 14,
         "ok": 14,
-        "priceMismatch": 1,
+        "priceMismatch": 0,
         "nightsMismatch": 0,
         "both": 0,
         "noPrice": 0,
@@ -212,28 +168,6 @@
         "loginWall": 0,
         "skippedJs": 0
       },
-      "pueblo-bonito": {
-        "total": 7,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 0,
-        "both": 0,
-        "noPrice": 7,
-        "unreachable": 0,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
-      "sheraton-vc": {
-        "total": 1,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 0,
-        "both": 0,
-        "noPrice": 0,
-        "unreachable": 1,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
       "spinnaker": {
         "total": 12,
         "ok": 12,
@@ -246,35 +180,13 @@
         "skippedJs": 0
       },
       "staypromo": {
-        "total": 59,
-        "ok": 57,
-        "priceMismatch": 2,
+        "total": 64,
+        "ok": 64,
+        "priceMismatch": 0,
         "nightsMismatch": 0,
         "both": 0,
         "noPrice": 0,
         "unreachable": 0,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
-      "tafer": {
-        "total": 1,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 0,
-        "both": 0,
-        "noPrice": 0,
-        "unreachable": 1,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
-      "timeshare-presentation-deals": {
-        "total": 1,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 0,
-        "both": 0,
-        "noPrice": 0,
-        "unreachable": 1,
         "loginWall": 0,
         "skippedJs": 0
       },
@@ -311,43 +223,32 @@
         "loginWall": 0,
         "skippedJs": 0
       },
-      "vegas-timeshare": {
-        "total": 5,
-        "ok": 0,
+      "villa-group": {
+        "total": 2,
+        "ok": 2,
         "priceMismatch": 0,
         "nightsMismatch": 0,
         "both": 0,
         "noPrice": 0,
-        "unreachable": 5,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
-      "villa-group": {
-        "total": 10,
-        "ok": 2,
-        "priceMismatch": 1,
-        "nightsMismatch": 0,
-        "both": 0,
-        "noPrice": 1,
-        "unreachable": 6,
+        "unreachable": 0,
         "loginWall": 0,
         "skippedJs": 0
       },
       "westgate": {
-        "total": 171,
+        "total": 159,
         "ok": 65,
         "priceMismatch": 16,
         "nightsMismatch": 0,
         "both": 3,
-        "noPrice": 87,
+        "noPrice": 75,
         "unreachable": 0,
         "loginWall": 0,
         "skippedJs": 0
       },
       "westgate-events": {
-        "total": 44,
+        "total": 40,
         "ok": 40,
-        "priceMismatch": 4,
+        "priceMismatch": 0,
         "nightsMismatch": 0,
         "both": 0,
         "noPrice": 0,
@@ -355,21 +256,10 @@
         "loginWall": 0,
         "skippedJs": 0
       },
-      "westin-vc": {
-        "total": 1,
-        "ok": 0,
-        "priceMismatch": 0,
-        "nightsMismatch": 0,
-        "both": 0,
-        "noPrice": 0,
-        "unreachable": 1,
-        "loginWall": 0,
-        "skippedJs": 0
-      },
       "wyndham": {
-        "total": 19,
+        "total": 17,
         "ok": 12,
-        "priceMismatch": 2,
+        "priceMismatch": 0,
         "nightsMismatch": 1,
         "both": 0,
         "noPrice": 4,
@@ -427,31 +317,6 @@
       "evidence": {
         "titleSnippet": "Exclusive Experience with Privilege Club - Vacation As You Are",
         "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "bestvacationdealz",
-      "dealId": 14533,
-      "dbTitle": "3 noches de vacaciones en Orlando con 4 entradas para el parque de Agua Shipwreck Island - Gatlinburg",
-      "dbPrice": 49,
-      "dbNights": 3,
-      "url": "https://bestvacationdealz.com/package/river-terrace-resort-in-gatlinburg-tn/",
-      "pageStatus": 200,
-      "pageTitle": "Gatlinburg, TN Vacation Package $99* 3 nights at River Terrace Resort",
-      "pricesOnPage": [
-        99,
-        100,
-        449,
-        350,
-        199
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Gatlinburg, TN Vacation Package $99* 3 nights at River Terrace Resort",
-        "priceContext": "db=49  page candidates=99, 100, 449, 350, 199  closest=99"
       }
     },
     {
@@ -516,7 +381,7 @@
       "dealId": 43,
       "dbTitle": "Breathless Montego Bay - Montego Bay",
       "dbPrice": 1499,
-      "dbNights": 5,
+      "dbNights": 4,
       "url": "https://www.bookvip.com/hotel_details/breathless-montego-bay?id=737",
       "pageStatus": 200,
       "pageTitle": "Breathless Montego Bay - BookVip.com",
@@ -528,11 +393,10 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "price_and_nights_mismatch",
+      "verdict": "price_mismatch",
       "evidence": {
         "titleSnippet": "Breathless Montego Bay - BookVip.com",
-        "priceContext": "db=1499  page candidates=200, 260, 149  closest=260",
-        "nightsContext": "db=5  page candidates=4"
+        "priceContext": "db=1499  page candidates=200, 260, 149  closest=260"
       }
     },
     {
@@ -540,7 +404,7 @@
       "dealId": 55,
       "dbTitle": "Ultra Luxury Curacao Resort - Willimestad",
       "dbPrice": 699,
-      "dbNights": 5,
+      "dbNights": 4,
       "url": "https://www.bookvip.com/hotel_details/ultra-luxury-curacao-resort?id=54",
       "pageStatus": 200,
       "pageTitle": "Ultra Luxury Curacao Resort - BookVip.com",
@@ -552,18 +416,15 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "nights_mismatch",
-      "evidence": {
-        "titleSnippet": "Ultra Luxury Curacao Resort - BookVip.com",
-        "nightsContext": "db=5  page candidates=4"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "bookvip",
       "dealId": 22489,
       "dbTitle": "Ultra Luxury Montego Bay Resort - Montego Bay",
       "dbPrice": 1499,
-      "dbNights": 5,
+      "dbNights": 4,
       "url": "https://www.bookvip.com/hotel_details/ultra-luxury-montego-bay-resort?id=51",
       "pageStatus": 200,
       "pageTitle": "Ultra Luxury Montego Bay Resort - BookVip.com",
@@ -574,11 +435,10 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "price_and_nights_mismatch",
+      "verdict": "price_mismatch",
       "evidence": {
         "titleSnippet": "Ultra Luxury Montego Bay Resort - BookVip.com",
-        "priceContext": "db=1499  page candidates=317, 149  closest=317",
-        "nightsContext": "db=5  page candidates=4"
+        "priceContext": "db=1499  page candidates=317, 149  closest=317"
       }
     },
     {
@@ -586,7 +446,7 @@
       "dealId": 22490,
       "dbTitle": "Ultra Adult Luxury Jamaica Resort - Montego Bay",
       "dbPrice": 1499,
-      "dbNights": 5,
+      "dbNights": 4,
       "url": "https://www.bookvip.com/hotel_details/ultra-adult-luxury-jamaica-resort?id=109",
       "pageStatus": 200,
       "pageTitle": "Ultra Adult Luxury Jamaica Resort - BookVip.com",
@@ -600,11 +460,10 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "price_and_nights_mismatch",
+      "verdict": "price_mismatch",
       "evidence": {
         "titleSnippet": "Ultra Adult Luxury Jamaica Resort - BookVip.com",
-        "priceContext": "db=1499  page candidates=200, 260, 149, 150, 60  closest=260",
-        "nightsContext": "db=5  page candidates=4"
+        "priceContext": "db=1499  page candidates=200, 260, 149, 150, 60  closest=260"
       }
     },
     {
@@ -664,7 +523,7 @@
       "dealId": 822,
       "dbTitle": "🎸 Bruce Springsteen & The E Street Band A VIP All-Inclusive Concert Suite Getaway May 1–3, 2026",
       "dbPrice": 899,
-      "dbNights": 3,
+      "dbNights": 2,
       "url": "https://departuredepot.com/product/%f0%9f%8e%b8-bruce-springsteen-the-e-street-band-a-vip-all-inclusive-concert-suite-getaway-may-1-3-2026/",
       "pageStatus": 200,
       "pageTitle": "🎸 Bruce Springsteen &amp; The E Street Band A VIP All-Inclusive Concert Suite Getaway May 1–3, 2026 - Departure Depot",
@@ -676,11 +535,8 @@
       "nightsOnPage": [
         2
       ],
-      "verdict": "nights_mismatch",
-      "evidence": {
-        "titleSnippet": "🎸 Bruce Springsteen &amp; The E Street Band A VIP All-Inclusive Concert Suite Getaway May 1–3, 2026 - Departure Depot",
-        "nightsContext": "db=3  page candidates=2"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "departure-depot",
@@ -695,9 +551,7 @@
         399,
         200
       ],
-      "nightsOnPage": [
-        3
-      ],
+      "nightsOnPage": [],
       "verdict": "ok",
       "evidence": {}
     },
@@ -747,7 +601,7 @@
       "dealId": 828,
       "dbTitle": "🎸 STING Live in Atlanta: A Premium Amphitheater Getaway May 14–16, 2026",
       "dbPrice": 399,
-      "dbNights": 3,
+      "dbNights": 2,
       "url": "https://departuredepot.com/product/%f0%9f%8e%b8-sting-live-in-atlanta-a-premium-amphitheater-getaway-may-14-16-2026/",
       "pageStatus": 200,
       "pageTitle": "🎸 STING Live in Atlanta: A Premium Amphitheater Getaway May 14–16, 2026 - Departure Depot",
@@ -761,11 +615,8 @@
       "nightsOnPage": [
         2
       ],
-      "verdict": "nights_mismatch",
-      "evidence": {
-        "titleSnippet": "🎸 STING Live in Atlanta: A Premium Amphitheater Getaway May 14–16, 2026 - Departure Depot",
-        "nightsContext": "db=3  page candidates=2"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "departure-depot",
@@ -789,22 +640,6 @@
       ],
       "verdict": "ok",
       "evidence": {}
-    },
-    {
-      "scraperKey": "departure-depot",
-      "dealId": 830,
-      "dbTitle": "🎸 Rush Live in Concert: Atlanta Condo Escape with Loft Suite VIP Concert Access November 24–26, 2026",
-      "dbPrice": 799,
-      "dbNights": 3,
-      "url": "https://departuredepot.com/product/%f0%9f%8e%b8-rush-live-in-concert-atlanta-condo-escape-with-loft-suite-vip-concert-access-november-24-26-2026/",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
     },
     {
       "scraperKey": "departure-depot",
@@ -837,7 +672,7 @@
       "dealId": 837,
       "dbTitle": "🆕🌴 NEW SHIP: Margaritaville at Sea Beachcomber — All-Inclusive 4-Night Key West & Bahamas | Feb 9–13, 2027",
       "dbPrice": 1449,
-      "dbNights": 3,
+      "dbNights": 4,
       "url": "https://departuredepot.com/product/%f0%9f%86%95%f0%9f%8c%b4-new-ship-margaritaville-at-sea-beachcomber-all-inclusive-4-night-key-west-bahamas-feb-9-13-2027/",
       "pageStatus": 200,
       "pageTitle": "🆕🌴 NEW SHIP: Margaritaville at Sea Beachcomber — All-Inclusive 4-Night Key West &amp; Bahamas | Feb 9–13, 2027 - Departure Depot",
@@ -849,18 +684,15 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "nights_mismatch",
-      "evidence": {
-        "titleSnippet": "🆕🌴 NEW SHIP: Margaritaville at Sea Beachcomber — All-Inclusive 4-Night Key West &amp; Bahamas | Feb 9–13, 2027 - Departure Depot",
-        "nightsContext": "db=3  page candidates=4"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "departure-depot",
       "dealId": 838,
       "dbTitle": "🌴 All Inclusive Tropical Thanksgiving Cruise: A Margaritaville State of Mind – November 25–30, 2026",
       "dbPrice": 1899,
-      "dbNights": 3,
+      "dbNights": 5,
       "url": "https://departuredepot.com/product/%f0%9f%8c%b4-all-inclusive-tropical-thanksgiving-cruise-a-margaritaville-state-of-mind-november-25-30-2026/",
       "pageStatus": 200,
       "pageTitle": "🌴 All Inclusive Tropical Thanksgiving Cruise: A Margaritaville State of Mind – November 25–30, 2026 - Departure Depot",
@@ -872,11 +704,8 @@
       "nightsOnPage": [
         5
       ],
-      "verdict": "nights_mismatch",
-      "evidence": {
-        "titleSnippet": "🌴 All Inclusive Tropical Thanksgiving Cruise: A Margaritaville State of Mind – November 25–30, 2026 - Departure Depot",
-        "nightsContext": "db=3  page candidates=5"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "departure-depot",
@@ -912,7 +741,7 @@
       "scraperKey": "departure-depot",
       "dealId": 4693,
       "dbTitle": "🌴 Keep the Party Going — VIP Margaritaville Atlanta Escape Featuring Jimmy Buffett’s Coral Reefer Band July 17–20, 2026",
-      "dbPrice": 899,
+      "dbPrice": 599,
       "dbNights": 3,
       "url": "https://departuredepot.com/product/%f0%9f%8c%b4-keep-the-party-going-vip-margaritaville-atlanta-escape-featuring-jimmy-buffetts-coral-reefer-band-july-17-20-2026/",
       "pageStatus": 200,
@@ -925,11 +754,8 @@
       "nightsOnPage": [
         3
       ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "🌴 Keep the Party Going — VIP Margaritaville Atlanta Escape Featuring Jimmy Buffett’s Coral Reefer Band July 17–20, 2026 - Departure Depot",
-        "priceContext": "db=899  page candidates=599, 1199, 400  closest=599"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "departure-depot",
@@ -944,9 +770,7 @@
         499,
         400
       ],
-      "nightsOnPage": [
-        3
-      ],
+      "nightsOnPage": [],
       "verdict": "ok",
       "evidence": {}
     },
@@ -987,7 +811,7 @@
       "dealId": 21557,
       "dbTitle": "🌴 Two Sunsets at Ocean Cay — Bahamas Private Island Escape • October 25–29, 2026 • MSC Seashore",
       "dbPrice": 899,
-      "dbNights": 3,
+      "dbNights": 4,
       "url": "https://departuredepot.com/product/%f0%9f%8c%b4-two-sunsets-at-ocean-cay-bahamas-private-island-escape-october-25-29-2026-msc-seashore/",
       "pageStatus": 200,
       "pageTitle": "🌴 Two Sunsets at Ocean Cay — Bahamas Private Island Escape • October 25–29, 2026 • MSC Seashore - Departure Depot",
@@ -1008,11 +832,8 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "nights_mismatch",
-      "evidence": {
-        "titleSnippet": "🌴 Two Sunsets at Ocean Cay — Bahamas Private Island Escape • October 25–29, 2026 • MSC Seashore - Departure Depot",
-        "nightsContext": "db=3  page candidates=4"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "departure-depot",
@@ -1050,8 +871,8 @@
       "scraperKey": "departure-depot",
       "dealId": 22520,
       "dbTitle": "💕 Two Sunsets at Ocean Cay — Valentine’s at Sea • February 14–18, 2027 • MSC Seashore",
-      "dbPrice": 899,
-      "dbNights": 3,
+      "dbPrice": 999,
+      "dbNights": 4,
       "url": "https://departuredepot.com/product/%f0%9f%92%95-two-sunsets-at-ocean-cay-valentines-at-sea-february-14-18-2027-msc-seashore/",
       "pageStatus": 200,
       "pageTitle": "💕 Two Sunsets at Ocean Cay — Valentine’s at Sea • February 14–18, 2027 • MSC Seashore - Departure Depot",
@@ -1072,12 +893,8 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "price_and_nights_mismatch",
-      "evidence": {
-        "titleSnippet": "💕 Two Sunsets at Ocean Cay — Valentine’s at Sea • February 14–18, 2027 • MSC Seashore - Departure Depot",
-        "priceContext": "db=899  page candidates=999, 139, 239, 390, 300, 600, 80, 150  closest=800",
-        "nightsContext": "db=3  page candidates=4"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "departure-depot",
@@ -1170,406 +987,43 @@
       "evidence": {}
     },
     {
-      "scraperKey": "divi",
-      "dealId": 2271,
-      "dbTitle": "Divi Village Golf & Beach Resort - Aruba Vacation Package",
-      "dbPrice": 200,
-      "dbNights": 4,
-      "url": "https://www.diviresorts.com/aruba-all-inclusive-resort.htm",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "divi",
-      "dealId": 2272,
-      "dbTitle": "Divi Southwinds Beach Resort - Barbados Vacation Package",
-      "dbPrice": 200,
-      "dbNights": 4,
-      "url": "https://www.diviresorts.com/barbados-all-inclusive-resort.htm",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "divi",
-      "dealId": 2273,
-      "dbTitle": "Divi Flamingo Beach Resort & Casino - Bonaire Vacation Package",
-      "dbPrice": 200,
-      "dbNights": 4,
-      "url": "https://www.diviresorts.com/bonaire-resort.htm",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "divi",
-      "dealId": 2274,
-      "dbTitle": "Divi Carina Bay All Inclusive Beach Resort - USVI Vacation Package",
-      "dbPrice": 349,
-      "dbNights": 4,
-      "url": "https://www.diviresorts.com/st-croix-resort.htm",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "divi",
-      "dealId": 2275,
-      "dbTitle": "Divi Little Bay Beach Resort - St Maarten Vacation Package",
-      "dbPrice": 349,
-      "dbNights": 4,
-      "url": "https://www.diviresorts.com/st-maarten-all-inclusive-resort.htm",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "el-cid",
-      "dealId": 2261,
-      "dbTitle": "El Cid Granada Hotel - Mazatlan Vacation Package",
-      "dbPrice": 249,
-      "dbNights": 4,
-      "url": "https://elcidvacationsclub.com/destinations/destination-mazatlan/",
+      "scraperKey": "departure-depot",
+      "dealId": 23207,
+      "dbTitle": "Eagles Live at the Sphere + Wizard of Oz — Ultimate Vegas Weekend November 13–16, 2026 | 4 Days / 3 Nights",
+      "dbPrice": 1699,
+      "dbNights": 3,
+      "url": "https://departuredepot.com/product/eagles-live-at-the-sphere-wizard-of-oz-ultimate-vegas-weekend-november-13-16-2026-4-days-3-nights/",
       "pageStatus": 200,
-      "pageTitle": "Mazatlán - El Cid Vacations Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [
-        1
+      "pageTitle": "Eagles Live at the Sphere + Wizard of Oz — Ultimate Vegas Weekend November 13–16, 2026 | 4 Days / 3 Nights - Departure Depot",
+      "pricesOnPage": [
+        50,
+        200,
+        1699
       ],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Mazatlán - El Cid Vacations Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
+      "nightsOnPage": [
+        3
+      ],
+      "verdict": "ok",
+      "evidence": {}
     },
     {
-      "scraperKey": "el-cid",
-      "dealId": 2262,
-      "dbTitle": "Hotel Marina El Cid Spa & Beach Resort - Riviera Maya Vacation Package",
-      "dbPrice": 349,
-      "dbNights": 5,
-      "url": "https://elcidvacationsclub.com/destinations/destination-riviera-maya/",
-      "pageStatus": 200,
-      "pageTitle": "Riviera Maya - El Cid Vacations Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Riviera Maya - El Cid Vacations Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "el-cid",
-      "dealId": 2263,
-      "dbTitle": "El Cid La Ceiba Beach Hotel - Cozumel Vacation Package",
-      "dbPrice": 299,
-      "dbNights": 4,
-      "url": "https://elcidvacationsclub.com/destinations/destination-cozumel/",
-      "pageStatus": 200,
-      "pageTitle": "Cozumel - El Cid Vacations Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Cozumel - El Cid Vacations Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "exploria",
-      "dealId": 14438,
-      "dbTitle": "Summer Bay Orlando Resort Preview",
-      "dbPrice": 149,
-      "dbNights": 2,
-      "url": "https://exploriavacations.com/book-orlando-resortpreview/",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "exploria",
-      "dealId": 14439,
-      "dbTitle": "Grand Seas Resort Daytona Beach Preview",
-      "dbPrice": 149,
-      "dbNights": 2,
-      "url": "https://exploriavacations.com/book-daytona-resortpreview/",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "exploria",
-      "dealId": 14440,
-      "dbTitle": "Pocono Mountain Villas Preview",
-      "dbPrice": 149,
-      "dbNights": 2,
-      "url": "https://exploriavacations.com/book-pocono-resortpreview/",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 858,
-      "dbTitle": "Atlantic Beach - Various",
-      "dbPrice": 199,
+      "scraperKey": "departure-depot",
+      "dealId": 23208,
+      "dbTitle": "🎸 Atlanta Concert Getaway — James Taylor and His All-Star Band September 17–20, 2026",
+      "dbPrice": 599,
       "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Atlantic-Beach",
+      "url": "https://departuredepot.com/product/%f0%9f%8e%b8-atlanta-concert-getaway-james-taylor-and-his-all-star-band-september-17-20-2026/",
       "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 859,
-      "dbTitle": "Coconut Malorie Resort - Ocean City",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Coconut-Malorie-Resort-Ocean-City,-Ascend-Collection-Hotel",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 860,
-      "dbTitle": "Park Plaza Resort - Park City",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Park-Plaza-Resort---Park-City,-Ascend-Collection-Hotel",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 861,
-      "dbTitle": "Coconut Palms Beach Resort II - New Smyrna Beach",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Coconut-Palms-Beach-Resort-II,-an-Ascend-Collection-Hotel",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 862,
-      "dbTitle": "Sea Mystique - Garden City",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Sea-Mystique",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 864,
-      "dbTitle": "Palm Beach Resort - Orange Beach",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Palm-Beach-Resort",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 867,
-      "dbTitle": "Tamarack Resort - Wisconsin Dells",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Tamarack-Resort",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 868,
-      "dbTitle": "Ocean Club - North Myrtle Beach",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Ocean-Club",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 869,
-      "dbTitle": "Ocean Gate Resort - St. Augustine",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Ocean-Gate-Resort",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 870,
-      "dbTitle": "Los Lagos at Hot Springs Village - Hot Springs Village",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Los-Lagos-at-Hot-Springs-Village",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 871,
-      "dbTitle": "Rangeley Lake Resort - Rangeley",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Rangeley-Lake-Resort",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 22533,
-      "dbTitle": "Shores - Various",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#Shores",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "festiva",
-      "dealId": 22534,
-      "dbTitle": "The Atrium Beach Resort and Spa Sint Maarten Ascend Collection Hotel - Various",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://festiva.com/adventure-club#The-Atrium-Beach-Resort-and-Spa-Sint-Maarten-Ascend-Collection-Hotel",
-      "pageStatus": 200,
-      "pageTitle": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Festiva Adventure Club | Asheville, NC | Adventure Club",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
+      "pageTitle": "🎸 Atlanta Concert Getaway — James Taylor and His All-Star Band September 17–20, 2026 - Departure Depot",
+      "pricesOnPage": [
+        599,
+        1199
+      ],
+      "nightsOnPage": [
+        3
+      ],
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "getawaydealz",
@@ -2566,9 +2020,9 @@
     {
       "scraperKey": "mrg",
       "dealId": 76,
-      "dbTitle": "Las Vegas - 4 Days / 3 Nights (All-Inclusive)",
+      "dbTitle": "Las Vegas - 5 Days / 4 Nights (All-Inclusive)",
       "dbPrice": 237,
-      "dbNights": 3,
+      "dbNights": 4,
       "url": "https://mrgvacationpackages.com/destinations/las-vegas-nv/",
       "pageStatus": 200,
       "pageTitle": "Las Vegas, NV - Monster Reservations Group Vacation Packages",
@@ -2583,11 +2037,8 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "nights_mismatch",
-      "evidence": {
-        "titleSnippet": "Las Vegas, NV - Monster Reservations Group Vacation Packages",
-        "nightsContext": "db=3  page candidates=4"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "mrg",
@@ -2639,9 +2090,9 @@
     {
       "scraperKey": "mrg",
       "dealId": 79,
-      "dbTitle": "Galveston - 5 Days / 4 Nights (All-Inclusive)",
+      "dbTitle": "Galveston - 4 Days / 3 Nights (All-Inclusive)",
       "dbPrice": 225,
-      "dbNights": 4,
+      "dbNights": 3,
       "url": "https://mrgvacationpackages.com/destinations/galveston-tx/",
       "pageStatus": 200,
       "pageTitle": "Galveston, TX - Monster Reservations Group Vacation Packages",
@@ -2687,7 +2138,7 @@
       "scraperKey": "mrg",
       "dealId": 81,
       "dbTitle": "Myrtle Beach - 5 Days / 4 Nights (All-Inclusive)",
-      "dbPrice": 225,
+      "dbPrice": 99,
       "dbNights": 4,
       "url": "https://mrgvacationpackages.com/destinations/myrtle-beach-sc/",
       "pageStatus": 200,
@@ -2703,17 +2154,14 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Myrtle Beach, SC - Monster Reservations Group Vacation Packages",
-        "priceContext": "db=225  page candidates=99, 150, 300, 169, 317.03, 1800  closest=169"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "mrg",
       "dealId": 82,
       "dbTitle": "Orlando - 5 Days / 4 Nights (All-Inclusive)",
-      "dbPrice": 197,
+      "dbPrice": 98,
       "dbNights": 4,
       "url": "https://mrgvacationpackages.com/destinations/orlando-fl/",
       "pageStatus": 200,
@@ -2729,11 +2177,8 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Orlando, FL - Monster Reservations Group Vacation Packages",
-        "priceContext": "db=197  page candidates=98, 150, 300, 169, 317.03, 1800  closest=169"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "mrg",
@@ -2761,9 +2206,9 @@
     {
       "scraperKey": "mrg",
       "dealId": 84,
-      "dbTitle": "Playa Del Carmen - 5 Days / 4 Nights (All-Inclusive)",
+      "dbTitle": "Playa Del Carmen - 8 Days / 7 Nights (All-Inclusive)",
       "dbPrice": 310,
-      "dbNights": 4,
+      "dbNights": 7,
       "url": "https://mrgvacationpackages.com/destinations/playa-del-carmen-mx/",
       "pageStatus": 200,
       "pageTitle": "Playa del Carmen, MX - Monster Reservations Group Vacation Packages",
@@ -2831,9 +2276,9 @@
     {
       "scraperKey": "mrg",
       "dealId": 87,
-      "dbTitle": "Puerto Vallarta - 5 Days / 4 Nights (All-Inclusive)",
+      "dbTitle": "Puerto Vallarta - 6 Days / 5 Nights (All-Inclusive)",
       "dbPrice": 315,
-      "dbNights": 4,
+      "dbNights": 5,
       "url": "https://mrgvacationpackages.com/destinations/puerto-vallarta-mx/",
       "pageStatus": 200,
       "pageTitle": "Puerto Vallarta, MX - Monster Reservations Group Vacation Packages",
@@ -2848,18 +2293,15 @@
       "nightsOnPage": [
         5
       ],
-      "verdict": "nights_mismatch",
-      "evidence": {
-        "titleSnippet": "Puerto Vallarta, MX - Monster Reservations Group Vacation Packages",
-        "nightsContext": "db=4  page candidates=5"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "mrg",
       "dealId": 88,
-      "dbTitle": "Puerto Plata - 5 Days / 4 Nights (All-Inclusive)",
+      "dbTitle": "Puerto Plata - 6 Days / 5 Nights (All-Inclusive)",
       "dbPrice": 467,
-      "dbNights": 4,
+      "dbNights": 5,
       "url": "https://mrgvacationpackages.com/destinations/puerto-plata-dr/",
       "pageStatus": 200,
       "pageTitle": "Puerto Plata, DR - Monster Reservations Group Vacation Packages",
@@ -2881,9 +2323,9 @@
     {
       "scraperKey": "mrg",
       "dealId": 89,
-      "dbTitle": "Punta Cana - 5 Days / 4 Nights (All-Inclusive)",
-      "dbPrice": 347,
-      "dbNights": 4,
+      "dbTitle": "Punta Cana - 6 Days / 5 Nights (All-Inclusive)",
+      "dbPrice": 199,
+      "dbNights": 5,
       "url": "https://mrgvacationpackages.com/destinations/punta-cana-dominican-republic/",
       "pageStatus": 200,
       "pageTitle": "Punta Cana, DR - Monster Reservations Group Vacation Packages",
@@ -2898,12 +2340,8 @@
       "nightsOnPage": [
         5
       ],
-      "verdict": "price_and_nights_mismatch",
-      "evidence": {
-        "titleSnippet": "Punta Cana, DR - Monster Reservations Group Vacation Packages",
-        "priceContext": "db=347  page candidates=199, 317.03, 300, 169, 150, 1800  closest=317.03",
-        "nightsContext": "db=4  page candidates=5"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "mrg",
@@ -2931,9 +2369,9 @@
     {
       "scraperKey": "mrg",
       "dealId": 91,
-      "dbTitle": "Willemstad - 6 Days / 5 Nights (All-Inclusive)",
+      "dbTitle": "Willemstad - 5 Days / 4 Nights (All-Inclusive)",
       "dbPrice": 349,
-      "dbNights": 5,
+      "dbNights": 4,
       "url": "https://mrgvacationpackages.com/destinations/willemstad-curacao/",
       "pageStatus": 200,
       "pageTitle": "Willemstad, Curaçao - Monster Reservations Group Vacation Packages",
@@ -2948,11 +2386,8 @@
       "nightsOnPage": [
         4
       ],
-      "verdict": "nights_mismatch",
-      "evidence": {
-        "titleSnippet": "Willemstad, Curaçao - Monster Reservations Group Vacation Packages",
-        "nightsContext": "db=5  page candidates=4"
-      }
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "mrg",
@@ -3004,9 +2439,9 @@
     {
       "scraperKey": "mrg",
       "dealId": 100,
-      "dbTitle": "San Miguel De Allende - 5 Days / 4 Nights (All-Inclusive)",
+      "dbTitle": "San Miguel De Allende - 6 Days / 5 Nights (All-Inclusive)",
       "dbPrice": 279,
-      "dbNights": 4,
+      "dbNights": 5,
       "url": "https://mrgvacationpackages.com/destinations/san-miguel-de-allende-mx/",
       "pageStatus": 200,
       "pageTitle": "San Miguel de Allende, MX - Monster Reservations Group Vacation Packages",
@@ -3231,25 +2666,6 @@
     },
     {
       "scraperKey": "payvibe",
-      "dealId": 22144,
-      "dbTitle": "BRANSON, MISSOURI VACATION",
-      "dbPrice": 299,
-      "dbNights": 2,
-      "url": "https://travel.payvibe.com/deals-detail/25-global-solutions/7a54a407deb8833e09dab381d4965d3a",
-      "pageStatus": 200,
-      "pageTitle": "BRANSON, MISSOURI VACATION... $49",
-      "pricesOnPage": [
-        49
-      ],
-      "nightsOnPage": [],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "BRANSON, MISSOURI VACATION... $49",
-        "priceContext": "db=299  page candidates=49  closest=49"
-      }
-    },
-    {
-      "scraperKey": "payvibe",
       "dealId": 22145,
       "dbTitle": "PUERTO VALLARTA, MEXICO ALL-INCLUSIVE VACATION",
       "dbPrice": 149,
@@ -3415,141 +2831,6 @@
       ],
       "verdict": "ok",
       "evidence": {}
-    },
-    {
-      "scraperKey": "pueblo-bonito",
-      "dealId": 2264,
-      "dbTitle": "Pueblo Bonito Pacifica Golf & Spa Resort - Cabo San Lucas Vacation Package",
-      "dbPrice": 499,
-      "dbNights": 5,
-      "url": "https://www.pueblobonito.com/resorts/pacifica/the-towers-at-pacifica",
-      "pageStatus": 200,
-      "pageTitle": "The Towers | Pueblo Bonito Pacifica Golf & Spa Resort",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "The Towers | Pueblo Bonito Pacifica Golf & Spa Resort",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "pueblo-bonito",
-      "dealId": 2265,
-      "dbTitle": "Pueblo Bonito Sunset Beach Golf & Spa Resort - Cabo San Lucas Vacation Package",
-      "dbPrice": 449,
-      "dbNights": 5,
-      "url": "https://www.pueblobonito.com/resorts/sunset-beach",
-      "pageStatus": 200,
-      "pageTitle": "Pueblo Bonito Sunset Beach Golf & Spa Resort | Official Site",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Pueblo Bonito Sunset Beach Golf & Spa Resort | Official Site",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "pueblo-bonito",
-      "dealId": 2266,
-      "dbTitle": "Pueblo Bonito Rosé Resort & Spa - Cabo San Lucas Vacation Package",
-      "dbPrice": 399,
-      "dbNights": 5,
-      "url": "https://www.pueblobonito.com/resorts/rose",
-      "pageStatus": 200,
-      "pageTitle": "Pueblo Bonito Rosé Resort & Spa | Official Site",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Pueblo Bonito Rosé Resort & Spa | Official Site",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "pueblo-bonito",
-      "dealId": 2267,
-      "dbTitle": "Pueblo Bonito Montecristo Estates - Cabo San Lucas Vacation Package",
-      "dbPrice": 599,
-      "dbNights": 5,
-      "url": "https://www.pueblobonito.com/resorts/montecristo-estates",
-      "pageStatus": 200,
-      "pageTitle": "Pueblo Bonito Montecristo Estates | Official Site",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Pueblo Bonito Montecristo Estates | Official Site",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "pueblo-bonito",
-      "dealId": 2268,
-      "dbTitle": "Pueblo Bonito Mazatlan - Mazatlan Vacation Package",
-      "dbPrice": 299,
-      "dbNights": 4,
-      "url": "https://www.pueblobonito.com/resorts/mazatlan",
-      "pageStatus": 200,
-      "pageTitle": "Pueblo Bonito Mazatlán | Official Site",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Pueblo Bonito Mazatlán | Official Site",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "pueblo-bonito",
-      "dealId": 2269,
-      "dbTitle": "Pueblo Bonito Emerald Bay Resort & Spa - Mazatlan Vacation Package",
-      "dbPrice": 349,
-      "dbNights": 4,
-      "url": "https://www.pueblobonito.com/resorts/emerald-bay",
-      "pageStatus": 200,
-      "pageTitle": "Pueblo Bonito Emerald Bay | Official Site",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Pueblo Bonito Emerald Bay | Official Site",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "pueblo-bonito",
-      "dealId": 2270,
-      "dbTitle": "Pueblo Bonito Los Cabos - Cabo San Lucas Vacation Package",
-      "dbPrice": 349,
-      "dbNights": 5,
-      "url": "https://www.pueblobonito.com/resorts/los-cabos",
-      "pageStatus": 200,
-      "pageTitle": "Pueblo Bonito Los Cabos | Official Site",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Pueblo Bonito Los Cabos | Official Site",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "sheraton-vc",
-      "dealId": 2286,
-      "dbTitle": "Sheraton Maui Resort & Spa - Maui, HI Vacation Package",
-      "dbPrice": 549,
-      "dbNights": 5,
-      "url": "https://sheratonvacationclub.marriott.com/offers",
-      "pageStatus": 403,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 403"
-      }
     },
     {
       "scraperKey": "spinnaker",
@@ -4936,62 +4217,6 @@
     },
     {
       "scraperKey": "staypromo",
-      "dealId": 600,
-      "dbTitle": "Tuscana Resort Orlando by Aston - Orlando",
-      "dbPrice": 248,
-      "dbNights": 3,
-      "url": "https://www.staypromo.com/accommodation/tuscana-mediterranean-resort/",
-      "pageStatus": 200,
-      "pageTitle": "Tuscana Mediterranean Resort Orlando | StayPromo | Cheap Vacation Packages And Hotel Deals",
-      "pricesOnPage": [
-        659,
-        219,
-        899,
-        348,
-        55,
-        65,
-        300,
-        39,
-        100
-      ],
-      "nightsOnPage": [
-        3,
-        13,
-        6
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Tuscana Mediterranean Resort Orlando | StayPromo | Cheap Vacation Packages And Hotel Deals",
-        "priceContext": "db=248  page candidates=659, 219, 899, 348, 55, 65, 300, 39  closest=219"
-      }
-    },
-    {
-      "scraperKey": "staypromo",
-      "dealId": 601,
-      "dbTitle": "Author - Unknown",
-      "dbPrice": 120,
-      "dbNights": 3,
-      "url": "https://www.staypromo.com/accommodation/lake-buena-vista-resort-village-spa/",
-      "pageStatus": 200,
-      "pageTitle": "Lake Buena Vista Resort Village And Spa By StaySky Orlando, FL | StayPromo",
-      "pricesOnPage": [
-        798,
-        259,
-        100
-      ],
-      "nightsOnPage": [
-        3,
-        13,
-        6
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Lake Buena Vista Resort Village And Spa By StaySky Orlando, FL | StayPromo",
-        "priceContext": "db=120  page candidates=798, 259, 100  closest=100"
-      }
-    },
-    {
-      "scraperKey": "staypromo",
       "dealId": 22491,
       "dbTitle": "Luxury Family Cancun Resort - Cancun",
       "dbPrice": 598,
@@ -5320,36 +4545,184 @@
       "evidence": {}
     },
     {
-      "scraperKey": "tafer",
-      "dealId": 2835,
-      "dbTitle": "Hotel Mousai Cancun - Cancun Vacation Package",
-      "dbPrice": 599,
-      "dbNights": 5,
-      "url": "https://www.taferresorts.com/",
-      "pageStatus": 403,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 403"
-      }
+      "scraperKey": "staypromo",
+      "dealId": 23193,
+      "dbTitle": "Westgate Palace Resort Orlando - Orlando",
+      "dbPrice": 259,
+      "dbNights": 3,
+      "url": "https://www.staypromo.com/vacation-packages/cheap-deals/hotels/westgate-palace-resort-orlando/?adults=1&kids=0&rooms=1&related_vacancies%5B42641%5D=116&related_vacancies%5B44391%5D=117&related_vacancies%5B50076%5D=119&related_vacancies%5B56709%5D=128&related_vacancies%5B4671%5D=46&related_vacancies%5B1145%5D=33&related_vacancies%5B1954%5D=35&related_vacancies%5B15137%5D=75&related_vacancies%5B19215%5D=89&related_vacancies%5B15349%5D=78&related_vacancies%5B4986%5D=62&related_vacancies%5B15487%5D=84&related_vacancies%5B5468%5D=63&related_vacancies%5B1941%5D=34&related_vacancies%5B15591%5D=87&related_vacancies%5B18596%5D=88&related_vacancies%5B15447%5D=81&related_vacancies%5B1935%5D=31&related_vacancies%5B20075%5D=91&related_vacancies%5B5489%5D=64&related_vacancies%5B1953%5D=41&related_vacancies%5B14422%5D=70&related_vacancies%5B7556%5D=65&related_vacancies%5B4942%5D=59&related_vacancies%5B4969%5D=61&related_vacancies%5B4912%5D=57&related_vacancies%5B45%5D=38&related_vacancies%5B1921%5D=37&s_tour",
+      "pageStatus": 200,
+      "pageTitle": "Westgate Palace Resort Orlando | StayPromo | Cheap Vacation Packages And Hotel Deals",
+      "pricesOnPage": [
+        898,
+        259,
+        100,
+        239,
+        249,
+        179
+      ],
+      "nightsOnPage": [
+        3,
+        13,
+        6
+      ],
+      "verdict": "ok",
+      "evidence": {}
     },
     {
-      "scraperKey": "timeshare-presentation-deals",
-      "dealId": 14437,
-      "dbTitle": "Cancun All-Inclusive Preview",
+      "scraperKey": "staypromo",
+      "dealId": 23196,
+      "dbTitle": "Westgate Town Center Resort Orlando - Orlando",
+      "dbPrice": 99,
+      "dbNights": 3,
+      "url": "https://www.staypromo.com/vacation-packages/cheap-deals/hotels/westgate-town-center-resort-orlando/?adults=1&kids=0&rooms=1&related_vacancies%5B42641%5D=116&related_vacancies%5B44391%5D=117&related_vacancies%5B50076%5D=119&related_vacancies%5B56709%5D=128&related_vacancies%5B4671%5D=46&related_vacancies%5B1145%5D=33&related_vacancies%5B1954%5D=35&related_vacancies%5B15137%5D=75&related_vacancies%5B19215%5D=89&related_vacancies%5B15349%5D=78&related_vacancies%5B4986%5D=62&related_vacancies%5B15487%5D=84&related_vacancies%5B5468%5D=63&related_vacancies%5B1941%5D=34&related_vacancies%5B15591%5D=87&related_vacancies%5B18596%5D=88&related_vacancies%5B15447%5D=81&related_vacancies%5B1935%5D=31&related_vacancies%5B20075%5D=91&related_vacancies%5B5489%5D=64&related_vacancies%5B1953%5D=41&related_vacancies%5B14422%5D=70&related_vacancies%5B7556%5D=65&related_vacancies%5B4942%5D=59&related_vacancies%5B4969%5D=61&related_vacancies%5B4912%5D=57&related_vacancies%5B45%5D=38&related_vacancies%5B1921%5D=37&s_tour",
+      "pageStatus": 200,
+      "pageTitle": "Westgate Town Center Resort Orlando | StayPromo | Cheap Vacation Packages And Hotel Deals",
+      "pricesOnPage": [
+        448,
+        99,
+        598,
+        129,
+        898,
+        229,
+        100,
+        239,
+        249,
+        179
+      ],
+      "nightsOnPage": [
+        3,
+        13
+      ],
+      "verdict": "ok",
+      "evidence": {}
+    },
+    {
+      "scraperKey": "staypromo",
+      "dealId": 23198,
+      "dbTitle": "Extended Stay of America Lake Buena Vista - Orlando",
       "dbPrice": 149,
-      "dbNights": 4,
-      "url": "https://timesharepresentationdeals.com/lander",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
+      "dbNights": 3,
+      "url": "https://www.staypromo.com/vacation-packages/cheap-deals/hotels/extended-stay-america-lake-buena-vista/?adults=1&kids=0&rooms=1&related_vacancies%5B42641%5D=116&related_vacancies%5B44391%5D=117&related_vacancies%5B50076%5D=119&related_vacancies%5B56709%5D=128&related_vacancies%5B4671%5D=46&related_vacancies%5B1145%5D=33&related_vacancies%5B1954%5D=35&related_vacancies%5B15137%5D=75&related_vacancies%5B19215%5D=89&related_vacancies%5B15349%5D=78&related_vacancies%5B4986%5D=62&related_vacancies%5B15487%5D=84&related_vacancies%5B5468%5D=63&related_vacancies%5B1941%5D=34&related_vacancies%5B15591%5D=87&related_vacancies%5B18596%5D=88&related_vacancies%5B15447%5D=81&related_vacancies%5B1935%5D=31&related_vacancies%5B20075%5D=91&related_vacancies%5B5489%5D=64&related_vacancies%5B1953%5D=41&related_vacancies%5B14422%5D=70&related_vacancies%5B7556%5D=65&related_vacancies%5B4942%5D=59&related_vacancies%5B4969%5D=61&related_vacancies%5B4912%5D=57&related_vacancies%5B45%5D=38&related_vacancies%5B1921%5D=37&s_tour",
+      "pageStatus": 200,
+      "pageTitle": "Extended Stay of America Lake Buena Vista | StayPromo | Cheap Vacation Packages And Hotel Deals",
+      "pricesOnPage": [
+        498,
+        149,
+        100,
+        239,
+        249,
+        179
+      ],
+      "nightsOnPage": [
+        3,
+        13,
+        6
+      ],
+      "verdict": "ok",
+      "evidence": {}
+    },
+    {
+      "scraperKey": "staypromo",
+      "dealId": 23201,
+      "dbTitle": "Avanti Resort - Orlando",
+      "dbPrice": 99,
+      "dbNights": 3,
+      "url": "https://www.staypromo.com/vacation-packages/cheap-deals/hotels/avanti-resort/?adults=1&kids=0&rooms=1&related_vacancies%5B42641%5D=116&related_vacancies%5B44391%5D=117&related_vacancies%5B50076%5D=119&related_vacancies%5B56709%5D=128&related_vacancies%5B4671%5D=46&related_vacancies%5B1145%5D=33&related_vacancies%5B1954%5D=35&related_vacancies%5B15137%5D=75&related_vacancies%5B19215%5D=89&related_vacancies%5B15349%5D=78&related_vacancies%5B4986%5D=62&related_vacancies%5B15487%5D=84&related_vacancies%5B5468%5D=63&related_vacancies%5B1941%5D=34&related_vacancies%5B15591%5D=87&related_vacancies%5B18596%5D=88&related_vacancies%5B15447%5D=81&related_vacancies%5B1935%5D=31&related_vacancies%5B20075%5D=91&related_vacancies%5B5489%5D=64&related_vacancies%5B1953%5D=41&related_vacancies%5B14422%5D=70&related_vacancies%5B7556%5D=65&related_vacancies%5B4942%5D=59&related_vacancies%5B4969%5D=61&related_vacancies%5B4912%5D=57&related_vacancies%5B45%5D=38&related_vacancies%5B1921%5D=37&s_tour",
+      "pageStatus": 200,
+      "pageTitle": "Avanti Resort | StayPromo | Cheap Vacation Packages And Hotel Deals",
+      "pricesOnPage": [
+        398,
+        99,
+        100,
+        239,
+        249,
+        179
+      ],
+      "nightsOnPage": [
+        3,
+        13,
+        6
+      ],
+      "verdict": "ok",
+      "evidence": {}
+    },
+    {
+      "scraperKey": "staypromo",
+      "dealId": 23203,
+      "dbTitle": "Palazzo Lakeside Ascend Hotel Orlando - Orlando",
+      "dbPrice": 149,
+      "dbNights": 3,
+      "url": "https://www.staypromo.com/vacation-packages/cheap-deals/hotels/palazzo-lakeside-ascend-hotel-orlando/?adults=1&kids=0&rooms=1&related_vacancies%5B42641%5D=116&related_vacancies%5B44391%5D=117&related_vacancies%5B50076%5D=119&related_vacancies%5B56709%5D=128&related_vacancies%5B4671%5D=46&related_vacancies%5B1145%5D=33&related_vacancies%5B1954%5D=35&related_vacancies%5B15137%5D=75&related_vacancies%5B19215%5D=89&related_vacancies%5B15349%5D=78&related_vacancies%5B4986%5D=62&related_vacancies%5B15487%5D=84&related_vacancies%5B5468%5D=63&related_vacancies%5B1941%5D=34&related_vacancies%5B15591%5D=87&related_vacancies%5B18596%5D=88&related_vacancies%5B15447%5D=81&related_vacancies%5B1935%5D=31&related_vacancies%5B20075%5D=91&related_vacancies%5B5489%5D=64&related_vacancies%5B1953%5D=41&related_vacancies%5B14422%5D=70&related_vacancies%5B7556%5D=65&related_vacancies%5B4942%5D=59&related_vacancies%5B4969%5D=61&related_vacancies%5B4912%5D=57&related_vacancies%5B45%5D=38&related_vacancies%5B1921%5D=37&s_tour",
+      "pageStatus": 200,
+      "pageTitle": "Palazzo Lakeside Ascend Hotel Orlando | StayPromo | Cheap Vacation Packages And Hotel Deals",
+      "pricesOnPage": [
+        498,
+        149,
+        100,
+        239,
+        249,
+        179
+      ],
+      "nightsOnPage": [
+        3,
+        13,
+        6
+      ],
+      "verdict": "ok",
+      "evidence": {}
+    },
+    {
+      "scraperKey": "staypromo",
+      "dealId": 23204,
+      "dbTitle": "Radisson Celebration – Grand Orlando Resort - Orlando",
+      "dbPrice": 99,
+      "dbNights": 3,
+      "url": "https://www.staypromo.com/vacation-packages/cheap-deals/hotels/radisson-celebration/?adults=1&kids=0&rooms=1&related_vacancies%5B42641%5D=116&related_vacancies%5B44391%5D=117&related_vacancies%5B50076%5D=119&related_vacancies%5B56709%5D=128&related_vacancies%5B4671%5D=46&related_vacancies%5B1145%5D=33&related_vacancies%5B1954%5D=35&related_vacancies%5B15137%5D=75&related_vacancies%5B19215%5D=89&related_vacancies%5B15349%5D=78&related_vacancies%5B4986%5D=62&related_vacancies%5B15487%5D=84&related_vacancies%5B5468%5D=63&related_vacancies%5B1941%5D=34&related_vacancies%5B15591%5D=87&related_vacancies%5B18596%5D=88&related_vacancies%5B15447%5D=81&related_vacancies%5B1935%5D=31&related_vacancies%5B20075%5D=91&related_vacancies%5B5489%5D=64&related_vacancies%5B1953%5D=41&related_vacancies%5B14422%5D=70&related_vacancies%5B7556%5D=65&related_vacancies%5B4942%5D=59&related_vacancies%5B4969%5D=61&related_vacancies%5B4912%5D=57&related_vacancies%5B45%5D=38&related_vacancies%5B1921%5D=37&s_tour",
+      "pageStatus": 200,
+      "pageTitle": "Radisson Celebration - Grand Orlando Resort | StayPromo | Cheap Vacation Packages And Hotel Deals",
+      "pricesOnPage": [
+        350,
+        99,
+        100,
+        239,
+        249,
+        179
+      ],
+      "nightsOnPage": [
+        3,
+        13
+      ],
+      "verdict": "ok",
+      "evidence": {}
+    },
+    {
+      "scraperKey": "staypromo",
+      "dealId": 23206,
+      "dbTitle": "Westgate Vacation Villas Resort Orlando - Orlando",
+      "dbPrice": 99,
+      "dbNights": 3,
+      "url": "https://www.staypromo.com/vacation-packages/cheap-deals/hotels/westgate-vacation-villas-resort-orlando/?adults=1&kids=0&rooms=1&related_vacancies%5B42641%5D=116&related_vacancies%5B44391%5D=117&related_vacancies%5B50076%5D=119&related_vacancies%5B56709%5D=128&related_vacancies%5B4671%5D=46&related_vacancies%5B1145%5D=33&related_vacancies%5B1954%5D=35&related_vacancies%5B15137%5D=75&related_vacancies%5B19215%5D=89&related_vacancies%5B15349%5D=78&related_vacancies%5B4986%5D=62&related_vacancies%5B15487%5D=84&related_vacancies%5B5468%5D=63&related_vacancies%5B1941%5D=34&related_vacancies%5B15591%5D=87&related_vacancies%5B18596%5D=88&related_vacancies%5B15447%5D=81&related_vacancies%5B1935%5D=31&related_vacancies%5B20075%5D=91&related_vacancies%5B5489%5D=64&related_vacancies%5B1953%5D=41&related_vacancies%5B14422%5D=70&related_vacancies%5B7556%5D=65&related_vacancies%5B4942%5D=59&related_vacancies%5B4969%5D=61&related_vacancies%5B4912%5D=57&related_vacancies%5B45%5D=38&related_vacancies%5B1921%5D=37&s_tour",
+      "pageStatus": 200,
+      "pageTitle": "Westgate Vacation Villas Resort Orlando | StayPromo | Cheap Vacation Packages And Hotel Deals",
+      "pricesOnPage": [
+        448,
+        99,
+        598,
+        139,
+        898,
+        229,
+        100,
+        239,
+        249,
+        179
+      ],
+      "nightsOnPage": [
+        3,
+        13
+      ],
+      "verdict": "ok",
+      "evidence": {}
     },
     {
       "scraperKey": "vacation-offer",
@@ -6016,119 +5389,6 @@
       "evidence": {}
     },
     {
-      "scraperKey": "vegas-timeshare",
-      "dealId": 839,
-      "dbTitle": "SAHARA Las Vegas - Las Vegas",
-      "dbPrice": 299,
-      "dbNights": 4,
-      "url": "https://las-vegas-timeshare.com/?p=586",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "vegas-timeshare",
-      "dealId": 840,
-      "dbTitle": "Planet Hollywood Las Vegas Resort & Casino - Las Vegas",
-      "dbPrice": 169,
-      "dbNights": 2,
-      "url": "https://las-vegas-timeshare.com/?p=564",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "vegas-timeshare",
-      "dealId": 841,
-      "dbTitle": "Las Vegas Getaway - 2 Nights",
-      "dbPrice": 99,
-      "dbNights": 2,
-      "url": "https://las-vegas-timeshare.com/?p=579",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "vegas-timeshare",
-      "dealId": 842,
-      "dbTitle": "SAHARA Las Vegas - Las Vegas",
-      "dbPrice": 159,
-      "dbNights": 3,
-      "url": "https://las-vegas-timeshare.com/?p=585",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "vegas-timeshare",
-      "dealId": 843,
-      "dbTitle": "Planet Hollywood Las Vegas Resort & Casino, Just - Las Vegas",
-      "dbPrice": 219,
-      "dbNights": 4,
-      "url": "https://las-vegas-timeshare.com/?p=565",
-      "pageStatus": 404,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 404"
-      }
-    },
-    {
-      "scraperKey": "villa-group",
-      "dealId": 2277,
-      "dbTitle": "Villa del Palmar Beach Resort & Spa Cabo San Lucas - Cabo San Lucas",
-      "dbPrice": 1230,
-      "dbNights": 5,
-      "url": "https://cabo.villalaestancia.com/users/sign_in",
-      "pageStatus": 200,
-      "pageTitle": "Book at the best price guaranteed!",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Book at the best price guaranteed!",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "villa-group",
-      "dealId": 2278,
-      "dbTitle": "Villa del Arco Beach Resort & Spa - Cabo San Lucas",
-      "dbPrice": 860,
-      "dbNights": 5,
-      "url": "https://cabo.villagroup.com/specials/spring-sale",
-      "pageStatus": 0,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "fetch failed (network/timeout)"
-      }
-    },
-    {
       "scraperKey": "villa-group",
       "dealId": 2279,
       "dbTitle": "Villa La Estancia Beach Resort & Spa Los Cabos - Cabo San Lucas",
@@ -6159,118 +5419,6 @@
     },
     {
       "scraperKey": "villa-group",
-      "dealId": 2280,
-      "dbTitle": "Villa La Valencia Beach Resort & Spa Los Cabos - Cabo San Lucas",
-      "dbPrice": 925,
-      "dbNights": 5,
-      "url": "https://cabo.villalavalencia.com/specials/spring-sale",
-      "pageStatus": 0,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "fetch failed (network/timeout)"
-      }
-    },
-    {
-      "scraperKey": "villa-group",
-      "dealId": 2281,
-      "dbTitle": "Villa del Palmar Beach Resort & Spa Puerto Vallarta - Puerto Vallarta",
-      "dbPrice": 695,
-      "dbNights": 5,
-      "url": "https://pv.villadelpalmar.com/specials/spring-sale",
-      "pageStatus": 0,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "fetch failed (network/timeout)"
-      }
-    },
-    {
-      "scraperKey": "villa-group",
-      "dealId": 2282,
-      "dbTitle": "Villa del Palmar Flamingos Beach Resort & Spa - Puerto Vallarta",
-      "dbPrice": 745,
-      "dbNights": 5,
-      "url": "https://flamingos.villadelpalmar.com/specials/spring-sale",
-      "pageStatus": 200,
-      "pageTitle": "Bloom &amp; Book | Villa del Palmar Flamingos Spring Deal",
-      "pricesOnPage": [
-        800,
-        200,
-        317,
-        341,
-        540,
-        700,
-        600,
-        500
-      ],
-      "nightsOnPage": [
-        7,
-        6,
-        5,
-        4,
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Bloom &amp; Book | Villa del Palmar Flamingos Spring Deal",
-        "priceContext": "db=745  page candidates=800, 200, 317, 341, 540, 700, 600, 500  closest=700"
-      }
-    },
-    {
-      "scraperKey": "villa-group",
-      "dealId": 2283,
-      "dbTitle": "Villa La Estancia Riviera Nayarit - Puerto Vallarta",
-      "dbPrice": 895,
-      "dbNights": 5,
-      "url": "https://pv.villalaestancia.com/specials/spring-sale",
-      "pageStatus": 0,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "fetch failed (network/timeout)"
-      }
-    },
-    {
-      "scraperKey": "villa-group",
-      "dealId": 2284,
-      "dbTitle": "Villa del Palmar Cancun Luxury Beach Resort & Spa - Cancun",
-      "dbPrice": 845,
-      "dbNights": 5,
-      "url": "https://cancun.villadelpalmar.com/specials/spring-sale",
-      "pageStatus": 0,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "fetch failed (network/timeout)"
-      }
-    },
-    {
-      "scraperKey": "villa-group",
-      "dealId": 2285,
-      "dbTitle": "Villa del Palmar at the Islands of Loreto - Loreto",
-      "dbPrice": 695,
-      "dbNights": 5,
-      "url": "https://loreto.villadelpalmar.com/specials/spring-sale",
-      "pageStatus": 0,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "fetch failed (network/timeout)"
-      }
-    },
-    {
-      "scraperKey": "villa-group",
       "dealId": 2836,
       "dbTitle": "Villa del Palmar Beach Resort & Spa Cabo San Lucas - Cabo San Lucas",
       "dbPrice": 795,
@@ -6297,278 +5445,6 @@
       ],
       "verdict": "ok",
       "evidence": {}
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 1,
-      "dbTitle": "Westgate Branson Lakes Resort - Branson",
-      "dbPrice": 120,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-branson-lakes-resort/",
-      "pageStatus": 200,
-      "pageTitle": "Westgate Branson Lakes Resort | Near Branson&#039;s Top Attractions",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Westgate Branson Lakes Resort | Near Branson&#039;s Top Attractions",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 2,
-      "dbTitle": "Westgate Branson Woods Hotel - Branson",
-      "dbPrice": 120,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-branson-woods-hotel/",
-      "pageStatus": 200,
-      "pageTitle": "Westgate Branson Woods Hotel | An Ozarks Vacation",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Westgate Branson Woods Hotel | An Ozarks Vacation",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 4,
-      "dbTitle": "Westgate Cocoa Beach Resort - Cocoa Beach",
-      "dbPrice": 300,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-cocoa-beach-resort/",
-      "pageStatus": 200,
-      "pageTitle": "Experience Beach Bliss at Westgate Cocoa Beach Resort",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Experience Beach Bliss at Westgate Cocoa Beach Resort",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 5,
-      "dbTitle": "River Terrace Resort and Convention Center - Gatlinburg",
-      "dbPrice": 99,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-river-terrace/",
-      "pageStatus": 200,
-      "pageTitle": "River Terrace Resort - Family Friendly Stay in Gatlinburg",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "River Terrace Resort - Family Friendly Stay in Gatlinburg",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 6,
-      "dbTitle": "Westgate Smoky Mountain Resort & Water Park - Gatlinburg",
-      "dbPrice": 135,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-smoky-mountain-resort-and-water-park/",
-      "pageStatus": 200,
-      "pageTitle": "Experience Fun at Westgate Smoky Mountain Resort &amp; Water Park",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Experience Fun at Westgate Smoky Mountain Resort &amp; Water Park",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 7,
-      "dbTitle": "Wild Bear Inn - Gatlinburg",
-      "dbPrice": 84,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/wild-bear-inn/",
-      "pageStatus": 200,
-      "pageTitle": "Wild Bear Inn | Near Popular Pigeon Forge Attractions",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Wild Bear Inn | Near Popular Pigeon Forge Attractions",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 8,
-      "dbTitle": "Westgate Flamingo Bay Resort - Las Vegas",
-      "dbPrice": 165,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-flamingo-bay/",
-      "pageStatus": 200,
-      "pageTitle": "Experience Tropical Relaxation at Westgate Flamingo Bay Resort",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Experience Tropical Relaxation at Westgate Flamingo Bay Resort",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 9,
-      "dbTitle": "Westgate Las Vegas Resort & Casino - Las Vegas",
-      "dbPrice": 105,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-las-vegas-hotel-casino/",
-      "pageStatus": 200,
-      "pageTitle": "Experience Luxury at Westgate Las Vegas Resort &amp; Casino",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Experience Luxury at Westgate Las Vegas Resort &amp; Casino",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 10,
-      "dbTitle": "Westgate Myrtle Beach Oceanfront Resort - Myrtle Beach",
-      "dbPrice": 225,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-myrtle-beach/",
-      "pageStatus": 200,
-      "pageTitle": "Book Your Dream Vacation at Westgate Myrtle Beach Resort",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Book Your Dream Vacation at Westgate Myrtle Beach Resort",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 11,
-      "dbTitle": "Westgate Lakes Resort & Spa - Orlando",
-      "dbPrice": 180,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-lakes-resort-and-spa/",
-      "pageStatus": 200,
-      "pageTitle": "Book Your Stay at Westgate Lakes Resort &amp; Spa in Orlando, FL",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Book Your Stay at Westgate Lakes Resort &amp; Spa in Orlando, FL",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 12,
-      "dbTitle": "Westgate Palace Resort - Orlando",
-      "dbPrice": 285,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-palace/",
-      "pageStatus": 200,
-      "pageTitle": "Westgate Palace Resort - Book Your Orlando Vacation",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Westgate Palace Resort - Book Your Orlando Vacation",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 13,
-      "dbTitle": "Westgate Towers Resort - Orlando",
-      "dbPrice": 165,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-towers/",
-      "pageStatus": 200,
-      "pageTitle": "Experience Family Fun at Westgate Towers Resort Near Disney",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Experience Family Fun at Westgate Towers Resort Near Disney",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 14,
-      "dbTitle": "Westgate Town Center Resort - Orlando",
-      "dbPrice": 180,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-town-center/",
-      "pageStatus": 200,
-      "pageTitle": "Westgate Town Center Resort with Water Park - Overview",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Westgate Town Center Resort with Water Park - Overview",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 16,
-      "dbTitle": "Westgate Park City Resort & Spa - Park City",
-      "dbPrice": 180,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-park-city-resort-spa/",
-      "pageStatus": 200,
-      "pageTitle": "Experience Luxury at Westgate Park City Resort &amp; Spa",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Experience Luxury at Westgate Park City Resort &amp; Spa",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 17,
-      "dbTitle": "Westgate River Ranch Resort - River Ranch",
-      "dbPrice": 165,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-river-ranch-resort/",
-      "pageStatus": 200,
-      "pageTitle": "Experience the Adventure at Westgate River Ranch Resort",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Experience the Adventure at Westgate River Ranch Resort",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 18,
-      "dbTitle": "Westgate Historic Williamsburg Resort - Williamsburg",
-      "dbPrice": 120,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-historic-williamsburg-resort/",
-      "pageStatus": 200,
-      "pageTitle": "Experience History at Westgate Historic Williamsburg Resort",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Experience History at Westgate Historic Williamsburg Resort",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
     },
     {
       "scraperKey": "westgate",
@@ -8054,40 +6930,6 @@
     },
     {
       "scraperKey": "westgate",
-      "dealId": 2689,
-      "dbTitle": "Westgate Branson Woods Resort - Branson",
-      "dbPrice": 120,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-branson-woods-resort/",
-      "pageStatus": 200,
-      "pageTitle": "Westgate Branson Woods | Branson Resorts",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Westgate Branson Woods | Branson Resorts",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
-      "dealId": 3971,
-      "dbTitle": "Westgate Vacation Villas Resort - Orlando",
-      "dbPrice": 180,
-      "dbNights": 3,
-      "url": "https://www.westgatereservations.com/resorts/westgate-vacation-villas-resort/",
-      "pageStatus": 200,
-      "pageTitle": "Westgate Vacation Villas Resort - Perfect Family Resort Near Disney",
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "no_price_on_page",
-      "evidence": {
-        "titleSnippet": "Westgate Vacation Villas Resort - Perfect Family Resort Near Disney",
-        "reason": "no $ amount in $39-$9999 window found on page"
-      }
-    },
-    {
-      "scraperKey": "westgate",
       "dealId": 22245,
       "dbTitle": "Saddle Up for a River Ranch & Rodeo Adventure",
       "dbPrice": 99,
@@ -9327,6 +8169,108 @@
       "evidence": {}
     },
     {
+      "scraperKey": "westgate",
+      "dealId": 23168,
+      "dbTitle": "Branson Summer Vacation Packages",
+      "dbPrice": 99,
+      "dbNights": 3,
+      "url": "https://www.westgatereservations.com/specials/summer-vacation-deals-branson/",
+      "pageStatus": 200,
+      "pageTitle": "Branson Summer Vacation Packages | Westgate Reservations",
+      "pricesOnPage": [],
+      "nightsOnPage": [],
+      "verdict": "no_price_on_page",
+      "evidence": {
+        "titleSnippet": "Branson Summer Vacation Packages | Westgate Reservations",
+        "reason": "no $ amount in $39-$9999 window found on page"
+      }
+    },
+    {
+      "scraperKey": "westgate",
+      "dealId": 23169,
+      "dbTitle": "Cocoa Beach Summer Vacation Packages",
+      "dbPrice": 199,
+      "dbNights": 3,
+      "url": "https://www.westgatereservations.com/specials/summer-vacation-deals-cocoa-beach/",
+      "pageStatus": 200,
+      "pageTitle": "Cocoa Beach Summer Vacation Packages | Westgate Reservations",
+      "pricesOnPage": [],
+      "nightsOnPage": [],
+      "verdict": "no_price_on_page",
+      "evidence": {
+        "titleSnippet": "Cocoa Beach Summer Vacation Packages | Westgate Reservations",
+        "reason": "no $ amount in $39-$9999 window found on page"
+      }
+    },
+    {
+      "scraperKey": "westgate",
+      "dealId": 23170,
+      "dbTitle": "Williamsburg, VA Summer Vacation Packages",
+      "dbPrice": 99,
+      "dbNights": 3,
+      "url": "https://www.westgatereservations.com/specials/summer-vacation-deals-williamsburg/",
+      "pageStatus": 200,
+      "pageTitle": "Williamsburg, VA Summer Vacation Packages | Westgate Reservations",
+      "pricesOnPage": [],
+      "nightsOnPage": [],
+      "verdict": "no_price_on_page",
+      "evidence": {
+        "titleSnippet": "Williamsburg, VA Summer Vacation Packages | Westgate Reservations",
+        "reason": "no $ amount in $39-$9999 window found on page"
+      }
+    },
+    {
+      "scraperKey": "westgate",
+      "dealId": 23171,
+      "dbTitle": "Myrtle Beach Summer Vacation Packages",
+      "dbPrice": 99,
+      "dbNights": 3,
+      "url": "https://www.westgatereservations.com/specials/summer-vacation-deals-myrtle-beach/",
+      "pageStatus": 200,
+      "pageTitle": "Myrtle Beach Summer Vacation Packages | Westgate Reservations",
+      "pricesOnPage": [],
+      "nightsOnPage": [],
+      "verdict": "no_price_on_page",
+      "evidence": {
+        "titleSnippet": "Myrtle Beach Summer Vacation Packages | Westgate Reservations",
+        "reason": "no $ amount in $39-$9999 window found on page"
+      }
+    },
+    {
+      "scraperKey": "westgate",
+      "dealId": 23172,
+      "dbTitle": "Las Vegas Summer Vacation Packages",
+      "dbPrice": 99,
+      "dbNights": 3,
+      "url": "https://www.westgatereservations.com/specials/summer-vacation-deals-las-vegas/",
+      "pageStatus": 200,
+      "pageTitle": "Las Vegas Summer Vacation Packages | Westgate Reservations",
+      "pricesOnPage": [],
+      "nightsOnPage": [],
+      "verdict": "no_price_on_page",
+      "evidence": {
+        "titleSnippet": "Las Vegas Summer Vacation Packages | Westgate Reservations",
+        "reason": "no $ amount in $39-$9999 window found on page"
+      }
+    },
+    {
+      "scraperKey": "westgate",
+      "dealId": 23190,
+      "dbTitle": "Gatlinburg Summer Vacation Packages",
+      "dbPrice": 99,
+      "dbNights": 3,
+      "url": "https://www.westgatereservations.com/specials/summer-vacation-deals-gatlinburg/",
+      "pageStatus": 200,
+      "pageTitle": "Gatlinburg Summer Vacation Packages | Westgate Reservations",
+      "pricesOnPage": [],
+      "nightsOnPage": [],
+      "verdict": "no_price_on_page",
+      "evidence": {
+        "titleSnippet": "Gatlinburg Summer Vacation Packages | Westgate Reservations",
+        "reason": "no $ amount in $39-$9999 window found on page"
+      }
+    },
+    {
       "scraperKey": "westgate-events",
       "dealId": 967,
       "dbTitle": "Discount A Day at Busch Gardens Tickets 2026 Westgate Historic Williamsburg Resort Williamsburg at Busch Gardens",
@@ -9347,33 +8291,6 @@
       ],
       "verdict": "ok",
       "evidence": {}
-    },
-    {
-      "scraperKey": "westgate-events",
-      "dealId": 968,
-      "dbTitle": "Discount Las Vegas Vacation Package — A Weekend in Vegas",
-      "dbPrice": 399,
-      "dbNights": 3,
-      "url": "https://westgateevents.com/events/a-weekend-in-vegas/",
-      "pageStatus": 200,
-      "pageTitle": "3-nights At Westgate Las Vegas Resort + $100 Resort Credit - Westgate Events",
-      "pricesOnPage": [
-        100,
-        249,
-        699,
-        50,
-        99,
-        49,
-        149
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "3-nights At Westgate Las Vegas Resort + $100 Resort Credit - Westgate Events",
-        "priceContext": "db=399  page candidates=100, 249, 699, 50, 99, 49, 149  closest=249"
-      }
     },
     {
       "scraperKey": "westgate-events",
@@ -9419,58 +8336,6 @@
       ],
       "verdict": "ok",
       "evidence": {}
-    },
-    {
-      "scraperKey": "westgate-events",
-      "dealId": 974,
-      "dbTitle": "Discount Universal Horror Unleashed Tickets Las Vegas at Universal Horror Unleashed",
-      "dbPrice": 449,
-      "dbNights": 3,
-      "url": "https://westgateevents.com/events/universal-horror-unleashed/",
-      "pageStatus": 200,
-      "pageTitle": "Universal Horror Unleashed - Westgate Events",
-      "pricesOnPage": [
-        299,
-        799,
-        75,
-        99,
-        49,
-        149
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Universal Horror Unleashed - Westgate Events",
-        "priceContext": "db=449  page candidates=299, 799, 75, 99, 49, 149  closest=299"
-      }
-    },
-    {
-      "scraperKey": "westgate-events",
-      "dealId": 976,
-      "dbTitle": "Discount Wizard of Oz Movie Experience at The Sphere Tickets Las Vegas at Wizard of Oz Movie Experience at The Sphere",
-      "dbPrice": 649,
-      "dbNights": 3,
-      "url": "https://westgateevents.com/events/wizard-of-oz-at-the-sphere/",
-      "pageStatus": 200,
-      "pageTitle": "Wizard Of Oz At The Sphere - Westgate Events - Westgate Events",
-      "pricesOnPage": [
-        499,
-        999,
-        50,
-        99,
-        49,
-        149
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Wizard Of Oz At The Sphere - Westgate Events - Westgate Events",
-        "priceContext": "db=649  page candidates=499, 999, 50, 99, 49, 149  closest=499"
-      }
     },
     {
       "scraperKey": "westgate-events",
@@ -9764,32 +8629,6 @@
       ],
       "verdict": "ok",
       "evidence": {}
-    },
-    {
-      "scraperKey": "westgate-events",
-      "dealId": 1001,
-      "dbTitle": "Discount Mary J Blige Vegas Residency Tickets Las Vegas at Mary J Blige Vegas Residency",
-      "dbPrice": 749,
-      "dbNights": 2,
-      "url": "https://westgateevents.com/events/mary-j-blige-vegas-residency/",
-      "pageStatus": 200,
-      "pageTitle": "Mary J Blige Vegas Residency - Westgate Events",
-      "pricesOnPage": [
-        449,
-        949,
-        549,
-        99,
-        249,
-        199
-      ],
-      "nightsOnPage": [
-        2
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Mary J Blige Vegas Residency - Westgate Events",
-        "priceContext": "db=749  page candidates=449, 949, 549, 99, 249, 199  closest=949"
-      }
     },
     {
       "scraperKey": "westgate-events",
@@ -10319,22 +9158,6 @@
       "evidence": {}
     },
     {
-      "scraperKey": "westin-vc",
-      "dealId": 2287,
-      "dbTitle": "Westin Los Cabos Resort Villas & Spa - Cabo San Lucas, BCS Vacation Package",
-      "dbPrice": 499,
-      "dbNights": 5,
-      "url": "https://westinvacationclub.marriott.com/offers",
-      "pageStatus": 403,
-      "pageTitle": null,
-      "pricesOnPage": [],
-      "nightsOnPage": [],
-      "verdict": "unreachable",
-      "evidence": {
-        "reason": "HTTP 403"
-      }
-    },
-    {
       "scraperKey": "wyndham",
       "dealId": 327,
       "dbTitle": "Club Wyndham Clearwater Beach Getaway",
@@ -10587,27 +9410,6 @@
     },
     {
       "scraperKey": "wyndham",
-      "dealId": 341,
-      "dbTitle": "Club Wyndham New York Getaway",
-      "dbPrice": 249,
-      "dbNights": 3,
-      "url": "https://clubwyndham.wyndhamdestinations.com/vacationpreview/vacation-getaways/new-york",
-      "pageStatus": 200,
-      "pageTitle": "New York Getaways - 4 Day, 3 Night for $299 - Club Wyndham",
-      "pricesOnPage": [
-        299
-      ],
-      "nightsOnPage": [
-        3
-      ],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "New York Getaways - 4 Day, 3 Night for $299 - Club Wyndham",
-        "priceContext": "db=249  page candidates=299  closest=299"
-      }
-    },
-    {
-      "scraperKey": "wyndham",
       "dealId": 342,
       "dbTitle": "Club Wyndham San Antonio Getaway",
       "dbPrice": 199,
@@ -10659,25 +9461,6 @@
       ],
       "verdict": "ok",
       "evidence": {}
-    },
-    {
-      "scraperKey": "wyndham",
-      "dealId": 345,
-      "dbTitle": "Club Wyndham Your Choice Getaway",
-      "dbPrice": 199,
-      "dbNights": 3,
-      "url": "https://clubwyndham.wyndhamdestinations.com/vacationpreview/vacation-getaways/your-choice",
-      "pageStatus": 200,
-      "pageTitle": "Weekend Getaways Near You Under $300 – Club Wyndham",
-      "pricesOnPage": [
-        300
-      ],
-      "nightsOnPage": [],
-      "verdict": "price_mismatch",
-      "evidence": {
-        "titleSnippet": "Weekend Getaways Near You Under $300 – Club Wyndham",
-        "priceContext": "db=199  page candidates=300  closest=300"
-      }
     }
   ]
 }
