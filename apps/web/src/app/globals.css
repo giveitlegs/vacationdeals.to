@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Prevent stray horizontal scroll on mobile. The deal-ticker animates by
+   translating its width; without this clip a 102px overflow surfaces on
+   /blog at 375px viewport (caught in overnight QA, 2026-05-05). */
+html,
+body {
+  overflow-x: clip;
+}
+
 /* ── Deal Ticker ── */
 
 @keyframes ticker-scroll {
