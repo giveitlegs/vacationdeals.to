@@ -68,5 +68,10 @@ admin-creds.txt
 reports/sf-crawls/*/
 !reports/sf-crawls/README.md
 
+# Local-only DB dumps — contain user PII (subscriber emails, consent
+# records, ad inquiries). Never commit. Restore by re-running pg_dump
+# from the VPS via scripts/backup-db.sh.
+backups/
+
 # Allow committed prospect banner PNGs even though *.png is gitignored
 !apps/web/public/banners/*.png
