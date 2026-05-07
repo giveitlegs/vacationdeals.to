@@ -636,10 +636,14 @@ export default async function SlugPage({ params }: SlugPageProps) {
     return <BrandRateRecapPage params={Promise.resolve({ brand: resolved.data.brandSlug })} />;
   }
 
-  // Try to fetch deals from DB, fall back to mock data
+  // Try to fetch deals from DB, fall back to mock data ONLY when the DB
+  // is unreachable (dbResult is null). When the DB responds with 0 deals
+  // for this slug, that's a real "no deals" signal — show the empty
+  // state, don't paper over it with mock fixtures (caught 2026-05-06:
+  // /hgv was rendering a mock $149 deal because HGV has 0 active deals).
   const dbResult = await getDealsForSlug(resolved);
   console.log(`[slug] ${slug}: dbResult=${dbResult ? `${dbResult.deals.length} deals, total=${dbResult.total}` : 'null'}`);
-  const deals = dbResult && dbResult.deals.length > 0 ? dbResult.deals : filterMockDeals(resolved);
+  const deals = dbResult ? dbResult.deals : filterMockDeals(resolved);
   const totalDeals = dbResult?.total ?? deals.length;
 
   switch (resolved.type) {

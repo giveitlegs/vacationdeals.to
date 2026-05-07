@@ -75,10 +75,37 @@ export async function GET(request: NextRequest) {
   const orderColumn = orderMap[sortBy as keyof typeof orderMap] || deals.scrapedAt;
   const orderDir = sortOrder === "asc" ? asc : desc;
 
+  // Whitelisted public columns — drop internal IDs (id, brand_id, source_id,
+  // destination_id), admin flags (is_active), and scrape/audit timestamps
+  // (scraped_at, created_at, updated_at). Joins surface brand_slug + city
+  // so consumers can reference relations without numeric ids.
   const [results, countResult] = await Promise.all([
     db
-      .select()
+      .select({
+        title: deals.title,
+        slug: deals.slug,
+        price: deals.price,
+        originalPrice: deals.originalPrice,
+        durationNights: deals.durationNights,
+        durationDays: deals.durationDays,
+        description: deals.description,
+        resortName: deals.resortName,
+        url: deals.url,
+        imageUrl: deals.imageUrl,
+        inclusions: deals.inclusions,
+        requirements: deals.requirements,
+        presentationMinutes: deals.presentationMinutes,
+        travelWindow: deals.travelWindow,
+        savingsPercent: deals.savingsPercent,
+        expiresAt: deals.expiresAt,
+        brandSlug: brands.slug,
+        brandName: brands.name,
+        city: destinations.city,
+        citySlug: destinations.slug,
+      })
       .from(deals)
+      .leftJoin(brands, eq(deals.brandId, brands.id))
+      .leftJoin(destinations, eq(deals.destinationId, destinations.id))
       .where(and(...conditions))
       .orderBy(orderDir(orderColumn))
       .limit(limit)

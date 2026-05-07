@@ -156,6 +156,61 @@ async function main() {
     if (FIX) totalFixed += nullTitles.count;
   }
 
+  // ── 8. Placeholder titles ("Resort Information", "special offer", "Author - Unknown") ──
+  // Surfaced by the 2026-05-06 visual QA pass — Wyndham/Marriott pages were
+  // showing these scraper-fallback strings as deal titles. Different scraper
+  // bugs produce them; defense-in-depth here catches whatever slipped through.
+  const placeholderTitles = await selectIds(sql`
+    SELECT id FROM deals
+    WHERE is_active AND (
+      LOWER(title) = 'resort information'
+      OR LOWER(title) = 'special offer'
+      OR LOWER(title) LIKE 'author -%'
+      OR LOWER(title) LIKE 'author:%'
+      OR LENGTH(title) < 5
+    )
+  `);
+  console.log(`Placeholder titles: ${placeholderTitles.count}`);
+  if (placeholderTitles.count > 0) {
+    await deactivate(placeholderTitles.ids, "Placeholder/garbage title");
+    totalFlagged += placeholderTitles.count;
+    if (FIX) totalFixed += placeholderTitles.count;
+  }
+
+  // ── 9. Trailing-comma cities ("Unknown,", "Various,") ──
+  // Sanitize-city in deal-store.ts trims known prefixes but leaves a trailing
+  // comma when the source data was "Various, " or "Unknown, FL" with the
+  // state stripped. Cosmetic, but visible to users on /westgate, /3-night-packages.
+  const badCityRows = (await db.execute(sql`
+    SELECT d.id
+    FROM deals d
+    JOIN destinations dest ON d.destination_id = dest.id
+    WHERE d.is_active
+      AND (
+        dest.city ILIKE 'unknown,%'
+        OR dest.city ILIKE 'various,%'
+        OR dest.city LIKE '%,'
+        OR TRIM(dest.city) = ''
+      )
+  `)) as unknown as { rows?: { id: number }[] } | { id: number }[];
+  const badCityIds = ((Array.isArray(badCityRows) ? badCityRows : badCityRows.rows ?? []) as { id: number }[]).map((r) => r.id);
+  console.log(`Deals with bad city strings: ${badCityIds.length}`);
+  if (badCityIds.length > 0) {
+    // Don't deactivate — fix in place by repointing to "Unknown" / "Various"
+    // canonical destinations. We only deactivate when the title is the
+    // problem; a bad city string is recoverable.
+    if (FIX) {
+      await db.execute(sql`
+        UPDATE destinations SET city = REGEXP_REPLACE(TRIM(BOTH ',' FROM TRIM(city)), '\\s*,\\s*$', '')
+        WHERE city LIKE '%,'
+           OR city ILIKE 'unknown,%'
+           OR city ILIKE 'various,%'
+      `);
+      console.log(`  → trailing-comma cities normalized in destinations table`);
+    }
+    totalFlagged += badCityIds.length;
+  }
+
   // ── Summary ──────────────────────────────────────────────────────────────
   console.log(`\n=== Summary ===`);
   console.log(`Total flagged: ${totalFlagged}`);
