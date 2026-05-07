@@ -157,16 +157,19 @@ async function main() {
   }
 
   // ── 8. Placeholder titles ("Resort Information", "special offer", "Author - Unknown") ──
-  // Surfaced by the 2026-05-06 visual QA pass — Wyndham/Marriott pages were
-  // showing these scraper-fallback strings as deal titles. Different scraper
-  // bugs produce them; defense-in-depth here catches whatever slipped through.
+  // Surfaced by the 2026-05-06 visual QA pass — Marriott pages were
+  // emitting "special offer - X Vacation Package" because the scraper's
+  // h1/h2 selector was grabbing a generic banner. Different scraper
+  // bugs produce these; defense-in-depth catches whatever slipped through.
   const placeholderTitles = await selectIds(sql`
     SELECT id FROM deals
     WHERE is_active AND (
-      LOWER(title) = 'resort information'
-      OR LOWER(title) = 'special offer'
+      LOWER(title) LIKE 'resort information%'
+      OR LOWER(title) LIKE 'special offer%'
       OR LOWER(title) LIKE 'author -%'
       OR LOWER(title) LIKE 'author:%'
+      OR LOWER(title) LIKE 'vacation package%'
+      OR LOWER(title) LIKE 'promotion%'
       OR LENGTH(title) < 5
     )
   `);

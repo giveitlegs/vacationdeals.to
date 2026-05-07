@@ -218,13 +218,37 @@ export async function runMarriottCrawler() {
       // Extract Bonvoy points
       const bonvoyPoints = parseBonvoyPoints(bodyText);
 
-      // Resort name: from userData, title, or page heading
+      // Resort name: from userData, title, or page heading. Generic
+      // promotional banner text on Marriott landers ("Special Offer",
+      // "Resort Information", "Vacation Package", "Promotion") was
+      // winning the h1/h2 selector and producing titles like
+      // "special offer - Orlando Vacation Package" — caught in the
+      // 2026-05-06 visual QA pass. Skip those and fall through to the
+      // page title tag, which always carries the actual resort name.
+      const isPlaceholderName = (s: string): boolean => {
+        const lower = s.toLowerCase().trim();
+        return (
+          lower.length < 5 ||
+          lower === "special offer" ||
+          lower === "resort information" ||
+          lower === "vacation package" ||
+          lower === "promotion" ||
+          lower === "offer"
+        );
+      };
       let resortName = userData.resort || "";
       if (!resortName) {
         const heading = await page
           .$eval("h1, h2", (el) => el.textContent?.trim() || "")
           .catch(() => "");
-        resortName = heading || titleText.split("|")[0].trim();
+        resortName = !isPlaceholderName(heading) ? heading : titleText.split("|")[0].trim();
+      }
+      // Final guard: if even the title fallback gave us a placeholder,
+      // skip the deal — better to emit nothing than poison the public
+      // site with "special offer" titles.
+      if (isPlaceholderName(resortName)) {
+        log.info(`Skipping ${url} - could not extract a real resort name (got "${resortName}")`);
+        return;
       }
 
       // Location from userData or parse from page
