@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { ExtensionBanner } from "@/components/ExtensionBanner";
 import { DealTicker } from "@/components/DealTicker";
 import { AdSlot } from "@/components/AdSlot";
+import { SitewideLeadGenPopup } from "@/components/SitewideLeadGenPopup";
 
 export default function FrontendLayout({
   children,
@@ -29,6 +30,7 @@ export default function FrontendLayout({
       </main>
       <Footer />
       <ExtensionBanner />
+      <SitewideLeadGenPopup />
     </>
   );
 }
