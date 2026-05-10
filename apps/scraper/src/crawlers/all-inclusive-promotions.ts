@@ -4,18 +4,9 @@ import { storeDeal } from "../storage/deal-store";
 const SOURCE_KEY = "all-inclusive-promotions";
 const BASE_URL = "https://www.allinclusivepromotions.com";
 
-function slugify(s: string): string {
-  return s
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 80);
-}
-
-// Single-page card grid. Each card has an h3.el-title.uk-card-title and a
-// price like "$479" or "$1,408". The page has no per-card detail URLs, so
-// we mint a deterministic url-fragment per destination to keep the unique
-// constraint on deals.url happy.
+// Each destination card on the index page is an <a class="uk-card ..."> with
+// a real /destination-...-promotions href. Title sits in h3.el-title and the
+// price phrase ("From $479") lives in the .el-meta line right after.
 export async function runAllInclusivePromotionsCrawler() {
   const crawler = new CheerioCrawler({
     maxRequestsPerCrawl: 5,
@@ -24,32 +15,30 @@ export async function runAllInclusivePromotionsCrawler() {
     async requestHandler({ request, $, log }) {
       log.info(`Processing ${request.url}`);
 
-      const titles = $("h3.el-title.uk-card-title");
-      log.info(`Found ${titles.length} destination cards`);
+      const cards = $("a.uk-card");
+      log.info(`Found ${cards.length} card anchors`);
+      let stored = 0;
 
-      titles.each((_, el) => {
-        const titleEl = $(el);
-        const title = titleEl.text().trim();
+      cards.each((_, el) => {
+        const card = $(el);
+        const title = card.find("h3.el-title").first().text().trim();
         if (!title) return;
 
-        // The card body sits in the parent's parent (UIKit el-* nesting).
-        // Walk up two ancestors to capture the price.
-        const card = titleEl.closest(".uk-card, .el-item, [class*='card']").first();
-        const bodyText = (card.length ? card : titleEl.parent().parent()).text();
+        const meta = card.find(".el-meta").first().text();
+        const body = `${meta} ${card.text()}`;
 
-        const priceCandidates = Array.from(bodyText.matchAll(/\$([\d,]+)/g))
+        const priceCandidates = Array.from(body.matchAll(/\$([\d,]+)/g))
           .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
           .filter((n) => Number.isFinite(n) && n >= 50);
-        const price = priceCandidates.length ? Math.max(...priceCandidates) : NaN;
+        const price = priceCandidates.length ? Math.min(...priceCandidates) : NaN;
         if (!Number.isFinite(price)) {
           log.warning(`Skipping "${title}" — no valid price`);
           return;
         }
 
-        const nightsMatch = bodyText.match(/(\d+)\s*nights?/i);
+        const nightsMatch = body.match(/(\d+)\s*nights?/i) || body.match(/(\d+)\s*days?/i);
         const nights = nightsMatch ? parseInt(nightsMatch[1], 10) : 4;
 
-        // Destination from title
         const destMap: Record<string, { city: string; state: string; country: string }> = {
           "punta cana": { city: "Punta Cana", state: "La Altagracia", country: "DO" },
           cancun: { city: "Cancun", state: "QR", country: "MX" },
@@ -72,11 +61,16 @@ export async function runAllInclusivePromotionsCrawler() {
           }
         }
 
-        // No per-destination URLs exist on the source — synthesize a unique
-        // fragment so each destination gets its own row in deals.url.
-        const url = `${BASE_URL}/#${slugify(title)}`;
+        const href = card.attr("href") || "";
+        const url = href
+          ? href.startsWith("http")
+            ? href
+            : `${BASE_URL}${href.startsWith("/") ? "" : "/"}${href}`
+          : `${BASE_URL}/`;
 
-        const imageUrl = card.find("img").first().attr("src") || card.find("[data-src]").first().attr("data-src");
+        const imageUrl =
+          card.find("img").first().attr("src") ||
+          card.find("[data-src]").first().attr("data-src");
 
         storeDeal(
           {
@@ -96,7 +90,10 @@ export async function runAllInclusivePromotionsCrawler() {
           },
           SOURCE_KEY,
         );
+        stored += 1;
       });
+
+      log.info(`Stored ${stored} deals from index page`);
     },
   });
 
