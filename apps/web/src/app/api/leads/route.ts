@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { notifyFormSubmission } from "@/lib/email/notify";
+import { sendWelcomeEmail } from "@/lib/email/welcome";
 
 /**
  * POST /api/leads
@@ -74,6 +75,10 @@ export async function POST(request: NextRequest) {
         consent: tcpaConsent && termsConsent ? "TCPA + Terms accepted" : "incomplete",
       },
     }).catch((err) => console.warn("[leads] notify failed:", err));
+
+    sendWelcomeEmail({ email, source: source || "VacationDeals.to" }).catch((err) =>
+      console.warn("[leads] welcome failed:", err),
+    );
 
     return NextResponse.json({ ok: true });
   } catch (e) {
