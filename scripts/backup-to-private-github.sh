@@ -78,6 +78,18 @@ if [ -d "reports/sf-crawls" ]; then
     (cd "${BACKUP_DIR}/reports/sf-crawls" && tar -xf -)
 fi
 
+# Mirror DB dumps (gitignored from main repo, but private repo holds them).
+# Keep only the 7 most-recent dumps in the mirror to bound repo size.
+if [ -d "backups/db" ]; then
+  echo "Including backups/db/ (last 7 dumps, gitignored, private-only)..."
+  mkdir -p "${BACKUP_DIR}/backups/db"
+  rm -f "${BACKUP_DIR}/backups/db/"*.gz "${BACKUP_DIR}/backups/db/"*.pgdump 2>/dev/null || true
+  # shellcheck disable=SC2012
+  ls -t backups/db/*.gz backups/db/*.pgdump 2>/dev/null | head -7 | while read -r f; do
+    cp -p "$f" "${BACKUP_DIR}/backups/db/"
+  done
+fi
+
 # ── 4. Defensive secret scan on the mirror ──
 cd "${BACKUP_DIR}"
 

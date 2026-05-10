@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import crypto from "node:crypto";
+import { notifyFormSubmission } from "@/lib/email/notify";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -65,6 +66,20 @@ export async function POST(req: Request) {
       userAgent,
       status: "new",
     });
+
+    notifyFormSubmission({
+      formName: "Scout application",
+      data: {
+        name,
+        email,
+        phone: body.phone?.trim() || "",
+        cityState: body.cityState?.trim() || "",
+        willingToTravelMiles: body.willingToTravelMiles ?? "",
+        brandsExperienced: body.brandsExperienced?.join(", ") || "",
+        whyInterested: body.whyInterested?.trim() || "",
+      },
+    }).catch((err) => console.warn("[scout] notify failed:", err));
+
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Couldn't save your application. Try again in a moment." }, { status: 500 });

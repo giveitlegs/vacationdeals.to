@@ -104,6 +104,9 @@ export async function generateMetadata({ params }: DealPageProps): Promise<Metad
     title,
     description,
     alternates: { canonical: `https://vacationdeals.to/deals/${slug}` },
+    robots: deal.isActive
+      ? undefined
+      : { index: false, follow: true, googleBot: { index: false, follow: true } },
     openGraph: {
       title,
       description,

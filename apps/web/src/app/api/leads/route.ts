@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { notifyFormSubmission } from "@/lib/email/notify";
 
 /**
  * POST /api/leads
@@ -61,6 +62,18 @@ export async function POST(request: NextRequest) {
       termsConsent: true,
       doubleOptInConfirmed: false, // will be set true after confirmation
     });
+
+    notifyFormSubmission({
+      formName: "Lead opt-in",
+      data: {
+        email,
+        phone: phone || "",
+        source: source || "(not provided)",
+        ip: ipAddress,
+        userAgent: userAgent.slice(0, 200),
+        consent: tcpaConsent && termsConsent ? "TCPA + Terms accepted" : "incomplete",
+      },
+    }).catch((err) => console.warn("[leads] notify failed:", err));
 
     return NextResponse.json({ ok: true });
   } catch (e) {

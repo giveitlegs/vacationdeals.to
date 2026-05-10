@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import crypto from "node:crypto";
+import { notifyFormSubmission } from "@/lib/email/notify";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -98,6 +99,20 @@ export async function POST(req: Request) {
         status: "pending",
       })
       .returning({ id: pitchDiaries.id });
+
+    notifyFormSubmission({
+      formName: "Pitch diary",
+      data: {
+        submitterEmail: body.submitterEmail?.trim() || "(anonymous)",
+        brand: brandSlug || "(unknown)",
+        location: body.locationCity || "",
+        resort: body.resortName || "",
+        pressureLevel: body.pressureLevel ?? "",
+        durationMinutes: body.durationMinutes ?? "",
+        didTheyBuy: body.didTheyBuy ? "yes" : "no",
+        story: story.slice(0, 500) + (story.length > 500 ? "…" : ""),
+      },
+    }).catch((err) => console.warn("[pitch] notify failed:", err));
 
     return NextResponse.json({ ok: true, id: inserted[0]?.id });
   } catch (e) {
