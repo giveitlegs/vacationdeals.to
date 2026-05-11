@@ -15,30 +15,38 @@ export async function runHiltonheadIslandDealsCrawler() {
     async requestHandler({ request, $, log }) {
       log.info(`Processing ${request.url}`);
 
-      // Each hotel card has a .robo-header containing the hotel name.
-      const headers = $(".robo-header");
+      // Each hotel card is a .hotel-name block containing the name in
+      // .robo-header. We anchor on .hotel-name (one per hotel) instead of
+      // .robo-header (which also appears inside package-description headers).
+      const headers = $(".hotel-name");
       log.info(`Found ${headers.length} hotel cards`);
       let stored = 0;
 
       headers.each((_, el) => {
         const headerEl = $(el);
-        const hotelName = headerEl.text().trim().replace(/\s+/g, " ");
+        const hotelName = headerEl.find(".robo-header").first().text().trim().replace(/\s+/g, " ")
+          || headerEl.text().trim().replace(/\s+/g, " ");
         if (!hotelName) return;
 
-        // Walk forward to find the price <h6>...Packages from $XXX</h6>.
-        const card = headerEl.closest("div").first();
-        const block = card.length ? card : headerEl.parent();
+        // The price block "Packages from $XXX" lives in a sibling after the
+        // .hotel-name div, all inside the same .boxed wrapper.
+        const card = headerEl.closest(".boxed, .hotel, .hotel-card, div.full, .listing").first();
+        const block = card.length ? card : headerEl.parent().parent();
         const blockText = block.text();
 
         const priceMatch = blockText.match(/Packages?\s*(?:from\s*)?\$([\d,]+)/i);
         if (!priceMatch) {
-          log.debug(`Skipping "${hotelName}" — no price`);
-          return;
+          // Fallback: first $XXX in block text where XXX >= 50.
+          const prices = Array.from(blockText.matchAll(/\$([\d,]+)/g))
+            .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
+            .filter((n) => Number.isFinite(n) && n >= 50 && n <= 999);
+          if (!prices.length) return;
+          var price = Math.min(...prices);
+        } else {
+          var price = parseInt(priceMatch[1].replace(/,/g, ""), 10);
         }
-        const price = parseInt(priceMatch[1].replace(/,/g, ""), 10);
         if (!Number.isFinite(price) || price < 50) return;
 
-        // Booking URL: <a class="btn-hv orange-bg" href="/hotel.php?id=...">
         const bookHref = block.find('a.btn-hv, a[href*="hotel.php"]').first().attr("href") || "/";
         const url = bookHref.startsWith("http") ? bookHref : `${BASE_URL}${bookHref}`;
 
