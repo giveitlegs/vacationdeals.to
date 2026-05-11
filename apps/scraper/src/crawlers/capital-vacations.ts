@@ -1,546 +1,114 @@
 import { CheerioCrawler } from "crawlee";
 import { storeDeal } from "../storage/deal-store";
-import type { ScrapedDeal } from "@vacationdeals/shared";
 
-/**
- * Capital Vacations crawler.
- *
- * Capital Vacations (capitalvacationspackages.com) offers timeshare preview
- * vacation packages across 7+ destinations. The site uses the Greenshift
- * WordPress page builder which renders most content via JavaScript.
- *
- * Known destinations: Orlando, Branson, Myrtle Beach, Pigeon Forge, Sedona,
- * South Florida, Cape Cod.
- *
- * Standard package: $199 for 4 days / 3 nights. Sleeps up to 4.
- * Requires 90-120 minute timeshare sales presentation.
- * $600 penalty for not attending the presentation.
- * 12 months to travel, no blackout dates.
- * Taxes and resort fees due at check-in (not included in quoted price).
- *
- * Strategy:
- *   1. Crawl individual destination pages for prices and resort details
- *   2. Parse any server-rendered content (some pages render, others don't)
- *   3. Fall back to known deal data for JS-heavy pages
- */
+const SOURCE_KEY = "capital-vacations";
+const BASE_URL = "https://capitalvacationspackages.com";
 
-const BASE_URL = "https://www.capitalvacationspackages.com";
-
-// ── Known destinations and resorts ──────────────────────────────────────────
-// Data gathered from accessible destination pages and promotional materials.
-
-interface CapitalVacationsDestination {
-  slug: string;
-  city: string;
-  state: string;
-  resorts: string[];
-  price: number;
-  durationNights: number;
-  durationDays: number;
-  amenities: string[];
-  attractions: string[];
-}
-
-const DESTINATIONS: CapitalVacationsDestination[] = [
-  {
-    slug: "orlando",
-    city: "Orlando",
-    state: "FL",
-    resorts: ["Calypso Resort", "Silver Lake Resort"],
-    price: 199,
-    durationNights: 3,
-    durationDays: 4,
-    amenities: [
-      "Resort-style pools",
-      "Fitness center",
-      "Game room",
-      "Playground",
-      "Complimentary Wi-Fi",
-      "Laundry facilities",
-    ],
-    attractions: [
-      "Walt Disney World",
-      "Universal Studios",
-      "SeaWorld Orlando",
-      "ICON Park",
-    ],
-  },
-  {
-    slug: "branson",
-    city: "Branson",
-    state: "MO",
-    resorts: ["Branson Resort"],
-    price: 199,
-    durationNights: 3,
-    durationDays: 4,
-    amenities: [
-      "Indoor/outdoor pools",
-      "Hot tubs",
-      "Fitness center",
-      "Game room",
-      "BBQ areas",
-      "Complimentary Wi-Fi",
-    ],
-    attractions: [
-      "Silver Dollar City",
-      "Branson Strip shows",
-      "Table Rock Lake",
-      "Dolly Parton's Stampede",
-    ],
-  },
-  {
-    slug: "myrtle-beach",
-    city: "Myrtle Beach",
-    state: "SC",
-    resorts: ["Myrtle Beach Resort"],
-    price: 199,
-    durationNights: 3,
-    durationDays: 4,
-    amenities: [
-      "Beachfront access",
-      "Indoor/outdoor pools",
-      "Hot tubs",
-      "Fitness center",
-      "Lazy river",
-      "Complimentary Wi-Fi",
-    ],
-    attractions: [
-      "Broadway at the Beach",
-      "Myrtle Beach Boardwalk",
-      "Ripley's Aquarium",
-      "SkyWheel",
-    ],
-  },
-  {
-    slug: "pigeon-forge",
-    city: "Pigeon Forge",
-    state: "TN",
-    resorts: ["Pigeon Forge Resort"],
-    price: 199,
-    durationNights: 3,
-    durationDays: 4,
-    amenities: [
-      "Indoor/outdoor pools",
-      "Hot tubs",
-      "Fitness center",
-      "Game room",
-      "BBQ areas",
-      "Complimentary Wi-Fi",
-    ],
-    attractions: [
-      "Dollywood",
-      "Great Smoky Mountains National Park",
-      "Titanic Museum",
-      "Ripley's Aquarium of the Smokies",
-      "Smoky Mountain Alpine Coaster",
-    ],
-  },
-  {
-    slug: "sedona",
-    city: "Sedona",
-    state: "AZ",
-    resorts: ["Sedona Springs Resort", "Villas of Sedona"],
-    price: 199,
-    durationNights: 3,
-    durationDays: 4,
-    amenities: [
-      "Clubhouse",
-      "Fitness center",
-      "Game room",
-      "Indoor/outdoor pools",
-      "Hot tubs",
-      "BBQ areas",
-      "Sauna",
-      "Putting green",
-      "Playground",
-      "Activity center",
-      "Complimentary Wi-Fi",
-      "Laundry facilities",
-    ],
-    attractions: [
-      "Red Rock scenic drives",
-      "Sedona vortex sites",
-      "Chapel of the Holy Cross",
-      "Slide Rock State Park",
-    ],
-  },
-  {
-    slug: "south-florida",
-    city: "South Florida",
-    state: "FL",
-    resorts: ["South Florida Resort"],
-    price: 199,
-    durationNights: 3,
-    durationDays: 4,
-    amenities: [
-      "Resort-style pools",
-      "Hot tubs",
-      "Fitness center",
-      "BBQ areas",
-      "Complimentary Wi-Fi",
-    ],
-    attractions: [
-      "Fort Lauderdale Beach",
-      "Everglades National Park",
-      "Miami South Beach",
-      "Key Biscayne",
-    ],
-  },
-  {
-    slug: "cape-cod",
-    city: "Cape Cod",
-    state: "MA",
-    resorts: ["Cape Cod Resort"],
-    price: 199,
-    durationNights: 3,
-    durationDays: 4,
-    amenities: [
-      "Indoor/outdoor pools",
-      "Hot tubs",
-      "Fitness center",
-      "Game room",
-      "BBQ areas",
-      "Complimentary Wi-Fi",
-    ],
-    attractions: [
-      "Cape Cod National Seashore",
-      "Provincetown",
-      "Whale watching tours",
-      "Martha's Vineyard ferry",
-    ],
-  },
+// Each destination page has a "Visit {City} for Only ${PRICE}*" headline.
+// The list of properties is rendered as h2 cards under "Resorts" sections.
+const DESTINATIONS = [
+  { url: "/orlando/", city: "Orlando", state: "FL", country: "US" },
+  { url: "/branson/", city: "Branson", state: "MO", country: "US" },
+  { url: "/cape-cod/", city: "Cape Cod", state: "MA", country: "US" },
+  { url: "/hilton-head/", city: "Hilton Head Island", state: "SC", country: "US" },
+  { url: "/maui/", city: "Maui", state: "HI", country: "US" },
+  { url: "/minnesotas-breezy-point/", city: "Breezy Point", state: "MN", country: "US" },
+  { url: "/myrtle-beach/", city: "Myrtle Beach", state: "SC", country: "US" },
+  { url: "/pigeon-forge/", city: "Pigeon Forge", state: "TN", country: "US" },
+  { url: "/sedona/", city: "Sedona", state: "AZ", country: "US" },
+  { url: "/south-florida/", city: "South Florida", state: "FL", country: "US" },
 ];
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
-
-function parsePrice(text: string): number | null {
-  const match = text.replace(/,/g, "").match(/\$\s*(\d+)/);
-  return match ? parseInt(match[1], 10) : null;
+function cleanTitle(s: string): string {
+  return s.replace(/\s+/g, " ").trim();
 }
-
-function parseDuration(text: string): { nights: number; days: number } | null {
-  let m = text.match(/(\d+)\s*days?\s*[/,]\s*(\d+)\s*nights?/i);
-  if (m) return { days: parseInt(m[1], 10), nights: parseInt(m[2], 10) };
-
-  m = text.match(/(\d+)\s*nights?\s*[/,]\s*(\d+)\s*days?/i);
-  if (m) return { nights: parseInt(m[1], 10), days: parseInt(m[2], 10) };
-
-  m = text.match(/(\d+)\s*days?\s*(\d+)\s*nights?/i);
-  if (m) return { days: parseInt(m[1], 10), nights: parseInt(m[2], 10) };
-
-  m = text.match(/(\d+)\s*[- ]?night/i);
-  if (m) {
-    const nights = parseInt(m[1], 10);
-    return { nights, days: nights + 1 };
-  }
-
-  return null;
-}
-
-function findDestinationByUrl(url: string): CapitalVacationsDestination | undefined {
-  for (const dest of DESTINATIONS) {
-    if (url.includes(`/${dest.slug}/`) || url.endsWith(`/${dest.slug}`)) {
-      return dest;
-    }
-  }
-  return undefined;
-}
-
-// ── Main crawler ────────────────────────────────────────────────────────────
 
 export async function runCapitalVacationsCrawler() {
-  const processedKeys = new Set<string>();
-  let scrapedFromLive = false;
-
   const crawler = new CheerioCrawler({
-    maxRequestsPerCrawl: 20,
-    maxConcurrency: 2,
-    requestHandlerTimeoutSecs: 60,
-    maxRequestRetries: 1,
+    maxRequestsPerCrawl: 15,
+    maxRequestRetries: 2,
+    requestHandlerTimeoutSecs: 30,
+    async requestHandler({ request, $, log }) {
+      const dest = (request.userData as { dest?: typeof DESTINATIONS[number] }).dest;
+      if (!dest) {
+        log.warning(`No destination in userData for ${request.url}`);
+        return;
+      }
 
-    async requestHandler({ request, $, body, log }) {
-      log.info(`Scraping ${request.url}`);
-
-      const html = typeof body === "string" ? body : body.toString();
-      const currentUrl = request.url;
       const bodyText = $("body").text();
 
-      // Match URL to known destination
-      const knownDest = findDestinationByUrl(currentUrl);
-
-      // ── Strategy 1: Extract price from page text ──────────────────────
-      let extractedPrice: number | null = null;
-      let extractedDuration: { nights: number; days: number } | null = null;
-      let extractedResorts: string[] = [];
-
-      // Check for price in page text (e.g., "$199")
-      const priceMatch = bodyText.match(
-        /\$\s*(\d{2,4})\s*(?:per\s*family|per\s*person|limited[- ]time)?/i
-      );
-      if (priceMatch) {
-        const price = parseInt(priceMatch[1], 10);
-        if (price >= 49 && price <= 999) {
-          extractedPrice = price;
-        }
+      // Extract the promo headline price like "Visit Orlando for Only $199*"
+      const headlineMatch = bodyText.match(/Only\s*\$([\d,]+)/i);
+      const promoPrice = headlineMatch
+        ? parseInt(headlineMatch[1].replace(/,/g, ""), 10)
+        : NaN;
+      if (!Number.isFinite(promoPrice) || promoPrice < 50) {
+        log.warning(`[${dest.city}] No headline price found`);
+        return;
       }
 
-      // Check for duration in page text
-      extractedDuration = parseDuration(bodyText);
+      // Retail / "value" price for savings calc — first 4-digit figure in document.
+      const valueMatches = Array.from(bodyText.matchAll(/\$([\d,]+)/g))
+        .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
+        .filter((n) => Number.isFinite(n) && n >= 500);
+      const valuePrice = valueMatches.length ? Math.max(...valueMatches) : null;
 
-      // Look for "original" or "regular" price
-      let originalPrice: number | undefined;
-      const origMatch = bodyText.match(
-        /(?:regular(?:ly)?|original(?:ly)?|was|value)\s*:?\s*\$\s*(\d{3,4})/i
-      );
-      if (origMatch) {
-        originalPrice = parseInt(origMatch[1], 10);
-      }
+      // Nights — typically 4D/3N or 5D/4N.
+      const nightsMatch = bodyText.match(/(\d+)\s*Nights?/i);
+      const nights = nightsMatch ? parseInt(nightsMatch[1], 10) : (dest.city === "Maui" ? 4 : 3);
 
-      // ── Strategy 2: Extract resort names from headings and text ───────
-      $("h1, h2, h3, h4").each((_i, el) => {
-        const text = $(el).text().trim();
-        if (
-          text.length > 3 &&
-          text.length < 80 &&
-          (text.toLowerCase().includes("resort") ||
-            text.toLowerCase().includes("villa") ||
-            text.toLowerCase().includes("lodge"))
-        ) {
-          extractedResorts.push(text);
-        }
+      // Resort names appear as h2 headings between "What's Required" and "Resort Highlights"
+      // — pick h2 elements that look like proper-noun resort names (Title Case, short).
+      const resortNames: string[] = [];
+      $("h2.gspb_heading").each((_, el) => {
+        const t = cleanTitle($(el).text());
+        if (!t) return;
+        // Skip section labels.
+        if (/(What|Visit|Limited|Offer|Gallery|About|Reviews|Highlights|Featured)/i.test(t)) return;
+        if (t.length < 4 || t.length > 60) return;
+        if (/[$%]/.test(t)) return;
+        if (!resortNames.includes(t)) resortNames.push(t);
       });
 
-      // ── Strategy 3: Extract data from script tags ─────────────────────
-      $("script").each((_i, el) => {
-        const content = $(el).html() || "";
-
-        // Look for embedded package/pricing data
-        const pricePatterns = [
-          /(?:price|cost|amount)\s*[=:]\s*["']?\$?(\d{2,4})["']?/gi,
-          /["']price["']\s*:\s*["']?\$?(\d{2,4})["']?/gi,
-        ];
-
-        for (const pattern of pricePatterns) {
-          let match: RegExpExecArray | null;
-          while ((match = pattern.exec(content)) !== null) {
-            const price = parseInt(match[1], 10);
-            if (price >= 49 && price <= 999 && !extractedPrice) {
-              extractedPrice = price;
-            }
-          }
-        }
-      });
-
-      // ── Strategy 4: Check JSON-LD structured data ─────────────────────
-      $('script[type="application/ld+json"]').each((_i, el) => {
-        try {
-          const jsonStr = $(el).html();
-          if (!jsonStr) return;
-          const data = JSON.parse(jsonStr);
-
-          if (data.offers?.price) {
-            const price =
-              typeof data.offers.price === "string"
-                ? parseInt(data.offers.price, 10)
-                : data.offers.price;
-            if (price >= 49 && price <= 999 && !extractedPrice) {
-              extractedPrice = price;
-            }
-          }
-        } catch {
-          // skip
-        }
-      });
-
-      // ── Strategy 5: Look for presentation/requirements info ───────────
-      let presentationMinutes = 120; // default
-      const presMatch = bodyText.match(/(\d+)\s*[- ]?minute\s*(?:tour|sales|timeshare|presentation)/i);
-      if (presMatch) {
-        presentationMinutes = parseInt(presMatch[1], 10);
+      if (resortNames.length === 0) {
+        // Fallback: one deal per destination using the city as resort name.
+        resortNames.push(`${dest.city} Resort`);
       }
 
-      // Check for the "90-120 minute" range
-      const rangeMatch = bodyText.match(/(\d+)\s*[- ]?\s*(\d+)\s*[- ]?minute/i);
-      if (rangeMatch) {
-        // Use the upper bound
-        presentationMinutes = parseInt(rangeMatch[2], 10);
+      log.info(`[${dest.city}] Resorts: ${resortNames.join(" | ")} @ $${promoPrice}`);
+      let stored = 0;
+
+      for (const resortName of resortNames) {
+        const url = `${BASE_URL}${dest.url}#${resortName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
+        storeDeal(
+          {
+            title: `${resortName} — ${dest.city} Capital Vacations Preview Package`,
+            price: promoPrice,
+            originalPrice: valuePrice || undefined,
+            durationNights: nights,
+            durationDays: nights + 1,
+            city: dest.city,
+            state: dest.state,
+            country: dest.country,
+            brandSlug: SOURCE_KEY,
+            url,
+            resortName,
+            inclusions: ["Resort accommodations", "Capital Vacations preview tour required"],
+            presentationMinutes: 120,
+          },
+          SOURCE_KEY,
+        );
+        stored += 1;
       }
 
-      // ── Build deals from extracted data ───────────────────────────────
-      if (knownDest && (extractedPrice || bodyText.length > 500)) {
-        const price = extractedPrice || knownDest.price;
-        const duration = extractedDuration || {
-          nights: knownDest.durationNights,
-          days: knownDest.durationDays,
-        };
-        const resorts =
-          extractedResorts.length > 0 ? extractedResorts : knownDest.resorts;
-
-        if (extractedPrice) {
-          scrapedFromLive = true;
-          log.info(`Extracted live price $${extractedPrice} for ${knownDest.city}`);
-        }
-
-        // Create a deal per resort at this destination
-        for (const resort of resorts) {
-          const key = `cv-${knownDest.city}-${resort}-${price}`;
-          if (processedKeys.has(key)) continue;
-          processedKeys.add(key);
-
-          const deal: ScrapedDeal = {
-            title: `Capital Vacations ${knownDest.city} – ${resort}`,
-            price,
-            originalPrice,
-            durationNights: duration.nights,
-            durationDays: duration.days,
-            description: `${duration.days} Days / ${duration.nights} Nights at ${resort} in ${knownDest.city}, ${knownDest.state}. Sleeps up to 4 guests. 12 months to travel with no blackout dates. Taxes and resort fees due at check-in.`,
-            resortName: resort,
-            url: `${BASE_URL}/${knownDest.slug}/`,
-            inclusions: [
-              `${duration.days} Days / ${duration.nights} Nights accommodation`,
-              "Sleeps up to 4 guests",
-              "12 months to travel, no blackout dates",
-              "Guaranteed pricing",
-              ...knownDest.amenities.slice(0, 4).map((a) => `${a} access`),
-            ],
-            requirements: [
-              `Attend ${presentationMinutes}-minute timeshare sales presentation`,
-              "$600 penalty for not attending presentation",
-              "No purchase obligation",
-              "Taxes and resort fees due at check-in",
-            ],
-            presentationMinutes,
-            travelWindow: "12 months from purchase, no blackout dates",
-            city: knownDest.city,
-            state: knownDest.state,
-            country: "US",
-            brandSlug: "capital-vacations",
-          };
-
-          try {
-            await storeDeal(deal, "capital-vacations", html);
-            log.info(
-              `Stored deal: ${deal.title} ($${deal.price}) [${extractedPrice ? "live" : "catalog"}]`
-            );
-          } catch (err) {
-            log.error(`Failed to store deal ${deal.title}: ${err}`);
-          }
-        }
-      }
-
-      // ── Discover destination links from the main pages ────────────────
-      if (
-        currentUrl === `${BASE_URL}/` ||
-        currentUrl === `${BASE_URL}/packages/` ||
-        currentUrl.endsWith("/packages/")
-      ) {
-        const destLinks = new Set<string>();
-
-        for (const dest of DESTINATIONS) {
-          destLinks.add(`${BASE_URL}/${dest.slug}/`);
-        }
-
-        $("a[href]").each((_i, el) => {
-          const href = $(el).attr("href") || "";
-          if (
-            href.includes("capitalvacationspackages.com") &&
-            !href.includes("/packages/") &&
-            !href.includes("/wp-") &&
-            !href.endsWith(".com/") &&
-            !href.endsWith(".com")
-          ) {
-            destLinks.add(href);
-          }
-        });
-
-        if (destLinks.size > 0) {
-          await crawler.addRequests(
-            Array.from(destLinks).map((url) => ({ url }))
-          );
-          log.info(`Enqueued ${destLinks.size} destination pages`);
-        }
-      }
-    },
-
-    async failedRequestHandler({ request, log }) {
-      log.warning(`Request failed: ${request.url}`);
+      log.info(`[${dest.city}] Stored ${stored} deals`);
     },
   });
 
-  // ── Run crawler ─────────────────────────────────────────────────────────
-  const seedUrls = [
-    { url: `${BASE_URL}/` },
-    { url: `${BASE_URL}/packages/` },
-    ...DESTINATIONS.map((dest) => ({ url: `${BASE_URL}/${dest.slug}/` })),
-  ];
-
-  await crawler.run(seedUrls);
-
-  // ── Fallback: Seed destinations not found during live scraping ─────────
-  // Capital Vacations uses Greenshift page builder (JS-heavy). Some pages
-  // render server-side, others don't. Seed remaining from known catalog.
-
-  let seededCount = 0;
-  for (const dest of DESTINATIONS) {
-    for (const resort of dest.resorts) {
-      const key = `cv-${dest.city}-${resort}-${dest.price}`;
-      if (processedKeys.has(key)) continue;
-
-      processedKeys.add(key);
-      seededCount++;
-
-      const deal: ScrapedDeal = {
-        title: `Capital Vacations ${dest.city} – ${resort}`,
-        price: dest.price,
-        durationNights: dest.durationNights,
-        durationDays: dest.durationDays,
-        description: `${dest.durationDays} Days / ${dest.durationNights} Nights at ${resort} in ${dest.city}, ${dest.state}. Sleeps up to 4 guests. 12 months to travel with no blackout dates. Taxes and resort fees due at check-in.`,
-        resortName: resort,
-        url: `${BASE_URL}/${dest.slug}/`,
-        inclusions: [
-          `${dest.durationDays} Days / ${dest.durationNights} Nights accommodation`,
-          "Sleeps up to 4 guests",
-          "12 months to travel, no blackout dates",
-          "Guaranteed pricing",
-          ...dest.amenities.slice(0, 4).map((a) => `${a} access`),
-        ],
-        requirements: [
-          "Attend 90-120 minute timeshare sales presentation",
-          "$600 penalty for not attending presentation",
-          "No purchase obligation",
-          "Taxes and resort fees due at check-in",
-        ],
-        presentationMinutes: 120,
-        travelWindow: "12 months from purchase, no blackout dates",
-        city: dest.city,
-        state: dest.state,
-        country: "US",
-        brandSlug: "capital-vacations",
-      };
-
-      try {
-        await storeDeal(deal, "capital-vacations");
-        console.log(
-          `[capital-vacations] Seeded: ${deal.title} ($${deal.price})`
-        );
-      } catch (err) {
-        console.error(
-          `[capital-vacations] Failed to seed ${deal.title}: ${err}`
-        );
-      }
-    }
-  }
-
-  if (seededCount > 0) {
-    console.log(
-      `[capital-vacations] Seeded ${seededCount} deal(s) from catalog. ` +
-        `Site uses Greenshift page builder (JS-heavy); consider PlaywrightCrawler for full scraping.`
-    );
-  }
-
-  if (scrapedFromLive) {
-    console.log(
-      "[capital-vacations] Some prices were extracted from live pages."
-    );
-  }
+  const requests = DESTINATIONS.map((d) => ({
+    url: `${BASE_URL}${d.url}`,
+    userData: { dest: d },
+  }));
+  await crawler.run(requests);
 }

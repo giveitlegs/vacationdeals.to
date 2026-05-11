@@ -76,6 +76,9 @@ import { runMassannutenCrawler } from "./crawlers/massanutten";
 import { runIWantToTravelToCrawler } from "./crawlers/iwanttotravelto";
 import { runVacationOfferCrawler } from "./crawlers/vacation-offer";
 import { runMargaritavilleCrawler } from "./crawlers/margaritaville";
+import { runTimeshareVacationPackagesCrawler } from "./crawlers/timeshare-vacation-packages";
+import { runTimeshareOrlandoCrawler } from "./crawlers/timeshare-orlando";
+import { runOrlando99Crawler } from "./crawlers/orlando99";
 
 // ── Wave definitions ────────────────────────────────────────────────────────
 
@@ -120,6 +123,9 @@ const CRAWLERS: Record<string, () => Promise<void>> = {
   iwanttotravelto: runIWantToTravelToCrawler,
   "vacation-offer": runVacationOfferCrawler,
   margaritaville: runMargaritavilleCrawler,
+  "timeshare-vacation-packages": runTimeshareVacationPackagesCrawler,
+  "timeshare-orlando": runTimeshareOrlandoCrawler,
+  orlando99: runOrlando99Crawler,
 };
 
 const WAVES: Record<number, string[]> = {
@@ -127,7 +133,7 @@ const WAVES: Record<number, string[]> = {
   2: ["mrg", "staypromo", "wyndham", "hgv"],
   3: ["marriott", "holiday-inn", "spinnaker", "vacation-village"],
   4: ["departure-depot", "vegas-timeshare", "premier-travel", "discount-vacation", "legendary", "festiva"],
-  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc", "vacationvip", "bestvacationdealz", "monster-vacations", "timeshare-presentation-deals", "all-inclusive-promotions", "exploria", "massanutten", "iwanttotravelto", "vacation-offer", "margaritaville"],
+  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc", "vacationvip", "bestvacationdealz", "monster-vacations", "timeshare-presentation-deals", "all-inclusive-promotions", "exploria", "massanutten", "iwanttotravelto", "vacation-offer", "margaritaville", "timeshare-vacation-packages", "timeshare-orlando", "orlando99"],
 };
 
 // ── Runner ──────────────────────────────────────────────────────────────────
