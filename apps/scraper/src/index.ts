@@ -39,6 +39,9 @@ import { runIWantToTravelToCrawler } from "./crawlers/iwanttotravelto";
 import { runVacationOfferCrawler } from "./crawlers/vacation-offer";
 import { runMargaritavilleCrawler } from "./crawlers/margaritaville";
 import { runPayvibeCrawler } from "./crawlers/payvibe";
+import { runTimeshareVacationPackagesCrawler } from "./crawlers/timeshare-vacation-packages";
+import { runTimeshareOrlandoCrawler } from "./crawlers/timeshare-orlando";
+import { runOrlando99Crawler } from "./crawlers/orlando99";
 import { deactivateExpiredDeals, getRunStats } from "./storage/deal-store";
 import { db } from "@vacationdeals/db";
 import { scrapeRuns, sources } from "@vacationdeals/db";
@@ -132,6 +135,9 @@ const crawlers: Record<string, () => Promise<void>> = {
   "vacation-offer": runVacationOfferCrawler,
   margaritaville: runMargaritavilleCrawler,
   payvibe: runPayvibeCrawler,
+  "timeshare-vacation-packages": runTimeshareVacationPackagesCrawler,
+  "timeshare-orlando": runTimeshareOrlandoCrawler,
+  orlando99: runOrlando99Crawler,
 };
 
 async function main() {
