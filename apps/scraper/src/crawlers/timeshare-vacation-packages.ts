@@ -26,12 +26,25 @@ const DESTINATIONS = [
   { url: "/costa-rica-all-inclusive-timeshare-promotions", city: "Costa Rica", state: "", country: "CR" },
 ];
 
-// Per-page generic destination card titles (links to other destinations,
-// not resort cards). Excluded so they don't become deals.
-const NAV_PATTERNS = [
-  /^(cancun|cabo|punta cana|puerto vallarta|aruba|jamaica|costa rica|curacao|loreto|montego bay|hilton head|gatlinburg|orlando|las vegas|daytona beach|branson|myrtle beach|williamsburg|historic williamsburg)(\s*[,-]|\s+(mexico|nevada|florida|tennessee|south carolina|north carolina|virginia|missouri|island|dominican republic))?\s*$/i,
-  /^islands of\b/i,
-];
+// A title is a destination-NAV card (not a resort) if it ends with a state
+// or country qualifier, or if it lacks any hospitality keyword like "Resort"
+// / "Hotel" / "Inn" / "Suites" / "Villa" / "Lodge" / "Casino" / "Spa" /
+// "Club" / "Tower" / "Place" / "Beach Club".
+const STATE_SUFFIX = /,\s*(florida|nevada|virginia|tennessee|south carolina|north carolina|missouri|hawaii|massachusetts|minnesota|arizona|maine|maryland|new york|california|texas)\s*$/i;
+const COUNTRY_SUFFIX = /,\s*(mexico|dominican republic|jamaica|aruba|curacao|costa rica)\s*$|-\s*(jamaica|mexico|aruba|dominican republic)\s*$/i;
+const STANDALONE_DESTINATION = /^(costa rica|cancun|cabo|punta cana|puerto vallarta|aruba|montego bay|orlando|las vegas|branson|williamsburg|gatlinburg|hilton head|myrtle beach|daytona beach|historic williamsburg)$/i;
+const HOSPITALITY_KEYWORDS = /\b(resort|hotel|inn|suite|villa|villas|lodge|casino|spa|club|tower|place|beach club|cove|residence|condominium|condo|condos|cabins?|chalet|lakes|crown|grand|oasis|oceanfront|courtyard|sandals|playa|riviera|krystal|sandos|hyatt|wyndham|westgate|holiday|hilton|marriott|sheraton|westin)\b/i;
+
+function isNavCard(title: string): boolean {
+  if (STATE_SUFFIX.test(title)) return true;
+  if (COUNTRY_SUFFIX.test(title)) return true;
+  if (STANDALONE_DESTINATION.test(title)) return true;
+  if (/^islands of\b/i.test(title)) return true;
+  // Final guardrail: no hospitality keyword AND <= 5 words → likely a nav card.
+  const words = title.split(/\s+/).filter(Boolean);
+  if (words.length <= 5 && !HOSPITALITY_KEYWORDS.test(title)) return true;
+  return false;
+}
 
 function cleanTitle(s: string): string {
   return s.replace(/\s+/g, " ").trim();
@@ -60,7 +73,7 @@ export async function runTimeshareVacationPackagesCrawler() {
         if (!resortName) return;
 
         // Filter out navigation cards (other destinations linked from the page).
-        if (NAV_PATTERNS.some((re) => re.test(resortName))) return;
+        if (isNavCard(resortName)) return;
 
         // Walk up to the card container, then find the price h2 within it.
         const card = titleEl.closest("li, .el-item, .uk-grid > div, .uk-card").first();
