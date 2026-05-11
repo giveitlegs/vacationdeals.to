@@ -62,36 +62,54 @@ export async function runTimeshareVacationPackagesCrawler() {
         return;
       }
 
-      // Match both layouts: Orlando-style (uk-h4) and Vegas/Caribbean-style (uk-card-title)
-      const titles = $("h3.el-title.uk-h4, h3.el-title.uk-card-title");
-      log.info(`[${dest.city}] Found ${titles.length} resort cards`);
+      // TVP uses three card layouts across destinations:
+      // - Orlando: h3.el-title.uk-h4 + sibling <h2>$XXX PER FAMILY
+      // - Vegas/US: h3.el-title.uk-card-title (mostly nav cards on these pages)
+      // - Caribbean: h2.el-title.uk-h2 + sibling <h2 align=center>4N/5D ... From $XXX
+      const titles = $(
+        "h3.el-title.uk-h4, h3.el-title.uk-card-title, h2.el-title.uk-h2",
+      );
+      log.info(`[${dest.city}] Found ${titles.length} potential cards`);
       let stored = 0;
 
       titles.each((_, el) => {
         const titleEl = $(el);
         const resortName = cleanTitle(titleEl.text());
         if (!resortName) return;
-
-        // Filter out navigation cards (other destinations linked from the page).
         if (isNavCard(resortName)) return;
 
-        // Walk up to the card container, then find the price h2 within it.
-        const card = titleEl.closest("li, .el-item, .uk-grid > div, .uk-card").first();
-        const container = card.length ? card : titleEl.parent().parent();
-
-        // Find the h2 that contains the price phrase. Prefer "$XXX PER FAMILY".
+        // The price always lives in the next ~3 sibling/descendant elements.
+        // Walk forward looking for the first plausible $ figure.
         let priceText = "";
-        container.find("h2").each((__, h) => {
-          const t = $(h).text();
-          if (/\$[\d,]+\s*PER\s+FAMILY/i.test(t) && !priceText) {
+        let pointer = titleEl.next();
+        for (let i = 0; i < 8 && !priceText; i++) {
+          if (!pointer.length) break;
+          const t = pointer.text();
+          if (/\$[\d,]+\s*PER\s+FAMILY/i.test(t)) {
             priceText = t;
+            break;
           }
-        });
+          // "4 Nights / 5 Days ... From $479" pattern
+          const fromMatch = t.match(/From\s*\$([\d,]+)/i);
+          if (fromMatch) {
+            priceText = `$${fromMatch[1]}`;
+            break;
+          }
+          // Any standalone $XXX (skip $200 gift card noise)
+          const anyMatch = Array.from(t.matchAll(/\$([\d,]+)/g))
+            .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
+            .filter((n) => Number.isFinite(n) && n >= 50 && n !== 200);
+          if (anyMatch.length) {
+            priceText = `$${Math.min(...anyMatch)}`;
+            break;
+          }
+          pointer = pointer.next();
+        }
 
+        // Last-resort fallback: scan the closest container.
         if (!priceText) {
-          // Fallback: take the smallest plausible $XXX in container (the headline
-          // package price is usually the lowest, gift-card values are higher).
-          // Exclude $200 (matches the common "$200 Visa gift card" inclusion).
+          const card = titleEl.closest("li, .el-item, .uk-grid > div, .uk-card").first();
+          const container = card.length ? card : titleEl.parent().parent();
           const all = Array.from(container.text().matchAll(/\$([\d,]+)/g))
             .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
             .filter((n) => Number.isFinite(n) && n >= 50 && n !== 200);
@@ -101,9 +119,12 @@ export async function runTimeshareVacationPackagesCrawler() {
         const priceMatch = priceText.match(/\$([\d,]+)/);
         const price = priceMatch ? parseInt(priceMatch[1].replace(/,/g, ""), 10) : NaN;
         if (!Number.isFinite(price) || price < 50) {
-          log.warning(`[${dest.city}] Skipping "${resortName}" — no valid price (got "${priceText}")`);
+          log.warning(`[${dest.city}] Skipping "${resortName}" — no valid price`);
           return;
         }
+
+        const card = titleEl.closest("li, .el-item, .uk-grid > div, .uk-card").first();
+        const container = card.length ? card : titleEl.parent().parent();
 
         // Look for "$200 Visa" or similar gift card mentions.
         const giftMatch = container.text().match(/\$(\d+)\s*(?:Visa|gift card|cash card)/i);
