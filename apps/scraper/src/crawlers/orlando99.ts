@@ -14,8 +14,10 @@ export async function runOrlando99Crawler() {
       log.info(`Processing ${request.url}`);
 
       // Headline price always appears as "$99" with the resort name "Westgate Town Center"
-      // in an h1.el-title.
-      const headline = $("h1.el-title").first().text().replace(/\s+/g, " ").trim();
+      // in h1.hotel-title (the resort name) or first <h1>.
+      const headline =
+        $("h1.hotel-title").first().text().replace(/\s+/g, " ").trim() ||
+        $("h1").first().text().replace(/\s+/g, " ").trim();
       const bodyText = $("body").text();
       const priceMatch = bodyText.match(/\$\s*99\b/);
       if (!priceMatch || !headline) {

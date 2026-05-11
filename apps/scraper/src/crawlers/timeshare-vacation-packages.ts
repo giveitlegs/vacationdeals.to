@@ -17,13 +17,20 @@ const DESTINATIONS = [
   { url: "/myrtle-beach-south-carolina-timeshare-promotions", city: "Myrtle Beach", state: "SC", country: "US" },
   { url: "/hilton-head-island-timeshare-promotions", city: "Hilton Head Island", state: "SC", country: "US" },
   { url: "/daytona-beach-florida-timeshare-promotions", city: "Daytona Beach", state: "FL", country: "US" },
-  { url: "/cancun-mexico-all-inclusive-timeshare-promotions", city: "Cancun", state: "QR", country: "MX" },
+  { url: "/cancun-all-inclusive-timeshare-promotions", city: "Cancun", state: "QR", country: "MX" },
   { url: "/cabo-san-lucas-all-inclusive-timeshare-promotions", city: "Cabo San Lucas", state: "BCS", country: "MX" },
   { url: "/puerto-vallarta-all-inclusive-timeshare-promotions", city: "Puerto Vallarta", state: "JA", country: "MX" },
   { url: "/punta-cana-dominican-republic-all-inclusive-timeshare-promotions", city: "Punta Cana", state: "La Altagracia", country: "DO" },
   { url: "/montego-bay-jamaica-all-inclusive-timeshare-promotions", city: "Montego Bay", state: "", country: "JM" },
   { url: "/aruba-all-inclusive-timeshare-promotions", city: "Oranjestad", state: "", country: "AW" },
   { url: "/costa-rica-all-inclusive-timeshare-promotions", city: "Costa Rica", state: "", country: "CR" },
+];
+
+// Per-page generic destination card titles (links to other destinations,
+// not resort cards). Excluded so they don't become deals.
+const NAV_PATTERNS = [
+  /^(cancun|cabo|punta cana|puerto vallarta|aruba|jamaica|costa rica|curacao|loreto|montego bay|hilton head|gatlinburg|orlando|las vegas|daytona beach|branson|myrtle beach|williamsburg|historic williamsburg)(\s*[,-]|\s+(mexico|nevada|florida|tennessee|south carolina|north carolina|virginia|missouri|island|dominican republic))?\s*$/i,
+  /^islands of\b/i,
 ];
 
 function cleanTitle(s: string): string {
@@ -42,7 +49,8 @@ export async function runTimeshareVacationPackagesCrawler() {
         return;
       }
 
-      const titles = $("h3.el-title.uk-h4");
+      // Match both layouts: Orlando-style (uk-h4) and Vegas/Caribbean-style (uk-card-title)
+      const titles = $("h3.el-title.uk-h4, h3.el-title.uk-card-title");
       log.info(`[${dest.city}] Found ${titles.length} resort cards`);
       let stored = 0;
 
@@ -50,6 +58,9 @@ export async function runTimeshareVacationPackagesCrawler() {
         const titleEl = $(el);
         const resortName = cleanTitle(titleEl.text());
         if (!resortName) return;
+
+        // Filter out navigation cards (other destinations linked from the page).
+        if (NAV_PATTERNS.some((re) => re.test(resortName))) return;
 
         // Walk up to the card container, then find the price h2 within it.
         const card = titleEl.closest("li, .el-item, .uk-grid > div, .uk-card").first();
@@ -65,10 +76,12 @@ export async function runTimeshareVacationPackagesCrawler() {
         });
 
         if (!priceText) {
-          // Fallback: any $XXX in container text, take the smallest plausible.
+          // Fallback: take the smallest plausible $XXX in container (the headline
+          // package price is usually the lowest, gift-card values are higher).
+          // Exclude $200 (matches the common "$200 Visa gift card" inclusion).
           const all = Array.from(container.text().matchAll(/\$([\d,]+)/g))
             .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
-            .filter((n) => Number.isFinite(n) && n >= 50);
+            .filter((n) => Number.isFinite(n) && n >= 50 && n !== 200);
           if (all.length) priceText = `$${Math.min(...all)}`;
         }
 
