@@ -21,12 +21,55 @@ export const brands = pgTable("brands", {
   type: varchar("type", { length: 50 }).notNull().default("broker"), // "direct" | "broker"
   description: text("description"),
   isSuppressed: boolean("is_suppressed").notNull().default(false),
+  // Corporate / outreach metadata (for B2B sales prospecting)
+  parentCompany: varchar("parent_company", { length: 255 }),
+  hqAddress: text("hq_address"),
+  hqCity: varchar("hq_city", { length: 100 }),
+  hqState: varchar("hq_state", { length: 50 }),
+  hqCountry: varchar("hq_country", { length: 50 }),
+  hqZip: varchar("hq_zip", { length: 20 }),
+  mainPhone: varchar("main_phone", { length: 50 }),
+  generalEmail: varchar("general_email", { length: 255 }),
+  linkedinUrl: text("linkedin_url"),
+  crunchbaseUrl: text("crunchbase_url"),
+  ownership: varchar("ownership", { length: 50 }), // "public" | "private" | "pe-owned" | "subsidiary"
+  yearFounded: integer("year_founded"),
+  employeeCount: varchar("employee_count", { length: 50 }), // "1-50" | "51-200" | etc
+  estRevenue: varchar("est_revenue", { length: 50 }),
+  contactsLastResearchedAt: timestamp("contacts_last_researched_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
 export const brandsRelations = relations(brands, ({ many }) => ({
   deals: many(deals),
+  contacts: many(brandContacts),
+}));
+
+// ── Brand contacts (B2B outreach leads) ────────────────────────────────
+// One row per known person at a brand. Roles like CEO, VP Marketing,
+// Partnerships, Press, etc. Populated by research agents from public sources
+// (LinkedIn, Crunchbase, press releases, company websites). Never store
+// home addresses; only business contact info.
+export const brandContacts = pgTable("brand_contacts", {
+  id: serial("id").primaryKey(),
+  brandId: integer("brand_id").references(() => brands.id, { onDelete: "cascade" }).notNull(),
+  role: varchar("role", { length: 100 }).notNull(), // "CEO" | "CMO" | "VP Marketing" | "Partnerships" | "Press" | ...
+  name: varchar("name", { length: 255 }),
+  email: varchar("email", { length: 255 }),
+  phone: varchar("phone", { length: 50 }),
+  linkedinUrl: text("linkedin_url"),
+  source: varchar("source", { length: 100 }), // "linkedin" | "crunchbase" | "press_release" | "company_website" | "rocketreach" | "manual"
+  sourceUrl: text("source_url"),
+  confidence: varchar("confidence", { length: 20 }).default("medium"), // "high" | "medium" | "low"
+  notes: text("notes"),
+  lastVerifiedAt: timestamp("last_verified_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const brandContactsRelations = relations(brandContacts, ({ one }) => ({
+  brand: one(brands, { fields: [brandContacts.brandId], references: [brands.id] }),
 }));
 
 // ── Destinations ────────────────────────────────────────
