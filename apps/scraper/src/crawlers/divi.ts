@@ -229,45 +229,14 @@ export async function runDiviCrawler() {
 
   await crawler.run(SEED_URLS.map((url) => ({ url })));
 
-  // Fallback: seed resorts not discovered via crawling
-  for (const resort of RESORT_CATALOG) {
-    if (processedKeys.has(resort.name)) continue;
-    processedKeys.add(resort.name);
-
-    const price = discoveredPrices.get(resort.slug) || resort.defaultPrice;
-
-    const deal: ScrapedDeal = {
-      title: `${resort.name} - ${resort.country} Vacation Package`,
-      price,
-      durationNights: resort.nights,
-      durationDays: resort.nights + 1,
-      description: `${resort.nights + 1} Days / ${resort.nights} Nights at ${resort.name} in ${resort.city}, ${resort.country}.${resort.allInclusive ? " All-inclusive." : ""}`,
-      resortName: resort.name,
-      url: resort.pageUrl,
-      inclusions: [
-        `${resort.nights + 1} Days / ${resort.nights} Nights accommodation`,
-        ...(resort.allInclusive ? ["All-inclusive meals & drinks"] : []),
-        "Beach access",
-        "Resort amenities & pool access",
-        "Timeshare presentation required",
-      ],
-      requirements: [
-        "Must be 25+ years old",
-        "Married/cohabiting couples must both attend",
-        "Valid ID and credit card required",
-        "Attend timeshare presentation (~90-120 min)",
-      ],
-      presentationMinutes: 120,
-      city: resort.city,
-      country: resort.country,
-      brandSlug: "divi",
-    };
-
-    try {
-      await storeDeal(deal, "divi", "");
-      console.log(`Stored fallback: ${deal.title} ($${deal.price})`);
-    } catch (err) {
-      console.error(`Failed to store fallback ${deal.title}: ${err}`);
-    }
-  }
+  // NO catalog fallback. diviresorts.com removed its package-style pricing
+  // pages entirely (2026-07 audit: old /aruba-all-inclusive-resort.htm etc.
+  // 404 with no redirect; current site shows only percentage promos with
+  // prices behind the JS booking widget). Seeding RESORT_CATALOG here kept
+  // resurrecting deals with dead URLs and unverifiable prices. Like el-cid
+  // and pueblo-bonito, emit only DOM-verified deals — zero is the honest
+  // answer until the site exposes scrapeable package prices again.
+  console.log(
+    `[divi] DOM-verified deals only; catalog fallback removed 2026-07-09.`,
+  );
 }

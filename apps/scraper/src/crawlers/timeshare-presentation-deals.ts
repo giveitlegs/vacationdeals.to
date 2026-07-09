@@ -25,46 +25,41 @@ export async function runTimesharePresentationDealsCrawler() {
     requestHandlerTimeoutSecs: 30,
     async requestHandler({ request, $, log }) {
       log.info(`Processing ${request.url}`);
-      // Try to extract deals from the lander page
+
+      // Domain-repurpose guard: timesharepresentationdeals.com now 301s to an
+      // unrelated pet-clinic site (found 2026-07-08). If we were redirected
+      // off-domain, there is nothing to scrape — do NOT seed anything.
+      const finalUrl = request.loadedUrl || request.url;
+      if (!/timesharepresentationdeals\.com/i.test(new URL(finalUrl).hostname)) {
+        log.warning(
+          `[${SOURCE_KEY}] Redirected off-domain to ${finalUrl} — domain repurposed, emitting 0 deals`,
+        );
+        return;
+      }
+
+      // Only DOM-verified deals; the KNOWN_DEALS catalog fallback (which even
+      // ran on request failure) kept resurrecting deals for a dead site.
       const dealCards = $(".deal-card, .package-card, .offer-card, [class*='deal'], [class*='package']");
-      if (dealCards.length > 0) {
-        dealCards.each((_, el) => {
-          const title = $(el).find("h2, h3, h4, .title").first().text().trim();
-          const priceText = $(el).text().match(/\$(\d+)/);
-          const nightsMatch = $(el).text().match(/(\d+)\s*(?:night|nite)/i);
-          if (title && priceText) {
-            const price = parseInt(priceText[1]);
-            const nights = nightsMatch ? parseInt(nightsMatch[1]) : 3;
-            storeDeal({
-              title, price, durationNights: nights, durationDays: nights + 1,
-              city: "Unknown", brandSlug: SOURCE_KEY, url: request.url,
-              resortName: title,
-            }, SOURCE_KEY);
-          }
-        });
-      } else {
-        log.info("No deal cards found, using fallback catalog");
-        for (const deal of KNOWN_DEALS) {
+      dealCards.each((_, el) => {
+        const title = $(el).find("h2, h3, h4, .title").first().text().trim();
+        const priceText = $(el).text().match(/\$(\d+)/);
+        const nightsMatch = $(el).text().match(/(\d+)\s*(?:night|nite)/i);
+        if (title && priceText) {
+          const price = parseInt(priceText[1]);
+          const nights = nightsMatch ? parseInt(nightsMatch[1]) : 3;
           storeDeal({
-            title: deal.title, price: deal.price, durationNights: deal.nights,
-            durationDays: deal.nights + 1, city: deal.city, state: deal.state,
-            country: deal.country || "US", brandSlug: SOURCE_KEY,
-            url: `${BASE_URL}/lander`, resortName: deal.resort,
-            presentationMinutes: 120,
+            title, price, durationNights: nights, durationDays: nights + 1,
+            city: "Unknown", brandSlug: SOURCE_KEY, url: request.url,
+            resortName: title,
           }, SOURCE_KEY);
         }
+      });
+      if (dealCards.length === 0) {
+        log.info(`[${SOURCE_KEY}] No deal cards found; emitting 0 (fallback removed 2026-07-09)`);
       }
     },
     async failedRequestHandler({ request, log }) {
-      log.warning(`Request failed: ${request.url}`);
-      for (const deal of KNOWN_DEALS) {
-        storeDeal({
-          title: deal.title, price: deal.price, durationNights: deal.nights,
-          durationDays: deal.nights + 1, city: deal.city, state: deal.state,
-          country: deal.country || "US", brandSlug: SOURCE_KEY,
-          url: `${BASE_URL}/lander`, resortName: deal.resort,
-        }, SOURCE_KEY);
-      }
+      log.warning(`Request failed: ${request.url} — emitting 0 deals (fallback removed 2026-07-09)`);
     },
   });
   await crawler.run([`${BASE_URL}/lander`]);

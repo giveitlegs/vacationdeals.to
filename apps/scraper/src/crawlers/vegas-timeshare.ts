@@ -152,7 +152,11 @@ export async function runVegasTimeshareCrawler() {
             durationDays: duration?.days || 3,
             description: title,
             resortName,
-            url: dealUrl,
+            // Detail posts were deleted site-wide (2026-07: every ?p= id
+            // 404s, confirmed via WP REST API) — the listing page being
+            // scraped is the canonical live URL. dealUrl stays as the
+            // dedupe key only.
+            url: request.url,
             imageUrl,
             city: "Las Vegas",
             state: "NV",
@@ -197,7 +201,7 @@ export async function runVegasTimeshareCrawler() {
               durationDays: duration?.days || 3,
               description: text,
               resortName,
-              url: dealUrl,
+              url: request.url, // dead ?p= hrefs — see note above
               city: "Las Vegas",
               state: "NV",
               country: "US",

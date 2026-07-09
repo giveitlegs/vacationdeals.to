@@ -32,6 +32,7 @@
 
 import { deactivateExpiredDeals } from "./storage/deal-store";
 import { spawn } from "node:child_process";
+import fs from "node:fs";
 import path from "node:path";
 
 // ── Crawler imports ─────────────────────────────────────────────────────────
@@ -148,14 +149,22 @@ const WAVES: Record<number, string[]> = {
  * state (request queue, session pool, key-value store). Without this, the
  * second crawler in a wave sees the first's "seen-URL" state and does 0
  * work.
+ *
+ * Each source also gets its own CRAWLEE_STORAGE_DIR, purged before the run.
+ * The shared default storage/request_queues dir retained "handled" request
+ * state across runs (audit 2026-07-08: westgate-events processed 0 requests
+ * and stored 0 deals because every URL was already marked handled). Per-source
+ * dirs also make overlapping waves (:00 vs :15 cron starts) collision-free.
  */
 function runInChildProcess(source: string): Promise<void> {
   return new Promise((resolve, reject) => {
     const scraperDir = path.resolve(__dirname, "..");
+    const storageDir = path.join(scraperDir, "storage", "runs", source);
+    fs.rmSync(storageDir, { recursive: true, force: true });
     const proc = spawn("npx", ["tsx", "src/index.ts", `--source=${source}`], {
       cwd: scraperDir,
       stdio: "inherit",
-      env: process.env,
+      env: { ...process.env, CRAWLEE_STORAGE_DIR: storageDir },
       shell: process.platform === "win32",
     });
     proc.on("error", reject);

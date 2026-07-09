@@ -2,8 +2,14 @@
  * Deal Health Check — runs daily via cron
  *
  * 1. Marks deals past their expiresAt date as inactive
- * 2. HEAD-requests all active deal URLs, marks 404s as inactive
- * 3. Logs results
+ * 2. HEAD-requests all active deal URLs, marks 404/410s as inactive
+ *    (NOT 403 — Akamai/Cloudflare bot-blocks return 403 for pages that load
+ *    fine in a real browser; killing on 403 would wipe Holiday Inn et al.)
+ * 3. Deactivates deals whose URL redirects to a different root domain
+ *    (seen: timesharepresentationdeals.com now 301s to a pet-clinic site)
+ * 4. For event sites (westgateevents.com), GETs the body and deactivates
+ *    deals marked "Sold Out" or "This event has passed"
+ * 5. Logs results
  */
 
 import { db } from "@vacationdeals/db";
@@ -12,20 +18,52 @@ import { eq, and, lt, isNotNull } from "drizzle-orm";
 
 const RATE_LIMIT_MS = 500; // 2 requests/second
 
+// Domains whose pages report per-event availability in the body.
+const EVENT_BODY_CHECK_HOSTS = ["westgateevents.com"];
+const DEAD_BODY_PATTERNS =
+  /sold\s*out!?|this\s+event\s+has\s+passed|event\s+has\s+ended/i;
+
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function checkUrlHealth(url: string): Promise<number> {
+/** Registrable root domain, good enough for our sources (foo.bar.com -> bar.com). */
+function rootDomain(hostname: string): string {
+  const parts = hostname.replace(/^www\./, "").split(".");
+  return parts.slice(-2).join(".");
+}
+
+async function checkUrlHealth(
+  url: string,
+): Promise<{ status: number; finalUrl: string }> {
   try {
     const response = await fetch(url, {
       method: "HEAD",
       redirect: "follow",
       signal: AbortSignal.timeout(10000),
     });
-    return response.status;
+    return { status: response.status, finalUrl: response.url || url };
+  } catch (err) {
+    // DNS failure means the host itself is gone (seen: loreto/cancun
+    // .villadelpalmar.com subdomains stopped resolving) — that IS dead.
+    const code = (err as { cause?: { code?: string } })?.cause?.code;
+    if (code === "ENOTFOUND" || code === "EAI_AGAIN") {
+      return { status: -2, finalUrl: url };
+    }
+    return { status: -1, finalUrl: url }; // timeout/reset — assume alive
+  }
+}
+
+async function fetchBodyText(url: string): Promise<string | null> {
+  try {
+    const response = await fetch(url, {
+      redirect: "follow",
+      signal: AbortSignal.timeout(15000),
+    });
+    if (!response.ok) return null;
+    return await response.text();
   } catch {
-    return -1; // Network error, assume alive
+    return null;
   }
 }
 
@@ -65,18 +103,53 @@ async function main() {
   const dead: string[] = [];
 
   for (const deal of activeDeals) {
-    const status = await checkUrlHealth(deal.url);
+    const { status, finalUrl } = await checkUrlHealth(deal.url);
     checked++;
 
-    if (status === 404 || status === 410 || status === 403) {
-      // Mark as inactive
+    let deadReason: string | null = null;
+
+    if (status === 404 || status === 410) {
+      deadReason = `HTTP ${status}`;
+    } else if (status === -2) {
+      deadReason = "DNS: host no longer resolves";
+    }
+
+    // Domain-repurpose check: redirect landed on a different root domain.
+    if (!deadReason && status > 0 && status < 400) {
+      try {
+        const fromHost = rootDomain(new URL(deal.url).hostname);
+        const toHost = rootDomain(new URL(finalUrl).hostname);
+        if (fromHost !== toHost) {
+          deadReason = `redirects off-domain to ${toHost}`;
+        }
+      } catch {
+        /* unparseable URL — leave alone */
+      }
+    }
+
+    // Event-body check: page is alive but the event is sold out / passed.
+    if (!deadReason && status > 0 && status < 400) {
+      try {
+        const host = new URL(deal.url).hostname.replace(/^www\./, "");
+        if (EVENT_BODY_CHECK_HOSTS.includes(rootDomain(host))) {
+          const body = await fetchBodyText(deal.url);
+          if (body && DEAD_BODY_PATTERNS.test(body)) {
+            deadReason = "sold out / event passed";
+          }
+        }
+      } catch {
+        /* leave alone */
+      }
+    }
+
+    if (deadReason) {
       await db
         .update(deals)
         .set({ isActive: false, updatedAt: now })
         .where(eq(deals.id, deal.id));
       deactivated++;
-      dead.push(`${deal.title} (${status})`);
-      console.log(`  [dead ${status}] ${deal.title}`);
+      dead.push(`${deal.title} (${deadReason})`);
+      console.log(`  [dead: ${deadReason}] ${deal.title}`);
     }
 
     if (checked % 50 === 0) {

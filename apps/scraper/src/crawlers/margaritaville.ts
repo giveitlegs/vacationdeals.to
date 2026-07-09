@@ -49,15 +49,13 @@ export async function runMargaritavilleCrawler() {
       });
 
       if (found === 0) {
-        log.info("Using fallback catalog for Margaritaville");
-        for (const deal of KNOWN_DEALS) {
-          storeDeal({
-            title: deal.title, price: deal.price, durationNights: deal.nights,
-            durationDays: deal.nights + 1, city: deal.city, state: deal.state,
-            brandSlug: SOURCE_KEY, url: BASE_URL, resortName: deal.resort,
-            presentationMinutes: 90,
-          }, SOURCE_KEY);
-        }
+        // No catalog fallback: margaritavillevcrentals.com shows no package
+        // prices in either static HTML or the rendered DOM (verified with a
+        // real browser 2026-07-08 — only a "$100" promo mention, no Rio Mar
+        // package). Seeding KNOWN_DEALS published unverifiable prices.
+        log.info(
+          "[margaritaville] No DOM-verified deals found; emitting 0 (fallback removed 2026-07-09)",
+        );
       }
     },
   });

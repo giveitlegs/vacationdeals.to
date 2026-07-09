@@ -2,61 +2,95 @@ import { CheerioCrawler } from "crawlee";
 import { storeDeal } from "../storage/deal-store";
 
 const SOURCE_KEY = "exploria";
-const BASE_URL = "https://exploriavacations.com";
+const BASE_URL = "https://www.exploriavacations.com";
 
-// Divi theme (et_pb_section) with 3 resort packages at $149 each
-const KNOWN_DEALS = [
-  { title: "Summer Bay Orlando Resort Preview", city: "Orlando", state: "FL", price: 149, nights: 2, resort: "Summer Bay Orlando", url: "/book-orlando-resortpreview/", inclusions: ["6 Heated Pools", "Adventure Park", "Marina Access"] },
-  { title: "Grand Seas Resort Daytona Beach Preview", city: "Daytona Beach", state: "FL", price: 149, nights: 2, resort: "Grand Seas Resort", url: "/book-daytona-resortpreview/", inclusions: ["Beachfront Access", "812ft Beach", "Near Attractions"] },
-  { title: "Pocono Mountain Villas Preview", city: "Pocono Mountains", state: "PA", price: 149, nights: 2, resort: "Pocono Mountain Villas", url: "/book-pocono-resortpreview/", inclusions: ["Adventure Park", "Zip Line", "Indoor/Outdoor Pools", "Golf Course"] },
+// Exploria moved its preview packages to Shopify-style product pages on
+// exploriavacations.com (rediscovered 2026-07-09; the old
+// /book-<city>-resortpreview URLs 404). All three offers are a $49 refundable
+// reservation deposit for 3 days / 2 nights with a 60-minute "Owner Update".
+// The catalog below is the fallback when the product page yields no price.
+const PRODUCTS = [
+  {
+    path: "/products/orlando-magical",
+    title: "Orlando Magical Getaway — 3 Day / 2 Night Resort Preview",
+    city: "Orlando",
+    state: "FL",
+    resort: "Summer Bay Orlando",
+    fallbackPrice: 49,
+    inclusions: ["1BR condo sleeps 4", "60-minute Owner Update presentation", "$49 refundable reservation deposit"],
+  },
+  {
+    path: "/products/daytona-beach",
+    title: "Grand Seas Daytona Beach — 3 Day / 2 Night Resort Preview",
+    city: "Daytona Beach",
+    state: "FL",
+    resort: "Grand Seas by Exploria",
+    fallbackPrice: 49,
+    inclusions: ["1BR condo sleeps 4", "60-minute Owner Update presentation", "$49 refundable reservation deposit"],
+  },
+  {
+    path: "/products/pocono-mountain",
+    title: "Pocono Mountain Getaway — 3 Day / 2 Night Resort Preview",
+    city: "Pocono Mountains",
+    state: "PA",
+    resort: "Pocono Mountain Villas",
+    fallbackPrice: 49,
+    inclusions: ["1BR condo sleeps 4", "60-minute Owner Update presentation", "$50 prepaid Mastercard bonus"],
+  },
 ];
 
 export async function runExploriaCrawler() {
   const crawler = new CheerioCrawler({
-    maxRequestsPerCrawl: 15,
+    maxRequestsPerCrawl: 10,
     maxRequestRetries: 2,
     requestHandlerTimeoutSecs: 30,
     async requestHandler({ request, $, log }) {
-      log.info(`Processing ${request.url}`);
+      const product = PRODUCTS.find((p) => request.url.includes(p.path));
+      if (!product) return;
 
-      let found = 0;
-      // Divi theme sections with resort info
-      $(".et_pb_section").each((_, section) => {
-        const text = $(section).text();
-        const h3 = $(section).find("h3, h2").first().text().trim();
-        // Comma-aware: old /\$(\d+)/ stopped at "," in "$1,408" → captured "1"
-        const priceCandidates = Array.from(text.matchAll(/\$([\d,]+)/g))
-          .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
-          .filter((n) => Number.isFinite(n) && n >= 50);
-        const price = priceCandidates.length ? Math.max(...priceCandidates) : NaN;
-        const nightsMatch = text.match(/(\d+)[- ]day/i);
-
-        if (h3 && Number.isFinite(price) && h3.length > 5) {
-          const nights = nightsMatch ? parseInt(nightsMatch[1]) - 1 : 2;
-          const link = $(section).find("a[href*='book']").attr("href");
-          const url = link ? `${BASE_URL}${link}` : request.url;
-
-          storeDeal({
-            title: h3, price, durationNights: nights, durationDays: nights + 1,
-            city: "Unknown", brandSlug: SOURCE_KEY, url, resortName: h3,
-          }, SOURCE_KEY);
-          found++;
-        }
-      });
-
-      if (found === 0) {
-        log.info("No deals parsed, using fallback catalog");
-        for (const deal of KNOWN_DEALS) {
-          storeDeal({
-            title: deal.title, price: deal.price, durationNights: deal.nights,
-            durationDays: deal.nights + 1, city: deal.city, state: deal.state,
-            brandSlug: SOURCE_KEY, url: `${BASE_URL}${deal.url}`,
-            resortName: deal.resort, inclusions: deal.inclusions,
-            presentationMinutes: 90,
-          }, SOURCE_KEY);
+      // Shopify product pages carry the price in meta tags and body text.
+      // Prefer the live figure; fall back to the known $49 deposit.
+      let price: number | null = null;
+      const metaPrice =
+        $("meta[property='og:price:amount']").attr("content") ||
+        $("meta[itemprop='price']").attr("content") ||
+        "";
+      const metaParsed = parseFloat(metaPrice.replace(/[^0-9.]/g, ""));
+      if (Number.isFinite(metaParsed) && metaParsed >= 25 && metaParsed <= 500) {
+        price = Math.round(metaParsed);
+      }
+      if (!price) {
+        const bodyMatch = $("body")
+          .text()
+          .match(/\$\s?(\d{2,3})(?:\.\d{2})?\s*(?:refundable|deposit|per)/i);
+        if (bodyMatch) {
+          const p = parseInt(bodyMatch[1], 10);
+          if (p >= 25 && p <= 500) price = p;
         }
       }
+      if (!price) {
+        log.info(`No live price on ${request.url}, using catalog $${product.fallbackPrice}`);
+        price = product.fallbackPrice;
+      }
+
+      storeDeal(
+        {
+          title: product.title,
+          price,
+          durationNights: 2,
+          durationDays: 3,
+          city: product.city,
+          state: product.state,
+          brandSlug: SOURCE_KEY,
+          url: `${BASE_URL}${product.path}`,
+          resortName: product.resort,
+          inclusions: product.inclusions,
+          presentationMinutes: 60,
+        },
+        SOURCE_KEY,
+      );
+      log.info(`Stored ${product.title} @ $${price}`);
     },
   });
-  await crawler.run([BASE_URL]);
+  await crawler.run(PRODUCTS.map((p) => `${BASE_URL}${p.path}`));
 }
