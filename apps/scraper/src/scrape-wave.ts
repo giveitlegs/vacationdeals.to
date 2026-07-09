@@ -52,6 +52,7 @@ import { runDepartureDepotCrawler } from "./crawlers/departure-depot";
 import { runVegasTimeshareCrawler } from "./crawlers/vegas-timeshare";
 import { runPremierTravelCrawler } from "./crawlers/premier-travel";
 import { runFestivaCrawler } from "./crawlers/festiva";
+import { runPayvibeCrawler } from "./crawlers/payvibe";
 import { runDiscountVacationCrawler } from "./crawlers/discount-vacation";
 import { runLegendaryCrawler } from "./crawlers/legendary";
 import { runHyattCrawler } from "./crawlers/hyatt";
@@ -101,6 +102,7 @@ const CRAWLERS: Record<string, () => Promise<void>> = {
   "vegas-timeshare": runVegasTimeshareCrawler,
   "premier-travel": runPremierTravelCrawler,
   festiva: runFestivaCrawler,
+  payvibe: runPayvibeCrawler,
   "discount-vacation": runDiscountVacationCrawler,
   legendary: runLegendaryCrawler,
   hyatt: runHyattCrawler,
