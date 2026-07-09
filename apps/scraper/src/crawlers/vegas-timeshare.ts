@@ -61,8 +61,14 @@ function parseNights(text: string): { nights: number; days: number } | null {
  */
 function extractResortName(title: string): string | undefined {
   // Pattern: "at {Resort Name} for" or "at {Resort Name} –"
+  // Non-greedy capture stops at the first " for ", which in "…Casino, Just
+  // for $219!" leaves a trailing ", Just" — strip filler words like that.
   let m = title.match(/at\s+(.+?)(?:\s+for\s+|\s*[-–—]\s*Hotel|\s*Only)/i);
-  if (m) return m[1].replace(/[-–—]\s*$/, "").trim();
+  if (m)
+    return m[1]
+      .replace(/[-–—]\s*$/, "")
+      .replace(/,\s*(just|only|now|all|starting)\s*$/i, "")
+      .trim();
 
   // Pattern: starts with resort name before ":"
   m = title.match(/^((?:Planet Hollywood|SAHARA|Westgate|Hilton|Wynn|MGM|Caesars|Bellagio)[\w\s&'–-]+?)(?:\s*:|,)/i);
@@ -82,6 +88,18 @@ function extractResortName(title: string): string | undefined {
   }
 
   return undefined;
+}
+
+/** Stable per-package fragment so deals on one listing page get unique URLs. */
+function anchorFor(
+  resortName: string | undefined,
+  price: number,
+  nights: number | undefined,
+): string {
+  return `${resortName || "las-vegas-getaway"}-${nights || 0}n-${price}`
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 function resolveUrl(href: string): string {
@@ -153,10 +171,11 @@ export async function runVegasTimeshareCrawler() {
             description: title,
             resortName,
             // Detail posts were deleted site-wide (2026-07: every ?p= id
-            // 404s, confirmed via WP REST API) — the listing page being
-            // scraped is the canonical live URL. dealUrl stays as the
-            // dedupe key only.
-            url: request.url,
+            // 404s, confirmed via WP REST API) — the listing page is the
+            // canonical live URL. The fragment keeps each package's URL
+            // unique because deal-store upserts match on url; without it,
+            // every package on this page collapses into one row.
+            url: `${request.url}#${anchorFor(resortName, price, duration?.nights)}`,
             imageUrl,
             city: "Las Vegas",
             state: "NV",
@@ -201,7 +220,7 @@ export async function runVegasTimeshareCrawler() {
               durationDays: duration?.days || 3,
               description: text,
               resortName,
-              url: request.url, // dead ?p= hrefs — see note above
+              url: `${request.url}#${anchorFor(resortName, price, duration?.nights)}`, // dead ?p= hrefs — see note above
               city: "Las Vegas",
               state: "NV",
               country: "US",
