@@ -54,6 +54,10 @@ export async function runIWantToTravelToCrawler() {
         const extraText = cells.eq(cells.length - 1).text().trim();
         const isFlash = Boolean(nightsMatch);
 
+        // Skip non-destination rows from the How-It-Works / bundles / cruise
+        // tables ("Deposit (US) | $150", upgrade tiers, add-ons).
+        if (/deposit|upgrade|add.?on|bundle|cruise|per\s+(night|person)|fee/i.test(destText)) return;
+
         const { city, state } = parseCityState(destText);
         if (!city || city.length < 3) return;
 
