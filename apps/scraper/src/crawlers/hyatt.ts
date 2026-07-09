@@ -68,7 +68,7 @@ const RESORTS: HyattResort[] = [
     country: "US",
     address: "9700 West Military Drive, San Antonio, TX 78251",
     path: "/vacation-offer/sanantonio/wild_oak_ranch/wowb",
-    price: 517,
+    price: 349, // verified live 2026-07-08 (retail $639)
     durationNights: 3,
     durationDays: 4,
     program: "Portfolio",
@@ -95,7 +95,7 @@ const RESORTS: HyattResort[] = [
     country: "US",
     address: "8860 Lawrence Welk Drive, Escondido, CA 92026",
     path: "/vacation-offer/sandiegoarea/the_welk/welk",
-    price: 549,
+    price: 349, // verified live 2026-07-08 (retail $840)
     durationNights: 3,
     durationDays: 4,
     program: "Platinum",
@@ -122,7 +122,7 @@ const RESORTS: HyattResort[] = [
     country: "US",
     address: "1 North AZ-89A, Sedona, AZ 86336",
     path: "/vacation-offer/sedona/pinon_pointe/ppwb",
-    price: 800,
+    price: 499, // verified live 2026-07-08 (retail $954)
     durationNights: 3,
     durationDays: 4,
     program: "Portfolio",
@@ -148,7 +148,7 @@ const RESORTS: HyattResort[] = [
     country: "US",
     address: "970 Northstar Drive, Truckee, CA 96161",
     path: "/vacation-offer/laketahoearea-ca/northstar_lodge/nslt",
-    price: 599,
+    price: 499, // verified live 2026-07-08 (retail $1,300)
     durationNights: 3,
     durationDays: 4,
     program: "Platinum",
@@ -174,7 +174,7 @@ const RESORTS: HyattResort[] = [
     country: "US",
     address: "3675 South Roosevelt Boulevard, Key West, FL 33040",
     path: "/vacation-offer/keywest/windward_pointe/wpwb",
-    price: 699,
+    price: 499, // verified live 2026-07-08 (retail $1,437)
     durationNights: 3,
     durationDays: 4,
     program: "Portfolio",
@@ -198,7 +198,7 @@ const RESORTS: HyattResort[] = [
     country: "MX",
     address: "Km 4.5 Corredor Turistico, Cabo Bello, Cabo San Lucas, BS, MX 23410",
     path: "/vacation-offer/cabosanlucas/sirena_del_mar/cabo",
-    price: 899,
+    price: 399, // verified live 2026-07-08 (retail $1,218)
     durationNights: 3,
     durationDays: 4,
     program: "Platinum",
@@ -225,7 +225,7 @@ const RESORTS: HyattResort[] = [
     country: "US",
     address: "147 Welk Resort Circle, Branson, MO 65616",
     path: "/vacation-offer/branson/timber_ridge/bran",
-    price: 399,
+    price: 199, // verified live 2026-07-08 (retail $618)
     durationNights: 3,
     durationDays: 4,
     program: "Platinum",
@@ -252,7 +252,7 @@ const RESORTS: HyattResort[] = [
     country: "US",
     address: "11800 Coconut Cove Drive, Bonita Springs, FL 34134",
     path: "/vacation-offer/bonitasprings/coconut_cove/cpwb",
-    price: 599,
+    price: 349, // verified live 2026-07-08 (retail $1,287)
     durationNights: 3,
     durationDays: 4,
     program: "Portfolio",
@@ -280,7 +280,7 @@ const RESORTS: HyattResort[] = [
     country: "US",
     address: "180 Nohea Kai Drive, Lahaina, Maui, HI 96761",
     path: "/vacation-offer/maui/kaanapali_beach/kbwb",
-    price: 999,
+    price: 3199, // verified live 2026-07-08 (retail $4,552)
     durationNights: 3,
     durationDays: 4,
     program: "Club to Club Exchange",

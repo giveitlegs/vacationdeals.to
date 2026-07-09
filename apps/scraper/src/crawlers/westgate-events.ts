@@ -524,37 +524,39 @@ export async function runWestgateEventsCrawler() {
         //   (3) unrelated event recommendations in the sidebar/footer with their own
         //       .price elements (e.g. "$49 Branson", "$99 Orlando") — these belong
         //       to OTHER events and must NOT be considered.
-        // The previous implementation used $(".price").first().text(), which usually
-        // hit the headline correctly, but on some templates a tier or sidebar match
-        // landed first. Result: DB prices that don't match anything the shopper sees.
-        // Strict fix: only consider prices scoped to THIS event's headline +
-        // event-dates section, and pick the MINIMUM (the canonical "From" tier).
-        const priceCandidates: number[] = [];
-
-        // (1) Headline price badge — restricted to the event's own .single-price
+        // Priority order matters: the date-slider carries stale/hidden
+        // data-price attrs (verified live 2026-07-08: headline + JSON-LD said
+        // $99 while a leftover data-price="$49" slide sat in the markup, and
+        // min() across all candidates kept re-writing the pre-increase price).
+        // The shopper-visible truth is the headline badge; JSON-LD mirrors it.
+        // Only fall back to date tiers when neither exists.
+        const headlinePrices: number[] = [];
         $(".single-price .price, .single-content .price").each((_, el) => {
           const p = parsePrice($(el).text().trim());
-          if (p && p >= 39 && p <= 9999) priceCandidates.push(p);
+          if (p && p >= 39 && p <= 9999) headlinePrices.push(p);
         });
 
-        // (2) Per-date tier prices, scoped to this event's calendar block only
-        $(".event-dates [data-price], .dates-slider [data-price]").each((_, el) => {
-          const raw = $(el).attr("data-price") || "";
-          const p = parsePrice(raw);
-          if (p && p >= 39 && p <= 9999) priceCandidates.push(p);
-        });
-
-        // JSON-LD Offer price (one per page, belongs to this event)
         const jsonLdPrice = pageText.match(
           /"@type"\s*:\s*"Offer"[\s\S]{0,400}?"price"\s*:\s*"?(\d{2,4})"?/i,
         );
-        if (jsonLdPrice) {
-          const p = parseInt(jsonLdPrice[1], 10);
-          if (p >= 39 && p <= 9999) priceCandidates.push(p);
-        }
+        const jsonLdP = jsonLdPrice ? parseInt(jsonLdPrice[1], 10) : null;
 
-        let price: number | null =
-          priceCandidates.length > 0 ? Math.min(...priceCandidates) : null;
+        const tierPrices: number[] = [];
+        $(".event-dates [data-price], .dates-slider [data-price]").each((_, el) => {
+          const raw = $(el).attr("data-price") || "";
+          const p = parsePrice(raw);
+          if (p && p >= 39 && p <= 9999) tierPrices.push(p);
+        });
+
+        let price: number | null = null;
+        if (headlinePrices.length > 0) {
+          price = Math.min(...headlinePrices);
+        } else if (jsonLdP && jsonLdP >= 39 && jsonLdP <= 9999) {
+          price = jsonLdP;
+        } else if (tierPrices.length > 0) {
+          price = Math.min(...tierPrices);
+        }
+        const priceCandidates = [...headlinePrices, jsonLdP ?? NaN, ...tierPrices].filter((n) => !Number.isNaN(n));
 
         // Body-text "From $X" fallback (only if scoped extraction found nothing)
         if (!price) {

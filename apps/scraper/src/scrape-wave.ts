@@ -136,7 +136,7 @@ const WAVES: Record<number, string[]> = {
   1: ["westgate", "bookvip", "getawaydealz"],
   2: ["mrg", "staypromo", "wyndham", "hgv"],
   3: ["marriott", "holiday-inn", "spinnaker", "vacation-village"],
-  4: ["departure-depot", "vegas-timeshare", "premier-travel", "discount-vacation", "legendary", "festiva"],
+  4: ["departure-depot", "vegas-timeshare", "premier-travel", "discount-vacation", "legendary", "festiva", "payvibe"],
   5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc", "vacationvip", "bestvacationdealz", "monster-vacations", "timeshare-presentation-deals", "all-inclusive-promotions", "exploria", "massanutten", "iwanttotravelto", "vacation-offer", "margaritaville", "timeshare-vacation-packages", "timeshare-orlando", "orlando99", "spinnaker-subdomains", "hiltonhead-island-deals"],
 };
 

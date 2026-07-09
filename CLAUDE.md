@@ -83,6 +83,7 @@ export $(cat .env | xargs)
 pm2 delete vacationdeals-web; pm2 start "pnpm start" --name vacationdeals-web --cwd /var/www/vacationdeals/apps/web
 pm2 save
 ```
+- **Crontab MUST start with `SHELL=/bin/bash`** — all scraper lines use `source .env`, which dash (`/bin/sh`, cron's default) rejects with `source: not found`. Missing this line silently killed ALL scraper crons from 2026-04-22 to 2026-07-08 while backup/certbot crons kept working. Backup of fixed crontab: `/root/crontab.backup.20260708`.
 - Cron schedule (via `crontab -e` on VPS):
   - `0 */6 * * *` — Wave 1 scrapers + verify-prices
   - `15 */6 * * *` — Wave 2 scrapers

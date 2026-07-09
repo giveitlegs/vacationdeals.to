@@ -85,8 +85,13 @@ export async function runTimeshareVacationPackagesCrawler() {
         for (let i = 0; i < 8 && !priceText; i++) {
           if (!pointer.length) break;
           const t = pointer.text();
-          if (/\$[\d,]+\s*PER\s+FAMILY/i.test(t)) {
-            priceText = t;
+          // Extract the exact "$X PER FAMILY" figure — storing the whole
+          // sibling text let a leading "$200 VISA GIFT CARD" win the later
+          // first-$ extraction (audit 2026-07-08: three deals stored at $200
+          // while pages showed $121/$259/$299).
+          const perFamily = t.match(/\$([\d,]+)\s*PER\s+FAMILY/i);
+          if (perFamily) {
+            priceText = `$${perFamily[1]}`;
             break;
           }
           // "4 Nights / 5 Days ... From $479" pattern
