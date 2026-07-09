@@ -1,18 +1,29 @@
 # Next Enhancements (prioritized)
 
-_Generated 2026-07-08 during the full pricing audit session. Priorities reflect what that audit exposed: all scraper crons silently dead for 2.5 months (crontab missing `SHELL=/bin/bash`), stale prices live on the site, and several sources unverifiable without a real browser._
+_Originally generated 2026-07-08 during the full pricing audit. Updated 2026-07-09 after the scraper reliability overhaul — items 1–4 from the original list SHIPPED (see "Done" below)._
 
-## 1. Scraper dead-man monitoring (highest priority)
-The cron failure went unnoticed from 2026-04-22 to 2026-07-08 because nothing alerts when scraping stops. Add a nightly heartbeat check: query `MAX(scraped_at)` across active deals; if older than 24h, send an email via Resend (already configured for the site) to giveitlegs@live.com. Optionally expose `/api/health/scrape-freshness` and hook an external uptime monitor to it. This makes a silent runaway impossible — same philosophy as the Cloudflare billing-alert rule.
+## 1. On-demand ISR revalidation after scrape waves
+Landers revalidate on a fixed 1-hour ISR timer, so fresh scrape data can lag on-page by up to an hour. Add a `revalidatePath`/`revalidateTag` API route (secret-protected) that `scrape-wave.ts` calls after each wave completes, plus a nightly assertion comparing each lander's rendered "from $X" price against `MIN(deals.price)` in the DB, logging mismatches to `seo_health`.
 
-## 2. Make cron jobs shell-agnostic
-The root cause was `source .env` (bash-ism) in crontab lines. Replace every inline `set -a && source .env && set +a` with a single wrapper script (`scripts/run-with-env.sh`) that uses POSIX `. ./.env`, so jobs survive any future crontab rewrite that drops the `SHELL=` line. One line per cron entry: `/var/www/vacationdeals/scripts/run-with-env.sh npx tsx src/scrape-wave.ts --wave=1`.
+## 2. Periodic browser-verified price audit for JS-priced sources
+Hyatt's crawler still relies on a hand-verified price catalog (refreshed 2026-07-08 via stealth browser) because hyattvacationclub.com injects prices client-side. Add a monthly Playwright pass on the VPS that renders each Hyatt offer page and updates the catalog automatically — same pattern as the new HGV crawler. Candidates: hyatt, holiday-inn (Akamai-blocked; try Playwright from VPS IP), legendary (JS-heavy, no static prices).
 
-## 3. Auto-delist expired/sold-out/GONE deals
-The audit found live deals pointing at pages that 404 (Departure Depot Josh Groban event), events that already passed (GoVIP April event), and sold-out Westgate Events still listed as active. Extend `check-deal-health.ts` / `verify-prices.ts` to mark deals inactive when the source page 404s, says "Sold Out"/"This event has passed", or the event date is in the past. Trust signal matters more than deal count.
+## 3. Unpark watcher
+Parked sources (monster-vacations, govip, discount-vacation, timeshare-presentation-deals) are skipped by waves. Add a weekly cron that HEAD-checks each parked source's base URL and emails (Resend) when one comes back alive so it can be re-activated with `UPDATE sources SET status='active'`.
 
-## 4. Playwright/stealth fallback for JS-priced and 403 sources
-Hyatt (hyattvacationclub.com) injects prices client-side (`data-cmd-price` empty in static HTML), and TAFER/Sheraton VC/Westin VC 403 normal crawlers. Add a Playwright-based price-verify pass for these sources (Chromium is already installed on the VPS for GetawayDealz/Marriott), so every active deal is verifiable, not just Cheerio-reachable ones.
+## 4. hiltonhead-island-deals auto-recovery check
+Site was in WordPress maintenance mode (503) on 2026-07-09 and its 3 deals were deactivated. The source is still active so waves will retry — confirm deals return once the site recovers, else investigate.
 
-## 5. On-demand ISR revalidation after scrape waves
-Landers revalidate on a fixed 1-hour ISR timer, so fresh scrape data can lag on page for up to an hour (and did lag for months when crons died, with no visibility). Add a `revalidatePath`/`revalidateTag` API route (secret-protected) that `scrape-wave.ts` calls after each wave completes, plus a nightly assertion script comparing each lander's rendered "from $X" price against `MIN(deals.price)` in the DB, logging mismatches to `seo_health`.
+## 5. Sold-out/passed-event body checks beyond westgateevents.com
+check-deal-health.ts currently GET-checks event-page bodies only for westgateevents.com. Extend `EVENT_BODY_CHECK_HOSTS` as more event-style sources are added (departure-depot is a candidate — its Josh Groban 404 was caught by the URL check, but future sold-out-but-200 pages wouldn't be).
+
+---
+
+## Done (2026-07-09)
+- ✅ **Dead-man freshness alert** — `src/scrape-freshness-check.ts`, daily 08:00 cron, emails via Resend when no deal scraped in 26h.
+- ✅ **Shell-agnostic cron wrapper** — `scripts/run-with-env.sh` (POSIX), all app crontab lines rewritten to use it.
+- ✅ **Auto-delist dead deals** — health check now catches 404/410, DNS-dead hosts, off-root-domain redirects, and sold-out/passed westgateevents pages; no longer kills on 403 (bot-block false positive).
+- ✅ **Crawlee queue isolation** — per-source `CRAWLEE_STORAGE_DIR` purged before each child run (stale queues made runs process 0 requests).
+- ✅ **HGV rewritten to Playwright** — DOM-verified offers from the client-rendered start-traveling page.
+- ✅ **Dead-URL crawlers fixed** — exploria (new exploriavacations.com product pages), vegas-timeshare (listing-page parsing with unique fragments), iwanttotravelto (/deals/ table parser); divi/margaritaville/timeshare-presentation-deals catalog fallbacks removed (DOM-verified only).
+- ✅ **Parked-source skip** in scrape-wave + payvibe registered in wave 4.
