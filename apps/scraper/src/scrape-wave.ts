@@ -193,15 +193,18 @@ async function runWave(waveNumber: number) {
   // Parked sources (dead/repurposed domains, hard bot-blocks) are skipped so
   // a known-dead site doesn't show up as a wave failure every run. Re-set
   // sources.status='active' in the DB to resume scraping one.
+  // NB: drizzle-orm is not a direct dep of apps/scraper (pnpm isolation), so
+  // filter in JS instead of importing eq().
   let parked = new Set<string>();
   try {
     const { db, sources: sourcesTable } = await import("@vacationdeals/db");
-    const { eq } = await import("drizzle-orm");
     const rows = await db
-      .select({ key: sourcesTable.scraperKey })
-      .from(sourcesTable)
-      .where(eq(sourcesTable.status, "parked"));
-    parked = new Set(rows.map((r) => r.key));
+      .select({ key: sourcesTable.scraperKey, status: sourcesTable.status })
+      .from(sourcesTable);
+    parked = new Set(rows.filter((r) => r.status === "parked").map((r) => r.key));
+    if (parked.size > 0) {
+      console.log(`[wave${waveNumber}] Parked sources: ${[...parked].join(", ")}`);
+    }
   } catch (err) {
     console.warn(`[wave${waveNumber}] Could not load parked sources: ${err}`);
   }
