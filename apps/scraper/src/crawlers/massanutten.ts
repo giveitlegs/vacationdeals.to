@@ -45,15 +45,7 @@ export async function runMassannutenCrawler() {
       });
 
       if (found === 0) {
-        log.info("Using fallback catalog for Massanutten");
-        for (const deal of KNOWN_DEALS) {
-          storeDeal({
-            title: deal.title, price: deal.price, durationNights: deal.nights,
-            durationDays: deal.nights + 1, city: "Massanutten", state: "VA",
-            brandSlug: SOURCE_KEY, url: BASE_URL, resortName: deal.resort,
-            description: deal.description, presentationMinutes: 90,
-          }, SOURCE_KEY);
-        }
+        log.info("[massanutten] No DOM-verified deals found; emitting 0 (fallback removed 2026-07-09)");
       }
     },
   });

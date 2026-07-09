@@ -222,51 +222,7 @@ export async function runTaferCrawler() {
 
   await crawler.run(SEED_URLS.map((url) => ({ url })));
 
-  // Fallback: seed resorts not found via crawling
-  for (const resort of RESORT_CATALOG) {
-    if (processedKeys.has(resort.name)) continue;
-    processedKeys.add(resort.name);
-
-    const price = discoveredPrices.get(resort.slug) || resort.defaultPrice;
-
-    const deal: ScrapedDeal = {
-      title: `${resort.name} - ${resort.city} Vacation Package`,
-      price,
-      ...(promoDiscount > 0 ? {
-        originalPrice: Math.round(price / (1 - promoDiscount / 100)),
-        savingsPercent: promoDiscount,
-      } : {}),
-      durationNights: resort.nights,
-      durationDays: resort.nights + 1,
-      description: `${resort.nights + 1} Days / ${resort.nights} Nights at ${resort.name} in ${resort.city}, Mexico. ${resort.tier === "ultra-luxury" ? "Ultra-luxury" : "Luxury"} all-inclusive resort.`,
-      resortName: resort.name,
-      url: `${BASE_URL}/`,
-      inclusions: [
-        `${resort.nights + 1} Days / ${resort.nights} Nights accommodation`,
-        "All-inclusive gourmet dining",
-        "Premium spirits & cocktails",
-        "Spa access",
-        "Beach & infinity pool access",
-      ],
-      requirements: [
-        "Must be 30+ years old",
-        "Married/cohabiting couples must both attend",
-        "Valid ID and credit card required",
-        "Attend timeshare presentation (~90-120 min)",
-        "Minimum household income $80,000+",
-      ],
-      presentationMinutes: 120,
-      city: resort.city,
-      state: resort.state,
-      country: resort.country,
-      brandSlug: "tafer",
-    };
-
-    try {
-      await storeDeal(deal, "tafer", "");
-      console.log(`Stored fallback: ${deal.title} ($${deal.price})`);
-    } catch (err) {
-      console.error(`Failed to store fallback ${deal.title}: ${err}`);
-    }
-  }
+  console.log(
+    `[tafer] DOM-verified deals only; catalog fallback removed 2026-07-09 (site 403s bots; homepage shows no package prices even in a real browser).`,
+  );
 }

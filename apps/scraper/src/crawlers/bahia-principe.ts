@@ -224,50 +224,7 @@ export async function runBahiaPrincipeCrawler() {
 
   await crawler.run(SEED_URLS.map((url) => ({ url })));
 
-  // Seed all resorts with catalog data
-  for (const resort of RESORT_CATALOG) {
-    if (processedKeys.has(resort.name)) continue;
-    processedKeys.add(resort.name);
-
-    const inclusions = [
-      `${resort.nights + 1} Days / ${resort.nights} Nights accommodation`,
-      "All-inclusive meals & drinks",
-      "Entertainment & activities",
-      "Beach & pool access",
-      ...(currentPromoName ? [`${currentPromoName} promotion`] : []),
-    ];
-
-    const deal: ScrapedDeal = {
-      title: `${resort.name} - ${resort.city} All-Inclusive Package`,
-      price: resort.defaultPrice,
-      ...(currentPromoDiscount > 0 ? {
-        originalPrice: Math.round(resort.defaultPrice / (1 - currentPromoDiscount / 100)),
-        savingsPercent: currentPromoDiscount,
-      } : {}),
-      durationNights: resort.nights,
-      durationDays: resort.nights + 1,
-      description: `${resort.nights + 1} Days / ${resort.nights} Nights all-inclusive at ${resort.name} in ${resort.city}, ${resort.country}. Timeshare preview package.`,
-      resortName: resort.name,
-      url: `${BASE_URL}/`,
-      inclusions,
-      requirements: [
-        "Must be 25+ years old",
-        "Married/cohabiting couples must both attend",
-        "Valid ID and credit card required",
-        "Attend timeshare presentation (~90-120 min)",
-      ],
-      presentationMinutes: 120,
-      city: resort.city,
-      state: resort.state,
-      country: resort.countryCode,
-      brandSlug: "bahia-principe",
-    };
-
-    try {
-      await storeDeal(deal, "bahia-principe", "");
-      console.log(`Stored: ${deal.title} ($${deal.price})`);
-    } catch (err) {
-      console.error(`Failed to store ${deal.title}: ${err}`);
-    }
-  }
+  console.log(
+    `[bahia-principe] DOM-verified deals only; catalog fallback removed 2026-07-09 (pricing is member-login-gated).`,
+  );
 }

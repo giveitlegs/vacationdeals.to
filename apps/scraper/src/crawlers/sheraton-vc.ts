@@ -211,47 +211,7 @@ export async function runSheratonVcCrawler() {
 
   await crawler.run(SEED_URLS.map((url) => ({ url })));
 
-  // Fallback: seed known resorts
-  for (const resort of RESORT_CATALOG) {
-    if (processedKeys.has(resort.name)) continue;
-    processedKeys.add(resort.name);
-
-    const deal: ScrapedDeal = {
-      title: `${resort.name} - ${resort.city}, ${resort.state} Vacation Package`,
-      price: resort.defaultPrice,
-      durationNights: resort.nights,
-      durationDays: resort.nights + 1,
-      description: `${resort.nights + 1} Days / ${resort.nights} Nights at ${resort.name} in ${resort.city}, ${resort.state}. Marriott Vacation Club / Sheraton brand timeshare preview package.`,
-      resortName: resort.name,
-      url: `${BASE_URL}/offers`,
-      inclusions: [
-        `${resort.nights + 1} Days / ${resort.nights} Nights villa accommodation`,
-        "Marriott Bonvoy Points bonus",
-        "Full kitchen suite",
-        "Resort amenities & pool access",
-        "Up to 12 months to travel",
-      ],
-      requirements: [
-        "Must be 25+ years old",
-        "Minimum household income $75,000+",
-        "Married/cohabiting couples must both attend",
-        "Valid ID and major credit card required",
-        "Attend ~2 hour timeshare presentation",
-        "No Marriott Vacation Club presentation in past 12 months",
-      ],
-      presentationMinutes: 120,
-      travelWindow: "Up to 12 months from purchase",
-      city: resort.city,
-      state: resort.state,
-      country: resort.country,
-      brandSlug: "sheraton-vc",
-    };
-
-    try {
-      await storeDeal(deal, "sheraton-vc", "");
-      console.log(`Stored fallback: ${deal.title} ($${deal.price})`);
-    } catch (err) {
-      console.error(`Failed to store fallback ${deal.title}: ${err}`);
-    }
-  }
+  console.log(
+    `[sheraton-vc] DOM-verified deals only; catalog fallback removed 2026-07-09 (stored Maui package no longer listed on live /offers page).`,
+  );
 }

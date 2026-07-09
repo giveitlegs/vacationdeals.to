@@ -45,15 +45,7 @@ export async function runVacationOfferCrawler() {
       });
 
       if (found === 0) {
-        log.info("Using fallback catalog");
-        for (const deal of KNOWN_DEALS) {
-          storeDeal({
-            title: deal.title, price: deal.price, durationNights: deal.nights,
-            durationDays: deal.nights + 1, city: deal.city, state: deal.state,
-            country: deal.country || "US", brandSlug: SOURCE_KEY,
-            url: BASE_URL, resortName: deal.resort,
-          }, SOURCE_KEY);
-        }
+        log.info("[vacation-offer] No DOM-verified deals found; emitting 0 (fallback removed 2026-07-09)");
       }
     },
   });
