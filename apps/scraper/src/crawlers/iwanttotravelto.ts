@@ -18,18 +18,32 @@ export async function runIWantToTravelToCrawler() {
         const card = $(el);
         const title = card.find("h2, h3, h1, .entry-title").first().text().trim();
         const bodyText = card.text();
+        // Prefer the advertised "From $X" figure — cards on /deals/ mix in a
+        // $150 refundable deposit and retail values that Math.max would grab.
+        const fromMatch = bodyText.match(/From\s*\$([\d,]+)/i);
         // Comma-aware: old /\$(\d+)/ stopped at "," in "$1,408" → captured "1"
         const priceCandidates = Array.from(bodyText.matchAll(/\$([\d,]+)/g))
           .map((m) => parseInt(m[1].replace(/,/g, ""), 10))
           .filter((n) => Number.isFinite(n) && n >= 50);
-        const price = priceCandidates.length ? Math.max(...priceCandidates) : NaN;
+        const price = fromMatch
+          ? parseInt(fromMatch[1].replace(/,/g, ""), 10)
+          : priceCandidates.length
+            ? Math.max(...priceCandidates)
+            : NaN;
         const nightsMatch = bodyText.match(/(\d+)\s*(?:night|nite)/i) || bodyText.match(/(\d+)\s*days?\s*[\/&]\s*(\d+)\s*night/i);
 
         if (title && Number.isFinite(price) && title.length > 5) {
           if (price < 50 || price > 5000) return; // Skip non-deal prices
           const nights = nightsMatch ? parseInt(nightsMatch[nightsMatch.length > 2 ? 2 : 1]) : 3;
           const link = card.find("a").first().attr("href");
-          const url = link || request.url;
+          let url = request.url;
+          if (link) {
+            try {
+              url = new URL(link, request.url).toString();
+            } catch {
+              /* keep request.url */
+            }
+          }
           const imageUrl = card.find("img").first().attr("src");
 
           // Detect destination from title
@@ -59,14 +73,23 @@ export async function runIWantToTravelToCrawler() {
         }
       });
 
-      // Enqueue linked pages
+      // Enqueue linked pages. Resolve relative hrefs — the homepage links to
+      // /deals/ (the actual price grid) relatively, and the old absolute-only
+      // filter never enqueued it, so this crawler stored 0 deals for months.
       $("a[href]").each((_, el) => {
-        const href = $(el).attr("href") || "";
-        if (href.startsWith(BASE_URL) && !href.includes("#") && !href.includes("?")) {
-          crawler.addRequests([href]);
+        const raw = $(el).attr("href") || "";
+        if (!raw || raw.startsWith("#") || raw.includes("?")) return;
+        let abs: string;
+        try {
+          abs = new URL(raw, request.url).toString();
+        } catch {
+          return;
+        }
+        if (abs.startsWith(BASE_URL) && !abs.includes("#")) {
+          crawler.addRequests([abs]);
         }
       });
     },
   });
-  await crawler.run([BASE_URL]);
+  await crawler.run([`${BASE_URL}/deals/`, BASE_URL]);
 }
