@@ -190,11 +190,33 @@ async function runWave(waveNumber: number) {
   // no-op reference to keep CRAWLERS map exported for type/registry checks
   void CRAWLERS;
 
+  // Parked sources (dead/repurposed domains, hard bot-blocks) are skipped so
+  // a known-dead site doesn't show up as a wave failure every run. Re-set
+  // sources.status='active' in the DB to resume scraping one.
+  let parked = new Set<string>();
+  try {
+    const { db, sources: sourcesTable } = await import("@vacationdeals/db");
+    const { eq } = await import("drizzle-orm");
+    const rows = await db
+      .select({ key: sourcesTable.scraperKey })
+      .from(sourcesTable)
+      .where(eq(sourcesTable.status, "parked"));
+    parked = new Set(rows.map((r) => r.key));
+  } catch (err) {
+    console.warn(`[wave${waveNumber}] Could not load parked sources: ${err}`);
+  }
+
   const startTime = Date.now();
   let succeeded = 0;
   let failed = 0;
+  let skipped = 0;
 
   for (const source of sources) {
+    if (parked.has(source)) {
+      console.log(`[${source}] parked — skipping`);
+      skipped++;
+      continue;
+    }
     if (!CRAWLERS[source]) {
       console.error(`[wave${waveNumber}] No crawler registered for: ${source}`);
       failed++;
@@ -223,7 +245,7 @@ async function runWave(waveNumber: number) {
 
   const totalElapsed = ((Date.now() - startTime) / 1000).toFixed(1);
   console.log(
-    `\n=== Wave ${waveNumber} complete: ${succeeded} succeeded, ${failed} failed (${totalElapsed}s) ===\n`
+    `\n=== Wave ${waveNumber} complete: ${succeeded} succeeded, ${failed} failed, ${skipped} parked-skipped (${totalElapsed}s) ===\n`
   );
 }
 
