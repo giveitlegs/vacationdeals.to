@@ -44,6 +44,14 @@ import { runTimeshareOrlandoCrawler } from "./crawlers/timeshare-orlando";
 import { runOrlando99Crawler } from "./crawlers/orlando99";
 import { runSpinnakerSubdomainsCrawler } from "./crawlers/spinnaker-subdomains";
 import { runHiltonheadIslandDealsCrawler } from "./crawlers/hiltonhead-island-deals";
+import { runPgrGetawaysCrawler } from "./crawlers/pgr-getaways";
+import { runSandosPromoCrawler } from "./crawlers/sandos-promo";
+import { runGreatResortVacationsCrawler } from "./crawlers/great-resort-vacations";
+import { runMagicalGetawayCrawler } from "./crawlers/magical-getaway";
+import { runCheapVacationGetawaysCrawler } from "./crawlers/cheap-vacation-getaways";
+import { runDiscoverBransonCrawler } from "./crawlers/discover-branson";
+import { runSaveOnBransonCrawler } from "./crawlers/save-on-branson";
+import { runBransonTravelGroupCrawler } from "./crawlers/branson-travel-group";
 import { deactivateExpiredDeals, getRunStats } from "./storage/deal-store";
 import { db } from "@vacationdeals/db";
 import { scrapeRuns, sources } from "@vacationdeals/db";
@@ -142,6 +150,14 @@ const crawlers: Record<string, () => Promise<void>> = {
   orlando99: runOrlando99Crawler,
   "spinnaker-subdomains": runSpinnakerSubdomainsCrawler,
   "hiltonhead-island-deals": runHiltonheadIslandDealsCrawler,
+  "pgr-getaways": runPgrGetawaysCrawler,
+  "sandos-promo": runSandosPromoCrawler,
+  "great-resort-vacations": runGreatResortVacationsCrawler,
+  "magical-getaway": runMagicalGetawayCrawler,
+  "cheap-vacation-getaways": runCheapVacationGetawaysCrawler,
+  "discover-branson": runDiscoverBransonCrawler,
+  "save-on-branson": runSaveOnBransonCrawler,
+  "branson-travel-group": runBransonTravelGroupCrawler,
 };
 
 async function main() {

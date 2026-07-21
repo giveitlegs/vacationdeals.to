@@ -83,6 +83,14 @@ import { runTimeshareOrlandoCrawler } from "./crawlers/timeshare-orlando";
 import { runOrlando99Crawler } from "./crawlers/orlando99";
 import { runSpinnakerSubdomainsCrawler } from "./crawlers/spinnaker-subdomains";
 import { runHiltonheadIslandDealsCrawler } from "./crawlers/hiltonhead-island-deals";
+import { runDiscoverBransonCrawler } from "./crawlers/discover-branson";
+import { runSaveOnBransonCrawler } from "./crawlers/save-on-branson";
+import { runBransonTravelGroupCrawler } from "./crawlers/branson-travel-group";
+import { runPgrGetawaysCrawler } from "./crawlers/pgr-getaways";
+import { runSandosPromoCrawler } from "./crawlers/sandos-promo";
+import { runGreatResortVacationsCrawler } from "./crawlers/great-resort-vacations";
+import { runMagicalGetawayCrawler } from "./crawlers/magical-getaway";
+import { runCheapVacationGetawaysCrawler } from "./crawlers/cheap-vacation-getaways";
 
 // ── Wave definitions ────────────────────────────────────────────────────────
 
@@ -133,6 +141,14 @@ const CRAWLERS: Record<string, () => Promise<void>> = {
   orlando99: runOrlando99Crawler,
   "spinnaker-subdomains": runSpinnakerSubdomainsCrawler,
   "hiltonhead-island-deals": runHiltonheadIslandDealsCrawler,
+  "pgr-getaways": runPgrGetawaysCrawler,
+  "sandos-promo": runSandosPromoCrawler,
+  "great-resort-vacations": runGreatResortVacationsCrawler,
+  "magical-getaway": runMagicalGetawayCrawler,
+  "cheap-vacation-getaways": runCheapVacationGetawaysCrawler,
+  "discover-branson": runDiscoverBransonCrawler,
+  "save-on-branson": runSaveOnBransonCrawler,
+  "branson-travel-group": runBransonTravelGroupCrawler,
 };
 
 const WAVES: Record<number, string[]> = {
@@ -140,7 +156,7 @@ const WAVES: Record<number, string[]> = {
   2: ["mrg", "staypromo", "wyndham", "hgv"],
   3: ["marriott", "holiday-inn", "spinnaker", "vacation-village"],
   4: ["departure-depot", "vegas-timeshare", "premier-travel", "discount-vacation", "legendary", "festiva", "payvibe"],
-  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc", "vacationvip", "bestvacationdealz", "monster-vacations", "timeshare-presentation-deals", "all-inclusive-promotions", "exploria", "massanutten", "iwanttotravelto", "vacation-offer", "margaritaville", "timeshare-vacation-packages", "timeshare-orlando", "orlando99", "spinnaker-subdomains", "hiltonhead-island-deals"],
+  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc", "vacationvip", "bestvacationdealz", "monster-vacations", "timeshare-presentation-deals", "all-inclusive-promotions", "exploria", "massanutten", "iwanttotravelto", "vacation-offer", "margaritaville", "timeshare-vacation-packages", "timeshare-orlando", "orlando99", "spinnaker-subdomains", "hiltonhead-island-deals", "pgr-getaways", "sandos-promo", "great-resort-vacations", "magical-getaway", "cheap-vacation-getaways", "discover-branson", "save-on-branson", "branson-travel-group"],
 };
 
 // ── Runner ──────────────────────────────────────────────────────────────────

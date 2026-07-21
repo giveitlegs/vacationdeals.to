@@ -26,6 +26,20 @@ export async function runSpinnakerSubdomainsCrawler() {
       const site = (request.userData as { site?: Site }).site;
       if (!site) return;
 
+      // Redirect guard: branson.spinnakervacations.com currently 301s to the
+      // hiltonhead subdomain. Without this check we'd parse Hilton Head
+      // products while labeling them city=Branson (seen live 2026-07-20 as a
+      // "Hilton Head, SC" deal with a branson slug). The redirect target's
+      // own seed already covers its products.
+      const loadedHost = new URL(request.loadedUrl || request.url).hostname;
+      const seedHost = new URL(site.baseUrl).hostname;
+      if (loadedHost !== seedHost) {
+        log.warning(
+          `[${site.city}] ${seedHost} redirected to ${loadedHost} — skipping to avoid mislabeled deals`,
+        );
+        return;
+      }
+
       const products = $(".woocommerce-loop-product__title, h2.woocommerce-loop-product__title");
       log.info(`[${site.city}] Found ${products.length} products`);
       let stored = 0;
