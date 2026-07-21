@@ -85,10 +85,17 @@ export async function generateMetadata({ params }: DealPageProps): Promise<Metad
   // Build a uniqueness-guaranteed title. Price + duration go at the END and
   // are never truncated — we trim the resort-name prefix instead so the
   // differentiating info (price, nights) always survives.
-  const priceFrag = ` — ${deal.durationDays}D/${deal.durationNights}N from $${deal.price}`;
+  // "via <brand>" disambiguates the same resort+price+nights sold by several
+  // sources (SF audit 2026-07-20: six deal pages shared "Westgate Las Vegas
+  // … from $99" — price/nights alone don't guarantee uniqueness).
+  const brandFrag =
+    deal.brandName &&
+    !(deal.resortName || deal.title).toLowerCase().includes(deal.brandName.toLowerCase())
+      ? ` via ${deal.brandName}`
+      : "";
+  const priceFrag = ` — ${deal.durationDays}D/${deal.durationNights}N from $${deal.price}${brandFrag}`;
   const cityFrag = deal.city ? ` ${deal.city}` : "";
-  const SUFFIX = " | VacationDeals.to";
-  const maxBase = 60 - priceFrag.length - cityFrag.length; // leave room
+  const maxBase = 68 - priceFrag.length - cityFrag.length; // leave room
   let baseName = deal.resortName || deal.title;
   if (baseName.length > maxBase) baseName = baseName.slice(0, maxBase - 1).trim() + "…";
   const title = isEvent
