@@ -31,16 +31,15 @@ packages/shared/    — Shared TypeScript types (ScrapedDeal, DealFilters) and c
 scripts/            — deploy.sh (VPS deployment)
 ```
 
-## Scrapers (33 crawlers — see docs/SCRAPING-REFERENCE.md for full details)
-**26 CheerioCrawler + 7 PlaywrightCrawler** across 31 sources, 33 brands, 64 destinations.
+## Scrapers (54 crawlers — see docs/SCRAPING-REFERENCE.md for full details)
+**45 CheerioCrawler + 9 PlaywrightCrawler** across 50 active + 4 parked sources, 54 brands, 144 destinations.
 
-| Status | Count | Examples |
-|--------|-------|---------|
-| Working | 22 | Westgate, BookVIP, MRG, HGV, Wyndham, StayPromo, Vacation Village, VacationVIP, BestVacationDealz, El Cid, Pueblo Bonito, DIVI, Bahia Principe, Villa Group, Spinnaker, Departure Depot, Vegas Timeshare, Premier Travel, Festiva, Hyatt, Bluegreen |
-| JS-Heavy (Playwright) | 4 | GetAwayDealz, Marriott, Discount Vacation, Legendary |
-| Fallback (catalog seed) | 2 | Holiday Inn, Capital Vacations |
-| Graceful 403 | 3 | TAFER, Sheraton VC, Westin VC |
-| Parked (monitored) | 2 | GoVIP, Monster Vacations |
+- **Policy: DOM-verified deals only.** No catalog/fallback seeding — if a price isn't parsed from a page, we don't publish it. Zero deals is the honest answer for blocked/priceless sites (tafer, el-cid, pueblo-bonito, divi, festiva, legendary, margaritaville, vacation-offer, massanutten currently emit 0).
+- **Parked sources** (skipped by waves): monster-vacations, govip, discount-vacation, timeshare-presentation-deals. Unpark: `UPDATE sources SET status='active' WHERE scraper_key='...'`.
+- **Branson network (added 2026-07-20):** discover-branson ($99/$79 "travel savings preview" packages + 8 retail), save-on-branson (dual retail/gated pricing), branson-travel-group. None use the word "timeshare" — frame as "resort preview required".
+- **Other 2026-07-20 additions:** pgr-getaways (Shopify products.json, ~20 deals), sandos-promo (MX all-inclusive Royal Elite), great-resort-vacations, magical-getaway (Westgate-run), cheap-vacation-getaways.
+- **Gotchas:** deal-store upserts match on URL — deals sharing a listing page need unique #fragment anchors. Single-store handlers must `await storeDeal(...)` or the process exits before the insert commits. drizzle-orm is NOT a direct dep of apps/scraper — don't import it there.
+- Playwright targets: getawaydealz, marriott, discount-vacation, legendary, hgv + 4 more; HGV parses client-rendered "$X /STAY" offer cards.
 
 ## Database Schema (9 tables)
 - `brands` — 33 timeshare brands (direct + broker types)
@@ -50,7 +49,7 @@ scripts/            — deploy.sh (VPS deployment)
 - `deal_price_history` — Price tracking over time per deal
 - `site_settings` — Key/value pairs (GTM ID, GA ID, AdSense)
 - `ad_banners` — Configurable ad placements (header, sidebar, inline, footer)
-- `blog_posts` — 274+ CMS-managed blog posts (HTML content, FAQs, SEO metadata)
+- `blog_posts` — 696 CMS-managed blog posts (HTML content, FAQs, SEO metadata). Batch content is authored as JSON in `research/blog-batches/<batch>/` (git = source of record) and inserted via `scripts/insert-blog-batch-json.ts`. Blog URLs are TOP-LEVEL (`/resort-waffle-tier-list`); `/blog/<slug>` 308s there.
 - `seo_health` — SEO issue tracking (URL, severity, check type, resolution status)
 
 ## SEO Architecture

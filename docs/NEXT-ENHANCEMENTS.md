@@ -1,29 +1,24 @@
 # Next Enhancements (prioritized)
 
-_Originally generated 2026-07-08 during the full pricing audit. Updated 2026-07-09 after the scraper reliability overhaul — items 1–4 from the original list SHIPPED (see "Done" below)._
+_Updated 2026-07-20 after the content + source-expansion session (52 weird-batch blog posts live, 8 new crawlers incl. the Branson network, SF technical audit clean). Earlier shipped items in "Done" below._
 
-## 1. On-demand ISR revalidation after scrape waves
-Landers revalidate on a fixed 1-hour ISR timer, so fresh scrape data can lag on-page by up to an hour. Add a `revalidatePath`/`revalidateTag` API route (secret-protected) that `scrape-wave.ts` calls after each wave completes, plus a nightly assertion comparing each lander's rendered "from $X" price against `MIN(deals.price)` in the DB, logging mismatches to `seo_health`.
+## 1. Playwright crawlers for wyndhamtrips.com + vacationpeople.com
+Both confirmed to hold large vacpack inventories (wyndhamtrips: 4d/3n $199 + cruise combos across many destinations; vacationpeople: $479/couple packages across Cancun/PV/Orlando/Branson/Poconos/Gatlinburg with destination subdomains) but 403 plain HTTP — need PlaywrightCrawler from the VPS. vacationpeople's structure mirrors timesharevacationpackages.com, so the parse model already exists. Biggest remaining inventory unlock identified by the 2026-07-20 research sweep.
 
-## 2. Periodic browser-verified price audit for JS-priced sources
-Hyatt's crawler still relies on a hand-verified price catalog (refreshed 2026-07-08 via stealth browser) because hyattvacationclub.com injects prices client-side. Add a monthly Playwright pass on the VPS that renders each Hyatt offer page and updates the catalog automatically — same pattern as the new HGV crawler. Candidates: hyatt, holiday-inn (Akamai-blocked; try Playwright from VPS IP), legendary (JS-heavy, no static prices).
+## 2. On-demand ISR revalidation after scrape waves
+Landers revalidate on a fixed 1-hour ISR timer, so fresh scrape data can lag on-page up to an hour (sitemap.xml likewise picked up the 52 new posts only on its next cycle). Add a secret-protected `revalidatePath`/`revalidateTag` route that `scrape-wave.ts` (and the blog inserter) call on completion, plus a nightly assertion comparing each lander's rendered "from $X" against `MIN(deals.price)`, logging mismatches to `seo_health`.
 
-## 3. Unpark watcher
-Parked sources (monster-vacations, govip, discount-vacation, timeshare-presentation-deals) are skipped by waves. Add a weekly cron that HEAD-checks each parked source's base URL and emails (Resend) when one comes back alive so it can be re-activated with `UPDATE sources SET status='active'`.
+## 3. Weird-batch performance tracking + second wave
+52 unconventional posts went live 2026-07-20 (itineraries, rankings, AEO questions, tips — tagged `weird-batch`). In ~3 weeks, pull GSC impressions/clicks per slug and compare against the older guide-style posts; double down on whichever archetypes win (the AEO question posts are the most likely breakouts) with a second 50-post batch. Requires the GSC API access already used by the seo-audit cron.
 
-## 4. hiltonhead-island-deals auto-recovery check
-Site was in WordPress maintenance mode (503) on 2026-07-09 and its 3 deals were deactivated. The source is still active so waves will retry — confirm deals return once the site recovers, else investigate.
+## 4. Deal-page uniqueness monitor in the SF audit loop
+The 2026-07-20 SF crawl found 107 duplicate titles from multi-source resort deals (fixed via "via <brand>" suffix) — but new sources keep arriving, and dupes can regrow. Add a monthly headless SF run (`ScreamingFrogSEOSpiderCli.exe` recipe now proven in `reports/2026-07-20/`) with a diff against the previous crawl's issue counts, emailed via Resend. Also watch `?page=N` pagination canonicals.
 
-## 5. Sold-out/passed-event body checks beyond westgateevents.com
-check-deal-health.ts currently GET-checks event-page bodies only for westgateevents.com. Extend `EVENT_BODY_CHECK_HOSTS` as more event-style sources are added (departure-depot is a candidate — its Josh Groban 404 was caught by the URL check, but future sold-out-but-200 pages wouldn't be).
+## 5. Branson network expansion + monitoring
+The "Discover Branson" cluster (Branson Entertainment & Lodging LLC / Bryan Battaglia) and Save On Branson (Branson Internet Ventures LLC) have sister domains not yet crawled: bransonshowtickets.com, dinebranson.com, bransontravel.com, bransontravelservice.com — plus bransonshows.com (quote-flow, needs Playwright). Add the static sisters to the existing crawlers' seed lists where they list lodging packages, and monitor the gated "as low as" prices on save-on-branson for drift (classic phone-qualification pricing that changes seasonally).
 
 ---
 
-## Done (2026-07-09)
-- ✅ **Dead-man freshness alert** — `src/scrape-freshness-check.ts`, daily 08:00 cron, emails via Resend when no deal scraped in 26h.
-- ✅ **Shell-agnostic cron wrapper** — `scripts/run-with-env.sh` (POSIX), all app crontab lines rewritten to use it.
-- ✅ **Auto-delist dead deals** — health check now catches 404/410, DNS-dead hosts, off-root-domain redirects, and sold-out/passed westgateevents pages; no longer kills on 403 (bot-block false positive).
-- ✅ **Crawlee queue isolation** — per-source `CRAWLEE_STORAGE_DIR` purged before each child run (stale queues made runs process 0 requests).
-- ✅ **HGV rewritten to Playwright** — DOM-verified offers from the client-rendered start-traveling page.
-- ✅ **Dead-URL crawlers fixed** — exploria (new exploriavacations.com product pages), vegas-timeshare (listing-page parsing with unique fragments), iwanttotravelto (/deals/ table parser); divi/margaritaville/timeshare-presentation-deals catalog fallbacks removed (DOM-verified only).
-- ✅ **Parked-source skip** in scrape-wave + payvibe registered in wave 4.
+## Done
+**2026-07-20:** 52-post weird blog batch (JSON source-of-record pattern + `insert-blog-batch-json.ts`) · 8 new crawlers (discover-branson, save-on-branson, branson-travel-group, pgr-getaways, sandos-promo, great-resort-vacations, magical-getaway, cheap-vacation-getaways) · SF technical audit (2,082 URLs: 0 4xx, 0 chains, 0 missing titles/H1/alt; dup-title fix shipped) · spinnaker branson-redirect guard · API budget guard on reviews cron · full recrawl all waves green.
+**2026-07-09:** Dead-man freshness alert (Resend) · POSIX cron wrapper · auto-delist dead deals (404/DNS/off-domain/sold-out) · Crawlee queue isolation · HGV Playwright rewrite · exploria/vegas-timeshare/iwanttotravelto URL rediscovery · catalog-fallback removal across 10 crawlers · parked-source skip.
