@@ -50,7 +50,7 @@ export async function runMagicalGetawayCrawler() {
 
       const imageUrl = $("meta[property='og:image']").attr("content");
 
-      storeDeal(
+      await storeDeal(
         {
           title: `Orlando Magical Getaway — $${price} ${days} Day / ${nights} Night Westgate Resort Stay`,
           price,
