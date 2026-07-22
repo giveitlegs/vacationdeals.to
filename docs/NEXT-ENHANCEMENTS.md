@@ -1,12 +1,21 @@
 # Next Enhancements (prioritized)
 
-_Updated 2026-07-20 after the content + source-expansion session (52 weird-batch blog posts live, 8 new crawlers incl. the Branson network, SF technical audit clean). Earlier shipped items in "Done" below._
+_Updated 2026-07-21 after the batch-2 content session (50 more posts, turbo globalEnv root-cause fix: sitemap 1216→2149 URLs incl. all 627 deal pages). Earlier shipped items in "Done" below._
 
-## 1. Playwright crawlers for wyndhamtrips.com + vacationpeople.com
-Both confirmed to hold large vacpack inventories (wyndhamtrips: 4d/3n $199 + cruise combos across many destinations; vacationpeople: $479/couple packages across Cancun/PV/Orlando/Branson/Poconos/Gatlinburg with destination subdomains) but 403 plain HTTP — need PlaywrightCrawler from the VPS. vacationpeople's structure mirrors timesharevacationpackages.com, so the parse model already exists. Biggest remaining inventory unlock identified by the 2026-07-20 research sweep.
+## 1. Resubmit sitemap + monitor indexation of the 627 newly-exposed deal URLs
+The turbo env fix means Google is seeing /deals/* URLs in the sitemap for the first time. Ping GSC (rss-submit/IndexNow cron already exists — confirm it pings sitemap.xml too), then watch GSC Coverage over 2-4 weeks for indexation rate of deal pages and the 102 new posts. If deal pages index poorly, consider a changefreq/priority tune and internal-link boosts from landers.
 
-## 2. On-demand ISR revalidation after scrape waves
-Landers revalidate on a fixed 1-hour ISR timer, so fresh scrape data can lag on-page up to an hour (sitemap.xml likewise picked up the 52 new posts only on its next cycle). Add a secret-protected `revalidatePath`/`revalidateTag` route that `scrape-wave.ts` (and the blog inserter) call on completion, plus a nightly assertion comparing each lander's rendered "from $X" against `MIN(deals.price)`, logging mismatches to `seo_health`.
+## 2. Audit other build-time DB consumers for the same silent-fallback pattern
+The sitemap failed silently for months because every build-time DB read falls back to static data on error (getDB catch → null, getDealSlugs catch → []). Grep all `catch { return` fallbacks in apps/web/src/lib and add a build-time log line (or a build-failing assertion when DATABASE_URL is set but the query fails) so this class of bug can't hide again. Candidates: generateStaticParams on landers, llms-full.txt route, RSS routes.
+
+## 3. Playwright crawlers for wyndhamtrips.com + vacationpeople.com
+Both confirmed to hold large vacpack inventories (wyndhamtrips: 4d/3n $199 + cruise combos; vacationpeople: $479/couple packages across 6+ destinations with subdomains) but 403 plain HTTP — need PlaywrightCrawler from the VPS. vacationpeople's structure mirrors timesharevacationpackages.com. Biggest remaining inventory unlock.
+
+## 4. On-demand ISR revalidation after scrape waves + blog inserts
+Landers revalidate on a fixed 1-hour timer. Add a secret-protected `revalidatePath`/`revalidateTag` route that `scrape-wave.ts` and `insert-blog-batch-json.ts` call on completion, plus a nightly assertion comparing lander "from $X" against `MIN(deals.price)`, logged to `seo_health`.
+
+## 5. Writer-agent output linting in insert-blog-batch-json.ts
+Batch-2 QA caught 10 posts under the 900-word floor from one writer despite its self-validation claims. Move the guardrails into the inserter: word-count floor, metaDescription length, required BLUF div, balanced tags, humanization-marker check (at least one known misspelling present in body), and reject-with-report instead of trusting agent self-reports.
 
 ## 3. Weird-batch performance tracking + second wave
 52 unconventional posts went live 2026-07-20 (itineraries, rankings, AEO questions, tips — tagged `weird-batch`). In ~3 weeks, pull GSC impressions/clicks per slug and compare against the older guide-style posts; double down on whichever archetypes win (the AEO question posts are the most likely breakouts) with a second 50-post batch. Requires the GSC API access already used by the seo-audit cron.
