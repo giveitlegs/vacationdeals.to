@@ -35,6 +35,11 @@ const fallbackBrands = [
   "discount-vacation", "legendary", "festiva",
 ];
 
+// Metadata routes are build-time static by default — without this, the
+// sitemap freezes at deploy time and never picks up new blog posts or deals
+// (caught 2026-07-21: 52 new posts missing a day after insert).
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://vacationdeals.to";
 
