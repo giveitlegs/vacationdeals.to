@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["DATABASE_URL", "PAYLOAD_SECRET", "RESEND_API_KEY"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
