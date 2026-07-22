@@ -76,12 +76,16 @@ scripts/            — deploy.sh (VPS deployment)
 ```bash
 # On VPS (72.60.126.82):
 cd /var/www/vacationdeals && git pull origin main
+# IMPORTANT: source .env BEFORE build (build-time DB reads: sitemap, ISR pages).
+# Use set -a/source, NOT `export $(cat .env | xargs)` — that chokes on comments.
+set -a && source .env && set +a
 pnpm install && pnpm build
-# IMPORTANT: Must source .env before PM2 start for DATABASE_URL
-export $(cat .env | xargs)
-pm2 delete vacationdeals-web; pm2 start "pnpm start" --name vacationdeals-web --cwd /var/www/vacationdeals/apps/web
+pm2 restart vacationdeals-web --update-env   # or delete+start if not running
 pm2 save
 ```
+- **turbo.json `globalEnv` must list DATABASE_URL** (+PAYLOAD_SECRET, RESEND_API_KEY). Turbo strict env mode strips undeclared vars from build tasks — this silently broke every build-time DB read for months (sitemap had 0 deal URLs until 2026-07-21).
+- **sitemap.xml**: `revalidate = 3600` in sitemap.ts; blog cap lifted in getAllBlogPosts (was silently dropping posts past 500). Healthy sitemap ≈ 2,149+ URLs incl. /deals/* pages.
+- **Never run two `pm2 start` for the same name** — check `pm2 ls` for duplicates (EADDRINUSE crash loop).
 - **Crontab MUST start with `SHELL=/bin/bash`** — all scraper lines use `source .env`, which dash (`/bin/sh`, cron's default) rejects with `source: not found`. Missing this line silently killed ALL scraper crons from 2026-04-22 to 2026-07-08 while backup/certbot crons kept working. Backup of fixed crontab: `/root/crontab.backup.20260708`.
 - Cron schedule (via `crontab -e` on VPS):
   - `0 */6 * * *` — Wave 1 scrapers + verify-prices
