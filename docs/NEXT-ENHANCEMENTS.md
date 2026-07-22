@@ -14,7 +14,13 @@ Both confirmed to hold large vacpack inventories (wyndhamtrips: 4d/3n $199 + cru
 ## 4. On-demand ISR revalidation after scrape waves + blog inserts
 Landers revalidate on a fixed 1-hour timer. Add a secret-protected `revalidatePath`/`revalidateTag` route that `scrape-wave.ts` and `insert-blog-batch-json.ts` call on completion, plus a nightly assertion comparing lander "from $X" against `MIN(deals.price)`, logged to `seo_health`.
 
-## 5. Writer-agent output linting in insert-blog-batch-json.ts
+## 5. Price-sanity layer in deal-store + seo_health resolution loop
+QA swarm 2026-07-22: (a) deal_price_history had a 44-swing flip-flop artifact (hyatt surcharge bug, now fixed at the crawler) — add a generic guard in deal-store that flags/rejects snapshots swinging >70% then immediately reverting, so history stays publishable as "price drop" content; (b) seo_health has 14,268 rows, zero ever marked resolved — seo-audit.ts should auto-resolve issues that stop recurring, else the table is noise.
+
+## 6. Page-weight diet for data-heavy pages
+/rate-recap (3.2MB), /vacpack-rate-showdown (3.5MB), /vacpack-games/time-machine (3.5MB) serialize the full 365-day price-history payload into HTML. Paginate or lazy-fetch via API for mobile CWV.
+
+## 7. Writer-agent output linting in insert-blog-batch-json.ts
 Batch-2 QA caught 10 posts under the 900-word floor from one writer despite its self-validation claims. Move the guardrails into the inserter: word-count floor, metaDescription length, required BLUF div, balanced tags, humanization-marker check (at least one known misspelling present in body), and reject-with-report instead of trusting agent self-reports.
 
 ## 3. Weird-batch performance tracking + second wave
