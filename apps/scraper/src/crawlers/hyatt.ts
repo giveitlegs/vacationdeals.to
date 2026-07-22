@@ -360,12 +360,20 @@ export async function runHyattCrawler() {
       let extractedPrice: number | null = null;
       let extractedDuration: { nights: number; days: number } | null = null;
 
-      // Check for price in data attributes
+      // Values that appear on every Hyatt offer page but are NOT the package
+      // price: the $50 resort certificate and the $100/$200 high-demand
+      // surcharges. Grabbing these caused the Ka'anapali deal to flip-flop
+      // $3,199 ↔ $200 forty-four times in price history (found 2026-07-22).
+      const KNOWN_NON_PRICES = new Set([50, 100, 150, 200]);
+
+      // Check for price in data attributes. Cap raised to 4000 — Maui's real
+      // package price ($3,199) sat above the old 2000 cap, so extraction
+      // could never find it and fell through to surcharge noise.
       $("[data-price], [data-offer-price]").each((_i, el) => {
         const priceAttr =
           $(el).attr("data-price") || $(el).attr("data-offer-price") || "";
         const price = parsePrice(priceAttr);
-        if (price && price >= 100 && price <= 2000) {
+        if (price && price >= 100 && price <= 4000 && !KNOWN_NON_PRICES.has(price)) {
           extractedPrice = price;
         }
       });
@@ -388,7 +396,7 @@ export async function runHyattCrawler() {
           let match: RegExpExecArray | null;
           while ((match = pattern.exec(scriptContent)) !== null) {
             const price = parseInt(match[1], 10);
-            if (price >= 100 && price <= 2000 && !extractedPrice) {
+            if (price >= 100 && price <= 4000 && !KNOWN_NON_PRICES.has(price) && !extractedPrice) {
               extractedPrice = price;
             }
           }

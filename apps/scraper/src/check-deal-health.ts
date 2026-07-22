@@ -90,6 +90,27 @@ async function main() {
     console.log(`  [expired] ${d.title}`);
   }
 
+  // Step 1b: Zombie sweep — deals whose crawler hasn't re-verified them in
+  // 21 days are stale-priced and untrustworthy even if their URL still 200s
+  // (QA 2026-07-22 found 10 "active" deals unscraped since April/May: their
+  // crawlers moved to new URLs and the old rows lingered active forever).
+  const STALE_DAYS = 21;
+  const staleCutoff = new Date(now.getTime() - STALE_DAYS * 24 * 3600 * 1000);
+  const staleResult = await db
+    .update(deals)
+    .set({ isActive: false, updatedAt: now })
+    .where(
+      and(
+        eq(deals.isActive, true),
+        lt(deals.scrapedAt, staleCutoff),
+      ),
+    )
+    .returning({ id: deals.id, title: deals.title });
+  console.log(`\nStep 1b: ${staleResult.length} zombie deals (unscraped >${STALE_DAYS}d) deactivated`);
+  for (const d of staleResult) {
+    console.log(`  [zombie] ${d.title}`);
+  }
+
   // Step 2: Check active deal URLs for 404s
   const activeDeals = await db
     .select({ id: deals.id, title: deals.title, url: deals.url, slug: deals.slug })

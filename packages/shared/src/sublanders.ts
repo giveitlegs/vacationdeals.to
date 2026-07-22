@@ -837,7 +837,10 @@ export const MODIFIERS: Record<string, Modifier> = {
   "bundles": {
     slug: "bundles",
     label: "Vacation Bundles",
-    h1Fragment: "Vacation Bundles",
+    // "Bundles" not "Vacation Bundles": the title template is
+    // "<City> Vacation Deals <h1Fragment>" — the longer form rendered
+    // "…Vacation Deals Vacation Bundles" (QA 2026-07-22).
+    h1Fragment: "Bundles",
     metaBlurb: "vacation bundles",
     type: "interest",
     chipLabel: "Bundles",

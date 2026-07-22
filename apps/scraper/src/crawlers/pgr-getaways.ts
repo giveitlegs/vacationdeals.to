@@ -76,8 +76,18 @@ function parseDestination(rest: string): { city: string; state?: string; country
 
 export async function runPgrGetawaysCrawler() {
   const crawler = new CheerioCrawler({
-    maxRequestsPerCrawl: 3,
-    maxRequestRetries: 2,
+    maxRequestsPerCrawl: 8,
+    // Shopify rate-limits products.json aggressively; Crawlee's default
+    // retries fire back-to-back and exhaust in ~3s (wave-5 run 2026-07-22
+    // got three 429s in a row and stored nothing). Real backoff instead.
+    maxRequestRetries: 5,
+    sameDomainDelaySecs: 20,
+    errorHandler: async ({ request }, error) => {
+      if (String(error).includes("429")) {
+        const delay = 15000 * (request.retryCount + 1);
+        await new Promise((r) => setTimeout(r, delay));
+      }
+    },
     requestHandlerTimeoutSecs: 60,
     additionalMimeTypes: ["application/json"],
     async requestHandler({ request, body, log }) {

@@ -912,7 +912,9 @@ export async function getTickerDeals(limit: number = 20): Promise<TickerDeal[] |
       .from(schema.deals)
       .leftJoin(schema.brands, sql`${schema.deals.brandId} = ${schema.brands.id}`)
       .where(eq(schema.deals.isActive, true))
-      .orderBy(asc(schema.deals.price))
+      // Secondary key makes the $59 tie-group stable across renders (QA
+      // 2026-07-22: membership shuffled between requests with price alone).
+      .orderBy(asc(schema.deals.price), asc(schema.deals.id))
       .limit(limit);
 
     if (rows.length === 0) return null;
