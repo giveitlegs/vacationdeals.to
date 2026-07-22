@@ -49,7 +49,7 @@ scripts/            — deploy.sh (VPS deployment)
 - `deal_price_history` — Price tracking over time per deal
 - `site_settings` — Key/value pairs (GTM ID, GA ID, AdSense)
 - `ad_banners` — Configurable ad placements (header, sidebar, inline, footer)
-- `blog_posts` — 696 CMS-managed blog posts (HTML content, FAQs, SEO metadata). Batch content is authored as JSON in `research/blog-batches/<batch>/` (git = source of record) and inserted via `scripts/insert-blog-batch-json.ts`. Blog URLs are TOP-LEVEL (`/resort-waffle-tier-list`); `/blog/<slug>` 308s there.
+- `blog_posts` — 746 CMS-managed blog posts (HTML content, FAQs, SEO metadata). Batch content is authored as JSON in `research/blog-batches/<batch>/` (git = source of record) and inserted via `scripts/insert-blog-batch-json.ts`. Blog URLs are TOP-LEVEL (`/resort-waffle-tier-list`); `/blog/<slug>` 308s there.
 - `seo_health` — SEO issue tracking (URL, severity, check type, resolution status)
 
 ## SEO Architecture
