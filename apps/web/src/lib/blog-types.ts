@@ -96,7 +96,10 @@ const _allPosts: BlogPost[] = [
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
   try {
     const { getBlogPostsFromDB } = await import("@/lib/queries");
-    const dbResult = await getBlogPostsFromDB({ limit: 500 });
+    // No practical cap: the sitemap and blog index must see every published
+    // post (limit 500 silently dropped posts once the table passed 500 —
+    // caught 2026-07-21 when the sitemap froze at 1216 URLs).
+    const dbResult = await getBlogPostsFromDB({ limit: 10000 });
     if (dbResult && dbResult.posts.length > 0) {
       return dbResult.posts;
     }
