@@ -1,39 +1,26 @@
 # Next Enhancements (prioritized)
 
-_Updated 2026-07-21 after the batch-2 content session (50 more posts, turbo globalEnv root-cause fix: sitemap 1216→2149 URLs incl. all 627 deal pages). Earlier shipped items in "Done" below._
+_Updated 2026-07-23 during the 225-niche-page build session (stat-bait, requirements-AEO, legal, fees, calculators, showdowns, audiences, seasonal, watchdog, glossary — authored under `research/page-ideation-2026-07/`, shipped through the blog_posts pipeline at top-level slugs). Earlier shipped items in "Done" below._
 
-## 1. Resubmit sitemap + monitor indexation of the 627 newly-exposed deal URLs
-The turbo env fix means Google is seeing /deals/* URLs in the sitemap for the first time. Ping GSC (rss-submit/IndexNow cron already exists — confirm it pings sitemap.xml too), then watch GSC Coverage over 2-4 weeks for indexation rate of deal pages and the 102 new posts. If deal pages index poorly, consider a changefreq/priority tune and internal-link boosts from landers.
+## 1. Make the data/stat pages actually live-dynamic (their whole value prop)
+The 30 stat-bait pages (price index, per-city histories, price-drop leaderboard, per-night rankings, etc.) currently bake in a point-in-time snapshot of DB numbers (pulled 2026-07-24). Their citability depends on being CURRENT. Build a nightly job that regenerates the numbers/tables in these specific `blog_posts` rows from live SQL (or convert them to real dynamic routes that query `deals`/`deal_price_history` at request time with ISR). Until then, add a cron that refreshes the embedded figures weekly so "updated <date>" stays honest.
 
-## 2. Audit other build-time DB consumers for the same silent-fallback pattern
-The sitemap failed silently for months because every build-time DB read falls back to static data on error (getDB catch → null, getDealSlugs catch → []). Grep all `catch { return` fallbacks in apps/web/src/lib and add a build-time log line (or a build-failing assertion when DATABASE_URL is set but the query fails) so this class of bug can't hide again. Candidates: generateStaticParams on landers, llms-full.txt route, RSS routes.
+## 2. Content-depth guardrail in insert-blog-batch-json.ts + a standing depth pass
+Writer agents repeatedly under-deliver on prose length (this batch's first drafts came in ~390–600 words vs the 750+ target; the earlier showdown batch shipped 10 under-length). Move the floor into the inserter (reject <650 words of stripped-text prose with a report), and keep a reusable "depth-expansion" agent step in the pipeline. Shipping thin content at scale is a Helpful-Content/thin-affiliate ranking risk — the opposite of the goal.
 
-## 3. Playwright crawlers for wyndhamtrips.com + vacationpeople.com
-Both confirmed to hold large vacpack inventories (wyndhamtrips: 4d/3n $199 + cruise combos; vacationpeople: $479/couple packages across 6+ destinations with subdomains) but 403 plain HTTP — need PlaywrightCrawler from the VPS. vacationpeople's structure mirrors timesharevacationpackages.com. Biggest remaining inventory unlock.
+## 3. Interactive versions of the 15 calculator pages
+Category E shipped as static worked-example/formula pages (the CMS content field is static HTML). Convert the highest-value ones (rescission-deadline checker, presentation hourly-rate, savings, all-inclusive break-even) into real interactive routes with client components — tools earn passive links and rank for "calculator" queries. The static pages can 301 to the interactive versions.
 
-## 4. On-demand ISR revalidation after scrape waves + blog inserts
-Landers revalidate on a fixed 1-hour timer. Add a secret-protected `revalidatePath`/`revalidateTag` route that `scrape-wave.ts` and `insert-blog-batch-json.ts` call on completion, plus a nightly assertion comparing lander "from $X" against `MIN(deals.price)`, logged to `seo_health`.
+## 4. Programmatic internal-linking + hub pages for the 225
+These pages are strongest as hub-and-spoke clusters (glossary terms ↔ requirements ↔ data ↔ showdowns). Build category hub pages (`/vacation-deal-data`, `/timeshare-presentation-guide`, `/vacation-deal-glossary`) and an automated related-links injector so every new page links its siblings and the relevant lander/data hub. Also add them to the main nav/footer where appropriate.
 
-## 5. Price-sanity layer in deal-store + seo_health resolution loop
-QA swarm 2026-07-22: (a) deal_price_history had a 44-swing flip-flop artifact (hyatt surcharge bug, now fixed at the crawler) — add a generic guard in deal-store that flags/rejects snapshots swinging >70% then immediately reverting, so history stays publishable as "price drop" content; (b) seo_health has 14,268 rows, zero ever marked resolved — seo-audit.ts should auto-resolve issues that stop recurring, else the table is noise.
-
-## 6. Page-weight diet for data-heavy pages
-/rate-recap (3.2MB), /vacpack-rate-showdown (3.5MB), /vacpack-games/time-machine (3.5MB) serialize the full 365-day price-history payload into HTML. Paginate or lazy-fetch via API for mobile CWV.
-
-## 7. Writer-agent output linting in insert-blog-batch-json.ts
-Batch-2 QA caught 10 posts under the 900-word floor from one writer despite its self-validation claims. Move the guardrails into the inserter: word-count floor, metaDescription length, required BLUF div, balanced tags, humanization-marker check (at least one known misspelling present in body), and reject-with-report instead of trusting agent self-reports.
-
-## 3. Weird-batch performance tracking + second wave
-52 unconventional posts went live 2026-07-20 (itineraries, rankings, AEO questions, tips — tagged `weird-batch`). In ~3 weeks, pull GSC impressions/clicks per slug and compare against the older guide-style posts; double down on whichever archetypes win (the AEO question posts are the most likely breakouts) with a second 50-post batch. Requires the GSC API access already used by the seo-audit cron.
-
-## 4. Deal-page uniqueness monitor in the SF audit loop
-The 2026-07-20 SF crawl found 107 duplicate titles from multi-source resort deals (fixed via "via <brand>" suffix) — but new sources keep arriving, and dupes can regrow. Add a monthly headless SF run (`ScreamingFrogSEOSpiderCli.exe` recipe now proven in `reports/2026-07-20/`) with a diff against the previous crawl's issue counts, emailed via Resend. Also watch `?page=N` pagination canonicals.
-
-## 5. Branson network expansion + monitoring
-The "Discover Branson" cluster (Branson Entertainment & Lodging LLC / Bryan Battaglia) and Save On Branson (Branson Internet Ventures LLC) have sister domains not yet crawled: bransonshowtickets.com, dinebranson.com, bransontravel.com, bransontravelservice.com — plus bransonshows.com (quote-flow, needs Playwright). Add the static sisters to the existing crawlers' seed lists where they list lodging packages, and monitor the gated "as low as" prices on save-on-branson for drift (classic phone-qualification pricing that changes seasonally).
+## 5. Refresh DataForSEO creds + attach real volumes, then prune/prioritize
+The probe (`scripts/probe-niche-keywords.ts`) 401'd on 2026-07-22 — creds need refreshing at app.dataforseo.com. Once live, run it across all 225 slugs' primary keywords, kill any that turn out to have real competition or zero commercial intent, and prioritize indexation/internal-link budget toward the genuine ultra-low-comp winners. Then monitor GSC indexation of the batch over 4-6 weeks (they land alongside the 627 deal URLs the turbo fix just exposed).
 
 ---
 
 ## Done
-**2026-07-20:** 52-post weird blog batch (JSON source-of-record pattern + `insert-blog-batch-json.ts`) · 8 new crawlers (discover-branson, save-on-branson, branson-travel-group, pgr-getaways, sandos-promo, great-resort-vacations, magical-getaway, cheap-vacation-getaways) · SF technical audit (2,082 URLs: 0 4xx, 0 chains, 0 missing titles/H1/alt; dup-title fix shipped) · spinnaker branson-redirect guard · API budget guard on reviews cron · full recrawl all waves green.
-**2026-07-09:** Dead-man freshness alert (Resend) · POSIX cron wrapper · auto-delist dead deals (404/DNS/off-domain/sold-out) · Crawlee queue isolation · HGV Playwright rewrite · exploria/vegas-timeshare/iwanttotravelto URL rediscovery · catalog-fallback removal across 10 crawlers · parked-source skip.
+**2026-07-23:** 225 ultra-niche commercial/data pages authored across 10 categories (`research/page-ideation-2026-07/`) with a shared PAGE-BUILD-SPEC (authoritative voice, real-data citation, cite-this-page blocks, mandatory legal disclaimers) — built via 13 parallel writer agents into the blog_posts pipeline. QA-swarm fixes shipped 2026-07-22 (hyatt surcharge flip-flop, pgr 429 backoff, zombie-deal sweep, ticker tiebreak, bundles title dedup).
+**2026-07-21:** turbo `globalEnv` root-cause fix (sitemap 1216→2149 URLs incl. 627 deal pages), sitemap revalidate + blog 500-cap lift, batch-2 (50 posts), deploy-procedure correction.
+**2026-07-20:** 52-post weird blog batch + 8 new crawlers (Branson network + Tier-1) + SF technical audit.
+**2026-07-09:** scraper reliability overhaul (POSIX cron wrapper, dead-man alert, catalog-fallback removal, HGV Playwright, parked-source skip).

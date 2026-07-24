@@ -49,7 +49,10 @@ scripts/            — deploy.sh (VPS deployment)
 - `deal_price_history` — Price tracking over time per deal
 - `site_settings` — Key/value pairs (GTM ID, GA ID, AdSense)
 - `ad_banners` — Configurable ad placements (header, sidebar, inline, footer)
-- `blog_posts` — 746 CMS-managed blog posts (HTML content, FAQs, SEO metadata). Batch content is authored as JSON in `research/blog-batches/<batch>/` (git = source of record) and inserted via `scripts/insert-blog-batch-json.ts`. Blog URLs are TOP-LEVEL (`/resort-waffle-tier-list`); `/blog/<slug>` 308s there.
+- `blog_posts` — CMS-managed content pages (HTML content, FAQs, SEO metadata). Serves BOTH casual blog posts AND commercial/data/niche SEO pages. Batch content is authored as JSON (git = source of record) and inserted via `scripts/insert-blog-batch-json.ts <dir>` (validates required fields, faqs>=5, category enum, skips existing slugs). Sources: `research/blog-batches/<batch>/` (weird posts) and `research/page-ideation-2026-07/pages/` (225 niche commercial/data pages: stat-bait, requirements-AEO, legal, fees, calculators, showdowns, audiences, seasonal, watchdog, glossary — see PAGE-BUILD-SPEC.md there).
+- **All these render at TOP-LEVEL slugs** via the catch-all `(frontend)/[slug]/page.tsx` — resolution order: listicle → rate-recap-brand → price/duration → **sublander `{city}-{modifier}`** → **blog_posts lookup** → static dest/brand → 404. So a `blog_posts` slug that collides with a `{knownCity}-{knownModifier}` pattern gets intercepted by the sublander branch and won't render — avoid that shape when slugging new pages. `/blog/<slug>` 308s to top-level.
+- **Legal/law-adjacent pages MUST carry disclaimers** (owner directive 2026-07-22): amber "not legal advice" box as first content element + repeat above FAQ, official-statute links only, information-not-advice phrasing, plain WebPage schema. We are NOT a legal site.
+- **Content-depth bar**: ship substantive pages (750+ words prose + data tables), not thin-content-at-scale — mass thin pages are a Helpful-Content/thin-affiliate ranking risk. Writer agents under-deliver on length; always re-validate word count and run a depth pass before insert.
 - `seo_health` — SEO issue tracking (URL, severity, check type, resolution status)
 
 ## SEO Architecture
