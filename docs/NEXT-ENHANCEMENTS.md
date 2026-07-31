@@ -1,6 +1,12 @@
 # Next Enhancements (prioritized)
 
-_Updated 2026-07-23 during the 225-niche-page build session (stat-bait, requirements-AEO, legal, fees, calculators, showdowns, audiences, seasonal, watchdog, glossary — authored under `research/page-ideation-2026-07/`, shipped through the blog_posts pipeline at top-level slugs). Earlier shipped items in "Done" below._
+_Updated 2026-07-31: 160 of the 225 niche pages inserted + verified live (A/B/C/D/E/G/I); F/H/J (65) building in a small agent wave after a session-limit killed the original 13-agent batch. Fresh priorities below reflect this session's lessons. Earlier shipped items in "Done"._
+
+## 0. Automate the local DB-mirror sync (historical rate data is the crown jewel)
+The 3-layer backup is sound but the LOCAL mirror sync is manual and drifted 6 days stale this session (last Jul 24 while server was current to Jul 30). Add a scheduled `scp` (Windows Task Scheduler or a cron on a box that's always on) that pulls the newest `/root/db-backups/*.pgdump` to `backups/db/` weekly, and a freshness assertion that warns when the newest local dump is >8 days old. `deal_price_history` is now ~87K rows (Mar–Jul) and irreplaceable — losing the server without a current offsite copy would erase the site's single biggest moat.
+
+## 1. Cap parallel writer-agent fan-out to survive session limits
+This session's 13-agent page batch was killed mid-run by a session limit; 10 files survived (they'd written before dying), 3 were lost and had to be rebuilt in a 3-agent wave. Codify a rule: dispatch content-writer swarms in waves of ≤5, insert/commit each wave before starting the next, and have agents write-once-then-stop (no self-expansion loops — those burned the tokens that tripped the limit). The insert pipeline is idempotent (skips existing slugs) so incremental waves are safe.
 
 ## 1. Make the data/stat pages actually live-dynamic (their whole value prop)
 The 30 stat-bait pages (price index, per-city histories, price-drop leaderboard, per-night rankings, etc.) currently bake in a point-in-time snapshot of DB numbers (pulled 2026-07-24). Their citability depends on being CURRENT. Build a nightly job that regenerates the numbers/tables in these specific `blog_posts` rows from live SQL (or convert them to real dynamic routes that query `deals`/`deal_price_history` at request time with ISR). Until then, add a cron that refreshes the embedded figures weekly so "updated <date>" stays honest.

@@ -101,6 +101,7 @@ pm2 save
   - `0 4 */2 * *` — SEO audit
   - `0 5 */2 * *` — RSS submission
 - AI review log at `/var/log/vacdeals-reviews.log` rotated weekly (keeps 4 weeks)
+- **Backups (3 layers):** server daily pgdump cron `/root/db-backups` (30-day retention, contains full `deal_price_history`); local Dropbox mirror at `backups/db/*.pgdump` (gitignored — synced via `scp` from server, offsite via Dropbox); GitHub private repo `vacationdeals-private-backup` via `scripts/backup-to-private-github.sh`. **The local mirror sync is MANUAL and drifts stale (went 6 days behind, seen 2026-07-31)** — pull the latest server dump when doing backup work. Historical rate data is the crown-jewel asset; keep all three current.
 - SSL: Let's Encrypt via Certbot, auto-renewing
 - Nginx: Reverse proxy on port 80/443 → localhost:3000
 
