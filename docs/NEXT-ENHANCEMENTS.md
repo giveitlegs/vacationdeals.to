@@ -34,6 +34,8 @@ The probe (`scripts/probe-niche-keywords.ts`) 401'd on 2026-07-22 — creds need
 ---
 
 ## Done
+**2026-07-31:** All 225 niche pages shipped + verified (sitemap 2,447→2,480 URLs); full recrawl (all waves green); rate-accuracy swarm across all 34 sources vs live partner landers (~65 samples, overwhelming MATCH, 7 stale/corrupt rows fixed: credit-as-price, repurposed URLs, expired offers, placeholder original_prices); maintenance (zombie sweep + data-quality 17 fixes + verify-prices 44/50 OK 0 changed); SF technical audit clean (2,466 URLs, 0 4xx/SD-errors/chains, admin secure, 96 dup-titles → resort_name-backfill follow-up); 3-layer backups verified/refreshed; **weird-batch3: 50 new bespoke posts** (object bios, absurdist, hyper-specific moments, persona explainers — 1,244+ on-page words each; blog_posts 971→1,021). Flagged: vegas-timeshare + branson-travel-group now 202 bot-challenged.
+
 **2026-07-23:** 225 ultra-niche commercial/data pages authored across 10 categories (`research/page-ideation-2026-07/`) with a shared PAGE-BUILD-SPEC (authoritative voice, real-data citation, cite-this-page blocks, mandatory legal disclaimers) — built via 13 parallel writer agents into the blog_posts pipeline. QA-swarm fixes shipped 2026-07-22 (hyatt surcharge flip-flop, pgr 429 backoff, zombie-deal sweep, ticker tiebreak, bundles title dedup).
 **2026-07-21:** turbo `globalEnv` root-cause fix (sitemap 1216→2149 URLs incl. 627 deal pages), sitemap revalidate + blog 500-cap lift, batch-2 (50 posts), deploy-procedure correction.
 **2026-07-20:** 52-post weird blog batch + 8 new crawlers (Branson network + Tier-1) + SF technical audit.
