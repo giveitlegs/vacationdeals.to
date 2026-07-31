@@ -2,6 +2,9 @@
 
 _Updated 2026-07-31: 160 of the 225 niche pages inserted + verified live (A/B/C/D/E/G/I); F/H/J (65) building in a small agent wave after a session-limit killed the original 13-agent batch. Fresh priorities below reflect this session's lessons. Earlier shipped items in "Done"._
 
+## NEW (2026-07-31 SF technical audit)
+- **96 duplicate page titles** (of 2,466 URLs; otherwise clean — 0 4xx, 0 structured-data errors, 0 redirect chains, 0 missing H1/titles, admin secure). Root cause: many deal rows have empty `resort_name`, so the title template ("`<resort> <city> — <nights> from $<price> via <brand>`") collapses to identical strings for DIFFERENT resorts in the same city/price/brand (e.g. Westgate Lakes vs Town Center both render "…Orlando 4D/3N from $99 via GetawayDealz"). Do NOT mass-dedup by (brand,dest,price,nights) — 126 rows share that key but many are distinct resorts/event-dates; deletion would destroy real inventory. Fix: backfill `resort_name` in the crawlers (or add a date/id differentiator to the title when the resort name is absent) so titles are unique.
+
 ## NEW (2026-07-31 rate-accuracy swarm findings)
 - **Two sources now return HTTP 202 bot-challenges** — `vegas-timeshare` (las-vegas-timeshare.com) and `branson-travel-group` added bot protection since we built their Cheerio crawlers; they'll silently go stale and get zombie-swept at 21d. Move both to a Playwright/stealth path or park them. (hyatt JS-injected + holiday-inn Akamai + spinnaker form-page-URLs remain expected-unverifiable.)
 - **Automate the rate-accuracy swarm as a periodic job.** This session's 5-agent swarm (partner-lander price vs DB, ~65 samples) caught 7 stale/corrupt rows (credit-as-price, repurposed URLs, expired offers) that the URL-health cron misses because the URLs still 200. A monthly sampled price-vs-live check per source, emailing mismatches, would catch price drift the health check can't.
