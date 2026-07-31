@@ -2,6 +2,11 @@
 
 _Updated 2026-07-31: 160 of the 225 niche pages inserted + verified live (A/B/C/D/E/G/I); F/H/J (65) building in a small agent wave after a session-limit killed the original 13-agent batch. Fresh priorities below reflect this session's lessons. Earlier shipped items in "Done"._
 
+## NEW (2026-07-31 rate-accuracy swarm findings)
+- **Two sources now return HTTP 202 bot-challenges** — `vegas-timeshare` (las-vegas-timeshare.com) and `branson-travel-group` added bot protection since we built their Cheerio crawlers; they'll silently go stale and get zombie-swept at 21d. Move both to a Playwright/stealth path or park them. (hyatt JS-injected + holiday-inn Akamai + spinnaker form-page-URLs remain expected-unverifiable.)
+- **Automate the rate-accuracy swarm as a periodic job.** This session's 5-agent swarm (partner-lander price vs DB, ~65 samples) caught 7 stale/corrupt rows (credit-as-price, repurposed URLs, expired offers) that the URL-health cron misses because the URLs still 200. A monthly sampled price-vs-live check per source, emailing mismatches, would catch price drift the health check can't.
+- **Fix the credit/gift-card-as-price parse bug at the source** in vacation-village + vacationvip (they store the $100/$150 credit or a tile/deposit figure instead of the package price). Add a deal-store guard: if `original_price < price`, or price equals a known credit-amount pattern, flag for review.
+
 ## 0. Automate the local DB-mirror sync (historical rate data is the crown jewel)
 The 3-layer backup is sound but the LOCAL mirror sync is manual and drifted 6 days stale this session (last Jul 24 while server was current to Jul 30). Add a scheduled `scp` (Windows Task Scheduler or a cron on a box that's always on) that pulls the newest `/root/db-backups/*.pgdump` to `backups/db/` weekly, and a freshness assertion that warns when the newest local dump is >8 days old. `deal_price_history` is now ~87K rows (Mar–Jul) and irreplaceable — losing the server without a current offsite copy would erase the site's single biggest moat.
 
