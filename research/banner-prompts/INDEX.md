@@ -1,6 +1,6 @@
 # Banner mockup prompts — index
 
-Generated 2026-04-25T03:11:39.481Z.
+Generated 2026-04-25T04:35:53.530Z.
 
 Open each brand file. Run prompts through Nano Banana Pro. Save outputs to `apps/web/public/banners/`.
 
