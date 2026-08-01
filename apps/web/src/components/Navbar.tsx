@@ -93,6 +93,9 @@ export function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden items-center gap-5 md:flex">
             <Link href="/deals" className="text-sm font-medium text-gray-600 hover:text-blue-600">All Deals</Link>
+            {/* Commercial pillars — depth-1 placement (2026-08 linking plan) */}
+            <Link href="/timeshare-presentation-deals" className="text-sm font-medium text-gray-600 hover:text-blue-600">Timeshare Deals</Link>
+            <Link href="/all-inclusive-vacation-deals" className="text-sm font-medium text-gray-600 hover:text-blue-600">All-Inclusive</Link>
 
             {/* Destinations dropdown */}
             <div
@@ -336,6 +339,8 @@ export function Navbar() {
             </div>
             <div className="flex flex-col px-4 py-4 text-sm">
               <MobileLink href="/deals" onClose={() => setMobileOpen(false)}>All Deals</MobileLink>
+              <MobileLink href="/timeshare-presentation-deals" onClose={() => setMobileOpen(false)}>Timeshare Presentation Deals</MobileLink>
+              <MobileLink href="/all-inclusive-vacation-deals" onClose={() => setMobileOpen(false)}>All-Inclusive Deals</MobileLink>
 
               <MobileSectionHeader>Destinations</MobileSectionHeader>
               <MobileLink href="/destinations" onClose={() => setMobileOpen(false)}>All Destinations</MobileLink>
