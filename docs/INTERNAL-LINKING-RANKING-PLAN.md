@@ -18,6 +18,11 @@ Bottom line: authority is pooled correctly on the top nav landers but **doesn't 
 
 ---
 
+## SHIPPED 2026-08-01 (this session)
+- **QW1 DONE** — built both pillars: `/timeshare-presentation-deals` + `/all-inclusive-vacation-deals` (live, 200, FAQPage schema, in sitemap, hub-linked down to their clusters).
+- **QW2 DONE** — both pillars added to desktop + mobile nav → now depth-1.
+- **QW3 DONE** — computed related-links resolver shipped (`lib/internal-links.ts` + `getSlugTitlesByCategory` + BlogPost.tsx merge). Every content page now gets a geo-pillar up-link + keyword-pillar up-links + same-category siblings with rotated (non-exact-match) anchors. Verified: `/westgate-vs-wyndham-orlando` went from 6 inlinks → 47 on-page internal links; the sibling links mean formerly-orphaned pages now receive many inbound links. Build green, deployed. _Follow-up: expand the two pillar pages' prose (currently ~300 body words + tables + 8 FAQs — fine as hubs but below the 750 depth bar); wire pillar links into SEOPreFooter; add breadcrumb geo-pillar trail (S2)._
+
 ## QUICK WINS (days — do these first)
 
 ### QW1. Build the two missing pillars — highest ROI on the site
