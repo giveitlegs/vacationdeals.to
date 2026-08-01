@@ -6,6 +6,7 @@ import { FAQSchema } from "@/components/FAQSchema";
 import { SEOPreFooter } from "@/components/SEOPreFooter";
 import { BlogPostActions } from "@/components/BlogPostActions";
 import { addBlogIllustrations } from "@/lib/blog-images";
+import { computeInternalLinks } from "@/lib/internal-links";
 
 interface BlogPostPageProps {
   post: BlogPost;
@@ -47,6 +48,20 @@ export async function BlogPostRenderer({ post }: BlogPostPageProps) {
   const relatedPosts = relatedPostResults
     .filter((p): p is BlogPost => p !== null)
     .slice(0, 3);
+
+  // Merge hand-authored internalLinks with computed pillar up-links + siblings
+  // (dedup by href). Failsafe: on any error, fall back to the authored links.
+  let allInternalLinks = post.internalLinks;
+  try {
+    const computed = await computeInternalLinks(post);
+    const seen = new Set(post.internalLinks.map((l) => l.href));
+    allInternalLinks = [
+      ...post.internalLinks,
+      ...computed.filter((l) => !seen.has(l.href)),
+    ];
+  } catch {
+    /* keep authored links */
+  }
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -266,14 +281,16 @@ export async function BlogPostRenderer({ post }: BlogPostPageProps) {
         </section>
       )}
 
-      {/* Internal Links */}
-      {post.internalLinks.length > 0 && (
+      {/* Internal Links — hand-authored + computed (2026-08-01 linking plan:
+          raises under-linked niche pages from ~3 to ~10-16 contextual links
+          with pillar up-links and same-category siblings). */}
+      {allInternalLinks.length > 0 && (
         <section className="mt-12 rounded-xl bg-gray-50 p-8">
           <h2 className="mb-4 text-lg font-bold text-gray-900">
             Explore More Vacation Deals
           </h2>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {post.internalLinks.map((link) => (
+            {allInternalLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

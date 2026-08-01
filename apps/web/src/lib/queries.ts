@@ -861,6 +861,38 @@ export async function getBlogPostBySlugFromDB(slug: string): Promise<BlogPost | 
   }
 }
 
+/**
+ * Slim slug+title fetch for the internal-link resolver (2026-08-01 linking
+ * plan). Returns only {slug, title} — no content payload — so it's cheap to
+ * call per render and pick siblings from. Cached by ISR like everything else.
+ */
+export async function getSlugTitlesByCategory(
+  category: string,
+  limit = 60,
+): Promise<Array<{ slug: string; title: string }>> {
+  try {
+    const conn = await getDB();
+    if (!conn) return [];
+    const { db, schema } = conn;
+    const { eq, and, desc } = await import("drizzle-orm");
+    const rows = await db
+      .select({ slug: schema.blogPosts.slug, title: schema.blogPosts.title })
+      .from(schema.blogPosts)
+      .where(
+        and(
+          eq(schema.blogPosts.isPublished, true),
+          eq(schema.blogPosts.category, category),
+        ),
+      )
+      .orderBy(desc(schema.blogPosts.publishDate))
+      .limit(limit);
+    return rows;
+  } catch (e) {
+    console.error("[queries] getSlugTitlesByCategory failed:", e);
+    return [];
+  }
+}
+
 export async function getBlogPostCount(): Promise<number> {
   try {
     const conn = await getDB();
