@@ -1,5 +1,14 @@
 # Next Enhancements (prioritized)
 
+## NEW (2026-08-01 — internal-linking fixes shipped; remaining plan work)
+_Full plan + shipped items in `docs/INTERNAL-LINKING-RANKING-PLAN.md`. Shipped this session: 2 commercial pillars (`/timeshare-presentation-deals`, `/all-inclusive-vacation-deals`), pillars in nav (depth-1), and the sitewide computed related-links resolver (a formerly 6-inlink page now renders 47 internal links)._ Top 5 next:
+1. **Expand the two pillar pages' prose** — currently ~300 body words + tables + 8 FAQs (fine as hubs, below the 750 depth bar). Add 400+ words each so they're strong ranking targets, not just link hubs, for "timeshare presentation deals" / "all-inclusive vacation deals".
+2. **Build the 4 topical hub pages** (requirements / glossary / legal / fees) so the ~90 non-geo near-orphans get a pillar — biggest remaining orphan fix.
+3. **BreadcrumbList component + JSON-LD sitewide with a geo-pillar trail** — the flat top-level slugs express no hierarchy; breadcrumbs add free depth-reducing up-links (plan S2).
+4. **Title + cannibalization tuning** — homepage vs `/deals` for "vacation deals"; force city-scoped niche pages to target only their long-tail modifier and link UP to the lander (plan QW6/QW7).
+5. **Wire pillar links into SEOPreFooter + retitle `/deals-under-100` to own "$99 vacation packages"** — cheap on-page wins on the two biggest price/keyword targets.
+
+
 _Updated 2026-07-31: 160 of the 225 niche pages inserted + verified live (A/B/C/D/E/G/I); F/H/J (65) building in a small agent wave after a session-limit killed the original 13-agent batch. Fresh priorities below reflect this session's lessons. Earlier shipped items in "Done"._
 
 ## NEW (2026-07-31 internal-linking / patents ranking plan — see docs/INTERNAL-LINKING-RANKING-PLAN.md)
