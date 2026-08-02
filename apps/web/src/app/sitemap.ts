@@ -4,6 +4,7 @@ import { getAllBrandSlugs, getAllDestinationSlugs } from "@/lib/queries";
 import { CITY_SUBLANDERS } from "@vacationdeals/shared";
 import { ES_DESTINATIONS } from "@/lib/i18n/es-destinations";
 import { LISTICLES } from "@/lib/listicles";
+import { HUBS } from "@/lib/topic-hubs";
 
 async function getDealSlugs(): Promise<string[]> {
   try {
@@ -120,6 +121,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Topical hub pages (2026-08 linking plan) — code registry, not blog_posts,
+  // so they must be added to the sitemap explicitly.
+  const hubPages = HUBS.map((h) => ({
+    url: `${baseUrl}/${h.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
   // Blog pages
   const blogPosts = await getAllBlogPosts();
   const blogIndexPage = {
@@ -207,5 +217,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...realityIndexPages, ...sublanderPages, ...spanishPages, ...carnivalPages, ...listiclePages];
+  return [...staticPages, ...hubPages, blogIndexPage, ...destinationPages, ...brandPages, ...pricePages, ...durationPages, ...dealPages, ...blogPostPages, ...brandRateRecapPages, ...realityIndexPages, ...sublanderPages, ...spanishPages, ...carnivalPages, ...listiclePages];
 }
