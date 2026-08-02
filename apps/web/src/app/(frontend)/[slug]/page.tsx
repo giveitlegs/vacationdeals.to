@@ -17,6 +17,8 @@ import { getFAQsForSlug } from "@/lib/faqs";
 import { getBlogPostBySlug, getAllBlogPosts } from "@/lib/blog-types";
 import type { BlogPost } from "@/lib/blog-types";
 import { BlogPostRenderer } from "@/components/BlogPost";
+import { TopicHubRenderer } from "@/components/TopicHub";
+import { HUB_BY_SLUG, type TopicHub } from "@/lib/topic-hubs";
 import { SublanderPage } from "@/components/SublanderPage";
 import { ListiclePage } from "@/components/ListiclePage";
 import { CityModifierSubnav } from "@/components/CityModifierSubnav";
@@ -134,6 +136,7 @@ type SlugType =
   | { type: "blog"; data: BlogPost }
   | { type: "sublander"; data: SublanderData }
   | { type: "rate-recap-brand"; data: RateRecapBrandData }
+  | { type: "hub"; data: TopicHub }
   | { type: "listicle"; data: ListicleConfig };
 
 // Long-form brand slug aliases → canonical short slug.
@@ -164,6 +167,12 @@ const REGIONAL_ALIASES: Record<string, string> = {
 };
 
 async function resolveSlug(slug: string): Promise<SlugType | null> {
+  // 0. Topical hub pages (2026-08-02 linking plan). Check first — these are
+  // fixed, known slugs that must never be shadowed by the sublander parser.
+  if (HUB_BY_SLUG[slug]) {
+    return { type: "hub", data: HUB_BY_SLUG[slug] };
+  }
+
   // 0a. Check listicle pattern `best-vacation-deals-{city}-{year}` FIRST
   // (before sublander parser which could eat parts of this slug).
   if (slug.startsWith("best-vacation-deals-")) {
@@ -628,6 +637,11 @@ export default async function SlugPage({ params }: SlugPageProps) {
   // Blog posts don't need deal data
   if (resolved.type === "blog") {
     return <BlogPostRenderer post={resolved.data} />;
+  }
+
+  // Topical hub pages (dynamic pillar that links down to its whole cluster)
+  if (resolved.type === "hub") {
+    return <TopicHubRenderer hub={resolved.data} />;
   }
 
   // Brand rate recap pages — delegate to the dedicated component

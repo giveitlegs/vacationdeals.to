@@ -153,7 +153,11 @@ export function LeadGenPopup({
         ) : (
           <>
             <h2 className="mb-2 text-2xl font-bold text-gray-900">{headline}</h2>
-            <p className="mb-4 text-sm text-gray-600">{subheadline}</p>
+            <p className="mb-3 text-sm text-gray-600">{subheadline}</p>
+            {/* Not-a-marketing-company statement (owner directive 2026-08). */}
+            <div className="mb-4 rounded-lg border border-gray-200 bg-gray-50 p-3 text-xs text-gray-600">
+              <strong>We are not a marketing company and not a timeshare marketing site.</strong> VacationDeals.to only makes publicly available deal data easier to find. We send <strong>email only</strong> — we do not text you or sell your info.
+            </div>
             <form onSubmit={submit}>
               <input
                 type="email"
@@ -172,11 +176,11 @@ export function LeadGenPopup({
                   className="mt-0.5 h-4 w-4 shrink-0"
                 />
                 <span>
-                  I agree to the{" "}
+                  Yes, email me VacationDeals.to deal alerts. I agree to the{" "}
                   <a href="/terms" target="_blank" rel="noopener" className="text-blue-600 underline">Terms</a>{" "}
                   &amp;{" "}
-                  <a href="/privacy" target="_blank" rel="noopener" className="text-blue-600 underline">Privacy Policy</a>,
-                  and consent to promotional emails. Unsubscribe anytime.
+                  <a href="/privacy" target="_blank" rel="noopener" className="text-blue-600 underline">Privacy Policy</a>.
+                  Emails only — we don&apos;t text you. Unsubscribe anytime.
                 </span>
               </label>
               <button

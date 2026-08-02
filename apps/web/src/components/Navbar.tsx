@@ -33,9 +33,22 @@ const BEST_OF_CITIES: { slug: string; label: string }[] = [
   { slug: "punta-cana", label: "Punta Cana" },
 ];
 
+// Topical hub pages (2026-08 internal-linking plan S1).
+const HUB_LINKS: { href: string; label: string }[] = [
+  { href: "/timeshare-presentation-guide", label: "Presentation Requirements" },
+  { href: "/timeshare-cancellation-laws", label: "Cancellation Laws by State" },
+  { href: "/resort-fee-databases", label: "Resort Fee Databases" },
+  { href: "/vacation-deal-data", label: "Price Data & Reports" },
+  { href: "/vacation-deal-showdowns", label: "Deal Showdowns & Rankings" },
+  { href: "/vacation-deals-by-audience", label: "Deals by Traveler Type" },
+  { href: "/seasonal-vacation-deals", label: "Seasonal Deals" },
+  { href: "/vacation-deal-glossary", label: "Glossary" },
+];
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
+  const [guidesOpen, setGuidesOpen] = useState(false);
   const [bestOfOpen, setBestOfOpen] = useState(false);
   const [gamesOpen, setGamesOpen] = useState(false);
   const [carnivalOpen, setCarnivalOpen] = useState(false);
@@ -132,6 +145,24 @@ export function Navbar() {
             </div>
 
             <Link href="/brands" className="text-sm font-medium text-gray-600 hover:text-blue-600">Brands</Link>
+
+            {/* Guides (topical hubs) dropdown — 2026-08 linking plan S1 */}
+            <div
+              className="relative"
+              onMouseEnter={() => setGuidesOpen(true)}
+              onMouseLeave={() => setGuidesOpen(false)}
+            >
+              <span className="cursor-default text-sm font-medium text-gray-600 hover:text-blue-600">Guides</span>
+              {guidesOpen && (
+                <div className="absolute left-0 top-full z-50 w-[300px] pt-2">
+                  <div className="flex flex-col rounded-lg border border-gray-200 bg-white p-2 shadow-lg">
+                    {HUB_LINKS.map((h) => (
+                      <Link key={h.href} href={h.href} className="rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">{h.label}</Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Tools dropdown */}
             <div
@@ -341,6 +372,11 @@ export function Navbar() {
               <MobileLink href="/deals" onClose={() => setMobileOpen(false)}>All Deals</MobileLink>
               <MobileLink href="/timeshare-presentation-deals" onClose={() => setMobileOpen(false)}>Timeshare Presentation Deals</MobileLink>
               <MobileLink href="/all-inclusive-vacation-deals" onClose={() => setMobileOpen(false)}>All-Inclusive Deals</MobileLink>
+
+              <MobileSectionHeader>Guides</MobileSectionHeader>
+              {HUB_LINKS.map((h) => (
+                <MobileSubLink key={h.href} href={h.href} onClose={() => setMobileOpen(false)}>{h.label}</MobileSubLink>
+              ))}
 
               <MobileSectionHeader>Destinations</MobileSectionHeader>
               <MobileLink href="/destinations" onClose={() => setMobileOpen(false)}>All Destinations</MobileLink>

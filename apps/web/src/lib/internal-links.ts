@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog-types";
 import { getSlugTitlesByCategory } from "@/lib/queries";
+import { HUB_BY_CLUSTER, clusterForSlug } from "@/lib/topic-hubs";
 
 /**
  * Computed internal-link resolver (2026-08-01 internal-linking ranking plan).
@@ -106,6 +107,14 @@ export async function computeInternalLinks(post: BlogPost): Promise<ComputedLink
   if (/all-inclusive|cancun|cabo|punta-cana|playa/.test(s)) {
     const kp = KEYWORD_PILLARS[1];
     if (post.slug !== kp.slug) push(`/${kp.slug}`, pickVariant(kp.anchors, s));
+  }
+
+  // 2b. Topical-hub up-link — every child page links UP to its cluster hub
+  //     (the reciprocal of the hub linking down; closes the orphan tail).
+  const cluster = clusterForSlug(post.slug, post.tags || []);
+  if (cluster) {
+    const hub = HUB_BY_CLUSTER[cluster];
+    if (post.slug !== hub.slug) push(`/${hub.slug}`, pickVariant(hub.anchors, post.slug));
   }
 
   // 3. Same-category siblings (descriptive title anchors).

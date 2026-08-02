@@ -88,9 +88,26 @@ export async function BlogPostRenderer({ post }: BlogPostPageProps) {
     ],
   };
 
+  // Legal-cluster pages (state cancellation / rescission / laws) must NOT
+  // present as advice-giving articles: emit plain WebPage schema, not
+  // BlogPosting (owner directive 2026-08: "we are NOT giving legal advice").
+  const isLegalPage =
+    /-timeshare-cancellation-rights$|rescission|^timeshare-laws|-cancellation-rights$/.test(post.slug);
+
   // Upgrade to BlogPosting (more specific than Article for blog content).
   // Google + AI engines give richer results to BlogPosting than generic Article.
-  const articleSchema = {
+  const articleSchema = isLegalPage
+    ? {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `https://vacationdeals.to/${post.slug}`,
+        name: post.title,
+        description: post.metaDescription,
+        url: `https://vacationdeals.to/${post.slug}`,
+        isPartOf: { "@type": "WebSite", name: "VacationDeals.to", url: "https://vacationdeals.to" },
+        publisher: { "@type": "Organization", "@id": "https://vacationdeals.to#organization", name: "VacationDeals.to" },
+      }
+    : {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "@id": `https://vacationdeals.to/${post.slug}#article`,

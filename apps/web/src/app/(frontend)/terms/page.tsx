@@ -110,12 +110,25 @@ export default function TermsAndConditionsPage() {
             2. Description of Service
           </h2>
           <p>
-            VacationDeals.to is a <strong>vacation-package aggregator and comparison
-            website</strong>. We compile publicly available information about
-            timeshare-preview vacation packages offered by third-party resort
-            companies and brokers (including, but not limited to, Westgate Resorts,
-            BookVIP, Marriott Vacation Club, Hilton Grand Vacations, Club Wyndham,
-            and others) and present them in a convenient, searchable format.
+            VacationDeals.to is an <strong>independent information and data-aggregation
+            service</strong>. We make publicly available information about third-party
+            timeshare-preview vacation packages easier to find, compare, and understand.
+            We compile this information from resort companies and brokers (including, but
+            not limited to, Westgate Resorts, BookVIP, Marriott Vacation Club, Hilton Grand
+            Vacations, Club Wyndham, and others) and present it in a searchable format.
+          </p>
+          <p className="mt-3">
+            <strong>2.1 What VacationDeals.to is &mdash; and is not.</strong> We are{" "}
+            <strong>not a timeshare marketing company</strong>, and we are <strong>not</strong> a
+            timeshare developer, seller, broker, sales agent, or travel agency. We do not market,
+            sell, or solicit the purchase of timeshare interests or vacation packages, we do not
+            receive, hold, or process booking payments, and we do not act on behalf of any resort,
+            developer, or provider. We are <strong>not affiliated with, endorsed by, or sponsored
+            by</strong> any resort or brand named on the Site. The promotional communications we
+            send under Section 19 relate to our own information service (deal alerts and site
+            updates); they are not timeshare sales solicitations. Any actual booking, sale, or
+            presentation is conducted solely by the independent third-party provider on that
+            provider&apos;s own website and terms.
           </p>
           <p className="mt-3">
             <strong>We do not:</strong>
@@ -753,25 +766,54 @@ export default function TermsAndConditionsPage() {
           </div>
         </section>
 
-        {/* ── 19. Communications Consent (TCPA) ── */}
+        {/* ── 19. Communications Consent ── */}
         <section>
           <h2 className="mb-3 text-xl font-semibold text-gray-900">
             19. Communications Consent
           </h2>
-          <p>
-            By providing your email address and/or mobile phone number through any form
-            on the Site, you provide your prior express written consent under the
-            Telephone Consumer Protection Act (47 U.S.C. &sect; 227) to receive promotional
-            communications from VacationDeals.to. This consent is not a condition of any
-            purchase. You may revoke consent at any time by emailing{" "}
-            <a href="mailto:privacy@vacationdeals.to" className="text-blue-600 underline hover:text-blue-800">
-              privacy@vacationdeals.to
-            </a>{" "}
-            or replying STOP to any SMS message. See our{" "}
-            <a href="/privacy" className="text-blue-600 underline hover:text-blue-800">
-              Privacy Policy
-            </a>{" "}
+          <p className="mb-3">
+            <strong>19.1 What you are agreeing to receive.</strong> VacationDeals.to sends
+            marketing and promotional communications &mdash; new deal alerts, price-drop
+            notifications, and destination roundups &mdash; to people who ask to receive them.
+            You control which channels you join, and joining is always optional and is never a
+            condition of using the Site or of any purchase.
+          </p>
+          <p className="mb-3">
+            <strong>19.2 Email communications.</strong> When you submit your email address
+            through a form on the Site and affirmatively opt in, you consent to receive
+            marketing emails from VacationDeals.to. We send these in accordance with the
+            federal CAN-SPAM Act (15 U.S.C. &sect;&sect; 7701 et seq.): every marketing email
+            identifies VacationDeals.to as the sender, uses non-deceptive subject lines,
+            includes our valid physical postal address, and includes a clear unsubscribe
+            mechanism. You may opt out at any time via the unsubscribe link in any email or by
+            emailing{" "}
+            <a href="mailto:privacy@vacationdeals.to" className="text-blue-600 underline hover:text-blue-800">privacy@vacationdeals.to</a>;
+            we honor opt-outs promptly and within ten (10) business days.
+          </p>
+          <p className="mb-3">
+            <strong>19.3 Text message (SMS) communications &mdash; applies only if you provide a
+            mobile number through an SMS opt-in.</strong> We do <strong>not</strong> send text
+            messages based on your email signup alone. We will only send marketing texts if you
+            separately provide a mobile number <strong>and</strong> affirmatively check a
+            dedicated SMS consent box disclosing the program terms. If and when you do, you give
+            your prior express written consent under the Telephone Consumer Protection Act
+            (47 U.S.C. &sect; 227) to receive autodialed/automated marketing texts at that
+            number; consent is not a condition of purchase; message frequency varies; message
+            and data rates may apply; reply HELP for help and STOP to opt out (one confirmation
+            message will follow). The disclosures shown at the point of the SMS opt-in are
+            incorporated here by reference.
+          </p>
+          <p className="mb-3">
+            <strong>19.4 Revoking consent.</strong> You may revoke consent for any channel at any
+            time &mdash; unsubscribe from email, reply STOP to a text, or email{" "}
+            <a href="mailto:privacy@vacationdeals.to" className="text-blue-600 underline hover:text-blue-800">privacy@vacationdeals.to</a>.
+            Email and SMS opt-outs are handled separately. See our{" "}
+            <a href="/privacy" className="text-blue-600 underline hover:text-blue-800">Privacy Policy</a>{" "}
             for full details on how we handle your information.
+          </p>
+          <p className="text-sm text-gray-500">
+            Some states impose additional telemarketing and text-messaging requirements; where
+            state law grants you greater rights, those rights apply.
           </p>
         </section>
 

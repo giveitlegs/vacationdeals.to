@@ -155,15 +155,19 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Aggregator Disclaimer */}
+        {/* Aggregator Disclaimer (sitewide — renders on every page) */}
         <div className="mt-6 rounded-lg border border-gray-200 bg-gray-100 p-4 text-xs leading-relaxed text-gray-500">
+          <p className="mb-2 text-sm font-semibold text-gray-700">
+            This is not a timeshare marketing site — we only make publicly available data easier to find.
+          </p>
           <p>
-            <strong>Disclaimer:</strong> VacationDeals.to is an independent vacation deal comparison and aggregator website.
-            We are <strong>NOT</strong> a timeshare company, resort developer, real estate broker, or travel agency. We do not
-            sell, book, market, or facilitate the sale of vacation packages, timeshare interests, or any real estate. All deals
-            displayed are sourced from publicly available information on third-party websites. Clicking a deal redirects you to
-            the third-party provider&apos;s site. We make no guarantees about pricing, availability, or accuracy of any listing.
-            All trademarks are property of their respective owners. See our{" "}
+            <strong>Disclaimer:</strong> VacationDeals.to is an independent information and data-aggregation service — <strong>not</strong> a
+            timeshare seller, developer, broker, marketer, resort, real estate broker, or travel agency, and <strong>not affiliated with, endorsed
+            by, or sponsored by</strong> any resort or brand named on this site. We do not sell, book, market, or facilitate the sale of vacation
+            packages or timeshare interests, and we do not take bookings or payments. Listings are aggregated from publicly available third-party
+            sources, may be inaccurate or out of date, and are provided for informational purposes only — not as legal, financial, or professional
+            advice. Always verify all prices, terms, and requirements directly with the seller before you rely on them. Clicking a deal redirects
+            you to the third-party provider&apos;s own site. All trademarks are property of their respective owners. See our{" "}
             <Link href="/terms" className="text-gray-600 underline hover:text-gray-800">Terms &amp; Conditions</Link>{" "}
             and{" "}
             <Link href="/privacy" className="text-gray-600 underline hover:text-gray-800">Privacy Policy</Link>{" "}

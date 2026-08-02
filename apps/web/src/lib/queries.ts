@@ -893,6 +893,48 @@ export async function getSlugTitlesByCategory(
   }
 }
 
+/**
+ * Cluster page lists for the topical hub pages (2026-08-02 linking plan S1).
+ * Groups the niche content pages by slug/tag pattern so each hub can link
+ * DOWN to every child in its cluster (fixes the orphan tail the sibling
+ * resolver can't fully reach). Returns {slug, title}, cheap, ISR-cached.
+ */
+export type ClusterKey =
+  | "glossary" | "legal" | "fees" | "requirements"
+  | "audiences" | "showdowns" | "data" | "seasonal";
+
+export async function getClusterPages(
+  cluster: ClusterKey,
+): Promise<Array<{ slug: string; title: string }>> {
+  try {
+    const conn = await getDB();
+    if (!conn) return [];
+    const { db, schema } = conn;
+    const { and, eq, or, like, sql } = await import("drizzle-orm");
+    const bp = schema.blogPosts;
+    const patterns: Record<ClusterKey, ReturnType<typeof or>> = {
+      glossary: like(bp.slug, "glossary-%"),
+      legal: or(like(bp.slug, "%-timeshare-cancellation-rights"), like(bp.slug, "%rescission%"), like(bp.slug, "timeshare-laws%"), like(bp.slug, "%-cancellation-rights")),
+      fees: or(like(bp.slug, "%-resort-fee-database"), like(bp.slug, "%maintenance-fee%"), like(bp.slug, "%hidden-fees%"), like(bp.slug, "%fee-database%")),
+      requirements: like(bp.slug, "timeshare-presentation-%"),
+      audiences: like(bp.slug, "vacation-deals-%"),
+      showdowns: or(like(bp.slug, "%-ranked"), like(bp.slug, "%-vs-%")),
+      data: like(bp.tags, "%data-pages%"),
+      seasonal: like(bp.tags, "%seasonal%"),
+    };
+    const rows = await db
+      .select({ slug: bp.slug, title: bp.title })
+      .from(bp)
+      .where(and(eq(bp.isPublished, true), patterns[cluster]))
+      .orderBy(sql`${bp.title} asc`)
+      .limit(200);
+    return rows;
+  } catch (e) {
+    console.error("[queries] getClusterPages failed:", e);
+    return [];
+  }
+}
+
 export async function getBlogPostCount(): Promise<number> {
   try {
     const conn = await getDB();
