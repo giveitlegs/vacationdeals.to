@@ -430,6 +430,16 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 
   const baseUrl = "https://vacationdeals.to";
 
+  if (resolved.type === "hub") {
+    const h = resolved.data;
+    return {
+      title: h.metaTitle,
+      description: h.metaDescription,
+      alternates: { canonical: `${baseUrl}/${h.slug}` },
+      openGraph: { title: h.metaTitle, description: h.metaDescription, url: `${baseUrl}/${h.slug}`, type: "website" },
+    };
+  }
+
   switch (resolved.type) {
     case "destination": {
       const { name, state } = resolved.data;
