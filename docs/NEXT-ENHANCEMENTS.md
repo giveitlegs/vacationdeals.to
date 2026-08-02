@@ -1,5 +1,14 @@
 # Next Enhancements (prioritized)
 
+## ⚠️ REQUIRED FOLLOW-UPS (2026-08-02 legal + linking session)
+_Shipped this session: 8 topical hub pages (orphan-tail fix), Guides nav, footer sitewide "not a timeshare marketing site" line, popup (6s every page, "not a marketing company", email-only + Terms/Privacy links), Terms §19 rewrite (fixed live over-claim of SMS/TCPA consent on email-only signups; email CAN-SPAM live, SMS gated behind a future phone opt-in), Terms §2.1 not-a-marketing clause, legal pages now emit WebPage schema. Two legal agents' full drafts are in this session's transcript._
+1. **ATTORNEY REVIEW before relying on the TCPA/consent copy** — I cannot certify "bulletproof"/"perfect" compliance. Priorities for counsel: TCPA SMS express-written-consent capture (only when a phone field + dedicated checkbox exist), FL FTSA / OK OTSA / WA state mini-TCPA, one-to-one-consent status (vacated Jan 2025 but confirm), CAN-SPAM physical address in emails, and that the "not a marketing company" positioning matches actual operations.
+2. **DO NOT SMS anyone yet** — the popup collects email only; texting email-only signups would itself violate TCPA. SMS requires a new phone field + separate unchecked SMS-consent checkbox with all disclosures, logged with timestamp.
+3. **Privacy Policy upgrades (agent 2 draft)** — add a real "Do Not Sell/Share / Your Privacy Choices" opt-out + **actually honor GPC in code** before claiming it (false GPC claim = the Sephora violation); add email/phone to CCPA categories; add GDPR marketing lawful-basis; add a retention table; harmonize the absolute "we do not sell" language. Footer needs the "Your Privacy Choices" link once the opt-out mechanism exists.
+4. **Expand pillar + hub prose** — the 2 pillars (~300 words) and hub intros are link-dense but below the 750-word depth bar; add substance so they're strong ranking targets, not just hubs.
+5. **Re-crawl to confirm the orphan tail dropped** — hubs now link down to whole clusters + resolver links up; verify the ~460 under-linked / 135 near-orphan counts fell.
+
+
 ## NEW (2026-08-01 — internal-linking fixes shipped; remaining plan work)
 _Full plan + shipped items in `docs/INTERNAL-LINKING-RANKING-PLAN.md`. Shipped this session: 2 commercial pillars (`/timeshare-presentation-deals`, `/all-inclusive-vacation-deals`), pillars in nav (depth-1), and the sitewide computed related-links resolver (a formerly 6-inlink page now renders 47 internal links)._ Top 5 next:
 1. **Expand the two pillar pages' prose** — currently ~300 body words + tables + 8 FAQs (fine as hubs, below the 750 depth bar). Add 400+ words each so they're strong ranking targets, not just link hubs, for "timeshare presentation deals" / "all-inclusive vacation deals".
