@@ -66,9 +66,23 @@ vacpack data). NEW angles each time — check existing slugs first
 (`SELECT slug FROM blog_posts`) to avoid dupes. Discover-oriented = curiosity-gap
 titles, timely/story hooks, strong first image; lightly SEO'd (one keyword woven in).
 Author as JSON to a new `research/blog-batches/<batch>/` dir, validate (unique slugs,
-≥900 on-page words incl. FAQs, ≥6 FAQs), commit, insert via
-`scripts/insert-blog-batch-json.ts <dir>`, rebuild (guarded) so the sitemap picks
-them up, verify a sample renders 200 + FAQPage schema.
+≥900 on-page words incl. FAQs, ≥6 FAQs), commit + push, insert on the VPS, rebuild
+(guarded) so the sitemap picks them up, verify a sample renders 200 + FAQPage schema.
+
+**Insert command gotcha:** `insert-blog-batch-json.ts` imports the `@vacationdeals/db`
+workspace pkg. `npx tsx` AND `pnpm exec tsx` from the repo root BOTH fail
+(MODULE_NOT_FOUND / "tsx not found"). Run it from `apps/scraper` (which has both tsx
+and the db symlink) with ABSOLUTE paths:
+`cd /var/www/vacationdeals/apps/scraper && set -a && source /var/www/vacationdeals/.env && set +a && ./node_modules/.bin/tsx /var/www/vacationdeals/scripts/insert-blog-batch-json.ts /var/www/vacationdeals/research/blog-batches/<batch> [--dry-run]`.
+Always `--dry-run` first (validates required fields, ≥5 FAQs, category enum, skips
+existing slugs), then run for real.
+
+**Sitemap-cache trap (learned 2026-08-11):** `sitemap.ts` has `revalidate=3600`, so new
+posts appear in `/sitemap.xml` within the hour on their own — DO NOT try to force it by
+deleting `.next/server/app/sitemap.xml*`; that removes the compiled route and makes the
+sitemap 500 (MODULE_NOT_FOUND), needing a full `TURBO_FORCE=true pnpm build` to recover.
+If you must refresh it now, a normal guarded rebuild + `pm2 restart` regenerates it
+cleanly. The per-slug blog pages go live immediately (fresh ISR), only the sitemap lags.
 
 ## FINISH
 - Update `docs/NEXT-ENHANCEMENTS.md` (dated entry) + relevant memory.
