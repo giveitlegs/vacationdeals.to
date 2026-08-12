@@ -33,6 +33,19 @@ const BEST_OF_CITIES: { slug: string; label: string }[] = [
   { slug: "punta-cana", label: "Punta Cana" },
 ];
 
+// Deals dropdown — commercial pillars + price/duration quick links.
+const DEAL_LINKS: { href: string; label: string; badge?: string }[] = [
+  { href: "/deals", label: "All Vacation Deals" },
+  { href: "/timeshare-presentation-deals", label: "Timeshare Presentation Deals", badge: "★" },
+  { href: "/all-inclusive-vacation-deals", label: "All-Inclusive Deals", badge: "🌴" },
+];
+const DEAL_QUICK: { href: string; label: string }[] = [
+  { href: "/deals-under-100", label: "Under $100" },
+  { href: "/deals-under-200", label: "Under $200" },
+  { href: "/3-night-packages", label: "3-Night Packages" },
+  { href: "/4-night-packages", label: "4-Night Packages" },
+];
+
 // Topical hub pages (2026-08 internal-linking plan S1).
 const HUB_LINKS: { href: string; label: string }[] = [
   { href: "/timeshare-presentation-guide", label: "Presentation Requirements" },
@@ -47,11 +60,10 @@ const HUB_LINKS: { href: string; label: string }[] = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dealsOpen, setDealsOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
-  const [bestOfOpen, setBestOfOpen] = useState(false);
-  const [gamesOpen, setGamesOpen] = useState(false);
-  const [carnivalOpen, setCarnivalOpen] = useState(false);
+  const [funOpen, setFunOpen] = useState(false);
   const [destinationsOpen, setDestinationsOpen] = useState(false);
   const [showPlayNow, setShowPlayNow] = useState(false);
 
@@ -103,21 +115,40 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden items-center gap-5 md:flex">
-            <Link href="/deals" className="text-sm font-medium text-gray-600 hover:text-blue-600">All Deals</Link>
-            {/* Commercial pillars — depth-1 placement (2026-08 linking plan) */}
-            <Link href="/timeshare-presentation-deals" className="text-sm font-medium text-gray-600 hover:text-blue-600">Timeshare Deals</Link>
-            <Link href="/all-inclusive-vacation-deals" className="text-sm font-medium text-gray-600 hover:text-blue-600">All-Inclusive</Link>
+          {/* Desktop Nav — consolidated into prominent single-line items */}
+          <div className="hidden items-center gap-6 md:flex">
+            {/* Deals dropdown */}
+            <div className="relative" onMouseEnter={() => setDealsOpen(true)} onMouseLeave={() => setDealsOpen(false)}>
+              <Link href="/deals" className="flex items-center gap-1 whitespace-nowrap text-[15px] font-medium text-gray-700 hover:text-blue-600">
+                Deals
+                <ChevronDown />
+              </Link>
+              {dealsOpen && (
+                <div className="absolute left-0 top-full z-50 w-72 pt-2">
+                  <div className="rounded-lg border border-gray-200 bg-white p-2 shadow-lg">
+                    {DEAL_LINKS.map((d) => (
+                      <Link key={d.href} href={d.href} className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700">
+                        {d.badge && <span>{d.badge}</span>}
+                        {d.label}
+                      </Link>
+                    ))}
+                    <div className="my-1 border-t border-gray-100" />
+                    <p className="px-3 pb-1 pt-1 text-[11px] font-semibold uppercase tracking-wider text-gray-400">By price & length</p>
+                    <div className="grid grid-cols-2 gap-1">
+                      {DEAL_QUICK.map((d) => (
+                        <Link key={d.href} href={d.href} className="rounded-md px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">{d.label}</Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Destinations dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setDestinationsOpen(true)}
-              onMouseLeave={() => setDestinationsOpen(false)}
-            >
-              <Link href="/destinations" className="text-sm font-medium text-gray-600 hover:text-blue-600">
+            <div className="relative" onMouseEnter={() => setDestinationsOpen(true)} onMouseLeave={() => setDestinationsOpen(false)}>
+              <Link href="/destinations" className="flex items-center gap-1 whitespace-nowrap text-[15px] font-medium text-gray-700 hover:text-blue-600">
                 Destinations
+                <ChevronDown />
               </Link>
               {destinationsOpen && (
                 <div className="absolute left-0 top-full z-50 w-[520px] pt-2">
@@ -144,15 +175,14 @@ export function Navbar() {
               )}
             </div>
 
-            <Link href="/brands" className="text-sm font-medium text-gray-600 hover:text-blue-600">Brands</Link>
+            <Link href="/brands" className="whitespace-nowrap text-[15px] font-medium text-gray-700 hover:text-blue-600">Brands</Link>
 
             {/* Guides (topical hubs) dropdown — 2026-08 linking plan S1 */}
-            <div
-              className="relative"
-              onMouseEnter={() => setGuidesOpen(true)}
-              onMouseLeave={() => setGuidesOpen(false)}
-            >
-              <span className="cursor-default text-sm font-medium text-gray-600 hover:text-blue-600">Guides</span>
+            <div className="relative" onMouseEnter={() => setGuidesOpen(true)} onMouseLeave={() => setGuidesOpen(false)}>
+              <span className="flex cursor-default items-center gap-1 whitespace-nowrap text-[15px] font-medium text-gray-700 hover:text-blue-600">
+                Guides
+                <ChevronDown />
+              </span>
               {guidesOpen && (
                 <div className="absolute left-0 top-full z-50 w-[300px] pt-2">
                   <div className="flex flex-col rounded-lg border border-gray-200 bg-white p-2 shadow-lg">
@@ -170,11 +200,9 @@ export function Navbar() {
               onMouseEnter={() => setToolsOpen(true)}
               onMouseLeave={() => setToolsOpen(false)}
             >
-              <button type="button" className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-blue-600">
+              <button type="button" className="flex items-center gap-1 whitespace-nowrap text-[15px] font-medium text-gray-700 hover:text-blue-600">
                 Tools
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
+                <ChevronDown />
               </button>
               {toolsOpen && (
                 <div className="absolute left-0 top-full z-50 w-72 pt-2">
@@ -226,90 +254,44 @@ export function Navbar() {
               )}
             </div>
 
-            {/* Best Of 2026 dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setBestOfOpen(true)}
-              onMouseLeave={() => setBestOfOpen(false)}
-            >
-              <button type="button" className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-blue-600">
-                Best Of 2026
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
+            <Link href="/blog" className="whitespace-nowrap text-[15px] font-medium text-gray-700 hover:text-blue-600">Blog</Link>
+
+            {/* Fun dropdown — Games + Carnival + Best Of, consolidated */}
+            <div className="relative" onMouseEnter={() => setFunOpen(true)} onMouseLeave={() => setFunOpen(false)}>
+              <button type="button" className="flex items-center gap-1 whitespace-nowrap text-[15px] font-medium text-gray-700 hover:text-fuchsia-600">
+                <span>🎡</span>
+                <span className="bg-gradient-to-r from-fuchsia-600 via-purple-500 to-orange-500 bg-clip-text font-semibold text-transparent">Fun</span>
+                <ChevronDown />
               </button>
-              {bestOfOpen && (
-                <div className="absolute left-0 top-full z-50 w-72 pt-2">
-                  <div className="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
-                    <p className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gray-500">Best Vacation Deals — Live Rankings</p>
-                    {BEST_OF_CITIES.map((c) => (
-                      <Link
-                        key={c.slug}
-                        href={`/best-vacation-deals-${c.slug}-2026`}
-                        className="block px-4 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600"
-                      >
-                        {c.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <Link href="/blog" className="text-sm font-medium text-gray-600 hover:text-blue-600">Blog</Link>
-
-            {/* Games dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setGamesOpen(true)}
-              onMouseLeave={() => setGamesOpen(false)}
-            >
-              <Link href="/vacpack-games" className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-fuchsia-600">
-                <span className="text-base">🎮</span>
-                <span className="bg-gradient-to-r from-fuchsia-600 via-amber-500 to-emerald-500 bg-clip-text text-transparent font-semibold">Games</span>
-              </Link>
-              {gamesOpen && (
-                <div className="absolute left-0 top-full z-50 w-60 pt-2">
-                  <div className="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
-                    <Link href="/vacpack-games" className="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50 hover:text-fuchsia-600">
-                      All Games
-                    </Link>
-                    <div className="my-1 border-t border-gray-100" />
-                    <Link href="/vacpack-games/survival-kit" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600">🎯 Survival Kit</Link>
-                    <Link href="/vacpack-games/bingo" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-fuchsia-600">🎱 VacPack Bingo</Link>
-                    <Link href="/vacpack-games/59-challenge" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-600">💰 $59 Challenge</Link>
-                    <Link href="/vacpack-games/time-machine" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600">🕰️ Time Machine</Link>
-                    <Link href="/vacpack-games/scratch-off" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">🎟️ Scratch-Off</Link>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Carnival dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setCarnivalOpen(true)}
-              onMouseLeave={() => setCarnivalOpen(false)}
-            >
-              <Link href="/vacation-carnival" className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-purple-600">
-                <span className="text-base">🎪</span>
-                <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent font-semibold">Carnival</span>
-              </Link>
-              {carnivalOpen && (
-                <div className="absolute left-0 top-full z-50 w-60 pt-2">
-                  <div className="rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
-                    <Link href="/vacation-carnival" className="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50 hover:text-purple-600">
-                      All Attractions
-                    </Link>
-                    <div className="my-1 border-t border-gray-100" />
-                    <Link href="/vacation-carnival/pto-debt" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">💸 PTO Debt Calculator</Link>
-                    <Link href="/vacation-carnival/severance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">📄 Severance Packet</Link>
-                    <Link href="/vacation-carnival/cursed-trip" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🔮 Cursed Trip Quiz</Link>
-                    <Link href="/vacation-carnival/blood-oath" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🩸 Blood Oath</Link>
-                    <Link href="/vacation-carnival/court" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">⚖️ Vacation Court</Link>
-                    <Link href="/vacation-carnival/lost-resort" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🗺️ The Lost Resort</Link>
-                    <Link href="/vacation-carnival/cult" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🕯️ The Cult</Link>
-                    <Link href="/vacation-carnival/confessional" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🙏 The Confessional</Link>
+              {funOpen && (
+                <div className="absolute right-0 top-full z-50 w-[600px] pt-2">
+                  <div className="grid grid-cols-3 gap-2 rounded-lg border border-gray-200 bg-white p-3 shadow-lg">
+                    {/* Games */}
+                    <div>
+                      <Link href="/vacpack-games" className="mb-1 block px-2 text-[11px] font-bold uppercase tracking-wider text-fuchsia-600">🎮 Games</Link>
+                      <Link href="/vacpack-games/survival-kit" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-fuchsia-600">🎯 Survival Kit</Link>
+                      <Link href="/vacpack-games/bingo" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-fuchsia-600">🎱 VacPack Bingo</Link>
+                      <Link href="/vacpack-games/59-challenge" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-600">💰 $59 Challenge</Link>
+                      <Link href="/vacpack-games/time-machine" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600">🕰️ Time Machine</Link>
+                      <Link href="/vacpack-games/scratch-off" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">🎟️ Scratch-Off</Link>
+                    </div>
+                    {/* Carnival */}
+                    <div>
+                      <Link href="/vacation-carnival" className="mb-1 block px-2 text-[11px] font-bold uppercase tracking-wider text-purple-600">🎪 Carnival</Link>
+                      <Link href="/vacation-carnival/pto-debt" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">💸 PTO Debt Calculator</Link>
+                      <Link href="/vacation-carnival/severance" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">📄 Severance Packet</Link>
+                      <Link href="/vacation-carnival/cursed-trip" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🔮 Cursed Trip Quiz</Link>
+                      <Link href="/vacation-carnival/court" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">⚖️ Vacation Court</Link>
+                      <Link href="/vacation-carnival/lost-resort" className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600">🗺️ The Lost Resort</Link>
+                      <Link href="/vacation-carnival" className="block rounded-md px-2 py-1.5 text-sm font-medium text-purple-600 hover:bg-gray-50">More attractions →</Link>
+                    </div>
+                    {/* Best Of */}
+                    <div>
+                      <Link href="/best-vacation-deals-orlando-2026" className="mb-1 block px-2 text-[11px] font-bold uppercase tracking-wider text-blue-600">🏆 Best Of 2026</Link>
+                      {BEST_OF_CITIES.slice(0, 6).map((c) => (
+                        <Link key={c.slug} href={`/best-vacation-deals-${c.slug}-2026`} className="block rounded-md px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">{c.label}</Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
@@ -445,6 +427,14 @@ export function Navbar() {
         </div>
       )}
     </>
+  );
+}
+
+function ChevronDown() {
+  return (
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-gray-400">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
   );
 }
 
