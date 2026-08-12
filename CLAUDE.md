@@ -70,6 +70,10 @@ scripts/            — deploy.sh (VPS deployment)
 - **Internal linking**: SEOPreFooter component on every SEO page with category cross-links
 - **Search bar**: Routes to SEO pages (`/orlando` not `/deals?destination=Orlando`)
 
+## Recurring operations
+- **`vacdeals-evergreen` skill** (`.claude/skills/vacdeals-evergreen/SKILL.md`) is the runbook for the recurring health+growth ops: 3-layer backup → recrawl+maintenance → rate-accuracy spot-check swarm → new-vacpack-site research → 50-post Discover blog batch. Trigger with `/vacdeals-evergreen` or "run evergreen ops". Guardrails baked in: **agent waves ≤5** (a 13-agent batch was session-limit-killed), guarded builds (`pnpm build` before `pm2 restart`), and the $25 all-in cost cap.
+- **Nav** (`components/Navbar.tsx`) is consolidated to 8 clean top-level items: Deals ▾ · Destinations ▾ · Brands · Guides ▾ · Tools ▾ · Blog · Fun ▾ (Games+Carnival+Best Of) · Roulette CTA. Add `whitespace-nowrap` to any new top-level item; don't add flat top-level links (fold into a dropdown) — the old 12-item bar wrapped/overlapped.
+
 ## Commands
 - `pnpm dev` — Start all apps in dev mode
 - `pnpm build` — Build all apps

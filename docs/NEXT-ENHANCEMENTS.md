@@ -1,5 +1,22 @@
 # Next Enhancements (prioritized)
 
+## NEW (2026-08-11 evergreen ops — rate-accuracy swarm + new-site research)
+_Shipped this session: 3-layer backup refreshed; full recrawl (all 5 waves green); 4-agent rate-accuracy swarm (~99 samples across all 34 sources, ~85 MATCH); 12 DB rows fixed in one transaction; 50-post Google-Discover blog batch (`research/blog-batches/discover-batch-2026-08/`); nav consolidation (12→8) + `vacdeals-evergreen` skill created._
+
+**DB fixes already applied this session (done, listed for the record):** villa-group parked + all 9 `/specials/spring-sale` deals deactivated (promo retired, subdomains NXDOMAIN); bestvacationdealz 14534 + vegas-timeshare 23458 deactivated (dead/mis-mapped); prices corrected 612/14533/23424→$99, 23447→$1399, 22144→$49; capital-vacations 23313/23322 `original_price` 50000→NULL; durations 167/237→5, 23459→3.
+
+**Scraper CODE fixes still needed (data patched, source still emits the bug):**
+1. **Recurring "partial/deposit/credit/gift-card amount stored as package price"** — confirmed AGAIN on `vacation-village` (612: $100 gift card), `vacationvip` (23424: $50 deposit, slug literally `...-99-vgc`), `bestvacationdealz` (14533: $49 vs live $99). Add the deal-store guard from the 2026-07-31 note (flag when `original_price < price` or price matches a known credit-amount pattern) AND fix each crawler's price regex to target the package "from $X" figure.
+2. **vegas-timeshare fragment-anchor mapping is scrambled** — the "Las Vegas Getaway" row carried a $99 that belongs to a different package (live = free + $25 admin fee), and durations are off (Planet Hollywood stored 2N, live 3N). The #fragment→title/price/duration mapping needs a rewrite; it's also 202-bot-challenged (2026-07-31 note) → move to Playwright/stealth or park.
+3. **villa-group is fully dead** — every URL is the retired `/specials/spring-sale` on subdomains that no longer resolve. Parked this session; **re-source from villagroup.com's current promo structure or leave parked**.
+4. **all-inclusive-promotions price selector is ambiguous** — every page carries multiple prices ($479 member headline + resort-specific $1,408/$1,434); scraper currently grabs a valid-but-arbitrary one. Tighten the selector to the intended package figure.
+5. **capital-vacations still inserts `original_price=50000`** placeholder — clean at the source (emit NULL) so the nightly-data-quality pass doesn't have to.
+6. **getawaydealz Mexico all-inclusives** store 3 nights when the live page says 5 (167/237) — duration parse for the Sandos/Diamond listings.
+7. **save-on-branson retail/original drift** (24023/24024: live $354/$381 vs DB $254/$269) — low priority; gated "as low as $129" price is correct.
+
+**New vacpack-site candidates (deep-research swarm — build crawlers as a follow-up, don't auto-build):**
+`vacationpeople.com`, `wyndhamtrips.com`, `ownyourvaca.com`, `alwaystravelwithus.com`, `staysharevacations.com` (Cheerio + UA header), `clubwyndhamgetaways.com` (Playwright). Excluded as already-scraped: timesharevacationpackages.com, vacationvip.com.
+
 ## ⚠️ REQUIRED FOLLOW-UPS (2026-08-02 legal + linking session)
 _Shipped this session: 8 topical hub pages (orphan-tail fix), Guides nav, footer sitewide "not a timeshare marketing site" line, popup (6s every page, "not a marketing company", email-only + Terms/Privacy links), Terms §19 rewrite (fixed live over-claim of SMS/TCPA consent on email-only signups; email CAN-SPAM live, SMS gated behind a future phone opt-in), Terms §2.1 not-a-marketing clause, legal pages now emit WebPage schema. Two legal agents' full drafts are in this session's transcript._
 1. **ATTORNEY REVIEW before relying on the TCPA/consent copy** — I cannot certify "bulletproof"/"perfect" compliance. Priorities for counsel: TCPA SMS express-written-consent capture (only when a phone field + dedicated checkbox exist), FL FTSA / OK OTSA / WA state mini-TCPA, one-to-one-consent status (vacated Jan 2025 but confirm), CAN-SPAM physical address in emails, and that the "not a marketing company" positioning matches actual operations.
