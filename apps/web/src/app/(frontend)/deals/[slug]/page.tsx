@@ -436,14 +436,23 @@ export default async function DealPage({ params }: DealPageProps) {
         }) }}
       />
 
-      {/* Expired deal banner — page stays live, but flagged */}
+      {/* Expired deal banner — the page stays live (and is auto-excluded from
+          the index + sitemap while inactive); the scraper re-activates it on the
+          next re-scrape if the provider relists, so we never re-setup a deal. */}
       {!deal.isActive && (
-        <div className="mb-6 rounded-xl border-2 border-red-300 bg-red-50 p-5 text-center">
-          <p className="text-lg font-bold text-red-700">This Deal Has Expired</p>
-          <p className="mt-1 text-sm text-red-600">
-            This deal is no longer available from the provider. It may return in the future.
-            Check out <Link href={deal.city ? `/${deal.destinationSlug || deal.city.toLowerCase().replace(/\s+/g, "-")}` : "/deals"} className="font-semibold underline">other {deal.city || ""} deals</Link> or <Link href="/deals" className="font-semibold underline">browse all active deals</Link>.
-          </p>
+        <div className="mb-6 rounded-xl border-2 border-red-300 bg-red-50 p-5">
+          <div className="flex items-start gap-3">
+            <svg className="mt-0.5 h-6 w-6 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+            <div>
+              <h2 className="text-lg font-bold text-red-700">This Deal Has Expired</h2>
+              <p className="mt-1 text-sm text-red-600">
+                It&apos;s not bookable from the provider right now{deal.updatedAt ? ` (last verified ${new Date(deal.updatedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })})` : ""} — but these offers often come back, so we keep this page up and refresh it automatically if it returns. In the meantime, see{" "}
+                <Link href={deal.city ? `/${deal.destinationSlug || deal.city.toLowerCase().replace(/\s+/g, "-")}` : "/deals"} className="font-semibold underline hover:text-red-800">other {deal.city || ""} deals</Link> or <Link href="/deals" className="font-semibold underline hover:text-red-800">browse all active deals</Link>.
+              </p>
+            </div>
+          </div>
         </div>
       )}
 
@@ -469,25 +478,6 @@ export default async function DealPage({ params }: DealPageProps) {
           </li>
         </ol>
       </nav>
-
-      {/* Expired deal banner */}
-      {!deal.isActive && (
-        <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4">
-          <div className="flex items-start gap-3">
-            <svg className="mt-0.5 h-5 w-5 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-            </svg>
-            <div>
-              <h2 className="text-sm font-semibold text-red-800">This deal has expired</h2>
-              <p className="mt-1 text-sm text-red-700">
-                This deal has expired and may no longer be available. Prices and availability shown were last verified
-                {deal.updatedAt ? ` on ${new Date(deal.updatedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}` : ""}.
-                Browse <Link href="/deals" className="font-medium underline hover:text-red-800">active vacation deals</Link> for current offers.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Main deal layout */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">

@@ -46,7 +46,7 @@ scripts/            — deploy.sh (VPS deployment)
 - `brands` — 33 timeshare brands (direct + broker types)
 - `destinations` — 64 cities with slugs, regions, lat/lng
 - `sources` — 31 scrape target websites with status tracking
-- `deals` — Main deal table (title, price, duration, URL, inclusions, requirements, etc.)
+- `deals` — Main deal table (title, price, duration, URL, inclusions, requirements, etc.). **Deal-expiry policy (owner directive 2026-08-12): NEVER delete or 404 a deal page.** To retire a deal set `is_active=false` (+ `expires_at=now()`) — the `/deals/[slug]` lander intentionally stays 200 (no `is_active` filter in `getDealBySlug`), shows a single "This Deal Has Expired" banner, swaps the CTA to "See Current {Brand} Deals", is `robots:noindex` + dropped from sitemap/listings. It **auto-revives** with zero re-setup because deal-store's upsert sets `isActive = !expired` on every re-scrape. Manual revival: `SET is_active=true, expires_at=NULL`.
 - `deal_price_history` — Price tracking over time per deal
 - `site_settings` — Key/value pairs (GTM ID, GA ID, AdSense)
 - `ad_banners` — Configurable ad placements (header, sidebar, inline, footer)
