@@ -73,8 +73,10 @@ export async function runBransonReservationsCenterCrawler() {
       log.info(`Processing ${request.url}`);
       let stored = 0;
       const pending: Promise<unknown>[] = [];
+      const _c = $(".uc_style_image_card_content_box_elementor_content");
+      const _c0 = (_c.eq(0).text() || "").replace(/\s+/g, " ").trim();
       log.info(
-        `[${SOURCE_KEY}] DEBUG bodyLen=${$("body").text().length} titles=${$(".uc_style_image_card_content_box_elementor_title").length}`,
+        `[${SOURCE_KEY}] DEBUG titles=${$(".uc_style_image_card_content_box_elementor_title").length} contents=${_c.length} c0len=${_c0.length} c0promo=${/getting this package for\s*\$([\d,]+)/i.test(_c0)} c0now=${/NOW ONLY\s*\$([\d,]+)/i.test(_c0)} c0="${_c0.slice(0, 120)}"`,
       );
 
       // The live DOM has no `.elementor-widget-ucaddon_image_card_content_box`
