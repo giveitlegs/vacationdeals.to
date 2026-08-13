@@ -73,11 +73,6 @@ export async function runBransonReservationsCenterCrawler() {
       log.info(`Processing ${request.url}`);
       let stored = 0;
       const pending: Promise<unknown>[] = [];
-      const _c = $(".uc_style_image_card_content_box_elementor_content");
-      const _c0 = (_c.eq(0).text() || "").replace(/\s+/g, " ").trim();
-      log.info(
-        `[${SOURCE_KEY}] DEBUG titles=${$(".uc_style_image_card_content_box_elementor_title").length} contents=${_c.length} c0len=${_c0.length} c0promo=${/getting this package for\s*\$([\d,]+)/i.test(_c0)} c0now=${/NOW ONLY\s*\$([\d,]+)/i.test(_c0)} c0="${_c0.slice(0, 120)}"`,
-      );
 
       // The live DOM has no `.elementor-widget-ucaddon_image_card_content_box`
       // wrapper; the 6 title spans and 6 content spans render directly, in
@@ -88,15 +83,11 @@ export async function runBransonReservationsCenterCrawler() {
         const title = $(el).text().replace(/\s+/g, " ").trim();
         if (!title) return;
 
-        // Content span holds inclusions + prices + description. Convert <br> to
-        // newlines so we can split the bullet inclusions from the price copy.
+        // Content span holds inclusions + prices + description. Use .text()
+        // (verified to carry the price copy); inclusions are bullet-separated
+        // with the "•" char (.text() drops <br> boundaries, so split on bullets).
         const contentEl = $contents.eq(i);
-        const rawHtml = contentEl.html() || "";
-        const contentText = rawHtml
-          .replace(/<br\s*\/?>/gi, "\n")
-          .replace(/<[^>]+>/g, "")
-          .replace(/&amp;/g, "&")
-          .replace(/&nbsp;/g, " ");
+        const contentText = (contentEl.text() || "").replace(/\s+/g, " ").trim();
 
         // PACKAGE price = "getting this package for $X"; fall back to "NOW ONLY $X".
         const promoMatch = contentText.match(/getting this package for\s*\$([\d,]+)/i);
@@ -122,7 +113,7 @@ export async function runBransonReservationsCenterCrawler() {
         // Inclusions = bullet lines before the "NOW ONLY" price copy.
         const beforePrice = contentText.split(/NOW ONLY/i)[0] || "";
         const inclusions = beforePrice
-          .split("\n")
+          .split(/[•·\n]/)
           .map(cleanLine)
           .filter((l) => l && !/^\$/.test(l) && l.length > 2 && !/getting this package/i.test(l));
 
