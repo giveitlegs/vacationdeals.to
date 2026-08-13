@@ -52,6 +52,11 @@ import { runCheapVacationGetawaysCrawler } from "./crawlers/cheap-vacation-getaw
 import { runDiscoverBransonCrawler } from "./crawlers/discover-branson";
 import { runSaveOnBransonCrawler } from "./crawlers/save-on-branson";
 import { runBransonTravelGroupCrawler } from "./crawlers/branson-travel-group";
+import { runTravelBargainsCrawler } from "./crawlers/travel-bargains";
+import { runGenesisGroupCrawler } from "./crawlers/genesis-group";
+import { runBransonReservationsCenterCrawler } from "./crawlers/branson-reservations-center";
+import { runVallartaSalesCrawler } from "./crawlers/vallarta-sales";
+import { runGoodtimeEntertainmentCrawler } from "./crawlers/goodtime-entertainment";
 import { deactivateExpiredDeals, getRunStats } from "./storage/deal-store";
 import { db } from "@vacationdeals/db";
 import { scrapeRuns, sources } from "@vacationdeals/db";
@@ -158,6 +163,11 @@ const crawlers: Record<string, () => Promise<void>> = {
   "discover-branson": runDiscoverBransonCrawler,
   "save-on-branson": runSaveOnBransonCrawler,
   "branson-travel-group": runBransonTravelGroupCrawler,
+  "travel-bargains": runTravelBargainsCrawler,
+  "genesis-group": runGenesisGroupCrawler,
+  "branson-reservations-center": runBransonReservationsCenterCrawler,
+  "vallarta-sales": runVallartaSalesCrawler,
+  "goodtime-entertainment": runGoodtimeEntertainmentCrawler,
 };
 
 async function main() {
