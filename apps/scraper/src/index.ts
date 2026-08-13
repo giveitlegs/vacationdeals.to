@@ -61,6 +61,7 @@ import { runTime4avacationCrawler } from "./crawlers/time4avacation";
 import { runPoconomoCrawler } from "./crawlers/poconomo";
 import { runWilliamsburgTicketsCrawler } from "./crawlers/williamsburg-tickets";
 import { runVacationBransonCrawler } from "./crawlers/vacation-branson";
+import { runGotspotCrawler } from "./crawlers/gotspot";
 import { deactivateExpiredDeals, getRunStats } from "./storage/deal-store";
 import { db } from "@vacationdeals/db";
 import { scrapeRuns, sources } from "@vacationdeals/db";
@@ -176,6 +177,7 @@ const crawlers: Record<string, () => Promise<void>> = {
   poconomo: runPoconomoCrawler,
   "williamsburg-tickets": runWilliamsburgTicketsCrawler,
   "vacation-branson": runVacationBransonCrawler,
+  gotspot: runGotspotCrawler,
 };
 
 async function main() {

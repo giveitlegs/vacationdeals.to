@@ -3,13 +3,13 @@ import { storeDeal } from "../storage/deal-store";
 
 const SOURCE_KEY = "vacation-branson";
 const OFFERS_BASE = "https://offers.vacationbranson.com";
-const VIP_BASE = "https://vip.vacationbranson.com";
 
-// Vacation Branson runs a two-subdomain "travel savings preview" funnel:
-//   - offers.vacationbranson.com/getaways/<slug>/  — per-offer landing pages
-//   - vip.vacationbranson.com/                      — the live Thousand Hills funnel
+// Vacation Branson runs a "travel savings preview" funnel on
+// offers.vacationbranson.com/getaways/<slug>/ per-offer landing pages.
 // (vacationbranson.com / www.vacationbranson.com is the editorial directory that
-// links INTO these funnels — it has no priced packages of its own.)
+// links INTO these funnels — it has no priced packages of its own. The old
+// vip.vacationbranson.com seed was DROPPED 2026-08-13: it is the same $69
+// Thousand Hills package and only caused price confusion.)
 //
 // These are bespoke, hand-built landing pages: WebFetch confirmed there are NO
 // repeatable offer-card CSS classes, so we can't zip cards by selector like the
@@ -17,24 +17,28 @@ const VIP_BASE = "https://vip.vacationbranson.com";
 // read the full rendered text, and classify every dollar amount by the copy
 // AROUND it into package-price vs. value/retail vs. trap.
 //
-// Two distinct DOM-verified packages exist across both subdomains:
-//   1. Thousand Hills Resort Hotel — Branson, MO — "$69 Total Per Couple",
-//      4 Days/3 Nights, "Normal Rate $962" -> originalPrice. Sold on BOTH the
-//      offers getaway page AND vip root; both seeds upsert to ONE canonical URL
-//      (deal-store matches on URL) so we don't store the same package twice.
+// Two distinct DOM-verified packages:
+//   1. Thousand Hills Resort Hotel — Branson, MO — "ONLY $69" / "Per Couple" /
+//      "$69 total only", 4 Days/3 Nights, "Normal Rate $962" -> originalPrice.
 //   2. Summer Bay Orlando by Exploria Resorts — Orlando, FL — "$49" for the
 //      entire 4-Day/3-Night stay, "Retail Rate Up To $2,303" -> originalPrice.
 //
-// PRICE-BUG guards (the whole reason for the context classifier below):
-//   * "$962 / $648 Normal Rate", "$2,303 Retail Rate" = VALUE -> originalPrice,
-//     never the price.
+// PRICE-BUG guards (the whole reason for the context classifier below). These
+// dollar figures must NEVER become price OR originalPrice — they are HARD TRAPS
+// that even "package" copy cannot rescue:
+//   * "Add a 4th night ... $39" / "EXTEND MY STAY FOR ONLY $39" — an upsell that
+//     ALSO says "only $", so "only $" alone can't be trusted as a price signal;
+//     the trap words (extend / 4th night / add) win over it.
+//   * "$5,000 coupon book" (also "worth over $5,000") — a coupon-value figure.
 //   * "$150 REFUNDABLE reservation deposit ... refunded as a Visa Gift Card"
-//     (Orlando) — a gift-card/deposit figure, NOT the package price. Dropped.
-//   * "$29.47 processing fee", "$19.98 Hotel Booking Protection" — fees. Dropped.
-//   * "$39 add a 4th night", "$26 / $40 add show tickets", "$5,000 coupon book",
-//     "$50 Guest Card" — per-item upsells/inclusions, NOT the headline price.
-//   * The package price copy itself says "NOT PER NIGHT" — so a "per night" match
-//     inside a "per couple / total price" window must NOT disqualify it.
+//     — a gift-card/deposit figure, NOT the package price.
+//   * "$29.47 processing fee", "$19.98 Hotel Booking Protection" — fees.
+//   * "$26 / $40 add show tickets", "$50 Guest Card", "$1575 bonus cruise",
+//     "$100 transfer fee", "$12-$24 per night tax" — upsells/inclusions/fees.
+// VALUE -> originalPrice ONLY from a labelled rack figure ("Normal Rate $962",
+// "Retail Rate $2,303") that is > price and < 5000.
+//   * The headline copy itself says "NOT PER NIGHT" — a positive package signal,
+//     so it must NOT disqualify the $69/$49 it sits next to.
 
 interface OfferSeed {
   url: string; // page to fetch
@@ -44,18 +48,11 @@ interface OfferSeed {
   state: string;
 }
 
-// DOM-verified offer pages (2026-08-12 crawl). thousand-hills appears on both
-// subdomains -> two seeds sharing one canonicalUrl so the upsert collapses them.
+// DOM-verified offer pages (2026-08-13 crawl). Crawl only the two
+// offers.vacationbranson.com getaway pages (vip seed dropped — see above).
 const SEEDS: OfferSeed[] = [
   {
     url: `${OFFERS_BASE}/getaways/thousand-hills-69-upg/`,
-    canonicalUrl: `${OFFERS_BASE}/getaways/thousand-hills-69-upg/`,
-    resortName: "Thousand Hills Resort Hotel",
-    city: "Branson",
-    state: "MO",
-  },
-  {
-    url: `${VIP_BASE}/`,
     canonicalUrl: `${OFFERS_BASE}/getaways/thousand-hills-69-upg/`,
     resortName: "Thousand Hills Resort Hotel",
     city: "Branson",
@@ -70,13 +67,16 @@ const SEEDS: OfferSeed[] = [
   },
 ];
 
-function parsePrice(text: string): number {
-  const m = text.match(/\$([\d,]+)/);
-  return m ? parseInt(m[1].replace(/,/g, ""), 10) : NaN;
+// Headline package price must sit in this band. Upper bound 2000 keeps rack
+// figures ($2,303 retail) and coupon values ($5,000) out of the price slot.
+function validPrice(price: number): boolean {
+  return Number.isFinite(price) && price >= 39 && price <= 2000;
 }
 
-function validPrice(price: number): boolean {
-  return Number.isFinite(price) && price >= 39 && price <= 5000;
+// originalPrice = a labelled rack/retail figure strictly above the price and
+// below $5,000 (rejects the "$5,000 coupon book" value trap).
+function validOriginalPrice(orig: number, price: number): boolean {
+  return Number.isFinite(orig) && orig > price && orig < 5000;
 }
 
 function slugify(text: string): string {
@@ -96,13 +96,18 @@ function cleanLine(text: string): string {
 }
 
 // A dollar figure is a VALUE/retail comparison (-> originalPrice), never a price.
-const VALUE_RE = /(value|normal rate|retail|worth|\bmsrp\b|regularly)/;
-// A dollar figure is a hard TRAP (fee / deposit / gift card / upsell / per-item).
+const VALUE_RE =
+  /(normal rate|retail rate|retail value|rack rate|reg(?:ular)?\.? ?(?:price|rate)|\bvalue\b|worth|\bmsrp\b|regularly)/;
+// A dollar figure is a HARD TRAP (fee / deposit / gift card / coupon / per-item
+// upsell / extend-stay). Hard traps are NEVER a price or originalPrice, and —
+// unlike the old classifier — they can NOT be overridden by package copy. This
+// is what stops "EXTEND MY STAY FOR ONLY $39" (has "only $") from winning.
 const TRAP_RE =
-  /(deposit|gift ?card|\bvisa\b|processing|booking protection|\bfee\b|coupon|guest card|refundable|\btax(?:es)?\b|add(?:s|-on| a| \d)|extra night|4th night|show ticket|per person|\/night|\bcruise\b)/;
-// Copy that positively identifies the headline PACKAGE price.
+  /(deposit|gift ?card|\bvisa\b|processing|booking protection|\bfee\b|coupon|guest card|refundable|\btax(?:es)?\b|\badd\b|add-on|add(?:s| a| \d)|\bextend\b|extra night|4th night|show ticket|per person|per day|\/night|\bcruise\b|transfer|change fee)/;
+// Copy that positively identifies the headline PACKAGE price. "not per night" is
+// a positive signal (the $69/$49 copy literally says it), so it must never trap.
 const PKG_RE =
-  /(per couple|total price|for two|for 2|entire stay|whole stay|\/stay|only \$|package price|for the (?:entire|whole))/;
+  /(per couple|total price|total only|for two|for 2|entire stay|whole stay|\/stay|only \$|package price|not per night|for the (?:entire|whole))/;
 
 interface DollarCtx {
   amount: number;
@@ -148,21 +153,24 @@ export async function runVacationBransonCrawler() {
       const bodyText = ($("body").text() || "").replace(/\s+/g, " ").trim();
       const contexts = dollarContexts(bodyText);
 
-      // Classify each dollar amount by the copy around it.
-      const isPkg = (c: DollarCtx) => PKG_RE.test(c.context);
-      const isValue = (c: DollarCtx) => VALUE_RE.test(c.context) && !isPkg(c);
-      // Hard traps: fees/deposits/gift-cards/per-item upsells. A "package" match
-      // (e.g. "per couple / total price") overrides — the headline $69 copy also
-      // literally says "NOT PER NIGHT", which must not disqualify it.
-      const isTrap = (c: DollarCtx) =>
-        !isPkg(c) && (isValue(c) || TRAP_RE.test(c.context));
+      // Classify each dollar amount by the copy around it. Precedence is strict:
+      // HARD TRAP > VALUE > PACKAGE. A hard trap can never be rescued by package
+      // copy, so "EXTEND MY STAY FOR ONLY $39" (trap: extend/4th night) loses to
+      // the true "$69 Per Couple" headline even though both contain "only $".
+      const isTrap = (c: DollarCtx) => TRAP_RE.test(c.context);
+      const isValue = (c: DollarCtx) => !isTrap(c) && VALUE_RE.test(c.context);
+      const isPkg = (c: DollarCtx) =>
+        !isTrap(c) && !isValue(c) && PKG_RE.test(c.context);
 
-      const valid = contexts.filter((c) => validPrice(c.amount));
-      const pkgCandidates = valid.filter(isPkg);
-      const cleanCandidates = valid.filter((c) => !isTrap(c));
+      // Headline price must be in the 39-2000 band (excludes rack/coupon figures).
+      const priceCandidates = contexts.filter((c) => validPrice(c.amount));
+      const pkgCandidates = priceCandidates.filter(isPkg);
+      const cleanCandidates = priceCandidates.filter(
+        (c) => !isTrap(c) && !isValue(c),
+      );
 
-      // Headline package price: prefer an explicit "per couple / for two / entire
-      // stay" figure; else the smallest non-trap, non-value dollar amount.
+      // Headline package price: prefer an explicit "per couple / total / entire
+      // stay / only $" figure; else the smallest non-trap, non-value amount.
       let price = NaN;
       if (pkgCandidates.length) {
         price = Math.min(...pkgCandidates.map((c) => c.amount));
@@ -170,14 +178,15 @@ export async function runVacationBransonCrawler() {
         price = Math.min(...cleanCandidates.map((c) => c.amount));
       }
 
-      // originalPrice = the largest labelled value/retail figure above the price.
-      const valueFigs = valid.filter(isValue).map((c) => c.amount);
-      let originalPrice: number | undefined = valueFigs.length
+      // originalPrice = the largest labelled value/retail figure > price and
+      // < 5000 (rejects the "$5,000 coupon book" which is a hard trap anyway).
+      const valueFigs = contexts
+        .filter(isValue)
+        .map((c) => c.amount)
+        .filter((v) => validOriginalPrice(v, price));
+      const originalPrice: number | undefined = valueFigs.length
         ? Math.max(...valueFigs)
         : undefined;
-      if (!(validPrice(originalPrice as number) && (originalPrice as number) > price)) {
-        originalPrice = undefined;
-      }
 
       if (!validPrice(price)) {
         log.warning(

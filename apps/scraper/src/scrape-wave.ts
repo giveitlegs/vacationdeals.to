@@ -100,6 +100,7 @@ import { runTime4avacationCrawler } from "./crawlers/time4avacation";
 import { runPoconomoCrawler } from "./crawlers/poconomo";
 import { runWilliamsburgTicketsCrawler } from "./crawlers/williamsburg-tickets";
 import { runVacationBransonCrawler } from "./crawlers/vacation-branson";
+import { runGotspotCrawler } from "./crawlers/gotspot";
 
 // ── Wave definitions ────────────────────────────────────────────────────────
 
@@ -167,6 +168,7 @@ const CRAWLERS: Record<string, () => Promise<void>> = {
   poconomo: runPoconomoCrawler,
   "williamsburg-tickets": runWilliamsburgTicketsCrawler,
   "vacation-branson": runVacationBransonCrawler,
+  gotspot: runGotspotCrawler,
 };
 
 const WAVES: Record<number, string[]> = {
@@ -174,7 +176,7 @@ const WAVES: Record<number, string[]> = {
   2: ["mrg", "staypromo", "wyndham", "hgv"],
   3: ["marriott", "holiday-inn", "spinnaker", "vacation-village"],
   4: ["departure-depot", "vegas-timeshare", "premier-travel", "discount-vacation", "legendary", "festiva", "payvibe"],
-  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc", "vacationvip", "bestvacationdealz", "monster-vacations", "timeshare-presentation-deals", "all-inclusive-promotions", "exploria", "massanutten", "iwanttotravelto", "vacation-offer", "margaritaville", "timeshare-vacation-packages", "timeshare-orlando", "orlando99", "spinnaker-subdomains", "hiltonhead-island-deals", "pgr-getaways", "sandos-promo", "great-resort-vacations", "magical-getaway", "cheap-vacation-getaways", "discover-branson", "save-on-branson", "branson-travel-group", "travel-bargains", "genesis-group", "branson-reservations-center", "vallarta-sales", "goodtime-entertainment", "time4avacation", "poconomo", "williamsburg-tickets", "vacation-branson"],
+  5: ["capital-vacations", "hyatt", "bluegreen", "westgate-events", "govip", "el-cid", "pueblo-bonito", "divi", "bahia-principe", "tafer", "villa-group", "sheraton-vc", "westin-vc", "vacationvip", "bestvacationdealz", "monster-vacations", "timeshare-presentation-deals", "all-inclusive-promotions", "exploria", "massanutten", "iwanttotravelto", "vacation-offer", "margaritaville", "timeshare-vacation-packages", "timeshare-orlando", "orlando99", "spinnaker-subdomains", "hiltonhead-island-deals", "pgr-getaways", "sandos-promo", "great-resort-vacations", "magical-getaway", "cheap-vacation-getaways", "discover-branson", "save-on-branson", "branson-travel-group", "travel-bargains", "genesis-group", "branson-reservations-center", "vallarta-sales", "goodtime-entertainment", "time4avacation", "poconomo", "williamsburg-tickets", "vacation-branson", "gotspot"],
 };
 
 // ── Runner ──────────────────────────────────────────────────────────────────

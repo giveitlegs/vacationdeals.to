@@ -61,7 +61,10 @@ function toInt(text: string): number {
 }
 
 function validPrice(price: number): boolean {
-  return Number.isFinite(price) && price >= 39 && price <= 5000;
+  // Package-price band for THIS source: a 4-day / 3-night resort-preview package
+  // here is always $199 and is never $1,000+. Reject the 1993/1994-style garbage
+  // that a loose parse produced, plus household-income ($40,000) and $0 noise.
+  return Number.isFinite(price) && price >= 39 && price <= 999;
 }
 
 function slugify(text: string): string {
@@ -73,40 +76,48 @@ function slugify(text: string): string {
     .replace(/-+/g, "-");
 }
 
-// Returns the PACKAGE price and (optional) rack price, dodging the "$100
-// Mastercard" completion-credit trap and the "REG PRICE" rack figure.
+// Returns the discounted PACKAGE price and (optional) REG-PRICE rack value.
+//
+// The offer block renders as "REG PRICE: $750 Only $ 199 4 Day Total" (note the
+// SPACE after the "$" — "$ 199", which a bare /\$([\d,]+)/ would miss). We take
+// the package price ONLY from that anchored "Only $<n> ... Day/Night Total"
+// block (or a "total package" / "+ tax" cue). Anchoring this tightly is what
+// keeps the parser off: the "$100 Mastercard" completion credit, the "$100 VISA
+// gift card" bonus, the Williamsburg "only $149 plus a $100 VISA Gift Card"
+// decoy, the household-income dropdown ($0 / $40,000+), and the "Price $ 199"
+// related-offer cards. If no anchored text price exists, price is NaN and the
+// caller skips the page (DOM-verified only — never fabricate $199).
 function parseOfferPrice(text: string): { price: number; original?: number } {
-  // 1) Kill the credit/gift-card trap first: "$100 Mastercard ...".
-  const creditFree = text.replace(/\$\s?\d[\d,]*\s*mastercard/gi, " ");
+  // 1) Discounted package price — must sit in the priced offer block, e.g.
+  //    "Only $ 199 4 Day Total" / "Only $199 3 Night Total", or a "$X total
+  //    package" / "$X + tax" cue. "$ 199" -> allow whitespace after the "$".
+  let price = NaN;
+  const anchored =
+    text.match(
+      /only\s*\$\s*([\d,]+)\s*(?:\d+\s*(?:day|night)s?\s*)?total/i,
+    ) ||
+    text.match(/\$\s*([\d,]+)\s*(?:\+\s*tax|total\s+package)/i) ||
+    text.match(
+      /(?:total\s+package|package\s+(?:price|total))\s*[:\-]?\s*\$\s*([\d,]+)/i,
+    );
+  if (anchored && validPrice(toInt(anchored[1]))) {
+    price = toInt(anchored[1]);
+  }
 
-  // 2) Rack / original price: "REG PRICE: $750", "Regular Price $1,414", etc.
-  let priceText = creditFree;
+  // 2) Rack / original price: "REG PRICE: $750", "Regular Price $1,414".
+  //    NOT gated by validPrice — a rack value legitimately exceeds $999 (Hilton
+  //    Head is $1,414). Keep it only if it's a sane figure ABOVE the package
+  //    price. Ormond publishes no REG PRICE -> no originalPrice.
   let original: number | undefined;
   const regMatch =
-    creditFree.match(/REG(?:ULAR)?\.?\s*PRICE\s*:?\s*\$([\d,]+)/i) ||
-    creditFree.match(/regular(?:ly)?\s*price\s*:?\s*\$([\d,]+)/i);
+    text.match(/REG(?:ULAR)?\.?\s*PRICE\s*:?\s*\$\s*([\d,]+)/i) ||
+    text.match(/regular(?:ly)?\s*price\s*:?\s*\$\s*([\d,]+)/i);
   if (regMatch) {
-    original = toInt(regMatch[1]);
-    // Remove the rack figure so it can't be mistaken for the package price.
-    priceText = creditFree.replace(regMatch[0], " ");
+    const reg = toInt(regMatch[1]);
+    if (Number.isFinite(reg) && reg > price && reg <= 20000) original = reg;
   }
 
-  // 3) Package price: prefer an explicit "only/just/for/from $X" cue; else the
-  //    smallest sensible remaining dollar figure (the discounted offer price).
-  let price = NaN;
-  const promo = priceText.match(
-    /(?:only|just|now\s+only|for\s+(?:just\s+|only\s+)?|starting\s+at|from)\s*\$([\d,]+)/i,
-  );
-  if (promo && validPrice(toInt(promo[1]))) {
-    price = toInt(promo[1]);
-  } else {
-    const candidates = [...priceText.matchAll(/\$([\d,]+)/g)]
-      .map((m) => toInt(m[1]))
-      .filter(validPrice);
-    if (candidates.length) price = Math.min(...candidates);
-  }
-
-  return { price, original: original && original > price ? original : undefined };
+  return { price, original };
 }
 
 // DOM-verified inclusion phrases: emit only the ones actually present on the page.

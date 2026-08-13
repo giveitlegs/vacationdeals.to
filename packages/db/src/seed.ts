@@ -47,6 +47,7 @@ async function seed() {
     { name: "Vacation Offer", slug: "vacation-offer", type: "broker", website: "https://vacationoffer.com" },
     { name: "Margaritaville Vacation Club", slug: "margaritaville", type: "direct", website: "https://margaritavillevcrentals.com" },
     { name: "PayVibe Travel", slug: "payvibe", type: "broker", website: "https://travel.payvibe.com" },
+    { name: "The Got Spot", slug: "gotspot", type: "broker", website: "https://thegotspot.com" },
   ]).onConflictDoNothing();
 
   // ── Destinations ────────────────────────────────────
@@ -163,6 +164,7 @@ async function seed() {
     { name: "Vacation Offer", baseUrl: "https://vacationoffer.com", scraperKey: "vacation-offer" },
     { name: "Margaritaville Vacation Club", baseUrl: "https://margaritavillevcrentals.com", scraperKey: "margaritaville" },
     { name: "PayVibe Travel", baseUrl: "https://travel.payvibe.com", scraperKey: "payvibe" },
+    { name: "The Got Spot", baseUrl: "https://thegotspot.com", scraperKey: "gotspot" },
   ]).onConflictDoNothing();
 
   console.log("✅ Seed complete!");
