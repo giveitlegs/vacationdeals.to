@@ -102,12 +102,24 @@ const VALUE_RE =
 // upsell / extend-stay). Hard traps are NEVER a price or originalPrice, and —
 // unlike the old classifier — they can NOT be overridden by package copy. This
 // is what stops "EXTEND MY STAY FOR ONLY $39" (has "only $") from winning.
+// NOTE: "per person" / "per night" are guarded with (?<!not ) — the headline
+// copy is literally "TOTAL PRICE. NOT PER PERSON. NOT PER NIGHT", and those
+// clarifiers sit right beside the $69 price and $962 rack figure; an unguarded
+// "per person" was trapping "Normal Rate $962" and nulling out originalPrice.
 const TRAP_RE =
-  /(deposit|gift ?card|\bvisa\b|processing|booking protection|\bfee\b|coupon|guest card|refundable|\btax(?:es)?\b|\badd\b|add-on|add(?:s| a| \d)|\bextend\b|extra night|4th night|show ticket|per person|per day|\/night|\bcruise\b|transfer|change fee)/;
+  /(deposit|gift ?card|\bvisa\b|processing|booking protection|\bfee\b|coupon|guest card|refundable|\btax(?:es)?\b|\badd\b|add-on|add(?:s| a| \d)|\bextend\b|extra night|4th night|show ticket|(?<!not )per person|per day|(?<!not )per night|\/night|\bcruise\b|transfer|change fee)/;
 // Copy that positively identifies the headline PACKAGE price. "not per night" is
 // a positive signal (the $69/$49 copy literally says it), so it must never trap.
 const PKG_RE =
   /(per couple|total price|total only|for two|for 2|entire stay|whole stay|\/stay|only \$|package price|not per night|for the (?:entire|whole))/;
+// PAGE-LEVEL package signal: strong "this is a whole-stay package" phrasing that
+// may appear ANYWHERE on the page, not next to the price. On these funnels the
+// headline number can render on its own element (Orlando's "$49 *" sits apart
+// from "Entire Stay"), so when a figure has no adjacent package copy we still
+// accept the smallest clean in-band figure as the headline IF the page shows
+// one of these. Deliberately excludes the loose "only $" token.
+const PAGE_PKG_RE =
+  /(per couple|total price|total only|entire stay|whole stay|package price|not per night)/;
 
 interface DollarCtx {
   amount: number;
@@ -120,8 +132,17 @@ function dollarContexts(text: string): DollarCtx[] {
   let m: RegExpExecArray | null;
   while ((m = re.exec(text)) !== null) {
     const amount = parseFloat(m[1].replace(/,/g, ""));
-    const start = Math.max(0, m.index - 55);
-    const end = Math.min(text.length, m.index + m[0].length + 55);
+    const matchEnd = m.index + m[0].length;
+    // Clamp the context window at the NEAREST neighbouring "$" so a figure never
+    // inherits the descriptor of an adjacent figure. Without this, "$49 plus a
+    // $29.47 processing fee" leaks "processing fee" onto $49 (trapping the real
+    // price), and "Retail Rate Up To $2,303 $49" leaks "Retail Rate" onto $49.
+    const rawStart = Math.max(0, m.index - 60);
+    const prevDollar = text.lastIndexOf("$", m.index - 1);
+    const start = prevDollar >= rawStart ? prevDollar + 1 : rawStart;
+    const rawEnd = Math.min(text.length, matchEnd + 60);
+    const nextDollar = text.indexOf("$", matchEnd);
+    const end = nextDollar !== -1 && nextDollar < rawEnd ? nextDollar : rawEnd;
     out.push({ amount, context: text.slice(start, end).toLowerCase() });
   }
   return out;
@@ -152,6 +173,7 @@ export async function runVacationBransonCrawler() {
 
       const bodyText = ($("body").text() || "").replace(/\s+/g, " ").trim();
       const contexts = dollarContexts(bodyText);
+      const pagePkgSignal = PAGE_PKG_RE.test(bodyText.toLowerCase());
 
       // Classify each dollar amount by the copy around it. Precedence is strict:
       // HARD TRAP > VALUE > PACKAGE. A hard trap can never be rescued by package
@@ -162,20 +184,24 @@ export async function runVacationBransonCrawler() {
       const isPkg = (c: DollarCtx) =>
         !isTrap(c) && !isValue(c) && PKG_RE.test(c.context);
 
-      // Headline price must be in the 39-2000 band (excludes rack/coupon figures).
-      const priceCandidates = contexts.filter((c) => validPrice(c.amount));
-      const pkgCandidates = priceCandidates.filter(isPkg);
-      const cleanCandidates = priceCandidates.filter(
-        (c) => !isTrap(c) && !isValue(c),
+      // Headline price must be in the 39-2000 band and never a trap/value figure.
+      const priceCandidates = contexts.filter(
+        (c) => validPrice(c.amount) && !isTrap(c) && !isValue(c),
       );
+      const pkgCandidates = priceCandidates.filter(isPkg);
 
-      // Headline package price: prefer an explicit "per couple / total / entire
-      // stay / only $" figure; else the smallest non-trap, non-value amount.
+      // Headline package price:
+      //   1. an amount with adjacent package copy ("$69 Per Couple", "$49 Entire
+      //      Stay"); else
+      //   2. if the page carries a strong package signal anywhere (Orlando's
+      //      "Entire Stay" renders apart from the standalone "$49 *"), the
+      //      smallest clean in-band figure — still rejecting fees/deposits/
+      //      gift-cards/coupons, which were filtered out above.
       let price = NaN;
       if (pkgCandidates.length) {
         price = Math.min(...pkgCandidates.map((c) => c.amount));
-      } else if (cleanCandidates.length) {
-        price = Math.min(...cleanCandidates.map((c) => c.amount));
+      } else if (pagePkgSignal && priceCandidates.length) {
+        price = Math.min(...priceCandidates.map((c) => c.amount));
       }
 
       // originalPrice = the largest labelled value/retail figure > price and

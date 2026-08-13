@@ -101,6 +101,8 @@ import { runPoconomoCrawler } from "./crawlers/poconomo";
 import { runWilliamsburgTicketsCrawler } from "./crawlers/williamsburg-tickets";
 import { runVacationBransonCrawler } from "./crawlers/vacation-branson";
 import { runGotspotCrawler } from "./crawlers/gotspot";
+import { runBooksiCrawler } from "./crawlers/booksi";
+import { runProvacationGroupCrawler } from "./crawlers/provacation-group";
 
 // ── Wave definitions ────────────────────────────────────────────────────────
 
@@ -169,6 +171,8 @@ const CRAWLERS: Record<string, () => Promise<void>> = {
   "williamsburg-tickets": runWilliamsburgTicketsCrawler,
   "vacation-branson": runVacationBransonCrawler,
   gotspot: runGotspotCrawler,
+  booksi: runBooksiCrawler,
+  "provacation-group": runProvacationGroupCrawler,
 };
 
 const WAVES: Record<number, string[]> = {
