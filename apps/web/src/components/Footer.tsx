@@ -181,6 +181,41 @@ export function Footer() {
             &copy; {new Date().getFullYear()} VacationDeals.to. All rights reserved.
           </p>
         </div>
+
+        {/* Westgate Seller of Travel disclosure (compliance-required, sitewide) */}
+        <div className="mt-8 border-t border-gray-200 pt-8 text-center text-xs leading-relaxed text-gray-500">
+          <p className="font-semibold text-gray-700">Westgate Resorts Ltd</p>
+          <p className="mt-0.5">5601 Windhover Drive Orlando, FL 32819</p>
+          <p className="mt-0.5">
+            SOT: Florida: ST32029 | Washington: 1970 | California: 2030985-50 | Iowa: 837
+          </p>
+          <p className="mt-1.5">
+            <a
+              href="https://www.westgatereservations.com/privacy-policy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline hover:text-blue-700"
+            >
+              Privacy Policy
+            </a>
+            <span className="mx-2 text-gray-300" aria-hidden="true">|</span>
+            <a
+              href="https://www.westgatereservations.com/terms-and-conditions/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline hover:text-blue-700"
+            >
+              Terms &amp; Conditions
+            </a>
+          </p>
+        </div>
+
+        {/* Timeshare Advertising Disclosure — MUST stand alone; nothing may abut it. */}
+        <div className="my-10 py-4 text-center">
+          <p className="text-xs font-semibold uppercase tracking-wide text-gray-600">
+            This advertising material is being used for the purpose of soliciting sales of timeshare interests or plans
+          </p>
+        </div>
       </div>
     </footer>
   );
