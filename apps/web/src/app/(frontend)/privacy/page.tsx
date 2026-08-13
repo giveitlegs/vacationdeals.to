@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { WESTGATE_PRIVACY_HTML } from "@/lib/legal/westgate-privacy";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -52,6 +53,33 @@ export default function PrivacyPolicyPage() {
 
       <h1 className="mb-2 text-3xl font-bold text-gray-900">Privacy Policy</h1>
       <p className="mb-8 text-sm text-gray-500">Last Updated: April 16, 2026</p>
+
+      {/* Two-part structure notice */}
+      <div className="mb-8 rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-relaxed text-blue-900">
+        This page has two parts. <strong>Part 1</strong> is the Privacy Policy of{" "}
+        <strong>Westgate Resorts</strong>, which governs the timeshare-preview offers advertised on this
+        site. <strong>Part 2</strong> is VacationDeals.to&apos;s own Site Privacy &amp; Cookies notice,
+        covering the data this website itself collects (for example, website analytics and email
+        sign-ups).
+      </div>
+
+      {/* Part 1 — Westgate Resorts Privacy Policy (verbatim from westgatereservations.com) */}
+      <section className="mb-12">
+        <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          Part 1 &mdash; Westgate Resorts Privacy Policy
+        </h2>
+        <div
+          className="blog-content"
+          dangerouslySetInnerHTML={{ __html: WESTGATE_PRIVACY_HTML }}
+        />
+      </section>
+
+      <hr className="my-12 border-gray-200" />
+
+      {/* Part 2 — VacationDeals.to's own site privacy notice */}
+      <h2 className="mb-6 text-2xl font-bold text-gray-900">
+        Part 2 &mdash; VacationDeals.to Site Privacy &amp; Cookies
+      </h2>
 
       <div className="space-y-10 text-gray-700 leading-relaxed">
         {/* ── Introduction ── */}

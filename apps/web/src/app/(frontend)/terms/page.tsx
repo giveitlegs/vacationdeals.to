@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { WESTGATE_TERMS_HTML } from "@/lib/legal/westgate-terms";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
@@ -54,6 +55,32 @@ export default function TermsAndConditionsPage() {
         Terms &amp; Conditions
       </h1>
       <p className="mb-8 text-sm text-gray-500">Last Updated: April 16, 2026</p>
+
+      {/* Two-part structure notice */}
+      <div className="mb-8 rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-relaxed text-blue-900">
+        This page has two parts. <strong>Part 1</strong> is the Terms &amp; Conditions of{" "}
+        <strong>Westgate Resorts</strong>, which govern the timeshare-preview offers advertised on this
+        site. <strong>Part 2</strong> is VacationDeals.to&apos;s own Site Terms, governing your use of
+        this website.
+      </div>
+
+      {/* Part 1 — Westgate Resorts Terms & Conditions (verbatim from westgatereservations.com) */}
+      <section className="mb-12">
+        <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          Part 1 &mdash; Westgate Resorts Terms &amp; Conditions
+        </h2>
+        <div
+          className="blog-content"
+          dangerouslySetInnerHTML={{ __html: WESTGATE_TERMS_HTML }}
+        />
+      </section>
+
+      <hr className="my-12 border-gray-200" />
+
+      {/* Part 2 — VacationDeals.to's own site terms */}
+      <h2 className="mb-6 text-2xl font-bold text-gray-900">
+        Part 2 &mdash; VacationDeals.to Site Terms
+      </h2>
 
       {/* ── Critical Disclaimers Banner ── */}
       <div className="mb-10 rounded-lg border border-amber-300 bg-amber-50 p-5 text-sm leading-relaxed text-amber-900">
@@ -118,17 +145,19 @@ export default function TermsAndConditionsPage() {
             Vacations, Club Wyndham, and others) and present it in a searchable format.
           </p>
           <p className="mt-3">
-            <strong>2.1 What VacationDeals.to is &mdash; and is not.</strong> We are{" "}
-            <strong>not a timeshare marketing company</strong>, and we are <strong>not</strong> a
-            timeshare developer, seller, broker, sales agent, or travel agency. We do not market,
-            sell, or solicit the purchase of timeshare interests or vacation packages, we do not
-            receive, hold, or process booking payments, and we do not act on behalf of any resort,
-            developer, or provider. We are <strong>not affiliated with, endorsed by, or sponsored
-            by</strong> any resort or brand named on the Site. The promotional communications we
-            send under Section 19 relate to our own information service (deal alerts and site
-            updates); they are not timeshare sales solicitations. Any actual booking, sale, or
-            presentation is conducted solely by the independent third-party provider on that
-            provider&apos;s own website and terms.
+            <strong>2.1 What VacationDeals.to does.</strong> VacationDeals.to is, first and foremost,
+            an <strong>information and data-availability service</strong>: we make publicly available
+            vacation and timeshare-promotion data easier to find and compare. We do{" "}
+            <strong>not</strong> receive, hold, or process booking payments, and we do not transact on
+            the Site &mdash; any booking, purchase, or sales presentation is conducted solely by the
+            independent third-party provider on that provider&apos;s own website and terms. Depending on
+            the offer, <strong>some content on this Site may function as advertising material</strong>{" "}
+            for the resorts, developers, and brands featured, including Westgate Resorts, and where
+            required the applicable seller-of-travel and timeshare advertising disclosures appear on the
+            Site. Listings, prices, and availability are aggregated from third-party sources and may be
+            inaccurate, incomplete, or out of date; we are <strong>not responsible or liable</strong>{" "}
+            for such errors, and you should verify all details directly with the provider before relying
+            on them.
           </p>
           <p className="mt-3">
             <strong>We do not:</strong>

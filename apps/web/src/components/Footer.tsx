@@ -198,23 +198,13 @@ export function Footer() {
             SOT: Florida: ST32029 | Washington: 1970 | California: 2030985-50 | Iowa: 837
           </p>
           <p className="mt-1.5">
-            <a
-              href="https://www.westgatereservations.com/privacy-policy/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 underline hover:text-blue-700"
-            >
+            <Link href="/privacy" className="text-blue-600 underline hover:text-blue-700">
               Privacy Policy
-            </a>
+            </Link>
             <span className="mx-2 text-gray-300" aria-hidden="true">|</span>
-            <a
-              href="https://www.westgatereservations.com/terms-and-conditions/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 underline hover:text-blue-700"
-            >
+            <Link href="/terms" className="text-blue-600 underline hover:text-blue-700">
               Terms &amp; Conditions
-            </a>
+            </Link>
           </p>
         </div>
 

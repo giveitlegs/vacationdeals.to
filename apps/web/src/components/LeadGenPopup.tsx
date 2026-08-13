@@ -154,9 +154,9 @@ export function LeadGenPopup({
           <>
             <h2 className="mb-2 text-2xl font-bold text-gray-900">{headline}</h2>
             <p className="mb-3 text-sm text-gray-600">{subheadline}</p>
-            {/* Not-a-marketing-company statement (owner directive 2026-08). */}
+            {/* Data-availability + email-only disclosure (TCPA-safe messaging). */}
             <div className="mb-4 rounded-lg border border-gray-200 bg-gray-50 p-3 text-xs text-gray-600">
-              <strong>We are not a marketing company and not a timeshare marketing site.</strong> VacationDeals.to only makes publicly available deal data easier to find. We send <strong>email only</strong> — we do not text you or sell your info.
+              <strong>VacationDeals.to makes publicly available deal data easier to find</strong> — we never take payments or transact on this site, and some content may serve as advertising for the resorts and brands featured. We send <strong>email only</strong> — we do not text you or sell your info.
             </div>
             <form onSubmit={submit}>
               <input
