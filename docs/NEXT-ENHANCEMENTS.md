@@ -1,5 +1,13 @@
 # Next Enhancements (prioritized)
 
+## 💰 5 SEO / Revenue-Prioritized Enhancements (2026-08-13 — new-source build session)
+_This session: built + registered new vacpack broker crawlers (travel-bargains, genesis-group, branson-reservations-center, vallarta-sales, goodtime-entertainment live = ~36 deals; time4avacation, poconomo, vacation-branson, williamsburg-tickets, gotspot in flight; booksi + provacationgroup pending Playwright). 3-layer backup refreshed + verified (110,995 price-history rows). Ranked next by traffic/affiliate-revenue impact:_
+1. **Finish + verify the new-broker deal pages end-to-end (biggest near-term win).** Each new source adds unique `/deals/*` long-tail pages + a brand page (`/goodtime-entertainment` etc.) + a `/rate-recap-<brand>` page + new destination pages (Atlantic City, Nuevo Vallarta, East Stroudsburg/Poconos, Ormond Beach). Confirm each new brand/destination renders 200, is in the sitemap, and the internal-link resolver picks them up — that's dozens of new indexable, affiliate-monetized pages.
+2. **Add the ~13 new sources to the rate-accuracy swarm NOW (brand-new parsers are highest-risk for the credit-as-price bug).** Spot-check each new crawler's published price vs the live partner lander within the first week; new Cheerio parsers on promo sites that dangle gift-cards/credits are exactly where a wrong price slips in.
+3. **Build the 2 Playwright sources (booksi, provacationgroup) — high-inventory Mexico all-inclusive.** These need a browser path (React/Wix client-render). Mexico AI deals ($199–$1,199) are strong commercial inventory that broadens destination coverage (Cancun, Cabo, Riviera Maya, Punta Cana).
+4. **Rebalance the scraper waves — Wave 5 is now ~44 sources.** Split the nightly wave so the new brokers spread across waves 2–4 (twice-daily) instead of piling onto the single 2 AM run; keeps freshness up and any one wave from ballooning.
+5. **Expand the 2 commercial pillars + 8 hubs past the 750-word depth bar** (carried, still the top on-page ranking win for the money keywords), and backfill `resort_name` to kill the 96 duplicate `<title>`s across the 627+ deal pages.
+
 ## 💰 5 SEO / Revenue-Prioritized Enhancements (2026-08-12 closeout)
 _Ranked by ranking/traffic/affiliate-revenue impact. Companion to the legal + scraper sections below._
 1. **Expand the 2 commercial pillars + 8 topical hubs past the 750-word depth bar.** `/timeshare-presentation-deals` and `/all-inclusive-vacation-deals` (plus the hub intros) are link-dense but thin (~300 words) — they're the highest-ROI ranking targets for the money keywords. Adding 450+ words of substantive prose + a data table each is the single biggest on-page ranking win available, and it lifts the whole cluster they anchor.
