@@ -57,10 +57,25 @@ export async function runBransonReservationsCenterCrawler() {
     maxRequestsPerCrawl: 100,
     maxRequestRetries: 2,
     requestHandlerTimeoutSecs: 30,
+    preNavigationHooks: [
+      async (_ctx, gotOptions) => {
+        gotOptions.headers = {
+          ...(gotOptions.headers || {}),
+          "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+          Accept:
+            "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+          "Accept-Language": "en-US,en;q=0.9",
+        };
+      },
+    ],
     async requestHandler({ request, $, log }) {
       log.info(`Processing ${request.url}`);
       let stored = 0;
       const pending: Promise<unknown>[] = [];
+      log.info(
+        `[${SOURCE_KEY}] DEBUG bodyLen=${$("body").text().length} titles=${$(".uc_style_image_card_content_box_elementor_title").length}`,
+      );
 
       // The live DOM has no `.elementor-widget-ucaddon_image_card_content_box`
       // wrapper; the 6 title spans and 6 content spans render directly, in
