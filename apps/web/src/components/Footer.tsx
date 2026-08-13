@@ -155,19 +155,27 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Aggregator Disclaimer (sitewide — renders on every page) */}
+        {/* Sitewide legal disclaimer (renders on every page) */}
         <div className="mt-6 rounded-lg border border-gray-200 bg-gray-100 p-4 text-xs leading-relaxed text-gray-500">
           <p className="mb-2 text-sm font-semibold text-gray-700">
-            This is not a timeshare marketing site — we only make publicly available data easier to find.
+            Important Disclaimer — Please Read
           </p>
           <p>
-            <strong>Disclaimer:</strong> VacationDeals.to is an independent information and data-aggregation service — <strong>not</strong> a
-            timeshare seller, developer, broker, marketer, resort, real estate broker, or travel agency, and <strong>not affiliated with, endorsed
-            by, or sponsored by</strong> any resort or brand named on this site. We do not sell, book, market, or facilitate the sale of vacation
-            packages or timeshare interests, and we do not take bookings or payments. Listings are aggregated from publicly available third-party
-            sources, may be inaccurate or out of date, and are provided for informational purposes only — not as legal, financial, or professional
-            advice. Always verify all prices, terms, and requirements directly with the seller before you rely on them. Clicking a deal redirects
-            you to the third-party provider&apos;s own site. All trademarks are property of their respective owners. See our{" "}
+            VacationDeals.to is, first and foremost, an information and data-availability service: we make
+            publicly available vacation and timeshare-promotion data easier to find and compare. We do{" "}
+            <strong>not</strong> take payments, process bookings, or transact on this site, and we never handle
+            your money — any booking or purchase happens on the provider&apos;s own website, directly between you
+            and them. Depending on the offer, some content on this site may function as advertising material for
+            the resorts and brands featured. Listings, prices, inclusions, and availability are aggregated from
+            third-party sources and <strong>may be inaccurate, incomplete, out of date, or out of sync with the
+            provider — and we are not responsible or liable for any of that, or for any decision you make based
+            on it.</strong> You use this information entirely at your own risk, and you should always verify all
+            prices, terms, availability, and eligibility requirements directly with the provider before you rely
+            on them. <strong>Buyer beware:</strong> purchasing a timeshare is a significant, long-term financial
+            and legal commitment — read every document carefully, understand your state&apos;s rescission
+            (cancellation) rights, and consider seeking independent legal or financial advice before you buy.
+            Clicking a deal redirects you to the third-party provider&apos;s own site. All trademarks are the
+            property of their respective owners. See our{" "}
             <Link href="/terms" className="text-gray-600 underline hover:text-gray-800">Terms &amp; Conditions</Link>{" "}
             and{" "}
             <Link href="/privacy" className="text-gray-600 underline hover:text-gray-800">Privacy Policy</Link>{" "}
