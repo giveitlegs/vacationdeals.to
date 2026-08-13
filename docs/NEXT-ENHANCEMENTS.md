@@ -1,5 +1,13 @@
 # Next Enhancements (prioritized)
 
+## ⚖️ NEW (2026-08-12 legal/compliance session) — Westgate Seller-of-Travel posture
+_Shipped: Westgate SOT footer disclosure sitewide (address + FL/WA/CA/IA numbers + standalone advertising-solicitation line); footer disclaimer rewritten to a data-availability/never-transact/not-liable/buyer-beware posture; `/terms` + `/privacy` are now two-part pages (Part 1 = Westgate's VERBATIM terms/privacy scraped + bs4-sanitized into `apps/web/src/lib/legal/westgate-{terms,privacy}.ts` via `scripts/extract-westgate-legal.py`; Part 2 = the site's own terms/privacy); all Terms/Privacy links point local; "not a marketing company" language removed from Terms §2.1 + consent popup; CLAUDE.md posture updated._
+
+**Follow-ups (send to the compliance officer / owner decisions):**
+1. **Officer confirmations still open:** (a) we now HOST Westgate's verbatim terms/privacy locally + link local, whereas the officer's email said to LINK to Westgate's URLs — confirm the rehost is acceptable to Westgate; (b) Part-2 residual "independent / not affiliated / we do not sell or broker" language in the Terms amber "Important Notices" banner + Privacy intro still echoes the old posture (owner said "leave those for now" — revisit with the officer); (c) confirm Westgate permits verbatim reproduction of their terms/privacy on this domain.
+2. **Stale-legal-content risk:** local Westgate copies do NOT auto-update when Westgate revises theirs. Schedule/periodically re-run `scripts/extract-westgate-legal.py` and diff; refresh on change.
+3. **GPC / Do-Not-Sell (carried, now more pressing):** the footer still has a mailto "Do Not Sell My Info" but no real opt-out mechanism and GPC is not honored in code — build the opt-out + honor GPC before claiming it (Sephora-style risk), especially now that the site is explicitly advertising material.
+
 ## ⭐ TOP 5 — prioritized next (as of 2026-08-13)
 _Distilled from the 2026-08-11/12 evergreen ops + deal-expiry session. Full detail in the dated sections below._
 1. **Fix the recurring "credit/deposit/gift-card amount stored as package price" bug AT THE SOURCE.** Confirmed AGAIN this session on `vacation-village` (612: $100 gift card), `vacationvip` (23424: $50 deposit), `bestvacationdealz` (14533: $49 vs live $99) — data was patched but the crawlers still emit it. Add the deal-store guard (flag when `original_price < price` or price matches a known credit/gift/deposit pattern) + tighten each crawler's price regex to the package "from $X" figure. Highest data-integrity risk (we publish wrong prices).
