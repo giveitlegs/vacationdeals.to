@@ -62,21 +62,18 @@ export async function runBransonReservationsCenterCrawler() {
       let stored = 0;
       const pending: Promise<unknown>[] = [];
 
-      $(".elementor-widget-ucaddon_image_card_content_box").each((_, el) => {
-        const card = $(el);
-        const title = card
-          .find(".uc_style_image_card_content_box_elementor_title")
-          .first()
-          .text()
-          .replace(/\s+/g, " ")
-          .trim();
+      // The live DOM has no `.elementor-widget-ucaddon_image_card_content_box`
+      // wrapper; the 6 title spans and 6 content spans render directly, in
+      // document order, so zip them by index.
+      const $titles = $(".uc_style_image_card_content_box_elementor_title");
+      const $contents = $(".uc_style_image_card_content_box_elementor_content");
+      $titles.each((i, el) => {
+        const title = $(el).text().replace(/\s+/g, " ").trim();
         if (!title) return;
 
         // Content span holds inclusions + prices + description. Convert <br> to
         // newlines so we can split the bullet inclusions from the price copy.
-        const contentEl = card
-          .find(".uc_style_image_card_content_box_elementor_content")
-          .first();
+        const contentEl = $contents.eq(i);
         const rawHtml = contentEl.html() || "";
         const contentText = rawHtml
           .replace(/<br\s*\/?>/gi, "\n")
@@ -121,7 +118,11 @@ export async function runBransonReservationsCenterCrawler() {
         const afterPrice = contentText.split(/for details\.?/i).pop() || "";
         const description = cleanLine(afterPrice.replace(/\s+/g, " ")).slice(0, 500) || undefined;
 
-        const img = card.find(".uc_classic_content_placeholder img").first().attr("src");
+        const img = contentEl
+          .closest(".elementor-widget-wrap, .elementor-element")
+          .find(".uc_classic_content_placeholder img, img")
+          .first()
+          .attr("src");
 
         const slug = slugify(title);
 
