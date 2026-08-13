@@ -1,5 +1,15 @@
 # Next Enhancements (prioritized)
 
+## ⭐ TOP 5 — prioritized next (as of 2026-08-13)
+_Distilled from the 2026-08-11/12 evergreen ops + deal-expiry session. Full detail in the dated sections below._
+1. **Fix the recurring "credit/deposit/gift-card amount stored as package price" bug AT THE SOURCE.** Confirmed AGAIN this session on `vacation-village` (612: $100 gift card), `vacationvip` (23424: $50 deposit), `bestvacationdealz` (14533: $49 vs live $99) — data was patched but the crawlers still emit it. Add the deal-store guard (flag when `original_price < price` or price matches a known credit/gift/deposit pattern) + tighten each crawler's price regex to the package "from $X" figure. Highest data-integrity risk (we publish wrong prices).
+2. **Automate the rate-accuracy swarm as a scheduled monthly job.** This session's 4-agent swarm (~99 samples) caught ~14 stale/corrupt rows the URL-health cron misses (URLs still 200 but price drifted / offer expired / URL repurposed). A monthly sampled price-vs-live check per source that emails mismatches would catch drift the health check can't.
+3. **vegas-timeshare: rewrite the fragment-anchor mapping + move to a stealth/Playwright path.** Its `#anchor` title/price/duration mapping is scrambled (a $99 belonged to a different package; durations off by a night) AND it's 202 bot-challenged, so it silently goes stale. Fix the mapping or park it.
+4. **Re-source or confirm-park villa-group.** All 9 URLs are the retired seasonal `/specials/spring-sale` on subdomains that no longer resolve. Parked + expired-in-place this session (auto-revives if it returns); decide whether to re-source from villagroup.com's current promo structure.
+5. **Automate the local DB-mirror sync (crown-jewel `deal_price_history`).** Still manual and drifts stale (seen 6 days behind). Add a scheduled `scp` of the newest `/root/db-backups/*.pgdump` to `backups/db/` + a freshness assertion that warns when the newest local dump is >8 days old.
+
+_Also still open (carried): expand the 2 pillar + hub pages past the 750-word depth bar; the GPC/Do-Not-Sell opt-out + honoring GPC in code before claiming it; refresh DataForSEO creds (401) and attach real volumes._
+
 ## NEW (2026-08-11 evergreen ops — rate-accuracy swarm + new-site research)
 _Shipped this session: 3-layer backup refreshed; full recrawl (all 5 waves green); 4-agent rate-accuracy swarm (~99 samples across all 34 sources, ~85 MATCH); 12 DB rows fixed in one transaction; 50-post Google-Discover blog batch (`research/blog-batches/discover-batch-2026-08/`); nav consolidation (12→8) + `vacdeals-evergreen` skill created._
 
