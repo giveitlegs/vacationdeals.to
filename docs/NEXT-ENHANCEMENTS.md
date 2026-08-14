@@ -1,5 +1,13 @@
 # Next Enhancements (prioritized)
 
+## 🔁 NEW (2026-08-13 evergreen run — recrawl + rate swarm findings)
+_Ran: full recrawl (all 5 waves, 12 new sources 0-fail), maintenance (3 dead URLs swept, verify-prices 49 OK/0 changed), 5-agent rate swarm (~50 samples). Skipped Phase 4 (research) + Phase 5 (blogs) as done same-day. Fixes applied: gotspot parked + 180 stale deals deactivated, payvibe 22144 re-fixed, 4 capital-vacations `original_price=50000` cleaned, 2 goodtime lavasquare host-broken deals deactivated._
+1. **payvibe crawler has a recurring Branson price-scramble bug (deal 22144).** Fixed manually TWICE now (last session + this one): the Branson listing stores price/original scrambled (e.g. price=$299/original=$30) while live=$49. The `original_price < price` invariant is the tell. Fix the payvibe crawler's Branson-fragment parse at the source (or add a deal-store guard that rejects/flags rows where `original_price < price`).
+2. **goodtime-entertainment: 2 offers use a `lavasquare.com` host that HTTP-400s to non-browser fetch** (and is the same $199 package as the main host). Point those at `goodtimeentertainment.com` or drop the lavasquare variants.
+3. **genesis-group content-dup watch:** its "Planet 13 Las Vegas" and generic "Las Vegas" offer pages are near-identical ($199/$750) — fine as distinct deals but watch for duplicate-content signals.
+4. **gotspot lesson (for future source vetting):** a site serving deals at HTTP 200 is NOT proof they're current — thegotspot.com shows expired ("No longer available") offers with prices intact. Rate-checking must confirm *bookability*, not just price accuracy; and a deep id-range crawl can silently ingest an archive.
+
+
 ## 💰 5 SEO / Revenue-Prioritized Enhancements (2026-08-13 — new-source build session)
 _This session: built + registered new vacpack broker crawlers (travel-bargains, genesis-group, branson-reservations-center, vallarta-sales, goodtime-entertainment live = ~36 deals; time4avacation, poconomo, vacation-branson, williamsburg-tickets, gotspot in flight; booksi + provacationgroup pending Playwright). 3-layer backup refreshed + verified (110,995 price-history rows). Ranked next by traffic/affiliate-revenue impact:_
 1. **Finish + verify the new-broker deal pages end-to-end (biggest near-term win).** Each new source adds unique `/deals/*` long-tail pages + a brand page (`/goodtime-entertainment` etc.) + a `/rate-recap-<brand>` page + new destination pages (Atlantic City, Nuevo Vallarta, East Stroudsburg/Poconos, Ormond Beach). Confirm each new brand/destination renders 200, is in the sitemap, and the internal-link resolver picks them up — that's dozens of new indexable, affiliate-monetized pages.
