@@ -4,6 +4,7 @@ import { ExtensionBanner } from "@/components/ExtensionBanner";
 import { DealTicker } from "@/components/DealTicker";
 import { AdSlot } from "@/components/AdSlot";
 import { SitewideLeadGenPopup } from "@/components/SitewideLeadGenPopup";
+import { GetPaidWidget } from "@/components/GetPaidWidget";
 
 export default function FrontendLayout({
   children,
@@ -31,6 +32,7 @@ export default function FrontendLayout({
       <Footer />
       <ExtensionBanner />
       <SitewideLeadGenPopup />
+      <GetPaidWidget />
     </>
   );
 }

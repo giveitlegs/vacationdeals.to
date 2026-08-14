@@ -418,9 +418,16 @@ export function Navbar() {
               <MobileSubLink href="/vacation-carnival/cult" onClose={() => setMobileOpen(false)}>🕯️ The Cult</MobileSubLink>
               <MobileSubLink href="/vacation-carnival/confessional" onClose={() => setMobileOpen(false)}>🙏 The Confessional</MobileSubLink>
 
+              {/* Get Paid CTA */}
+              <Link href="/get-paid-to-go-on-vacation" onClick={() => setMobileOpen(false)}
+                className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-3 py-3 text-sm font-bold text-white">
+                <span className="text-base leading-none">💸</span>
+                Get Paid to Go on Vacation
+              </Link>
+
               {/* Roulette CTA */}
               <Link href="/resort-roulette" onClick={() => setMobileOpen(false)}
-                className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-3 text-sm font-bold text-white">
+                className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-red-600 px-3 py-3 text-sm font-bold text-white">
                 <svg className="h-4 w-4 spin-wheel" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="10" fill="#FFF" stroke="#FFF" strokeWidth="1" opacity="0.3" />
                   <circle cx="12" cy="12" r="3" fill="#FBBF24" />
