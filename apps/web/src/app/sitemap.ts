@@ -72,6 +72,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/vacpack-ad-spy`, lastModified: new Date(), changeFrequency: "daily" as const, priority: 0.7 },
     { url: `${baseUrl}/data-report`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${baseUrl}/resort-roulette`, lastModified: new Date(), changeFrequency: "daily" as const, priority: 0.7 },
+    { url: `${baseUrl}/get-paid-to-go-on-vacation`, lastModified: new Date(), changeFrequency: "daily" as const, priority: 0.9 },
     { url: `${baseUrl}/vacpack-games`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${baseUrl}/vacpack-games/survival-kit`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${baseUrl}/vacpack-games/bingo`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },

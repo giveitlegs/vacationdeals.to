@@ -297,6 +297,15 @@ export function Navbar() {
               )}
             </div>
 
+            {/* Get Paid to Go on Vacation CTA */}
+            <Link
+              href="/get-paid-to-go-on-vacation"
+              className="flex items-center gap-1.5 rounded-full border-2 border-emerald-400 bg-emerald-50 px-3 py-1.5 text-sm font-bold text-emerald-700 transition-all hover:bg-emerald-100 hover:border-emerald-500 pulse-glow whitespace-nowrap"
+            >
+              <span className="text-base leading-none">💸</span>
+              Get Paid
+            </Link>
+
             {/* Resort Roulette CTA */}
             <div className="relative">
               <Link
