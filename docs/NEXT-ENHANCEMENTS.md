@@ -1,5 +1,14 @@
 # Next Enhancements (prioritized)
 
+## 💰 5 SEO / Revenue-Prioritized Enhancements (2026-08-14 — Get-Paid feature session)
+_This session (in progress): built the "Get Paid to Go on Vacation" data foundation — `apps/web/src/lib/vacation-routes.ts` (perk parser: structured cash-giftcard vs credit values + net-cash math; 6 curated multi-city routes computed live from `deals`), nav CTA, sitemap entry. Page/animated-map/sitewide-widget UI building. Ranked by traffic/PR/revenue impact:_
+1. **Ship + amplify `/get-paid-to-go-on-vacation` — highest-ceiling PR/link asset we have.** No competitor has route-chaining "the trip pays for itself" math off real inventory. Priorities once live: a striking custom OG share image, GSC submit + homepage/high-traffic internal links into it, a "build/share your own route" mechanic, and a press/Reddit angle ("we found routes where gift cards cover the whole trip"). This is a genuine backlink magnet.
+2. **Persist structured perks in the DB.** The get-paid parser proves per-deal perk-value extraction (cash gift card vs resort credit) works at render — persist it as columns/JSON on `deals` so it powers filters ("$100+ gift-card deals"), the get-paid math without re-parsing, and richer snippets. New first-class data asset.
+3. **Expand the 2 commercial pillars + 8 hubs past the 750-word depth bar** (carried) — still the top on-page ranking win for the money keywords; also strengthens the cluster the get-paid page can link into.
+4. **Backfill `resort_name` to kill the 96 duplicate `<title>`s** (carried) — mechanical indexation/traffic win across 600+ deal pages the get-paid routes link to.
+5. **Fix the recurring credit/deposit-as-price parse bug at the source + the payvibe-22144 scramble** (carried, now more pressing) — the get-paid "pay $X get $Y back" math is only as trustworthy as the underlying price + perk accuracy; add the deal-store guard (`original_price < price` → flag) and fix the payvibe Branson-fragment parse.
+
+
 ## 🔁 NEW (2026-08-13 evergreen run — recrawl + rate swarm findings)
 _Ran: full recrawl (all 5 waves, 12 new sources 0-fail), maintenance (3 dead URLs swept, verify-prices 49 OK/0 changed), 5-agent rate swarm (~50 samples). Skipped Phase 4 (research) + Phase 5 (blogs) as done same-day. Fixes applied: gotspot parked + 180 stale deals deactivated, payvibe 22144 re-fixed, 4 capital-vacations `original_price=50000` cleaned, 2 goodtime lavasquare host-broken deals deactivated._
 1. **payvibe crawler has a recurring Branson price-scramble bug (deal 22144).** Fixed manually TWICE now (last session + this one): the Branson listing stores price/original scrambled (e.g. price=$299/original=$30) while live=$49. The `original_price < price` invariant is the tell. Fix the payvibe crawler's Branson-fragment parse at the source (or add a deal-store guard that rejects/flags rows where `original_price < price`).
