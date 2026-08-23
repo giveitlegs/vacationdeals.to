@@ -283,6 +283,18 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pag
     return;
   }
 
+  // Guard against implausible original_price — dropped rather than published.
+  // Recurring across recrawls (rate-swarm 2026-08): a value BELOW the package
+  // price is a scramble bug (e.g. payvibe Branson stored 30 vs price 299), and
+  // an absurd placeholder (e.g. capital-vacations 50000) is not a real retail
+  // price. Only keep an original that is genuinely > price and < $20k.
+  const normalizedOriginal =
+    scrapedDeal.originalPrice &&
+    scrapedDeal.originalPrice > scrapedDeal.price &&
+    scrapedDeal.originalPrice < 20000
+      ? String(scrapedDeal.originalPrice)
+      : null;
+
   // Sanitize title to remove address fragments, whitespace artifacts, etc.
   scrapedDeal.title = sanitizeTitle(scrapedDeal.title);
 
@@ -378,9 +390,7 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pag
         title: scrapedDeal.title,
         ...(updatedSlug ? { slug: updatedSlug } : {}),
         price: String(scrapedDeal.price),
-        originalPrice: scrapedDeal.originalPrice
-          ? String(scrapedDeal.originalPrice)
-          : null,
+        originalPrice: normalizedOriginal,
         durationNights: scrapedDeal.durationNights,
         durationDays: scrapedDeal.durationDays,
         description: scrapedDeal.description || null,
@@ -433,9 +443,7 @@ export async function storeDeal(scrapedDeal: ScrapedDeal, sourceKey: string, pag
           title: scrapedDeal.title,
           slug: dealSlug,
           price: String(scrapedDeal.price),
-          originalPrice: scrapedDeal.originalPrice
-            ? String(scrapedDeal.originalPrice)
-            : null,
+          originalPrice: normalizedOriginal,
           durationNights: scrapedDeal.durationNights,
           durationDays: scrapedDeal.durationDays,
           description: scrapedDeal.description || null,
