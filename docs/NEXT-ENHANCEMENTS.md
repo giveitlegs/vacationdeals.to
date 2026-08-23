@@ -1,5 +1,14 @@
 # Next Enhancements (prioritized)
 
+## 🔁 NEW (2026-08-23 evergreen run — in progress) + 5 SEO/revenue priorities
+_Running the full routine (first periodic run since 2026-08-14): Phase 1 backup DONE (3 layers; deal_price_history 131,043 rows, Mar 14→Aug 23, safe); Phase 2 full recrawl + Phase 4 new-site research in flight; Phase 3 rate swarm + Phase 5 50-blog batch to follow. Final results appended at FINISH. No CLAUDE.md change warranted yet (maintenance run — scrapers/pages/tables/conventions unchanged)._
+1. **Ship + amplify `/get-paid-to-go-on-vacation` (top PR/link asset).** Custom OG share image, GSC submit + homepage/high-traffic internal links into it, and a "build & share your own route" mechanic. Uniquely backlink-worthy; the map basemap fix (2026-08-14) landed, so it's demo-ready.
+2. **Persist structured perks in the DB.** The get-paid perk parser proves per-deal cash-vs-credit extraction works at render — persist it on `deals` so it powers filters ("$100+ gift-card deals"), the get-paid math, and richer snippets without re-parsing.
+3. **Expand the 2 commercial pillars + 8 hubs past the 750-word depth bar** (carried) — top on-page ranking win for the money keywords.
+4. **Backfill `resort_name` to kill the 96 duplicate `<title>`s** (carried) — mechanical indexation/traffic win across 600+ deal pages.
+5. **Fix recurring price bugs at the source + rebalance scraper waves.** The credit/deposit-as-price parse bug (vacation-village/vacationvip/bestvacationdealz) + the payvibe-22144 Branson scramble keep recurring — add the deal-store `original_price < price` guard. Also Wave 5 now carries ~44 sources; split the new brokers across waves 2–4 so the nightly wave isn't overloaded.
+
+
 ## 💰 5 SEO / Revenue-Prioritized Enhancements (2026-08-14 — Get-Paid feature session)
 _This session (in progress): built the "Get Paid to Go on Vacation" data foundation — `apps/web/src/lib/vacation-routes.ts` (perk parser: structured cash-giftcard vs credit values + net-cash math; 6 curated multi-city routes computed live from `deals`), nav CTA, sitemap entry. Page/animated-map/sitewide-widget UI building. Ranked by traffic/PR/revenue impact:_
 1. **Ship + amplify `/get-paid-to-go-on-vacation` — highest-ceiling PR/link asset we have.** No competitor has route-chaining "the trip pays for itself" math off real inventory. Priorities once live: a striking custom OG share image, GSC submit + homepage/high-traffic internal links into it, a "build/share your own route" mechanic, and a press/Reddit angle ("we found routes where gift cards cover the whole trip"). This is a genuine backlink magnet.
