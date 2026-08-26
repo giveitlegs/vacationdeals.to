@@ -66,14 +66,22 @@ function detectCity(text: string): { city: string; state?: string; country: stri
 }
 
 function extractPrices(text: string): { original: number | null; discounted: number | null } {
-  // Collect all $NNN or $NNN.NN values in order
-  const matches = [...text.matchAll(/\$\s*([\d,]+(?:\.\d{2})?)/g)].map((m) =>
-    parseFloat(m[1].replace(/,/g, "")),
-  ).filter((n) => Number.isFinite(n) && n > 0);
+  // Cards render "-DISCOUNT%  $ORIGINAL  $DISCOUNTED". Anchor on the discount
+  // marker so a PERK figure that precedes it (e.g. Branson's "PLUS $30 DINNER
+  // CREDIT" — deal 22144 was storing $30/$299 instead of $299/$49) can't be
+  // mistaken for a price. Also floor out sub-$39 figures (credits/fees; matches
+  // deal-store's $39 package floor).
+  const discIdx = text.search(/-\s*\d+\s*%/);
+  const scope = discIdx >= 0 ? text.slice(discIdx) : text;
+  const matches = [...scope.matchAll(/\$\s*([\d,]+(?:\.\d{2})?)/g)]
+    .map((m) => parseFloat(m[1].replace(/,/g, "")))
+    .filter((n) => Number.isFinite(n) && n >= 39);
   if (matches.length === 0) return { original: null, discounted: null };
   if (matches.length === 1) return { original: null, discounted: matches[0] };
-  // PayVibe always shows the original first, discounted second
-  return { original: matches[0], discounted: matches[1] };
+  // original first (higher), discounted second (lower) — enforce that ordering
+  let [a, b] = [matches[0], matches[1]];
+  if (a < b) [a, b] = [b, a];
+  return { original: a, discounted: b };
 }
 
 function extractNights(text: string): { nights: number; days: number } {
