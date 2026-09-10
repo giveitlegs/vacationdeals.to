@@ -6,6 +6,8 @@ Vacation deal aggregator for timeshare preview packages ("vacpacks"). Scrapes de
 **Live site:** https://vacationdeals.to
 **GitHub:** https://github.com/giveitlegs/vacationdeals.to
 **VPS:** Hostinger KVM8 at 72.60.126.82 (Ubuntu 24.04, credentials in vpsssl.txt — NEVER commit this)
+- **KVM8 co-tenancy (audited 2026-09-09):** KVM8 hosts TWO live sites via nginx — **vacationdeals.to** (this repo: Next.js + PM2 `vacationdeals-web` → :3000) and **travelitinerary.at** (a separate WordPress site running as Docker containers `ti-wordpress` php8.3-apache + `ti-mariadb` on 127.0.0.1:8001, NOT this repo). travelitinerary.at's DNS/CDN is on Cloudflare (giveitlegs account, "No Workers connected" = proxied to the KVM8 origin, not Cloudflare compute). KVM8 also carries a dead/abandoned Coolify+Supabase+Qdrant Docker stack (~20 containers, all `Exited` since ~2026-04) — cleanable, serving nothing. **Do not shut down KVM8.**
+- **KVM2** (72.60.126.238, id 1325904, created 2026-02-03) is a SEPARATE idle Traefik/Docker box (~0.35% CPU), no local SSH key installed. Under evaluation for shutdown pending a container/domain inventory (needs Hostinger Browser-terminal access or a root-password reset). Not the WordPress host for anything confirmed yet — see docs/NEXT-ENHANCEMENTS.md.
 
 ## Tech Stack
 - **Monorepo**: Turborepo + pnpm workspaces
