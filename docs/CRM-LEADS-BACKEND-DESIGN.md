@@ -4,6 +4,17 @@ Goal: a proper backend CRM to house popup leads, with **super-secure admin acces
 **manual CSV export**, and **Klaviyo (email) + Attentive (SMS) integration** — built on
 what already exists, not greenfield.
 
+> **Owner decisions (2026-09-10):** keep the **in-house mail engine** (Klaviyo dropped as
+> sender; optionally wire Hostinger SMTP later) · **SMS later** (capture recorded but gated) ·
+> **CSV download-only** · build **Phase 0 + 1 first**.
+>
+> **STATUS — Phase 0 ✅ + Phase 1 ✅ SHIPPED (2026-09-10, commit `2f04bab`).**
+> `subscribers` is now the lead source of truth (phone-in-`company` hack removed); 54 existing
+> opt-ins backfilled; `/admin/crm` live with search/filter, inline lifecycle + notes,
+> unsubscribe-as-flag (consent audit preserved), and filter-aware audit-logged CSV export.
+> Phases 2 (MFA/security hardening), 3 (Klaviyo — deferred per owner), 4 (Attentive SMS),
+> 5 (abuse controls) remain.
+
 ---
 
 ## 1. Current state (audited 2026-09-10) — more exists than you might think
