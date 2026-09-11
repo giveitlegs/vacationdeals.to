@@ -8,12 +8,23 @@ what already exists, not greenfield.
 > sender; optionally wire Hostinger SMTP later) · **SMS later** (capture recorded but gated) ·
 > **CSV download-only** · build **Phase 0 + 1 first**.
 >
-> **STATUS — Phase 0 ✅ + Phase 1 ✅ SHIPPED (2026-09-10, commit `2f04bab`).**
-> `subscribers` is now the lead source of truth (phone-in-`company` hack removed); 54 existing
-> opt-ins backfilled; `/admin/crm` live with search/filter, inline lifecycle + notes,
-> unsubscribe-as-flag (consent audit preserved), and filter-aware audit-logged CSV export.
-> Phases 2 (MFA/security hardening), 3 (Klaviyo — deferred per owner), 4 (Attentive SMS),
-> 5 (abuse controls) remain.
+> **STATUS — Phases 0, 1, 2 ✅ SHIPPED (2026-09-10).**
+> - **P0/P1** (`2f04bab`): `subscribers` is the lead source of truth (phone-in-`company` hack
+>   removed); 54 opt-ins backfilled; `/admin/crm` with search/filter, inline lifecycle + notes,
+>   unsubscribe-as-flag (consent audit preserved), filter-aware audit-logged CSV export.
+> - **P2 security** (`65fd965`): opt-in TOTP **2FA** (enroll at `/admin/security`, enforced at
+>   login only once enabled — so nothing locks you out), **login lockout** (8 fails → 15 min),
+>   **same-origin CSRF** check on admin POSTs, session cookie **SameSite=strict**.
+> - **Email transport**: `sendEmail()` now prefers **Hostinger SMTP** when `SMTP_HOST/USER/PASS`
+>   are set, falling back to Resend (in-house engine kept; see setup note below).
+>
+> Remaining: Phase 3 (Klaviyo — deferred per owner), Phase 4 (Attentive SMS — after legal),
+> Phase 5 (Turnstile/rate-limit abuse controls on the popup), and role-gating CSV export.
+>
+> **Hostinger SMTP setup (owner):** add to `/var/www/vacationdeals/.env` then rebuild/restart —
+> `SMTP_HOST=smtp.hostinger.com`, `SMTP_PORT=465`, `SMTP_SECURE=true`,
+> `SMTP_USER=<your hostinger mailbox>`, `SMTP_PASS=<mailbox password>`, and
+> `EMAIL_FROM="VacationDeals.to <that-mailbox@vacationdeals.to>"`. Until then it stays on Resend.
 
 ---
 
