@@ -308,6 +308,11 @@ export const adminUsers = pgTable("admin_users", {
   passwordHash: text("password_hash").notNull(),
   name: varchar("name", { length: 255 }),
   role: varchar("role", { length: 50 }).notNull().default("admin"), // super-admin, admin, editor, moderator
+  // ── Security hardening (2026-09-10, Phase 2) ──
+  mfaSecret: text("mfa_secret"), // base32 TOTP secret (null until enrolled)
+  mfaEnabled: boolean("mfa_enabled").notNull().default(false),
+  failedAttempts: integer("failed_attempts").notNull().default(0),
+  lockedUntil: timestamp("locked_until"), // set when too many failed logins
   lastLoginAt: timestamp("last_login_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });

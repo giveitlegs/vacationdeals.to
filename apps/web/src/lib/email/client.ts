@@ -22,14 +22,50 @@ export interface SendEmailResult {
   error?: string;
 }
 
+/**
+ * Send via Hostinger (or any) SMTP using nodemailer. Enabled when SMTP_HOST +
+ * SMTP_USER + SMTP_PASS are set in .env. Hostinger email:
+ *   SMTP_HOST=smtp.hostinger.com  SMTP_PORT=465  SMTP_SECURE=true  (or 587 / false for STARTTLS)
+ *   SMTP_USER=hello@vacationdeals.to  SMTP_PASS=<mailbox password>
+ */
+async function sendViaSmtp(opts: SendEmailOptions, fromAddress: string): Promise<SendEmailResult> {
+  const nodemailer = (await import("nodemailer")).default;
+  const port = Number(process.env.SMTP_PORT || 465);
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port,
+    // 465 = implicit TLS (secure). 587 = STARTTLS (secure:false). Overridable via SMTP_SECURE.
+    secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE !== "false" : port === 465,
+    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+  });
+  const info = await transporter.sendMail({
+    from: fromAddress,
+    to: Array.isArray(opts.to) ? opts.to.join(", ") : opts.to,
+    subject: opts.subject,
+    html: opts.html,
+    text: opts.text,
+    replyTo: opts.replyTo,
+  });
+  return { ok: true, id: info.messageId };
+}
+
 export async function sendEmail(opts: SendEmailOptions): Promise<SendEmailResult> {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.warn("[email] RESEND_API_KEY not set — email not sent");
-    return { ok: false, error: "RESEND_API_KEY not configured" };
+  const fromAddress = opts.from || process.env.EMAIL_FROM || "VacationDeals.to <hello@vacationdeals.to>";
+
+  // Prefer SMTP (e.g. Hostinger) when configured; fall back to Resend on failure.
+  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+    try {
+      return await sendViaSmtp(opts, fromAddress);
+    } catch (e) {
+      console.warn("[email] SMTP send failed, trying Resend fallback:", e);
+    }
   }
 
-  const fromAddress = opts.from || process.env.EMAIL_FROM || "VacationDeals.to <hello@vacationdeals.to>";
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.warn("[email] no SMTP configured and RESEND_API_KEY not set — email not sent");
+    return { ok: false, error: "No email transport configured (set SMTP_* or RESEND_API_KEY)" };
+  }
 
   try {
     const res = await fetch("https://api.resend.com/emails", {

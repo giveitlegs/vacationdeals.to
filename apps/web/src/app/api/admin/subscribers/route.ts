@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentAdmin, logAdminAction } from "@/lib/admin/auth";
+import { isSameOrigin } from "@/lib/admin/csrf";
 
 export async function GET(request: NextRequest) {
   const admin = await getCurrentAdmin();
@@ -78,6 +79,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const admin = await getCurrentAdmin();
   if (!admin) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!isSameOrigin(request)) return NextResponse.json({ error: "Bad origin" }, { status: 403 });
 
   try {
     const { action, email } = await request.json();

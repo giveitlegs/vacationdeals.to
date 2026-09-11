@@ -24,7 +24,13 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: P
 
         {error && (
           <div className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-            {error === "invalid" ? "Invalid email or password." : "Login failed. Try again."}
+            {error === "invalid"
+              ? "Invalid email or password."
+              : error === "mfa"
+                ? "Enter your 6-digit authenticator code."
+                : error === "locked"
+                  ? "Too many attempts. Try again in ~15 minutes."
+                  : "Login failed. Try again."}
           </div>
         )}
 
@@ -45,6 +51,19 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: P
               name="password"
               required
               className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold uppercase tracking-wide text-gray-500">
+              Authenticator code <span className="font-normal normal-case text-gray-400">(only if 2FA is enabled)</span>
+            </label>
+            <input
+              type="text"
+              name="token"
+              inputMode="numeric"
+              autoComplete="one-time-code"
+              placeholder="123456"
+              className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm tracking-widest focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
           </div>
           <button

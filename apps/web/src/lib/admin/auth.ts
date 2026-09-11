@@ -1,8 +1,44 @@
 import { cookies } from "next/headers";
 import { randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
+import * as OTPAuth from "otpauth";
 
 const SESSION_COOKIE = "vd_admin";
 const SESSION_DAYS = 30;
+const MFA_ISSUER = "VacationDeals.to";
+
+// ── Login lockout policy (Phase 2 hardening) ──
+export const MAX_FAILED_ATTEMPTS = 8;
+export const LOCKOUT_MINUTES = 15;
+
+// ── TOTP MFA (opt-in; enforced only once a user enrolls) ──
+export function generateMfaSecret(email: string): { secret: string; otpauthUrl: string } {
+  const secret = new OTPAuth.Secret({ size: 20 });
+  const totp = new OTPAuth.TOTP({
+    issuer: MFA_ISSUER,
+    label: email,
+    algorithm: "SHA1",
+    digits: 6,
+    period: 30,
+    secret,
+  });
+  return { secret: secret.base32, otpauthUrl: totp.toString() };
+}
+
+export function verifyTotp(secretBase32: string, token: string): boolean {
+  try {
+    const totp = new OTPAuth.TOTP({
+      issuer: MFA_ISSUER,
+      algorithm: "SHA1",
+      digits: 6,
+      period: 30,
+      secret: OTPAuth.Secret.fromBase32(secretBase32),
+    });
+    // window ±1 period tolerates minor clock drift
+    return totp.validate({ token: token.replace(/\s/g, ""), window: 1 }) !== null;
+  } catch {
+    return false;
+  }
+}
 
 // ── Password hashing (scrypt, stdlib only — no bcrypt dep) ──
 export function hashPassword(password: string): string {
@@ -57,7 +93,7 @@ export async function setSessionCookie(token: string, expiresAt: Date) {
   cookieStore.set(SESSION_COOKIE, token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "strict",
     expires: expiresAt,
     path: "/",
   });
