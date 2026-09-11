@@ -343,6 +343,11 @@ export const subscribers = pgTable("subscribers", {
   unsubscribeToken: varchar("unsubscribe_token", { length: 100 }).unique(),
   tags: text("tags"), // JSON array
   preferences: text("preferences"), // JSON: { emailOptIn, smsOptIn, weeklyDigest, dealAlerts }
+  // ── CRM / SMS fields (2026-09-10, Phase 0) ──
+  smsConsent: boolean("sms_consent").notNull().default(false), // explicit TCPA phone opt-in (separate from email)
+  smsConsentAt: timestamp("sms_consent_at"),
+  lifecycle: varchar("lifecycle", { length: 50 }).notNull().default("new"), // new, engaged, customer, dormant
+  notes: text("notes"), // admin free-text CRM notes
   lastEmailedAt: timestamp("last_emailed_at"),
   unsubscribedAt: timestamp("unsubscribed_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
