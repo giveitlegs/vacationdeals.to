@@ -39,13 +39,16 @@ export function MfaManager({ enabled }: { enabled: boolean }) {
   };
 
   const disable = async () => {
-    if (!confirm("Disable two-factor authentication?")) return;
+    const currentCode = prompt("Enter your current 6-digit authenticator code to disable 2FA:");
+    if (!currentCode) return;
     setBusy(true); setError("");
     try {
-      await fetch("/api/admin/security/mfa", {
+      const res = await fetch("/api/admin/security/mfa", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "disable" }),
+        body: JSON.stringify({ action: "disable", token: currentCode.trim() }),
       });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed");
       window.location.reload();
     } catch (e) { setError(String(e instanceof Error ? e.message : e)); }
     finally { setBusy(false); }

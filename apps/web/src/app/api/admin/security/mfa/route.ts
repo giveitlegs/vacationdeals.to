@@ -23,18 +23,36 @@ export async function POST(request: NextRequest) {
     const schema = await import("@vacationdeals/db");
     const { eq } = await import("drizzle-orm");
 
+    const user = await db.query.adminUsers.findFirst({ where: eq(schema.adminUsers.id, admin.id) });
+    if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+    // Step-up: once 2FA is ON, re-enrolling (start) or disabling requires a valid
+    // CURRENT code — so a hijacked session can't silently downgrade MFA.
+    const requireStepUp = () => {
+      if (!user.mfaEnabled) return null;
+      if (!user.mfaSecret || !verifyTotp(user.mfaSecret, String(token || ""))) {
+        return NextResponse.json(
+          { error: "2FA is on — enter your current 6-digit code to change it." },
+          { status: 403 },
+        );
+      }
+      return null;
+    };
+
     if (action === "start") {
+      const blocked = requireStepUp();
+      if (blocked) return blocked;
       const { secret, otpauthUrl } = generateMfaSecret(admin.email);
       await db.update(schema.adminUsers)
         .set({ mfaSecret: secret, mfaEnabled: false })
         .where(eq(schema.adminUsers.id, admin.id));
+      await logAdminAction(admin.id, "security.mfa.enroll_started", "admin", admin.id);
       const qr = await QRCode.toDataURL(otpauthUrl);
       return NextResponse.json({ secret, otpauthUrl, qr });
     }
 
     if (action === "verify") {
-      const user = await db.query.adminUsers.findFirst({ where: eq(schema.adminUsers.id, admin.id) });
-      if (!user?.mfaSecret) return NextResponse.json({ error: "No pending secret. Start enrollment first." }, { status: 400 });
+      if (!user.mfaSecret) return NextResponse.json({ error: "No pending secret. Start enrollment first." }, { status: 400 });
       if (!verifyTotp(user.mfaSecret, String(token || ""))) {
         return NextResponse.json({ error: "Invalid code — try the current 6 digits." }, { status: 400 });
       }
@@ -44,6 +62,8 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === "disable") {
+      const blocked = requireStepUp();
+      if (blocked) return blocked;
       await db.update(schema.adminUsers)
         .set({ mfaEnabled: false, mfaSecret: null })
         .where(eq(schema.adminUsers.id, admin.id));
