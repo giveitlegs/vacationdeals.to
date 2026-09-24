@@ -32,8 +32,16 @@ export function CampaignActions({ campaign }: { campaign: Campaign }) {
   };
 
   const sendToAll = () => {
-    if (!confirm(`Send "${campaign.subject}" to ALL consented subscribers? This cannot be undone.`)) return;
     start(async () => {
+      // Get the real eligible count first (active subscribers, unsubscribed excluded).
+      const cRes = await fetch("/api/admin/campaigns", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "count" }),
+      });
+      const cData = await cRes.json();
+      const n = cData.ok ? cData.count : "?";
+      if (!confirm(`Send "${campaign.subject}" to ${n} active subscriber(s)? (Unsubscribed/bounced are excluded.) This cannot be undone.`)) return;
       const res = await fetch("/api/admin/campaigns", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

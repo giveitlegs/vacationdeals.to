@@ -54,6 +54,7 @@ export function LeadGenPopup({
 }: LeadGenPopupProps) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [hpUrl, setHpUrl] = useState(""); // honeypot — humans never fill this
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -120,6 +121,7 @@ export function LeadGenPopup({
         body: JSON.stringify({
           email,
           source,
+          hpUrl, // honeypot
           tcpaConsent: true,
           termsConsent: true,
           consentText: "I agree to the Terms & Conditions and Privacy Policy, and consent to receive promotional emails.",
@@ -159,6 +161,17 @@ export function LeadGenPopup({
               <strong>VacationDeals.to makes publicly available deal data easier to find</strong> — we never take payments or transact on this site, and some content may serve as advertising for the resorts and brands featured. We send <strong>email only</strong> — we do not text you or sell your info.
             </div>
             <form onSubmit={submit}>
+              {/* Honeypot: off-screen, hidden from real users + assistive tech; bots fill it. */}
+              <input
+                type="text"
+                name="hp_url"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={hpUrl}
+                onChange={(e) => setHpUrl(e.target.value)}
+                style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+              />
               <input
                 type="email"
                 required

@@ -2,6 +2,25 @@ import { NextRequest, NextResponse } from "next/server";
 import { randomBytes } from "node:crypto";
 import { notifyFormSubmission } from "@/lib/email/notify";
 import { sendWelcomeEmail } from "@/lib/email/welcome";
+import { rateLimit } from "@/lib/rate-limit";
+
+// Optional Cloudflare Turnstile. Active only when TURNSTILE_SECRET is set; until
+// then the honeypot + rate-limit carry the load (no keys required).
+async function turnstileOk(token: string, ip: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET;
+  if (!secret) return true; // not configured → skip
+  try {
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ secret, response: token || "", remoteip: ip }),
+    });
+    const data = (await res.json()) as { success?: boolean };
+    return data.success === true;
+  } catch {
+    return false; // fail closed when a token is expected
+  }
+}
 
 /**
  * POST /api/leads
@@ -31,6 +50,22 @@ export async function POST(request: NextRequest) {
   // SMS opt-in only counts with a phone present AND an explicit SMS checkbox.
   const smsConsent = !!phone && (body.smsConsent === true || body.smsConsent === "true");
   const consentText = typeof body.consentText === "string" ? body.consentText : null;
+  const hpUrl = typeof body.hpUrl === "string" ? body.hpUrl.trim() : "";
+  const turnstileToken = typeof body.turnstileToken === "string" ? body.turnstileToken : "";
+
+  const forwarded = request.headers.get("x-forwarded-for");
+  const ipAddress = forwarded?.split(",")[0]?.trim()
+    || request.headers.get("x-real-ip")
+    || "unknown";
+  const userAgent = request.headers.get("user-agent") || "unknown";
+
+  // ── Abuse controls (bots hit public forms hard) ──
+  // 1. Honeypot: a real user never fills hp_url. Pretend success, store nothing.
+  if (hpUrl) return NextResponse.json({ ok: true });
+  // 2. Per-IP rate limit: 5 opt-ins / 10 min.
+  if (!rateLimit(`leads:${ipAddress}`, 5, 10 * 60 * 1000)) {
+    return NextResponse.json({ error: "Too many requests — try again shortly." }, { status: 429 });
+  }
 
   if (!email || !email.includes("@")) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
@@ -38,13 +73,12 @@ export async function POST(request: NextRequest) {
   if (!tcpaConsent || !termsConsent) {
     return NextResponse.json({ error: "Consent checkboxes required" }, { status: 400 });
   }
+  // 3. Turnstile (only enforced when TURNSTILE_SECRET is configured).
+  if (!(await turnstileOk(turnstileToken, ipAddress))) {
+    return NextResponse.json({ error: "Verification failed — please retry." }, { status: 400 });
+  }
 
   try {
-    const forwarded = request.headers.get("x-forwarded-for");
-    const ipAddress = forwarded?.split(",")[0]?.trim()
-      || request.headers.get("x-real-ip")
-      || "unknown";
-    const userAgent = request.headers.get("user-agent") || "unknown";
 
     const { db } = await import("@vacationdeals/db");
     const schema = await import("@vacationdeals/db");

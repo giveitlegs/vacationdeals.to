@@ -106,9 +106,35 @@ const KNOWN_DEALS: KnownDeal[] = [
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
+// The site encodes the package price in the deal-page slug, e.g.
+// ".../4-day-3-night-hooters_plus150-49special.aspx" → 49 (the "plus150" is a
+// $150 CREDIT bonus, not the price). This token is the most reliable signal.
+function priceFromUrl(url: string): number | null {
+  const m = url.match(/(\d+)\s*special/i);
+  return m ? parseInt(m[1], 10) : null;
+}
+
+// Credit-as-price guard: scan every "$NN" in the text but DROP any figure sitting
+// next to a bonus/credit/retail descriptor ("$150 Hotel Credit", "$100 Visa Gift
+// Card", "$200 deposit", "retail $906", "save $X"), then take the lowest remaining
+// legit figure (the discounted package "special"). Prevents the recurring
+// credit-as-price bug (deals 607/22517 stored the $150 credit).
 function parsePrice(text: string): number | null {
-  const match = text.replace(/,/g, "").match(/\$(\d+)/);
-  return match ? parseInt(match[1], 10) : null;
+  const cleaned = text.replace(/,/g, "");
+  const BONUS_AFTER = /^\s*(?:hotel\s+|resort\s+|dining\s+)?(?:credit|gift\s*card|visa|mastercard|deposit|voucher|rebate|value|retail|off\b)/i;
+  const BONUS_BEFORE = /(?:credit|value|retail|reg(?:ular)?|was|save|only\s+\$?\d*\s*off)\s*$/i;
+  const candidates: number[] = [];
+  const re = /\$(\d+)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(cleaned))) {
+    const after = cleaned.slice(m.index + m[0].length, m.index + m[0].length + 30);
+    const before = cleaned.slice(Math.max(0, m.index - 20), m.index);
+    if (BONUS_AFTER.test(after) || BONUS_BEFORE.test(before)) continue;
+    const n = parseInt(m[1], 10);
+    if (n > 0) candidates.push(n);
+  }
+  if (candidates.length === 0) return null;
+  return Math.min(...candidates);
 }
 
 function parseNights(text: string): { nights: number; days: number } | null {
@@ -211,7 +237,8 @@ export async function runVacationVillageCrawler() {
           const parent = link.closest("div, td, section, article");
           const contextText = parent.length > 0 ? parent.text() : "";
 
-          const price = parsePrice(contextText);
+          // URL slug price is authoritative; credit-aware text parse is the fallback.
+          const price = priceFromUrl(dealUrl) ?? parsePrice(contextText);
           if (!price || price <= 0) return;
 
           processedUrls.add(dealUrl);
@@ -312,7 +339,7 @@ export async function runVacationVillageCrawler() {
       processedUrls.add(request.url);
 
       const pageText = $("body").text();
-      const price = parsePrice(pageText);
+      const price = priceFromUrl(request.url) ?? parsePrice(pageText);
       if (!price || price <= 0) return;
 
       const duration = parseNights(pageText) || { nights: 3, days: 4 };

@@ -53,6 +53,15 @@ for JS/403), and returns a table: `deal_id|scraper_key|db_price|live_price|verdi
 prices, credit-as-price, expired/repurposed URLs, placeholder original_price=50000).
 Target ≥20 rates checked. Confirms scrapers work AND published price == brand-site price.
 
+**Known-walled sources (curl/WebFetch always FETCH_BLOCKED):** `vegas-timeshare`
+(sgcaptcha), `holiday-inn` (403 WAF), `hyatt` (JS-rendered price), `branson-travel-group`
+(Cloudflare/sgcaptcha). Their CRON scrapers DO work (Playwright/desktop-UA paths) — as of
+2026-09-23 all four had fresh active deals — so FETCH_BLOCKED here is a verification gap,
+NOT a data problem. Don't deactivate them on FETCH_BLOCKED alone. To actually verify their
+prices, give the agent handling that chunk the `stealth-browser-mcp` tools (spawn_browser →
+navigate → get_page_content), which pass these challenges; fall back to reading the DB
+`scraped_at` freshness as a liveness proxy when the browser isn't available.
+
 ## PHASE 4 — Deep-research swarm: new vacpack sites (≤2 agents)
 Dispatch research agents to find NEW timeshare-preview sites we don't scrape (exclude
 the ~48 current sources — see CLAUDE.md/scraper list). Each returns a ranked list:

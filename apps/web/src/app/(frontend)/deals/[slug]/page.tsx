@@ -96,7 +96,10 @@ export async function generateMetadata({ params }: DealPageProps): Promise<Metad
   const priceFrag = ` — ${deal.durationDays}D/${deal.durationNights}N from $${deal.price}${brandFrag}`;
   const cityFrag = deal.city ? ` ${deal.city}` : "";
   const maxBase = 68 - priceFrag.length - cityFrag.length; // leave room
-  let baseName = deal.resortName || deal.title;
+  // A few crawlers (holiday-inn, marriott) emit a stray "Unknown" placeholder in
+  // the title/resort_name. Strip it so it never surfaces in the <title> tag.
+  let baseName = (deal.resortName || deal.title).replace(/\s*unknown\s*/gi, " ").replace(/\s{2,}/g, " ").trim();
+  if (!baseName) baseName = deal.city ? `${deal.city} Vacation Package` : "Vacation Package";
   if (baseName.length > maxBase) baseName = baseName.slice(0, maxBase - 1).trim() + "…";
   const title = isEvent
     ? `${deal.title.slice(0, 60 - priceFrag.length)}${priceFrag}`
