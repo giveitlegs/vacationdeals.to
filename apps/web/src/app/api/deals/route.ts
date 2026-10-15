@@ -23,6 +23,7 @@ export async function GET(request: NextRequest) {
   const city = searchParams.get("city");
   const brand = searchParams.get("brand");
   const search = searchParams.get("search");
+  const slug = searchParams.get("slug");
   const minPrice = searchParams.get("minPrice");
   const maxPrice = searchParams.get("maxPrice");
   const duration = searchParams.get("duration");
@@ -36,6 +37,9 @@ export async function GET(request: NextRequest) {
   const offset = (page - 1) * limit;
 
   const conditions = [eq(deals.isActive, true)];
+
+  // Exact lookup of one deal (used by the Getaway Claude Code plugin's deal_details).
+  if (slug) conditions.push(eq(deals.slug, slug));
 
   if (search) {
     const searchPattern = `%${search}%`;
