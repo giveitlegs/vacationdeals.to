@@ -218,6 +218,9 @@ export const blogPosts = pgTable("blog_posts", {
   isPublished: boolean("is_published").notNull().default(true),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  // Set by the vacpac-content-refresh skill on each in-place refresh (2026-10-15).
+  // Drives the weekly selection score + 60-day re-refresh cooldown. NULL = never refreshed.
+  lastRefreshedAt: timestamp("last_refreshed_at"),
 });
 
 // ── Scrape Runs (provenance logging) ───────────────────
