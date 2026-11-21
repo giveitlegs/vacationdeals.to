@@ -31,7 +31,25 @@ async function findReplacementSlug(staleSlug: string): Promise<string | null> {
   }
 }
 import { DealGrid } from "@/components/DealGrid";
+import { DealGallery, type GalleryImage } from "@/components/DealGallery";
 import type { Deal } from "@/components/DealCard";
+
+/** Published resort images for a deal, ordered for the carousel (flash GIF first). */
+async function getPublishedDealImages(dealId: number): Promise<GalleryImage[]> {
+  try {
+    const { db } = await import("@vacationdeals/db");
+    const schema = await import("@vacationdeals/db");
+    const { eq, and, asc } = await import("drizzle-orm");
+    const rows = await db
+      .select({ url: schema.dealImages.url, alt: schema.dealImages.alt, kind: schema.dealImages.kind })
+      .from(schema.dealImages)
+      .where(and(eq(schema.dealImages.dealId, dealId), eq(schema.dealImages.status, "published")))
+      .orderBy(asc(schema.dealImages.sortOrder));
+    return rows.map((r) => ({ url: r.url, alt: r.alt || "", kind: r.kind }));
+  } catch {
+    return [];
+  }
+}
 import { getCityIcon } from "@/lib/city-icons";
 import { generateDealFAQs } from "@/lib/faqs";
 import { FAQAccordion } from "@/components/FAQAccordion";
@@ -142,6 +160,7 @@ export default async function DealPage({ params }: DealPageProps) {
 
   const location = [deal.city, deal.state].filter(Boolean).join(", ");
   const gradient = getGradient(deal.city);
+  const galleryImages = await getPublishedDealImages(deal.id);
   const CityIconComponent = deal.city ? getCityIcon(deal.city) : null;
 
   // Fetch similar deals (same destination, exclude current)
@@ -486,38 +505,42 @@ export default async function DealPage({ params }: DealPageProps) {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         {/* Left column: image + details */}
         <div className="lg:col-span-2">
-          {/* Image area */}
-          <div
-            className={`relative mb-6 flex h-64 items-end overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} p-6 sm:h-80 lg:h-96`}
-            role="img"
-            aria-label={isWestgateEvent ? `${deal.title} event package in ${location}` : `${deal.resortName || deal.title} resort in ${location}`}
-          >
-            {/* Decorative city icon */}
-            {CityIconComponent && (
-              <div className="absolute bottom-4 right-4 h-32 w-32 opacity-[0.15]" aria-hidden="true">
-                <CityIconComponent className="h-full w-full" />
+          {/* Image area — real resort gallery when available, else destination gradient */}
+          {(() => {
+            const heroBadges = (
+              <>
+                {deal.brandName && (
+                  <span className="absolute left-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm backdrop-blur-sm">
+                    {deal.brandName}
+                  </span>
+                )}
+                {deal.savingsPercent && deal.savingsPercent > 0 && (
+                  <span className="absolute right-4 top-4 z-10 rounded-full bg-red-500 px-3 py-1 text-sm font-bold text-white">
+                    {deal.savingsPercent}% OFF
+                  </span>
+                )}
+                <span className="absolute bottom-4 left-4 z-10 rounded-full bg-black/40 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm">
+                  {deal.durationNights} Nights / {deal.durationDays} Days
+                </span>
+              </>
+            );
+            return galleryImages.length > 0 ? (
+              <DealGallery images={galleryImages}>{heroBadges}</DealGallery>
+            ) : (
+              <div
+                className={`relative mb-6 flex h-64 items-end overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} p-6 sm:h-80 lg:h-96`}
+                role="img"
+                aria-label={isWestgateEvent ? `${deal.title} event package in ${location}` : `${deal.resortName || deal.title} resort in ${location}`}
+              >
+                {CityIconComponent && (
+                  <div className="absolute bottom-4 right-4 h-32 w-32 opacity-[0.15]" aria-hidden="true">
+                    <CityIconComponent className="h-full w-full" />
+                  </div>
+                )}
+                {heroBadges}
               </div>
-            )}
-
-            {/* Brand badge */}
-            {deal.brandName && (
-              <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm backdrop-blur-sm">
-                {deal.brandName}
-              </span>
-            )}
-
-            {/* Savings badge */}
-            {deal.savingsPercent && deal.savingsPercent > 0 && (
-              <span className="absolute right-4 top-4 rounded-full bg-red-500 px-3 py-1 text-sm font-bold text-white">
-                {deal.savingsPercent}% OFF
-              </span>
-            )}
-
-            {/* Duration badge */}
-            <span className="rounded-full bg-black/40 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm">
-              {deal.durationNights} Nights / {deal.durationDays} Days
-            </span>
-          </div>
+            );
+          })()}
 
           {/* Deal title + location — include duration + price for uniqueness */}
           <h1 className="mb-2 text-2xl font-bold text-gray-900 sm:text-3xl">
