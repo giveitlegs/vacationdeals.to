@@ -20,7 +20,11 @@ function safeLanderHref(path: string | null): string | undefined {
   try {
     const u = new URL(path, "https://vacationdeals.to");
     if (u.origin !== "https://vacationdeals.to") return undefined;
-    return u.pathname + u.search;
+    // Validate the value we actually EMIT, not just the input: URL normalization of
+    // inputs like "/..//evil" can still yield a "//evil" pathname (protocol-relative).
+    const out = u.pathname + u.search;
+    if (!/^\/(?![/\\])/.test(out)) return undefined;
+    return out;
   } catch {
     return undefined;
   }
