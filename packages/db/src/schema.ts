@@ -432,6 +432,26 @@ export const leadResponses = pgTable("lead_responses", {
   sentAt: timestamp("sent_at").defaultNow().notNull(),
 });
 
+// ── Deal Images (resort photo gallery — hero + gallery + FLASH SALE gif) ──
+// Populated by the image pipeline (workstream #2): brand/partner-site candidates →
+// Higgsfield art-direction cleanup → art-director sign-off → published. The listing
+// page renders only `published` rows. Additive, never deletes a deal. Serving:
+// apps/web/public/resort-images/<deal-slug>/<file>. Migration: scripts/sql/2026-11-20-deal-images.sql
+export const dealImages = pgTable("deal_images", {
+  id: serial("id").primaryKey(),
+  dealId: integer("deal_id").references(() => deals.id, { onDelete: "cascade" }).notNull(),
+  url: text("url").notNull(), // served path, e.g. /resort-images/<slug>/hero.webp
+  alt: varchar("alt", { length: 500 }),
+  kind: varchar("kind", { length: 20 }).notNull().default("gallery"), // hero | gallery | flash_gif
+  sortOrder: integer("sort_order").notNull().default(0),
+  width: integer("width"),
+  height: integer("height"),
+  bytes: integer("bytes"),
+  sourceUrl: text("source_url"), // provenance: the original brand/partner image URL
+  status: varchar("status", { length: 20 }).notNull().default("candidate"), // candidate|cleaned|signed_off|published
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 // ── Site Discovery (full crawl of brand websites) ──────
 export const sitePages = pgTable("site_pages", {
   id: serial("id").primaryKey(),
