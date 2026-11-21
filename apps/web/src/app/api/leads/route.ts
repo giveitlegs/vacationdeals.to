@@ -3,6 +3,8 @@ import { randomBytes } from "node:crypto";
 import { notifyFormSubmission } from "@/lib/email/notify";
 import { sendWelcomeEmail } from "@/lib/email/welcome";
 import { rateLimit } from "@/lib/rate-limit";
+import { readAttribution } from "@/lib/leads/attribution";
+import { deriveChannel } from "@/lib/leads/channel";
 
 // Optional Cloudflare Turnstile. Active only when TURNSTILE_SECRET is set; until
 // then the honeypot + rate-limit carry the load (no keys required).
@@ -121,6 +123,36 @@ export async function POST(request: NextRequest) {
       termsConsent: true,
       doubleOptInConfirmed: false,
     });
+
+    // ── Record the submission EVENT with channel attribution (Lead Backend v2) ──
+    // Lander = Referer header; first-touch referrer + UTM = vd_attr cookie. Channel is
+    // derived server-side; raw signals are stored so it can be re-derived later. This is
+    // best-effort — a failure here must never block the opt-in itself.
+    try {
+      const attr = readAttribution(request);
+      const channel = deriveChannel({
+        referrer: attr.firstReferrer,
+        utmSource: attr.utmSource,
+        utmMedium: attr.utmMedium,
+      });
+      await db.insert(schema.leadSubmissions).values({
+        subscriberEmail: email,
+        source,
+        landingPath: attr.landingPath,
+        landingUrl: attr.landingUrl,
+        firstReferrer: attr.firstReferrer,
+        utmSource: attr.utmSource,
+        utmMedium: attr.utmMedium,
+        utmCampaign: attr.utmCampaign,
+        utmTerm: attr.utmTerm,
+        utmContent: attr.utmContent,
+        channel,
+        ipAddress: attr.ipAddress,
+        userAgent: attr.userAgent,
+      });
+    } catch (err) {
+      console.warn("[leads] attribution write failed (opt-in still saved):", err);
+    }
 
     notifyFormSubmission({
       formName: "Lead opt-in",

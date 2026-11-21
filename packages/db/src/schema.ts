@@ -396,6 +396,42 @@ export const emailSends = pgTable("email_sends", {
   clickedAt: timestamp("clicked_at"),
 });
 
+// ── Lead Submissions (per opt-in EVENT + channel attribution) ──
+// One row per popup/form submission (a person may convert more than once, from
+// different landers). `subscribers` stays the person/list; `consent_records` stays
+// the immutable TCPA audit; THIS captures where each lead came in (channel/lander/UTM)
+// and drives the /admin/leads inbox + reply system. Migration: scripts/sql/2026-11-20-lead-submissions.sql
+export const leadSubmissions = pgTable("lead_submissions", {
+  id: serial("id").primaryKey(),
+  subscriberEmail: varchar("subscriber_email", { length: 255 }).notNull(), // lowercased; joins to subscribers.email
+  source: varchar("source", { length: 100 }), // form tag (roulette_optin, deal_alerts, …)
+  landingPath: varchar("landing_path", { length: 500 }), // path of the page the form was on
+  landingUrl: text("landing_url"), // full URL of that lander
+  firstReferrer: text("first_referrer"), // external referrer at FIRST touch (from attribution cookie)
+  utmSource: varchar("utm_source", { length: 255 }),
+  utmMedium: varchar("utm_medium", { length: 255 }),
+  utmCampaign: varchar("utm_campaign", { length: 255 }),
+  utmTerm: varchar("utm_term", { length: 255 }),
+  utmContent: varchar("utm_content", { length: 255 }),
+  channel: varchar("channel", { length: 50 }).notNull().default("direct"), // derived server-side; raw kept above for re-derivation
+  ipAddress: varchar("ip_address", { length: 100 }),
+  userAgent: text("user_agent"),
+  status: varchar("status", { length: 50 }).notNull().default("new"), // new, contacted, replied, closed
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// ── Lead Responses (admin reply thread per submission) ──
+export const leadResponses = pgTable("lead_responses", {
+  id: serial("id").primaryKey(),
+  leadSubmissionId: integer("lead_submission_id").references(() => leadSubmissions.id, { onDelete: "cascade" }).notNull(),
+  adminUserId: integer("admin_user_id").references(() => adminUsers.id),
+  toEmail: varchar("to_email", { length: 255 }).notNull(),
+  subject: varchar("subject", { length: 500 }).notNull(),
+  body: text("body").notNull(),
+  providerMessageId: varchar("provider_message_id", { length: 255 }),
+  sentAt: timestamp("sent_at").defaultNow().notNull(),
+});
+
 // ── Site Discovery (full crawl of brand websites) ──────
 export const sitePages = pgTable("site_pages", {
   id: serial("id").primaryKey(),

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import { AttributionBeacon } from "@/components/AttributionBeacon";
 
 // ── Analytics & Tracking IDs (set via env vars or hardcode here) ──
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
@@ -98,6 +99,7 @@ export default function RootLayout({
             />
           </noscript>
         )}
+        <AttributionBeacon />
         {children}
       </body>
     </html>
