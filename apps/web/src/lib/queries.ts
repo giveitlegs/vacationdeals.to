@@ -197,7 +197,9 @@ export async function getDeals(filters?: {
       durationNights: r.durationNights,
       durationDays: r.durationDays,
       resortName: r.resortName ?? r.title,
-      imageUrl: r.imageUrl ?? undefined,
+      // Tiles show ONLY curated deal_images heroes (attached below) — NOT the scraper's
+      // deals.image_url, which is frequently broken/external and would render broken alt text.
+      imageUrl: undefined,
       inclusions: parseInclusions(r.inclusions),
       savingsPercent: r.savingsPercent ?? 0,
       brandName: r.brandName ?? "Unknown",

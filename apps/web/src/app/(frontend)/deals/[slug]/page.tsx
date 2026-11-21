@@ -45,7 +45,10 @@ async function getPublishedDealImages(dealId: number): Promise<GalleryImage[]> {
       .from(schema.dealImages)
       .where(and(eq(schema.dealImages.dealId, dealId), eq(schema.dealImages.status, "published")))
       .orderBy(asc(schema.dealImages.sortOrder));
-    return rows.map((r) => ({ url: r.url, alt: r.alt || "", kind: r.kind }));
+    // flash_gif is superseded by the CSS FLASH SALE badge — keep photos only.
+    return rows
+      .filter((r) => r.kind !== "flash_gif")
+      .map((r) => ({ url: r.url, alt: r.alt || "", kind: r.kind }));
   } catch {
     return [];
   }
