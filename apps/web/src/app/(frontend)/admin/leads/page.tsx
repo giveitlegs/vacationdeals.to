@@ -12,8 +12,18 @@ type Rollup = { channel: string; count: number };
  * (not "//" protocol-relative, not an absolute/js: URL) is ever rendered clickable.
  */
 function safeLanderHref(path: string | null): string | undefined {
-  if (!path || !path.startsWith("/") || path.startsWith("//")) return undefined;
-  return path;
+  if (!path) return undefined;
+  // Must start with a single "/" NOT followed by "/" or "\" (blocks //evil.com and
+  // the /\evil.com protocol-relative parser differential), and contain no backslash
+  // or control chars. Then re-parse against our origin and confirm it stays same-origin.
+  if (!/^\/(?![/\\])/.test(path) || /[\\\x00-\x1f]/.test(path)) return undefined;
+  try {
+    const u = new URL(path, "https://vacationdeals.to");
+    if (u.origin !== "https://vacationdeals.to") return undefined;
+    return u.pathname + u.search;
+  } catch {
+    return undefined;
+  }
 }
 
 function channelColor(channel: string): string {
