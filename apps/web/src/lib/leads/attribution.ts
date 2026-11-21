@@ -26,17 +26,35 @@ function trunc(v: unknown, n: number): string | null {
   return typeof v === "string" && v.trim() ? v.trim().slice(0, n) : null;
 }
 
+/** Our own hosts — the lander must be one of these (defends against forged Referer). */
+function isOwnHost(hostname: string): boolean {
+  const h = hostname.toLowerCase();
+  return (
+    h === "vacationdeals.to" ||
+    h.endsWith(".vacationdeals.to") ||
+    h === "localhost" ||
+    h === "127.0.0.1"
+  );
+}
+
 export function readAttribution(request: NextRequest): LeadAttribution {
-  // Lander = the page the form was on (same-origin fetch sends the full Referer).
+  // Lander = the page the form was on. On a real opt-in the browser sends the full
+  // same-origin Referer, but /api/leads is PUBLIC — an attacker can POST a forged
+  // Referer (javascript:… or an external phishing URL) that an admin would later click.
+  // So keep it ONLY when it is http(s) AND points at our own host, and store a relative
+  // path, never a raw/external absolute URL.
   const referer = request.headers.get("referer") || "";
   let landingUrl: string | null = null;
   let landingPath: string | null = null;
   if (referer) {
-    landingUrl = referer.slice(0, 1000);
     try {
-      landingPath = new URL(referer).pathname.slice(0, 500);
+      const u = new URL(referer);
+      if ((u.protocol === "http:" || u.protocol === "https:") && isOwnHost(u.hostname)) {
+        landingPath = (u.pathname + u.search).slice(0, 500);
+        landingUrl = u.toString().slice(0, 1000);
+      }
     } catch {
-      /* non-URL referer — leave path null */
+      /* non-URL / unparsable referer — leave lander null */
     }
   }
 

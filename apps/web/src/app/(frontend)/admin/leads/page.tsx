@@ -6,6 +6,16 @@ export const dynamic = "force-dynamic";
 
 type Rollup = { channel: string; count: number };
 
+/**
+ * Same-origin-only href for a stored lander. Defense-in-depth on top of the
+ * store-time check in attribution.ts: only a path beginning with a single "/"
+ * (not "//" protocol-relative, not an absolute/js: URL) is ever rendered clickable.
+ */
+function safeLanderHref(path: string | null): string | undefined {
+  if (!path || !path.startsWith("/") || path.startsWith("//")) return undefined;
+  return path;
+}
+
 function channelColor(channel: string): string {
   if (channel.startsWith("organic-")) return "bg-green-100 text-green-800";
   if (channel.startsWith("ai-")) return "bg-purple-100 text-purple-800";
@@ -165,12 +175,19 @@ export default async function AdminLeadsPage({
                     </span>
                   </td>
                   <td className="px-3 py-2">
-                    {r.landingPath ? (
-                      <a href={r.landingUrl || r.landingPath} target="_blank" rel="noreferrer"
-                        className="block max-w-[200px] truncate text-blue-600 hover:underline" title={r.landingUrl || r.landingPath}>
-                        {r.landingPath}
-                      </a>
-                    ) : <span className="text-gray-300">—</span>}
+                    {(() => {
+                      const href = safeLanderHref(r.landingPath);
+                      if (!r.landingPath) return <span className="text-gray-300">—</span>;
+                      return href ? (
+                        <a href={href} target="_blank" rel="noreferrer"
+                          className="block max-w-[200px] truncate text-blue-600 hover:underline" title={r.landingPath}>
+                          {r.landingPath}
+                        </a>
+                      ) : (
+                        // Non-same-origin/garbage path: show as inert text, never a link.
+                        <span className="block max-w-[200px] truncate text-gray-600" title={r.landingPath}>{r.landingPath}</span>
+                      );
+                    })()}
                   </td>
                   <td className="px-3 py-2 text-xs text-gray-600">{r.source || "—"}</td>
                   <td className="px-3 py-2 whitespace-nowrap text-xs text-gray-500">
