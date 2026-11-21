@@ -49,6 +49,32 @@ export function DealCard({ deal }: { deal: Deal }) {
         role="img"
         aria-label={`${deal.resortName} vacation deal in ${deal.city}, ${deal.state}`}
       >
+        {/* Real resort photo when available */}
+        {deal.imageUrl && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={deal.imageUrl}
+            alt={`${deal.resortName} resort in ${deal.city}, ${deal.state}`}
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+        )}
+        {/* scrim for badge legibility on photos */}
+        {deal.imageUrl && !isExpired && (
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/5" />
+        )}
+
+        {/* FLASH SALE — minimalist glass pill, top-center; sheen wipe + glow pulse (only on photo tiles) */}
+        {deal.imageUrl && !isExpired && (
+          <div className="pointer-events-none absolute left-1/2 top-2.5 z-10 -translate-x-1/2">
+            <div className="vd-flash relative flex items-center gap-1 overflow-hidden rounded-full border border-white/15 bg-slate-900/55 px-2.5 py-0.5 backdrop-blur-md">
+              <svg className="vd-bolt h-3 w-3 text-amber-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" /></svg>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white">Flash Sale</span>
+              <span className="vd-sheen pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+            </div>
+          </div>
+        )}
+
         {/* Expired overlay */}
         {isExpired && (
           <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40">
@@ -58,10 +84,12 @@ export function DealCard({ deal }: { deal: Deal }) {
           </div>
         )}
 
-        {/* Decorative city icon */}
-        <div className="absolute bottom-2 right-2 h-20 w-20 opacity-[0.15]" aria-hidden="true">
-          <CityIconComponent className="h-full w-full" />
-        </div>
+        {/* Decorative city icon — only when there's no real photo */}
+        {!deal.imageUrl && (
+          <div className="absolute bottom-2 right-2 h-20 w-20 opacity-[0.15]" aria-hidden="true">
+            <CityIconComponent className="h-full w-full" />
+          </div>
+        )}
 
         {/* Brand Badge */}
         <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm backdrop-blur-sm">

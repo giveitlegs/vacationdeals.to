@@ -206,6 +206,32 @@ export async function getDeals(filters?: {
       state: r.state ?? "",
     }));
 
+    // Prefer a published hero from deal_images (scraper-safe) over the scraped image_url,
+    // so resort photos show on tiles/listings and survive re-scrapes. One batched query.
+    try {
+      const ids = deals.map((d) => d.id);
+      if (ids.length) {
+        const { inArray, and, eq } = await import("drizzle-orm");
+        const heroRows = await db
+          .select({ dealId: schema.dealImages.dealId, url: schema.dealImages.url })
+          .from(schema.dealImages)
+          .where(
+            and(
+              inArray(schema.dealImages.dealId, ids),
+              eq(schema.dealImages.kind, "hero"),
+              eq(schema.dealImages.status, "published"),
+            ),
+          );
+        const heroMap = new Map(heroRows.map((h) => [h.dealId, h.url]));
+        for (const d of deals) {
+          const hero = heroMap.get(d.id);
+          if (hero) d.imageUrl = hero;
+        }
+      }
+    } catch (e) {
+      console.warn("[queries] hero image attach failed:", e);
+    }
+
     return { deals, total };
   } catch (e) {
     console.error("[queries] getDeals failed:", e);
