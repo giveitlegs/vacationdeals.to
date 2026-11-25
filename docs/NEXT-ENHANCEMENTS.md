@@ -1,5 +1,14 @@
 # Next Enhancements (prioritized)
 
+## 📌 SESSION CLOSEOUT (2026-11-25, overnight run #2) — image rollout ~187 deals live
+_Autonomous image rollout grinding overnight (~$0, no upscale): all Westgate done + staypromo in progress. Live count = `select count(distinct deal_id) from deal_images where status='published'`. 5 next moves:_
+1. **Finish the image rollout.** staypromo flowing (test-tuned: removed bare-`promo` + `ptrsymbol`/floorplan from the blacklist). Then: **getawaydealz** (JS-rendered → needs `stealth-browser-mcp` to get image URLs), **provacation/capital-vacations/timeshare-vacation-packages/payvibe/mrg** (test one each like staypromo, tune filters), and **SKIP westgateevents** (76 event-promo-art landers, no resort photos). Tooling + skip-list committed (`scripts/img-rollout/`), fully resumable (queue = deals w/o published `deal_images`).
+2. **Pinterest Phase 1 (revenue).** OWNER: connect a dedicated Pinterest business account to Blotato (only YouTube connected). Then generate retro offer pins (`pin_build.py` MVP proven) + post via Blotato, UTM-tagged → `/admin/leads` channel attribution. Plan: `docs/pinterest-traffic-plan.md`.
+3. **Rotate the temp admin password + enable 2FA.** Break-glass temp (`VD-…`) is in chat; change at `/admin/security`.
+4. **Internal-link auditor (`claude-seo`) after the image/content additions.** Kill orphans + guarantee ≥3–4 contextual inlinks (the 2026-09-24 audit's 359-underlinked-pages finding); compounding organic lift, ~free.
+5. **Automate the QA gate (unattended rollout).** Currently I eyeball each wave's `_contact.jpg` to catch baked-text promos. A light OCR (tesseract) or vision check to auto-reject text-in-image would let the rollout run fully unattended + re-process the skip-listed promo deals.
+
+
 ## 📌 SESSION CLOSEOUT (2026-11-25) — image rollout running + Pinterest engine planned
 _Built the autonomous catalog-wide image rollout + delivered the Pinterest plan + MVP. Shipped: admin login recovery, `scripts/img-rollout/` pipeline (41 deals imaged, live), Pinterest plan + MVP pin. 5 next moves:_
 1. **Continue the image rollout to the whole catalog (~100 of ~637 done as of 2026-11-25; live count = `select count(distinct deal_id) from deal_images where status='published'`).** Tooling is autonomous + resumable (queue = deals w/o published `deal_images`). Westgate is the cleanest source (done first); next work the other brokers (VacationVIP/`vacationvip.com`, BookVIP, provacation-group, All-Inclusive-Promotions) — each may need per-source filter tuning + stealth-browser for JS-walled ones. Pipeline: `run-wave.sh` → QA `_contact.jpg` → `publish-wave.sh` → `pm2 restart`. ~Free (no upscale).
