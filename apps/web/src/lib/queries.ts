@@ -34,6 +34,9 @@ export async function getDeals(filters?: {
   sortBy?: string;
   page?: number;
   limit?: number;
+  // When true, only return deals that have a published hero image (deal_images).
+  // Used by the homepage featured strip so it never renders imageless tiles.
+  requireHero?: boolean;
 }): Promise<{ deals: Deal[]; total: number } | null> {
   try {
     const conn = await getDB();
@@ -130,6 +133,12 @@ export async function getDeals(filters?: {
       conditions.push(sql`(${combined})`);
     }
 
+    if (filters?.requireHero) {
+      conditions.push(
+        sql`EXISTS (SELECT 1 FROM deal_images di WHERE di.deal_id = ${schema.deals.id} AND di.kind = 'hero' AND di.status = 'published')` as unknown as ReturnType<typeof eq>,
+      );
+    }
+
     const whereClause = and(...conditions);
 
     // Determine sort order
@@ -148,7 +157,10 @@ export async function getDeals(filters?: {
         orderBy = desc(schema.deals.savingsPercent);
         break;
       default:
-        orderBy = asc(schema.deals.price);
+        // Default view: float deals that have a curated hero image to the top
+        // (so listings lead with real photos, not gradient placeholders), then
+        // cheapest-first within each group. Explicit sorts above stay unchanged.
+        orderBy = sql`(EXISTS (SELECT 1 FROM deal_images di WHERE di.deal_id = ${schema.deals.id} AND di.kind = 'hero' AND di.status = 'published')) DESC, ${schema.deals.price} ASC NULLS LAST`;
     }
 
     // Get total count
@@ -663,6 +675,11 @@ export async function getFeaturedDeals(
   limit: number = 6,
 ): Promise<Deal[] | null> {
   try {
+    // Prefer the cheapest deals that actually have a curated hero image, so the
+    // homepage featured strip never renders imageless tiles.
+    const withHero = await getDeals({ sortBy: "price-asc", limit, page: 1, requireHero: true });
+    if (withHero && withHero.deals.length > 0) return withHero.deals;
+    // Fallback: if no deals are imaged yet, show the cheapest regardless.
     const result = await getDeals({ sortBy: "price-asc", limit, page: 1 });
     if (!result || result.deals.length === 0) return null;
     return result.deals;
