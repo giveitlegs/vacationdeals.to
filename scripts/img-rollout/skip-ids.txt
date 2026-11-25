@@ -1,0 +1,8 @@
+# Deal IDs permanently skipped by the image rollout (promo-only / baked-text-image landers).
+22641
+23172
+23402
+459
+501
+511
+521
