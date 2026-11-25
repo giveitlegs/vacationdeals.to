@@ -77,7 +77,9 @@ function parseFilters(searchParams: Record<string, string | string[] | undefined
   const brand = get("brand");
   const priceStr = get("price");
   const durationStr = get("duration");
-  const sortBy = get("sort") || "price-asc";
+  // Empty/"Default" sort → imaged-deals-first ordering (see getDeals default case),
+  // so the listing leads with curated resort photos instead of cheap imageless tiles.
+  const sortBy = get("sort") || "default";
   const pageStr = get("page");
 
   let minPrice: number | undefined;
