@@ -16,7 +16,7 @@ html="$(curl -s -A "$UA" -L -m 30 "$url" 2>/dev/null)"
 # all image file URLs, filtered to likely real photos (aggressive junk/promo blacklist)
 mapfile -t imgs < <(printf '%s' "$html" \
   | grep -oiE 'https?://[^"'"'"' )]+\.(jpg|jpeg|png|webp)' \
-  | grep -viE 'logo|icon|sprite|favicon|pixel|spacer|placeholder|badge|flag|mastercard|visa|amex|discover|paypal|cart|/footer|/header|/nav|avatar|thumb/|-150x|-300x|50x50|100x100|insiders-guide|disney-insiders|/guide|banner|promo|coupon|gift-?card|download|ebook|e-book|brochure|free-|offer|deal-|special|/ads?/|sale|cta|-tickets?|voucher' \
+  | grep -viE 'logo|icon|sprite|favicon|pixel|spacer|placeholder|badge|flag|mastercard|visa|amex|discover|paypal|cart|/footer|/header|/nav|avatar|thumb/|-150x|-300x|50x50|100x100|insiders-guide|disney-insiders|/guide|banner|coupon|gift-?card|download|ebook|e-book|brochure|free-|offer|deal-|special|/ads?/|sale|cta|-tickets?|voucher' \
   | grep -viE 'christmas|holiday|activities|black.?friday|labor.?day|new.?years?|save.?money|things.?to|places|golf.?package|hotels?.?close|maximize|\bevents?\b|best-|best_|deals|weekend.?getaway|outdoors|to.?visit|to.?do|near-|savings|cyber.?monday|memorial|book.?now|choose.?dates|dates.?later|reserve.?now' \
   | awk '!seen[$0]++')
 
