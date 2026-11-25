@@ -4,8 +4,9 @@
 **retro AI "offer pins"** (NOT brand photos) — cool, vintage, animated, each with a
 **pulsing CTA** — posted to optimized boards on a dedicated account, scheduled safely.
 
-MVP proof: `scratchpad/pin-mvp/cancun-pin.gif` (retro synthwave Cancún poster, bold offer,
-pulsing "SEE THE DEAL →" CTA). Aesthetic + CTA approved 2026-11-25.
+MVP proof: `research/pinterest/cancun-pin.gif` (retro synthwave Cancún poster, bold offer,
+pulsing "SEE THE DEAL →" CTA; static preview `cancun-pin-preview.jpg`, builder `pin_build.py`,
+retro base candidates `base-cancun-v{1,2}.png`). Aesthetic + CTA approved 2026-11-25.
 
 ---
 
