@@ -24,6 +24,13 @@ def fit_w(img, w):
     w = min(w, img.width)  # never upsize
     return img.resize((w, round(img.height*w/img.width)), Image.LANCZOS)
 
+def color_complexity(im):
+    """Distinct quantized colors in a 96px thumb. Real photos are rich (>~150);
+    promo/graphic cards (flat fills + text) are sparse (<~120). Rejects the latter."""
+    t = im.resize((96, 96), Image.LANCZOS)
+    cols = set((r >> 3, g >> 3, b >> 3) for r, g, b in t.getdata())
+    return len(cols)
+
 cands = []
 for p in sorted(glob.glob(os.path.join(cdir, "cand_*.*"))):
     try:
@@ -34,6 +41,12 @@ for p in sorted(glob.glob(os.path.join(cdir, "cand_*.*"))):
     if w < 500 and h < 500:
         continue
     ratio = w / h if h else 99
+    # Promo/offer cards are WIDE banners (e.g. 1600x800 "...BR99_1600x800..."); real resort
+    # photos are ~3:2 (1.5). Drop banner/skyscraper aspect ratios outright.
+    if not (0.6 <= ratio <= 1.9):
+        continue
+    if color_complexity(im) < 130:   # also drop flat-fill graphics
+        continue
     cands.append({"p": p, "im": im, "area": w*h, "ratio": ratio, "w": w, "h": h})
 
 if not cands:
