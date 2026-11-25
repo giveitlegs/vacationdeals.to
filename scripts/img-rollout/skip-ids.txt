@@ -1,4 +1,5 @@
-# Deal IDs permanently skipped by the image rollout (promo-only / baked-text-image landers).
+# Deal IDs permanently skipped by the image rollout (promo-only / baked-text-image / logo-heavy landers).
+22493
 22641
 23172
 23402
@@ -6,3 +7,6 @@
 501
 511
 521
+546
+549
+561
