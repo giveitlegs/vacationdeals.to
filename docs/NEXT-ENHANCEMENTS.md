@@ -1,5 +1,14 @@
 # Next Enhancements (prioritized)
 
+## 📌 SESSION CLOSEOUT (2026-11-25) — image rollout running + Pinterest engine planned
+_Built the autonomous catalog-wide image rollout + delivered the Pinterest plan + MVP. Shipped: admin login recovery, `scripts/img-rollout/` pipeline (41 deals imaged, live), Pinterest plan + MVP pin. 5 next moves:_
+1. **Continue the image rollout to the whole catalog (~596 deals left of ~637).** Tooling is autonomous + resumable (queue = deals w/o published `deal_images`). Westgate is the cleanest source (done first); next work the other brokers (VacationVIP/`vacationvip.com`, BookVIP, provacation-group, All-Inclusive-Promotions) — each may need per-source filter tuning + stealth-browser for JS-walled ones. Pipeline: `run-wave.sh` → QA `_contact.jpg` → `publish-wave.sh` → `pm2 restart`. ~Free (no upscale).
+2. **Pinterest — owner unblock + Phase 1.** OWNER ACTION: create a dedicated **Pinterest business account + connect it to Blotato** (only YouTube connected now) + claim the domain. Then run Phase-1 (~10 retro offer pins via `pin_build.py` + Blotato, UTM-tagged → `/admin/leads` attribution). Plan: `docs/pinterest-traffic-plan.md`.
+3. **Rotate the temp admin password.** Break-glass reset set `admin@vacationdeals.to` to a throwaway (`VD-…`, visible in chat) — owner must change it at `/admin/security`. 2FA is off; consider enabling it.
+4. **Rollout quality hardening.** Add a **blog-text-card filter** (a couple of deals pulled "Black Friday Deals"/"Christmas Activities" blog thumbnails into a gallery slot) — blacklist blog/post/activities/best-/holiday URL patterns + maybe a light OCR/vision gate for text-in-image. Re-run the handful of skipped promo-only deals with the improved filter.
+5. **Optional: upscale published rollout heroes later.** Images are display-sharp un-upscaled, but a Higgsfield 4K pass on the hero only (selective, cheap) would add crispness on large screens — do after catalog coverage is complete, within budget.
+
+
 ## 📌 SESSION CLOSEOUT (2026-11-20) — 5 SEO/revenue-prioritized next moves
 _Shipped this session: Lead Backend v2 (channel attribution + reply inbox, live) + resort-image-pipeline foundation (`deal_images`). Highest-impact next moves, ranked by revenue/SEO leverage:_
 1. **Finish + scale the resort image pipeline (revenue + CWV + SEO).** Complete the 3-resort Higgsfield art-director pilot, confirm per-resort cost vs the $25 cap, then roll galleries + FLASH SALE ⚡ GIFs across the catalog. Real property photography lifts CTR, dwell time, and image-search traffic — the single biggest on-page upgrade left.
