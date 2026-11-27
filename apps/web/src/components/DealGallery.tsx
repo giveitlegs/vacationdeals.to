@@ -53,9 +53,9 @@ export function DealGallery({
       {/* scrim so overlaid badges stay legible on bright photos */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10" />
 
-      {/* FLASH SALE — minimalist dark-glass pill, top-center; sheen wipe + glow pulse */}
+      {/* FLASH SALE — minimalist dark-glass pill, lower-right; sheen wipe + glow pulse */}
       {flashSale && (
-        <div className="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2">
+        <div className="pointer-events-none absolute bottom-3 right-3 z-20">
           <div className="vd-flash relative flex items-center gap-1.5 overflow-hidden rounded-full border border-white/15 bg-slate-900/55 px-3 py-1 backdrop-blur-md">
             <svg className="vd-bolt h-3.5 w-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />

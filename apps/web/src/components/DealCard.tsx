@@ -64,9 +64,9 @@ export function DealCard({ deal }: { deal: Deal }) {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/5" />
         )}
 
-        {/* FLASH SALE — minimalist glass pill, top-center; sheen wipe + glow pulse (only on photo tiles) */}
+        {/* FLASH SALE — minimalist glass pill, lower-right; sheen wipe + glow pulse (only on photo tiles) */}
         {deal.imageUrl && !isExpired && (
-          <div className="pointer-events-none absolute left-1/2 top-2.5 z-10 -translate-x-1/2">
+          <div className="pointer-events-none absolute bottom-2.5 right-2.5 z-10">
             <div className="vd-flash relative flex items-center gap-1 overflow-hidden rounded-full border border-white/15 bg-slate-900/55 px-2.5 py-0.5 backdrop-blur-md">
               <svg className="vd-bolt h-3 w-3 text-amber-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" /></svg>
               <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white">Flash Sale</span>
