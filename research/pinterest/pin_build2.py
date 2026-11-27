@@ -42,7 +42,21 @@ def font(path, sz):
     return ImageFont.load_default()
 
 
-f_head  = font(r"C:\Windows\Fonts\impact.ttf", 140)
+def fit_font(path, txt, maxw, start, floor=72):
+    """Largest size (<= start) whose rendered width fits maxw, so long
+    destination names (e.g. 'MYRTLE BEACH') never overflow the canvas."""
+    probe = ImageDraw.Draw(Image.new("RGB", (8, 8)))
+    sz = start
+    while sz > floor:
+        f = font(path, sz)
+        bb = probe.textbbox((0, 0), txt, font=f)
+        if bb[2] - bb[0] <= maxw:
+            return f
+        sz -= 4
+    return font(path, floor)
+
+
+f_head  = fit_font(r"C:\Windows\Fonts\impact.ttf", HEAD, W - 120, 140)
 f_sub   = font(r"C:\Windows\Fonts\arialbd.ttf", 44)
 f_price = font(r"C:\Windows\Fonts\impact.ttf", 118)
 f_cta   = font(r"C:\Windows\Fonts\arialbd.ttf", 48)

@@ -8,6 +8,12 @@ MVP proof: `research/pinterest/cancun-pin.gif` (retro synthwave Cancún poster, 
 pulsing "SEE THE DEAL →" CTA; static preview `cancun-pin-preview.jpg`, builder `pin_build.py`,
 retro base candidates `base-cancun-v{1,2}.png`). Aesthetic + CTA approved 2026-11-25.
 
+v2 set approved 2026-11-27 (richer nuance: rotating sun-burst, climate text FX, lovemarks) —
+**7 destination pins now live** across the core boards: `cancun-neon-pin.gif`,
+`vegas-fire-pin.gif`, `gatlinburg-snow-pin.gif`, `orlando-neon-pin.gif`, `myrtle-fire-pin.gif`,
+`branson-snow-pin.gif` (built with `pin_build2.py` + `build_pin.sh`, see Section 3). Still blocked
+on Phase 0 (owner must connect a Pinterest business account to Blotato) before any can post.
+
 ---
 
 ## 1. Posting mechanism — Blotato (ban-safe), NOT the raw Pinterest API or browser automation
